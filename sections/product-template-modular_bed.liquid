@@ -933,7 +933,9 @@ h2.cbb-frequently-bought-title.translatable{
                         {% endif %}
 
 
-                        {% if product.tags contains  'modular-bed'%}
+                      {% if product.tags contains  'modular-bed'%}
+
+                      {% comment  %} box storage {% endcomment %}
                         {% if product.tags contains 'box-storages' %}
                           {% if product.tags contains 'white-colour' %}
                             {% include 'modular-box-white.liquid' %}
@@ -942,6 +944,37 @@ h2.cbb-frequently-bought-title.translatable{
                             {% include 'modular-box-walnut.liquid' %}
                           {% endif %}
                         {% endif %}
+
+                      {% comment  %} no storage {% endcomment %}
+                        {% if product.tags contains 'no-storage' %}
+                          {% if product.tags contains 'white-colour' %}
+                            {% include 'modular-no-storage-white.liquid' %}
+                          {% endif %}
+                          {% if product.tags contains 'walnut-colour' %}
+                            {% include 'modular-no-storage-walnut.liquid' %}
+                          {% endif %}
+                        {% endif %} 
+                        
+                      {% comment  %} Semi Hydraulic storage {% endcomment %}
+                        {% if product.tags contains 'semi-hydraulic' %}
+                          {% if product.tags contains 'white-colour' %}
+                            {% include 'modular-semi-hydraulic-white.liquid' %}
+                          {% endif %}
+                          {% if product.tags contains 'walnut-colour' %}
+                            {% include 'modular-semi-hydraulic-walnut.liquid' %}
+                          {% endif %}
+                        {% endif %}
+
+                          
+                      {% comment  %} Full Hydraulic storage {% endcomment %}
+                        {% if product.tags contains 'full-hydraulic' %}
+                          {% if product.tags contains 'white-colour' %}
+                            {% include 'modular-full-hydraulic-white.liquid' %}
+                          {% endif %}
+                          {% if product.tags contains 'walnut-colour' %}
+                            {% include 'modular-full-hydraulic-walnut.liquid' %}
+                          {% endif %}
+                        {% endif %} 
                       {% endif %}
 
                     </div>
@@ -1939,6 +1972,7 @@ h2.cbb-frequently-bought-title.translatable{
 {% comment %} Mobile plus btn start {% endcomment %}
 
 {% if product.tags contains  'modular-bed'%}
+
   {% if product.tags contains 'box-storages' %}
     {% if product.tags contains 'white-colour' %}
       {% include 'modular-box-white-mobile.liquid' %}
@@ -1947,6 +1981,34 @@ h2.cbb-frequently-bought-title.translatable{
       {% include 'modular-box-walnut-mobile.liquid' %}
     {% endif %}
   {% endif %}
+
+  {% if product.tags contains 'no-storage' %}
+    {% if product.tags contains 'white-colour' %}
+      {% include 'modular-no-storage-white-mobile.liquid' %}
+    {% endif %}
+    {% if product.tags contains 'walnut-colour' %}
+      {% include 'modular-no-storage-walnut-mobile.liquid' %}
+    {% endif %}
+  {% endif %}
+
+  {% if product.tags contains 'semi-hydraulic' %}
+    {% if product.tags contains 'white-colour' %}
+      {% include 'modular-semi-hydraulic-white-mobile.liquid' %}
+    {% endif %}
+    {% if product.tags contains 'walnut-colour' %}
+      {% include 'modular-semi-hydraulic-walnut-mobile.liquid' %}
+    {% endif %}
+  {% endif %}
+
+  {% if product.tags contains 'full-hydraulic' %}
+    {% if product.tags contains 'white-colour' %}
+      {% include 'modular-full-hydraulic-white-mobile.liquid' %}
+    {% endif %}
+    {% if product.tags contains 'walnut-colour' %}
+      {% include 'modular-full-hydraulic-walnut-mobile.liquid' %}
+    {% endif %}
+  {% endif %}
+
 {% endif %}
 
 {% comment %} Mobile plus btn end {% endcomment %}
