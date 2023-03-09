@@ -1,0 +1,352 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<section class="contactform">
+   <div class="container">
+      <div class="col-md-12">
+         <h2 class="contact">Have an Unresolved Complaint</h2>
+      </div>
+   </div>
+
+</section> 
+<div class="esclation-form-content">
+<form id="__vtigerWebForm_7" name="Dr. Dream Escalation" action="https://nilkamalpeopleocityin.od2.vtiger.com/modules/Webforms/capture.php" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+	  <input type="hidden" name="publicid" value="f0556b13e371c335910255aef087f32c">
+                        <input type="hidden" name="urlencodeenable" value="1">
+                        <input type="hidden" name="name" value="Nilkamal Furniture Escalation">
+                         <input type="hidden" name="__vtCurrency" value="1">
+ <div class="container">
+   <div class="contact-us-form">
+                      <label class="label-name">Your Name *</label>
+     <input type="text" name="contact_id" data-label="" value="" required="" id="contact_id">
+  </div>
+    <div class="contact-us-form">
+                      <label class="label-name">Order ID *</label>
+     <input type="number" name="cf_cases_orderid" maxlength="10" data-label="" value="" required="" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==10) return false;" id="email">
+  </div>
+    <div class="contact-us-form">
+                      <label class="label-name">Your Comment *</label>
+    <textarea name="description" required="" rows="5" cols="5" id="comment-desc"></textarea>
+  </div>
+    <div class="contact-us-form">
+                     <label> Upload File </label>
+    <input type="file" selectedtypeimage="" name="cf_cases_uploadfile[]" data-label="" accept="image/*" id="upload-file">
+     
+  </div>
+   <p>  (Maximum allowed file size is 5MB)</p>
+   <input type="hidden" name="title" maxlength="255" data-label="" value="Escalation Case Creation" required="" multiple>
+   <select name="casestatus" data-label="casestatus" required="" hidden="">
+						<option value="">Select Value</option>
+						<option value="New" selected=""> New </option>
+						<option value="Assigned"> Assigned </option>
+						<option value="Open"> Open </option>
+						<option value="Wait for customer"> Wait for customer </option>
+						<option value="Wait for 3rd party"> Wait for 3rd party </option>
+						<option value="Resolved"> Resolved </option>
+						<option value="Closed"> Closed </option>
+					</select>
+   <select name="casepriority" data-label="casepriority" required="" hidden="">
+						<option value="">Select Value</option>
+						<option value="Code Red"> Code Red </option>
+						<option value="Urgent"> Urgent </option>
+						<option value="High"> High </option>
+						<option value="Medium"> Medium </option>
+						<option value="Low" selected=""> Low </option>
+					</select>
+   <input type="hidden" name="cf_cases_wfbrand" maxlength="60" data-label="" value="AT-HOME" required="">
+   <select name="casechannel" data-label="casechannel" required="" hidden="">
+						<option value="">Select Value</option>
+						<option value="Email"> Email </option>
+						<option value="Phone"> Phone </option>
+						<option value="Chat"> Chat </option>
+						<option value="Social"> Social </option>
+						<option value="Webform"> Webform </option>
+						<option value="Whatsapp"> Whatsapp </option>
+						<option value="Clickpost"> Clickpost </option>
+						<option value="Escalation" selected=""> Escalation </option>
+					</select>
+   <script src="https://www.google.com/recaptcha/api.js"></script>
+<div class="g-recaptcha" data-sitekey="6LcmdSATAAAAAGWw734vGo0AXQwuxJS7RmDZA_Fe"></div>
+	<input type="hidden" id="siteKey_7" value="6LcmdSATAAAAAGWw734vGo0AXQwuxJS7RmDZA_Fe">
+	<input type="submit" value="Submit" id="vtigerFormSubmitBtn_7" class="button action_button reverse">
+</div>
+  </form>
+</div>
+               <style>
+label {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    color: #000;
+  width:100px;
+} 
+                  
+#SubSubCategory, #SubCategory, #SubSubCategory_Content{
+            display: none;
+        }
+
+div#SubSubCategory_Content {
+   
+    border: 2px solid #3c3c9f;
+    background-color: #fff;
+    width: 35%;
+    padding: 13px 30px;
+    font-size: 14px;
+    font-weight: 500;
+      margin-left: 25px;
+  position: relative;
+}
+ div#SubSubCategory_Content:before {
+    content: "";
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(241,101,33,0);
+    border-right-color: #3c3c9f;
+    border-width: 10px;
+    margin-top: -11px;
+} 
+div#SubSubCategory_Content:after {   
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+     border-color: rgba(255,255,255,0);
+    border-right-color: #fff;
+    border-width: 7px;
+    margin-top: -8px;
+}
+  li.nav-item {
+    text-align: center;
+    padding: 25px 20px 5px;
+    width: 50%;
+}
+                    .esclation-form .nav {
+    width: 100%;
+    clear: both;
+    display: flex;
+}
+ .esclation-form ul {
+    list-style: none;
+} 
+ @media only screen and (max-width: 767px) {                 
+ li.nav-item {
+    text-align: center;
+    padding: 0px;
+    width: 100%;
+}
+ }
+   </style>
+<script type="text/javascript">
+window.addEventListener("load", function() {
+	var N = navigator.appName,
+		ua = navigator.userAgent,
+		tem;
+	var M = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
+	if(M && (tem = ua.match(/version\/([\.\d]+)/i)) != null) M[2] = tem[1];
+	M = M ? [M[1], M[2]] : [N, navigator.appVersion, "-?"];
+	var browserName = M[0];
+	var form = document.getElementById("__vtigerWebForm_7"),
+		inputs = form.elements;
+	form.onsubmit = function() {
+		document.getElementById("vtigerFormSubmitBtn_7").disabled = true;
+		var required = [],
+			att, val;
+		var startDate;
+		var endDate;
+		var endDate1;
+		for(var i = 0; i < inputs.length; i++) {
+			att = inputs[i].getAttribute("required");
+			val = inputs[i].value;
+			type = inputs[i].type;
+			if(inputs[i].name == "birthday") {
+				birthdayDate = new Date(inputs[i].value);
+				todayDate = new Date();
+				todayDate.setHours(0, 0, 0, 0);
+				birthdayDate.setHours(0, 0, 0, 0);
+				if(birthdayDate >= todayDate) {
+					alert("Date of Birth should be less than Today's Date.");
+					document.getElementById("vtigerFormSubmitBtn_7").disabled = false;
+					return false;
+				}
+			}
+			if(inputs[i].name == "support_start_date" || inputs[i].name == "startdate") {
+				startDate = inputs[i].value;
+			}
+			if(inputs[i].name == "support_end_date" || inputs[i].name == "targetenddate" || inputs[i].name == "enddate") {
+				endDate = inputs[i].value;
+			}
+			if(inputs[i].name == "actualenddate") {
+				endDate1 = inputs[i].value;
+			}
+			if(type == "email") {
+				if(val != "") {
+					var elemLabel = inputs[i].getAttribute("data-label");
+					var emailFilter = /^[_/a-zA-Z0-9]+([!"#$%&()*+,./:;<=>?\^_`{|}~-]?[a-zA-Z0-9/_/-])*@[a-zA-Z0-9]+([\_\-\.]?[a-zA-Z0-9]+)*\.([\-\_]?[a-zA-Z0-9])+(\.?[a-zA-Z0-9]+)?$/;
+					var illegalChars = /[\(\)\<\>\,\;\:\"\[\]]/;
+					if(!emailFilter.test(val)) {
+						alert("For " + elemLabel + " field please enter valid email address");
+						document.getElementById("vtigerFormSubmitBtn_7").disabled = false;
+						return false;
+					} else if(val.match(illegalChars)) {
+						alert(elemLabel + " field contains illegal characters");
+						document.getElementById("vtigerFormSubmitBtn_7").disabled = false;
+						return false;
+					}
+				}
+			}
+			if(startDate) {
+				if(typeof startDate !== "undefined") {
+					if(endDate) {
+						if(typeof endDate !== "undefined") {
+							startDate = new Date(startDate);
+							endDate = new Date(endDate);
+							if(endDate < startDate) {
+								alert("End Date should be greater than or equal to Start Date");
+								document.getElementById("vtigerFormSubmitBtn_7").disabled = false;
+								return false;
+							}
+						}
+					}
+					if(endDate1) {
+						if(typeof endDate1 !== "undefined") {
+							startDate = new Date(startDate);
+							endDate1 = new Date(endDate1);
+							if(endDate1 < startDate) {
+								alert("End Date should be greater than or equal to Start Date");
+								document.getElementById("vtigerFormSubmitBtn_7").disabled = false;
+								return false;
+							}
+						}
+					}
+				}
+			}
+			if(att != null) {
+				if(val.replace(/^\s+|\s+$/g, "") == "") {
+					required.push(inputs[i].getAttribute("label"));
+				}
+			}
+		}
+		if(required.length > 0) {
+			alert("The following fields are required: " + required.join());
+			document.getElementById("vtigerFormSubmitBtn_7").disabled = false;
+			return false;
+		}
+		var numberTypeInputs = document.querySelectorAll("input[type=number]");
+		for(var i = 0; i < numberTypeInputs.length; i++) {
+			val = numberTypeInputs[i].value;
+			var elemLabel = numberTypeInputs[i].getAttribute("label");
+			var elemDataType = numberTypeInputs[i].getAttribute("datatype");
+			if(val != "") {
+				if(elemDataType == "double") {
+					var numRegex = /^[+-]?\d+(\.\d+)?$/;
+				} else {
+					var numRegex = /^[+-]?\d+$/;
+				}
+				if(!numRegex.test(val)) {
+					alert("For " + elemLabel + " field please enter valid number");
+					document.getElementById("vtigerFormSubmitBtn_7").disabled = false;
+					return false;
+				}
+			}
+		}
+		var dateTypeInputs = document.querySelectorAll("input[type=date]");
+		for(var i = 0; i < dateTypeInputs.length; i++) {
+			dateVal = dateTypeInputs[i].value;
+			var elemLabel = dateTypeInputs[i].getAttribute("label");
+			if(dateVal != "") {
+				var dateRegex = /^[1-9][0-9]{3}-(0[1-9]|1[0-2]|[1-9]{1})-(0[1-9]|[1-2][0-9]|3[0-1]|[1-9]{1})$/;
+				if(!dateRegex.test(dateVal)) {
+					alert("For " + elemLabel + " field please enter valid date in required format");
+					document.getElementById("vtigerFormSubmitBtn_7").disabled = false;
+					return false;
+				}
+			}
+		}
+		var inputElems = document.getElementsByTagName("input");
+		var totalFileSize = 0;
+		for(var i = 0; i < inputElems.length; i++) {
+			if(inputElems[i].type.toLowerCase() === "file") {
+				var file = inputElems[i].files[0];
+				if(typeof file !== "undefined") {
+					var totalFileSize = totalFileSize + file.size;
+				}
+			}
+		}
+		if(totalFileSize > 52428800) {
+			alert("Maximum allowed file size including all files is 50MB.");
+			document.getElementById("vtigerFormSubmitBtn_7").disabled = false;
+			return false;
+		}
+		var inputElem = document.querySelectorAll("input[type=file]");
+		var fileSize = 0;
+		for(var i = 0; i < inputElem.length; i++) {
+			if(inputElem[i].type.toLowerCase() === "file") {
+				if(inputElem[i].hasAttribute("selectedTypeImage")) {
+					var imageFile = inputElem[i].files[0];
+					var fileSize = imageFile.size;
+				}
+			}
+			if(fileSize > 5242880) {
+				alert("Maximum allowed image size is 5MB.");
+				document.getElementById("vtigerFormSubmitBtn_7").disabled = false;
+				return false;
+			}
+		}
+		document.getElementById("vtigerFormSubmitBtn_7").disabled = true;
+		var recaptchaResponse = form.getElementsByClassName("g-recaptcha-response")[0].value;
+		if(recaptchaResponse) {
+			var currentUrl = window.location.href;
+			var urlHash = window.location.hash;
+			currentUrl = currentUrl.replace(urlHash, "");
+			currentUrl = currentUrl.replace("#", "");
+			currentUrl = currentUrl.split("?");
+			currentUrl = currentUrl[0];
+			var currentUrlTag = document.createElement("input");
+			currentUrlTag.type = "hidden";
+			currentUrlTag.name = "current_url";
+			currentUrlTag.value = currentUrl;
+			document.getElementById("__vtigerWebForm_7").appendChild(currentUrlTag);
+			return true;
+		} else {
+			alert("Captcha not verified. Please verify captcha.");
+			document.getElementById("vtigerFormSubmitBtn_7").disabled = false;
+			return false;
+		}
+	};
+	var getParams = function(a) {
+		var e = {},
+			t = document.createElement('a');
+		t.href = a;
+		for(var r = t.search.substring(1).split('&'), l = 0; l < r.length; l++) {
+			var o = r[l].split('=');
+			if(o[0]) {
+				var c = decodeURIComponent(o[1]);
+				c && (e[o[0]] = c, c && localStorage.setItem(o[0], c))
+			}
+		}
+		return e
+	};
+	document.querySelectorAll('[data-type=storage]').forEach(a => {
+		if(a) {
+			var e = a.getAttribute('data-param'),
+				t = localStorage.getItem(e);
+			t && (a.value = t)
+		}
+	});
+	var allParameters = getParams(window.location.href);
+	Object.keys(allParameters).length > 0 && document.querySelectorAll('[data-type=url]').forEach(a => {
+		if(a) {
+			var e = a.getAttribute('data-param');
+			allParameters[e] && (a.value = allParameters[e])
+		}
+	})
+});
+</script>

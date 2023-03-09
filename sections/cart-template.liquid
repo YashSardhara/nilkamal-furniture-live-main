@@ -1,0 +1,400 @@
+{% comment %}
+** Cart page - default view **
+- Template section
+{% endcomment %}
+
+<a name="pagecontent" id="pagecontent"></a>
+<div class="container clearfix">
+  <div class="clearfix breadcrumb-collection">
+    <div class="breadcrumb_text" itemscope itemtype="http://schema.org/BreadcrumbList">
+      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a href="{{ shop.url }}" title="{{ shop.name | escape }}" itemprop="item" class="breadcrumb_link">
+          <span itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </span>
+      <span class="breadcrumb-divider">|</span>
+      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a href="" title="My cart" itemprop="item" class="breadcrumb_link">
+          <span itemprop="name">My cart</span>
+        </a>
+      </span>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <h1>{{ 'cart.general.title' | t }}</h1>
+    {% if cart.item_count > 0 %}
+      <p>You have <span>{{ cart.item_count }}</span> products in your cart</p>
+    {% endif %}
+    <div class="feature_divider"></div>
+  </div>
+
+  {% if cart.item_count == 0 %}
+  <div class="empty-cart section clearfix">
+    <div class="center">
+      <p class="">{{ 'cart.general.continue_browsing_html' | t }}</p>
+
+      <a href="{% if cart.items.first.product.collections != blank %}{{ cart.items.first.product.collections.last.url }}{% else %}/collections/all{% endif %}" class="action_button reverse continue-button add_to_cart">{{ 'cart.general.continue_shopping_link_html' | t }}</a>
+    </div>
+    <br class="clear" />
+  </div>
+  {% else %}
+
+  <form action="/cart" method="post" id="cart_form">
+    <div class="row">
+      <div class="ten columns">
+        <h2>Products</h2>
+        <div class="wrapper">
+          {% assign total_saving = 0 %}
+          {% for item in cart.items %}
+          {% if item.variant.compare_at_price > item.variant.price %}
+            {% assign saving = item.variant.compare_at_price | minus: item.variant.price | times: item.quantity %}
+            {% assign total_saving = saving | plus: total_saving %}
+          {% endif %}
+          <div class="product clearfix">
+            <div class="alpha">
+              <a href="{{ item.url }}" title="{{ item.title | escape }}" class="cart_page_image">
+                <img  src="{{ item | img_url: '100x' }}"
+                      alt="{{ item.title | escape }}"
+                      class="lazyload {{ settings.image_loading_style }}"
+                      style="max-width: {{- item.image.width -}}px"
+                      data-sizes="auto"
+                      data-src="{{ item | img_url: '900x' }}"
+                      data-srcset=" {{ item | img_url: '300x' }} 300w,
+                                    {{ item | img_url: '600x' }} 600w,
+                                    {{ item | img_url: '900x' }} 900w"
+                       />
+              </a>
+            </div>
+
+            <div class="omega cart_content_info"> 
+              <div class="left">
+                <h3>
+                  <a href="{{ item.url }}">{{ item.product.title }}</a>
+                </h3>
+                  {% if item.product.tags contains 'Plastic Chairs' %}
+                            <p class="qtity-text">Minimum Order Quantity is 4.</p>
+                {% elsif item.product.tags contains 'Min Quantity Two' %}
+                            <p class="qtity-text">Minimum Order Quantity is 2.</p>
+                  {% endif %}
+              </div>
+   
+              {% unless item.product.has_only_default_variant or item.variant.title contains "Title" %}
+                <p class="meta">
+                  {% for option in item.product.options %}
+                    <span class="label">{{ option }}:</span> <span>{{ item.variant.options[forloop.index0] }}</span><br />
+                  {% endfor %}
+                </p>
+              {% endunless %}
+
+              {% if item.properties %}
+                <p>
+                  {% for p in item.properties %}
+                    {% unless p.last == blank %}
+                      {% if p.last contains '/uploads/' %}
+                        <div>
+                          {{ p.first }}: <a class="lightbox" href="{{ p.last }}">{{ 'cart.general.uploaded_file' | t }}</a>
+                        </div>
+                      {% else %}
+                        <div>
+                          {{ p.first }}: {{ p.last }}
+                        </div>
+                      {% endif %}
+                    {% endunless %}
+                  {% endfor %}
+                </p>
+              {% endif %}
+
+              <p class="modal_price right">
+                {% assign quantity = item.quantity %}
+                {% if item.price > 0 %}
+                  <span class="money">&#8377;{{ item.price | times:quantity | money }}</span>
+                {% else %}
+                  {{ settings.free_price_text }}
+                {% endif %}
+
+                {% if item.price < item.variant.compare_at_price %}
+                  <span class="money was_price">&#8377;{{ item.variant.compare_at_price | times:quantity | money }}</span>
+                {% endif %}
+              </p>
+
+              <div class="left">
+                <div class="product-quantity-box">
+                  <span class="ss-icon product-minus js-change-quantity" data-func="minus"><span class="icon-minus"></span></span>
+                  {% if item.product.tags contains 'Plastic Chairs' %}
+                  <input type="number" min="4" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-line-id="{{ forloop.index }}" {% if settings.limit_quantity and item.variant.inventory_management != blank and item.variant.inventory_quantity > 0 and item.variant.inventory_policy == "deny" %}max="{{ item.variant.inventory_quantity }}"{% endif %} />
+                   <span class="min4qty" id="minqtyvalue" style="display:none">4</span>
+                   {% elsif item.product.tags contains 'Min Quantity Two' %}
+                  <input type="number" min="2" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-line-id="{{ forloop.index }}" {% if settings.limit_quantity and item.variant.inventory_management != blank and item.variant.inventory_quantity > 0 and item.variant.inventory_policy == "deny" %}max="{{ item.variant.inventory_quantity }}"{% endif %} />
+                 <span class="min4qty" id="minqtyvalue" style="display:none">2</span>
+                  {% else %}
+                  <input type="number" min="0" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-line-id="{{ forloop.index }}" {% if settings.limit_quantity and item.variant.inventory_management != blank and item.variant.inventory_quantity > 0 and item.variant.inventory_policy == "deny" %}max="{{ item.variant.inventory_quantity }}"{% endif %} />
+                   <span class="min4qty" id="minqtyvalue" style="display:none">0</span>
+                  {% endif %}
+                  <span class="ss-icon product-plus js-change-quantity" data-func="plus"><span class="icon-plus"></span></span>
+                </div>
+               <span class="qty_error_msg" id="{{item.sku}}"></span>
+               <span class="delivery_date_msg" id="{{item.sku}}_date"></span>
+              </div>
+              
+              <div class="right remove">
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="icon-cross remove-product relative">Remove</a href="">
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+        {% if cart.item_count > 0 %}
+        <div class="featured-links">
+          <a href="{% if cart.items.first.product.collections != blank %}{{ cart.items.first.product.collections.last.url }}{% else %}/collections/all{% endif %}" class="action_button reverse">{{ 'cart.general.continue_shopping_link_html' | t }}</a>
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="four columns">
+        <h2>Total</h2>
+        <div class="wrapper">
+          <div class="subtotal">
+            <p class="cart_subtotal js-cart_subtotal">
+              <span>{{ 'cart.general.subtotal' | t }}</span>
+              <span class="money right">
+               &#8377; {{ cart.total_price | money }}
+              </span>
+            
+
+            </p>
+ <div id="zestmoney-widget-control-cart"></div> 
+            
+  <style>
+  .zestmoney-widget-cart{
+  display: block !important;
+  text-align: start !important;
+  }
+
+   .zestmoney-logo-cart{
+   height: 14px !important; 
+    }
+    
+   #zestmoney-widget-control-cart{
+   margin-bottom: 10px; 
+    }
+  </style>
+
+            {% if section.settings.display_savings %}
+              <p class="cart_savings sale">
+                {% if total_saving > 0 %}
+                  <span class="right">
+                    <span class="money">{{ total_saving | money }}</span>
+                  </span>
+                  <span>{{ 'layout.general.savings' | t }}</span>
+                {% endif %}
+              </p>
+            {% endif %}
+
+            {% if settings.show_multiple_currencies %}
+              <p>
+                <small>
+                  {{ 'cart.general.orders_processed_in_currency_html' | t: currency: shop.currency }}
+                </small>
+              </p>
+            {% endif %}
+
+            {% if section.settings.display_special_instructions %}
+              <label for="note">{{ 'cart.general.note' | t: shop_name: shop.name }}:</label>
+              <textarea id="note" name="note" rows="2">{{ cart.note }}</textarea>
+            {% endif %}
+
+            {% if section.settings.display_tos_checkbox %}
+              <p>
+                <input type="checkbox" class="tos_agree" id="cart_agree" required />
+                  <label class="tos_label" for="cart_agree">
+                    {{ 'cart.general.agree_to_terms_html' | t }}
+                  </label>
+                {% if settings.tos_page != blank %}
+                  <a href="{{ pages[settings.tos_page].url }}" target="_blank" class="tos_icon">{{ 'cart.general.view_terms' | t }}</a>
+                {% endif %}
+              </p>
+            {% endif %}
+
+            {% if section.settings.cart_message != blank %}
+              <div>
+                {{ section.settings.cart_message }}
+              </div>
+            {% endif %}
+
+            <p>
+               <input type="submit" style="display:none" class="action_button reverse add_to_cart" id="checkout" name="checkout" value="{{ 'cart.general.checkout' | t }}" />
+               {% comment %}
+              <input type="button" class="action_button reverse add_to_cart" id="cart_checkout" name="cart_checkout" value="{{ 'cart.general.checkout' | t }}" />
+            {% endcomment %}
+              <input type="submit" class="action_button reverse add_to_cart" id="cart_checkout" name="checkout" value="{{ 'cart.general.checkout' | t }}" />
+            </p>
+
+            {% if content_for_additional_checkout_buttons %}
+              <div class="additional-checkout-buttons">
+                {{ content_for_additional_checkout_buttons }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  {% include 'cart-shipping-calculator' %}
+{% endif %}
+</div>
+
+{% schema %}
+
+{
+  "name": "Cart page",
+  "class": "cart-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "display_special_instructions",
+      "label": "Show \"note\" text box"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_tos_checkbox",
+      "label": "Show \"agree to terms\" checkbox"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_savings",
+      "label": "Show total savings",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "cart_message",
+      "label": "Cart message"
+    }
+  ]
+}
+
+{% endschema %}
+
+
+<script>
+$( document ).ready(function() {
+  $.getJSON("/cart.json", function (cart) {
+  $.each(cart.items, function (ci, item) {
+    if( item.line_price == 0 ){
+      $("#checkout").attr('disabled','disabled');
+      jQuery.post('/cart/update.js', 'updates['+item.id+']=0');
+      setTimeout(function(){  location.reload(); }, 1000);
+     
+    }
+  });
+});
+});  
+</script>
+{% include 'CartPageValidation.liquid' %}  
+
+<script>
+        obApi('track', 'Add to Cart');
+      </script>
+          <script>
+            dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+dataLayer.push({
+  event: "view_cart",
+  ecommerce: {
+    currency: "INR",
+    value: "{{cart.total_price | money_without_currency }}",
+    items: [
+    {
+      item_id: "{{ item.product.id }}", // product id 
+      item_name: "{{ item.product.title }}", //product name
+      // affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
+     // coupon: "", //The coupon name/code associated with the item if applied
+      currency: "INR",
+      // discount: {{ discount.amount | money }}, //if any discount is applied
+      // index: 0, //The index/position of the item in a list
+      // item_brand: "", //The brand of the item
+      // item_category: "Living Room", //The category of the item
+      // item_category2: "Sofa",
+      // item_category3: "1 Seater Sofas",
+      // item_category4: "",
+      // item_category5: "",
+      // item_list_id: "related_products", //The ID of the list in which the item was presented to the user
+      // item_list_name: "Related Products", //The name of the list in which the item was presented to the user.
+      // item_variant: "Velvet", //The item variant or unique code or description for additional item details/options.
+      // location_id: "", //Dynamically pass the location_id  if available
+      price: "{{cart.total_price | money_without_currency }}, //The monetary price of the item, in units of the specified currency parameter
+      quantity: "{{ cart.item_count }}", //Item quantity
+      user_id: "{{ customer.id }}"//user id of logged in user
+    }
+    ]
+  }
+});
+          </script>
+           <script>
+  dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+dataLayer.push({
+  event: "remove_from_cart",
+  ecommerce: {
+    items: [
+    {
+      item_id: "{{ item.product.id }}", // product id 
+      item_name: "{{ item.product.title }}", //product name
+      affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
+      coupon: "", //The coupon name/code associated with the item if applied
+      currency: "INR",
+      discount: {{ discount.amount | money }}, //if any discount is applied
+      index: 0, //The index/position of the item in a list
+      item_brand: "", //The brand of the item
+      item_category: "Living Room", //The category of the item
+      item_category2: "Sofa",
+      item_category3: "1 Seater Sofas",
+      item_category4: "",
+      item_category5: "",
+      item_list_id: "related_products", //The ID of the list in which the item was presented to the user
+      item_list_name: "Related Products", //The name of the list in which the item was presented to the user.
+      item_variant: "Velvet", //The item variant or unique code or description for additional item details/options.
+      location_id: "", //Dynamically pass the location_id  if available
+      price: {{cart.total_price | money_without_currency }}, //The monetary price of the item, in units of the specified currency parameter
+      quantity: "{{ cart.item_count }}", //Item quantity
+      user_id: "{{ customer.id }}"//user id of logged in user   
+    }
+    ]
+  }
+});
+</script>
+          <script>
+          $(".shopify_button.action_button.add_to_cart").on('click', function (){
+             dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+dataLayer.push({
+  event: "add_to_cart",
+  ecommerce: {
+    items: [
+    {
+      item_id: "{{ item.product.id }}", // product id 
+      item_name: "{{ item.product.title }}", //product name
+      //affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
+     // coupon: "", //The coupon name/code associated with the item if applied
+      //currency: "INR",
+     // discount: {{ discount.amount | money }}, //if any discount is applied
+      //index: 0, //The index/position of the item in a list
+      //item_brand: "", //The brand of the item
+      //item_category: "Living Room", //The category of the item
+      //item_category2: "Sofa",
+      //item_category3: "1 Seater Sofas",
+     // item_category4: "",
+     // item_category5: "",
+     // item_list_id: "related_products", //The ID of the list in which the item was presented to the user
+      //item_list_name: "Related Products", //The name of the list in which the item was presented to the user.
+     // item_variant: "Velvet", //The item variant or unique code or description for additional item details/options.
+     // location_id: "", //Dynamically pass the location_id  if available
+      price: "{{cart.total_price | money_without_currency }}", //The monetary price of the item, in units of the specified currency parameter
+      quantity: "{{ cart.item_count }}", //Item quantity
+      user_id: "{{ customer.id }}"//user id of logged in user   
+    }
+    ]
+  }
+}); 
+          });
+</script>

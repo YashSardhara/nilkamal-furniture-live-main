@@ -1,0 +1,134 @@
+<style>
+  .country_number {
+    position: absolute;
+    padding: 14px 8px;
+  }
+
+  .field--show-floating-label .country_number {
+    padding-top: 22px;
+  }
+</style>
+<script>
+  var find_button_div = $('.step__footer').find('button');
+  var current_step = $(".step").attr("data-step");
+  $(document).ready(function () {
+    if (current_step == "contact_information") {
+      find_button_div.hide();
+      $('.step__footer').prepend('<button name="button" type="button" class="step__footer__continue-btn btn " id="continue_to_shipping_button_custom" data-trekkie-id="complete_order_button_custom" aria-busy="false"><span class="btn__content">Continue to shipping</span><svg class="icon-svg icon-svg--size-18 btn__spinner icon-svg--spinner-button" aria-hidden="true" focusable="false"> <use xlink:href="#spinner-button"></use> </svg></button>');
+      var current_phone_field = $('#checkout_shipping_address_phone');
+      current_phone_field.hide();
+      var new_input_field = '<label class="country_number">+91</label><input placeholder="Mobile Number" id="checkout_shipping_address_phone_custom" type="text" name="checkout_shipping_address_phone_custom" class="field__input field__input--numeric" maxlength="10" style="padding-left: 40px;">';
+      $(new_input_field).insertAfter(current_phone_field.parent().find('.field__label'));
+      $('#checkout_shipping_address_phone_custom').val("{{ checkout.shipping_address.phone }}");
+      //         $('#checkout_shipping_address_phone_custom').val("");
+    }
+
+    $('input#checkout_shipping_address_phone_custom').val($('input#checkout_shipping_address_phone_custom').val().replace(/\D/, ''));
+    $('input#checkout_shipping_address_phone_custom').keyup(function () {
+      $(this).val($(this).val().replace(/\D/, ''));
+    });
+
+    $('body').on('click', '#continue_to_shipping_button_custom', function (e) {
+      var pincode_checker = $("#checkout_shipping_address_zip").val();
+      setCookie('pincode_val', pincode_checker);
+      console.log("BI01 - Information Pincode Cookied", pincode_checker);
+
+      console.log(pincode_checker, "pincode_value mobile ");
+
+      if (pincode_checker != '') {
+        $.post('https://admin.nilkamalfurniture.com/api/check-pincode-cartpage', { pincode_checker: pincode_checker }, function (data, textStatus, xhr) {
+          if (data.success == true) {
+            $("#continue_to_shipping_button_custom").hide();
+            find_button_div.text('Processing');
+            find_button_div.show();
+            addPincodeCart(pincode_checker, data.success);
+
+            if ($("#checkout_shipping_address_zip").parent().parent().find('span').length) {
+              // $("#checkout_shipping_address_zip").parent().parent().find('span').remove();
+            }
+            find_button_div.trigger('click');
+          }
+          else if (data.success == false) {
+            $("#continue_to_shipping_button_custom").text('Continue to shipping');
+
+            $("#checkout_shipping_address_zip").parent().parent().addClass('field--error');
+
+            if ($("#checkout_shipping_address_zip").parent().parent().find('p').length) {
+              $("#error-for-zip").text('This Pincode is not Servicable.');
+            }
+            else if (!$("#checkout_shipping_address_zip").parent().parent().find('span').length) {
+              $("#checkout_shipping_address_zip").parent().append('<span style="color:#ff6d6d">This Pincode is not Servicable.</span>');
+            }
+          }
+        });
+      } else {
+        $("#continue_to_check_pincode").hide();
+        $("#continue_to_shipping_button_custom").trigger('click');
+      }
+
+      //       find_button_div.text('Continue to shipping');
+      //       find_button_div.show();
+      //       $("#continue_to_shipping_button_custom").hide();
+      //       find_button_div.trigger('click');
+    });
+
+    $('button#continue_button').click(function (event) {
+      $('#error-for-phone').remove();
+      var pno = $("input#checkout_shipping_address_phone_custom").val();
+      var pno = pno.replaceAll(" ", "");
+      pno = pno.replace(/^0/, '');
+      $("input#checkout_shipping_address_phone_custom").val(pno);
+      if ($.trim(pno).length < 10 || $.trim(pno).length > 10) {
+        event.preventDefault();
+        $('input#checkout_shipping_address_phone_custom').after('<p style="display:block" class="field__message field__message--error" id="error-for-phone">Enter a valid 10 Digits phone number.</p>').css("border", "2px solid red");
+        find_button_div.text('Continue to shipping');
+      } else if (validatePhone(pno)) {
+        $('input#checkout_shipping_address_phone').val(pno);
+        return true;
+      } else {
+        event.preventDefault();
+        $('input#checkout_shipping_address_phone_custom').after('<p style="display:block" class="field__message field__message--error" id="error-for-phone">Enter a valid 10 Digits phone number</p>').css("border", "2px solid red");
+        find_button_div.text('Continue to shipping');
+        return false;
+      }
+    });
+  });
+
+  function validatePhone(pno) {
+    var filter = /^[0-9]*$/;
+    if (filter.test(pno)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function addPincodeCart(pincode) {
+    $.ajax({
+      type: 'POST',
+      dataType: 'json',
+      async: false,
+      url: '/cart/update.js',
+      data: {
+        attributes: {
+          'pincode': pincode
+        }
+      },
+      success: function () {
+      }
+    });
+  }
+  function setCookie(name, value) {
+    jQuery.cookie(name, value, {
+      expires: 1,
+      path: '/'
+    });
+  }
+  function getCookie(name) {
+    return jQuery.cookie(name);
+  }
+
+  {% comment %} $('body').on('click', '#continue_to_shipping_button_custom', function (e) {
+    $(this).text('Processing...');
+  }); {% endcomment %}
+</script>

@@ -1,0 +1,1306 @@
+{% comment %}
+** Footer - default view **
+- Static section
+- Uses blocks
+{% endcomment %}
+{% if template contains 'collection' %}
+{% include 'footer_content' %}
+{% include 'footer_content_1' %}
+{% include 'footer_content_2' %}
+{% endif %}
+<div class="footer-top">
+  
+  <div class="customer-services">
+    <div class="container">
+      <div class="customer-services-slider">
+        <div class="item gallery-cell">
+          {% include 'svg-icons', id:'easy_emi' %}
+          <span>Easy EMI <br />Options</span>
+        </div>
+        <div class="item gallery-cell">
+          {% include 'svg-icons', id:'free_delivery' %}
+          <span>Free Home <br />Delivery*</span>
+        </div>
+        <div class="item gallery-cell">
+          {% include 'svg-icons', id:'quality_assurance' %}
+          <span>Quality <br />Assurance</span>
+        </div>
+        {% comment %}
+        <div class="item gallery-cell">
+          {% include 'svg-icons', id:'warranty' %}
+          <span>1 Year <br />Warranty*</span>
+        </div>
+        {% endcomment %}
+        {% if template != 'product' and template != 'collection' %}
+        <div class="item gallery-cell">
+          {% include 'svg-icons', id:'free_assembly' %}
+          <span>Free <br />Assembly</span>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  
+  <div class="newsletter">
+    <div class="container center">
+      <h4>Join our newsletter to receive updates on product annoucements and sales.</h4>
+      <div class="newsletter-form clearfix">
+        <span class="message"></span>
+        {% if settings.mailchimp_link != blank %}
+        <form action="{{ settings.mailchimp_link }}" method="post" name="mc-embedded-subscribe-form" id="contact_form" target="_blank">
+          {% if block.settings.show_firstname %}
+          <input type="text" value="" class="firstName" name="FNAME" placeholder="{{ 'general.newsletter_form.subscriber_first_name' | t }}">
+          {% endif %}
+          {% if block.settings.show_lastname %}
+          <input type="text" value="" name="LNAME" placeholder="{{ 'general.newsletter_form.subscriber_last_name' | t }}">
+          {% endif %}
+          <input type="email" value="" name="EMAIL" class="contact_email" placeholder="{{ 'general.newsletter_form.placeholder' | t }}">
+          <input type="submit" value="{{ 'general.newsletter_form.submit' | t }}" class="action_button sign_up" name="subscribe" />
+        </form>
+        {% else %}
+        {% form 'customer' %}
+        {% if form.posted_successfully? %}
+        <p><em>{{ 'general.newsletter_form.success_text' | t }}</em></p>
+        {% elsif form.errors %}
+        {% for field in form.errors %}
+        <p><em>{{ field }} - {{ form.errors.messages[field] }}</em></p>
+        {% endfor %}
+        {% endif %}
+
+        <input type="hidden" name="contact[tags]" value="prospect,newsletter"/>
+        {% if block.settings.show_firstname %}
+        <input type="text" class="firstName" name="contact[first_name]" placeholder="{{ 'general.newsletter_form.subscriber_first_name' | t }}" />
+        {% endif %}
+        {% if block.settings.show_lastname %}
+        <input type="text" name="contact[last_name]" placeholder="{{ 'general.newsletter_form.subscriber_last_name' | t }}" />
+        {% endif %}
+
+        <input type="hidden" name="challenge" value="false" />
+        <input type="email" class="contact_email" name="contact[email]" required placeholder="{{ 'general.newsletter_form.placeholder' | t }}" />
+        <input type='submit' class="action_button reverse sign_up" value="{{ 'general.newsletter_form.submit' | t }}" />
+        {% endform %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+
+  <div class="footer-content">
+    <div class="container">
+      <div class="content">
+        {% if template contains "index" %}
+        {% for block in section.blocks %}
+        {% if block.type == "seoContent" %}
+        {% if block.settings.seoTitle != '' %}
+                  <h5>{{ block.settings.seoTitle }}</h5>
+        {% endif %}
+
+        {{ block.settings.seoDescription }}
+        {% endif %}
+        {% endfor %}
+        {% else %}
+        {% assign footerSeoTitle = collection.metafields.collection['Footer seo title'] %}
+        {% assign footerSeoContent = collection.metafields.collection['Footer seo description'] %}
+        {% if footerSeoTitle != 0 and footerSeoTitle != blank %}
+        <h5>{{ footerSeoTitle }}</h5>
+        {% endif %}
+        {% if footerSeoContent != 0 and footerSeoContent != blank %}
+        {{ footerSeoContent }} 
+        {% endif %}
+        {% endif %}
+        {% if template contains "product" %}
+
+        {% else %}
+
+        {% if template contains "index" %}
+        <div class="categories">
+          <table>
+            {% for block in section.blocks %}
+            {% if block.type == "seoLinks" %}
+            <tr>
+              <td>
+                <b>{{ block.settings.seoTitle }} : </b></td>
+              <td>
+                <p>
+                  {%- assign popular_menu = block.settings.link -%}
+                  {%- if linklists[popular_menu].links.size > 0 -%}
+                  {%- for link in linklists[popular_menu].links -%}
+                  <a href="{{ link.url}}">{{ link.title }}</a>{%- if forloop.last -%} {%- else -%},{%- endif -%}
+                  {%- endfor -%}
+                  {%- endif -%}
+                </p>
+              </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+          </table>
+        </div>
+        {% endif %}
+
+        <!--       seo link title       -->
+        {% assign seoLinkTitle1 = collection.metafields.collection['footer link title 1'] %}
+        {% assign seoLinkTitle2 = collection.metafields.collection['footer link title 2'] %}
+        {% assign seoLinkTitle3 = collection.metafields.collection['footer link title 3'] %}
+        <!--       seo link menu       -->
+        {% assign seoLinkMenu1 = collection.metafields.collection['footer link menu 1'] %}
+        {% assign seoLinkMenu2 = collection.metafields.collection['footer link menu 2'] %}
+        {% assign seoLinkMenu3 = collection.metafields.collection['footer link menu 3'] %}
+        {% if seoLinkMenu1 != blank and seoLinkMenu2 != blank and seoLinkMenu3 != blank %}
+        <div class="categories">
+          <table>
+
+            {% if template contains "index" %}
+
+            {% else %}
+            {% if seoLinkTitle1 != blank and seoLinkMenu1 != blank %}
+            <tr>
+              <td>
+                <b>{{ seoLinkTitle1 }}</b>
+              </td>
+              <td>
+                <p>
+                  {%- assign popular_menu = seoLinkMenu1 -%}
+                  {%- if linklists[popular_menu].links.size > 0 -%}
+                  {%- for link in linklists[popular_menu].links -%}
+                  <a href="{{ link.url}}">{{ link.title }}</a>{%- if forloop.last -%} {%- else -%},{%- endif -%}
+                  {%- endfor -%}
+                  {%- endif -%}
+                </p>
+              </td>
+            </tr>
+            {% endif %}
+            {% if seoLinkTitle2 != blank and seoLinkMenu2 != blank %}
+            <tr>
+              <td>
+                <b>{{ seoLinkTitle2 }}</b>
+              </td>
+              <td>
+                <p>
+                  {%- assign popular_menu = seoLinkMenu2 -%}
+                  {%- if linklists[popular_menu].links.size > 0 -%}
+                  {%- for link in linklists[popular_menu].links -%}
+                  <a href="{{ link.url}}">{{ link.title }}</a>{%- if forloop.last -%} {%- else -%},{%- endif -%}
+                  {%- endfor -%}
+                  {%- endif -%}
+                </p>
+              </td>
+            </tr>
+            {% endif %}
+            {% if seoLinkTitle3 != blank and seoLinkMenu3 != blank %}
+            <tr>
+              <td>
+                <b>{{ seoLinkTitle3 }}</b>
+              </td>
+              <td>
+                <p>
+                  {%- assign popular_menu = seoLinkMenu3 -%}
+                  {%- if linklists[popular_menu].links.size > 0 -%}
+                  {%- for link in linklists[popular_menu].links -%}
+                  <a href="{{ link.url}}">{{ link.title }}</a>{%- if forloop.last -%} {%- else -%},{%- endif -%}
+                  {%- endfor -%}
+                  {%- endif -%}
+                </p>
+              </td>
+            </tr>
+            {% endif %}
+            {% endif %}
+          </table>
+        </div>
+        {% endif %}
+        {% endif %}
+      </div>
+      <span class="expand_content">{% include 'svg-icons', id:'down-arrow' %}</span>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="container footer-menu-wrap">
+    {% for block in section.blocks %}
+    <div class="{% if forloop.length >= 5 %}one-fifth column{% elsif forloop.length == 4 %}four columns{% elsif forloop.length == 3 %}one-third column{% elsif forloop.length == 2 %}eight columns{% endif %}" {{ block.shopify_attributes }}>
+      {% if block.type == 'logo' %}
+      <div class="text-align--{{block.settings.text_align}}">
+        {% if block.settings.image %}
+        <img  src="{{ block.settings.image | img_url: '100x' }}"
+             alt="{{ block.settings.image.alt | escape }}"
+             class="footer-logo lazyload {{ settings.image_loading_style }}"
+             data-sizes="25vw"
+             style="max-width: {{- block.settings.image.width -}}px"
+             data-src="{{ block.settings.image | img_url: '2048x' }}"
+             data-srcset=" {{ block.settings.image | img_url: '200x' }} 200w,
+                          {{ block.settings.image | img_url: '300x' }} 300w,
+                          {{ block.settings.image | img_url: '400x' }} 400w,
+                          {{ block.settings.image | img_url: '500x' }} 500w,
+                          {{ block.settings.image | img_url: '600x' }} 600w,
+                          {{ block.settings.image | img_url: '1000x' }} 1000w"
+             />
+        {% else %}
+        <div class="logo">{{ shop.name }}</div>
+        {% endif %}
+      </div>
+
+      {% elsif block.type == 'newsletter' %}
+
+      <div class="newsletter_section">
+
+        {% if block.settings.title != blank %}
+        <h6>{{ block.settings.title }}</h6>
+        {% endif %}
+        {% if block.settings.newsletter_text != blank %}
+        {{ block.settings.newsletter_text }}
+        {% endif %}
+
+        <div class="newsletter">
+          <span class="message"></span>
+          {% if settings.mailchimp_link != blank %}
+          <form action="{{ settings.mailchimp_link }}" method="post" name="mc-embedded-subscribe-form" id="contact_form" target="_blank">
+            {% if block.settings.show_firstname %}
+            <input type="text" value="" class="firstName" name="FNAME" placeholder="{{ 'general.newsletter_form.subscriber_first_name' | t }}">
+            {% endif %}
+            {% if block.settings.show_lastname %}
+            <input type="text" value="" name="LNAME" placeholder="{{ 'general.newsletter_form.subscriber_last_name' | t }}">
+            {% endif %}
+            <input type="email" value="" name="EMAIL" class="contact_email" placeholder="{{ 'general.newsletter_form.placeholder' | t }}">
+            <input type="submit" value="{{ 'general.newsletter_form.submit' | t }}" class="action_button sign_up" name="subscribe" />
+          </form>
+          {% else %}
+          {% form 'customer' %}
+          {% if form.posted_successfully? %}
+          <p><em>{{ 'general.newsletter_form.success_text' | t }}</em></p>
+          {% elsif form.errors %}
+          {% for field in form.errors %}
+          <p><em>{{ field }} - {{ form.errors.messages[field] }}</em></p>
+          {% endfor %}
+          {% endif %}
+
+          <input type="hidden" name="contact[tags]" value="prospect,newsletter"/>
+          {% if block.settings.show_firstname %}
+          <input type="text" class="firstName" name="contact[first_name]" placeholder="{{ 'general.newsletter_form.subscriber_first_name' | t }}" />
+          {% endif %}
+          {% if block.settings.show_lastname %}
+          <input type="text" name="contact[last_name]" placeholder="{{ 'general.newsletter_form.subscriber_last_name' | t }}" />
+          {% endif %}
+
+          <input type="hidden" name="challenge" value="false" />
+          <input type="email" class="contact_email" name="contact[email]" required placeholder="{{ 'general.newsletter_form.placeholder' | t }}" />
+          <input type='submit' class="action_button sign_up" value="{{ 'general.newsletter_form.submit' | t }}" />
+          {% endform %}
+          {% endif %}
+        </div>
+        {% if block.settings.show_social %}
+        {% include 'social-icons' %}
+        {% endif %}
+      </div>
+
+      {% elsif block.type == 'link_list' %}
+      <div class="footer_menu">
+        {% if block.settings.menu != blank %}
+        <h6>{{ linklists[block.settings.menu].title }}<span class="right">{% include 'svg-icons', id:'down-arrow' %}</span></h6>
+        <div class="toggle_content">
+          <ul>
+            {% for link in linklists[block.settings.menu].links %}
+            <li><p><a href="{{ link.url }}">{{ link.title }}</a></p></li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% else %}
+        <h6>Menu title<span class="right">{% include 'svg-icons', id:'down-arrow' %}</span></h6>
+        <div class="toggle_content">
+          <ul>
+            <li><p>{{ 'homepage.onboarding.no_content' | t }}</p></li>
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+
+      {% elsif block.type == 'text' %}
+      <div class="footer-contact footer_content footer-text {% if block.settings.title == blank %}no-footer-title{% endif %}">
+        {% if block.settings.title != blank %}
+        <h6>{{ block.settings.title }}<span class="right">{% include 'svg-icons', id:'down-arrow' %}</span></h6>
+        {% endif %}
+        {% if block.settings.tel_no %}
+        <div class="toggle_content">
+          <ul>
+            <li>
+              <div>
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     width="34px" height="34px" viewBox="0 0 348.077 348.077" style="enable-background:new 0 0 348.077 348.077;"
+                     xml:space="preserve">
+                  <g>
+                    <g>
+                      <g>
+                        <path d="M340.273,275.083l-53.755-53.761c-10.707-10.664-28.438-10.34-39.518,0.744l-27.082,27.076
+                                 c-1.711-0.943-3.482-1.928-5.344-2.973c-17.102-9.476-40.509-22.464-65.14-47.113c-24.704-24.701-37.704-48.144-47.209-65.257
+                                 c-1.003-1.813-1.964-3.561-2.913-5.221l18.176-18.149l8.936-8.947c11.097-11.1,11.403-28.826,0.721-39.521L73.39,8.194
+                                 C62.708-2.486,44.969-2.162,33.872,8.938l-15.15,15.237l0.414,0.411c-5.08,6.482-9.325,13.958-12.484,22.02
+                                 C3.74,54.28,1.927,61.603,1.098,68.941C-6,127.785,20.89,181.564,93.866,254.541c100.875,100.868,182.167,93.248,185.674,92.876
+                                 c7.638-0.913,14.958-2.738,22.397-5.627c7.992-3.122,15.463-7.361,21.941-12.43l0.331,0.294l15.348-15.029
+                                 C350.631,303.527,350.95,285.795,340.273,275.083z"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                </svg>
+              </div>
+              <div>
+                <a href="tel:{{ block.settings.tel_no }}" class="tel-no" style="font-size: 10px">{{ block.settings.tel_no }}</a>
+                <span>{{ block.settings.contact_time }}</span>
+              </div>
+            </li>
+            <li>
+              <div>
+
+                <?xml version="1.0" encoding="utf-8"?>
+                <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     width="55px" height="55px" viewBox="0 0 550.795 550.795" style="enable-background:new 0 0 550.795 550.795;"
+                     xml:space="preserve">
+                  <g>
+                    <g>
+                      <path d="M501.613,491.782c12.381,0,23.109-4.088,32.229-12.16L377.793,323.567c-3.744,2.681-7.373,5.288-10.801,7.767
+                               c-11.678,8.604-21.156,15.318-28.434,20.129c-7.277,4.822-16.959,9.737-29.045,14.755c-12.094,5.024-23.361,7.528-33.813,7.528
+                               h-0.306h-0.306c-10.453,0-21.72-2.503-33.813-7.528c-12.093-5.018-21.775-9.933-29.045-14.755
+                               c-7.277-4.811-16.75-11.524-28.434-20.129c-3.256-2.387-6.867-5.006-10.771-7.809L16.946,479.622
+                               c9.119,8.072,19.854,12.16,32.234,12.16H501.613z"/>
+                      <path d="M31.047,225.299C19.37,217.514,9.015,208.598,0,198.555V435.98l137.541-137.541
+                               C110.025,279.229,74.572,254.877,31.047,225.299z"/>
+                      <path d="M520.059,225.299c-41.865,28.336-77.447,52.73-106.75,73.195l137.486,137.492V198.555
+                               C541.98,208.396,531.736,217.306,520.059,225.299z"/>
+                      <path d="M501.613,59.013H49.181c-15.784,0-27.919,5.33-36.42,15.979C4.253,85.646,0.006,98.97,0.006,114.949
+                               c0,12.907,5.636,26.892,16.903,41.959c11.267,15.061,23.256,26.891,35.961,35.496c6.965,4.921,27.969,19.523,63.012,43.801
+                               c18.917,13.109,35.368,24.535,49.505,34.395c12.05,8.396,22.442,15.667,31.022,21.701c0.985,0.691,2.534,1.799,4.59,3.269
+                               c2.215,1.591,5.018,3.61,8.476,6.107c6.659,4.816,12.191,8.709,16.597,11.683c4.4,2.975,9.731,6.298,15.985,9.988
+                               c6.249,3.685,12.143,6.456,17.675,8.299c5.533,1.842,10.655,2.766,15.367,2.766h0.306h0.306c4.711,0,9.834-0.924,15.368-2.766
+                               c5.531-1.843,11.42-4.608,17.674-8.299c6.248-3.69,11.572-7.02,15.986-9.988c4.406-2.974,9.938-6.866,16.598-11.683
+                               c3.451-2.497,6.254-4.517,8.469-6.102c2.057-1.476,3.605-2.577,4.596-3.274c6.684-4.651,17.1-11.892,31.104-21.616
+                               c25.482-17.705,63.01-43.764,112.742-78.281c14.957-10.447,27.453-23.054,37.496-37.803c10.025-14.749,15.051-30.22,15.051-46.408
+                               c0-13.525-4.873-25.098-14.598-34.737C526.461,63.829,514.932,59.013,501.613,59.013z"/>
+                    </g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                </svg>
+
+              </div>
+              <div>
+                <a href="mailto:{{ block.settings.contact_mail }}" class="footer-email">{{ block.settings.contact_mail }}</a>
+              </div>
+            </li>
+          <li>
+              <div>
+
+                <?xml version="1.0" encoding="utf-8"?>
+                <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" width="22px" height="19px" style="enable-background:new 0 0 512 512;" xml:space="preserve"> <g> <g> <g> <path d="M256,0C161.896,0,85.333,76.563,85.333,170.667c0,28.25,7.063,56.26,20.49,81.104L246.667,506.5
+                 c1.875,3.396,5.448,5.5,9.333,5.5s7.458-2.104,9.333-5.5l140.896-254.813c13.375-24.76,20.438-52.771,20.438-81.021
+                 C426.667,76.563,350.104,0,256,0z M387.51,241.448L256,479.292l-131.458-237.75c-11.698-21.646-17.875-46.156-17.875-70.875
+                 c0-82.344,66.99-149.333,149.333-149.333s149.333,66.99,149.333,149.333C405.333,195.385,399.156,219.896,387.51,241.448z"></path> <path d="M256,85.333c-47.052,0-85.333,38.281-85.333,85.333C170.667,217.719,208.948,256,256,256s85.333-38.281,85.333-85.333
+                 C341.333,123.615,303.052,85.333,256,85.333z M256,234.667c-35.292,0-64-28.708-64-64c0-35.292,28.708-64,64-64s64,28.708,64,64
+                 C320,205.958,291.292,234.667,256,234.667z"></path></g></g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g>
+</svg>
+
+              </div>
+              <div>
+               <p>77/78, Nilkamal House, 14th Street, MIDC Road,
+                Andheri (East), Mumbai - 400 093.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+      {% elsif block.type == 'page' %}
+      <div class="footer_content footer-text">
+        {% if block.settings.page != blank %}
+        <h6>{{ pages[block.settings.page].title }}<span class="right icon-down-arrow"></span></h6>
+        <div class="toggle_content">
+          {{ pages[block.settings.page].content }}
+        </div>
+        {% else %}
+        <h6>Page title<span class="right icon-down-arrow"></span></h6>
+        <div class="toggle_content">
+          <p>{{ 'homepage.onboarding.no_content' | t }}</p>
+        </div>
+        {% endif %}
+      </div>
+
+      {% elsif block.type == 'html' %}
+      {% comment %}@TODO - Add HTML section for maps, widgets, embedding, etc{% endcomment %}
+
+      {% elsif block.type == 'empty' %}
+      <div class="empty-column"></div>
+
+      {% endif %}
+
+      {% assign social_media_column = section.settings.social_media_column | plus: 0  %}
+
+      {% if block.settings.social_icons_footer %}
+      {% assign social_icons = true %}
+      <div class="footer-social-icons">
+        {% include 'social-icons' %}
+      </div>
+      {% endif %}
+
+    </div>
+    {% if forloop.last and social_icons %}
+    <div class="footer-social-icons--mobile sixteen columns">
+      {% include 'social-icons' %}
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <!--     <div class="col-sm-12 columns">
+<div class="footer_credits">
+<div class="payment_methods"> 
+<span>We Accept Secure Payment </span> 
+<svg class="payment-icon" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-visa"> <title id="pi-visa">Visa</title> <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path> <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path> <path d="M28.3 10.1H28c-.4 1-.7 1.5-1 3h1.9c-.3-1.5-.3-2.2-.6-3zm2.9 5.9h-1.7c-.1 0-.1 0-.2-.1l-.2-.9-.1-.2h-2.4c-.1 0-.2 0-.2.2l-.3.9c0 .1-.1.1-.1.1h-2.1l.2-.5L27 8.7c0-.5.3-.7.8-.7h1.5c.1 0 .2 0 .2.2l1.4 6.5c.1.4.2.7.2 1.1.1.1.1.1.1.2zm-13.4-.3l.4-1.8c.1 0 .2.1.2.1.7.3 1.4.5 2.1.4.2 0 .5-.1.7-.2.5-.2.5-.7.1-1.1-.2-.2-.5-.3-.8-.5-.4-.2-.8-.4-1.1-.7-1.2-1-.8-2.4-.1-3.1.6-.4.9-.8 1.7-.8 1.2 0 2.5 0 3.1.2h.1c-.1.6-.2 1.1-.4 1.7-.5-.2-1-.4-1.5-.4-.3 0-.6 0-.9.1-.2 0-.3.1-.4.2-.2.2-.2.5 0 .7l.5.4c.4.2.8.4 1.1.6.5.3 1 .8 1.1 1.4.2.9-.1 1.7-.9 2.3-.5.4-.7.6-1.4.6-1.4 0-2.5.1-3.4-.2-.1.2-.1.2-.2.1zm-3.5.3c.1-.7.1-.7.2-1 .5-2.2 1-4.5 1.4-6.7.1-.2.1-.3.3-.3H18c-.2 1.2-.4 2.1-.7 3.2-.3 1.5-.6 3-1 4.5 0 .2-.1.2-.3.2M5 8.2c0-.1.2-.2.3-.2h3.4c.5 0 .9.3 1 .8l.9 4.4c0 .1 0 .1.1.2 0-.1.1-.1.1-.1l2.1-5.1c-.1-.1 0-.2.1-.2h2.1c0 .1 0 .1-.1.2l-3.1 7.3c-.1.2-.1.3-.2.4-.1.1-.3 0-.5 0H9.7c-.1 0-.2 0-.2-.2L7.9 9.5c-.2-.2-.5-.5-.9-.6-.6-.3-1.7-.5-1.9-.5L5 8.2z" fill="#142688"></path></svg> <svg class="payment-icon" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-master"> <title id="pi-master">Mastercard</title> <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path> <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path> <circle fill="#EB001B" cx="15" cy="12" r="7"></circle> <circle fill="#F79E1B" cx="23" cy="12" r="7"></circle> <path fill="#FF5F00" d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"></path></svg> <svg class="payment-icon" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" aria-labelledby="pi-american_express"> <title id="pi-american_express">American Express</title> <path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000" opacity=".07"></path> <path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" fill="#002663"></path> <path d="M8.971 10.268l.774 1.876H8.203l.768-1.876zm16.075.078h-2.977v.827h2.929v1.239h-2.923v.922h2.977v.739l2.077-2.245-2.077-2.34-.006.858zm-14.063-2.34h3.995l.887 1.935L16.687 8h10.37l1.078 1.19L29.25 8h4.763l-3.519 3.852 3.483 3.828h-4.834l-1.078-1.19-1.125 1.19H10.03l-.494-1.19H8.406l-.495 1.19H4L7.286 8h3.43l.267.006zm8.663 1.078h-2.239l-1.5 3.536-1.625-3.536H12.06v4.81l-2.06-4.81H8.007l-2.382 5.512H7.18l.494-1.19h2.596l.494 1.19h2.72v-3.935l1.751 3.941h1.19l1.74-3.929v3.93h1.458l.024-5.52zm9.34 2.768l2.531-2.768h-1.822l-1.601 1.726-1.548-1.726h-5.894v5.518h5.81l1.614-1.738 1.548 1.738h1.875l-2.512-2.75z" fill="#FFF"></path></svg> <svg class="payment-icon" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-paypal"> <title id="pi-paypal">PayPal</title> <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path> <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path> <path fill="#003087" d="M23.9 8.3c.2-1 0-1.7-.6-2.3-.6-.7-1.7-1-3.1-1h-4.1c-.3 0-.5.2-.6.5L14 15.6c0 .2.1.4.3.4H17l.4-3.4 1.8-2.2 4.7-2.1z"></path> <path fill="#3086C8" d="M23.9 8.3l-.2.2c-.5 2.8-2.2 3.8-4.6 3.8H18c-.3 0-.5.2-.6.5l-.6 3.9-.2 1c0 .2.1.4.3.4H19c.3 0 .5-.2.5-.4v-.1l.4-2.4v-.1c0-.2.3-.4.5-.4h.3c2.1 0 3.7-.8 4.1-3.2.2-1 .1-1.8-.4-2.4-.1-.5-.3-.7-.5-.8z"></path> <path fill="#012169" d="M23.3 8.1c-.1-.1-.2-.1-.3-.1-.1 0-.2 0-.3-.1-.3-.1-.7-.1-1.1-.1h-3c-.1 0-.2 0-.2.1-.2.1-.3.2-.3.4l-.7 4.4v.1c0-.3.3-.5.6-.5h1.3c2.5 0 4.1-1 4.6-3.8v-.2c-.1-.1-.3-.2-.5-.2h-.1z"></path></svg> <svg class="payment-icon" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-diners_club"> <title id="pi-diners_club">Diners Club</title> <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path> <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path> <path d="M12 12v3.7c0 .3-.2.3-.5.2-1.9-.8-3-3.3-2.3-5.4.4-1.1 1.2-2 2.3-2.4.4-.2.5-.1.5.2V12zm2 0V8.3c0-.3 0-.3.3-.2 2.1.8 3.2 3.3 2.4 5.4-.4 1.1-1.2 2-2.3 2.4-.4.2-.4.1-.4-.2V12zm7.2-7H13c3.8 0 6.8 3.1 6.8 7s-3 7-6.8 7h8.2c3.8 0 6.8-3.1 6.8-7s-3-7-6.8-7z" fill="#3086C8"></path></svg> <svg class="payment-icon" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" aria-labelledby="pi-discover"> <title id="pi-discover">Discover</title> <path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000" opacity=".07"></path> <path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" fill="#FFF"></path> <path d="M37 16.95V21c0 1.1-.9 2-2 2H23.228c7.896-1.815 12.043-4.601 13.772-6.05z" fill="#EDA024"></path> <path fill="#494949" d="M9 11h20v2H9z"></path> <path d="M22 12c0 1.7-1.3 3-3 3s-3-1.4-3-3 1.4-3 3-3c1.7 0 3 1.3 3 3z" fill="#EDA024"></path></svg></div> 
+</div>
+<div class="clearfix"></div>
+<p class="credits">
+Copyright 
+&copy; {{ "now" | date: "%Y" }} {{ shop.name | link_to: '/' }}.
+{{ section.settings.copyright_text }}
+{% if section.settings.display_designed_by %}
+{{ 'layout.general.designer_credits_html' | t }}
+{% endif %}
+{% comment %}
+{{ powered_by_link | split: '" ' | join: '?ref=out-of-the-sandbox" ' | split: '">' | join: '?ref=out-of-the-sandbox">' }}
+{% endcomment %}
+</p>
+</div> -->
+    <!--end footer_credits-->
+  </div>
+  <div class="container">
+    
+ <div class="col-sm-6">
+  <h5>Popular Categories</h5>
+<p><a href="https://www.nilkamalfurniture.com/collections/queen-size-beds">Queen Size Beds,</a> <a href="https://www.nilkamalfurniture.com/collections/king-size-beds">King Size Beds,</a> 
+  <a href="https://www.nilkamalfurniture.com/collections/coffee-tables">Coffee Tables,</a> <a href="https://www.nilkamalfurniture.com/collections/dining-sets">Dining Sets,</a>
+  <a href="https://www.nilkamalfurniture.com/collections/recliners"> Recliners, </a> <a href="https://www.nilkamalfurniture.com/collections/sofa-cum-beds">Sofa cum Beds,</a>
+    <a href="https://www.nilkamalfurniture.com/collections/plastic-cabinets">Cabinets,</a>  
+    <a href="https://www.nilkamalfurniture.com/collections/book-cases-shelves">Book Shelves,</a> 
+  <a href="https://www.nilkamalfurniture.com/collections/entertainment-units">TV Unit,</a> <a href="https://www.nilkamalfurniture.com/collections/wardrobes">Wardrobes,</a> <a href="">Outddoor Furniture,</a>
+  <a href="https://www.nilkamalfurniture.com/collections/mattress"> Mattresses,</a>
+      <a href="https://www.nilkamalfurniture.com/collections/study-tables">Study Tables,</a>
+     <a href="https://www.nilkamalfurniture.com/collections/dining-room">Dining Room Furniture, </a>
+     <a href="https://www.nilkamalfurniture.com/collections/office-furniture"> Office Furniture,</a>  <a href="https://www.nilkamalfurniture.com/collections/bedroom-furniture"> Bed Room Furniture, </a>  <a href="https://www.nilkamalfurniture.com/collections/dining-tables"> Dining Table Beds,</a>
+       <a href="https://www.nilkamalfurniture.com/collections/sofa-1"> Sofas.</a></p>
+  </div>
+    <div class="col-sm-6">
+  <h5>CITIES WE DELIVER TO</h5>
+  <p>Bengaluru, Mumbai, Navi Mumbai, Delhi, Hyderabad, Pune, Chennai, Gurgaon, Kolkata, Noida, Goa, Ghaziabad, Ahmedabad, Coimbatore, Faridabad, Jaipur, Lucknow, Kochi, Visakhapatnam, Chandigarh, Vadodara, Nagpur, Thiruvananthapuram, Indore, Mysore, Bhopal, Surat, Jalandhar, Patna, Ludhiana, Nashik, Madurai, Kanpur, Aurangabad, Imphal, Hubli, Guwahati and many more</p>
+  </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="credits">
+        Copyright 
+        &copy; {{ "now" | date: "%Y" }} {{ shop.name | link_to: '/' }}.
+        {{ section.settings.copyright_text }}
+        {% if section.settings.display_designed_by %}
+        {{ 'layout.general.designer_credits_html' | t }}
+        {% endif %}
+        {% comment %}
+        {{ powered_by_link | split: '" ' | join: '?ref=out-of-the-sandbox" ' | split: '">' | join: '?ref=out-of-the-sandbox">' }}
+        {% endcomment %}
+      </p>
+      <div class="footer_credits">
+        <div class="payment_methods"> 
+          <span>We Accept Secure Payment </span> 
+          {% comment %} Visa {% endcomment %}
+          <svg class="payment-icon" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-visa"> <title id="pi-visa">Visa</title> <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path> <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path> <path d="M28.3 10.1H28c-.4 1-.7 1.5-1 3h1.9c-.3-1.5-.3-2.2-.6-3zm2.9 5.9h-1.7c-.1 0-.1 0-.2-.1l-.2-.9-.1-.2h-2.4c-.1 0-.2 0-.2.2l-.3.9c0 .1-.1.1-.1.1h-2.1l.2-.5L27 8.7c0-.5.3-.7.8-.7h1.5c.1 0 .2 0 .2.2l1.4 6.5c.1.4.2.7.2 1.1.1.1.1.1.1.2zm-13.4-.3l.4-1.8c.1 0 .2.1.2.1.7.3 1.4.5 2.1.4.2 0 .5-.1.7-.2.5-.2.5-.7.1-1.1-.2-.2-.5-.3-.8-.5-.4-.2-.8-.4-1.1-.7-1.2-1-.8-2.4-.1-3.1.6-.4.9-.8 1.7-.8 1.2 0 2.5 0 3.1.2h.1c-.1.6-.2 1.1-.4 1.7-.5-.2-1-.4-1.5-.4-.3 0-.6 0-.9.1-.2 0-.3.1-.4.2-.2.2-.2.5 0 .7l.5.4c.4.2.8.4 1.1.6.5.3 1 .8 1.1 1.4.2.9-.1 1.7-.9 2.3-.5.4-.7.6-1.4.6-1.4 0-2.5.1-3.4-.2-.1.2-.1.2-.2.1zm-3.5.3c.1-.7.1-.7.2-1 .5-2.2 1-4.5 1.4-6.7.1-.2.1-.3.3-.3H18c-.2 1.2-.4 2.1-.7 3.2-.3 1.5-.6 3-1 4.5 0 .2-.1.2-.3.2M5 8.2c0-.1.2-.2.3-.2h3.4c.5 0 .9.3 1 .8l.9 4.4c0 .1 0 .1.1.2 0-.1.1-.1.1-.1l2.1-5.1c-.1-.1 0-.2.1-.2h2.1c0 .1 0 .1-.1.2l-3.1 7.3c-.1.2-.1.3-.2.4-.1.1-.3 0-.5 0H9.7c-.1 0-.2 0-.2-.2L7.9 9.5c-.2-.2-.5-.5-.9-.6-.6-.3-1.7-.5-1.9-.5L5 8.2z" fill="#142688"></path></svg> 
+          {% comment %} Mastercard {% endcomment %}
+          <svg class="payment-icon" xmlns="http://www.w3.org/2000/svg" width="57" height="37" viewBox="0 0 57 37">
+            <title id="pi-mastercard">Mastercard</title>
+            <g id="master_card" data-name="master card" transform="translate(-749 -5265)">
+              <g id="Group_787" data-name="Group 787" transform="translate(-1)">
+                <g id="Rectangle_414" data-name="Rectangle 414" transform="translate(750 5265)" fill="#fff" stroke="#979797" stroke-width="1">
+                  <rect width="57" height="37" rx="5" stroke="none"/>
+                  <rect x="0.5" y="0.5" width="56" height="36" rx="4.5" fill="none"/>
+                </g>
+                <g id="Group_715" data-name="Group 715" transform="translate(753.425 5267.992)">
+                  <path id="Path_334" data-name="Path 334" d="M231.6,115.8a15,15,0,1,1-30,0h0a15,15,0,1,1,30,0Z" transform="translate(-181.601 -100.73)" fill="#f79e1b"/>
+                  <path id="Path_337" data-name="Path 337" d="M14.841,100.819a15,15,0,0,0,.159,30,15.174,15.174,0,0,0,10.079-3.889h0a14.262,14.262,0,0,0,1.508-1.587h-3.1a18.3,18.3,0,0,1-1.111-1.508H27.7a10.166,10.166,0,0,0,.873-1.587H21.507a9.46,9.46,0,0,1-.635-1.587h8.254a15.758,15.758,0,0,0,.794-4.762,20.485,20.485,0,0,0-.317-3.174H20.4a11.6,11.6,0,0,1,.4-1.587h8.254a9.459,9.459,0,0,0-.635-1.587H21.428a15.738,15.738,0,0,1,.873-1.587h5.317a7.547,7.547,0,0,0-1.19-1.587H23.491A13.526,13.526,0,0,1,25,104.867a14.977,14.977,0,0,0-10.158-4.047C14.841,100.661,14.92,100.819,14.841,100.819Z" transform="translate(0 -100.749)" fill="#eb001b"/>
+                  <g id="Group_714" data-name="Group 714" transform="translate(1.429 11.181)">
+                    <path id="Path_340" data-name="Path 340" d="M183.9,226.984l.238-1.349a3.437,3.437,0,0,1-.4.079c-.556,0-.635-.317-.556-.476l.476-2.778h.873l.238-1.508h-.794l.159-.952h-1.587s-.952,5.238-.952,5.873a1.191,1.191,0,0,0,1.27,1.349A2.437,2.437,0,0,0,183.9,226.984Z" transform="translate(-165.013 -219.286)" fill="#fff"/>
+                    <path id="Path_341" data-name="Path 341" d="M210.4,232.28a2.524,2.524,0,0,0,2.778,2.778,4.12,4.12,0,0,0,1.667-.238l.317-1.508a4.758,4.758,0,0,1-1.667.4c-1.746,0-1.428-1.27-1.428-1.27h3.254a10.291,10.291,0,0,0,.238-1.428,2.15,2.15,0,0,0-2.3-2.3C211.59,228.55,210.4,230.3,210.4,232.28Zm2.778-2.3c.873,0,.714,1.032.714,1.111h-1.746C212.146,231.01,212.3,229.979,213.178,229.979Z" transform="translate(-190.956 -227.122)" fill="#fff"/>
+                    <path id="Path_342" data-name="Path 342" d="M300.365,220.5l.317-1.746a3.9,3.9,0,0,1-1.349.4c-1.111,0-1.587-.873-1.587-1.825,0-1.9.952-2.936,2.063-2.936a2.65,2.65,0,0,1,1.428.476l.238-1.667a5.58,5.58,0,0,0-1.825-.4c-1.825,0-3.651,1.587-3.651,4.6,0,1.984.952,3.333,2.857,3.333A7.124,7.124,0,0,0,300.365,220.5Z" transform="translate(-268.065 -212.8)" fill="#fff"/>
+                    <path id="Path_343" data-name="Path 343" d="M89.416,227.2a5.62,5.62,0,0,0-1.9.317l-.238,1.349a4.691,4.691,0,0,1,1.746-.317c.556,0,1.032.079,1.032.556,0,.317-.079.4-.079.4h-.714c-1.349,0-2.857.556-2.857,2.381,0,1.429.952,1.746,1.508,1.746a2.385,2.385,0,0,0,1.667-.714l-.079.635h1.429l.635-4.365A1.881,1.881,0,0,0,89.416,227.2Zm.317,3.571c0,.238-.159,1.508-1.111,1.508a.619.619,0,0,1-.635-.635c0-.4.238-.952,1.429-.952A1.252,1.252,0,0,0,89.733,230.771Z" transform="translate(-79.257 -225.771)" fill="#fff"/>
+                    <path id="Path_344" data-name="Path 344" d="M137.025,232.908a2.034,2.034,0,0,0,2.381-2.063c0-1.984-1.9-1.587-1.9-2.381,0-.4.317-.556.873-.556.238,0,1.111.079,1.111.079l.238-1.429a6.028,6.028,0,0,0-1.508-.159c-1.19,0-2.381.476-2.381,2.063,0,1.825,1.984,1.667,1.984,2.381,0,.476-.556.556-.952.556a5.19,5.19,0,0,1-1.428-.238l-.238,1.429C135.279,232.749,135.676,232.908,137.025,232.908Z" transform="translate(-123.216 -225.051)" fill="#fff"/>
+                    <path id="Path_345" data-name="Path 345" d="M431.724,214.4l-.318,2.143a2.2,2.2,0,0,0-1.508-.794c-1.429,0-2.7,1.746-2.7,3.809,0,1.27.635,2.619,1.984,2.619a2.119,2.119,0,0,0,1.508-.635l-.079.556H432.2l1.19-7.619Zm-.714,4.206c0,.873-.4,1.984-1.27,1.984-.556,0-.873-.476-.873-1.27,0-1.27.556-2.063,1.27-2.063C430.692,217.257,431.009,217.654,431.009,218.606Z" transform="translate(-386.249 -214.241)" fill="#fff"/>
+                    <path id="Path_346" data-name="Path 346" d="M15.908,222.019l.952-5.714.159,5.714H18.13l2.063-5.714-.873,5.714h1.667l1.27-7.619H19.638l-1.587,4.682-.079-4.682h-2.3l-1.27,7.619Z" transform="translate(-14.4 -214.241)" fill="#fff"/>
+                    <path id="Path_347" data-name="Path 347" d="M261.746,234.99c.476-2.619.556-4.762,1.667-4.365a6.228,6.228,0,0,1,.555-1.825h-.317c-.714,0-1.27.952-1.27.952l.159-.873h-1.508L260,235.07h1.746Z" transform="translate(-235.636 -227.213)" fill="#fff"/>
+                    <path id="Path_348" data-name="Path 348" d="M349.416,227.2a5.621,5.621,0,0,0-1.9.317l-.238,1.349a4.691,4.691,0,0,1,1.746-.317c.556,0,1.032.079,1.032.556,0,.317-.079.4-.079.4h-.714c-1.349,0-2.857.556-2.857,2.381,0,1.429.952,1.746,1.508,1.746a2.384,2.384,0,0,0,1.667-.714l-.079.635h1.428l.635-4.365A1.853,1.853,0,0,0,349.416,227.2Zm.4,3.571c0,.238-.159,1.508-1.111,1.508a.62.62,0,0,1-.635-.635c0-.4.238-.952,1.429-.952C349.733,230.771,349.733,230.771,349.813,230.771Z" transform="translate(-313.465 -225.771)" fill="#fff"/>
+                    <path id="Path_349" data-name="Path 349" d="M396.146,234.99c.476-2.619.556-4.762,1.667-4.365a6.229,6.229,0,0,1,.556-1.825h-.317c-.714,0-1.27.952-1.27.952l.159-.873h-1.508l-1.032,6.19h1.746Z" transform="translate(-356.703 -227.213)" fill="#fff"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+          {% comment %} Mastro {% endcomment %}
+          <svg xmlns="http://www.w3.org/2000/svg" width="57" height="37" viewBox="0 0 57 37">
+            <title id="pi-maestro">Maestro</title>
+            <g id="maestro" transform="translate(-821 -5265)">
+              <g id="Group_786" data-name="Group 786" transform="translate(0)">
+                <g id="Rectangle_499" data-name="Rectangle 499" transform="translate(821 5265)" fill="#fff" stroke="#979797" stroke-width="1">
+                  <rect width="57" height="37" rx="5" stroke="none"/>
+                  <rect x="0.5" y="0.5" width="56" height="36" rx="4.5" fill="none"/>
+                </g>
+                <g id="maestro-2" data-name="maestro" transform="translate(824.768 5268.436)">
+                  <g id="Group_679" data-name="Group 679">
+                    <path id="Path_306" data-name="Path 306" d="M84.38,155.716a14.512,14.512,0,1,0-9.722,3.752,14.447,14.447,0,0,0,9.722-3.752Z" transform="translate(-60.13 -130.442)" fill="#009ddd"/>
+                    <path id="Path_307" data-name="Path 307" d="M230.767,178.369a14.507,14.507,0,0,0,0-21.521v21.521Z" transform="translate(-206.517 -153.095)" fill="#009ddd"/>
+                  </g>
+                  <path id="Path_308" data-name="Path 308" d="M213.754,130.446A14.512,14.512,0,0,0,204,134.2a18.639,18.639,0,0,0-1.45,1.536h2.928a18.648,18.648,0,0,1,1.109,1.534h-5.146q-.467.768-.853,1.535h6.824c.229.511.455,1.025.625,1.536H200a13.894,13.894,0,0,0-.427,1.563h8.9a15.454,15.454,0,0,1,.314,3.07,14.606,14.606,0,0,1-.741,4.606H200q.254.767.6,1.535h6.824a15.79,15.79,0,0,1-.825,1.535h-5.146a15.4,15.4,0,0,0,1.109,1.535h2.928A14.94,14.94,0,0,1,204,155.72a14.513,14.513,0,1,0,9.752-25.274Z" transform="translate(-179.752 -130.445)" fill="#ed1c2e"/>
+                  <g id="Group_680" data-name="Group 680" transform="translate(4.833 10.776)">
+                    <path id="Path_309" data-name="Path 309" d="M366.194,251.926a.474.474,0,0,1,.484-.455.448.448,0,0,1,.455.455.473.473,0,0,1-.455.484.5.5,0,0,1-.484-.484Zm.484.37a.353.353,0,0,0,.341-.37.329.329,0,0,0-.341-.341.352.352,0,0,0-.369.341.375.375,0,0,0,.369.37Zm-.057-.171h-.113v-.4h.17c.056,0,.085,0,.114.029s.056.056.056.085c0,.057-.028.114-.085.114l.085.17h-.114l-.056-.143h-.057v.143Zm0-.227h.113v-.087h-.113v.087Z" transform="translate(-327.531 -245.047)" fill="#fff"/>
+                    <path id="Path_310" data-name="Path 310" d="M102.015,213.629H100.2l1.08-5.657L98.8,213.629H97.153L96.869,208l-1.08,5.629H94.14l1.394-7.363h2.842l.142,4.548,1.993-4.548h2.925Z" transform="translate(-94.14 -206.266)" fill="#fff"/>
+                    <path id="Path_311" data-name="Path 311" d="M275.1,213.548a4.616,4.616,0,0,1-1.309.2c-.909,0-1.422-.455-1.422-1.307a4.028,4.028,0,0,1,.057-.541l.113-.6.087-.454.824-4.576h1.791l-.255,1.363h.937l-.255,1.451h-.938l-.455,2.5a1.378,1.378,0,0,0-.057.256c0,.313.2.454.627.454a2.064,2.064,0,0,0,.483-.056l-.228,1.309Z" transform="translate(-247.042 -206.269)" fill="#fff"/>
+                    <path id="Path_312" data-name="Path 312" d="M300.27,215.581a.483.483,0,0,0-.2-.058c-.086-.029-.142-.029-.142-.056h-.2a1.869,1.869,0,0,0-1.565.966l.17-.909h-1.65l-1.108,6h1.82c.654-3.669.91-4.322,1.791-4.322.057,0,.144.029.228.029l.2.056.655-1.7Z" transform="translate(-266.951 -214.159)" fill="#fff"/>
+                    <path id="Path_313" data-name="Path 313" d="M237.048,217.09c0,.74.427,1.279,1.394,1.65.74.312.853.4.853.682,0,.369-.342.54-1.052.54a5.858,5.858,0,0,1-1.649-.255l-.228,1.393h.086l.312.085c.113,0,.283.029.483.029a7.438,7.438,0,0,0,1.024.056c1.9,0,2.815-.625,2.815-1.989,0-.825-.37-1.308-1.308-1.677-.768-.285-.853-.37-.853-.654,0-.312.313-.483.91-.483a11.9,11.9,0,0,1,1.307.085l.256-1.364a10.907,10.907,0,0,0-1.592-.113c-2.046,0-2.757.908-2.757,2.017Z" transform="translate(-216.154 -213.822)" fill="#fff"/>
+                    <path id="Path_314" data-name="Path 314" d="M160.56,221.179h-1.479l.029-.627a2.464,2.464,0,0,1-1.9.711,1.56,1.56,0,0,1-1.649-1.62c0-1.451,1.164-2.3,3.184-2.3a7.01,7.01,0,0,1,.739.029,1.138,1.138,0,0,0,.057-.37c0-.4-.314-.54-1.166-.54a7.632,7.632,0,0,0-1.478.143l-.255.086-.171.028.255-1.336a8.185,8.185,0,0,1,2.162-.313c1.562,0,2.359.6,2.359,1.733a6.357,6.357,0,0,1-.141,1.195l-.37,2.132-.057.369-.058.314-.028.2-.029.171Zm-1.308-2.673a2.351,2.351,0,0,0-.4-.028c-1.024,0-1.535.313-1.535.91a.582.582,0,0,0,.624.625,1.4,1.4,0,0,0,1.309-1.508Z" transform="translate(-146.829 -213.816)" fill="#fff"/>
+                    <path id="Path_315" data-name="Path 315" d="M202.877,220.856a6.881,6.881,0,0,1-1.848.255c-2.016,0-3.07-.939-3.07-2.7a3.274,3.274,0,0,1,3.156-3.554,2.153,2.153,0,0,1,2.418,2.16,6.108,6.108,0,0,1-.2,1.479h-3.612v.2c0,.682.512,1.051,1.564,1.051a4.8,4.8,0,0,0,1.875-.368l-.285,1.478Zm-.966-3.553v-.313c0-.483-.314-.768-.853-.768-.569,0-.967.4-1.138,1.082Z" transform="translate(-183.205 -213.636)" fill="#fff"/>
+                    <path id="Path_316" data-name="Path 316" d="M329.762,218.093a3.2,3.2,0,0,1-3.526,2.87,2.547,2.547,0,0,1-2.841-2.757,3.357,3.357,0,0,1,3.552-3.555,2.615,2.615,0,0,1,2.872,2.7,3.059,3.059,0,0,1-.057.74Zm-1.876-.768c0-.625-.256-1.192-.994-1.192-.912,0-1.48,1.079-1.48,2.046,0,.8.4,1.336,1.024,1.336a1.762,1.762,0,0,0,1.393-1.45,3.136,3.136,0,0,0,.057-.741Z" transform="translate(-290.815 -213.459)" fill="#fff"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+
+          {% comment %} American Express {% endcomment %}
+          <svg class="payment-icon" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" aria-labelledby="pi-american_express"> <title id="pi-american_express">American Express</title> <path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000" opacity=".07"></path> <path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" fill="#002663"></path> <path d="M8.971 10.268l.774 1.876H8.203l.768-1.876zm16.075.078h-2.977v.827h2.929v1.239h-2.923v.922h2.977v.739l2.077-2.245-2.077-2.34-.006.858zm-14.063-2.34h3.995l.887 1.935L16.687 8h10.37l1.078 1.19L29.25 8h4.763l-3.519 3.852 3.483 3.828h-4.834l-1.078-1.19-1.125 1.19H10.03l-.494-1.19H8.406l-.495 1.19H4L7.286 8h3.43l.267.006zm8.663 1.078h-2.239l-1.5 3.536-1.625-3.536H12.06v4.81l-2.06-4.81H8.007l-2.382 5.512H7.18l.494-1.19h2.596l.494 1.19h2.72v-3.935l1.751 3.941h1.19l1.74-3.929v3.93h1.458l.024-5.52zm9.34 2.768l2.531-2.768h-1.822l-1.601 1.726-1.548-1.726h-5.894v5.518h5.81l1.614-1.738 1.548 1.738h1.875l-2.512-2.75z" fill="#FFF"></path></svg> 
+          {% comment %} Paypal 
+          <svg xmlns="http://www.w3.org/2000/svg" width="72" height="37" viewBox="0 0 72 37">
+            <title id="pi-paypal">Paypal</title>
+
+            <g id="paypal" transform="translate(-893 -5265)">
+              <g id="Group_785" data-name="Group 785" transform="translate(1)">
+                <g id="Group_684" data-name="Group 684" transform="translate(892.051 5264.627)">
+                  <g id="paypal-2" data-name="paypal" transform="translate(0 0)">
+                    <g id="Rectangle_501" data-name="Rectangle 501" transform="translate(-0.051 0.373)" fill="#fff" stroke="#979797" stroke-width="1">
+                      <rect width="72" height="37" rx="5" stroke="none"/>
+                      <rect x="0.5" y="0.5" width="71" height="36" rx="4.5" fill="none"/>
+                    </g>
+                    <g id="paypal-3" data-name="paypal" transform="translate(6.33 9.9)">
+                      <g id="Group_681" data-name="Group 681" transform="translate(0 0.001)">
+                        <path id="Path_318" data-name="Path 318" d="M1.361,344.292A1.361,1.361,0,0,1,.04,342.6L1.4,337.182v-.057l1.362-5.416a1.361,1.361,0,0,1,1.321-1.032H7.548a3.4,3.4,0,0,1,3.3,4.229l-.34,1.362a3.4,3.4,0,0,1-3.3,2.579H3.787l-1.1,4.414A1.362,1.362,0,0,1,1.361,344.292Zm3.107-8.169H7.208a.681.681,0,0,0,.659-.517l.34-1.362a.678.678,0,0,0-.659-.847h-2.4Z" transform="translate(0 -330.677)" fill="#283593"/>
+                        <path id="Path_319" data-name="Path 319" d="M85.683,381.492H83.744a3.774,3.774,0,0,1-3.662-4.689h0l.18-.724a3.633,3.633,0,0,1,3.54-2.759H85.74a3.774,3.774,0,0,1,3.654,4.692l-.18.724A3.633,3.633,0,0,1,85.683,381.492Zm-2.957-4.027a1.051,1.051,0,0,0,1.018,1.3h1.939a.912.912,0,0,0,.888-.692l.18-.724a1.052,1.052,0,0,0-1.018-1.3H83.793a.913.913,0,0,0-.888.692Z" transform="translate(-69.761 -367.877)" fill="#283593"/>
+                        <path id="Path_320" data-name="Path 320" d="M129.361,381.5a1.362,1.362,0,0,1-1.321-1.691l1.362-5.446a1.363,1.363,0,1,1,2.644.659l-1.362,5.446A1.362,1.362,0,0,1,129.361,381.5Z" transform="translate(-111.662 -367.887)" fill="#283593"/>
+                      </g>
+                      <g id="Group_682" data-name="Group 682" transform="translate(32.677 0.001)">
+                        <path id="Path_321" data-name="Path 321" d="M257.361,344.291a1.362,1.362,0,0,1-1.321-1.691l1.362-5.419v-.057l1.361-5.416a1.362,1.362,0,0,1,1.321-1.032h3.464a3.4,3.4,0,0,1,3.3,4.229l-.34,1.362a3.4,3.4,0,0,1-3.3,2.579h-3.42l-1.1,4.414A1.362,1.362,0,0,1,257.361,344.291Zm3.107-8.169h2.742a.681.681,0,0,0,.659-.517l.34-1.362a.678.678,0,0,0-.659-.847h-2.4Z" transform="translate(-256 -330.676)" fill="#03a9f4"/>
+                        <path id="Path_322" data-name="Path 322" d="M341.683,381.492h-1.939a3.774,3.774,0,0,1-3.662-4.689h0l.18-.724a3.633,3.633,0,0,1,3.54-2.759h1.939a3.774,3.774,0,0,1,3.662,4.689l-.18.724A3.632,3.632,0,0,1,341.683,381.492Zm-2.957-4.027a1.051,1.051,0,0,0,1.018,1.3h1.939a.912.912,0,0,0,.888-.692l.18-.724a1.052,1.052,0,0,0-1.018-1.3h-1.939a.913.913,0,0,0-.888.692Z" transform="translate(-325.761 -367.877)" fill="#03a9f4"/>
+                        <path id="Path_323" data-name="Path 323" d="M385.361,381.5a1.362,1.362,0,0,1-1.321-1.691l1.362-5.446a1.363,1.363,0,1,1,2.644.659h0l-1.362,5.446A1.362,1.362,0,0,1,385.361,381.5Z" transform="translate(-367.662 -367.887)" fill="#03a9f4"/>
+                      </g>
+                      <g id="Group_683" data-name="Group 683" transform="translate(21.784 5.446)">
+                        <path id="Path_324" data-name="Path 324" d="M174.746,380.139a1.362,1.362,0,0,1-1.133-.607l-2.723-4.085a1.362,1.362,0,0,1,2.266-1.511l2.723,4.085a1.361,1.361,0,0,1-1.133,2.119Z" transform="translate(-170.661 -373.329)" fill="#283593"/>
+                        <path id="Path_325" data-name="Path 325" d="M172.028,384.24a1.362,1.362,0,0,1-1.046-2.233l6.808-8.169a1.362,1.362,0,1,1,2.091,1.745h0l-6.808,8.169A1.361,1.361,0,0,1,172.028,384.24Z" transform="translate(-170.666 -373.346)" fill="#283593"/>
+                      </g>
+                      <path id="Path_326" data-name="Path 326" d="M428.027,344.282a1.362,1.362,0,0,1-1.321-1.691L429.43,331.7a1.363,1.363,0,0,1,2.644.659h0l-2.723,10.892A1.361,1.361,0,0,1,428.027,344.282Z" transform="translate(-372.205 -330.666)" fill="#03a9f4"/>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>{% endcomment %}
+          {% comment %} Bhim UPI {% endcomment %}
+          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/upi.png?v=1579591362" title="BHIM UPI" class="payment-social-icon">
+
+          {% comment %} E wallet {% endcomment %}
+          <svg class="payment-icon" xmlns="http://www.w3.org/2000/svg" width="95" height="37" viewBox="0 0 95 37">
+            <title id="pi-ewallet">E Wallet</title>
+            <g id="wallet" transform="translate(-1325 -5265)">
+              <g id="Group_780" data-name="Group 780" transform="translate(0)">
+                <g id="Rectangle_417" data-name="Rectangle 417" transform="translate(1325 5265)" fill="#fff" stroke="#979797" stroke-width="1">
+                  <rect width="95" height="37" rx="5" stroke="none"/>
+                  <rect x="0.5" y="0.5" width="94" height="36" rx="4.5" fill="none"/>
+                </g>
+                <g id="wallet-2" data-name="wallet" transform="translate(1331.335 5268.364)">
+                  <path id="Path_350" data-name="Path 350" d="M49.977,175.275H28.664a.953.953,0,0,0-.953.953v2.559H50.93v-2.559A.953.953,0,0,0,49.977,175.275Z" transform="translate(-26.677 -165.965)" fill="#ffb125"/>
+                  <path id="Path_351" data-name="Path 351" d="M60.718,40.959,58.788,60.5a.893.893,0,0,1-.977.8l-9.78-.966a.893.893,0,0,1-.8-.977l1.93-19.54a.893.893,0,0,1,.977-.8l9.78.966A.893.893,0,0,1,60.718,40.959Z" transform="translate(-45.156 -36.94)" fill="#b6fa4c"/>
+                  <path id="Path_352" data-name="Path 352" d="M91.316,39.982l-9.78-.966a.893.893,0,0,0-.977.8l-.173,1.753a.888.888,0,0,1,.491-.093l9.78.966a.893.893,0,0,1,.8.977L89.7,61.206a.891.891,0,0,0,.485-.708l1.93-19.54A.893.893,0,0,0,91.316,39.982Z" transform="translate(-76.555 -36.939)" fill="#a8e83a"/>
+                  <path id="Path_353" data-name="Path 353" d="M78.014,75.261,76.606,89.516a.54.54,0,0,0,.25.511A2.619,2.619,0,0,1,77.911,91.3a.539.539,0,0,0,.45.34l5.07.5a.539.539,0,0,0,.508-.245,2.619,2.619,0,0,1,1.284-1.043.54.54,0,0,0,.345-.453l1.408-14.255a.54.54,0,0,0-.25-.511,2.619,2.619,0,0,1-1.055-1.274.539.539,0,0,0-.45-.34l-5.07-.5a.539.539,0,0,0-.508.245,2.619,2.619,0,0,1-1.284,1.043A.54.54,0,0,0,78.014,75.261Z" transform="translate(-72.972 -69.613)" fill="#7d0"/>
+                  <path id="Path_354" data-name="Path 354" d="M110.92,75.635a2.619,2.619,0,0,1-1.055-1.274.539.539,0,0,0-.45-.34l-5.07-.5a.539.539,0,0,0-.508.245,2.619,2.619,0,0,1-1.284,1.043.54.54,0,0,0-.345.453l-.054.543,6.569.629a.539.539,0,0,1,.45.34,2.619,2.619,0,0,0,1.055,1.274.54.54,0,0,1,.25.511l-1.221,12.363c.052-.024.105-.046.159-.067a.54.54,0,0,0,.345-.453l1.408-14.255A.54.54,0,0,0,110.92,75.635Z" transform="translate(-97.166 -69.613)" fill="#73cc00"/>
+                  <path id="Path_355" data-name="Path 355" d="M86.387,6.931,75.329,23.156a.893.893,0,0,1-1.241.235l-8.121-5.534a.893.893,0,0,1-.235-1.241L76.79.39A.893.893,0,0,1,78.031.155L86.151,5.69A.893.893,0,0,1,86.387,6.931Z" transform="translate(-62.532 0)" fill="#b6fa4c"/>
+                  <path id="Path_356" data-name="Path 356" d="M242.1,5.689,233.975.155a.893.893,0,0,0-1.241.235l-.946,1.388a.894.894,0,0,1,.237.114l8.121,5.534a.893.893,0,0,1,.235,1.241L230.27,23.505a.893.893,0,0,0,1-.35L242.331,6.93A.893.893,0,0,0,242.1,5.689Z" transform="translate(-218.477 0)" fill="#a8e83a"/>
+                  <path id="Path_357" data-name="Path 357" d="M123.319,51.817l-8.067,11.837a.54.54,0,0,0-.026.569,2.619,2.619,0,0,1,.315,1.624.539.539,0,0,0,.233.514l4.21,2.869a.539.539,0,0,0,.563.028,2.619,2.619,0,0,1,1.626-.3.54.54,0,0,0,.52-.232l8.067-11.837a.54.54,0,0,0,.026-.569,2.619,2.619,0,0,1-.315-1.624.539.539,0,0,0-.233-.514l-4.21-2.869a.539.539,0,0,0-.564-.028,2.619,2.619,0,0,1-1.626.3A.539.539,0,0,0,123.319,51.817Z" transform="translate(-109.479 -48.498)" fill="#7d0"/>
+                  <path id="Path_358" data-name="Path 358" d="M247.378,56.32a2.619,2.619,0,0,1-.315-1.624.539.539,0,0,0-.233-.514l-4.21-2.869a.539.539,0,0,0-.564-.028,2.619,2.619,0,0,1-1.626.3.54.54,0,0,0-.52.232l-.336.493,5.261,3.547a.539.539,0,0,1,.233.514,2.619,2.619,0,0,0,.315,1.624.54.54,0,0,1-.026.569L238.29,68.935a2.607,2.607,0,0,1,.476.022.54.54,0,0,0,.52-.232l8.066-11.837A.539.539,0,0,0,247.378,56.32Z" transform="translate(-226.071 -48.498)" fill="#73cc00"/>
+                  <ellipse id="Ellipse_119" data-name="Ellipse 119" cx="2.889" cy="2.889" rx="2.889" ry="2.889" transform="translate(11.874 7.787)" fill="#b6fa4c"/>
+                  <path id="Path_359" data-name="Path 359" d="M31.871,220.616H9.615a1.374,1.374,0,0,1-1.374-1.374v-13.6a1.374,1.374,0,0,1,1.374-1.374H31.871a1.374,1.374,0,0,1,1.374,1.374v13.6A1.374,1.374,0,0,1,31.871,220.616Z" transform="translate(-8.241 -193.421)" fill="#ffb125"/>
+                  <path id="Path_360" data-name="Path 360" d="M408.562,204.271h-2.5a1.374,1.374,0,0,1,1.374,1.374v13.6a1.374,1.374,0,0,1-1.374,1.374h2.5a1.374,1.374,0,0,0,1.374-1.374v-13.6A1.374,1.374,0,0,0,408.562,204.271Z" transform="translate(-384.931 -193.421)" fill="#ff901d"/>
+                  <path id="Path_361" data-name="Path 361" d="M358.268,308.688h-5.009a2.626,2.626,0,0,0-2.626,2.626h0a2.626,2.626,0,0,0,2.626,2.626h5.009a.5.5,0,0,0,.5-.5v-4.257A.5.5,0,0,0,358.268,308.688Z" transform="translate(-332.445 -292.292)" fill="#ff6d3a"/>
+                  <path id="Path_362" data-name="Path 362" d="M358.267,308.688h-2.509a.5.5,0,0,1,.5.5v3.586a.531.531,0,0,1-.531.531h-2.468A2.626,2.626,0,0,1,350.651,311a2.622,2.622,0,0,0,2.606,2.946h5.009a.5.5,0,0,0,.5-.5v-4.257A.5.5,0,0,0,358.267,308.688Z" transform="translate(-332.444 -292.292)" fill="#ed5729"/>
+                  <path id="Path_363" data-name="Path 363" d="M31.871,204.271H9.615a1.374,1.374,0,0,0-1.374,1.374v1.506h25v-1.506A1.374,1.374,0,0,0,31.871,204.271Z" transform="translate(-8.241 -193.421)" fill="#ff6d3a"/>
+                  <path id="Path_364" data-name="Path 364" d="M409.7,204.876a1.381,1.381,0,0,0-.168-.2l0,0a1.379,1.379,0,0,0-.2-.166l-.056-.036c-.028-.017-.057-.033-.086-.048l-.058-.028a1.368,1.368,0,0,0-.568-.123h-2.5a1.374,1.374,0,0,1,1.374,1.374v1.506h2.5v-1.506a1.368,1.368,0,0,0-.166-.655Q409.74,204.931,409.7,204.876Z" transform="translate(-384.933 -193.42)" fill="#ed5729"/>
+                  <path id="Path_365" data-name="Path 365" d="M9.615,460.664H31.871a1.374,1.374,0,0,0,1.374-1.374v-1.506h-25v1.506A1.374,1.374,0,0,0,9.615,460.664Z" transform="translate(-8.241 -433.468)" fill="#ff6d3a"/>
+                  <path id="Path_366" data-name="Path 366" d="M30.746,457.784v1.508a.232.232,0,0,1-.233.228H9.615a1.374,1.374,0,0,1-1.374-1.374v1.143a1.374,1.374,0,0,0,1.374,1.374H31.872l.081,0,.025,0,.056-.005.027,0,.055-.009.024,0,.076-.017h0l.033-.009a1.358,1.358,0,0,0,.159-.055l.061-.028.059-.03h0q.058-.032.113-.069h0c.031-.021.061-.043.09-.067l0,0q.044-.036.086-.075h0q.049-.046.092-.1h0a1.387,1.387,0,0,0,.125-.169l0,0c.014-.022.027-.045.039-.068h0a1.37,1.37,0,0,0,.086-.192l.008-.023q.009-.025.016-.051l.007-.026q.007-.026.013-.052l.006-.024c.005-.025.01-.051.014-.077h0c0-.03.008-.061.01-.092l0-.023c0-.031,0-.062,0-.094h0v-1.506Z" transform="translate(-8.241 -433.468)" fill="#ed5729"/>
+                  <ellipse id="Ellipse_120" data-name="Ellipse 120" cx="1.219" cy="1.219" rx="1.219" ry="1.219" transform="translate(19.687 17.804)" fill="#f2f2f2"/>
+                </g>
+                <text id="Wallet-3" data-name="Wallet" transform="translate(1362 5291)" font-size="17" font-family="NunitoSans-Bold, Nunito Sans" font-weight="700"><tspan x="0" y="0">Wallet</tspan></text>
+              </g>
+            </g>
+          </svg>
+
+          {% comment %} Net Banking {% endcomment %}
+          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/net.png?v=1579592237" title="net banking" class="payment-social-icon">
+          {% comment %} EMI {% endcomment %}
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="37" viewBox="0 0 48 37">
+            <title id="pi-emi">EMI</title>
+            <g id="emi" transform="translate(-1263 -5265)">
+              <g id="Group_781" data-name="Group 781" transform="translate(1)">
+                <g id="Rectangle_416" data-name="Rectangle 416" transform="translate(1262 5265)" fill="#fff" stroke="#979797" stroke-width="1">
+                  <rect width="48" height="37" rx="5" stroke="none"/>
+                  <rect x="0.5" y="0.5" width="47" height="36" rx="4.5" fill="none"/>
+                </g>
+                <text id="EMI-2" data-name="EMI" transform="translate(1269 5290)" fill="#191919" font-size="20" font-family="NunitoSans-Bold, Nunito Sans" font-weight="700"><tspan x="0" y="0">EMI</tspan></text>
+              </g>
+            </g>
+          </svg>
+          {% comment %} QR Code {% endcomment %}
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47" height="37" viewBox="0 0 47 37">
+            <title id="pi-qrcode">QR Code</title>
+
+            <defs>
+              <clipPath id="clip">
+                <use xlink:href="#fill"/>
+              </clipPath>
+              <clipPath id="clip-2">
+                <use xlink:href="#fill-2"/>
+              </clipPath>
+              <clipPath id="clip-3">
+                <use xlink:href="#fill-3"/>
+              </clipPath>
+              <clipPath id="clip-4">
+                <use xlink:href="#fill-4"/>
+              </clipPath>
+              <clipPath id="clip-5">
+                <use xlink:href="#fill-5"/>
+              </clipPath>
+              <clipPath id="clip-6">
+                <use xlink:href="#fill-6"/>
+              </clipPath>
+              <clipPath id="clip-7">
+                <use xlink:href="#fill-7"/>
+              </clipPath>
+              <clipPath id="clip-8">
+                <use xlink:href="#fill-8"/>
+              </clipPath>
+              <clipPath id="clip-9">
+                <use xlink:href="#fill-9"/>
+              </clipPath>
+              <clipPath id="clip-10">
+                <use xlink:href="#fill-10"/>
+              </clipPath>
+              <clipPath id="clip-11">
+                <use xlink:href="#fill-11"/>
+              </clipPath>
+              <clipPath id="clip-12">
+                <use xlink:href="#fill-12"/>
+              </clipPath>
+              <clipPath id="clip-13">
+                <use xlink:href="#fill-13"/>
+              </clipPath>
+            </defs>
+            <g id="QR_code" data-name="QR code" transform="translate(-1435 -5265)">
+              <g id="Group_779" data-name="Group 779">
+                <g id="Rectangle_518" data-name="Rectangle 518" transform="translate(1435 5265)" fill="#fff" stroke="#979797" stroke-width="1">
+                  <rect width="47" height="37" rx="5" stroke="none"/>
+                  <rect x="0.5" y="0.5" width="46" height="36" rx="4.5" fill="none"/>
+                </g>
+                <g id="Group_778" data-name="Group 778">
+                  <g id="Rectangle_585" data-name="Rectangle 585" transform="translate(1440 5270)" fill="#fff" stroke="#000" stroke-width="2">
+                    <rect width="8" height="8" stroke="none"/>
+                    <rect x="1" y="1" width="6" height="6" fill="none"/>
+                  </g>
+                  <g id="Rectangle_586" data-name="Rectangle 586" transform="translate(1440 5290)" fill="#fff" stroke="#000" stroke-width="2">
+                    <rect width="8" height="8" stroke="none"/>
+                    <rect x="1" y="1" width="6" height="6" fill="none"/>
+                  </g>
+                  <g id="Rectangle_541" data-name="Rectangle 541" transform="translate(1469 5270)" fill="#fff" stroke="#000" stroke-width="2">
+                    <rect width="8" height="8" stroke="none"/>
+                    <rect x="1" y="1" width="6" height="6" fill="none"/>
+                  </g>
+                  <g id="Rectangle_519" data-name="Rectangle 519" transform="translate(1469 5290)" fill="#fff" stroke="#000" stroke-width="2">
+                    <rect width="8" height="8" stroke="none"/>
+                    <rect x="1" y="1" width="6" height="6" fill="none"/>
+                  </g>
+                  <g id="Rectangle_565" data-name="Rectangle 565" transform="translate(1469 5279)" fill="none" stroke="#000" stroke-width="2">
+                    <rect id="fill" width="1" height="1" stroke="none"/>
+                    <path d="M0,0h1M1,0v1M1,1h-1M0,1v-1" fill="none" clip-path="url(#clip)"/>
+                  </g>
+                  <g id="Rectangle_533" data-name="Rectangle 533" transform="translate(1451 5293)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="5" height="2" stroke="none"/>
+                    <rect x="1" y="1" width="3" fill="none"/>
+                  </g>
+                  <g id="Rectangle_534" data-name="Rectangle 534" transform="translate(1460 5290)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="3" height="2" stroke="none"/>
+                    <rect x="1" y="1" width="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_521" data-name="Rectangle 521" transform="translate(1463 5290)" fill="none" stroke="#000" stroke-width="2">
+                    <rect id="fill-2" width="2" height="1" stroke="none"/>
+                    <path d="M0,0h2M1,0v1M2,1h-2M1,1v-1" fill="none" clip-path="url(#clip-2)"/>
+                  </g>
+                  <g id="Rectangle_522" data-name="Rectangle 522" transform="translate(1463 5293)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_523" data-name="Rectangle 523" transform="translate(1463 5295)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="3" height="2" stroke="none"/>
+                    <rect x="1" y="1" width="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_542" data-name="Rectangle 542" transform="translate(1451 5295)" fill="none" stroke="#000" stroke-width="2">
+                    <rect id="fill-3" width="3" height="1" stroke="none"/>
+                    <path d="M0,0h3M2,0v1M3,1h-3M1,1v-1" fill="none" clip-path="url(#clip-3)"/>
+                  </g>
+                  <g id="Rectangle_543" data-name="Rectangle 543" transform="translate(1457 5293)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="3" height="3" stroke="none"/>
+                    <rect x="1" y="1" width="1" height="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_566" data-name="Rectangle 566" transform="translate(1449 5295)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_555" data-name="Rectangle 555" transform="translate(1450 5295)" fill="none" stroke="#000" stroke-width="2">
+                    <rect id="fill-4" width="1" height="1" stroke="none"/>
+                    <path d="M0,0h1M1,0v1M1,1h-1M0,1v-1" fill="none" clip-path="url(#clip-4)"/>
+                  </g>
+                  <g id="Rectangle_535" data-name="Rectangle 535" transform="translate(1453 5288)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_536" data-name="Rectangle 536" transform="translate(1460 5285)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_524" data-name="Rectangle 524" transform="matrix(0.999, 0.035, -0.035, 0.999, 1464.608, 5286.719)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2.049" height="2.049" stroke="none"/>
+                    <rect x="1" y="1" width="0.049" height="0.049" fill="none"/>
+                  </g>
+                  <g id="Rectangle_525" data-name="Rectangle 525" transform="translate(1471 5287)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_544" data-name="Rectangle 544" transform="translate(1463 5281)" fill="none" stroke="#000" stroke-width="2">
+                    <rect id="fill-5" width="2" height="1" stroke="none"/>
+                    <path d="M0,0h2M1,0v1M2,1h-2M1,1v-1" fill="none" clip-path="url(#clip-5)"/>
+                  </g>
+                  <g id="Rectangle_526" data-name="Rectangle 526" transform="translate(1465 5283)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_545" data-name="Rectangle 545" transform="translate(1463 5277)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="3" stroke="none"/>
+                    <rect x="1" y="1" height="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_556" data-name="Rectangle 556" transform="translate(1460 5274)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="3" height="3" stroke="none"/>
+                    <rect x="1" y="1" width="1" height="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_567" data-name="Rectangle 567" transform="translate(1464 5275)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="3" height="4" stroke="none"/>
+                    <rect x="1" y="1" width="1" height="2" fill="none"/>
+                  </g>
+                  <g id="Rectangle_574" data-name="Rectangle 574" transform="translate(1463 5272)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="4" height="2" stroke="none"/>
+                    <rect x="1" y="1" width="2" fill="none"/>
+                  </g>
+                  <g id="Rectangle_546" data-name="Rectangle 546" transform="translate(1453 5283)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="3" height="2" stroke="none"/>
+                    <rect x="1" y="1" width="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_527" data-name="Rectangle 527" transform="translate(1462 5285)" fill="none" stroke="#000" stroke-width="2">
+                    <rect id="fill-6" width="1" height="2" stroke="none"/>
+                    <path d="M0,1h1M1,0v2M1,1h-1M0,2v-2" fill="none" clip-path="url(#clip-6)"/>
+                  </g>
+                  <g id="Rectangle_528" data-name="Rectangle 528" transform="translate(1462 5287)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_537" data-name="Rectangle 537" transform="translate(1467 5282)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_547" data-name="Rectangle 547" transform="translate(1467 5280)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_548" data-name="Rectangle 548" transform="translate(1471 5280)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_529" data-name="Rectangle 529" transform="translate(1472 5284)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="3" stroke="none"/>
+                    <rect x="1" y="1" height="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_530" data-name="Rectangle 530" transform="translate(1475 5285)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_549" data-name="Rectangle 549" transform="translate(1459 5280)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="3" height="2" stroke="none"/>
+                    <rect x="1" y="1" width="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_557" data-name="Rectangle 557" transform="translate(1462 5277)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_531" data-name="Rectangle 531" transform="translate(1469 5283)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_532" data-name="Rectangle 532" transform="translate(1468 5286)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="3" height="2" stroke="none"/>
+                    <rect x="1" y="1" width="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_568" data-name="Rectangle 568" transform="translate(1454 5274)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="3" height="3" stroke="none"/>
+                    <rect x="1" y="1" width="1" height="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_569" data-name="Rectangle 569" transform="translate(1450 5274)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="3" stroke="none"/>
+                    <rect x="1" y="1" height="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_575" data-name="Rectangle 575" transform="translate(1449 5272)" fill="none" stroke="#000" stroke-width="2">
+                    <rect id="fill-7" width="1" height="2" stroke="none"/>
+                    <path d="M0,1h1M1,0v2M1,1h-1M0,2v-2" fill="none" clip-path="url(#clip-7)"/>
+                  </g>
+                  <g id="Rectangle_576" data-name="Rectangle 576" transform="translate(1446 5270)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_570" data-name="Rectangle 570" transform="translate(1446 5286)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="3" height="3" stroke="none"/>
+                    <rect x="1" y="1" width="1" height="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_558" data-name="Rectangle 558" transform="translate(1450 5288)" fill="none" stroke="#000" stroke-width="2">
+                    <rect id="fill-8" width="1" height="2" stroke="none"/>
+                    <path d="M0,1h1M1,0v2M1,1h-1M0,2v-2" fill="none" clip-path="url(#clip-8)"/>
+                  </g>
+                  <g id="Rectangle_550" data-name="Rectangle 550" transform="translate(1451 5291)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="3" height="2" stroke="none"/>
+                    <rect x="1" y="1" width="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_551" data-name="Rectangle 551" transform="translate(1451 5290)" fill="none" stroke="#000" stroke-width="2">
+                    <rect id="fill-9" width="3" height="1" stroke="none"/>
+                    <path d="M0,0h3M2,0v1M3,1h-3M1,1v-1" fill="none" clip-path="url(#clip-9)"/>
+                  </g>
+                  <g id="Rectangle_571" data-name="Rectangle 571" transform="translate(1447 5283)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="4" height="2" stroke="none"/>
+                    <rect x="1" y="1" width="2" fill="none"/>
+                  </g>
+                  <g id="Rectangle_559" data-name="Rectangle 559" transform="translate(1449 5291)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_577" data-name="Rectangle 577" transform="translate(1446 5293)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_538" data-name="Rectangle 538" transform="translate(1456 5287)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="3" stroke="none"/>
+                    <rect x="1" y="1" height="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_593" data-name="Rectangle 593" transform="translate(1466 5290)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="3" stroke="none"/>
+                    <rect x="1" y="1" height="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_552" data-name="Rectangle 552" transform="translate(1454 5281)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="3" height="2" stroke="none"/>
+                    <rect x="1" y="1" width="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_553" data-name="Rectangle 553" transform="translate(1451 5280)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="3" height="2" stroke="none"/>
+                    <rect x="1" y="1" width="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_561" data-name="Rectangle 561" transform="translate(1450 5277)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="3" stroke="none"/>
+                    <rect x="1" y="1" height="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_578" data-name="Rectangle 578" transform="translate(1443 5283)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_579" data-name="Rectangle 579" transform="translate(1443 5282)" fill="none" stroke="#000" stroke-width="2">
+                    <rect id="fill-10" width="2" height="1" stroke="none"/>
+                    <path d="M0,0h2M1,0v1M2,1h-2M1,1v-1" fill="none" clip-path="url(#clip-10)"/>
+                  </g>
+                  <g id="Rectangle_562" data-name="Rectangle 562" transform="translate(1450 5285)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_594" data-name="Rectangle 594" transform="translate(1457 5270)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_592" data-name="Rectangle 592" transform="translate(1457 5284)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_580" data-name="Rectangle 580" transform="translate(1443 5287)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_587" data-name="Rectangle 587" transform="translate(1440 5283)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_588" data-name="Rectangle 588" transform="translate(1440 5285)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="3" height="3" stroke="none"/>
+                    <rect x="1" y="1" width="1" height="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_589" data-name="Rectangle 589" transform="translate(1440 5280)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_581" data-name="Rectangle 581" transform="translate(1446 5281)" fill="none" stroke="#000" stroke-width="2">
+                    <rect id="fill-11" width="2" height="1" stroke="none"/>
+                    <path d="M0,0h2M1,0v1M2,1h-2M1,1v-1" fill="none" clip-path="url(#clip-11)"/>
+                  </g>
+                  <g id="Rectangle_572" data-name="Rectangle 572" transform="translate(1448 5280)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_582" data-name="Rectangle 582" transform="translate(1446 5274)" fill="none" stroke="#000" stroke-width="2">
+                    <rect id="fill-12" width="2" height="1" stroke="none"/>
+                    <path d="M0,0h2M1,0v1M2,1h-2M1,1v-1" fill="none" clip-path="url(#clip-12)"/>
+                  </g>
+                  <g id="Rectangle_563" data-name="Rectangle 563" transform="translate(1450 5281)" fill="none" stroke="#000" stroke-width="2">
+                    <rect id="fill-13" width="1" height="1" stroke="none"/>
+                    <path d="M0,0h1M1,0v1M1,1h-1M0,1v-1" fill="none" clip-path="url(#clip-13)"/>
+                  </g>
+                  <g id="Rectangle_539" data-name="Rectangle 539" transform="translate(1460 5282)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="4" height="3" stroke="none"/>
+                    <rect x="1" y="1" width="2" height="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_540" data-name="Rectangle 540" transform="translate(1473 5282)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_554" data-name="Rectangle 554" transform="translate(1475 5281)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_564" data-name="Rectangle 564" transform="translate(1454 5277)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="4" height="3" stroke="none"/>
+                    <rect x="1" y="1" width="2" height="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_583" data-name="Rectangle 583" transform="translate(1453 5272)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="2" height="2" stroke="none"/>
+                    <rect x="1" y="1" fill="none"/>
+                  </g>
+                  <g id="Rectangle_584" data-name="Rectangle 584" transform="translate(1451 5270)" fill="none" stroke="#000" stroke-width="2">
+                    <rect width="3" height="2" stroke="none"/>
+                    <rect x="1" y="1" width="1" fill="none"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+
+          {% comment %} Diners Club {% endcomment %}
+          <svg class="payment-icon" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-diners_club"> <title id="pi-diners_club">Diners Club</title> <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path> <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path> <path d="M12 12v3.7c0 .3-.2.3-.5.2-1.9-.8-3-3.3-2.3-5.4.4-1.1 1.2-2 2.3-2.4.4-.2.5-.1.5.2V12zm2 0V8.3c0-.3 0-.3.3-.2 2.1.8 3.2 3.3 2.4 5.4-.4 1.1-1.2 2-2.3 2.4-.4.2-.4.1-.4-.2V12zm7.2-7H13c3.8 0 6.8 3.1 6.8 7s-3 7-6.8 7h8.2c3.8 0 6.8-3.1 6.8-7s-3-7-6.8-7z" fill="#3086C8"></path></svg> 
+          {% comment %} Discover {% endcomment %}
+          <svg class="payment-icon" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" aria-labelledby="pi-discover"> <title id="pi-discover">Discover</title> <path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000" opacity=".07"></path> <path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" fill="#FFF"></path> <path d="M37 16.95V21c0 1.1-.9 2-2 2H23.228c7.896-1.815 12.043-4.601 13.772-6.05z" fill="#EDA024"></path> <path fill="#494949" d="M9 11h20v2H9z"></path> <path d="M22 12c0 1.7-1.3 3-3 3s-3-1.4-3-3 1.4-3 3-3c1.7 0 3 1.3 3 3z" fill="#EDA024"></path></svg></div> 
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .payment-social-icon {    
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin: 0 5px;
+  }
+</style>
+{% schema %}
+
+{
+"name":"Footer",
+"class":"footer-section clearfix",
+"max_blocks":10,
+"settings":[
+{
+"type":"text",
+"id":"copyright_text",
+"label":"Copyright text"
+},
+{
+"type":"checkbox",
+"id":"display_designed_by",
+"label":"Show theme designer credits",
+"default":true
+},
+{
+"type":"checkbox",
+"id":"display_payment_methods",
+"label":"Show payment method icons",
+"default":true
+}
+],
+"blocks":[
+{
+"type":"logo",
+"name":"Logo",
+"settings":[
+{
+"type":"image_picker",
+"id":"image",
+"label":"Logo"
+},
+{
+"type":"select",
+"id":"text_align",
+"label":"Logo alignment",
+"options":[
+{
+"value":"left",
+"label":"Left"
+},
+{
+"value":"center",
+"label":"Center"
+},
+{
+"value":"right",
+"label":"Right"
+}
+],
+"default":"left"
+},
+{
+"type":"checkbox",
+"id":"social_icons_footer",
+"label":"Show social media footer icons",
+"default":false
+}
+]
+},
+{
+"type":"newsletter",
+"name":"Newsletter",
+"settings":[
+{
+"type":"text",
+"id":"title",
+"label":"Heading",
+"default":"Subscribe today!"
+},
+{
+"type":"richtext",
+"id":"newsletter_text",
+"label":"Text"
+},
+{
+"type":"checkbox",
+"id":"show_firstname",
+"label":"Show first name"
+},
+{
+"type":"checkbox",
+"id":"show_lastname",
+"label":"Show last name"
+},
+{
+"type":"checkbox",
+"id":"show_social",
+"label":"Show social media icons"
+}
+]
+},
+{
+"type":"link_list",
+"name":"Menu",
+"settings":[
+{
+"type":"link_list",
+"id":"menu",
+"label":"Menu",
+"info":"This menu won't show drop-down items"
+},
+{
+"type":"checkbox",
+"id":"social_icons_footer",
+"label":"Show social media footer icons",
+"default":false
+}
+]
+},
+{
+"type":"page",
+"name":"Page",
+"limit":1,
+"settings":[
+{
+"type":"page",
+"id":"page",
+"label":"Content page"
+},
+{
+"type":"checkbox",
+"id":"social_icons_footer",
+"label":"Show social media footer icons",
+"default":false
+}
+]
+},
+{
+"type":"text",
+"name":"Text",
+"settings":[
+{
+"type":"text",
+"id":"title",
+"label":"Heading",
+"default":"Title"
+},
+{
+"type":"text",
+"id":"tel_no",
+"label":"Text",
+"default":"1-800-121-1414"
+},
+{
+"type":"text",
+"id":"contact_time",
+"label":"Text",
+"default":"10:00am to 5:30pm"
+},
+{
+"type":"text",
+"id":"contact_mail",
+"label":"Text",
+"default":"connect@home.co.in"
+},
+{
+"type":"checkbox",
+"id":"social_icons_footer",
+"label":"Show social media footer icons",
+"default":false
+}
+]
+},
+{
+"type":"empty",
+"name":"Empty column",
+"settings":[
+{
+"type":"checkbox",
+"id":"social_icons_footer",
+"label":"Show social media footer icons",
+"default":false
+}
+]
+},
+{
+"type":"seoContent",
+"name":"Footer seo content",
+"settings":[
+{
+"type":"text",
+"id":"seoTitle",
+"label":"Footer seo title"
+},
+{
+"type":"textarea",
+"id":"seoDescription",
+"label":"Footer seo description"
+}
+]
+},
+{
+"type":"seoLinks",
+"name":"Footer seo Link",
+"settings":[
+{
+"type":"text",
+"id":"seoTitle",
+"label":"Footer seo link title"
+},
+{
+"type":"link_list",
+"id":"link",
+"label":"Footer seo link menu"
+}
+]
+}
+],
+"default":{
+"blocks":[
+{
+"type":"logo"
+},
+{
+"type":"link_list"
+},
+{
+"type":"link_list"
+},
+{
+"type":"text"
+}
+]
+}
+}
+
+{% endschema %}

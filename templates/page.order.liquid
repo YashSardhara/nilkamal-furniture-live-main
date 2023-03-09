@@ -1,0 +1,59 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+<div class="container page-orders">
+  <div class="account_top_sec_info">
+    <header class="page-header">
+      <h1 {% if settings.enable_multilang %}data-translate="customer.account.title"{%endif%}>My Order</h1>
+      <h5>{{ customer.name }}</h5>
+    </header>
+    <div class="log_out_opt">
+      {% if customer %}
+      <h6><a href="/account/logout">LOGOUT</a></h6>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="bg-wrapper clearfix">
+  {% paginate customer.orders by 20 %}
+
+  <div class="account-tab center">
+    <div class="tab-link">
+      <a href="/account">PROFILE</a>
+      <a class="active" href="javascript:void(0);">ORDERS</a>
+    </div>
+  </div>
+
+  <div class="section clearfix account-section min-height">
+    <main class="account-main">
+      <div id="customer_orders">
+
+        {% if customer.orders.size != 0 %}
+        <div class="loop-order-info">
+          {% for order in customer.orders %}
+          <div class="order-quick-info relative">
+            <div class="quick-info">
+              <p class="product-id">
+                <b>Order ID {{ order.name | link_to: order.customer_url }}</b>
+                <span class="purchase-date">{{ order.created_at | date: format: "month_day_year" }}</span>
+              </p>
+              <p class="order-amount">{{ order.total_price | money }}</p>
+            </div>
+            <div class="detail-info-button center">
+              <a href="{{ order.customer_url }}" class="action_button">View</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <p class="center no-order">{{ 'customer.orders.none' | t }}</p>
+        {% endif %}
+        {% if customer.orders.size > 10 %}
+        {% include 'pagination' with true %}
+        {% endif %}
+      </div>
+    </main>
+  </div>
+  {% endpaginate %}
+  </div>
+  
+</div>

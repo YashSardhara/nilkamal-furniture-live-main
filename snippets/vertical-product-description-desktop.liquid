@@ -1,0 +1,312 @@
+<!-- New designing start here  -->
+{% assign productDimensions = product.metafields.Product %}
+<div class="desc_cotainer mt-5">
+  <div class="des_cont_box ">
+    <div class="desc_cont">
+      <ul class="custom_bullet">
+        <li>Highlights</li>
+      </ul>
+      <ul class="meta_call">
+        {% if productDimensions["Feature1"] != 0 and productDimensions["Feature1"] != blank %}
+          <li class="custom_list">{{ productDimensions["Feature1"] }}</li>
+        {% endif %}
+        {% if productDimensions["Feature2"] != 0 and productDimensions["Feature2"] != blank %}
+          <li class="custom_list">{{ productDimensions["Feature2"] }}</li>
+        {% endif %}
+        {% if productDimensions["Feature3"] != 0 and productDimensions["Feature3"] != blank %}
+          <li class="custom_list">{{ productDimensions["Feature3"] }}</li>
+        {% endif %}
+        {% if productDimensions["Feature4"] != 0 and productDimensions["Feature4"] != blank %}
+          <li class="custom_list">{{ productDimensions["Feature4"] }}</li>
+        {% endif %}
+        {% if productDimensions["Feature5"] != 0 and productDimensions["Feature5"] != blank %}
+          <li class="custom_list">{{ productDimensions["Feature5"] }}</li>
+        {% endif %}
+        {% if productDimensions["Feature6"] != 0 and productDimensions["Feature6"] != blank %}
+          <li class="custom_list">{{ productDimensions["Feature6"] }}</li>
+        {% endif %}
+        {% if productDimensions["Feature7"] != 0 and productDimensions["Feature7"] != blank %}
+          <li class="custom_list">{{ productDimensions["Feature7"] }}</li>
+        {% endif %}
+        {% if productDimensions["Feature8"] != 0 and productDimensions["Feature8"] != blank %}
+          <li class="custom_list">{{ productDimensions["Feature8"] }}</li>
+        {% endif %}
+        {% if productDimensions["Feature9"] != 0 and productDimensions["Feature9"] != blank %}
+          <li class="custom_list">{{ productDimensions["Feature9"] }}</li>
+        {% endif %}
+        {% if productDimensions["Feature10"] != 0 and productDimensions["Feature10"] != blank %}
+          <li class="custom_list">{{ productDimensions["Feature10"] }}</li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+  <div class="des_cont_box">
+    <div class="desc_cont">
+      <ul class="custom_bullet">
+        <li>Dimensions</li>
+      </ul>
+      <ul class="meta_call">
+
+        {% if productDimensions["Width (cm)"] != 0 and productDimensions["Width (cm)"] != blank %}
+          <li class="list_span">Width (cm)
+            <span>{{ productDimensions["Width (cm)"] }}</span>
+          </li>
+        {% endif %}
+        {% if productDimensions["Width"] != 0 and productDimensions["Width"] != blank %}
+          <li class="list_span">Width (cm)
+            <span>{{ productDimensions["Width"] }}</span>
+          </li>
+        {% endif %}
+        {% if productDimensions["Depth (cm)"] != 0 and productDimensions["Depth (cm)"] != blank %}
+          <li class="list_span">Depth (cm)
+            <span>{{ productDimensions["Depth (cm)"] }}</span>
+          </li>
+        {% endif %}
+        {% if productDimensions["Height (cm)"] != 0 and productDimensions["Height (cm)"] != blank %}
+          <li class="list_span">Height (cm)
+            <span>{{ productDimensions["Height (cm)"] }}</span>
+          </li>
+        {% endif %}
+        {% if productDimensions["Height"] != 0 and productDimensions["Height"] != blank %}
+          <li class="list_span">Height (cm)
+            <span>{{ productDimensions["Height"] }}</span>
+          </li>
+        {% endif %}
+        {% if productDimensions["Back Height (cm)"] != 0 and productDimensions["Back Height (cm)"] != blank %}
+          <li class="list_span">Back Height (cm)
+            <span>{{ productDimensions["Back Height (cm)"] }}</span>
+          </li>
+        {% endif %}
+        {% if productDimensions["Seat Height (cm)"] != 0 and productDimensions["Seat Height (cm)"] != blank %}
+          <li class="list_span">Seat Height (cm)
+            <span>{{ productDimensions["Seat Height (cm)"] }}</span>
+          </li>
+        {% endif %}
+        {% if productDimensions["Weight (Kg)"] != 0 and productDimensions["Weight (Kg)"] != blank %}
+          <li class="list_span">Weight (Kg)
+            <span>{{ productDimensions["Weight (Kg)"] }}</span>
+          </li>
+        {% endif %}
+        {% if productDimensions["Maximum TV Size (cm)"] != 0 and productDimensions["Maximum TV Size (cm)"] != blank %}
+          <li class="list_span">Maximum TV Size (cm)
+            <span>{{ productDimensions["Maximum TV Size (cm)"] }}</span>
+          </li>
+        {% endif %}
+        {% if productDimensions["Seat Depth (cm)"] != 0 and productDimensions["Seat Depth (cm)"] != blank %}
+          <li class="list_span">Seat Depth (cm)
+            <span>{{ productDimensions["Seat Depth (cm)"] }}</span>
+          </li>
+        {% endif %}
+        {% if productDimensions["Seat Height (cm)"] != 0 and productDimensions["Seat Height (cm)"] != blank %}
+          <li class="list_span">Seat Height (cm)
+            <span>{{ productDimensions["Seat Height (cm)"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Seat Width (cm)"] != 0 and productDimensions["Seat Width (cm)"] != blank %}
+          <li class="list_span">Seat Width (cm)
+            <span>{{ productDimensions["Seat Width (cm)"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Under Desk Clearance (cm)"] != 0 and productDimensions["Under Desk Clearance (cm)"] != blank %}
+          <li class="list_span">Under Desk Clearance (cm)
+            <span>{{ productDimensions["Under Desk Clearance (cm)"] }}</span>
+          </li>
+        {% endif %}
+
+        <!--      chair dimension      -->
+        {% assign ChairWidth = productDimensions['Chair Width (cm)'] %}
+        {% if ChairWidth != 0 and ChairWidth != blank %}
+          <li class="list_span">Width
+            <span>{{ ChairWidth }}</span>
+          </li>
+        {% endif %}
+
+        {% assign ChairDepth = productDimensions['Chair Depth (cm)'] %}
+        {% if ChairDepth != 0 and ChairDepth != blank %}
+          <li class="list_span">Depth
+            <span>{{ ChairDepth }}</span>
+          </li>
+        {% endif %}
+
+        {% assign ChairHeight = productDimensions['Chair Height (cm)'] %}
+        {% if ChairHeight != 0 and ChairHeight != blank %}
+          <li class="list_span">Height
+            <span>{{ ChairHeight }}</span>
+          </li>
+        {% endif %}
+
+        {% assign ChairWeight = productDimensions['Chair Weight (kg)'] %}
+        {% if ChairWeight != 0 and ChairWeight != blank %}
+          <li class="list_span">Weight
+            <span>{{ ChairHeight }}</span>
+          </li>
+        {% endif %}
+        <!--      chair dimension end      -->
+
+        {% if productDimensions["Bed Seating Height"] != 0 and productDimensions["Bed Seating Height"] != blank %}
+          <li class="list_span">Bed Seating Height
+            <span>{{ productDimensions["Bed Seating Height"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Floor Clearance (cm)"] != 0 and productDimensions["Floor Clearance (cm)"] != blank %}
+          <li class="list_span">Floor Clearance (cm)
+            <span>{{ productDimensions["Floor Clearance (cm)"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Leg Height (cm)"] != 0 and productDimensions["Leg Height (cm)"] != blank %}
+          <li class="list_span">Leg Height (cm)
+            <span>{{ productDimensions["Leg Height (cm)"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Mirror Height (cm)"] != 0 and productDimensions["Mirror Height (cm)"] != blank %}
+          <li class="list_span">Mirror Height (cm)
+            <span>{{ productDimensions["Mirror Height (cm)"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Mirror Width (cm)"] != 0 and productDimensions["Mirror Width (cm)"] != blank %}
+          <li class="list_span">Mirror Width (cm)
+            <span>{{ productDimensions["Mirror Width (cm)"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Sofa Backrest Height (cm)"] != 0 and productDimensions["Sofa Backrest Height (cm)"] != blank %}
+          <li class="list_span">Sofa Backrest Height (cm)
+            <span>{{ productDimensions["Sofa Backrest Height (cm)"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Sofa Seat Height (cm)"] != 0 and productDimensions["Sofa Seat Height (cm)"] != blank %}
+          <li class="list_span">Sofa Seat Height (cm)
+            <span>{{ productDimensions["Sofa Seat Height (cm)"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Table Depth (cm) "] != 0 and productDimensions["Table Depth (cm) "] != blank %}
+          <li class="list_span">Table Depth (cm)
+            <span>{{ productDimensions["Table Depth (cm) "] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Stool Width (cm)"] != 0 and productDimensions["Stool Width (cm)"] != blank %}
+          <li class="list_span">Stool Width (cm)
+            <span>{{ productDimensions["Stool Width (cm)"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Stool Height (cm)"] != 0 and productDimensions["Stool Height (cm)"] != blank %}
+          <li class="list_span">Stool Height (cm)
+            <span>{{ productDimensions["Stool Height (cm)"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Table Diameter (cm)"] != 0 and productDimensions["Table Diameter (cm)"] != blank %}
+          <li class="list_span">Table Diameter (cm)
+            <span>{{ productDimensions["Table Diameter (cm)"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Table Height (cm)"] != 0 and productDimensions["Table Height (cm)"] != blank %}
+          <li class="list_span">Table Height (cm)
+            <span>{{ productDimensions["Table Height (cm)"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Table Weight (kg)"] != 0 and productDimensions["Table Weight (kg)"] != blank %}
+          <li class="list_span">Table Weight (kg)
+            <span>{{ productDimensions["Table Weight (kg)"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Table Width (cm)"] != 0 and productDimensions["Table Width (cm)"] != blank %}
+          <li class="list_span">Table Width (cm)
+            <span>{{ productDimensions["Table Width (cm)"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Tabletop Thickness (cm)"] != 0 and productDimensions["Tabletop Thickness (cm)"] != blank %}
+          <li class="list_span">Tabletop Thickness (cm)
+            <span>{{ productDimensions["Tabletop Thickness (cm)"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Headboard Thickness (cm)"] != 0 and productDimensions["Headboard Thickness (cm)"] != blank %}
+          <li class="list_span">Headboard Thickness (cm)
+            <span>{{ productDimensions["Headboard Thickness (cm)"] }}</span>
+          </li>
+        {% endif %}
+
+        {% if productDimensions["Seating Height (cm)"] != 0 and productDimensions["Seating Height (cm)"] != blank %}
+          <li class="list_span">Seating Height (cm)
+            <span>{{ productDimensions["Seating Height (cm)"] }}</span>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="judgeme">
+  {% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: true, auto_install: true, product: product %}
+</div>
+
+<style>
+  .desc_cotainer {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 60% 35%;
+    grid-gap: 5%;
+  }
+
+  .custom_bullet,
+  .meta_call {
+    padding-inline-start: 0 !important;
+  }
+
+  .custom_bullet li {
+    list-style: none;
+    font-size: 16px;
+    border-bottom: 0.5px solid #6A6A6A;
+    color: #000;
+    padding-bottom: 5px;
+    font-weight: 400px;
+  }
+
+  .meta_call li {
+    list-style: none;
+    padding-left: 1em !important;
+    margin-bottom: 5px !important;
+    font-size: 13px;
+    color: #6A6A6A;
+  }
+
+  .meta_call li::before {
+    content: "\2022";
+    color: #6A6A6A;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+
+  .custom_bullet li::before {
+    content: "\2022";
+    color: #00AAFF;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    padding-left: -1em;
+  }
+
+  @media(max-width:768px) {
+    .desc_cotainer {
+      display: grid;
+      width: 100%;
+      grid-template-columns: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,53 @@
+{% for link in linklists[sub-menu].links %}
+  {% if linklists[link.handle] != empty %}
+    {% assign link_count = linklists[link.handle].links | size %}
+<!--   code to check it is mega menu or normal menu	 -->
+	{% assign normalMenu = settings.menu | downcase %}
+	{% assign linkHandle = link.title | downcase %}
+	{% if normalMenu contains linkHandle %}
+      
+	{% else %}
+      <div class="dropdown_container {{ link.handle }}" data-dropdown="{{ link.handle }}">
+        <div class="dropdown menu">
+          <div class="dropdown_content {% if link_count < 4 %}dropdown_narrow{% endif %}">
+            {% for sublink in linklists[link.handle].links %}
+              <div class="dropdown_column">
+                <ul class="{% if linklists[sublink.handle] != empty %}dropdown_title{% else %}dropdown_item{% endif %}">
+                  <li>
+                    {% assign titleLogo = sublink.title | handle %}
+                    <span class="svg-logo">{% include 'icon',id:titleLogo %}</span><a href="{{ sublink.url }}">{{ sublink.title }}</a>
+                  </li>
+                </ul>
+
+                {% if linklists[sublink.handle] != empty %}
+                  <ul>
+                    {% for subsublink in linklists[sublink.handle].links %}
+                      <li>
+                        <a href="{{ subsublink.url }}">{{ subsublink.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+	{% endif %}
+  {% endif %}
+{% endfor %}
+
+<style>
+  .main_nav_wrapper .main_nav ul.dropdown_title li {
+    display: flex;
+  }
+
+  .main_nav_wrapper .main_nav ul.dropdown_title li .svg-logo svg {
+    width: 24px;
+    height: 20px;
+  }
+
+  .main_nav_wrapper .main_nav ul.dropdown_title a {
+    margin-left: 6px;
+  }
+</style>

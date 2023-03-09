@@ -1,0 +1,1096 @@
+{% capture content %}
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9 no-js supports-no-cookies" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if (gte IE 10)|!(IE)]><!-->
+<html class="no-js supports-no-cookies" lang="{{ shop.locale }}">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="cleartype" content="on">
+  <meta name="google-site-verification" content="gF6mh6Iia50PVKbeFoMgLulP0E4uvu56jQpDnsjDUIg" />
+  <!--   {% if template contains "collection" %}
+    {% assign collection_url = canonical_url | split: '/'%}
+    {% assign popular_found = 0 %}
+    {% for item in collection_url %}
+      {% if (item == "popular") %}
+        {% assign popular_found = 1 %}
+      {% else %}
+        {% assign popular_found = 0 %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% if popular_found == 1 %}
+    <meta name="robots" content="noindex,nofollow">
+  {% else %}
+    <meta name="robots" content="index,follow">
+  {% endif %} -->
+  <!-- Custom Fonts -->
+  {% if settings.logo_font contains 'Google' or settings.headline_font contains 'Google' or settings.nav_font contains 'Google' or settings.slideshow_subtitle_font contains 'Google' or settings.slideshow_headline_font contains 'Google' or settings.regular_font contains 'Google' %}
+  <link
+    href="//fonts.googleapis.com/css?family=.|{% if settings.logo_font contains 'Google' %}{{ settings.logo_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.headline_font contains 'Google' %}{{ settings.headline_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.nav_font contains 'Google' %}{{ settings.nav_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.slideshow_headline_font contains 'Google' %}{{ settings.slideshow_headline_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.slideshow_subtitle_font contains 'Google' %}{{ settings.slideshow_subtitle_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.regular_font contains 'Google' %}{{ settings.regular_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold{% endif %}"
+    rel="stylesheet" type="text/css" />
+  {% endif %}
+
+  {% if page.handle contains 'franchise' %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  {% endif %}
+
+
+  <!-- 6 Slider for modular -->
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <!-- JavaScript -->
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+  <!-- 6 Slider for modular -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <!-- Start VWO Async SmartCode -->
+  <script type='text/javascript'>
+    _vis_opt_url = document.location.protocol + '//' + document.location.hostname +
+      document.location.pathname + "?preview_theme_id=123654799449&" +
+      document.location.search.substring(1,) + document.location.hash; //Replace “XXXXXXX” with your Shopify Preview theme ID
+    window._vwo_code = window._vwo_code || (function () {
+      var account_id = 639461, //Replace XXXXX with your accountID
+        _vis_opt_url = window._vis_opt_url || document.URL,
+        settings_tolerance = 2000,
+        library_tolerance = 2500,
+        use_existing_jquery = false,
+        is_spa = 1,
+        hide_element = 'body',
+        /* DO NOT EDIT BELOW THIS LINE */
+        f = false,
+        d = document,
+        code = {
+          use_existing_jquery: function () {
+            return use_existing_jquery;
+          },
+          library_tolerance: function () {
+            return library_tolerance;
+          },
+          finish: function () {
+            if (!f) {
+              f = true;
+              var a = d.getElementById('_vis_opt_path_hides');
+              if (a) a.parentNode.removeChild(a);
+            }
+          },
+          finished: function () {
+            return f;
+          },
+          load: function (a) {
+            var b = d.createElement('script');
+            b.src = a;
+            b.type = 'text/javascript';
+            b.innerText;
+            b.onerror = function () {
+              _vwo_code.finish();
+            };
+            d.getElementsByTagName('head')[0].appendChild(b);
+          },
+          init: function () {
+            window.settings_timer = setTimeout('_vwo_code.finish()', settings_tolerance);
+            var a = d.createElement('style'),
+              b = hide_element ? hide_element + '{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}' : '',
+              h = d.getElementsByTagName('head')[0];
+            a.setAttribute('id', '_vis_opt_path_hides');
+            a.setAttribute('type', 'text/css');
+            if (a.styleSheet) a.styleSheet.cssText = b;
+            else a.appendChild(d.createTextNode(b));
+            h.appendChild(a);
+            this.load('https://dev.visualwebsiteoptimizer.com/j.php?a=' + account_id +
+              '&u=' + encodeURIComponent(_vis_opt_url) + '&f=' + (+is_spa) + '&r=' + Math.random());
+            return settings_timer;
+          }
+        };
+      window._vwo_settings_timer = code.init();
+      return code;
+    }());
+  </script>
+  <!--End VWO Async SmartCode -->
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WLGC3KJ');</script>
+  <!-- End Google Tag Manager -->
+  <script>
+    /*! lazysizes - v3.0.0 */
+    !function (a, b) { var c = b(a, a.document); a.lazySizes = c, "object" == typeof module && module.exports && (module.exports = c) }(window, function (a, b) { "use strict"; if (b.getElementsByClassName) { var c, d = b.documentElement, e = a.Date, f = a.HTMLPictureElement, g = "addEventListener", h = "getAttribute", i = a[g], j = a.setTimeout, k = a.requestAnimationFrame || j, l = a.requestIdleCallback, m = /^picture$/i, n = ["load", "error", "lazyincluded", "_lazyloaded"], o = {}, p = Array.prototype.forEach, q = function (a, b) { return o[b] || (o[b] = new RegExp("(\\s|^)" + b + "(\\s|$)")), o[b].test(a[h]("class") || "") && o[b] }, r = function (a, b) { q(a, b) || a.setAttribute("class", (a[h]("class") || "").trim() + " " + b) }, s = function (a, b) { var c; (c = q(a, b)) && a.setAttribute("class", (a[h]("class") || "").replace(c, " ")) }, t = function (a, b, c) { var d = c ? g : "removeEventListener"; c && t(a, b), n.forEach(function (c) { a[d](c, b) }) }, u = function (a, c, d, e, f) { var g = b.createEvent("CustomEvent"); return g.initCustomEvent(c, !e, !f, d || {}), a.dispatchEvent(g), g }, v = function (b, d) { var e; !f && (e = a.picturefill || c.pf) ? e({ reevaluate: !0, elements: [b] }) : d && d.src && (b.src = d.src) }, w = function (a, b) { return (getComputedStyle(a, null) || {})[b] }, x = function (a, b, d) { for (d = d || a.offsetWidth; d < c.minSize && b && !a._lazysizesWidth;)d = b.offsetWidth, b = b.parentNode; return d }, y = function () { var a, c, d = [], e = [], f = d, g = function () { var b = f; for (f = d.length ? e : d, a = !0, c = !1; b.length;)b.shift()(); a = !1 }, h = function (d, e) { a && !e ? d.apply(this, arguments) : (f.push(d), c || (c = !0, (b.hidden ? j : k)(g))) }; return h._lsFlush = g, h }(), z = function (a, b) { return b ? function () { y(a) } : function () { var b = this, c = arguments; y(function () { a.apply(b, c) }) } }, A = function (a) { var b, c = 0, d = 125, f = 666, g = f, h = function () { b = !1, c = e.now(), a() }, i = l ? function () { l(h, { timeout: g }), g !== f && (g = f) } : z(function () { j(h) }, !0); return function (a) { var f; (a = a === !0) && (g = 44), b || (b = !0, f = d - (e.now() - c), 0 > f && (f = 0), a || 9 > f && l ? i() : j(i, f)) } }, B = function (a) { var b, c, d = 99, f = function () { b = null, a() }, g = function () { var a = e.now() - c; d > a ? j(g, d - a) : (l || f)(f) }; return function () { c = e.now(), b || (b = j(g, d)) } }, C = function () { var f, k, l, n, o, x, C, E, F, G, H, I, J, K, L, M = /^img$/i, N = /^iframe$/i, O = "onscroll" in a && !/glebot/.test(navigator.userAgent), P = 0, Q = 0, R = 0, S = -1, T = function (a) { R--, a && a.target && t(a.target, T), (!a || 0 > R || !a.target) && (R = 0) }, U = function (a, c) { var e, f = a, g = "hidden" == w(b.body, "visibility") || "hidden" != w(a, "visibility"); for (F -= c, I += c, G -= c, H += c; g && (f = f.offsetParent) && f != b.body && f != d;)g = (w(f, "opacity") || 1) > 0, g && "visible" != w(f, "overflow") && (e = f.getBoundingClientRect(), g = H > e.left && G < e.right && I > e.top - 1 && F < e.bottom + 1); return g }, V = function () { var a, e, g, i, j, m, n, p, q; if ((o = c.loadMode) && 8 > R && (a = f.length)) { e = 0, S++, null == K && ("expand" in c || (c.expand = d.clientHeight > 500 && d.clientWidth > 500 ? 500 : 370), J = c.expand, K = J * c.expFactor), K > Q && 1 > R && S > 2 && o > 2 && !b.hidden ? (Q = K, S = 0) : Q = o > 1 && S > 1 && 6 > R ? J : P; for (; a > e; e++)if (f[e] && !f[e]._lazyRace) if (O) if ((p = f[e][h]("data-expand")) && (m = 1 * p) || (m = Q), q !== m && (C = innerWidth + m * L, E = innerHeight + m, n = -1 * m, q = m), g = f[e].getBoundingClientRect(), (I = g.bottom) >= n && (F = g.top) <= E && (H = g.right) >= n * L && (G = g.left) <= C && (I || H || G || F) && (l && 3 > R && !p && (3 > o || 4 > S) || U(f[e], m))) { if (ba(f[e]), j = !0, R > 9) break } else !j && l && !i && 4 > R && 4 > S && o > 2 && (k[0] || c.preloadAfterLoad) && (k[0] || !p && (I || H || G || F || "auto" != f[e][h](c.sizesAttr))) && (i = k[0] || f[e]); else ba(f[e]); i && !j && ba(i) } }, W = A(V), X = function (a) { r(a.target, c.loadedClass), s(a.target, c.loadingClass), t(a.target, Z) }, Y = z(X), Z = function (a) { Y({ target: a.target }) }, $ = function (a, b) { try { a.contentWindow.location.replace(b) } catch (c) { a.src = b } }, _ = function (a) { var b, d, e = a[h](c.srcsetAttr); (b = c.customMedia[a[h]("data-media") || a[h]("media")]) && a.setAttribute("media", b), e && a.setAttribute("srcset", e), b && (d = a.parentNode, d.insertBefore(a.cloneNode(), a), d.removeChild(a)) }, aa = z(function (a, b, d, e, f) { var g, i, k, l, o, q; (o = u(a, "lazybeforeunveil", b)).defaultPrevented || (e && (d ? r(a, c.autosizesClass) : a.setAttribute("sizes", e)), i = a[h](c.srcsetAttr), g = a[h](c.srcAttr), f && (k = a.parentNode, l = k && m.test(k.nodeName || "")), q = b.firesLoad || "src" in a && (i || g || l), o = { target: a }, q && (t(a, T, !0), clearTimeout(n), n = j(T, 2500), r(a, c.loadingClass), t(a, Z, !0)), l && p.call(k.getElementsByTagName("source"), _), i ? a.setAttribute("srcset", i) : g && !l && (N.test(a.nodeName) ? $(a, g) : a.src = g), (i || l) && v(a, { src: g })), a._lazyRace && delete a._lazyRace, s(a, c.lazyClass), y(function () { (!q || a.complete && a.naturalWidth > 1) && (q ? T(o) : R--, X(o)) }, !0) }), ba = function (a) { var b, d = M.test(a.nodeName), e = d && (a[h](c.sizesAttr) || a[h]("sizes")), f = "auto" == e; (!f && l || !d || !a.src && !a.srcset || a.complete || q(a, c.errorClass)) && (b = u(a, "lazyunveilread").detail, f && D.updateElem(a, !0, a.offsetWidth), a._lazyRace = !0, R++, aa(a, b, f, e, d)) }, ca = function () { if (!l) { if (e.now() - x < 999) return void j(ca, 999); var a = B(function () { c.loadMode = 3, W() }); l = !0, c.loadMode = 3, W(), i("scroll", function () { 3 == c.loadMode && (c.loadMode = 2), a() }, !0) } }; return { _: function () { x = e.now(), f = b.getElementsByClassName(c.lazyClass), k = b.getElementsByClassName(c.lazyClass + " " + c.preloadClass), L = c.hFac, i("scroll", W, !0), i("resize", W, !0), a.MutationObserver ? new MutationObserver(W).observe(d, { childList: !0, subtree: !0, attributes: !0 }) : (d[g]("DOMNodeInserted", W, !0), d[g]("DOMAttrModified", W, !0), setInterval(W, 999)), i("hashchange", W, !0), ["focus", "mouseover", "click", "load", "transitionend", "animationend", "webkitAnimationEnd"].forEach(function (a) { b[g](a, W, !0) }), /d$|^c/.test(b.readyState) ? ca() : (i("load", ca), b[g]("DOMContentLoaded", W), j(ca, 2e4)), f.length ? (V(), y._lsFlush()) : W() }, checkElems: W, unveil: ba } }(), D = function () { var a, d = z(function (a, b, c, d) { var e, f, g; if (a._lazysizesWidth = d, d += "px", a.setAttribute("sizes", d), m.test(b.nodeName || "")) for (e = b.getElementsByTagName("source"), f = 0, g = e.length; g > f; f++)e[f].setAttribute("sizes", d); c.detail.dataAttr || v(a, c.detail) }), e = function (a, b, c) { var e, f = a.parentNode; f && (c = x(a, f, c), e = u(a, "lazybeforesizes", { width: c, dataAttr: !!b }), e.defaultPrevented || (c = e.detail.width, c && c !== a._lazysizesWidth && d(a, f, e, c))) }, f = function () { var b, c = a.length; if (c) for (b = 0; c > b; b++)e(a[b]) }, g = B(f); return { _: function () { a = b.getElementsByClassName(c.autosizesClass), i("resize", g) }, checkElems: g, updateElem: e } }(), E = function () { E.i || (E.i = !0, D._(), C._()) }; return function () { var b, d = { lazyClass: "lazyload", loadedClass: "lazyloaded", loadingClass: "lazyloading", preloadClass: "lazypreload", errorClass: "lazyerror", autosizesClass: "lazyautosizes", srcAttr: "data-src", srcsetAttr: "data-srcset", sizesAttr: "data-sizes", minSize: 40, customMedia: {}, init: !0, expFactor: 1.5, hFac: .8, loadMode: 2 }; c = a.lazySizesConfig || a.lazysizesConfig || {}; for (b in d) b in c || (c[b] = d[b]); a.lazySizesConfig = c, j(function () { c.init && E() }) }(), { cfg: c, autoSizer: D, loader: C, init: E, uP: v, aC: r, rC: s, hC: q, fire: u, gW: x, rAF: y } } });
+  </script>
+  <!-- Eskimi DSP Pixel Code -->
+  <script>
+    !function (f, e, t, u, n, s, p) { if (f.esk) return; n = f.esk = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!f.___esk) f.___esk = n; n.push = n; n.loaded = !0; n.queue = []; s = e.createElement(t); s.async = !0; s.src = u; p = e.getElementsByTagName(t)[0]; p.parentNode.insertBefore(s, p) }(window, document, 'script', 'https://dsp-media.eskimi.com/assets/js/e/gtr.min.js?_=0.0.0.3');
+    esk('init', '22750');
+  </script>
+  <!-- End Eskimi DSP Pixel Code -->
+  <script data-obct type="text/javascript">
+    /** DO NOT MODIFY THIS CODE**/
+    !function (_window, _document) {
+      var OB_ADV_ID = '00e1fd5c441d47adc3196866102f12b9aa';
+      if (_window.obApi) {
+        var toArray = function (object) {
+          return Object.prototype.toString.call(object) === '[object Array]' ? object : [object];
+        };
+        _window.obApi.marketerId = toArray(_window.obApi.marketerId).concat(toArray(OB_ADV_ID));
+        return;
+      }
+      var api = _window.obApi = function () {
+        api.dispatch ? api.dispatch.apply(api, arguments) : api.queue.push(arguments);
+      };
+      api.version = '1.1';
+      api.loaded = true;
+      api.marketerId = OB_ADV_ID;
+      api.queue = [];
+      var tag = _document.createElement('script');
+      tag.async = true;
+      tag.src = '//amplify.outbrain.com/cp/obtp.js';
+      tag.type = 'text/javascript';
+      var script = _document.getElementsByTagName('script')[0];
+      script.parentNode.insertBefore(tag, script);
+    }(window, document);
+
+    obApi('track', 'PAGE_VIEW');
+  </script>
+
+  {% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %}{% endif %}
+  <title>{% if template contains "index" %}{{ page_title }}{% else %}{{ page_title }}{% if current_tags %}
+    {{ 'general.meta.tagged_html' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %}
+    {{ 'general.meta.page' | t: page_number: current_page }}{% endif %}{% unless page_title contains shop.name %} -
+    {{ shop.name }}{% endunless %}{% endif %}</title>
+  {% if page_description %}
+  <meta name="description"
+    content="{{ page_description | escape }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags | escape }}.{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}.{% endif %}" />
+  {% endif %}
+  {% include 'social-meta-info' %}
+  {% if collection.previous_product %}
+  <link rel="prev" href="{{ collection.previous_product }}">{% endif %}
+  {% if collection.next_product %}
+  <link rel="next" href="{{ collection.next_product }}">{% endif %}
+  <!-- Mobile Specific Metas -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.shop_bg_color }}">
+  {% if settings.favicon != nil %}
+  <link rel="shortcut icon" type="image/x-icon" href="{{ settings.favicon | img_url: '32x32' }}">
+  {% else %}
+  <link rel="shortcut icon" type="image/x-icon" href="{{ 'favicon.png' | asset_url }}">
+  {% endif %}
+  <link rel="canonical" href="{{ canonical_url }}" />
+  {% if template contains 'customer' %}
+  {{ "shopify_common.js" | shopify_asset_url | script_tag }}
+  {{ "customer_area.js" | shopify_asset_url | script_tag }}
+  {% endif %}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+  <!--   {{ 'jquery-cookie.min.js' | asset_url | script_tag }} -->
+  {{ content_for_header }}
+  <!--begin-bc-sf-filter-css-->
+  {% include 'bc-sf-filter-style' %}
+  <!--end-bc-sf-filter-css-->
+  {% include 'admitad.liquid' %}
+  <!-- Facebook Pixel Code -->
+  <!-- <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '3957952320958033');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=3957952320958033&ev=PageView&noscript=1"
+/></noscript> -->
+  <!-- End Facebook Pixel Code -->
+  <script
+    type="application/javascript">(function (w, d, t, r, u) { w[u] = w[u] || []; w[u].push({ 'projectId': '10000', 'properties': { 'pixelId': '10153440', 'userEmail': '<email_address>' } }); var s = d.createElement(t); s.src = r; s.async = true; s.onload = s.onreadystatechange = function () { var y, rs = this.readyState, c = w[u]; if (rs && rs != "complete" && rs != "loaded") { return } try { y = YAHOO.ywa.I13N.fireBeacon; w[u] = []; w[u].push = function (p) { y([p]) }; y(c) } catch (e) { } }; var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr) })(window, document, "script", "https://s.yimg.com/wi/ytc.js", "dotq");</script>
+  <!-- Taboola Pixel Code -->
+  <script type='text/javascript'>
+    window._tfa = window._tfa || [];
+    window._tfa.push({ notify: 'event', name: 'page_view', id: 1390599 });
+    !function (t, f, a, x) {
+      if (!document.getElementById(x)) {
+        t.async = 1; t.src = a; t.id = x; f.parentNode.insertBefore(t, f);
+      }
+    }(document.createElement('script'),
+      document.getElementsByTagName('script')[0],
+      '//cdn.taboola.com/libtrc/unip/1390599/tfa.js',
+      'tb_tfa_script');
+  </script>
+  <script
+    type="application/javascript">(function (w, d, t, r, u) { w[u] = w[u] || []; w[u].push({ 'projectId': '10000', 'properties': { 'pixelId': '10091285', 'he': '<email_address>', 'auid': '<sha256_hashed_user_id>' } }); var s = d.createElement(t); s.src = r; s.async = true; s.onload = s.onreadystatechange = function () { var y, rs = this.readyState, c = w[u]; if (rs && rs != "complete" && rs != "loaded") { return } try { y = YAHOO.ywa.I13N.fireBeacon; w[u] = []; w[u].push = function (p) { y([p]) }; y(c) } catch (e) { } }; var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr) })(window, document, "script", "https://s.yimg.com/wi/ytc.js", "dotq");</script>
+  <img src="https://track.adsclues.in/p?o=16703802&m=2182&t=i" width="0px" height="0px" class="adsculues-none">
+
+  <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+    data-app-key="xwvxLzYTgNkv33Sd"></script>
+  <!-- End of Taboola Pixel Code -->
+  <!-- Taboola Pixel Code -->
+  <script>
+    _tfa.push({ notify: 'event', name: 'add_to_cart', id: 1390599 });
+  </script>
+  <!-- End of Taboola Pixel Code -->
+  <!-- Global site tag (gtag.js) - Google Ads: 691987508 -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-691987508"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'AW-691987508');
+  </script>
+  <script>(function (w, d, t, r, u) { var f, n, i; w[u] = w[u] || [], f = function () { var o = { ti: "134573475" }; o.q = w[u], w[u] = new UET(o), w[u].push("pageLoad") }, n = d.createElement(t), n.src = r, n.async = 1, n.onload = n.onreadystatechange = function () { var s = this.readyState; s && s !== "loaded" && s !== "complete" || (f(), n.onload = n.onreadystatechange = null) }, i = d.getElementsByTagName(t)[0], i.parentNode.insertBefore(n, i) })(window, document, "script", "//bat.bing.com/bat.js", "uetq");</script>
+  <!-- Stylesheets for Turbo 3.2.0 -->
+  <!--   {{ '//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' | stylesheet_tag }} -->
+  {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'custom-styles.scss.css' | asset_url | stylesheet_tag }}
+  <script src="https://www.artfut.com/static/tagtag.min.js?campaign_code=c70051888a" async
+    onerror='var self =this;window.ADMITAD=window.ADMITAD||{},ADMITAD.Helpers=ADMITAD.Helpers||{},ADMITAD.Helpers.generateDomains=function(){for(var e=new Date,n=Math.floor(new Date(2020,e.getMonth(),e.getDate()).setUTCHours(0,0,0,0)/1e3),t=parseInt(1e12*(Math.sin(n)+1)).toString(30),i=["de"],o=[],a=0;a<i.length;++a)o.push({domain:t+"."+i[a],name:t});return o},ADMITAD.Helpers.findTodaysDomain=function(e){function n(){var o=newXMLHttpRequest,a=i[t].domain,D="https://"+a+"/";o.open("HEAD",D,!0),o.onload=function(){setTimeout(e,0,i[t])},o.onerror=function(){++t<i.length?setTimeout(n,0):setTimeout(e,0,void 0)},o.send()}var t=0,i=ADMITAD.Helpers.generateDomains();n()},window.ADMITAD=window.ADMITAD||{},ADMITAD.Helpers.findTodaysDomain(function(e){if(window.ADMITAD.dynamic=e,window.ADMITAD.dynamic){var n=function(){return function(){return self.src?self:""}}(),t=n(),i=(/campaign_code=([^&]+)/.exec(t.src)||[])[1]||"";t.parentNode.removeChild(t);var o=document.getElementsByTagName("head")[0],a=document.createElement("script");a.src="https://www."+window.ADMITAD.dynamic.domain+"/static/"+window.ADMITAD.dynamic.name.slice(1)+window.ADMITAD.dynamic.name.slice(0,1)+".min.js?campaign_code="+i,o.appendChild(a)}});'></script>
+
+
+  <script type="text/javascript">
+    // name of the cookie that stores the source
+    // change if you have another name
+    var cookie_name = 'deduplication_cookie';
+    // cookie lifetime
+    var days_to_store = 90;
+    // expected deduplication_cookie value for Admitad
+    var deduplication_cookie_value = 'admitad';
+    // name of GET parameter for deduplication
+    // change if you have another name
+    var channel_name = 'utm_source';
+    // a function to get the source from the GET parameter
+    getSourceParamFromUri = function () {
+      var pattern = channel_name + '=([^&]+)';
+      var re = new RegExp(pattern);
+      return (re.exec(document.location.search) || [])[1] || '';
+    };
+
+    // a function to get the source from the cookie named cookie_name
+    getSourceCookie = function () {
+      var matches = document.cookie.match(new RegExp(
+        '(?:^|; )' + cookie_name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'
+      ));
+      return matches ? decodeURIComponent(matches[1]) : undefined;
+    };
+    // a function to set the source in the cookie named cookie_name
+    setSourceCookie = function () {
+      var param = getSourceParamFromUri();
+      var params = (new URL(document.location)).searchParams;
+      if (!params.get(channel_name) && params.get('gclid')) { param = 'google' }
+      else if (!params.get(channel_name) && params.get('fbclid')) { param = 'facebook' }
+      else if (!params.get(channel_name) && params.get('cjevent')) { param = 'cj' }
+      else if (!param) { return; }
+      var period = days_to_store * 60 * 60 * 24 * 1000; // in seconds
+      var expiresDate = new Date((period) + +new Date);
+      var cookieString = cookie_name + '=' + param + '; path=/; expires=' + expiresDate.toGMTString();
+      document.cookie = cookieString;
+      document.cookie = cookieString + '; domain=.' + location.host;
+    };
+    // set cookie
+    setSourceCookie();
+  </script>
+  <script
+    src="https://my.rtmark.net/p.js?f=sync&lr=1&partner=0521c4dd38657683eb38023fc045489c0c94794ec142b7f7cb1cded80e028c42"
+    defer></script> <noscript><img
+      src="https://my.rtmark.net/img.gif?f=sync&lr=1&partner=0521c4dd38657683eb38023fc045489c0c94794ec142b7f7cb1cded80e028c42"
+      width="1" height="1" /></noscript>
+
+
+
+  {% render 'judgeme_core' %}
+  <script>
+    fbq('track', 'Lead');
+  </script>
+
+  {% render 'sca-aff-refer-customer' %}
+
+  <!--  Schema  -->
+
+  <script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"Organization",
+"name":"Nilkamal Furniture",
+"description":"Nilkamal has eternally been a part of Indian home’s interiors knowingly or unknowingly taking space in the form of may be a simple plastic chair in your living room or an entire furniture set in your bedrooms, making it India’s favourite furniture brand. As a Company, Nilkamal upholds the quality factor of its products at the highest pedestal. This has resulted in Nilkamal being an undisputed leader in moulded plastic market. The Company has extended this expertise for Nilkamal’s range of Ready Furniture too, to add both emotion and charm to your sheen interiors.
+With a strong network of approximately 30,000 dealers spread across the country, the Company aims to bring quality and budget friendly furniture to the deepest regions in India. With a host of solutions aimed at enhancing lives of customers, Nilkamal has adapted to the changing furniture trends in the Indian market and reinvented itself time and again.
+Marking an entry into the E-commerce arena, Nilkamalfurniture.com is designed to be your one stop-shop for quality, trendy and budget-friendly furniture range.",
+"url":" https://www.nilkamalfurniture.com/ ",
+"logo":" https://cdn.shopify.com/s/files/1/0044/1208/0217/files/nilkamal-logo_410x.png?v=1576395108 ",
+"address":
+{
+"@type":
+"PostalAddress",
+"streetAddress":"Mulund, 400080 Mumbai Maharashtra, India",
+"addressLocality":"Mulund",
+"addressRegion":"Maharashtra",
+"postalCode":"400080"
+},
+"contactPoint": {
+ "@type": "ContactPoint",
+ "contactType": "customer care",
+"telephone": "1800 1219 115",
+"email": " furniture.enquiry@nilkamal.com "
+},
+"sameAs": [
+"https://www.facebook.com/OfficialNilkamal/ ",
+"https://twitter.com/nilkamal_ltd ",
+"https://www.youtube.com/channel/UCgIYdtLkIW9OjLtRS8ZZHzQ ",
+"https://www.instagram.com/nilkamal_ltd/?hl=en "
+] }
+ </script>
+  <!-- Schema end -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    type="text/css" media="all" />
+  <script
+    type="text/javascript">OMID = 2319248; OPID = 52448; ORef = escape(window.parent.location.href); !function () { var a = document.createElement("script"); a.type = "text/javascript", a.async = !0, a.src = "//track.omguk.com/e/qs/?action=Content&MID=" + OMID + "&PID=" + OPID + "&ref=" + ORef; var b = document.getElementsByTagName("body")[0]; if (b) b.appendChild(a, b); else { var b = document.getElementsByTagName("script")[0]; b.parentNode.insertBefore(a, b) } }();</script>
+  <script language="javascript" type="text/javascript">
+
+    var ssSessionId = '';
+    if (ssGetURLParameter('utm_source') != null) {
+      ssSessionId = ssGetURLParameter('utm_source');
+    }
+
+    var gclid = '';
+    if (ssGetURLParameter('gclid') != null) {
+      gclid = ssGetURLParameter('gclid');
+    }
+
+    if (ssSessionId.toLowerCase() == 'om') {
+      ssSetCookie(ssSessionId);
+    }
+    else if (ssSessionId.toLowerCase() != 'om' && ssSessionId.toLowerCase() != '' || gclid != '') {
+      if (checkCookie("om"))
+        eraseCookie("om");
+    }
+
+    function readCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+
+    function eraseCookie(name) {
+      document.cookie = name + "=" + name + ";expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+    }
+
+    function checkCookie(name) {
+      return readCookie(name) != null;
+    }
+
+
+
+    function ssGetURLParameter(name) {
+      return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null
+    }
+
+    function ssSetCookie(cValue) {
+      document.cookie = cValue + "=" + cValue + ";expires= " + ssCalculateExpireDate(30) + "; path=/";
+    }
+
+    function ssCalculateExpireDate(days) {
+      var d = new Date();
+      d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+      d.toUTCString();
+      return d;
+    }
+  </script>
+
+
+  <script language="javascript" type="text/javascript">
+
+    var ssSessionId = '';
+    if (ssGetURLParameter('utm_source') != null) {
+      ssSessionId = ssGetURLParameter('utm_source');
+    }
+
+    var gclid = '';
+    if (ssGetURLParameter('gclid') != null) {
+      gclid = ssGetURLParameter('gclid');
+    }
+
+    if (ssSessionId.toLowerCase() == 'om') {
+      ssSetCookie(ssSessionId);
+    }
+    else if (ssSessionId.toLowerCase() != 'om' && ssSessionId.toLowerCase() != '' || gclid != '') {
+      if (checkCookie("om"))
+        eraseCookie("om");
+    }
+
+    function readCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+
+    function eraseCookie(name) {
+      document.cookie = name + "=" + name + ";expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+    }
+
+    function checkCookie(name) {
+      return readCookie(name) != null;
+    }
+
+
+
+    function ssGetURLParameter(name) {
+      return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null
+    }
+
+    function ssSetCookie(cValue) {
+      document.cookie = cValue + "=" + cValue + ";expires= " + ssCalculateExpireDate(30) + "; path=/";
+    }
+
+    function ssCalculateExpireDate(days) {
+      var d = new Date();
+      d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+      d.toUTCString();
+      return d;
+    }
+  </script>
+  <!-- Start VWO Async SmartCode -->
+  <script type='text/javascript'>
+    _vis_opt_url = document.location.protocol + '//' + document.location.hostname +
+      document.location.pathname + "?preview_theme_id=123654799449&" +
+      document.location.search.substring(1,) + document.location.hash; //Replace “XXXXXXX” with your Shopify Preview theme ID
+    window._vwo_code = window._vwo_code || (function () {
+      var account_id = 639461, //Replace XXXXX with your accountID
+        _vis_opt_url = window._vis_opt_url || document.URL,
+        settings_tolerance = 2000,
+        library_tolerance = 2500,
+        use_existing_jquery = false,
+        is_spa = 1,
+        hide_element = 'body',
+        /* DO NOT EDIT BELOW THIS LINE */
+        f = false,
+        d = document,
+        code = {
+          use_existing_jquery: function () {
+            return use_existing_jquery;
+          },
+          library_tolerance: function () {
+            return library_tolerance;
+          },
+          finish: function () {
+            if (!f) {
+              f = true;
+              var a = d.getElementById('_vis_opt_path_hides');
+              if (a) a.parentNode.removeChild(a);
+            }
+          },
+          finished: function () {
+            return f;
+          },
+          load: function (a) {
+            var b = d.createElement('script');
+            b.src = a;
+            b.type = 'text/javascript';
+            b.innerText;
+            b.onerror = function () {
+              _vwo_code.finish();
+            };
+            d.getElementsByTagName('head')[0].appendChild(b);
+          },
+          init: function () {
+            window.settings_timer = setTimeout('_vwo_code.finish()', settings_tolerance);
+            var a = d.createElement('style'),
+              b = hide_element ? hide_element + '{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}' : '',
+              h = d.getElementsByTagName('head')[0];
+            a.setAttribute('id', '_vis_opt_path_hides');
+            a.setAttribute('type', 'text/css');
+            if (a.styleSheet) a.styleSheet.cssText = b;
+            else a.appendChild(d.createTextNode(b));
+            h.appendChild(a);
+            this.load('https://dev.visualwebsiteoptimizer.com/j.php?a=' + account_id +
+              '&u=' + encodeURIComponent(_vis_opt_url) + '&f=' + (+is_spa) + '&r=' + Math.random());
+            return settings_timer;
+          }
+        };
+      window._vwo_settings_timer = code.init();
+      return code;
+    }());
+  </script>
+  <script language="javascript" type="text/javascript">
+
+    var ssSessionId = '';
+    if (ssGetURLParameter('utm_source') != null) {
+      ssSessionId = ssGetURLParameter('utm_source');
+    }
+
+    var gclid = '';
+    if (ssGetURLParameter('gclid') != null) {
+      gclid = ssGetURLParameter('gclid');
+    }
+
+    if (ssSessionId.toLowerCase() == 'om') {
+      ssSetCookie(ssSessionId);
+    }
+    else if (ssSessionId.toLowerCase() != 'om' && ssSessionId.toLowerCase() != '' || gclid != '') {
+      if (checkCookie("om"))
+        eraseCookie("om");
+    }
+
+    function readCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+
+    function eraseCookie(name) {
+      document.cookie = name + "=" + name + ";expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+    }
+
+    function checkCookie(name) {
+      return readCookie(name) != null;
+    }
+
+
+
+    function ssGetURLParameter(name) {
+      return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null
+    }
+
+    function ssSetCookie(cValue) {
+      document.cookie = cValue + "=" + cValue + ";expires= " + ssCalculateExpireDate(30) + "; path=/";
+    }
+
+    function ssCalculateExpireDate(days) {
+      var d = new Date();
+      d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+      d.toUTCString();
+      return d;
+    }
+  </script>
+  {% if page.handle contains 'franchise-thankyou-page' %}
+  <!-- Event snippet for NKL_Franchise_15Feb22 conversion page -->
+  <script>
+    gtag('event', 'conversion', { 'send_to': 'AW-691987508/JmldCNXdn6EDELTI-8kC' });
+  </script>
+  <script>
+    fbq('track', 'Lead');
+  </script>
+  <script>
+    <img src="https://ventes40.gotrackier.com/pixel?adid=636b78e8fba7692eab65a032">
+  </script>
+  <script>
+      <"https://linkvia.in/pixel/v2?offer_id=41&adv_id=144&clkid={click_id}&sale_amount={sale_amount}&trans_id={order_id}&cf_1={user(old/new)}&cf_2={coupon}&goal_id={goal_id}&ua={user_agent}&extra_info={product_info}&cf_3={custom_field3}%20&cf_4={custom_field4}&cf_5={custom_field5}&cf_6={custom_field6}%C2%A4cy={currency}&app_name={app_name}&idfa={idfa}&aaid={aaid}&device_id={device_id}&os={os}&client_ip={client_ip}&channel={channel}&custom_field1={extra_detail1}&custom_field2={extra_detail2}&subid={subid}&commission={commission}">
+  </script>
+  <script>
+      <img src="https://track.clickonik.com/pixel?adid=63736d31a868915ecf4796d0&sale_amount={ORDER_AMOUNT}&sub1={ORDER_ID}" scrolling="no" frameborder="0" width="1" height="1"></img>
+  </script>
+  {% endif %}
+</head>
+{% if template contains "index" %}
+{% assign feature_image = true %}
+{% elsif template contains "collection" %}
+{% assign feature_image = true %}
+{% elsif template contains "blog" %}
+{% assign feature_image = true %}
+{% elsif template contains "article" %}
+{% assign feature_image = true %}
+{% elsif template contains "contact" %}
+{% assign feature_image = true %}
+{% elsif template contains "product" %}
+{% assign feature_image = true %}
+{% elsif template contains "gallery" %}
+{% assign feature_image = true %}
+{% elsif template contains "banner" %}
+{% assign feature_image = true %}
+{% elsif template contains "details" %}
+{% assign feature_image = true %}
+{% elsif template contains "faq" %}
+{% assign feature_image = true %}
+{% elsif template contains "search" %}
+{% assign feature_image = true %}
+{% else %}
+{% assign feature_image = false %}
+{% endif %}
+<noscript>
+  <style>
+    .product_section .product_form {
+      opacity: 1;
+    }
+
+    .multi_select,
+    form .select {
+      display: block !important;
+    }
+
+  </style>
+</noscript>
+
+<body id="{{ page_title | handle }}"
+  class="{% if template == '404' %}error-404{% else %}{{ template | replace: '.', '-' | handle }}{% endif %}"
+  data-money-format="{{ shop.money_format }}" data-shop-url="{{ shop.url }}">
+
+  <div id="popup_overlay_new" class="popup_overlay_new" style=""></div>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLGC3KJ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  {% section 'header' %}
+  <div class="mega-menu-container">
+    {% if settings.mega_menu_1 %}
+    {% section 'mega-menu-1' %}
+    {% endif %}
+    {% if settings.mega_menu_2 %}
+    {% section 'mega-menu-2' %}
+    {% endif %}
+    {% if settings.mega_menu_3 %}
+    {% section 'mega-menu-3' %}
+    {% endif %}
+    {% if settings.mega_menu_4 %}
+    {% section 'mega-menu-4' %}
+    {% endif %}
+    {% if settings.mega_menu_5 %}
+    {% section 'mega-menu-5' %}
+    {% endif %}
+  </div>
+  {% unless feature_image %}
+  <div class="main content">
+    {% endunless %}
+    {{ content_for_layout }}
+  </div>
+  {% comment %}
+  {% unless template contains 'index' or settings.secondary_newsletter_banner == false %}
+  {% section 'newsletter' %}
+  {% endunless %}
+  {% endcomment %}
+  {% section 'footer' %}
+
+  <script
+    src="//cdn.codeblackbelt.com/js/modules/frequently-bought-together/main.min.js?shop=nilkamalfurniture.myshopify.com"
+    defer></script>
+  {% if settings.size_chart != blank %}
+  {% include 'popup-size-chart' %}
+  {% endif %}
+  {% if settings.newsletter_popup %}
+  {% include 'popup-newsletter' %}
+  {% endif %}
+  {% if settings.quick_shop_enabled %}
+  {% include 'popup-quick-shop' %}
+  {% endif %}
+  {% if settings.disqus_enabled %}
+  {% if template contains "blog" or template contains "article" or template contains "index" %}
+  <script id="dsq-count-scr" src="//{{ settings.disqus_shortname }}.disqus.com/count.js" async></script>
+  {% endif %}
+  {% endif %}
+  <script src="{{ 'app.js' | asset_url }}"></script>
+  {% if settings.show_multiple_currencies %}
+  {% include 'currencies' %}
+  {% endif %}
+  {% if settings.show_shipping_calculator and template contains "cart" %}
+  {% include 'cart-shipping-scripts' %}
+  {% endif %}
+  {% unless settings.performance == "sport" or template contains "customer" %}
+  <script src="{{ 'instantclick.min.js' | asset_url }}" data-no-instant></script>
+  <script data-no-instant>
+      function inIframe() {
+      try {
+        return window.self !== window.top;
+      } catch (e) {
+        return true;
+      }
+    }
+      if (!inIframe()){
+        InstantClick.on('change', function () {
+
+          $('head script[src*="shopify"]').each(function () {
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = $(this).attr('src');
+
+            $('body').append(script);
+          });
+
+          $('html').removeClass('remodal-is-locked');
+
+        });
+      //InstantClick.init();
+    }
+  </script>
+  {% endunless %}
+  <script>
+      {{ settings.custom_scripts }}
+  </script>
+  <script>
+    // footer expand content script
+      $(document).ready(function() {
+        $(".footer-top .expand_content").click(function () {
+          $(this).toggleClass('active');
+          $(".footer-top .content").slideToggle(800);
+        });
+    });
+  </script>
+  <!--begin-bc-sf-filter-js-->
+  {% include 'bc-sf-filter' %}
+  <!--end-bc-sf-filter-js-->
+  {% include 'iwish_v2' with 'iwishfooter' %}
+  {% comment %}
+  <!--  Cookies  Popup -->
+  <link rel="stylesheet" type="text/css" href="{{ 'cookies.css' | asset_url }}" />
+  <script type="text/javascript" src="{{ 'support-opt-in.js' | asset_url }}"></script>
+  <script type="text/javascript" src="{{ 'require-opt-in.js' | asset_url }}" read_more="/pages/privacy-policy"></script>
+  <style>
+    .hi-cookie-power {
+      display: none
+    }
+
+  </style>
+  {% endcomment %}
+  <script>
+      jQuery(document).ready(function() {
+        jQuery('.swatch :radio').change(function () {
+          var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+          var optionValue = jQuery(this).val();
+          jQuery(this)
+            .closest('form')
+            .find('.single-option-selector')
+            .eq(optionIndex)
+            .val(optionValue)
+            .trigger('change');
+        });
+});
+  </script>
+  <script>
+      window.haptikInitSettings =
+      {
+        "business-id": "4747",
+      "client-id": "a6fbf1e38b8778b38ac8fe272ba5da48b5106392",
+      "base-url": "https://api.haptikapi.com/",
+      'custom-button': true
+
+  };
+
+  </script>
+  <script type="text/javascript" charset="UTF-8"
+    src="https://toolassets.haptikapi.com/platform/javascript-xdk/production/loader.js">
+    </script>
+  <script>
+      function openChat() {
+        HaptikSDK.show()
+      }
+  </script>
+  {% comment %}
+  <div class="haptikchaticon">
+    <img class="custom-icon lazyload" onClick="openChat()"
+      data-src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/lets_talk2.png?v=1648453604"/>
+  </div>
+  {% endcomment %}
+
+  <!-- CRITEO START -->
+  {% include 'criteo-tracking' %}
+  <!-- CRITEO END -->
+  <script src="https://cdn.razorpay.com/widgets/affordability/affordability.js">
+  </script>
+
+  <script>
+      const key = "rzp_live_2b9iMf4xuOH9t6"; // Add the merchant Key here
+      const amount = parseFloat("{{ product.selected_or_first_available_variant.price }}");
+
+
+      window.onload = function() {
+    const widgetConfig = {
+        "key": key,
+      "amount": amount
+    };
+      const rzpAffordabilitySuite = new RazorpayAffordabilitySuite(widgetConfig);
+      rzpAffordabilitySuite.render();
+  }
+  </script>
+
+
+
+  {%- if customer -%}
+
+  {%- else -%}
+  <div class="popuponload">
+    <button id="close">&times;</button>
+
+    <div class="popup-body clearfix">
+
+      <div id="reg-modal-left_id" class="reg-modal-left"><img class="lazyload"
+          data-src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/leadform_1.png?v=1670910875"
+          data-sizes="auto"></div>
+      <div id="reg-modal-right_id" class="reg-modal-right">
+        <div class="reg-modal-right-wrap">
+          <div class="reg-modal-right-frm-wrap">
+
+            <div class="register-box animated fadeInUp">
+              <div id="collection_nav_id" class="collection_nav center clearfix">
+                <h1> Sign Up </h1>
+
+                <div class="signup_coupan">“Sign up with your email address to win assured coupons for your first
+                  purchase.” </div>
+              </div>
+              <div class="clearfix" id="customer_pop">
+                <!-- Create Customer -->
+                <div id="create-customer">
+
+                  {% form 'create_customer' %}
+
+                  {{ form.errors | default_errors }}
+
+                  <div id="first_name_old" class="input-group clearfix large_form">
+                    <input type="text" value="" name="customer[first_name]" id="first_name" class="large" size="30"
+                      placeholder=" " required />
+                    <label for="first_name">First name(*)</label>
+                  </div>
+
+                  <div id="last_name_old" class="input-group clearfix large_form">
+                    <input type="text" value="" name="customer[last_name]" id="last_name" class="large" size="30"
+                      placeholder=" " required />
+                    <label for="last_name">Last name(*)</label>
+                  </div>
+
+                  <div id="email_old" class="clearfix large_form input-group">
+                    <input type="email" value="" name="customer[email]" id="email" class="large" size="30"
+                      placeholder=" " required />
+                    <label for="email">Email id(*)</label>
+                  </div>
+
+                  <div id="password_old" class="clearfix large_form input-group">
+                    <input type="password" value="" name="customer[password]" id="password" class="large password"
+                      size="30" placeholder=" " required />
+                    <label for="password">Password(*)</label>
+                  </div>
+
+                  <div class="account--button-container">
+                    <div class="account--create" data-item='button'>
+                      <button id="submitcustom" type="submit" value="{{ submit_t }}">
+                        Sign Up
+                      </button>
+                    </div>
+                  </div>
+
+                  {%- comment -%} <div class="action_bottom center">
+                    <input class="btn action_button reverse" type="submit" value="Sign Up" />
+                    <button type="submit" value="{{ submit_t }}">
+                      Sign Up
+                    </button>
+                    <!-- <p class="right" style="padding-top: 8px;">
+              {{ 'customer.register.returning_customer_label' | t }} {{ 'customer.register.sign_in_html' | t | customer_login_link }}
+            </p> -->
+                  </div> {%- endcomment -%}
+                  <p class="reg_danger_msg"> </p>
+                  <div class="coupan_firstorder">“The coupon is only applicable to your first order. You will receive
+                    the coupon at your registered email address.”</div>
+
+
+
+                  {% endform %}
+                </div><!-- /#create-customer -->
+                <div>
+                  <div id="img_check_success" class="img_check"
+                    style="display: none; width: 100%; text-align: center; margin-left: 180px;">
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_ofuo42yn.json"
+                      background="transparent" speed="0.5" style="width: 350px;" loop autoplay></lottie-player>
+                  </div>
+                  <p id="reg_success_msg_id" class="reg_success_msg"> </p>
+                </div>
+              </div>
+              <div class="button_btn_pop">
+                <button class="btn_notnow-pop" id="hide">Not now</button>
+                <button class="btn_register-pop"><a href="https://www.nilkamalfurniture.com/pages/popup-form"
+                    class="reg_btn">Register!</a></button>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+  {%- endif -%}
+
+  <script type="text/javascript">
+      $(document).ready(function(){
+  if (window.location.href === "https://www.nilkamalfurniture.com/") {
+
+        window.addEventListener("load", function () {
+          setTimeout(
+            function open(event) {
+              document.querySelector(".popuponload").style.display = "block";
+              document.querySelector(".popup_overlay_new").style.display = "block";
+            },
+            10000
+          )
+        });
+
+      document.querySelector("#close").addEventListener("click", function(){
+        document.querySelector(".popuponload").style.display = "none";
+      $('body').removeClass('register_popup');
+      $("#popup_overlay_new").hide();
+});
+      $(".popuponload").click(function(e){
+        e.stopPropagation();
+});
+ //$(document).ready(function(){
+        //$('body').addClass('register_popup');
+        //});
+        window.addEventListener("load", function () {
+          setTimeout(
+            function open(event) {
+              $('body').addClass('register_popup');
+            },
+            10000
+          )
+        });
+
+      $(document).click(function(){
+        $(".popuponload").hide();
+      $('body').removeClass('register_popup');
+      $("#popup_overlay_new").hide();
+});
+
+    }
+
+      });
+  </script>
+
+  <script type="text/javascript">
+
+      $(document).ready(function(){
+        $("#submitcustom").click(function (event) {
+
+
+          var first_name = $("#first_name").val();
+          var last_name = $("#last_name").val();
+          var email = $("#email").val();
+          var password = $("#password").val();
+          if (first_name === '' || last_name === '' || email === '' || password === '') {
+            $(".reg_danger_msg").text("Please fill out all this fields.");
+            $(".reg_danger_msg").css("color", "red");
+            const myTimeout = setTimeout(myGreeting, 5000);
+            function myGreeting() {
+              $(".reg_danger_msg").text("");
+            }
+            event.preventDefault();
+          }
+          else if (isEmail(email) == false) {
+            $(".reg_danger_msg").text("Email is Invanlid.");
+            $(".reg_danger_msg").css("color", "red");
+            const myTimeout = setTimeout(myGreeting, 5000);
+            function myGreeting() {
+              $(".reg_danger_msg").text("");
+            }
+            event.preventDefault();
+          }
+          else if (password.length < 5) {
+
+            $(".reg_danger_msg").text("Password should be 5 letters.");
+            $(".reg_danger_msg").css("color", "red");
+            const myTimeout = setTimeout(myGreeting, 5000);
+            function myGreeting() {
+              $(".reg_danger_msg").text("");
+            }
+            event.preventDefault();
+          } else {
+            var email = $("#email").val();
+            document.getElementById("reg_success_msg_id").innerHTML = `Thank You, your account has been successfully registered.<br> We have sent an email to ${email}, please click the link to verify your email address.`;
+            document.getElementById("reg_success_msg_id").style.cssText = "color: #204584";
+            document.getElementById("img_check_success").style.display = "block";
+            document.getElementById("create_customer").style.display = "none";
+            document.getElementById("collection_nav_id").style.display = "none";
+            document.getElementById("reg-modal-left_id").style.display = "none";
+            document.getElementById("reg-modal-right_id").style.cssText = "width: 700px; height: 512px; display: grid; align-items: center";
+            document.getElementById("reg-modal-right-wrap_id").style.cssText = "min-height: 0px";
+          }
+
+        });
+
+      function isEmail(email) {
+          var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2, 4})+$/;
+      return regex.test(email);
+        }
+      });
+
+  </script>
+</body>
+
+</html>
+{% endcapture %}
+{% assign content = content | replace_first: '<!DOCTYPE', '!DOCTYPE' | split: ' <' %}
+{% for html in content %}{% assign htmlblock = html | strip | prepend: ' <' %}{{htmlblock | replace: ' </', '</'}}{% endfor %}
+<style>
+  .haptikchaticon {
+    position: fixed;
+    bottom: 3%;
+    right: -18%;
+    padding: 5px;
+    z-index: 30;
+    cursor: pointer;
+    height: auto;
+  }
+
+  .haptikchaticon img {
+    width: 32%;
+  }
+
+  #preview-bar-iframe {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .haptikchaticon {
+      width: auto;
+      position: fixed;
+      bottom: 6%;
+      left: 72%;
+      padding: 5px;
+      z-index: 30;
+      cursor: pointer;
+    }
+
+    .haptikchaticon img {
+      width: 60%;
+    }
+  }
+
+</style>

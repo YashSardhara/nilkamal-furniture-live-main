@@ -1,0 +1,110 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+{% comment %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script> {% endcomment %}
+<script>
+  $(document).ready(function () {
+    console.log("BI01 - Page Loaded Shipping Started");
+    var pincode_val = getCookie("pincode_val");
+    console.log("BI01 - Pincode Shipping Script", pincode_val);
+    var button_div = $('.step__footer').find('button');
+    var button_div_text = button_div.find('span').text();
+    if (button_div_text.toLowerCase() == 'continue to shipping') {
+      button_div.hide();
+    } else if (button_div_text.toLowerCase() == 'continue to payment') {
+      jQuery.getJSON('/cart.js', function (cart) {
+        var items = cart.items;
+        var pincode_value = cart.attributes.pincode;
+        $('.section__content').find('.content-box__row:eq(0)').hide();
+        $('.section__content').find('.content-box__row:eq(1)').hide();
+        $('.section__content').find('.content-box__row:eq(2)').hide();
+        getShippingRate(pincode_val);
+      });
+    } else {
+    }
+
+  });
+  {% comment %} $('#checkout_submit').click(function () {
+    jQuery.getJSON('/cart.js', function (cart) {
+      var items = cart.items;
+      var pincode_value = cart.attributes.pincode;
+      getShippingRate(pincode_value);
+    });
+    console.log(pincode_value, "pincode_value checkout script");
+  }); {% endcomment %}
+
+  function getShippingRate(pincode) {
+    console.log('BI01 pincode', pincode);
+    var url = 'https://admin.nilkamalfurniture.com/api/get-shippingcharge';
+    $.ajax({
+      url: url,
+      type: 'POST',
+      dataType: "json",
+      data: { pincode: pincode },
+      success: function (res) {
+        if (res.success == true) {
+          var ShippingRate = res.data;
+          console.log('BI01', ShippingRate);
+          if (ShippingRate == '999') {
+            $('.section__content').find('.content-box__row:eq(1)').show();
+            $('.radio__label:eq(1)').trigger('click');
+          } else {
+            $('.section__content').find('.content-box__row:eq(0)').show();
+          }
+        }
+        else {
+          $('.section__content').find('.content-box__row:eq(0)').show();
+        }
+        $('.section--shipping-method').show();
+        var ttt = $('.fieldset').find('button');
+        $(ttt).trigger('click');
+
+      },
+      error: function () {
+        console.log('error');
+      }
+    });
+  }
+  var pincode_data = {};
+  function readCsv() {
+    $.get('https://cdn.shopify.com/s/files/1/0099/2867/1291/files/PincodeList.csv?v=1604572867', function (data) {
+      parseData(data);
+    });
+  }
+
+  function parseData(filedata) {
+    var stores = [];
+    var rows = filedata.split('\n');
+    var headings = this.parseRow(rows[0]);
+
+    for (var i = 1, row; row = rows[i]; i++) {
+      row = row.split(',');
+      temp = {};
+      $.each(row, function (pincode, shipping_rate) {
+        temp[pincode] = shipping_rate;
+      });
+      pincode_data[temp[0]] = temp[1];
+    }
+  }
+  function setCookie(name, value) {
+    jQuery.cookie(name, value, {
+      expires: 1,
+      path: '/'
+    });
+  }
+  function getCookie(name) {
+    return jQuery.cookie(name);
+  }
+
+  function parseRow(row) {
+    if (row.charAt(0) == '"') {
+      row = row.substring(1);
+    }
+    // Strip trailing quote. There seems to be a character between the last quote
+    // and the line ending, hence 2 instead of 1.
+    if (row.charAt(row.length - 2) == '"') {
+      row = row.substring(0, row.length - 2);
+    }
+    row = row.split('","');
+    return row;
+  }
+</script>

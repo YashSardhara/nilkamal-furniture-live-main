@@ -1,0 +1,975 @@
+<style>
+  .main.content {
+    min-height: 300px;
+    padding: 0;
+}
+  button.close {
+    position: absolute;
+    right: 10px;
+    top: 4px;
+    z-index: 1;
+    color: #000!important;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    font-weight: 400;
+    font-size: 32px;
+    background-color: transparent;
+}
+  .modal {
+    margin: 10px 0;
+    display: none;
+    background-color: transparent;
+}
+  .rewards-content p{
+        font-size: 16px;
+    font-family: 'gothamRounded-medium';
+    line-height: 26px;
+  }
+  button.btn.btn-primary {
+    border-radius: 5%;
+    background-color: #0093dd;
+    border-color: #0093dd;
+}
+  body.page-easy-rewards .main_nav_wrapper .main_nav .dropdown {
+    top: 0px;
+}
+  body.page-easy-rewards .main_nav_wrapper .main_nav .dropdown.menu {
+    height: auto;
+    background: 0 0;
+}
+  .modal-body {
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 40px;
+}
+  .modal-body p {
+    font-size: 14px;
+    font-family: 'gothamRounded-medium';
+}
+  .modal-dialog.modal-dialog-centered {
+    max-width: 800px;
+    width: 800px;
+}
+  .tablinks {
+    font-size: 16px;
+    color: #000;
+    border: 1px solid #cccccc73;
+    background: #fff;
+    padding: 14px 16px;
+    font-family: 'gothamRounded-medium';
+    cursor: pointer;
+}
+  .tablinks.active {
+    background: #d7dff4;
+    color: #000;
+    font-weight: 600;
+    border: 1px solid #d7dff4;
+    font-family: 'gothamRounded-medium';
+}
+  .tab {
+    margin: 20px 0px;
+}
+  .clutfit {
+      width: 50%;
+    height: 81%;
+}
+  .rewards-space {
+    margin-bottom: 40px !important;
+}
+.rewards-popup {
+    text-align: center;
+}
+img.firstcry {
+    width: 60%;
+}
+  .easemyfirst{
+    width: 50%;
+  }
+img.Myntra {
+    width: 50%;
+}
+  img.Tata {
+    width: 40%;
+}
+  .row {
+    margin-right: 70px !important;
+    margin-left: -70px !important;
+}
+  @media (max-width: 767px) {
+    .rewards-content {
+    margin-bottom: 20px;
+}
+    .rewards-popup img {
+    margin-bottom: 20px;
+}
+    .tablinks {
+    font-size: 14px;
+    color: #000;
+    border: 1px solid #cccccc73;
+    background: #fff;
+    padding: 14px 9px;
+    font-family: 'gothamRounded-medium';
+    cursor: pointer;
+}
+    button.close {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    z-index: 1;
+    color: #000!important;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    font-weight: 400;
+    font-size: 25px;
+    background-color: transparent;
+}
+    .modal-body {
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 5px;
+}
+  }
+  .hdfc-rewards-title {
+    font-size: 32px;
+    text-align: center;
+    color: #4d4d4d;
+    font-family: 'gothamRounded-medium';
+}
+  .hdfc-bank-rewards {
+    font-size: 16px;
+    text-align: center;
+    color: #0093dd;
+    font-family: 'gothamRounded-medium';
+}
+  p.hdfc-bank-rewardss {
+    font-size: 16px;
+    text-align: center;
+    color: #0093dd;
+    font-family: 'gothamRounded-medium';
+    margin-bottom: 40px;
+}
+  
+  .accordion {
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+  button.accordion {
+    background: #0093dd;
+    color: #fff;
+    justify-content: left;
+    padding: 25px;
+    font-size: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    font-weight: 700;
+}
+  button.accordion::before {
+    content: '+';
+    position: relative;
+    left: 100%;
+}
+  button.accordion.active::before{
+  	content: '-';
+  }
+.active, .accordion:hover {
+  border: 0px;
+  background-color: #ccc; 
+  color: #000;
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+  .accordion_main_container{
+  	margin-bottom: 50px;
+  }
+  .nkl-easy-rewards {
+    width: 60%;
+    margin: 0px auto;
+}
+  
+  
+  @media only screen and (max-width: 600px) {
+  .accordion_main_container {
+    margin-top: 100px;
+  }
+    button.accordion {
+    	font-size: 17px;
+    }
+    section.nkl-easy-rewards {
+    margin-top: 180px;
+    width: 90%;
+}
+    .row {
+    margin-right: -50px !important;
+    margin-left: -20px !important;
+}
+}
+</style>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<section class="nkl-easy-rewards">
+  
+ <div class="accordion_main_container"> 
+   <button class="accordion">InstaCred</button>
+<div class="panel">
+  <p><b>WHAT YOU GET</b></p>
+  <ol>
+    <li>No Cost EMI on eligible tenures across eligible lenders</li>
+    <li>To make this a No Cost EMI offer, amount equivalent to the interest payable by you has been provided as an Upfront Instant Discount to you</li>
+    <li>The total amount you pay to the bank will be equivalent to the price of your order</li>
+    <li>Eligible tenures: 3 month</li>
+    <li>Eligible lenders:</li>
+  </ol>
+  <ol style="margin-left: 50px;">
+    <li>Kotak Mahindra Bank</li>
+    <li>Federal Bank</li>
+    <li>ICICI Bank</li>
+    <li>HDFC Bank</li>
+    <li>Bank of Baroda</li>
+  </ol>
+  <br>
+  <p><b>HOW DO YOU GET IT</b></p>
+  <ol>
+    <li>Select <b>Cardless EMI</b> at check out</li>
+    <li>Select your preferred <b>Cardless EMI lender</b></li>
+    <li>Select tenure with <b>NO COST</b></li>
+  </ol>
+  <br>
+  <p><b>CONDITIONS IN CASE OF CANCELLATION</b></p>
+  <ol>
+    <li>Any returns/cancellations will be as per the Merchant's return/cancellation policy.</li>
+    <li>In case of any kind of return/refund in an EMI transaction, interest already billed in a particular transaction will not be refundable under any circumstances</li>
+    <li>In the case of a refund on the original transaction, the No Cost EMI Discount received by the customer on the transaction will be recovered on a pro-rata basis and the amount post adjustment of this discount recovery will be passed back to the customer through InstaCred Lending Partner.</li>
+  </ol>
+</div>
+<!--  Zest Money T&C Start  -->
+  
+<!--  Zest Money T&C End  -->
+   {% comment %}
+   <button class="accordion">Zest money</button>
+<div class="panel">
+  <p><b>Promotion Details</b></p>
+  <ol>
+    <li>Offer: 10% cashback up to Rs. 2000</li>
+    <li>Offer validity: 11th to 14th February 2022.</li>
+    <li>Minimum txn amount: NIL</li>
+  </ol>
+  <p><b>Offer T&C</b></p>
+  <ol>
+    <li>Get a flat 10% cashback up to INR 2,000 and a maximum cashback of up to INR 5,000 on all online and offline transactions between Feb 11-14th, 2022 (“Offer Period”)</li>
+<li>The offer is valid for only one transaction per merchant within the Offer Period.</li>
+<li>In case of partial or full cancellation of the order, the refunded amount will be reduced from the outstanding loan amount of the customer with ZestMoney.</li>
+<li>Any amount deducted before a refund will continue to be under the loan amount </li>
+<li>Applicable  Zero Cost EMI at the time of order will continue to apply to the remaining outstanding amount.</li>
+<li>ZestMoney reserves the right to employ technological and other methods to prevent abuse of the Offer terms. You acknowledge that ZestMoney’s decision to take certain actions, including limiting access to your offer, placing holds, or imposing reserves, may be based on confidential criteria that is essential to our management of risk, the security of users’ accounts, comply with applicable laws and the otherwise protect the ZestMoney system.</li>
+<li>You agree that ZestMoney is under no obligation to disclose the details of its risk management or its security procedures to you
+<li>For any cashback related queries, please write to us at <a href = "mailto: help@zestmoney.in">help@zestmoney.in</a></li>
+<li>All purchases made by the customers during the Lots Of Valentine’s Essential or the L.O.V.E sale shall be governed by the standard Terms and Conditions (subject to changes), which includes without limitation User Agreement, Privacy Policy, or any other product/service-related terms and conditions appearing on the website. Please read through <a href="https://www.zestmoney.in/terms-and-conditions/">https://www.zestmoney.in/terms-and-conditions/ </a> for more information on ZestMoney terms and conditions.</li>
+  </ol>
+  </div>
+   
+    <button class="accordion">HDFC 5% INSTANT DISCOUNT</button>
+<div class="panel">
+  <p><b>Offer Details</b></p>
+  <ol>
+ 
+    <li>Offer: 5% cashback up to Rs 1000 on Credit Card EMI and Debit Card EMI transactions Offer Dates - Valid from 22-Nov to 30-Nov’ 21.</li>
+
+    <li>Minimum Ticket Size - Rs 5000</li>
+
+    <li>Cashback will be posted within 90 days from the date of transaction.</li>
+  </ol>
+  <p><b>Terms & Conditions:</b></p>
+  <ol>
+    <li>Offer is valid only on www.nilkamalfurniture.com</li>
+    <li>Offer applicable only on HDFC Credit cards and EMI transactions. Minimum Order value – Rs 20,000</li>
+    <li>Offer max discount up to Rs 3000.</li>
+    <li>Nilkamal reserves the right to exclude certain items from this promo.</li>
+    <li>No Promo code is required at the checkout. Select mode of payment as HDFC Credit card or EMI</li>
+    <li>This offer is valid only for HDFC customers. Any B2B orders under this promotion will be cancelled. The decision of Nilkamal will be final and binding in this respect.</li>
+    <li>The following terms of use apply to all orders under this offer - <link> All actions of Nilkamal will be on a best-efforts basis only.</li>
+    <li>Offer is not valid on payment methods other than CC regular and EMI transactions.</li>
+    <li>Offer is not valid on exchange or refund.</li>
+    <li>Participation in this offer is voluntary. Any person availing of this offer shall be deemed to have read understood and accepted these Terms and Conditions.</li>
+  </ol>
+</div>
+{% endcomment %}
+<button class="accordion">NO COST EMI</button>
+<div class="panel">
+  <p><b>Promotion Details</b></p>
+  <ol>
+    <li>Offer: No cost EMI for up to 3 and 6 months on a minimum purchase of Rs 5000</li>
+    <li>Offer validity: Up to 31st March 2022</li>
+  </ol>
+  <ol>
+    <li>Offer applicable on selection of Razorpay. Minimum Order value – Rs 5000</li>
+    <li>Offer only valid on Credit Card transactions</li>
+    <li>Nilkamal reserves the right to exclude certain items from this offer.</li>
+    <li>Offer will be valid on confirmed orders only.</li>
+    <li>Offer has no monetary value and cannot be reused, exchanged or refunded.</li>
+    <li>Participation in this offer is voluntary. Any person availing of this offer shall be deemed to have read understood and accepted these Terms and Conditions.</li>
+  </ol>
+</div>
+{% comment %}
+<button class="accordion">Rewards Offer</button>
+<div class="panel">
+  <p><b>Promotion Details</b></p>
+  <p>Offer: Make purchases on any of the below listed brands and avail extra discounts</p>
+  <br>
+  <div class="container rewards-space">
+ <div class="row">
+   <div class="col-md-4 rewards-popup">
+     <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/Tata_1mg.png?v=1632906754" alt="Myntra" class="Tata">
+   </div>
+    <div class="col-md-4 rewards-content">
+     <p>20% Discount on Prescription
+Medicines</p>
+      <p>Expiry Date:2021-12-31</p>
+      
+   </div>
+    <div class="col-md-4">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter6">
+  Know More
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">TATA 1Mg</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+         <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/Tata_1mg.png?v=1632906754" alt="Tata" class="Tata">
+      <p> 20% Discount on Prescription
+Medicines </p>
+         <div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'termandcondition4')" id="defaultOpen">Terms and condition</button>
+  <button class="tablinks" onclick="openCity(event, 'howtouse4')">How to use</button>
+</div>
+        <div id="termandcondition4" class="tabcontent">
+        <h4>Terms and Conditions</h4>
+          <p>1. The coupon offers 20% discount on Prescription Medicines; min order of 499/-</p>
+          <p>2. The offers cannot be redeemed for cash or clubbed with any other offer or promotion;</p>
+<p>3. OTC products come with an upfront discount on the website.0.01% Discount is there for
+  tracking.</p>
+<p>4. Health/OTC products are delivered Pan-India (except J&K, Manipur, Mizoram, Nagaland,
+  Meghalaya, Himachal Pradesh, Arunachal Pradesh, Goa, Daman & Diu, Andaman & Nicobar);</p>
+          <p>5. Delivery charges applicable</p>
+<p>6. Some SKUs are already at a maximum discount on our portal and hence coupon code is not
+  applicable on them</p>
+<p>7. Tata 1mg reserves its absolute right at any time to add, alter, withdraw, modify or change or
+vary any or all the terms and conditions of the offer at its sole discretion and the same shall
+  be binding on the customer at all times.</p>
+      </div>
+        <div id="howtouse4" class="tabcontent">
+  <h3>How to use</h3>
+          <p> 1. Visit www.1mg.com (for medicines)</p>
+          <p>2. Login using phone number and email id</p>
+          <p>3. Upload the valid prescription and select the medicines to add in the cart.</p>
+<p>4. Once the cart is ready, go on checkout page and apply the coupon code The user shall
+  instantly get 20% of the order value as a discount on prescription medicine.</p>
+          <p>5. Move forward with the selection of the payment mode (Cash on delivery or prepaid)</p>
+<p>6. The order will be completed by 1mg.com post which the 1mg cash will be credited to the
+  user's account</p>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+   </div>
+  </div>
+</div>
+  <div class="container rewards-space">
+ <div class="row">
+   <div class="col-md-4 rewards-popup">
+     <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/Myntra_logo.png?v=1632905843" alt="Myntra" class="Myntra">
+   </div>
+    <div class="col-md-4 rewards-content">
+     <p>Extra Flat 10% Discount up to Rs
+500 on a min buy of Rs 999 on
+select styles on Myntra</p>
+      <p>Expiry Date:2022-1-31</p>
+      
+   </div>
+    <div class="col-md-4">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter5">
+  Know More
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Myntra</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+         <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/Myntra_logo.png?v=1632905843" alt="Myntra" class="easemyfirst">
+      <p> flat 30% off on all products </p>
+         <div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'termandcondition3')" id="defaultOpen">Terms and condition</button>
+  <button class="tablinks" onclick="openCity(event, 'howtouse3')">How to use</button>
+</div>
+        <div id="termandcondition3" class="tabcontent">
+        <h4>Terms and Conditions</h4>
+        <p>1. Get Extra Flat 10% off up to Rs 500 on min spend of Rs 999 on the Myntra app or website,
+          valid till 31st January 2022.</p>
+          <p>2. Valid only on a selected catalogue listed in the redemption link</p>
+          <p>3. Redemption link: https://myntraapp.onelink.me/1L28/nilkamal</p>
+          <p>4. The code can be used once per Customer</p>
+          <p>5. This offer is not valid at any of the alliance partner retail outlets/stores</p>
+          <p>6. Multiple coupons cannot be clubbed in a single order</p>
+<p>7. The balance amount, after the discount is availed, will have to be paid by the customer at the
+  time of purchase</p>
+          <p>8. In no case, whatsoever, can the discount amount be refunded, encashed or partly encashed</p>
+<p>9. Myntra's Return and Exchange Policy offers you the option to return or exchange items
+purchased on Myntra's application within 30 days of the receipt. In case of return of the
+purchased item, please refer to the “Return Policy” on the website/ app or call Myntra
+  Customer care</p>
+<p>10. All orders would be subject to availability at the time of purchase and will be governed by the
+  standard terms and conditions listed on the App</p>
+<p>11. All disputes arising out of or in connection to this scheme are subject to exclusive jurisdiction
+  of the courts in Bangalore only</p>
+<p>12. Disclaimers: Company is not responsible for any typographical error leading to an invalid
+  coupon</p>
+          <p>13. For Any coupon related queries call: 080 6156 1999</p>
+      </div>
+        <div id="howtouse3" class="tabcontent">
+  <h3>How to use</h3>
+        <p> 1. Click on the offer link to open the applicable catalogue:
+          <a href="https://myntraapp.onelink.me/1L28/nilkamal">https://myntraapp.onelink.me/1L28/nilkamal</a></p>
+          <p>2. Select the products you wish to purchase from the catalog</p>
+          <p>3. Enter the coupon code in “Apply coupon” tab in the cart page to avail the discount.</p>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+   </div>
+  </div>
+</div>
+  <div class="container rewards-space">
+ <div class="row">
+   <div class="col-md-4 rewards-popup">
+     <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/Ketan_Logo_Final_Tagline_Final_page-0001.jpg?v=1632905173" alt="FirstCry" class="firstcry">
+   </div>
+    <div class="col-md-4 rewards-content">
+     <p> flat 3.5% off sitewide</p>
+      <p>Expiry Date:2021-12-31</p>
+      
+   </div>
+    <div class="col-md-4">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter4">
+  Know More
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Ketan Diamonds</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+         <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/Ketan_Logo_Final_Tagline_Final_page-0001.jpg?v=1632905173" alt="FirstCry" class="easemyfirst">
+      <p> flat 3.5% off sitewide </p>
+         <div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'termandcondition5')" id="defaultOpen">Terms and condition</button>
+  <button class="tablinks" onclick="openCity(event, 'howtouse5')">How to use</button>
+</div>
+        <div id="termandcondition5" class="tabcontent">
+        <h4>Terms and Conditions</h4>
+          <p> 1. Deal 1 - 3.5% Discount</p>
+          <p>2. Minimum Product Value: 0</p>
+          <p>3. Minimum Cart Value: 0</p>
+          <p>4. Validity: 31st Dec 2021</p>
+          <p>5. Applicable on all the products on our website.</p>
+          <p>6. Can't be clubbed with any other ongoing offers on our website</p>
+          <p>7. Applicable on COD & Prepaid Orders</p>
+          <p>8. Only One Coupon can be redeemed against one transaction</p>
+      </div>
+        <div id="howtouse5" class="tabcontent">
+  <h3>How to use</h3>
+          <p> 1. Visit to website https://ketandiamonds.com/ </p>
+          <p>2. Choose your product to final payment mode.</p>
+          <p>3. On the payment option select ‘Apply Coupon’</p>
+          <p>4. Enter the Coupon code in the filled. The amount will be deducted from the total summary.</p>
+          <p>5. Confirm and place the order</p>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+   </div>
+  </div>
+</div>
+<div class="container rewards-space">
+ <div class="row">
+   <div class="col-md-4 rewards-popup">
+     <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/EaseMyTrip_Logo.jpg?v=1632828274" alt="EasemyTrip" class="easemyfirst">
+   </div>
+    <div class="col-md-4 rewards-content">
+     <p> Rs.700 off on min booking
+amount of Rs.5,000 for round trip
+       domestic flights</p>
+      <p>Expiry Date:2021-12-31</p>
+      
+   </div>
+    <div class="col-md-4">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Know More
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">EaseMyTrip</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/EaseMyTrip_Logo.jpg?v=1632828274" alt="EasemyTrip" class="easemyfirst">
+         <p> Rs.700 off on min booking
+amount of Rs.5,000 for round trip
+       domestic flights</p>
+        <h4>Terms and Conditions</h4>
+        <p>1. This offer is valid till 31st DEC 2021.</p>
+<p>2. Convenience fees will be charged as per the applicability.</p>
+<p>3. All our new and existing customers can avail this offer.</p>
+<p>4. The offer is valid for bookings made on EaseMyTrip's website, Mobile site, Android & iOS App.</p>
+<p>5. Bookings with the valid promo codes will be only eligible for this offer.</p>
+<p>6. One user can avail offer once per week.</p>
+<p>7. This offer cannot be clubbed with any other offer running on EaseMyTrip.</p>
+<p>8. In case of partial/full cancellation the offer stands void and discount will be rolled back before
+processing the refunds.</p>
+<p>9. Child / infant discount, date or flight change, refund charges, weekend surcharge, black out
+period, travel restrictions and / or flight restriction will be also applicable as per the fare rule.</p>
+<p>10. Changes in flights and dates are allowed with changed fees and fare difference.</p>
+<p>11. Changes in names are not allowed.</p>
+<p>12. In the event of any misuse or abuse of the offer, EaseMyTrip reserves the right to deny the
+offer to the customers.</p>
+<p>13. EaseMyTrip is the sole authority for interpretation of these terms.</p>
+<p>14. In addition, EaseMyTrip standard booking and privacy policy on EaseMyTrip.com shall apply.</p>
+<p>15. In the event of any dispute, Courts of New Delhi will have jurisdiction.</p>
+<p>16. EaseMyTrip reserves the right, at any time, without prior notice and liability and without
+assigning any reason whatsoever, to add/alter/modify/change or vary all of these terms and
+conditions or to replace, wholly or in part, this offer by another offer, whether similar to this
+offer or not, or to extend or withdraw it altogether.</p>
+<p>17. EaseMyTrip shall not be liable for any loss or damage arising due to force majeure.</p>
+      </div>
+    </div>
+  </div>
+</div>
+   </div>
+  </div>
+</div>
+<div class="container rewards-space">
+ <div class="row">
+   <div class="col-md-4 rewards-popup">
+     <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/EaseMyTrip_Logo.jpg?v=1632828274" alt="EasemyTrip" class="easemyfirst">
+   </div>
+    <div class="col-md-4 rewards-content">
+     <p> INR 500 off on hotels bookings.
+Min booking INR 3000.</p>
+      <p>Expiry Date:2021-12-31</p>
+      
+   </div>
+    <div class="col-md-4">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+  Know More
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">EaseMyTrip</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/EaseMyTrip_Logo.jpg?v=1632828274" alt="EasemyTrip" class="easemyfirst">
+         <p> INR 500 off on hotels bookings.
+Min booking INR 3000.</p>
+        <h4>Terms and Conditions</h4>
+        <p>   1. This offer is valid till 31st DEC 2021. </p>
+        <p>2. Convenience fees will be charged as per the applicability.</p>
+        <p>3. All our new and existing customers can avail this offer.</p>
+        <p>4. The offer is valid for bookings made on EaseMyTrip's website, Mobile site, Android & iOS App.</p>
+        <p>5. Bookings with the valid promo codes will be only eligible for this offer.</p>
+        <p>6. One user can avail offer once per week.</p>
+        <p>7. This offer cannot be clubbed with any other offer running on EaseMyTrip.</p>
+        <p>8. In case of partial/full cancellation the offer stands void and discount will be rolled back before
+        processing the refunds.</p>
+<p>9. Child / infant discount, date or flight change, refund charges, weekend surcharge, black out
+  period, travel restrictions and / or flight restriction will be also applicable as per the fare rule.</p>
+<p>10. Changes in names are not allowed.</p>
+<p>11. In the event of any misuse or abuse of the offer, EaseMyTrip reserves the right to deny the
+  offer to the customers.</p>
+        <p>12. EaseMyTrip is the sole authority for interpretation of these terms.</p>
+        <p>13. In addition, EaseMyTrip standard booking and privacy policy on EaseMyTrip.com shall apply.</p>
+        <p>14. In the event of any dispute, Courts of New Delhi will have jurisdiction.</p>
+<p>15. EaseMyTrip reserves the right, at any time, without prior notice and liability and without
+assigning any reason whatsoever, to add/alter/modify/change or vary all of these terms and
+conditions or to replace, wholly or in part, this offer by another offer, whether similar to this
+  offer or not, or to extend or withdraw it altogether.</p>
+        <p>16. EaseMyTrip shall not be liable for any loss or damage arising due to force majeure.</p>
+      </div>
+    </div>
+  </div>
+</div>
+   </div>
+  </div>
+</div>
+<div class="container rewards-space">
+ <div class="row">
+   <div class="col-md-4 rewards-popup">
+     <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/Cult_LOGO_1-01.png?v=1632898239" alt="ClutFit" class="clutfit">
+   </div>
+    <div class="col-md-4 rewards-content">
+     <p> 15 Days access to Cult.live Digital
+sessions</p>
+      <p>Expiry Date:2021-12-31</p>
+      
+   </div>
+    <div class="col-md-4">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter1">
+  Know More
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">CultFit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+       <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/Cult_LOGO_1-01.png?v=1632898239" alt="ClutFit" class="clutfit">
+ <p> 15 Days access to Cult.live Digital
+sessions </p>
+         <div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'termandcondition')" id="defaultOpen">Terms and condition</button>
+  <button class="tablinks" onclick="openCity(event, 'howtouse')">How to use</button>
+</div>
+        <div id="termandcondition" class="tabcontent">
+        <h4>Terms and Conditions</h4>
+        <p> 1. The promotional voucher is valid till Dec 31st 2021</p>
+        <p>2. Each voucher can be redeemed only once per user.</p>
+<p>3. Applicable for users who have not activated a trial pack or bought a cultpass Live subscription
+  before.</p>
+        <p>4. The access is applicable to the section under “LIVE” on cult.fit app / web</p>
+        <p>5. The voucher is applicable in India only.</p>
+<p>6. The dates of the membership can we viewed in profile section under “Active Packs /
+  Subscriptions”</p>
+        <p>7. This pass does not allow customer to pause the membership</p>
+        <p>8. Only one voucher can be used at a time and cannot be combined with other offers.</p>
+        <p>9. The voucher is not transferable and should not be resold or redeemed for cash</p>
+<p>10. If the product purchased using a promotional voucher is returned, the refund value will not
+  include the value of the voucher code.</p>
+        <p>11. cult.fit reserves the right to modify or revoke the voucher / offer at any point in time</p>
+      </div>
+        <div id="howtouse" class="tabcontent">
+  <h3>How to use</h3>
+          <p>1. To redeem go to https://www.cult.fit/me/vouchers and login or signup</p>
+<p>2. You can also use the cult.fit app, go to the “Home” section on cult.fit app (For ios users the
+  code can only be redeemed via the website / mobile web)</p>
+<p>3. Click on the profile icon on the top left & visit the “Redeem Voucher” section within “Referrals
+  & Vouchers”</p>
+          <p>4. Enter voucher code, verify and redeem to start your unlimited access</p>
+          <p>5. Your access will start from the date of activation of the voucher code.</p>
+<p>6. Once redeemed, you can book classes from both cult.fit app and website (for both ios and
+  android)</p>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+   </div>
+  </div>
+</div>
+<div class="container rewards-space">
+ <div class="row">
+   <div class="col-md-4 rewards-popup">
+     <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/FC-2000x1000.png?v=1632904009" alt="FirstCry" class="firstcry">
+   </div>
+    <div class="col-md-4 rewards-content">
+     <p> flat 30% off on all products</p>
+      <p>Expiry Date:2021-12-31</p>
+      
+   </div>
+    <div class="col-md-4">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter3">
+  Know More
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">FirstCry</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+         <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/FC-2000x1000.png?v=1632904009" alt="FirstCry" class="firstcry">
+      <p> flat 30% off on all products </p>
+         <div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'termandcondition1')" id="defaultOpen">Terms and condition</button>
+  <button class="tablinks" onclick="openCity(event, 'howtouse1')">How to use</button>
+</div>
+        <div id="termandcondition1" class="tabcontent">
+        <h4>Terms and Conditions</h4>
+          <p>1. You will get flat 30% off on the products on website.</p>
+          <p>2. Valid on MRP.</p>
+          <p>3. Maximum discount is Rs.1000.</p>
+          <p>4. The offer coupon can be used only once per user.</p>
+          <p>5. GST extra on discounted price.</p>
+          <p>6. Coupon code is not applicable with any other coupon.</p>
+<p>7. Coupon code is not valid on Combos, Bottles & Accessories, Formula & Supplements,
+Innerwear & Thermals, Socks & Tights, Swimwear, Education, Bath Tubs, and brands Meemee
+Select Baby Gear Range, Duracell, Johnson's Baby, Nestle, Protinex, Bella, Sofy, Pediasure,
+Figaro, Saregama, Tango, Dabur, West Coast, Motorola, Binaca, Melissa & Doug, Horlicks,
+Shemaroo, DMR MiniWash, Foscam, Cherokee, Hamdard, Alex Daisy, Complan, Shumee, Bio
+Oil, Jane, Masilo, Fancy Fluff, IFITech, Dettol, Shesha Naturals, Dermadew, Emotix, TigerTech,
+Vaux, SeTracker, Ryca, Pureborn, U.S. Polo Assn., Avidia Labs, Osasbazaar, Jockey, U.S. Polo
+Assn. Kids, Colt, Donut, Karigari, Savlon, Boingg, Instax Fujifilm, ClassMonitor, Fisher Price by
+Tiffany, DuroFlex, Jade Toys, Havells, Whisper, Olay, Aveeno, Pantene, Head & Shoulder,
+Organic India, Simon & Schuster, Embassy Books, Pan Macmillan, Westland, Birkenstock,
+Volwco, Nooie, Skypearll, HP, Yamaha, CROSSBEATS, Crossloops, GOQii, JBL, Travel Blue,
+Lexingham / Travel Blue, Macmerise, Phillips, Portronics, Sekyo, STAUNCH, THINKERPLACE,
+Trakbond, Turet, Ultraprolink, WatchOut Wearables, Zebronics, Campus, Crocs, Indian Terrain,
+  Tommy Hilfiger, Allen Solly Juniors, Puma, Lilpicks Couture.</p>
+          <p>8. Coupon code is not applicable on Sanitizers and Masks.</p>
+      </div>
+        <div id="howtouse1" class="tabcontent">
+  <h3>How to use</h3>
+          <p>1. Copy the offer code</p>
+          <p>2. Visit FirstCry.Com App/Msite or Desktop Site</p>
+          <p>3. Go to cart and apply the code under Apply Coupon Code Tab</p>
+          <p>4. Go to the checkout page and complete the payment using any payment options</p>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+   </div>
+  </div>
+</div>
+<div class="container rewards-space">
+ <div class="row">
+   <div class="col-md-4 rewards-popup">
+     <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/Smart_Health_Report_650X400Pxl-01.jpg?v=1633079031" alt="Myntra" class="Tata">
+   </div>
+    <div class="col-md-4 rewards-content">
+     <p>Upto 20% Off on Preventive Packages</p>
+      <p>Expiry Date:2021-12-31</p>
+      
+   </div>
+    <div class="col-md-4">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter7">
+  Know More
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter7" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">SRL Diagnostics</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+         <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/Smart_Health_Report_650X400Pxl-01.jpg?v=1633079031" alt="Tata" class="Tata">
+      <p> 20% Discount on Prescription
+Medicines </p>
+         <div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'termandcondition6')" id="defaultOpen">Terms and condition</button>
+  <button class="tablinks" onclick="openCity(event, 'howtouse6')">How to use</button>
+</div>
+        <div id="termandcondition6" class="tabcontent">
+        <h4>Terms and Conditions</h4>
+          <p>1. Use Coupon for 20% Off on Preventive Packages.</p>
+          <p>2. Offer valid on minimum Bill value of Rs. 1999</p>
+          <p>3. Offer is valid once per user.</p>
+          <p>4. Offer cannot be encashed</p>
+          <p>5. Offer cannot be clubbed with other Offer(s)</p>
+          <p>6. Offer is valid till 31 Dec 2021 .</p>
+          <p>7. Maximum discount cannot exceed Rs. 1000</p>
+          <p>8. Offer can be availed at SRL Website/SRL Mobile App</p>
+<p>9. For concerns and issue regarding Coupon Redemption, please reach out to support@srl.in or
+  call 8080444255.</p>
+          <p>10. Reports will be shared within 48 to 72 hours after sample reaches the laboratory</p>
+          <p>11. For Hardcopy report, extra Rs. 50/- need to be paid</p>
+          <p>12. Hardcopy report will be delivered within a week.</p>
+          <p>13. Softcopy of the report will be shared with the Customers on providing valid email id</p>
+          <p>14. Test booking will be done as per available slots</p>
+          <p>15. Samples will be collected by SRL Phlebotomist</p>
+          <p>16. Cancellation not allowed after Sample Collection</p>
+          <p>17. SRL Terms and Conditions will be final</p>
+          <p>18. For more details, please visit https://www.srlworld.com</p>
+      </div>
+        <div id="howtouse6" class="tabcontent">
+  <h3>How to use</h3>
+          <p> 1. Book your test/package at https://www.srlworld.com/ or via SRL App</p>
+          <p>2. This offer is only applicable for Home Collection.</p>
+          <p>3. Search & select the test/package that you want.</p>
+          <p>4. Proceed with the booking</p>
+          <p>5. Review the cart and enter booking details</p>
+          <p>6. Enter the promocode</p>
+          <p>7. Fill the Home collection date/time, address or walk-in details</p>
+          <p>8. Choose the payment method and booking will be completed</p>
+          <p>9. A SMS/Email will be received to confirm the booking.</p>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+   </div>
+  </div>
+</div>
+<div class="container rewards-space">
+ <div class="row">
+   <div class="col-md-4 rewards-popup">
+     <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/upGrad_Logo_Rect-02.png?v=1633079031" alt="Myntra" class="Tata">
+   </div>
+    <div class="col-md-4 rewards-content">
+     <p>Upto 10% off on Working
+Professional Programs</p>
+      <p>Expiry Date:2021-12-31</p>
+      
+   </div>
+    <div class="col-md-4">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter8">
+  Know More
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter8" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Upgrad</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+         <img src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/upGrad_Logo_Rect-02.png?v=1633079031" alt="Tata" class="Tata">
+      <p> Upto 10% off on Working
+Professional Programs </p>
+         <div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'termandcondition7')" id="defaultOpen">Terms and condition</button>
+  <button class="tablinks" onclick="openCity(event, 'howtouse7')">How to use</button>
+</div>
+        <div id="termandcondition7" class="tabcontent">
+        <h4>Terms and Conditions</h4>
+          <p> 1. Cannot be clubbed with any other offer.</p>
+          <p>2. Offer can be availed only one time by each Customer.</p>
+<p>3. Customer shall be eligible for discount only by registration through the weblink of the
+  Platform provided by Upgrad.</p>
+<p>4. The offer will not be applicable to a user who has already registered with Upgrad through any
+  other within a period of 45 days months prior to this offer. Post 45 days, the user can reregister and avail the offer.</p>
+          <p>5. Upgrad Terms and conditions apply for courses https://www.upgrad.com/terms/</p>
+<p>6. The registration above is only for Upgrad’s counselor/ executive to help the Customer with
+  the payment process.</p>
+<p>7. Offer is valid only on select Upgrad Programs and Upgrad shall have the sole and absolute
+right to add or remove any Program from the list of Programs on which Offer is being
+  provided.</p>
+<p>8. Upgrad shall have the sole and absolute discretion to decide the percentage of discount to be
+  offered to the Customers on the select Programs.</p>
+          <p>9. All purchases of Programs must be through the Upgrad App/platform.</p>
+<p>10. Upgrad has its absolute right to withdraw &/or alter any or all terms & conditions stipulated
+  in the Offer at any time & at its sole discretion.</p>
+<p>11. The existence of any dispute due to reasons attributable to Alliance Partner, if any, will not
+  constitute any claim towards Upgrad.</p>
+      </div>
+        <div id="howtouse7" class="tabcontent">
+  <h3>How to use</h3>
+          <p> 1. Visit bit.ly/upGradEasyRewardz and register using credentials </p>
+          <p>2. Once the registration is complete on the UTM link, customer will be eligible for discounts</p>
+          <p>3. Customer will be contacted by Upgrad’s Academic Counsellors to process this further.</p>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+   </div>
+  </div>
+</div>
+</div>
+    </div>
+{% endcomment %}
+<script>
+
+</script>
+    
+<!--     <h3 class="hdfc-rewards-title">Hdfc Instant discount offer:</h3>
+      <p class="hdfc-bank-rewards">- 5% Instant discount on min purchase of Rs.20000</p>
+    <p class="hdfc-bank-rewards">- Max discount- 3000</p>
+    <p class="hdfc-bank-rewardss">- Applicable on Credit card and Credit card emi transactions</p> -->
+  
+</section>
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}

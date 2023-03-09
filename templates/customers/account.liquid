@@ -1,0 +1,99 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+<div class="container">
+  <div class="account_top_sec_info">
+    <header class="page-header">
+      <h1 {% if settings.enable_multilang %}data-translate="customer.account.title"{%endif%}>{{ 'customer.account.title' | t }}</h1>
+      <h5>{{ customer.name }}</h5>
+    </header>
+    <div class="log_out_opt">
+      {% if customer %}
+      <h6><a href="/account/logout">LOGOUT</a></h6>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="bg-wrapper clearfix">
+    <div class="account-tab center">
+      <div class="tab-link">
+        <a class="active" href="javascript:void(0);">PROFILE</a>
+        <a href="/pages/order">ORDERS</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <aside class="col-sm-3 personal-info">
+        <h3 class="account-saved">Personal info</h3>
+        <div class="account-personal-info">
+          <p class="name"><b>Name:</b><br><span>{{ customer.name }}</span></p>
+          <p class="name"><b>Email Id:</b><br><span>{{ customer.email }}</span></p>
+          <p class="name"><b>Location:</b><br><span>{{ customer.default_address.city}}{% if customer.default_address.province_code %}, {{customer.default_address.province_code}}{% endif %} {{ customer.default_address.zip}}</span></p>
+          <p class="name"><b>Mobile:</b><br><span>{{ customer.default_address.phone }}</span></p>
+        </div>
+        {% comment %}
+        <h4>{{ 'customer.addresses.primary' | t }}</h4>
+        <div class="address note">
+          {% if customer.default_address != nil %}
+          <p>{{ customer.default_address.address1 }}</p>
+          {% if customer.default_address.address2 != "" %}
+          <p>{{ customer.default_address.address2 }}</p>
+          {% endif %}
+          <p>{{ customer.default_address.city}}{% if customer.default_address.province_code %}, {{customer.default_address.province_code}}{% endif %} {{ customer.default_address.zip}}</p>
+          <p>{{customer.default_address.country}}</p>
+          <p>{{ customer.default_address.phone }}</p>
+          {% else %}
+          <p>{{ 'customer.addresses.no_addresses' | t }}</p>
+          {% endif %}
+          <p><a href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
+        </div>
+        {% endcomment %}
+      </aside>
+
+      <div class="col-sm-9 saved-address">
+        <!--   order end   -->
+  <!--       <header class="page-header">
+          <h4 {% if settings.enable_multilang %}data-translate="customer.account.details"{%endif%}>{{ 'customer.account.details' | t }}</h4>
+        </header> -->
+        <h3>Saved address</h3>
+        <h4>{{ customer.name }}</h4>
+
+        {% if customer.default_address != nil %}
+        <p>
+          {{ customer.default_address.address1 }}<br>
+
+          {% if customer.default_address.address2 != "" %}
+          {{ customer.default_address.address2 }}<br>
+          {% endif %}
+
+          {% if customer.default_address.city != "" %}
+          {{ customer.default_address.city }}<br>
+          {% endif %}
+
+          {% if customer.default_address.province_code != "" %}
+          {{ customer.default_address.province_code | upcase }}<br>
+          {% endif %}
+
+          {% if customer.default_address.zip != "" %}
+          {{ customer.default_address.zip | upcase }}<br>
+          {% endif %}
+
+          {% if customer.default_address.country != "" %}
+          {{ customer.default_address.country }}<br>
+          {% endif %}
+
+          {% if customer.default_address.phone != "" %}
+          {{ customer.default_address.phone }}
+          {% endif %}
+
+        </p>
+
+        {% endif %}
+
+        <p class="">
+          <a href="/account/addresses" class="action_button reverse" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">+ Add New Address</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+</div>

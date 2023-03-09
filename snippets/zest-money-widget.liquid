@@ -1,0 +1,165 @@
+{% if product %}
+<link href="https://s3.ap-south-1.amazonaws.com/prod-merchants-assets/merchant-assets/zestmoney.widget.v3.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="https://s3.ap-south-1.amazonaws.com/prod-merchants-assets/merchant-assets/zestmoney.widget.v3.js"></script>
+
+<div id="zestmoney-overlay-cart"></div>  
+<div id="zestmoney-widget-container-cart" class="zestmoney-widget-wrapper hide-zestmoney-widget"></div>  
+
+<div id="zestmoney-overlay"></div>
+<div id="zestmoney-widget-container" class="zestmoney-widget-wrapper hide-zestmoney-widget"></div>
+
+<style>
+      #zestmoney-widget-control{
+      display: block!important;
+        text-align:left!important;
+      }
+  zestmoney-widget-trigger {
+       font-family: "Inter", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    color: #444;
+}
+  .zestmoney-amount-info {
+    white-space: nowrap;
+    line-height: 20px;
+    color: #444 !important;
+  }
+  .zestmoney-widget {
+    font-family: 'Inter' !important;
+    font-size: 14px !important;
+    align-items: center;
+    display: inline-flex;
+    text-align: center;
+}
+    </style>
+
+<script type="text/javascript">
+  
+   setTimeout(async() => {
+       var zestmoneyWidgetControl = document.getElementById('zestmoney-widget-control');
+       if(!zestmoneyWidgetControl){
+            // Get the target placeholder for adding the ZestMoneyWidget
+            const placement_selector = '.emi-box'
+            if(placement_selector){
+            const pricing_containers = document.querySelectorAll(placement_selector);
+            if(pricing_containers.length == 0){
+                console.error("ZestMoney : Not able to find pricing placeholder using selector '" + placement_selector+"'");
+                return;
+            }
+            zestmoneyWidgetControl = document.createElement("div");
+            zestmoneyWidgetControl.setAttribute('id','zestmoney-widget-control');
+            pricing_containers[0].appendChild(zestmoneyWidgetControl);
+            }
+       }
+       if(!zestmoneyWidgetControl){
+           return;
+       }
+       
+       var zestMoneyWidgetElement = document.getElementById('zestmoney-widget-container');
+       const  zest_price = parseFloat("{{ product.selected_or_first_available_variant.price }}") / 100;
+       var zestMoneyWidget = new ZestMoneyWidget(zestMoneyWidgetElement, {
+           merchantId: "5f7247fd-141e-401a-a39a-bc70380b8871",
+           environment: "production",
+           basketAmount: zest_price || 0,
+           downpaymentAmount: null,
+           paymentGatewayId: "31a2b66b-f364-48f9-a7fd-6870a5a224b4",
+           widgetType: 'product',
+       });
+       let displayHtml = await zestMoneyWidget.getDisplayHTML();
+       if (displayHtml) {
+           zestmoneyWidgetControl.innerHTML = displayHtml;
+           var zestmoneyWidgetTrigger = document.getElementById('zestmoney-widget-trigger');
+           if (zestmoneyWidgetTrigger) {
+               zestmoneyWidgetTrigger.addEventListener("click", function () {
+                   zestMoneyWidget.open();
+               });
+           }
+       } 
+    },200)
+    const pdp_change_observer_selector = document.querySelector("#price-template--15424336396542__main");
+    const pdpPriceChangeObserver = new MutationObserver(function() {
+        pdpPriceChangeObserver.disconnect();  
+        var pdp_price_selector = document.getElementsByClassName("current_price")[0].innerHTML.replace(/\D/g, "")/100;
+        document.getElementById("zestmoney-amount").innerHTML = Math.round(pdp_price_selector/3);
+        pdpPriceChangeObserver.observe(pdp_change_observer_selector, {attributes: true, childList: true, subtree: true, characterData:true});
+        var href = new URL(document.getElementById('zestmoney-widget-iframe').src);
+        href.searchParams.set('basketAmount', Math.round(pdp_price_selector));
+        document.getElementById('zestmoney-widget-iframe').src = href.toString();
+
+    });
+    pdpPriceChangeObserver.observe(pdp_change_observer_selector, {attributes: true, childList: true, subtree: true, characterData:true});
+    
+        
+</script>
+{% endif %}{% if cart %}
+<link href="https://s3.ap-south-1.amazonaws.com/prod-merchants-assets/merchant-assets/zestmoney.widget.v3.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://s3.ap-south-1.amazonaws.com/prod-merchants-assets/merchant-assets/zestmoney.widget.v3.js"></script>
+
+<div id="zestmoney-overlay"></div>  
+<div id="zestmoney-widget-container" class="zestmoney-widget-wrapper hide-zestmoney-widget"></div>  
+
+<div id="zestmoney-overlay-cart"></div>  
+<div id="zestmoney-widget-container-cart" class="zestmoney-widget-wrapper hide-zestmoney-widget"></div>  
+
+<script type="text/javascript">
+ 
+  setTimeout(async() => {
+    var zestmoneyWidgetControl = document.getElementById('zestmoney-widget-control-cart');
+    if(!zestmoneyWidgetControl){
+            // Get the target placeholder for adding the ZestMoneyWidget
+            const placement_selector = '.'
+            if(placement_selector){
+            const pricing_containers = document.querySelectorAll(placement_selector);
+            if(pricing_containers.length == 0){
+                return;
+            }
+            zestmoneyWidgetControl = document.createElement("div");
+            zestmoneyWidgetControl.setAttribute('id','zestmoney-widget-control-cart');
+            pricing_containers[0].appendChild(zestmoneyWidgetControl);
+            }
+       }
+       if(!zestmoneyWidgetControl){
+           return;
+       }
+       
+       var zestMoneyWidgetElement = document.getElementById('zestmoney-widget-container-cart');
+       const zest_price = parseFloat("{{ cart.total_price }}") / 100;
+       var zestMoneyWidget = new ZestMoneyWidgetCart(zestMoneyWidgetElement, {
+           merchantId: "5f7247fd-141e-401a-a39a-bc70380b8871",
+           environment: "production",
+           basketAmount: zest_price || 0,
+           downpaymentAmount: null,
+           paymentGatewayId: "31a2b66b-f364-48f9-a7fd-6870a5a224b4",
+           widgetType: 'product',
+       });
+       let displayHtml = await zestMoneyWidget.getDisplayHTMLCart();
+ 
+       if (displayHtml) {
+           zestmoneyWidgetControl.innerHTML = displayHtml;
+           var zestmoneyWidgetTrigger = document.getElementById('zestmoney-widget-trigger-cart');
+           if (zestmoneyWidgetTrigger) {
+               zestmoneyWidgetTrigger.addEventListener("click", function () {
+                   zestMoneyWidget.open();
+               });
+           }
+       }
+    },200)
+
+    const cart_change_observer_selector = document.querySelector("#cart_subtotal");
+    const priceChangeObserver = new MutationObserver(function() {
+        priceChangeObserver.disconnect();  
+        var cart_price_selector = document.getElementsByClassName("money")[0].innerHTML.replace(/\D/g, "")/100;
+        document.getElementById("zestmoney-amount-cart").innerHTML = Math.round(cart_price_selector/3);
+        priceChangeObserver.observe(cart_change_observer_selector, {attributes: true, childList: true, subtree: true, characterData:true});
+        var href = new URL(document.getElementById('zestmoney-widget-iframe-cart').src);
+        href.searchParams.set('basketAmount', Math.round(cart_price_selector));
+        document.getElementById('zestmoney-widget-iframe-cart').src = href.toString();
+    });
+    priceChangeObserver.observe(cart_change_observer_selector, {attributes: true, childList: true, subtree: true, characterData:true});
+
+</script>
+
+{% endif %}

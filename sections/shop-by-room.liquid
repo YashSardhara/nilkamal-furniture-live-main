@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="section clearfix homepage_content">
+    <div class="title-wrapper">
+      <h2 class="title center">{{ section.settings.heading_title }}</h2>
+    </div>
+    
+    <div class="shop-by-room center">
+<!--       studyroom Study Room-->
+      {% for block in section.blocks %}
+      <div class="feature-section">
+        <a href="{{ block.settings.link }}"> 
+          <div class="feature-icon">
+            {% assign svgIcons = block.settings.iconsId %}
+			{% include 'svg-icons', id:svgIcons %}
+          </div>
+          <span class="feature-title">{{ block.settings.title }}</span>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+
+{% schema %}
+{
+   "name":"Shop By Room",
+   "max_blocks":6,
+   "class":"shop-by-room-section clearfix",
+   "settings":[
+      {
+         "type":"text",
+         "id":"heading_title",
+         "label":"Heading"
+      }
+   ],
+   "blocks": [
+    {
+      "type": "Icon",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "text",
+          "id": "iconsId",
+          "label": "Icon id to call svg"
+        },
+		{
+          "type": "text",
+          "id": "title",
+          "label": "Icon title"
+        },
+		{
+          "type": "url",
+          "id": "link",
+          "label": "Icon url"
+        }
+      ]
+    }
+  ],
+   "presets":[
+      {
+         "name":"Shop By Room",
+         "category":"Collection"
+      }
+   ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

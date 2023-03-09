@@ -1,0 +1,28 @@
+{% if page.title == 'SBI' or page.title == 'Referral Program Details' or page.title == 'amazon offer T&C' or page.title == 'Safety measures taken by @home' %} 
+{% else %}
+{% endif %}
+<div class="container">
+  <a name="pagecontent" id="pagecontent"></a>
+  <div class="col-sm-12 page clearfix static-pages track-order {% if page.url contains 'search-results' %}search-page{% endif %}">
+    <h1>{{ page.title }}</h1>
+    <div class="feature_divider"></div>
+    <iframe src='https://nilkamalfurniture.clickpost.in/' name='iframecallout' scrolling='no' frameborder='0' marginheight='0' marginwidth='0' height='790px' width='100%' allowfullscreen></iframe>
+  </div>
+</div>
+<style>
+  .track-order {
+    text-align: center;
+  }
+  .track-order p {
+    padding: 5px 0 0;
+  }
+  form#tracking-form {
+    max-width: 300px;
+    width: 100%;
+    margin: 40px auto 0;
+  }
+  #iframecallout{
+    border: 0 solid #989898;
+    padding-top: 10px;
+  }
+</style>

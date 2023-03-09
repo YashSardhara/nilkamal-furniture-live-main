@@ -1,0 +1,229 @@
+{% comment %} headerboard design styling start here {% endcomment %}
+{% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+{% capture list %}
+{% for image in product.images %}
+{% comment %}Loop through images only once{% endcomment %}
+{{ image.id }}`~`{{ image.alt }}`~`{{ image | product_img_url: '100x' }}`~`{{ image | product_img_url: '200x' }}`~`{{ image | product_img_url: '400x' }}`~`{{ image | product_img_url: '600x' }}`~`{{ image | product_img_url: '800x' }}`~`{{ image | product_img_url: '1200x' }}`~`{{ image | product_img_url: '2000x' }}`~`{{-image.width-}}px`~`{{-image.height-}}px{% if forloop.last == false %}^{% endif %}
+{% endfor %}
+{% endcapture %}
+<style>
+    .content__box__container {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 0;
+        gap: 20px;
+    }
+
+  p.product-sub-title {
+    margin: 10px 6px 0px 0px !important;
+    align-self: auto !important;
+    font-weight: 600 !important;
+}
+
+  .product-variant-dropdown select {
+    margin-left: 6px !important;
+    width: 35%;
+}
+
+    .headerboard__content__design__box {
+        position: relative;
+        border-left: 6px solid #0093DD;
+        padding: 10px 30px;
+    }
+
+    .headerboard__content__design__box__heading {
+        font-size: 28px;
+        line-height: 32px;
+        color: #444444;
+    }
+
+    .headerboard__content__design__box__border {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        margin: 20px 0;
+    }
+
+    .headerboard__content__design__box p {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        color: rgba(0, 0, 0, 0.8);
+    }
+
+    .headerboard__content__design__box__mobile__border {
+        display: none;
+    }
+
+    /* bnner styling start here */
+
+    .modular__bed__gallery__slider .gallery-cell{
+        width: 33%;
+        height: auto;
+    }
+
+    .modular__bed__gallery__slider .flickity-page-dots{
+        display: block;
+    }
+
+    .flickity-page-dots {
+        bottom: 2px;
+    }
+
+    .modular__down__slider__body {
+        margin: 30px 0px;
+    }
+
+    .carousel-cell {
+        width: 100% !important;
+        height: auto;
+        margin-right: 10px;
+        border-radius: 5px;
+        counter-increment: carousel-cell;
+    }
+
+    /* cell number */
+    .carousel-cell:before {
+        display: block;
+        text-align: center;
+        /* content: counter(carousel-cell); */
+        line-height: 200px;
+        font-size: 80px;
+        color: white;
+    }
+
+    .class__cons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+    }
+
+    .class__con {
+        width: 100%;
+        height: 100%;
+    }
+
+    .carousel-cell-mobile {
+        display: none;
+    }
+
+    @media (max-width:764px) {
+        .carousel-cell-desktop {
+            display: none;
+        }
+
+        .carousel-cell-mobile {
+            display: block;
+        }
+
+        .class__con {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .class__con img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+      .modular__bed__gallery__slider .gallery-cell{
+            width: 100%;
+            height: auto;
+        }
+
+        .modular__bed__gallery__slider{
+            width: 90%;
+            margin: 30px auto;
+        }
+
+        .modular__bed__gallery__slider .flickity-page-dots{
+        display: block;
+        position: initial;
+    }
+    }
+
+    /* bnner styling end here */
+
+
+
+
+    @media(max-width:768px) {
+        .content__box__container {
+            flex-wrap: wrap;
+        }
+
+        .headerboard__content__design__box {
+            border: none;
+        }
+
+        .headerboard__content__design__box__mobile__border {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 10px;
+            border-left: 6px solid #0093DD;
+            height: 80px;
+        }
+
+        .headerboard__content__design__box__heading {
+            font-size: 24px;
+        }
+
+        .headerboard__content__design__box__border {
+            margin: 8px 0 18px;
+        }
+
+
+    }
+
+</style>
+{% include 'modular-bed-images' %}
+<main class="main">
+    <sction class="content__box__container column">
+
+        <div class="headerboard__content__design__box">
+            <span class="headerboard__content__design__box__heading">Headboard Design</span>
+            <div class="headerboard__content__design__box__border"></div>
+            <div class="headerboard__content__design__box__mobile__border"></div>
+            {% assign productheadboard = product.metafields.Product %}
+            {% if productheadboard["main_headboard"] != 0 and productheadboard["main_headboard"] != blank %}
+            <p>
+                {{ productheadboard["main_headboard"] }}
+            </p>
+            {% endif %}
+        </div>
+        <div class="headerboard__content__design__box">
+            <span class="headerboard__content__design__box__heading">Base Design</span>
+            <div class="headerboard__content__design__box__border"></div>
+            <div class="headerboard__content__design__box__mobile__border"></div>
+            {% assign productboardesigh = product.metafields.Product %}
+            {% if productMainImage["base_design"] != 0 and productboardesigh["base_design"] != blank %}
+            <p>
+                {{ productboardesigh["base_design"] }}
+            </p>
+            {% endif %}
+        </div>
+    </sction>
+</main>
+{% comment %} headerboard design content end here {% endcomment %}
+<script>
+    //$(".king__metafield").hide()
+    //$(".modualr__bed__images__king").hide()
+    $(".queen__metafield").hide();
+    $(".modualr__bed__images__queen").hide();
+    $('.multi__select__onchange').on('change', function() {
+      var meta_value_size = $('.multi__select__onchange option:selected').text();
+      console.log('meta_valueee des' , meta_value_size);
+    if (meta_value_size == 'King') {
+      $(".king__metafield").show()
+      $(".modualr__bed__images__king").show()
+      $(".queen__metafield").hide()
+      $(".modualr__bed__images__queen").hide()
+    } else if (meta_value_size == 'Queen') { // alert("This is Queen")
+      $(".king__metafield").hide()
+      $(".modualr__bed__images__king").hide()
+      $(".queen__metafield").show()
+      $(".modualr__bed__images__queen").show()
+    }
+  });
+</script>

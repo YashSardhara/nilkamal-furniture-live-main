@@ -1,0 +1,532 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<section class="contactform">
+   <div class="container">
+      <div class="col-md-12">
+         <h2 class="contact"> WRITE TO US</h2>
+      </div>
+   </div>
+
+</section>
+<section class="container form-container-contact-us">
+    <section class="contactform">
+   <div class="container">
+      <div class="col-md-12">
+         <h3 class="contact">   YOUR DETAILS </h3>
+      </div>
+   </div>
+
+</section>
+
+                     <div class="container">     
+                     <form id="__vtigerWebForm_4" name="Nilkamal_Contact_us_Webform" action="https://nilkamalpeopleocityin.od2.vtiger.com/modules/Webforms/capture.php" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                    	<input type="hidden" name="__vtrftk" value="sid:3f6b942d51764f550480483fcda2432df05d1188,1621855716">
+                       	<input type="hidden" name="publicid" value="c6d4a6dbc764b69da63039da0c426b8b">
+                      	<input type="hidden" name="urlencodeenable" value="1">
+	                     <input type="hidden" name="name" value="Nilkamal_Contact_us_Webform">
+                        	<input type="hidden" name="__vtCurrency" value="1">
+                      <div class="contact-us-form">
+                      <label class="label-name">Name *</label>
+                         <input type="text" placeholder="" id="name" name="contact_id" autocomplete="off" validate="1" data-valid-attr="name" class="input-form-contact" required>
+                      </div>
+                      <div class="contact-us-form">
+                      <label class="label-email">Email *</label>
+                         <input type="email" placeholder="" id="email" name="contact_id::Contacts::email" autocomplete="off" validate="1" data-valid-attr="email" class="input-form-contact" required>
+                      </div>
+                        <div class="contact-us-form">
+                      <label class="label-email">Mobile No *</label>
+                            <input type="number" id="mobile-no" name="cf_cases_wfphonenumber" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==10) return false;" class="input-form-contact" required />
+                         </div>
+                      <div class="container">
+                      <h3 class="contact">  TELL US YOUR QUERY </h3>
+                      </div>
+                      <div class="contact-us-form">
+                      <label class="label-name">Type *</label>
+                        <select id="Category" name="cf_cases_wftype" data-label="label:WF_TYPE">
+                          <option value="order">Select a type</option>
+                           <option value="order">Order Related</option>
+                           <option value="nonorder">Non-Order Related</option>
+                           <option value="nilkamal">Nilkamal Services</option>
+                        </select>
+                      </div> 
+                     
+                     <div class="contact-us-form">
+                      <label class="label-name" id="subcategory">Sub Type *</label>
+                      <select id="SubCategory" name="cf_cases_wfsubtype" data-label="label:WF_SUBTYPE">
+                         </select>
+                         <div id="SubSubCategory_Content"> SubSubCategory_Content </div>
+                      </div>
+                     
+                      <div class="contact-us-form">
+                      <label class="label-name" id="subsubcategory">Sub Type Reason *</label>
+                      <select id="SubSubCategory" name="cf_cases_subtypereason" data-label="label:Sub+Type+Reason">
+                           </select>
+                      </div>
+                       <select name="casestatus" data-label="casestatus" required="" hidden="">
+						<option value="">Select Value</option>
+						<option value="New" selected=""> New </option>
+						<option value="Assigned"> Assigned </option>
+						<option value="Open"> Open </option>
+						<option value="Wait for customer"> Wait for customer </option>
+						<option value="Wait for 3rd party"> Wait for 3rd party </option>
+						<option value="Resolved"> Resolved </option>
+						<option value="Closed"> Closed </option>
+					</select>
+                       <select name="casepriority" data-label="casepriority" required="" hidden="">
+						<option value="">Select Value</option>
+						<option value="BURNING"> BURNING </option>
+						<option value="Urgent"> Urgent </option>
+						<option value="High"> High </option>
+						<option value="Medium"> Medium </option>
+						<option value="Low" selected=""> Low </option>
+						<option value="LAW"> LAW </option>
+					</select>
+                   <input type="hidden" name="title" maxlength="255" data-label="" value="Web Form Case Creation" required="">
+                      <div class="contact-us-form">
+                      <label class="label-name" id="order_id">Order ID *</label>
+                         <input type="text" placeholder="" id="Order_id" name="cf_cases_orderid" autocomplete="off" validate="1" data-valid-attr="name" class="input-form-contact" maxlength="30" onclick="product_related_query" required>
+                      </div>
+                      <div class="upload-a-file">
+                       <label for="myfile">Upload a file:</label>
+  <input type="file" name="cf_cases_uploadfile[]" id="filePHOTO" class="file_upload1" accept="image/*">
+                      <span>(Maximum allowed file size is 5MB) </span>
+                       </div>
+                   <div class="contact-us-form" id="order-comment">
+                     <label class="label-name">Your Comments *</label>
+                     <textarea name="description" required="" rows="5" cols="5"></textarea>
+                      </div>
+                       <select name="casechannel" data-label="casechannel" hidden="">
+						<option value="">Select Value</option>
+						<option value="Email"> Email </option>
+						<option value="Phone"> Phone </option>
+						<option value="Chat"> Chat </option>
+						<option value="Social"> Social </option>
+						<option value="Webform" selected=""> Webform </option>
+						<option value="Whatsapp"> Whatsapp </option>
+						<option value="Clickpost"> Clickpost </option>
+					</select>
+                       <input type="hidden" name="cf_cases_wfbrand" maxlength="60" data-label="" value="NILKAMAL" required="">
+                        <script src="https://www.google.com/recaptcha/api.js"></script>
+                        <div class="g-recaptcha" data-sitekey="6LcmdSATAAAAAGWw734vGo0AXQwuxJS7RmDZA_Fe"></div>
+                      <div class="submit-button">
+                       <input type="submit" value="Submit" id="vtigerFormSubmitBtn_6" class="button action_button reverse">
+                      </div>
+                      <select name="cf_cases_brand" data-label="label:BRAND" required="" hidden="">
+						<option value="">Select Value</option>
+						<option value="NILKAMAL" selected=""> NILKAMAL </option>
+						<option value="DR DREAMS"> DR DREAMS </option>
+						<option value="AT HOME"> AT HOME </option>
+					</select>
+                      </form>
+  </div>
+                <script  type="text/javascript">window.addEventListener("load", function() { var N=navigator.appName, ua=navigator.userAgent, tem;var M=ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);if(M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];M=M? [M[1], M[2]]: [N, navigator.appVersion, "-?"];var browserName = M[0];var form = document.getElementById("__vtigerWebForm_6"), inputs = form.elements; form.onsubmit = function() { document.getElementById("vtigerFormSubmitBtn_6").disabled=true;var required = [], att, val; var endDate;var startDate;var endDate1;for (var i = 0; i < inputs.length; i++) { att = inputs[i].getAttribute("required"); val = inputs[i].value; type = inputs[i].type; if(inputs[i].name == "birthday"){birthdayDate = new Date(inputs[i].value);todayDate = new Date();todayDate.setHours(0,0,0,0);birthdayDate.setHours(0,0,0,0);if(birthdayDate >= todayDate){alert("Date of Birth should be less than Today's Date.");document.getElementById("vtigerFormSubmitBtn_6").disabled=false;return false;}}if(inputs[i].name=="support_start_date" || inputs[i].name=="startdate"){startDate = inputs[i].value;}if(inputs[i].name=="support_end_date" || inputs[i].name=="targetenddate" || inputs[i].name=="enddate"){endDate = inputs[i].value;}if(inputs[i].name=="actualenddate"){endDate1 = inputs[i].value;}if(type == "email") {if(val != "") {var elemLabel = inputs[i].getAttribute("data-label");var emailFilter = /^[_/a-zA-Z0-9]+([!"#$%&()*+,./:;<=>?\^_`{|}~-]?[a-zA-Z0-9/_/-])*@[a-zA-Z0-9]+([\_\-\.]?[a-zA-Z0-9]+)*\.([\-\_]?[a-zA-Z0-9])+(\.?[a-zA-Z0-9]+)?$/;var illegalChars= /[\(\)\<\>\,\;\:\"\[\]]/ ;if (!emailFilter.test(val)) {alert("For "+ elemLabel +" field please enter valid email address"); document.getElementById("vtigerFormSubmitBtn_6").disabled=false;return false;} else if (val.match(illegalChars)) {alert(elemLabel +" field contains illegal characters");document.getElementById("vtigerFormSubmitBtn_6").disabled=false;return false;}}}if(startDate){if(typeof startDate !== "undefined") {if(endDate){if(typeof endDate !== "undefined") {startDate = new Date(startDate);endDate = new Date(endDate);if(endDate < startDate){alert("End Date should be greater than or equal to Start Date");document.getElementById("vtigerFormSubmitBtn_6").disabled = false;return false;}}}if(endDate1){if(typeof endDate1 !== "undefined") {startDate = new Date(startDate);endDate1 = new Date(endDate1);if(endDate1 < startDate){alert("End Date should be greater than or equal to Start Date");document.getElementById("vtigerFormSubmitBtn_6").disabled = false;return false;}}}}}if (att != null) { if (val.replace(/^\s+|\s+$/g, "") == "") { required.push(inputs[i].getAttribute("label")); } } } if (required.length > 0) { alert("The following fields are required: " + required.join()); document.getElementById("vtigerFormSubmitBtn_6").disabled=false;return false; } var numberTypeInputs = document.querySelectorAll("input[type=number]");for (var i = 0; i < numberTypeInputs.length; i++) { val = numberTypeInputs[i].value;var elemLabel = numberTypeInputs[i].getAttribute("label");if(val != "") {var intRegex = /^[+-]?\d+$/;if (!intRegex.test(val)) {alert("For "+ elemLabel +" field please enter valid number");document.getElementById("vtigerFormSubmitBtn_6").disabled=false; return false;}}}var dateTypeInputs = document.querySelectorAll("input[type=date]");for (var i = 0; i < dateTypeInputs.length; i++) {dateVal = dateTypeInputs[i].value;var elemLabel = dateTypeInputs[i].getAttribute("label");if(dateVal != "") {var dateRegex = /^[1-9][0-9]{3}-(0[1-9]|1[0-2]|[1-9]{1})-(0[1-9]|[1-2][0-9]|3[0-1]|[1-9]{1})$/;if(!dateRegex.test(dateVal)) {alert("For "+ elemLabel +" field please enter valid date in required format"); document.getElementById("vtigerFormSubmitBtn_6").disabled=false; return false;}}}var inputElems = document.getElementsByTagName("input");var totalFileSize = 0;for(var i = 0; i < inputElems.length; i++) {if(inputElems[i].type.toLowerCase() === "file") {var file = inputElems[i].files[0];if(typeof file !== "undefined") {var totalFileSize = totalFileSize + file.size;}}}if(totalFileSize > 52428800) {alert("Maximum allowed file size including all files is 50MB.");document.getElementById("vtigerFormSubmitBtn_6").disabled=false;return false;}var inputElem = document.querySelectorAll("input[type=file]");var fileSize = 0;for(var i = 0; i < inputElem.length; i++) {if(inputElem[i].type.toLowerCase() ===  "file") {if(inputElem[i].hasAttribute("selectedTypeImage")) {var imageFile = inputElem[i].files[0];var fileSize = imageFile.size;}}if(fileSize > 5242880) {alert("Maximum allowed image size is 5MB.");document.getElementById("vtigerFormSubmitBtn_6").disabled=false;return false;}}}; });</script>
+</section>
+<script>
+        $(function() {
+            console.log("jQuery Active");
+        });
+        var order = [
+            {display: "Payment related",value:"payment_related"},
+            {display: "Track your order",value:"track_your_order"},
+            {display: "Return item",value:"return_item"},
+            {display: "Change Details",value:"change_details"}
+        ];
+        var nonorder = [
+            {display: "Various payment opition",value:"various_payment_opition"},
+            {display: "Offers and discount",value:"offer_and_discount"},
+            {display: "Website Related/Feedback",value:"website_related"},
+            {display: "Product Related Query",value:"product_related_query"}
+        ];
+        var nilkamal = [
+            {display: "Corporate sale/ Bulk Order",value:"Corporate_sale"},
+            {display: "Policies",value:"policies"},
+            {display: "Sell on Nilkaml",value:"sell_on_doctor"},
+            {display: "Product Related Query",value:"product_related_query"}
+        ];
+    var payment_related = [
+            {display: "Refund Status",value:"refund_status"},
+            {display: "Order Not Confirmed",value:"Order Not Confirmed"}
+        ];
+   var return_item = [
+            {display: "Damaged Product",value:"Damaged Product"},
+            {display: "Defective Product",value:"Defective Product"},
+            {display: "Incomplete items / missing contents",value:"Incomplete items / missing contents"},
+            {display: "Incorrect Product",value:"Incorrect Product"},
+            {display: "Termite /Borer infection",value:"Termite /Borer infection"},
+            {display: "100 Nights Trial",value:"100 Nights Trial"}
+        ];
+   var change_details = [
+            {display: "Shipping address",value:"shipping_address"},
+            {display: "Billing address",value:"billing_address"},
+            {display: "Phone Number",value:"phone_number"},
+            {display: "Email Address",value:"email_address"}
+     ];
+   var defective_product = [
+                 {display: "Defective Product",value:"defective_product"}
+     ];
+        
+        // Code for Subcategory 
+        $("#Category").change(function(){
+            // Do something here.
+            var select_category = $("#Category option:selected").val();
+            $("#SubCategory").hide(); //To Hide cities
+            $("#SubCategory").empty(); //To reset cities
+            $("#SubCategory").show(); //To Show cities
+            $("#subcategory").show();
+            console.log("Category Changed",select_category);
+            switch (select_category) {
+                case "order":
+                    SubCategory(order);
+                    break;
+                case "nonorder":
+                    SubCategory(nonorder);
+                    break;
+                case "nilkamal":
+                    SubCategory(nilkamal);
+                    break;
+                default:
+                    $("#SubCategory").hide();
+                     $("#order_id").hide();
+                    $("#Order_id").hide();
+                    break;
+                
+            }
+        });
+        // Generate Subcategory 
+        function SubCategory(arr) {
+            $("#SubCategory").append("<option>-------- Select --------</option>");
+//           console.log()
+            $(arr).each(function(i) { //to list cities
+                $("#SubCategory").append("<option value=" + arr[i].value + ">" + arr[i].display + "</option>")
+                
+            });
+//           if(arr == '' || arr == '')
+        }
+
+        // Code for SubSubcategory 
+        $("#SubCategory").change(function(){
+            // Do something here.
+            var select_category = $("#SubCategory option:selected").val();
+            $("#SubSubCategory").hide(); //To Hide cities
+            $("#SubSubCategory").empty(); //To reset cities
+            $("#SubSubCategory").hide(); //To Show cities
+            $("#subsubcategory").hide();
+           
+            console.log("Sub Category Changed",select_category);
+            switch (select_category) {
+                case "payment_related":
+                    $("#order_id").show();
+                    $("#Order_id").show();
+                    SubSubCategory(payment_related);
+                    break;
+                case "return_item":
+                     $("#order_id").show();
+                    $("#Order_id").show();
+                    SubSubCategory(return_item);
+                    break;
+               case "change_details":
+                    $("#order_id").show();
+                    $("#Order_id").show();
+                    SubSubCategory(change_details);
+                    break;  
+                case "track_your_order":
+                    $("#order_id").show();
+                    $("#Order_id").show();
+                    break;  
+                default:
+                    $("#Order_id").hide()
+                    $("#order_id").hide();
+                    break;
+            }
+        });
+        // Generate Subcategory 
+        function SubSubCategory(arr) {
+                      $("#SubSubCategory").show(); //To Show cities
+            $("#subsubcategory").show();
+            $("#SubSubCategory").append("<option>-------- Select --------</option>");
+            $(arr).each(function(i) { //to list cities
+                $("#SubSubCategory").append("<option value=" + arr[i].value + ">" + arr[i].display + "</option>")
+            });
+          
+          
+        }
+      // Change event of Sub Sub Category to create content 
+        $("#SubCategory").change(function(){
+            var select_sub_category = $("#SubCategory option:selected").val();
+            $("#SubSubCategory_Content").show()
+            switch (select_sub_category) {
+                case "various_payment_opition":
+                    $("#SubSubCategory_Content").html("Click <a href='https://www.nilkamalfurniture.com/pages/faqs'>here</a> for more details.")
+                    break;
+                case "offer_and_discount":
+                    $("#SubSubCategory_Content").html("Click <a href='https://www.nilkamalfurniture.com/'>here</a> for more details.")
+                    break;
+                case "website_related":
+                    $("#SubSubCategory_Content").html("We love making a difference to your homes! So do share your feedback with us so we can strive to serve you better.")
+                    break;
+                 case "product_related_query":
+                    $("#SubSubCategory_Content").html("To know more about a product, you can click on the specific product which will take you to a product detail page. Scroll below the product Image for complete information about the item, specifications, terms, etc.")
+                  
+                    break;
+                default:
+                    $("#SubSubCategory_Content").hide()
+                    
+                    break;
+            }           
+        });
+   
+   
+    </script>
+<script>
+$(document).ready(function(){
+  var max_filsize = 5 * 1024 *1024;
+$("#filePHOTO").change(function(){
+$("#file_error").html("");
+$(".file_upload1").css("border-color","#F0F0F0");
+var file_size = $('#filePHOTO')[0].files[0].size;
+  console.log(max_filsize,"-==",file_size);
+if(file_size > max_filsize) {
+  console.log(max_filsize,"true",file_size);
+$(this).after("<p style='color:#FF0000'>File size is greater than 5mb</p>");
+$(".file_upload1").css("border-color","#FF0000");
+return false;
+}
+return true;
+});
+});
+</script>
+
+<script type="text/javascript">
+window.addEventListener("load", function() {
+	var N = navigator.appName,
+		ua = navigator.userAgent,
+		tem;
+	var M = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
+	if(M && (tem = ua.match(/version\/([\.\d]+)/i)) != null) M[2] = tem[1];
+	M = M ? [M[1], M[2]] : [N, navigator.appVersion, "-?"];
+	var browserName = M[0];
+	var form = document.getElementById("__vtigerWebForm_4"),
+		inputs = form.elements;
+	form.onsubmit = function() {
+		document.getElementById("vtigerFormSubmitBtn_4").disabled = true;
+		var required = [],
+			att, val;
+		var endDate;
+		var startDate;
+		var endDate1;
+		for(var i = 0; i < inputs.length; i++) {
+			att = inputs[i].getAttribute("required");
+			val = inputs[i].value;
+			type = inputs[i].type;
+			if(inputs[i].name == "birthday") {
+				birthdayDate = new Date(inputs[i].value);
+				todayDate = new Date();
+				todayDate.setHours(0, 0, 0, 0);
+				birthdayDate.setHours(0, 0, 0, 0);
+				if(birthdayDate >= todayDate) {
+					alert("Date of Birth should be less than Today's Date.");
+					document.getElementById("vtigerFormSubmitBtn_4").disabled = false;
+					return false;
+				}
+			}
+			if(inputs[i].name == "support_start_date" || inputs[i].name == "startdate") {
+				startDate = inputs[i].value;
+			}
+			if(inputs[i].name == "support_end_date" || inputs[i].name == "targetenddate" || inputs[i].name == "enddate") {
+				endDate = inputs[i].value;
+			}
+			if(inputs[i].name == "actualenddate") {
+				endDate1 = inputs[i].value;
+			}
+			if(type == "email") {
+				if(val != "") {
+					var elemLabel = inputs[i].getAttribute("data-label");
+					var emailFilter = /^[_/a-zA-Z0-9]+([!"#$%&()*+,./:;<=>?\^_`{|}~-]?[a-zA-Z0-9/_/-])*@[a-zA-Z0-9]+([\_\-\.]?[a-zA-Z0-9]+)*\.([\-\_]?[a-zA-Z0-9])+(\.?[a-zA-Z0-9]+)?$/;
+					var illegalChars = /[\(\)\<\>\,\;\:\"\[\]]/;
+					if(!emailFilter.test(val)) {
+						alert("For " + elemLabel + " field please enter valid email address");
+						document.getElementById("vtigerFormSubmitBtn_4").disabled = false;
+						return false;
+					} else if(val.match(illegalChars)) {
+						alert(elemLabel + " field contains illegal characters");
+						document.getElementById("vtigerFormSubmitBtn_4").disabled = false;
+						return false;
+					}
+				}
+			}
+			if(startDate) {
+				if(typeof startDate !== "undefined") {
+					if(endDate) {
+						if(typeof endDate !== "undefined") {
+							startDate = new Date(startDate);
+							endDate = new Date(endDate);
+							if(endDate < startDate) {
+								alert("End Date should be greater than or equal to Start Date");
+								document.getElementById("vtigerFormSubmitBtn_4").disabled = false;
+								return false;
+							}
+						}
+					}
+					if(endDate1) {
+						if(typeof endDate1 !== "undefined") {
+							startDate = new Date(startDate);
+							endDate1 = new Date(endDate1);
+							if(endDate1 < startDate) {
+								alert("End Date should be greater than or equal to Start Date");
+								document.getElementById("vtigerFormSubmitBtn_4").disabled = false;
+								return false;
+							}
+						}
+					}
+				}
+			}
+			if(att != null) {
+				if(val.replace(/^\s+|\s+$/g, "") == "") {
+					required.push(inputs[i].getAttribute("label"));
+				}
+			}
+		}
+		if(required.length > 0) {
+			alert("The following fields are required: " + required.join());
+			document.getElementById("vtigerFormSubmitBtn_4").disabled = false;
+			return false;
+		}
+		var numberTypeInputs = document.querySelectorAll("input[type=number]");
+		for(var i = 0; i < numberTypeInputs.length; i++) {
+			val = numberTypeInputs[i].value;
+			var elemLabel = numberTypeInputs[i].getAttribute("label");
+			if(val != "") {
+				var intRegex = /^[+-]?\d+$/;
+				if(!intRegex.test(val)) {
+					alert("For " + elemLabel + " field please enter valid number");
+					document.getElementById("vtigerFormSubmitBtn_4").disabled = false;
+					return false;
+				}
+			}
+		}
+		var dateTypeInputs = document.querySelectorAll("input[type=date]");
+		for(var i = 0; i < dateTypeInputs.length; i++) {
+			dateVal = dateTypeInputs[i].value;
+			var elemLabel = dateTypeInputs[i].getAttribute("label");
+			if(dateVal != "") {
+				var dateRegex = /^[1-9][0-9]{3}-(0[1-9]|1[0-2]|[1-9]{1})-(0[1-9]|[1-2][0-9]|3[0-1]|[1-9]{1})$/;
+				if(!dateRegex.test(dateVal)) {
+					alert("For " + elemLabel + " field please enter valid date in required format");
+					document.getElementById("vtigerFormSubmitBtn_4").disabled = false;
+					return false;
+				}
+			}
+		}
+		var inputElems = document.getElementsByTagName("input");
+		var totalFileSize = 0;
+		for(var i = 0; i < inputElems.length; i++) {
+			if(inputElems[i].type.toLowerCase() === "file") {
+				var file = inputElems[i].files[0];
+				if(typeof file !== "undefined") {
+					var totalFileSize = totalFileSize + file.size;
+				}
+			}
+		}
+		if(totalFileSize > 52428800) {
+			alert("Maximum allowed file size including all files is 50MB.");
+			document.getElementById("vtigerFormSubmitBtn_4").disabled = false;
+			return false;
+		}
+		var inputElem = document.querySelectorAll("input[type=file]");
+		var fileSize = 0;
+		for(var i = 0; i < inputElem.length; i++) {
+			if(inputElem[i].type.toLowerCase() === "file") {
+				if(inputElem[i].hasAttribute("selectedTypeImage")) {
+					var imageFile = inputElem[i].files[0];
+					var fileSize = imageFile.size;
+				}
+			}
+			if(fileSize > 5242880) {
+				alert("Maximum allowed image size is 5MB.");
+				document.getElementById("vtigerFormSubmitBtn_4").disabled = false;
+				return false;
+			}
+		}
+	};
+	var getParams = function(a) {
+		var e = {},
+			t = document.createElement('a');
+		t.href = a;
+		for(var r = t.search.substring(1).split('&'), l = 0; l < r.length; l++) {
+			var o = r[l].split('=');
+			if(o[0]) {
+				var c = decodeURIComponent(o[1]);
+				c && (e[o[0]] = c, c && localStorage.setItem(o[0], c))
+			}
+		}
+		return e
+	};
+	document.querySelectorAll('[data-type=storage]').forEach(a => {
+		if(a) {
+			var e = a.getAttribute('data-param'),
+				t = localStorage.getItem(e);
+			t && (a.value = t)
+		}
+	});
+	var allParameters = getParams(window.location.href);
+	Object.keys(allParameters).length > 0 && document.querySelectorAll('[data-type=url]').forEach(a => {
+		if(a) {
+			var e = a.getAttribute('data-param');
+			allParameters[e] && (a.value = allParameters[e])
+		}
+	})
+});
+</script>
+              <style>
+label {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    color: #000;
+     width: 160px;
+} 
+                  
+#SubSubCategory, #SubCategory, #SubSubCategory_Content{
+            display: none;
+        }
+
+div#SubSubCategory_Content {
+   
+    border: 2px solid #da2128;
+    background-color: #fff;
+    width: 35%;
+    padding: 13px 30px;
+    font-size: 14px;
+    font-weight: 500;
+      margin-left: 25px;
+  position: relative;
+}
+ div#SubSubCategory_Content:before {
+    content: "";
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(241,101,33,0);
+    border-right-color: #da2128;
+    border-width: 10px;
+    margin-top: -11px;
+} 
+div#SubSubCategory_Content:after {   
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+     border-color: rgba(255,255,255,0);
+    border-right-color: #fff;
+    border-width: 7px;
+    margin-top: -8px;
+}
+                  
+   </style>

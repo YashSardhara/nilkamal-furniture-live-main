@@ -1,0 +1,772 @@
+{% comment %}
+** FAQ page - custom view **
+- Page template
+- Uses blocks
+{% endcomment %}
+
+<a name="pagecontent" id="pagecontent"></a>
+
+<div class="container">
+  
+  <div class="static-page clearfix faqs-page">
+    <div class="page-content">
+      {% comment %}
+      {% if section.settings.show_banner %}
+      {% assign default = '1400x' %}
+      {% assign size1 = '480x' %}
+      {% assign size2 = '765x' %}
+      {% assign size3 = '900x' %}
+      {% assign size4 = '1000x' %}
+      {% assign size5 = '1100x' %}
+      {% assign size6 = '1300x' %}
+      {% assign size7 = '1500x' %}
+      {% assign size8 = '1700x' %}
+      {% assign size9 = '1900x' %}
+      {% assign size10 = '2000x' %}
+      <div id="banner-{{section.id}}" class="page-banner">
+        {% if section.settings.image != nil %}
+        <img  src="{{ section.settings.image | img_url: '100x', format: 'pjpg' }}"
+             alt="{{ section.settings.image.alt | escape }}"
+             class="lazyload {{ settings.image_loading_style }} desktop-xs"
+             sizes="100vw"
+             data-src="{{ section.settings.image | img_url: default, format: 'pjpg' }}"
+             srcset="
+                     {{ section.settings.image | img_url: default, format: 'pjpg' }} {{default | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size1, format: 'pjpg' }} {{size1 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size2, format: 'pjpg' }} {{size2 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size3, format: 'pjpg' }} {{size3 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size4, format: 'pjpg' }} {{size4 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size5, format: 'pjpg' }} {{size5 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size6, format: 'pjpg' }} {{size6 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size7, format: 'pjpg' }} {{size7 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size8, format: 'pjpg' }} {{size8 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size9, format: 'pjpg' }} {{size9 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size10, format: 'pjpg' }} {{size10 | replace: 'x', 'w'}}"
+
+             / style="width: 100%;">
+        <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Mobile_FAQ_600X470.png?v=1579609814" class="mobile-xs" style="width: 100%;">
+        {% else %}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--banner' }}
+        {% endif %}
+        {% unless section.settings.button1_link != blank and section.settings.button2_link != blank %}
+        {% if section.settings.button1_link != blank %}
+        <a href="{{ section.settings.button1_link }}" class="banner-full-link">
+          {{ section.settings.button1 }}
+        </a>
+        {% endif %}
+        {% if section.settings.button2_link != blank %}
+        <a href="{{ section.settings.button2_link }}" class="banner-full-link">
+          {{ section.settings.button2 }}
+        </a>
+        {% endif %}
+        {% endunless %}
+        {% unless section.settings.pretext == blank and section.settings.title == blank and section.settings.subtitle == blank and section.settings.button1 == blank and section.settings.button2 == blank %}
+        <div class="position-{{ section.settings.text_position }} caption js-caption">
+          <div class="caption-content caption-background-{{ section.settings.caption_background }} caption-transparency-{{ section.settings.caption_background_transparency }} align-{{ section.settings.text_align }}">
+            {% if section.settings.pretext != blank %}
+            <div class="pretext">
+              {{ section.settings.pretext }}
+            </div>
+            {% endif %}
+            {% if section.settings.title != blank %}
+            <h1 class="headline">
+              {{ section.settings.title }}
+            </h1>
+            {% endif %}
+            {% if section.settings.subtitle != blank %}
+            <div class="subtitle">
+              {{ section.settings.subtitle }}
+            </div>
+            {% endif %}
+            {% if section.settings.button1 != blank %}
+            <a {% if section.settings.button1_link != blank %}href="{{ section.settings.button1_link }}"{% endif %} class="action_button first_button highlight-{{ section.settings.button1_highlight }}">
+              {{ section.settings.button1 }}
+            </a>
+            {% endif %}
+            {% if section.settings.button2 != blank %}
+            <a {% if section.settings.button2_link != blank %}href="{{ section.settings.button2_link }}"{% endif %} class="action_button second_button highlight-{{ section.settings.button2_highlight }}">
+              {{ section.settings.button2 }}
+            </a>
+            {% endif %}
+          </div>
+        </div>
+        {% endunless %}
+      </div>
+      {% endif %}
+      {% endcomment %}
+      <div class="content">
+        {% comment %}
+        <div class="sixteen columns page clearfix">
+          {% unless section.settings.show_banner %}
+          <h1 class="center">
+            {{ page.title }}
+          </h1>
+          <div class="feature_divider"></div>
+          {% endunless %}
+          <div>
+            {% include 'page-multi-column', content: page.content %}
+          </div>
+        </div>
+        {% endcomment %}
+        {% comment %}
+        <div class="clearfix">
+          {% if section.blocks.size > 0 %}
+          <dl class="faqAccordion">
+            {% for block in section.blocks %}
+            {% if block.type == "heading" %}
+            {% if block.settings.heading != blank %}
+            <h2 class="title faq--heading">{{ block.settings.heading }}</h2>
+            {% endif %}
+            {% endif %}
+            {% if block.settings.title != blank %}
+            <dt>
+              <button type="button" aria-controls="panel-01" aria-expanded="true">
+                {{ block.settings.title }}
+                <span class="right">{% include 'svg-icons', id:'down-arrow' %}</span>
+              </button>
+            </dt>
+            <dd id="panel-01" aria-hidden="false">
+              {{ block.settings.subtitle }}
+            </dd>
+            {% endif %}
+            {% endfor %}
+          </dl>
+          {% endif %}
+        </div>
+        {% endcomment %}
+          {% comment %}
+        <div class="clearfix">
+         
+          {% if section.blocks.size > 0 %}
+         <div class="accordion">
+            {% for block in section.blocks %}
+            {% if block.type == "heading" %}
+            {% if block.settings.heading != blank %}
+          
+            <h2 class="title faq--heading">{{ block.settings.heading }}</h2>
+            {% endif %}
+            {% endif %}
+            {% if block.settings.title != blank %}
+            
+              <div class="accordion-item">
+             <a>{{ block.settings.title }}</a>
+           
+             
+              <div class="content">
+               <p>{{ block.settings.subtitle }}</p>
+               </div>
+           </div>
+            {% endif %}
+            {% endfor %}
+         </div>
+           
+          {% endif %}
+       
+          </div>
+         {% endcomment %}
+        
+        
+        
+        
+        <div class="clearfix">
+           <div class="accordion">
+        
+             
+             <div class="container pt-5 pb-5">
+               
+             <div class="row col-12 col-md-9 mx-auto">
+               
+               
+               
+<div class="row">
+<div class="search-wrap mt-5">
+<div class="search-input">
+<input type="search" placeholder="How can we help you?" class="faq-search-bar">
+<i class="ionicons ion-search input-addon"></i>
+</div>
+<div class="search-results   p-3 w-100">
+</div>
+</div>
+</div>
+               
+               
+<div class="col-12 col-md-4 faq-menu">
+<div class="drop-down w-100">
+<div id="dropDown" class="drop-down__button w-100">
+<span class="drop-down__name"> Popular </span> <i class="ion-android-arrow-down"></i>
+</div>
+<div class="drop-down__menu-box">
+<ul class="drop-down__menu">
+<li data-name="0" data-faq="0" class="drop-down__item fq-show"><span class"nav_featuredimg"><img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/popular.png?v=1646733358"></span>Popular</li>
+<li data-name="1" data-faq="1" class="drop-down__item fq-show"><span class"nav_featuredimg"><img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/account_related.png?v=1646733358"></span>Account related</li>
+<li data-name="2" data-faq="2" class="drop-down__item fq-show"><span class"nav_featuredimg"><img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/order_related.png?v=1646733357"></span>Order related</li>
+<li data-name="3" data-faq="3" class="drop-down__item fq-show"><span class"nav_featuredimg"><img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/shipping_related.png?v=1646733357"></span>Shipping related</li>
+<li data-name="4" data-faq="4" class="drop-down__item fq-show"><span class"nav_featuredimg"><img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/payment_related.png?v=1646733357"></span>Payment related</li>
+<li data-name="5" data-faq="5" class="drop-down__item fq-show"><span class"nav_featuredimg"><img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/warranty_and_returns.png?v=1646733358"></span>Warranty and Returns</li>
+</ul>
+</div>
+</div>
+<ul class="nav nav-pills nav-stacked">
+<li class="d-block w-100"><span data-faq="0" class="faq-show active" id="faqshow0"><span class"nav_featuredimg"><img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/popular.png?v=1646733358"></span> Popular </span></li>
+<li class="d-block w-100"><span data-faq="1" class="faq-show"  id="faqshow1"><span class"nav_featuredimg"><img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/account_related.png?v=1646733358"></span> Account related </span></li>
+<li class="d-block w-100"><span data-faq="2" class="faq-show"  id="faqshow2"><span class"nav_featuredimg"><img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/order_related.png?v=1646733357"></span> Order related </span></li>
+<li class="d-block w-100"><span data-faq="3" class="faq-show"  id="faqshow3"><span class"nav_featuredimg"><img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/shipping_related.png?v=1646733357"></span> Shipping related</span></li>
+<li class="d-block w-100"><span data-faq="4" class="faq-show"  id="faqshow4"><span class"nav_featuredimg"><img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/payment_related.png?v=1646733357"></span> Payment related </span></li>
+<li class="d-block w-100"><span data-faq="5" class="faq-show"  id="faqshow5"><span class"nav_featuredimg"><img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/warranty_and_returns.png?v=1646733358"></span> Warranty and Returns </span></li>
+</ul>
+</div>
+  
+  
+  
+  
+  <div id="accordionfaq" class="panel-group faq col-12 col-md-8 accordion">
+  
+  
+<div class="faq-container d-block" data-faqc="0" id="faqc0">
+
+<div class="accordion-item">
+      <a>Where can I find Nilkamal store? </a>
+      <div class="content">
+        <p>Its easy to locate our store:) please click on the link mentioned below <a class="store_link" herf="https://www.nilkamalfurniture.com/pages/store-locator" target="_blank">https://www.nilkamalfurniture.com/pages/store-locator</a></p>
+      </div>
+    </div>
+
+<div class="accordion-item">
+      <a>How can i place a bulk order and is there any discount available? </a>
+      <div class="content">
+        <p>You can chat with us by clicking on the chat icon on the right handside bottom of your page or you can reach us at furniture.enquiry@nilkamal.com, or call us on 1800-1219-115 for further details</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>What are the benefits of registering with Nilkamal?</a>
+      <div class="content">
+        <p>When you register with us, we provide you regular updates regarding new product launches, new design arrivals, offers, and discounts.</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>What do I do if a coupon issued by Nilkamal is not working?</a>
+      <div class="content">
+        <p>Your coupon may not be working because of any of the following reasons:
+		<ul class="coupan_issues">
+		<li>The validity of the coupon may have expired.</li>
+		<li>The coupon may have already been used.</li>
+		<li>The coupon may not be applicable on certain items.</li>
+		<li>The coupon will not work if the Shopping Cart Value is less than the value required for the coupon to be applicable.</li>
+		<li>The coupon may be linked to a different user account. Login to the correct user account for availing it.</li>
+		</ul>
+        Incase of any assistance required you can chat with us or reach us at <b>furniture.enquiry@nilkamal.com</b>, or call us on <b>1800-1219-115</b>.
+		</p>
+      </div>
+    </div>
+  
+  
+
+</div>
+
+
+<div class="faq-container d-none" data-faqc="1" id="faqc1">
+
+<div class="accordion-item">
+      <a>How to create my account on Nilkamal?</a>
+      <div class="content">
+        <p>It’s easy to create an account with Nilkamal, you can simply Sign Up or login with your social profile.<br>
+		Setting up your account via Sign Up is as easy as:<br>
+        Click 'Sign Up' at the top of the page. Enter your name and email address in the box that pops up. Create a password. Click 'Sign Up'.<br>
+        Login via social profile is as easy as:<br>
+		Click 'Sign In' at the top of the page. Click 'Sign In' with Facebook. Click 'OK' on the permission dialog box that appears on your Facebook page. Nilkamal will use your Facebook details to create your furniture.enquiry@nilkamal.com<br>
+        Nilkamal, Let’s make life beautiful!.</p>
+      </div>
+    </div>
+
+<div class="accordion-item">
+      <a>I forgot my Nilkamal login password, what to do next?</a>
+      <div class="content">
+        <p>There is a possibility that you must have forgotten your password, the solution is easy - go to My Account page and click on the Forgot password link. You will be prompted with a window, enter your registered email address. A link to reset your password will automatically be sent to you.</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>Can I buy from www.nilkamal.com as a guest user or without creating an account?</a>
+      <div class="content">
+        <p>Yes, you can purchase using your social media login or through guest login. However,if you create an account with us, it will be easier for you to shop with us the next time using your login id (your email address) and password. All your personal information will be automatically retrieved from your account.</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>How do I change my Personal information?</a>
+      <div class="content">
+        <p>Simply go to My Account page, login and you can modify your account details there. Incase of any help required please send us an email to furniture.enquiry@nilkamal.com</p>
+      </div>
+    </div>
+	
+	
+</div>
+<div class="faq-container d-none" data-faqc="2" id="faqc2">
+
+
+
+<div class="accordion-item">
+      <a>How do i track progress of an order?</a>
+      <div class="content">
+        <p>Once your order has been shipped, you will receive an email and an SMS notification with its details. You can track the shipment by clicking on the link provided in the email.<br>
+		You can also track your order by visiting www.nilkamal.com and clicking on the 'Track Order' link located in the upper right-hand corner of the website. From there, you can either log in or type in your 'Order Number' to get tracking.</p>
+      </div>
+    </div>
+
+<div class="accordion-item">
+      <a>Can I change my delivery date?</a>
+      <div class="content">
+        <p>Sorry, we do not allow rescheduling of orders through our website. You can contact our helpline for further assistance.</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>Can I change my mobile number or shipping address?</a>
+      <div class="content">
+        <p>Please get in touch with our Customer Care at furniture.enquiry@nilkamal.com. We'll try our best to assist you.</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>How can I know the availability timelines of a product that is Out of stock?</a>
+      <div class="content">
+        <p>We regularly update our product range with new items, but every once in a while, you may miss out on something. Enter your email address in the Notify Me box next to the product, and you'll be the first to know when it's back in stock.</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>How and When can I cancel my order?</a>
+      <div class="content">
+        <p>If you change your mind after placing an order, you can cancel the order (or part of the order) within 24 hrs of the order confirmation, or before it is shipped, whichever is earlier.</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>Can I place a B2B order?</a>
+      <div class="content">
+        <p>Yes, you can. You need to add Business Details during checkout. Incase of Bulk orders, timeline may vary.</p>
+      </div>
+    </div>
+
+</div>
+<div class="faq-container d-none" data-faqc="3" id="faqc3">
+
+
+<div class="accordion-item">
+      <a>How do I check the delivery timelines before I place the order?</a>
+      <div class="content">
+        <p>Enter your delivery pin code in the item page which will guide you through estimated timelines.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <a>Do you deliver to multiple addresses?</a>
+      <div class="content">
+        <p>We only deliver at the specified shipping address mentioned in your order.</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>How do I know the delivery services are available before I place the order?</a>
+      <div class="content">
+        <p>Enter your delivery pin code in the item page to know whether it can be delivered to your address.</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>Do you ship internationally?</a>
+      <div class="content">
+        <p>As of now, Nilkamal doesn't ship items outside India.  However, Nilkamal does allow you to make purchases for your loved ones in India from anywhere in the world by using your international credit or debit cards issued in India. You need to ensure that the Shipping Address is in India.</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>My purchase is a gift, can Nilkamal do a gift wrap  and send the order without an invoice?</a>
+      <div class="content">
+        <p>We can consider gift wrapping only for household range however you need to contact us on the same day of purchase. Unfortunately, we cannot ship any product without an invoice. To comply with the rules governing the movement of goods in India, and due to tax and regulatory reasons all shipments have to be accompanied with an invoice.</p>
+      </div>
+    </div>
+	
+	 <div class="accordion-item">
+      <a>Why does the promised Delivery date vary from one item to the other?</a>
+      <div class="content">
+        <p>The delivery time for an item is determined by various factors including the kind of product (standard product or made, to-order), location from where the item is procured, and logistic network available at your location. Hence, the delivery dates may vary from one item to the other.</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>Are there any shipping/delivery charges?</a>
+      <div class="content">
+        <p>We offer FREE SHIPPING for our furniture range however shipping charges are applicable on ODA(outside delivery area) pincodes. Household range can be purchased with nominal shipping charges (Rs.99/-)  for orders below Rs.1000/-</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>When will my product assembly happen? Do I need to contact anyone?</a>
+      <div class="content">
+        <p>Once the order is delivered, sit back and relax. Our Installation partner will get in touch you and assembly will happen in 3 to 5 business days post delivery.</p>
+      </div>
+    </div>
+
+</div>
+<div class="faq-container d-none" data-faqc="4" id="faqc4">
+
+
+<div class="accordion-item">
+      <a>What are my payment options?</a>
+      <div class="content">
+        <p>Nilkamal offers a wide range of payment options to accommodate every need and offer maximum flexibility. The following payment options are currently available on Nilkamal:
+		<ul>
+		<li>Cash on Delivery</li>
+        <li>Debit Card</li>
+        <li>Credit Card</li>
+        <li>Net Banking</li>
+        <li>EMI</li>
+        <li>UPI</li>
+        <li>Wallets (Paytm, Mobikwik ,Freecharge, Jio Money, ICash Card, ICICI Pockets, Itz Cash Card, Oxygen, PayCash Card, The Mobile Wallet, Vodafone M – Pesa, XPay, Yes Bank)</li></p>
+      </ul>
+	  </div>
+    </div>
+
+<div class="accordion-item">
+      <a>What are the EMI options available</a>
+      <div class="content">
+        <p>Nilkamal offers you EMI facility. You can check on the product page the exact EMI amount for the product you wish to purchase.</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>Does Nilkamal retain my card or account details?</a>
+      <div class="content">
+        <p>We do not collect or store your card or account details. Your transaction is authorized at multiple points, first by the payment gateway and subsequently by Visa/MasterCard/Banks directly without any information passing through us.</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>What should I do if a transaction fails?</a>
+      <div class="content">
+        <p>Transactions could fail due to multiple reasons:
+       <ul><li>Information passed on to payment gateway is inaccurate, i.e., account details, billing address, password (for net banking).</li>
+           <li>Your Internet connection is disrupted in the process.</li>
+           <li>If your account has been debited after a payment failure, it will be rolled back within seven working days.</li></ul>
+          Please direct all questions and further clarifications regarding the above statement to furniture.enquiry@nilkamal.com</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>Can I place a COD Order?</a>
+      <div class="content">
+        <p>Yes! You can place a COD order of upto Rs.5000/.</p>
+      </div>
+    </div>
+
+   <div class="accordion-item">
+      <a>Can I add my GST details on TAX invoice?</a>
+      <div class="content">
+        <p>Currently we are accepting only B2C orders hence we would not be able to add GST details on tax invoice.</p>
+      </div>
+    </div>
+
+
+</div>
+<div class="faq-container d-none" data-faqc="5" id="faqc5">
+
+
+<div class="accordion-item">
+      <a>Can I return my order?</a>
+      <div class="content">
+        <p> We offer a 14-Day Return Policy for all products.<br>
+            Returns are accepted only for the following reasons:
+          <ul><li>Damaged Product</li>
+              <li>Manufacturing Defect</li>
+              <li>Incomplete Product</li>
+              <li>Incorrect Product</li>
+		  </ul>
+            The time frame starts from the date the product was delivered as per the confirmation received from our logistics team or courier partners.<br>
+            Please send us 2 images (one of damaged part and one of the entire product) of the product to ascertain the reason for return which can be initiated from the "contact us" Section or you can send us an email to furniture.enquiry@nilkamal.com or you can call us on 1800-1219-115.<br>
+            We offer hassle-free returns through courier pickup or you can also request a replacement for the non furniture products online or at any of our stores. You do not have to bear any courier or shipping charges for returns.<br>
+            All products bought online can only be returned in case of manufacturing defects or damaged product delivery or incorrect or incomplete. This needs to be brought to our notice (via phone / email / whatsapp) within 48 hours from the delivery / assembly date. To return furniture, you can reach us at furniture.enquiry@nilkamal.com, or call us on 1800-1219-115.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <a>When will I get the refund?</a>
+      <div class="content">
+        <p> Any refund against a return request made to Nilkamal customer support and collected by courier shall be processed only upon receipt of the merchandise in unused condition along with the original invoice.<br>
+After the merchandise is received and verified by Nilkamal we shall process a refund/replacement within 1-2 weeks of receipt of the merchandise.For remote locations or Tier 2/Tier 3 cities we may take additional time to process replacement request.<br>
+Refunds to the Cardholder’s credit card/debit card will only be credited back to his/her account which was used Refunds to the Cardholder’s credit card/debit card will only be credited back to his/her account which was used.<br>
+In case of COD order, Refund will be issued through cheque payment mode. Customer needs to send details that are required for cheque draft. COD refund is manual process hence it takes maximum 7-8 days to process cheque request. We recommend to opt for prepaid payment mode while placing an order for faster refund.<br>
+Please call at Toll Free # 1-800-121-1414 (10.00am-7.00pm IST; 6 days a week), email to furniture.enquiry@nilkamal.com for any queries or concerns about our returns and exchange policy.</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>What warranty does Nilkamal have for its products?</a>
+      <div class="content">
+        <p>The warranty that we offer differs from product to product, based on the materials used. Please refer to the 'Specifications' tab in the Product Details section for warranty related information</p>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <a>Can I return a product in case I do not want it or do not like it?</a>
+      <div class="content">
+        <p>Item cannot be refunded for any reasons other than following: Damage / dead on arrival, Manufacturing defect/Expired product & In-correct product.</p>
+      </div>
+    </div>
+
+
+</div>
+          
+
+</div>
+</div>
+             </div>
+              </div>
+      
+                </div>
+        
+        
+        
+        
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<style>
+  {% if section.settings.show_banner %}
+    .mobile_nav-fixed--true #pagecontent, .mobile_nav-fixed--false #pagecontent {
+      padding: 0;
+    }
+    @media only screen and (max-width: 479px) {
+      div.content {
+        padding-top: 0;
+      }
+    }
+  {% endif %}
+</style>
+
+{% schema %}
+
+{
+  "name": "Page",
+  "class": "faq-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_banner",
+      "label": "Show banner",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "1800 x 1000px recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "mobile Image",
+      "info": "1800 x 1000px recommended"
+    },
+    {
+      "type": "richtext",
+      "id": "pretext",
+      "label": "Preheading"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "checkbox",
+      "id": "caption_background",
+      "label": "Display solid text background",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "caption_background_transparency",
+      "label": "Enable background transparency"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Text position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "button1",
+      "label": "First button label"
+    },
+    {
+      "type": "url",
+      "id": "button1_link",
+      "label": "First button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button1_highlight",
+      "label": "Highlight first button"
+    },
+    {
+      "type": "text",
+      "id": "button2",
+      "label": "Second button label"
+    },
+    {
+      "type": "url",
+      "id": "button2_link",
+      "label": "Second button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button2_highlight",
+      "label": "Highlight second button"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Heading",
+      "type": "heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Title"
+        }
+      ]
+    },
+    {
+      "name": "Frequently Asked Question",
+      "type": "Content",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question",
+          "default": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "subtitle",
+          "label": "Answer",
+          "default": "<p>Suspendisse feugiat. Fusce commodo aliquam arcu. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi.</p>"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {
+      "title": "Page FAQ Template",
+      "subtitle": "<p>Create an amazing FAQ page with a full-width banner</p>",
+      "text_position": "center",
+      "text_align": "center"
+    },
+    "blocks": [
+      {
+        "type": "heading",
+        "settings": {
+          "heading": "Section"
+        }
+      },
+      {
+        "type": "Content",
+        "settings": {
+          "title": "Title",
+          "subtitle": "<p>Suspendisse feugiat. Fusce commodo aliquam arcu. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi.</p>"
+        }
+      },
+      {
+        "type": "Content",
+        "settings": {
+          "title": "Title",
+          "subtitle": "<p>Suspendisse feugiat. Fusce commodo aliquam arcu. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi.</p>"
+        }
+      },
+      {
+        "type": "Content",
+        "settings": {
+          "title": "Title",
+          "subtitle": "<p>Suspendisse feugiat. Fusce commodo aliquam arcu. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi.</p>"
+        }
+      },
+      {
+        "type": "heading",
+        "settings": {
+          "heading": "Section"
+        }
+      },
+      {
+        "type": "Content",
+        "settings": {
+          "title": "Title",
+          "subtitle": "<p>Suspendisse feugiat. Fusce commodo aliquam arcu. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi.</p>"
+        }
+      },
+      {
+        "type": "Content",
+        "settings": {
+          "title": "Title",
+          "subtitle": "<p>Suspendisse feugiat. Fusce commodo aliquam arcu. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi.</p>"
+        }
+      },
+      {
+        "type": "Content",
+        "settings": {
+          "title": "Title",
+          "subtitle": "<p>Suspendisse feugiat. Fusce commodo aliquam arcu. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi.</p>"
+        }
+      }
+    ]
+  }
+}
+
+{% endschema %}

@@ -1,0 +1,81 @@
+{% if collection and collection.all_products_count > 1 %}
+  {% assign col = collection.handle %}
+{% else %}
+  {% assign col = product.collections.last.handle %}
+{% endif %}
+
+{% for tag in product.tags %}
+  {% if tag contains 'meta-related-collection-' %}
+    {% assign related_collection_handle = tag | remove: 'meta-related-collection-' %}
+    {% if collections[related_collection_handle].all_products_count > 0 %}
+      {% assign col = related_collection_handle %}
+      {% assign collection = collections[col] %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+<div class="related-products">
+{% if col %}
+  {% if collections[col].all_products_count != 1 or collections[col].products.first.id != product.id %}
+    {% assign skip_product = product %}
+    {% assign products = collections[col].products %}
+    <div class="container">
+      <div class="related-products__title {% unless section.settings.related_products_style == 'slider' %}{% if sidebar %}twelve columns{% else %}sixteen columns{% endif %}{% endunless %}">
+        <h4 class="title left">Similar Products</h4>
+      </div>
+    </div>
+
+    {% if section.settings.related_products_style == 'slider' %}
+      {% assign limit = section.settings.related_products_limit %}
+      <div class="container related-products--slider js-related-products-slider">
+        <div class="">
+          {% if col and collections[col].all_products_count > 0 %}
+          	{% include 'product-slider', related_products: true %}
+          {% endif %}
+        </div>
+      </div>
+
+    {% else %}
+      {% assign limit = section.settings.related_products_limit | plus: 1 %}
+      {% assign products_per_row = section.settings.products_per %}
+      {% if col and collections[col].all_products_count > 0 %}
+        {% unless sidebar %}<div class="container related-products--grid">{% endunless %}
+          <div class="{% if sidebar %}twelve{% else %}sixteen{% endif %} columns">
+            {% include 'product-loop', related_products: true %}
+          </div>
+        {% unless sidebar %}</div>{% endunless %}
+      {% endif %}
+    {% endif %}
+
+  {% endif %}
+{% endif %}
+</div>
+<style>
+  .related-products .container{
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 23px;
+}
+  .product-wrap:hover {
+    background: #F3FBFF;
+    box-shadow: 0px 14px 16px rgb(0 0 0 / 12%);
+    border-radius: 16px;
+    padding: 8px 8px 29px 8px;
+}
+.product-wrap .product_image a .image__container {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+  .product-template .iWishAddColl.wishlist-btn {
+    display: block;
+    margin-left: 23px;
+    background: #FFFDFD;
+    box-shadow: 0px 2px 10px rgb(222 0 0 / 20%);
+}
+  .product-template .iWishAddColl.wishlist-btn svg {
+    fill: transparent;
+    vertical-align: sub;
+}
+  .product-template .iWishAddColl.wishlist-btn.iwishAdded svg {
+    fill: #de0000;
+}
+</style>

@@ -1,0 +1,78 @@
+#hi-eu-opt-in .opt-in-splash {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 58px;
+  height: 58px;
+}
+#hi-eu-opt-in .opt-in-splash.unconfirmed {
+  cursor: pointer;
+}
+#hi-eu-opt-in .opt-in-splash.confirmed {
+  background: url({{ 'hi-cookie-sprite.png' | asset_url }}) no-repeat scroll 0 -68px transparent;
+}
+
+#hi-cookie-box {
+  z-index: 9999;
+  background: rgba(239, 239, 239, 0.8);
+  width:100%;
+  font-size:12px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  padding: 10px 40px;
+}
+#hi-cookie-box p {
+  /*   text-align: center!important */
+}
+#hi-cookie-close  {display:block;float:right;background: #222;padding:3px 7px;border-radius:3px; cursor: pointer}
+#hi-cookie-close:hover {background:#666;color:#fff!important}
+#hi-cookie-box p {padding:0;margin:0}
+#hi-cookie-box .hi-cookie-head {
+  color: #000;
+  font-size: 18px;
+  font-weight: 600;
+  padding:14px 0 4px 0
+}
+#hi-cookie-box .hi-cookie-intro {
+  color: #767676;
+  font-size: 16px;
+  line-height: 1em;
+}
+#hi-cookie-box a{color:#fff;font-weight:700;text-decoration:none}
+#hi-cookie-box a:hover {color:#ccc}
+#hi-cookie-box .hi-cookie-power {font-size: 9px}
+
+#hi-cookie-box div.hi-cookie-btn {
+  color: #fff; 
+  /*   padding-bottom: 1px !important;    border-bottom: 1px solid;   */
+  cursor: pointer;    
+  margin: -47px 8px 16px 0px;   
+  float: right;    
+  padding: 6px;   
+  display: block;
+  background: #767676;
+  border-radius: 5px;
+  width: 7%;
+  text-align: center;
+}
+#hi-cookie-box div.hi-cookie-btn.agree { 
+  /*   background-position: 0 -126px; */
+}
+#hi-cookie-box div.hi-cookie-btn.disagree {
+  /*   margin-left:0;background-position: -32px -126px */
+}
+#hi-cookie-box div.hi-cookie-btn.agree:hover {background-position: 0 -158px}
+#hi-cookie-box div.hi-cookie-btn.disagree:hover {background-position: -32px -158px}
+
+@media(max-width:1024px){
+  #hi-cookie-box{
+    text-align: center;
+    padding: 10px 30px;
+  }
+  #hi-cookie-box div.hi-cookie-btn{
+    float: unset;
+    width: 30%;
+    margin: 0px 0px 8px 102px;
+  }
+}

@@ -1,0 +1,33 @@
+<script>
+function getURLParameter(param){
+        var pageURL = window.location.search.substring(1); //get the query string parameters without the "?"
+        var URLVariables = pageURL.split('&'); //break the parameters and values attached together to an array
+        for (var i = 0; i < URLVariables.length; i++) {
+            var parameterName = URLVariables[i].split('='); //break the parameters from the values
+            if (parameterName[0] == param) {
+                return parameterName[1];
+            }
+        }
+        return null;
+    }
+document.setCookie = function(sName,sValue)
+{
+    var oDate = new Date(), minutes = 43200;
+    oDate.setTime(oDate.getTime() + (minutes * 60 * 1000));
+    var sCookie = encodeURIComponent(sName) + '=' + encodeURIComponent(sValue) + ';expires=' + oDate.toGMTString() + ';path=/';
+    document.cookie= sCookie;
+}
+var source = getURLParameter('utm_source');
+if (source) {
+            document.setCookie('source',source);
+}
+else{
+    var googlesource = getURLParameter('gclid'); //this will work when you are running ad through google
+    var fbsource = getURLParameter('gclid'); //this will work when you are running ad through google
+    if(googlesource || fbsource){
+        source= "PaidAds"
+        document.setCookie('source',source);
+    }
+}
+
+</script>

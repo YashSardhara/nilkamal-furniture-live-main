@@ -1,0 +1,1345 @@
+{% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+{% capture list %}
+{% for image in product.images %}
+{% comment %}Loop through images only once{% endcomment %}
+{{ image.id }}`~`{{ image.alt }}`~`{{ image | product_img_url: '100x' }}`~`{{ image | product_img_url: '200x' }}`~`{{ image | product_img_url: '400x' }}`~`{{ image | product_img_url: '600x' }}`~`{{ image | product_img_url: '800x' }}`~`{{ image | product_img_url: '1200x' }}`~`{{ image | product_img_url: '2000x' }}`~`{{-image.width-}}px`~`{{-image.height-}}px{% if forloop.last == false %}^{% endif %}
+{% endfor %}
+{% endcapture %}
+
+
+{% assign image_list = list | split: "^" %}
+<div class="gallery-wrap js-product-page-gallery clearfix
+            gallery-arrows--{{section.settings.gallery_arrows}}
+            {% if section.settings.product_thumbs %} {{ section.settings.thumbnail_position }} {% endif %}
+            slideshow_animation--{{ section.settings.slideshow_animation }}
+            ">
+  <div class="product_gallery  {% if product.tags contains  'modular-bed'%} product_gallery_modular{% endif %} product-{{ product.id }}-gallery
+              {% if product.images.size > 1 %} multi-image {% endif %}
+              {% if product.images.size <= 1 %} single-image {% endif %}
+              {% if settings.slideshow_button_style != true %}light-button{% endif %}
+              " data-zoom="{{ section.settings.activate_zoom }}"
+    data-autoplay="{{ section.settings.activate_autoplay }}">
+
+    {% for image_item in image_list %}
+    {% assign image = image_item | split: "`~`" %}
+    {% capture image_id %}{{ image[0] | strip }}{% endcapture %}
+    {% capture image_alt %}{{ image[1] | strip }}{% endcapture %}
+    {% capture image_100x %}{{ image[2] }}{% endcapture %}
+    {% capture image_200x %}{{ image[3] }}{% endcapture %}
+    {% capture image_400x %}{{ image[4] }}{% endcapture %}
+    {% capture image_600x %}{{ image[5] }}{% endcapture %}
+    {% capture image_800x %}{{ image[6] }}{% endcapture %}
+    {% capture image_1200x %}{{ image[7] }}{% endcapture %}
+    {% capture image_2000x %}{{ image[8] }}{% endcapture %}
+    {% capture original_image_width %}{{- image[9] -}}{% endcapture %}
+    {% capture original_image_height %}{{- image[10] -}}{% endcapture %}
+    <div class="gallery-cell" data-thumb="{{ image_large }}"
+      data-title="{% if image_alt contains 'youtube' or image_alt contains 'vimeo' %}{{ product.title }}{% else %}{{ image_alt | escape }}{% endif %}"
+      data-image-height="{{ original_image_height | strip }}" data-image-width="{{ original_image_width | strip }}">
+      {% if image_alt contains 'youtube' or image_alt contains 'vimeo' %}
+      {% assign src = image_alt | split: 'src="' %}
+      {% assign src = src[1] | split: '"' | first %}
+
+      {% if src contains '?' %}
+      {% assign src = src | append: '&amp;autoplay=1&amp;rel=0' %}
+      {% else %}
+      {% assign src = src | append: '?autoplay=1&amp;rel=0' %}
+      {% endif %}
+
+      <div>
+        <a href="{{ src }}" title="{{ product.title | escape }}">
+          {{ image_alt }}
+        </a>
+      </div>
+      {% else %}
+      {% if template != 'index' and section.settings.enable_product_lightbox %}
+      <a href="{{ image_800x }}" class="lightbox" rel="gallery" data-fancybox-group="gallery"
+        data-lightbox-zoom="{{ section.settings.activate_zoom }}">
+        {% endif %}
+        {% if image_width == 'full' %}
+        <div class="image__container" style="max-width: {{original_image_width}}">
+          <img class=" lazyload {{ settings.image_loading_style }}" data-src="{{ image_1200x }}"
+            alt="{{ image_alt | escape }}" data-index="{{ forloop.index0 }}" data-image-id="{{ image_id }}" />
+        </div>
+        {% else %}
+        <div class="image__container" style="max-width: {{original_image_width}}">
+          <img class="lazyload {{ settings.image_loading_style }}" data-src="{{ image_100x }}"
+            alt="{{ image_alt | escape }}" data-index="{{ forloop.index0 }}" data-image-id="{{ image_id }}"
+            data-sizes="{% if section.settings.enable_product_lightbox %}100vw{% else %}auto{% endif %}"
+            data-src="{{ image_2000x }}" srcset=" {{ image_200x }} 200w,
+                       {{ image_400x }} 400w,
+                       {{ image_600x }} 600w,
+                       {{ image_800x }} 800w,
+                       {{ image_1200x }} 1200w,
+                       {{ image_2000x }} 2000w" />
+        </div>
+        {% endif %}
+        {% if template != 'index' and section.settings.enable_product_lightbox %}
+      </a>
+      {% endif %}
+      {% endif %}
+    </div>
+    {% endfor %}
+    {% comment %}
+    <span class="modal_price">
+      {% if section.settings.display_savings %}
+      <span class="sale savings">
+        {% if variant.price < variant.compare_at_price and variant.available %}
+        <!--{{ 'products.product.savings' | t }}  -->
+        {{ variant.compare_at_price | minus: variant.price | times: 100 | divided_by: variant.compare_at_price }}% OFF
+
+        {% endif %}
+      </span>
+      {% endif %}
+    </span>
+    {% endcomment %}
+
+  </div>
+
+  <div class="zoomImage">
+  </div>
+
+  {% unless product.tags contains 'modular-bed' %}
+  {% if section.settings.product_thumbs %}
+  {% if product.images.size > 1 and image_width != 'full' %}
+  <div class="product_gallery_nav">
+    <div class="carousel-nav product-{{ product.id }}-gallery-nav">
+      {% for image_item in image_list %}
+      {% assign image = image_item | split: "`~`" %}
+      {% capture image_id %}{{ image[0] | strip }}{% endcapture %}
+      {% capture image_alt %}{{ image[1] | strip }}{% endcapture %}
+      {% capture image_100x %}{{ image[2] }}{% endcapture %}
+      {% capture image_200x %}{{ image[3] }}{% endcapture %}
+      {% capture image_400x %}{{ image[4] }}{% endcapture %}
+      {% capture image_600x %}{{ image[5] }}{% endcapture %}
+      {% capture image_800x %}{{ image[6] }}{% endcapture %}
+      {% capture image_1200x %}{{ image[7] }}{% endcapture %}
+      {% capture image_2000x %}{{ image[8] }}{% endcapture %}
+      <div class="carousel-cell" data-title="{{ image_alt | escape }}">
+        <img class="lazyload" data-src="{{ image_400x }}" alt="{{ image_alt | escape }}"
+          data-index="{{ forloop.index0 }}" data-image-id="{{ image_id }}"
+          data-featured-image="{{featured_image.id}}" />
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  {% endif %}
+  {% endunless %}
+</div>
+
+<div class="pdp customer-services">
+  <div class="container">
+    <div class="item">
+      {% include 'svg-icons', id:'easy_emi' %}
+      <span>
+        <span>Easy EMI <br />Options</span>
+        {% comment %}<a href="javascript:void(0);" class="">View Plan</a>{% endcomment %}
+      </span>
+    </div>
+    <div class="item">
+      {% include 'svg-icons', id:'free_delivery' %}
+      <span>Free Home <br />Delivery*</span>
+    </div>
+    <div class="item">
+      {% include 'svg-icons', id:'quality_assurance' %}
+      <span>Quality <br />Assurance</span>
+    </div>
+    {% assign free_asembly =  product.metafields.Product["Free Asembly Yes"] %}
+    {% if free_asembly == 'Yes' %}
+    <div class="item">
+      {% include 'svg-icons', id:'free_assembly' %}
+      <span>
+        <span>Free <br />Assembly</span>
+        {% comment %}<a href="javascript:void(0);" class="">View Offer</a>{% endcomment %}
+      </span>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% if product.handle == 'nilkamal-willy-queen-bed-new-wenge-sonama-oak' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p5980c2450/30819/1.-WILLY-QUEEN-BED-NEW-WENGE--SONAMA-OAK.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p5980c2450/30820/1.-WILLY-QUEEN-BED-NEW-WENGE--SONAMA-OAK.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+{% if product.handle == 'nilkamal-willy-king-bed-new-wenge-sonama-oak' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p5981c2451/30823/2-WILLY-KING-BED-NEW-WENGE--SONAMA-OAK.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p5981c2451/30824/2-WILLY-KING-BED-NEW-WENGE--SONAMA-OAK.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+{% if product.handle == 'nilkamal-willy-tv-cabinet-walnut-iwillytvcbntwnt' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6010c2454/30934/3.-WILLY-TV-CABINET-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6010c2454/30935/3.-WILLY-TV-CABINET-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+{% if product.handle == 'nilkamal-willy-3-door-wardrobe-without-mirror-new-wenge' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6011c2455/30938/4.-WILLY-3-DOOR-WARDROBE-WO-NEW-WENGE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6011c2455/30939/4.-WILLY-3-DOOR-WARDROBE-WO-NEW-WENGE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+{% if product.handle == 'nilkamal-willy-3-door-wardrobe-with-mirror-new-wenge' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6014c2458/30950/7.-WILLY-2-DOOR-WARDROBE-W-MIRROR-NEW-WENGE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6014c2458/30951/7.-WILLY-2-DOOR-WARDROBE-W-MIRROR-NEW-WENGE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+{% if product.handle == 'nilkamal-willy-4-door-mirror-wardrobe-new-wenge-sonama-oak' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6015c2459/30954/8.-WILLY-4-DOOR-WARDROB-W-MIRROR-NEW-WENGE--SONAMA-OAK.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6015c2459/30955/8.-WILLY-4-DOOR-WARDROB-W-MIRROR-NEW-WENGE--SONAMA-OAK.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+{% if product.handle == 'nilkamal-riva-queen-bed-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6016c2460/30958/9.-RIVA-QUEEN-BED-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6016c2460/30959/9.-RIVA-QUEEN-BED-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+{% if product.handle == 'riva-queen-size-bed-new-wenge' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6017c2461/30962/10.-RIVA-QUEEN-BED-NEW-WENGE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6017c2461/30963/10.-RIVA-QUEEN-BED-NEW-WENGE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+{% if product.handle == 'nilkamal-riva-king-bed-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6018c2462/30966/11.-RIVA-KING-BED-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6018c2462/30967/11.-RIVA-KING-BED-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+{% if product.handle == 'nilkamal-riva-4-door-wardrobe-with-mirror-new-wenge' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6020c2464/30974/13.-RIVA-4-DOOR-WARDROBE-W-MIRROR-NEW-WENGE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6020c2464/30975/13.-RIVA-4-DOOR-WARDROBE-W-MIRROR-NEW-WENGE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+{% if product.handle == 'nilkamal-riva-2-door-wardrobe-with-mirror-new-wenge' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6021c2465/30978/14.-RIVA-2-DOOR-WARDROBE-W-MIRROR-NEW-WENGE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6021c2465/30979/14.-RIVA-2-DOOR-WARDROBE-W-MIRROR-NEW-WENGE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+{% if product.handle == 'nilkamal-riva-2-door-mirror-wardrobe-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6022c2466/30982/15.-RIVA-2-DOOR-WARDROBE-W-MIRROR-NEW-WENGE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6022c2466/30983/15.-RIVA-2-DOOR-WARDROBE-W-MIRROR-NEW-WENGE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+{% if product.handle == 'nilkamal-mozart-queen-bed-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6023c2467/30986/16.-MOZART-QUEEN-BED-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6023c2467/30987/16.-MOZART-QUEEN-BED-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+{% if product.handle == 'nilkamal-mozart-queen-size-bed-new-wenge' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6024c2468/30990/17.-MOZART-QUEEN-BED-NEW-WENGE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6024c2468/30991/17.-MOZART-QUEEN-BED-NEW-WENGE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+{% if product.handle == 'nilkamal-mozart-king-bed-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6025c2469/30994/18-MOZART-KING-BED-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6025c2469/30995/18-MOZART-KING-BED-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-mozart-king-size-bed-new-wenge' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6026c2470/30998/19.MOZART-KING-BED-NEW-WENGE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6026c2470/30999/19.MOZART-KING-BED-NEW-WENGE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+{% if product.handle == 'nilkamal-mozart-4-door-mirror-wardrobe-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6027c2471/31002/20.-MOZART-4-DOOR-WARDROBE-W-MIRROR-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6027c2471/31003/20.-MOZART-4-DOOR-WARDROBE-W-MIRROR-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-mozart-4-door-mirror-wardrobe-new-wenge' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6028c2472/31006/21.-MOZART-4-DOOR-WITH-MIRROR-NEW-WENGE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6028c2472/31007/21.-MOZART-4-DOOR-WITH-MIRROR-NEW-WENGE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-mozart-3-door-wardrobe-with-mirror-new-wenge' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6029c2473/31010/22.-MOZART-3-DOOR-WITH-MIRROR-NEW-WENGE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6029c2473/31011/22.-MOZART-3-DOOR-WITH-MIRROR-NEW-WENGE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-mozart-3-door-mirror-wardrobe-walnut-white' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6030c2474/31014/23.-NILKAMAL-MOZART-3-DOOR-MIRROR-WARDROBE-%28WALNUTWHITE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6030c2474/31015/23.-NILKAMAL-MOZART-3-DOOR-MIRROR-WARDROBE-%28WALNUTWHITE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-napier-king-bed-teak' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6031c2475/31018/24.-NAPIER-KING-BED-TEAK.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6031c2475/31019/24.-NAPIER-KING-BED-TEAK.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-wellington-queen-bed-brown' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6033c2477/31026/26.WELLINGTON-QUEEN-BED-BROWN.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6033c2477/31027/26.WELLINGTON-QUEEN-BED-BROWN.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-wellington-king-bed-brown' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6034c2478/31030/27-.WELLINGTON-KING-BED-BROWN.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6034c2478/31031/27-.WELLINGTON-KING-BED-BROWN.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-hibiscus-queen-bed-brown' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6036c2480/31038/28.-HIBISCUS-QUEEN-BED-BROWN.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6036c2480/31039/28.-HIBISCUS-QUEEN-BED-BROWN.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-hibiscus-king-bed-brown' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6035c2479/31034/29.-HIBISCUS-KING-BED-BROWN.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6035c2479/31035/29.-HIBISCUS-KING-BED-BROWN.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+
+{% if product.handle == 'nilkamal-troy-new-book-case-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6037c2481/31042/30.-TROY-NEW-BOOK-CASE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6037c2481/31043/30.-TROY-NEW-BOOK-CASE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nikamal-boston-book-case-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6038c2482/31046/31.-BOSTON-NEW-BOOK-CASE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6038c2482/31047/31.-BOSTON-NEW-BOOK-CASE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-cary-book-case-shelf-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6039c2483/31050/32.-CARY-NEW-BOOK-CASE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6039c2483/31051/32.-CARY-NEW-BOOK-CASE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-hera-book-case-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6040c2484/31054/33.-HERA-BOOK-CASE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6040c2484/31055/33.-HERA-BOOK-CASE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-juno-book-case-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6041c2485/31058/34.-JUNO-BOOK-CASE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6041c2485/31059/34.-JUNO-BOOK-CASE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-zeus-book-case-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6042c2486/31062/35.-ZEUS-BOOK-CASE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6042c2486/31063/35.-ZEUS-BOOK-CASE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+
+{% if product.handle == 'nilkamal-minerva-book-case-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6043c2487/31066/36.-MINERVA-BOOK-CASE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6043c2487/31067/36.-MINERVA-BOOK-CASE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-barcelona-center-table-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6044c2488/31070/39.-BARCELONA-NEW-COFFEE-TABLE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6044c2488/31071/39.-BARCELONA-NEW-COFFEE-TABLE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-baron-coffee-center-table-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6044c2488/31070/39.-BARCELONA-NEW-COFFEE-TABLE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6044c2488/31071/39.-BARCELONA-NEW-COFFEE-TABLE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-morley-coffee-center-table-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6046c2490/31078/41.-MORLEY-COFFEE-TABLE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6046c2490/31079/41.-MORLEY-COFFEE-TABLE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-zina-coffee-table' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6047c2491/31082/42.-ZINA-COFFEE-TABLE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6047c2491/31083/42.-ZINA-COFFEE-TABLE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-dune-coffee-table-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6048c2492/31086/43.-DUNE-COFFEE-TABLE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6048c2492/31087/43.-DUNE-COFFEE-TABLE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-aspen-coffee-center-table-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6049c2493/31090/44.-ASPEN-NEW-COFFEE-TABLE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6049c2493/31091/44.-ASPEN-NEW-COFFEE-TABLE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-dion-computer-table-walnut-idioncomtblwnt' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6050c2494/31094/45.-DION-COMPUTER-TABLE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6050c2494/31095/45.-DION-COMPUTER-TABLE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-aldrich-computer-table-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6051c2495/31098/46.-ALDRICH-COMPUTER-TABLE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6051c2495/31099/46.-ALDRICH-COMPUTER-TABLE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-envy-4-seater-dining-set-oak' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6052c2496/31102/47.-ENVY-1%2B4-DINING-SET-OAK.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6052c2496/31103/47.-ENVY-1%2B4-DINING-SET-OAK.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-felicia-4-seater-dining-set-expresso' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6053c2497/31106/48.-FELICIA-1%2B4-DINING-SET-EXPRESSO.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6053c2497/31107/48.-FELICIA-1%2B4-DINING-SET-EXPRESSO.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-venezuela-4-seater-dining-set-expresso' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6054c2498/31110/49.-VENEZUELA-1%2B4-DINING-SET-EXPRESSO.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6054c2498/31111/49.-VENEZUELA-1%2B4-DINING-SET-EXPRESSO.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-colombia-4-seater-dining-set-wenge' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6055c2499/31114/50.-KIT-OF-4-COLOMBIA-DINNG-SET-WENGE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6055c2499/31115/50.-KIT-OF-4-COLOMBIA-DINNG-SET-WENGE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-colombia-4-seater-dining-set-with-bench-wenge' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6056c2500/31118/51.-KIT-OF-4-COLOMBIA-DINNG-ST-WT-BNCH-WENGE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6056c2500/31119/51.-KIT-OF-4-COLOMBIA-DINNG-ST-WT-BNCH-WENGE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-bradford-storage-cabinet-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6057c2501/31122/52.-BRADFORD-STORAGE-CABINET-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6057c2501/31123/52.-BRADFORD-STORAGE-CABINET-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-edgar-storage-cabinet-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6219c2533/31649/53.-EDGAR-STORAGE-CABINET-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6219c2533/31650/53.-EDGAR-STORAGE-CABINET-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-claymont-shoe-cabinet-rack-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6058c2502/31126/54.-CLAYMONT-NEW-SHOE-CABINET-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6058c2502/31127/54.-CLAYMONT-NEW-SHOE-CABINET-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-alpine-shoe-cabinet-rack-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6059c2503/31130/55.-ALPINE-NEW-SHOE-CABINET-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6059c2503/31131/55.-ALPINE-NEW-SHOE-CABINET-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-murano-shoe-cabinet-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6060c2504/31134/57.-MURANO-SHOE-CABINET-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6060c2504/31135/57.-MURANO-SHOE-CABINET-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-baylor-shoe-cabinet-walnut-white' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6062c2506/31142/59.-BAYLOR-SHOE-CABINET-WALNUTWHITE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6062c2506/31143/59.-BAYLOR-SHOE-CABINET-WALNUTWHITE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-stella-shoe-cabinet-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6063c2507/31146/60.-STELLA-SHOE-CABINET-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6063c2507/31147/60.-STELLA-SHOE-CABINET-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-tuskar-shoe-cabinet-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6064c2508/31150/61.-TUSKAR-SHOE-CABINET-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6064c2508/31151/61.-TUSKAR-SHOE-CABINET-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-rowan-shoe-cabinet-rack-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6065c2509/31154/62.-ROWAN-SHOE-CABINET-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6065c2509/31155/62.-ROWAN-SHOE-CABINET-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-kingsley-shoe-cabinet-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6066c2510/31158/63.-KINGSLEY-SHOE-CABINET-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6066c2510/31159/63.-KINGSLEY-SHOE-CABINET-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-hilton-shoe-cabinet-walnut-oak' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6067c2511/31162/64.-HILTON-SHOE-CABINET-WALNUT-OAK.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6067c2511/31163/64.-HILTON-SHOE-CABINET-WALNUT-OAK.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-felecia-sofa-cum-bed-dark-beige-ifelecsofbeddbe' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6068c2512/31166/65.-FELECIA-SOFA-CUM-BED-DARK-BEIGE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6068c2512/31167/65.-FELECIA-SOFA-CUM-BED-DARK-BEIGE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-felecia-sofa-cum-bed-light-purple-ifelecsofbedlpr' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6069c2513/31170/66.-FELECIA-SOFA-CUM-BED-DARK-BEIGE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6069c2513/31171/66.-FELECIA-SOFA-CUM-BED-DARK-BEIGE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-daffny-study-table-walnut-idaffnystdtblwnt' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6070c2514/31174/70.-DAFFNY-STUDY-TABLE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6070c2514/31175/70.-DAFFNY-STUDY-TABLE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-julian-study-desk-walnut-ijuliannsdskwnt' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6071c2515/31178/71.-JULIAN-NEW-STUDY-DESK-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6071c2515/31179/71.-JULIAN-NEW-STUDY-DESK-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-stark-study-office-table-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6072c2516/31182/72.-STARK-STUDY-TABLE-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6072c2516/31183/72.-STARK-STUDY-TABLE-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-elliot-tv-cabinet-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6073c2517/31186/73.-ELLIOT-TV-CABINET-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6073c2517/31187/73.-ELLIOT-TV-CABINET-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-sage-tv-cabinet-walnut-isagetvcbntwnt' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6074c2518/31190/74.-SAGE-TV-CABINET-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6074c2518/31191/74.-SAGE-TV-CABINET-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-vita-tv-cabinet-walnut-ivitatvcbntwnt' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6075c2519/31194/75.-VITA-TV-CABINET-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6075c2519/31195/75.-VITA-TV-CABINET-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-alexander-tv-cabinet-wenge-ialexndetvcbntwnt' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6076c2520/31198/76.-ALEXANDER-TV-CABINET-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6076c2520/31199/76.-ALEXANDER-TV-CABINET-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-iris-tv-cabinet-walnut-iiristvcbntwnt' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6077c2521/31202/77.-IRIS-TV-CABINET-WALNUT.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6077c2521/31203/77.-IRIS-TV-CABINET-WALNUT.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-alaska-2-door-wardrobe-brown-white' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6220c2534/31653/79.-ALASKA-2DOOR-WARDROBE-BROWN-WHITE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6220c2534/31654/79.-ALASKA-2DOOR-WARDROBE-BROWN-WHITE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-olymipia-2-door-mirror-wardrobe-brown-white' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6080c2524/31214/80.-OLYMIPIA-2DOOR-WARDROBE-BROWN-WHITE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6080c2524/31215/80.-OLYMIPIA-2DOOR-WARDROBE-BROWN-WHITE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-olymipia-2-door-wardrobe-brown-white' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view"
+      data-src="https://2dar.cartmagician.com/3473_kishan/p6081c2525/31218/81.-OLYMIPIA-2DR-WARDRB-W-O-MIRR-BROWN-WHITE.glb"
+      data-ios-src="https://2dar.cartmagician.com/3473_kishan/p6081c2525/31219/81.-OLYMIPIA-2DR-WARDRB-W-O-MIRR-BROWN-WHITE.usdz"
+      data-modal-height="360px" data-model-shadow="0" data-model-animation="0" href="javascript:void(0)">
+      <img src="https://cartmagician.com/assets/hotlink-ok/launch-3d-view-but.png" width="120" height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+{% if product.handle == 'nilkamal-mozart-3-door-wardrobe-with-mirror-walnut' %}
+<div class="launch-3d-view">
+  <div class="cartmagican-launch">
+    <a class="cartmagican-launch-3d-view" data-asset-id="3b071643-3977-4732-95c6-0cdf1afcc407"
+      data-src="https://webar.cartmagician.com/3473_kishan/p10109c2988/44999/Nilkamal-Mozart-3-Door-Wardrobe-With-Mirror-%28Walnut%29.glb"
+      data-ios-src="https://webar.cartmagician.com/3473_kishan/p10109c2988/45000/Nilkamal-Mozart-3-Door-Wardrobe-With-Mirror-%28Walnut%29.usdz"
+      data-show-ar="1" data-modal-height="520px" data-model-shadow="1" data-model-animation="0"
+      href="javascript:void(0)">
+      <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Revised_Button-01.png?v=1643888541" width="120"
+        height="37">
+    </a>
+    <script type="text/javascript" src="https://cartmagician.com/js/magicar_plugin.js" id="cartmagician_magicarjs"
+      data-app-key="GE864s3MdXkIEgtX"></script>
+
+  </div>
+</div>
+{% endif %}
+
+<div class="sharing social-links">
+  <ul>
+    <li class="sharepoint">
+      <a href="#">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_d_1139_2001)">
+            <rect x="10" y="8" width="44" height="44" rx="22" fill="#F7FCFF" shape-rendering="crispEdges" />
+            <path
+              d="M37.08 34.1365C36.32 34.1365 35.64 34.4378 35.12 34.9096L27.91 30.743C27.96 30.512 28 30.2811 28 30.0402C28 29.7992 27.96 29.5683 27.91 29.3373L34.96 25.2108C35.5 25.7129 36.21 26.0241 37 26.0241C38.66 26.0241 40 24.6787 40 23.012C40 21.3454 38.66 20 37 20C35.34 20 34 21.3454 34 23.012C34 23.253 34.04 23.4839 34.09 23.7149L27.04 27.8414C26.5 27.3394 25.79 27.0281 25 27.0281C23.34 27.0281 22 28.3735 22 30.0402C22 31.7068 23.34 33.0522 25 33.0522C25.79 33.0522 26.5 32.741 27.04 32.239L34.24 36.4157C34.19 36.6265 34.16 36.8474 34.16 37.0683C34.16 38.6847 35.47 40 37.08 40C38.69 40 40 38.6847 40 37.0683C40 35.4518 38.69 34.1365 37.08 34.1365Z"
+              fill="#0093DD" />
+          </g>
+          <defs>
+            <filter id="filter0_d_1139_2001" x="0" y="0" width="64" height="64" filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha" />
+              <feOffset dy="2" />
+              <feGaussianBlur stdDeviation="5" />
+              <feComposite in2="hardAlpha" operator="out" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.576471 0 0 0 0 0.866667 0 0 0 0.2 0" />
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1139_2001" />
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1139_2001" result="shape" />
+            </filter>
+          </defs>
+        </svg>
+        {% comment %} <span class="sharing-label">{{ 'general.social.share_heading' | t }}</span>{% endcomment %}
+        <ul class="sharing-list" style="display:none;">
+          <li class="facebook">
+            <span aria-hidden="true">{% render 'svg-facebook' %}</span>
+            {% comment %} <span
+              class="visually-hidden">{{ 'general.social.share_on_facebook' | t }}</span>{% endcomment %}
+
+          </li>
+          <li class="twitter">
+            <span aria-hidden="true">{% render 'svg-twitter' %}</span>
+            {% comment %}<span
+              class="visually-hidden">{{ 'general.social.share_on_twitter' | t }}</span>{% endcomment %}
+
+          </li>
+          <li class="whatta">
+            <span aria-hidden="true">{% render 'whatapps' %}</span>
+            {%comment %} <span
+              class="visually-hidden">{{ 'general.social.share_on_pinterest' | t }}</span>{% endcomment %}
+
+          </li>
+        </ul>
+</div>
+</li>
+

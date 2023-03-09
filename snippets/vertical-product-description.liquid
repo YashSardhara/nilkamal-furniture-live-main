@@ -1,0 +1,1214 @@
+<style>
+  .information-product-mobile {
+    display: none;
+  }
+  @media(max-width:564px) {
+    .information-product-mobile {
+      color: #000;
+      display: block;
+      border-bottom: 1px solid #6A6A6A;
+    }
+  }
+</style>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+{% if product.tags contains 'modular-bed' %}
+  <h2 class="information-product-mobile">Product Information</h2>
+{% endif %}
+{% assign productDimensions = product.metafields.Product %}
+<div class="product-description clearfix product-description-mobile">
+
+  <div class="desc-container product-details">
+    {% if Description != 0 and Description != blank %}
+      {% unless product.tags contains 'modular-bed' %}
+        <h2>
+          Description<span class="right">{% include 'svg-icons', id: 'down-arrow' %}</span>
+        </h2>
+      {% endunless %}
+
+    {% endif %}
+
+    <div class="desc-content">
+
+
+      <div class="pd-material-table">
+        <h3 class="accordion">Product Details
+          <span id="uparrow"></span>
+          <span id="downarrow"></span>
+        </h3>
+        <div class="panel">
+
+          <table>
+            <tbody>
+              {% if productDimensions["Adjustable Height"] != 0 and productDimensions["Adjustable Height"] != blank %}
+                <tr>
+                  <td>Adjustable Height</td>
+                  <td>{{ productDimensions["Adjustable Height"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Adjustable Racks"] != 0 and productDimensions["Adjustable Racks"] != blank %}
+                <tr>
+                  <td>Adjustable Racks</td>
+                  <td>{{ productDimensions["Adjustable Racks"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Backrest Height"] != 0 and productDimensions["Backrest Height"] != blank %}
+                <tr>
+                  <td>Backrest Height</td>
+                  <td>{{ productDimensions["Backrest Height"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Bed Low Profile"] != 0 and productDimensions["Bed Low Profile"] != blank %}
+                <tr>
+                  <td>Bed Low Profile</td>
+                  <td>{{ productDimensions["Bed Low Profile"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Bed Platform"] != 0 and productDimensions["Bed Platform"] != blank %}
+                <tr>
+                  <td>Bed Platform</td>
+                  <td>{{ productDimensions["Bed Platform"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Bed Recommended Mattress Size"] != 0 and productDimensions["Bed Recommended Mattress Size"] != blank %}
+                <tr>
+                  <td>Bed Recommended Mattress Size</td>
+                  <td>{{ productDimensions["Bed Recommended Mattress Size"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Bed Size"] != 0 and productDimensions["Bed Size"] != blank %}
+                <tr>
+                  <td>Bed Size</td>
+                  <td>{{ productDimensions["Bed Size"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Bed Type"] != 0 and productDimensions["Bed Type"] != blank %}
+                <tr>
+                  <td>Bed Type</td>
+                  <td>{{ productDimensions["Bed Type"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Bush Included"] != 0 and productDimensions["Bush Included"] != blank %}
+                <tr>
+                  <td>Bush Included</td>
+                  <td>{{ productDimensions["Bush Included"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Care Instructions"] != 0 and productDimensions["Care Instructions"] != blank %}
+                <tr>
+                  <td>Care Instructions</td>
+                  <td>{{ productDimensions["Care Instructions"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Coffee Table Foldable"] != 0 and productDimensions["Coffee Table Foldable"] != blank %}
+                <tr>
+                  <td>Coffee Table Foldable</td>
+                  <td>{{ productDimensions["Coffee Table Foldable"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Design"] != 0 and productDimensions["Design"] != blank %}
+                <tr>
+                  <td>Design</td>
+                  <td>{{ productDimensions["Design"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Bend Direction"] != 0 and productDimensions["Bend Direction"] != blank %}
+                <tr>
+                  <td>Bend Direction</td>
+                  <td>{{ productDimensions["Bend Direction"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Bookshelf Expandable"] != 0 and productDimensions["Bookshelf Expandable"] != blank %}
+                <tr>
+                  <td>Bookshelf Expandable</td>
+                  <td>{{ productDimensions["Bookshelf Expandable"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Bookshelf Ideal For"] != 0 and productDimensions["Bookshelf Ideal For"] != blank %}
+                <tr>
+                  <td>Bookshelf Ideal For</td>
+                  <td>{{ productDimensions["Bookshelf Ideal For"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Bookshelf Number of Columns"] != 0 and productDimensions["Bookshelf Number of Columns"] != blank %}
+                <tr>
+                  <td>Bookshelf Number of Columns</td>
+                  <td>{{ productDimensions["Bookshelf Number of Columns"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Built-in Surge Protector"] != 0 and productDimensions["Built-in Surge Protector"] != blank %}
+                <tr>
+                  <td>Built-in Surge Protector</td>
+                  <td>{{ productDimensions["Built-in Surge Protector"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Built-in Wire Outlet"] != 0 and productDimensions["Built-in Wire Outlet"] != blank %}
+                <tr>
+                  <td>Built-in Wire Outlet</td>
+                  <td>{{ productDimensions["Built-in Wire Outlet"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Chair Ergonomic"] != 0 and productDimensions["Chair Ergonomic"] != blank %}
+                <tr>
+                  <td>Chair Ergonomic</td>
+                  <td>{{ productDimensions["Chair Ergonomic"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["CPU Compartment"] != 0 and productDimensions["CPU Compartment"] != blank %}
+                <tr>
+                  <td>CPU Compartment</td>
+                  <td>{{ productDimensions["CPU Compartment"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Floating Top"] != 0 and productDimensions["Floating Top"] != blank %}
+                <tr>
+                  <td>Floating Top</td>
+                  <td>{{ productDimensions["Floating Top"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Frame Material Subtype"] != 0 and productDimensions["Frame Material Subtype"] != blank %}
+                <tr>
+                  <td>Frame Material Subtype</td>
+                  <td>{{ productDimensions["Frame Material Subtype"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Handles Included"] != 0 and productDimensions["Handles Included"] != blank %}
+                <tr>
+                  <td>Handles Included</td>
+                  <td>{{ productDimensions["Handles Included"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Hanger Rod"] != 0 and productDimensions["Hanger Rod"] != blank %}
+                <tr>
+                  <td>Hanger Rod</td>
+                  <td>{{ productDimensions["Hanger Rod"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Hutch"] != 0 and productDimensions["Hutch"] != blank %}
+                <tr>
+                  <td>Hutch</td>
+                  <td>{{ productDimensions["Hutch"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Keyboard Tray"] != 0 and productDimensions["Keyboard Tray"] != blank %}
+                <tr>
+                  <td>Keyboard Tray</td>
+                  <td>{{ productDimensions["Keyboard Tray"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Lockable Storage"] != 0 and productDimensions["Lockable Storage"] != blank %}
+                <tr>
+                  <td>Lockable Storage</td>
+                  <td>{{ productDimensions["Lockable Storage"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Table Top Material Subtype"] != 0 and productDimensions["Table Top Material Subtype"] != blank %}
+                <tr>
+                  <td>Table Top Material Subtype</td>
+                  <td>{{ productDimensions["Table Top Material Subtype"] }}</td>
+                </tr>
+              {% endif %}
+
+
+              {% if productDimensions["Detachable"] != 0 and productDimensions["Detachable"] != blank %}
+                <tr>
+                  <td>Detachable</td>
+                  <td>{{ productDimensions["Detachable"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Door Type"] != 0 and productDimensions["Door Type"] != blank %}
+                <tr>
+                  <td>Door Type</td>
+                  <td>{{ productDimensions["Door Type"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Doors Included"] != 0 and productDimensions["Doors Included"] != blank %}
+                <tr>
+                  <td>Doors Included</td>
+                  <td>{{ productDimensions["Doors Included"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Drawer Type"] != 0 and productDimensions["Drawer Type"] != blank %}
+                <tr>
+                  <td>Drawer Type</td>
+                  <td>{{ productDimensions["Drawer Type"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Dust Resistant"] != 0 and productDimensions["Dust Resistant"] != blank %}
+                <tr>
+                  <td>Dust Resistant</td>
+                  <td>{{ productDimensions["Dust Resistant"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Finish"] != 0 and productDimensions["Finish"] != blank %}
+                <tr>
+                  <td>Finish</td>
+                  <td>{{ productDimensions["Finish"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Generic Name"] != 0 and productDimensions["Generic Name"] != blank %}
+                <tr>
+                  <td>Generic Name</td>
+                  <td>{{ productDimensions["Generic Name"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Headboard Included"] != 0 and productDimensions["Headboard Included"] != blank %}
+                <tr>
+                  <td>Headboard Included</td>
+                  <td>{{ productDimensions["Headboard Included"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Headboard Type"] != 0 and productDimensions["Headboard Type"] != blank %}
+                <tr>
+                  <td>Headboard Type</td>
+                  <td>{{ productDimensions["Headboard Type"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Led Light Present"] != 0 and productDimensions["Led Light Present"] != blank %}
+                <tr>
+                  <td>Led Light Present</td>
+                  <td>{{ productDimensions["Led Light Present"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Legs"] != 0 and productDimensions["Legs"] != blank %}
+                <tr>
+                  <td>Legs</td>
+                  <td>{{ productDimensions["Legs"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Light Included"] != 0 and productDimensions["Light Included"] != blank %}
+                <tr>
+                  <td>Light Included</td>
+                  <td>{{ productDimensions["Light Included"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Locking Facility"] != 0 and productDimensions["Locking Facility"] != blank %}
+                <tr>
+                  <td>Locking Facility</td>
+                  <td>{{ productDimensions["Locking Facility"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Material Group"] != 0 and productDimensions["Material Group"] != blank %}
+                <tr>
+                  <td>Material Group</td>
+                  <td>{{ productDimensions["Material Group"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Maximum Compatible Shoe Size"] != 0 and productDimensions["Maximum Compatible Shoe Size"] != blank %}
+                <tr>
+                  <td>Maximum Compatible Shoe Size</td>
+                  <td>{{ productDimensions["Maximum Compatible Shoe Size"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Maximum Load Capacity"] != 0 and productDimensions["Maximum Load Capacity"] != blank %}
+                <tr>
+                  <td>Maximum Load Capacity</td>
+                  <td>{{ productDimensions["Maximum Load Capacity"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Mechanism"] != 0 and productDimensions["Mechanism"] != blank %}
+                <tr>
+                  <td>Mechanism</td>
+                  <td>{{ productDimensions["Mechanism"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Mirror Included"] != 0 and productDimensions["Mirror Included"] != blank %}
+                <tr>
+                  <td>Mirror Included</td>
+                  <td>{{ productDimensions["Mirror Included"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Model Name"] != 0 and productDimensions["Model Name"] != blank %}
+                <tr>
+                  <td>Model Name</td>
+                  <td>{{ productDimensions["Model Name"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Model Series Name"] != 0 and productDimensions["Model Series Name"] != blank %}
+                <tr>
+                  <td>Model Series Name</td>
+                  <td>{{ productDimensions["Model Series Name"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Mount Type"] != 0 and productDimensions["Mount Type"] != blank %}
+                <tr>
+                  <td>Mount Type</td>
+                  <td>{{ productDimensions["Mount Type"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Number of Chairs"] != 0 and productDimensions["Number of Chairs"] != blank %}
+                <tr>
+                  <td>Number of Chairs</td>
+                  <td>{{ productDimensions["Number of Chairs"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Number of Doors"] != 0 and productDimensions["Number of Doors"] != blank %}
+                <tr>
+                  <td>Number of Doors</td>
+                  <td>{{ productDimensions["Number of Doors"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Number of Drawers"] != 0 and productDimensions["Number of Drawers"] != blank %}
+                <tr>
+                  <td>Number of Drawers</td>
+                  <td>{{ productDimensions["Number of Drawers"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Number of Ducts"] != 0 and productDimensions["Number of Ducts"] != blank %}
+                <tr>
+                  <td>Number of Ducts</td>
+                  <td>{{ productDimensions["Number of Ducts"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Number of Seating Benches"] != 0 and productDimensions["Number of Seating Benches"] != blank %}
+                <tr>
+                  <td>Number of Seating Benches</td>
+                  <td>{{ productDimensions["Number of Seating Benches"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Number of Shelves"] != 0 and productDimensions["Number of Shelves"] != blank %}
+                <tr>
+                  <td>Number of Shelves</td>
+                  <td>{{ productDimensions["Number of Shelves"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Number of Shoe Pairs"] != 0 and productDimensions["Number of Shoe Pairs"] != blank %}
+                <tr>
+                  <td>Number of Shoe Pairs</td>
+                  <td>{{ productDimensions["Number of Shoe Pairs"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Opening Mechanism"] != 0 and productDimensions["Opening Mechanism"] != blank %}
+                <tr>
+                  <td>Opening Mechanism</td>
+                  <td>{{ productDimensions["Opening Mechanism"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Rotating Serving Table"] != 0 and productDimensions["Rotating Serving Table"] != blank %}
+                <tr>
+                  <td>Rotating Serving Table</td>
+                  <td>{{ productDimensions["Rotating Serving Table"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Seating Capacity"] != 0 and productDimensions["Seating Capacity"] != blank %}
+                <tr>
+                  <td>Seating Capacity</td>
+                  <td>{{ productDimensions["Seating Capacity"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Shape"] != 0 and productDimensions["Shape"] != blank %}
+                <tr>
+                  <td>Shape</td>
+                  <td>{{ productDimensions["Shape"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Shelf Type"] != 0 and productDimensions["Shelf Type"] != blank %}
+                <tr>
+                  <td>Shelf Type</td>
+                  <td>{{ productDimensions["Shelf Type"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Shoe Rack Foldable"] != 0 and productDimensions["Shoe Rack Foldable"] != blank %}
+                <tr>
+                  <td>Shoe Rack Foldable</td>
+                  <td>{{ productDimensions["Shoe Rack Foldable"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Shoe Rack Lock Provided"] != 0 and productDimensions["Shoe Rack Lock Provided"] != blank %}
+                <tr>
+                  <td>Shoe Rack Lock Provided</td>
+                  <td>{{ productDimensions["Shoe Rack Lock Provided"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Shoe Rack Portable"] != 0 and productDimensions["Shoe Rack Portable"] != blank %}
+                <tr>
+                  <td>Shoe Rack Portable</td>
+                  <td>{{ productDimensions["Shoe Rack Portable"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Shoe Rack Recessed Area"] != 0 and productDimensions["Shoe Rack Recessed Area"] != blank %}
+                <tr>
+                  <td>Shoe Rack Recessed Area</td>
+                  <td>{{ productDimensions["Shoe Rack Recessed Area"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Shoe Rack Seating Provided"] != 0 and productDimensions["Shoe Rack Seating Provided"] != blank %}
+                <tr>
+                  <td>Shoe Rack Seating Provided</td>
+                  <td>{{ productDimensions["Shoe Rack Seating Provided"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Shoe Rack Strain Resistant"] != 0 and productDimensions["Shoe Rack Strain Resistant"] != blank %}
+                <tr>
+                  <td>Shoe Rack Strain Resistant</td>
+                  <td>{{ productDimensions["Shoe Rack Strain Resistant"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Sofa Adjustable Headrest"] != 0 and productDimensions["Sofa Adjustable Headrest"] != blank %}
+                <tr>
+                  <td>Sofa Adstable Headrest</td>
+                  <td>{{ productDimensions["Sofa Adjustable Headrest"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Sofa Armrest Type"] != 0 and productDimensions["Sofa Armrest Type"] != blank %}
+                <tr>
+                  <td>Sofa Armrest Type</td>
+                  <td>{{ productDimensions["Sofa Armrest Type"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Sofa Backrest Type"] != 0 and productDimensions["Sofa Backrest Type"] != blank %}
+                <tr>
+                  <td>Sofa Backrest Type</td>
+                  <td>{{ productDimensions["Sofa Backrest Type"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Sofa Configuration Shape"] != 0 and productDimensions["Sofa Configuration Shape"] != blank %}
+                <tr>
+                  <td>Sofa Configuration Shape</td>
+                  <td>{{ productDimensions["Sofa Configuration Shape"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Sofa Orientation Pro_Facing"] != 0 and productDimensions["Sofa Orientation Pro_Facing"] != blank %}
+                <tr>
+                  <td>Sofa Orientation Pro_Facing</td>
+                  <td>{{ productDimensions["Sofa Orientation Pro_Facing"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Sofa Support Type"] != 0 and productDimensions["Sofa Support Type"] != blank %}
+                <tr>
+                  <td>Sofa Support Type</td>
+                  <td>{{ productDimensions["Sofa Support Type"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Sofa Technology Used"] != 0 and productDimensions["Sofa Technology Used"] != blank %}
+                <tr>
+                  <td>Sofa Technology Used</td>
+                  <td>{{ productDimensions["Sofa Technology Used"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Sofa Tufted"] != 0 and productDimensions["Sofa Tufted"] != blank %}
+                <tr>
+                  <td>Sofa Tufted</td>
+                  <td>{{ productDimensions["Sofa Tufted"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Stool Included"] != 0 and productDimensions["Stool Included"] != blank %}
+                <tr>
+                  <td>Stool Included</td>
+                  <td>{{ productDimensions["Stool Included"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Storage Included"] != 0 and productDimensions["Storage Included"] != blank %}
+                <tr>
+                  <td>Storage Included</td>
+                  <td>{{ productDimensions["Storage Included"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Storage Type"] != 0 and productDimensions["Storage Type"] != blank %}
+                <tr>
+                  <td>Storage Type</td>
+                  <td>{{ productDimensions["Storage Type"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Style"] != 0 and productDimensions["Style"] != blank %}
+                <tr>
+                  <td>Style</td>
+                  <td>{{ productDimensions["Style"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Suitable For"] != 0 and productDimensions["Suitable For"] != blank %}
+                <tr>
+                  <td>Suitable For</td>
+                  <td>{{ productDimensions["Suitable For"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Table Shape"] != 0 and productDimensions["Table Shape"] != blank %}
+                <tr>
+                  <td>Table Shape</td>
+                  <td>{{ productDimensions["Table Shape"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Top"] != 0 and productDimensions["Top"] != blank %}
+                <tr>
+                  <td>Top</td>
+                  <td>{{ productDimensions["Top"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Type"] != 0 and productDimensions["Type"] != blank %}
+                <tr>
+                  <td>Type</td>
+                  <td>{{ productDimensions["Type"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Upholstery Included"] != 0 and productDimensions["Upholstery Included"] != blank %}
+                <tr>
+                  <td>Upholstery Included</td>
+                  <td>{{ productDimensions["Upholstery Included"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Upholstery Type"] != 0 and productDimensions["Upholstery Type"] != blank %}
+                <tr>
+                  <td>Upholstery Type</td>
+                  <td>{{ productDimensions["Upholstery Type"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Wall Mount Support"] != 0 and productDimensions["Wall Mount Support"] != blank %}
+                <tr>
+                  <td>Wall Mount Support</td>
+                  <td>{{ productDimensions["Wall Mount Support"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Water Resistant"] != 0 and productDimensions["Water Resistant"] != blank %}
+                <tr>
+                  <td>Water Resistant</td>
+                  <td>{{ productDimensions["Water Resistant"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Wheels Included"] != 0 and productDimensions["Wheels Included"] != blank %}
+                <tr>
+                  <td>Wheels Included</td>
+                  <td>{{ productDimensions["Wheels Included"] }}</td>
+                </tr>
+              {% endif %}
+
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      {% unless product.tags contains 'modular-bed' %}
+        <div class="pd-dimension-table">
+          <h3 class="accordion">Dimensions
+            <span id="uparrow"></span>
+            <span id="downarrow"></span>
+          </h3>
+          <div class="panel">
+            <table>
+              <tbody>
+
+                {% if productDimensions["Length"] != 0 and productDimensions["Length"] != blank %}
+                  <tr>
+                    <td>Length (cm)</td>
+                    <td>{{ productDimensions["Length"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Length (cm)"] != 0 and productDimensions["Length (cm)"] != blank %}
+                  <tr>
+                    <td>Length (cm)</td>
+                    <td>{{ productDimensions["Length (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Width (cm)"] != 0 and productDimensions["Width (cm)"] != blank %}
+                  <tr>
+                    <td>Width (cm)</td>
+                    <td>{{ productDimensions["Width (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Width"] != 0 and productDimensions["Width"] != blank %}
+                  <tr>
+                    <td>Width (cm)</td>
+                    <td>{{ productDimensions["Width"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Height (cm)"] != 0 and productDimensions["Height (cm)"] != blank %}
+                  <tr>
+                    <td>Height (cm)</td>
+                    <td>{{ productDimensions["Height (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Height"] != 0 and productDimensions["Height"] != blank %}
+                  <tr>
+                    <td>Height (cm)</td>
+                    <td>{{ productDimensions["Height"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Weight (Kg)"] != 0 and productDimensions["Weight (Kg)"] != blank %}
+                  <tr>
+                    <td>Weight (Kg)</td>
+                    <td>{{ productDimensions["Weight (Kg)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Depth (cm)"] != 0 and productDimensions["Depth (cm)"] != blank %}
+                  <tr>
+                    <td>Depth (cm)</td>
+                    <td>{{ productDimensions["Depth (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Back Height (cm)"] != 0 and productDimensions["Back Height (cm)"] != blank %}
+                  <tr>
+                    <td>Back Height (cm)</td>
+                    <td>{{ productDimensions["Back Height (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Maximum TV Size (cm)"] != 0 and productDimensions["Maximum TV Size (cm)"] != blank %}
+                  <tr>
+                    <td>Maximum TV Size (cm)</td>
+                    <td>{{ productDimensions["Maximum TV Size (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Seat Depth (cm)"] != 0 and productDimensions["Seat Depth (cm)"] != blank %}
+                  <tr>
+                    <td>Seat Depth (cm)</td>
+                    <td>{{ productDimensions["Seat Depth (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Seat Height (cm)"] != 0 and productDimensions["Seat Height (cm)"] != blank %}
+                  <tr>
+                    <td>Seat Height (cm)</td>
+                    <td>{{ productDimensions["Seat Height (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Seat Width (cm)"] != 0 and productDimensions["Seat Width (cm)"] != blank %}
+                  <tr>
+                    <td>Seat Width (cm)</td>
+                    <td>{{ productDimensions["Seat Width (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Under Desk Clearance (cm)"] != 0 and productDimensions["Under Desk Clearance (cm)"] != blank %}
+                  <tr>
+                    <td>Under Desk Clearance (cm)</td>
+                    <td>{{ productDimensions["Under Desk Clearance (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                <!--      chair dimension      -->
+                {% assign ChairWidth = productDimensions['Chair Width (cm)'] %}
+                {% if ChairWidth != 0 and ChairWidth != blank %}
+                  <tr>
+                    <td>Width</td>
+                    <td>{{ ChairWidth }}</td>
+                  </tr>
+                {% endif %}
+
+                {% assign ChairDepth = productDimensions['Chair Depth (cm)'] %}
+                {% if ChairDepth != 0 and ChairDepth != blank %}
+                  <tr>
+                    <td>Depth</td>
+                    <td>{{ ChairDepth }}</td>
+                  </tr>
+                {% endif %}
+
+                {% assign ChairHeight = productDimensions['Chair Height (cm)'] %}
+                {% if ChairHeight != 0 and ChairHeight != blank %}
+                  <tr>
+                    <td>Height</td>
+                    <td>{{ ChairHeight }}</td>
+                  </tr>
+                {% endif %}
+
+                {% assign ChairWeight = productDimensions['Chair Weight (kg)'] %}
+                {% if ChairWeight != 0 and ChairWeight != blank %}
+                  <tr>
+                    <td>Weight</td>
+                    <td>{{ ChairHeight }}</td>
+                  </tr>
+                {% endif %}
+                <!--      chair dimension end      -->
+
+                {% if productDimensions["Bed Seating Height"] != 0 and productDimensions["Bed Seating Height"] != blank %}
+                  <tr>
+                    <td>Bed Seating Height</td>
+                    <td>{{ productDimensions["Bed Seating Height"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Floor Clearance (cm)"] != 0 and productDimensions["Floor Clearance (cm)"] != blank %}
+                  <tr>
+                    <td>Floor Clearance (cm)</td>
+                    <td>{{ productDimensions["Floor Clearance (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Leg Height (cm)"] != 0 and productDimensions["Leg Height (cm)"] != blank %}
+                  <tr>
+                    <td>Leg Height (cm)</td>
+                    <td>{{ productDimensions["Leg Height (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Mirror Height (cm)"] != 0 and productDimensions["Mirror Height (cm)"] != blank %}
+                  <tr>
+                    <td>Mirror Height (cm)</td>
+                    <td>{{ productDimensions["Mirror Height (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Mirror Width (cm)"] != 0 and productDimensions["Mirror Width (cm)"] != blank %}
+                  <tr>
+                    <td>Mirror Width (cm)</td>
+                    <td>{{ productDimensions["Mirror Width (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Sofa Backrest Height (cm)"] != 0 and productDimensions["Sofa Backrest Height (cm)"] != blank %}
+                  <tr>
+                    <td>Sofa Backrest Height (cm)</td>
+                    <td>{{ productDimensions["Sofa Backrest Height (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Sofa Seat Height (cm)"] != 0 and productDimensions["Sofa Seat Height (cm)"] != blank %}
+                  <tr>
+                    <td>Sofa Seat Height (cm)</td>
+                    <td>{{ productDimensions["Sofa Seat Height (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Table Depth (cm) "] != 0 and productDimensions["Table Depth (cm) "] != blank %}
+                  <tr>
+                    <td>Table Depth (cm)
+                    </td>
+                    <td>{{ productDimensions["Table Depth (cm) "] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Stool Width (cm)"] != 0 and productDimensions["Stool Width (cm)"] != blank %}
+                  <tr>
+                    <td>Stool Width (cm)</td>
+                    <td>{{ productDimensions["Stool Width (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Stool Height (cm)"] != 0 and productDimensions["Stool Height (cm)"] != blank %}
+                  <tr>
+                    <td>Stool Height (cm)</td>
+                    <td>{{ productDimensions["Stool Height (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Table Diameter (cm)"] != 0 and productDimensions["Table Diameter (cm)"] != blank %}
+                  <tr>
+                    <td>Table Diameter (cm)</td>
+                    <td>{{ productDimensions["Table Diameter (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Table Height (cm)"] != 0 and productDimensions["Table Height (cm)"] != blank %}
+                  <tr>
+                    <td>Table Height (cm)</td>
+                    <td>{{ productDimensions["Table Height (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Table Weight (kg)"] != 0 and productDimensions["Table Weight (kg)"] != blank %}
+                  <tr>
+                    <td>Table Weight (kg)</td>
+                    <td>{{ productDimensions["Table Weight (kg)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Table Width (cm)"] != 0 and productDimensions["Table Width (cm)"] != blank %}
+                  <tr>
+                    <td>Table Width (cm)</td>
+                    <td>{{ productDimensions["Table Width (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Tabletop Thickness (cm)"] != 0 and productDimensions["Tabletop Thickness (cm)"] != blank %}
+                  <tr>
+                    <td>Tabletop Thickness (cm)</td>
+                    <td>{{ productDimensions["Tabletop Thickness (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Headboard Thickness (cm)"] != 0 and productDimensions["Headboard Thickness (cm)"] != blank %}
+                  <tr>
+                    <td>Headboard Thickness (cm)</td>
+                    <td>{{ productDimensions["Headboard Thickness (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+                {% if productDimensions["Seating Height (cm)"] != 0 and productDimensions["Seating Height (cm)"] != blank %}
+                  <tr>
+                    <td>Seating Height (cm)</td>
+                    <td>{{ productDimensions["Seating Height (cm)"] }}</td>
+                  </tr>
+                {% endif %}
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      {% endunless %}
+
+      <div class="pd-material-table">
+        <h3 class="accordion">Description
+          <span id="uparrow"></span>
+          <span id="downarrow"></span>
+        </h3>
+        <div class="panel">
+          {{ product.description }}
+        </div>
+
+      </div>
+
+      <div class="pd-material-table">
+        <h3 class="accordion">Material & Color
+          <span id="uparrow"></span>
+          <span id="downarrow"></span>
+        </h3>
+        <div class="panel">
+          <table>
+            <tbody>
+              {% if productDimensions["Color"] != 0 and productDimensions["Color"] != blank %}
+                <tr>
+                  <td>Color</td>
+                  <td>{{ productDimensions["Color"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Upholstery Color"] != 0 and productDimensions["Upholstery Color"] != blank %}
+                <tr>
+                  <td>Upholstery Color</td>
+                  <td>{{ productDimensions["Upholstery Color"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Finish Color"] != 0 and productDimensions["Finish Color"] != blank %}
+                <tr>
+                  <td>Finish Color</td>
+                  <td>{{ productDimensions["Finish Color"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Primary Material"] != 0 and productDimensions["Primary Material"] != blank %}
+                <tr>
+                  <td>Primary Material</td>
+                  <td>{{ productDimensions["Primary Material"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Secondary Material"] != 0 and productDimensions["Secondary Material"] != blank %}
+                <tr>
+                  <td>Secondary Material</td>
+                  <td>{{ productDimensions["Secondary Material"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Upholstery Material"] != 0 and productDimensions["Upholstery Material"] != blank %}
+                <tr>
+                  <td>Upholstery Material</td>
+                  <td>{{ productDimensions["Upholstery Material"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Chair Material"] != 0 and productDimensions["Chair Material"] != blank %}
+                <tr>
+                  <td>Chair Material</td>
+                  <td>{{ productDimensions["Chair Material"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Headboard Material"] != 0 and productDimensions["Headboard Material"] != blank %}
+                <tr>
+                  <td>Headboard Material</td>
+                  <td>{{ productDimensions["Headboard Material"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Shoe Rack Shelf Material"] != 0 and productDimensions["Shoe Rack Shelf Material"] != blank %}
+                <tr>
+                  <td>Shoe Rack Shelf Material</td>
+                  <td>{{ productDimensions["Shoe Rack Shelf Material"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Sofa Filling Material"] != 0 and productDimensions["Sofa Filling Material"] != blank %}
+                <tr>
+                  <td>Sofa Filling Material</td>
+                  <td>{{ productDimensions["Sofa Filling Material"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Sofa Frame Material"] != 0 and productDimensions["Sofa Frame Material"] != blank %}
+                <tr>
+                  <td>Sofa Frame Material</td>
+                  <td>{{ productDimensions["Sofa Frame Material"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Table Frame Material"] != 0 and productDimensions["Table Frame Material"] != blank %}
+                <tr>
+                  <td>Table Frame Material</td>
+                  <td>{{ productDimensions["Table Frame Material"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Table Top Material"] != 0 and productDimensions["Table Top Material"] != blank %}
+                <tr>
+                  <td>Table Top Material</td>
+                  <td>{{ productDimensions["Table Top Material"] }}</td>
+                </tr>
+              {% endif %}
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="pd-warranty-table">
+        <h3 class="accordion">Warranty
+          <span id="uparrow"></span>
+          <span id="downarrow"></span>
+        </h3>
+        <div class="panel">
+          <table>
+            <tbody>
+              {% if productDimensions["Warranty Summary"] != 0 and productDimensions["Warranty Summary"] != blank %}
+                <tr>
+                  <td>Warranty Summary</td>
+                  <td>{{ productDimensions["Warranty Summary"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Warranty Service Type"] != 0 and productDimensions["Warranty Service Type"] != blank %}
+                <tr>
+                  <td>Warranty Service Type</td>
+                  <td>{{ productDimensions["Warranty Service Type"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Covered In Warranty"] != 0 and productDimensions["Covered In Warranty"] != blank %}
+                <tr>
+                  <td>Covered in Warranty</td>
+                  <td>{{ productDimensions["Covered In Warranty"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Not Covered in Warranty"] != 0 and productDimensions["Not Covered in Warranty"] != blank %}
+                <tr>
+                  <td>Not Covered in Warranty</td>
+                  <td>{{ productDimensions["Not Covered in Warranty"] }}</td>
+                </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="pd-condition-table">
+        <h3 class="accordion">Delivery Condition, Installation & Demo
+          <span id="uparrow"></span>
+          <span id="downarrow"></span>
+        </h3>
+        <div class="panel">
+          <table>
+            <tbody>
+              {% if productDimensions["Delivery Condition"] != 0 and productDimensions["Delivery Condition"] != blank %}
+                <tr>
+                  <td>Delivery Condition</td>
+                  <td>{{ productDimensions["Delivery Condition"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["Installation & Demo Details"] != 0 and productDimensions["Installation & Demo Details"] != blank %}
+                <tr>
+                  <td>Installation & Demo Details</td>
+                  <td>{{ productDimensions["Installation & Demo Details"] }}</td>
+                </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="pd-manufacturing-table">
+        <h3 class="accordion">Manufacturing & Import Info
+          <span id="uparrow"></span>
+          <span id="downarrow"></span>
+        </h3>
+        <div class="panel">
+          <table>
+            <tbody>
+              {% if productDimensions["manufactureraddress"] != 0 and productDimensions["manufactureraddress"] != blank %}
+                <tr>
+                  <td>Manufacture address</td>
+                  <td>{{ productDimensions["manufactureraddress"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["manufacturedby"] != 0 and productDimensions["manufacturedby"] != blank %}
+                <tr>
+                  <td>Manufacture By</td>
+                  <td>{{ productDimensions["manufacturedby"] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if productDimensions["countryoforigin"] != 0 and productDimensions["countryoforigin"] != blank %}
+                <tr>
+                  <td>Country Of Origin</td>
+                  <td>{{ productDimensions["countryoforigin"] }}</td>
+                </tr>
+              {% endif %}
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+
+{% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: true, auto_install: true, product: product %}
+{% if settings.enable_shopify_review_comments and section.settings.review_position == "next_to_gallery" %}
+  {% comment %} <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div> {% endcomment %}
+{% endif %}
+
+<style>
+  .accordion {
+    color: #444;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+
+  .active,
+  .accordion:hover {}
+  .fa-angle-down:before {
+    content: "\f107";
+  }
+
+  .panel {
+    display: none;
+    background-color: white;
+    overflow: hidden;
+  }
+
+  #uparrow:before {
+    content: '\276F';
+    position: absolute;
+  }
+
+  #downarrow:before {
+    content: '\276E';
+    position: absolute;
+  }
+
+  #uparrow,
+  #downarrow {
+    font-size: 30px;
+    display: inline-block;
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    padding: 4px;
+  }
+  .accordion span#downarrow {
+    display: none;
+    float: right;
+  }
+  .accordion span#uparrow {
+    float: right;
+  }
+  h3.accordion.active span#uparrow {
+    display: none;
+  }
+  h3.accordion.active span#downarrow {
+    display: block;
+  }
+</style>

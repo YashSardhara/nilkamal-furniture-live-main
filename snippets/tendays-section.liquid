@@ -1,0 +1,132 @@
+<div class="container ten-days-section">
+  <img
+    src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/desktop_e80285b1-a547-4f4d-a6ed-202c86612919.png?v=1674555777"
+    alt="ten days"
+    class="ten-days visible-desktop">
+  <img
+    src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/mobile_1affb34d-0ede-4a53-bd71-d33b4398046c.png?v=1674555778"
+    alt="ten days"
+    class="ten-days visible-mobile">
+  <div id="clockdiv">
+    <div>
+      <span class="days" id="day"></span>
+      <div class="smalltext">Days</div>
+    </div>
+    <div>
+      <span class="hours" id="hour"></span>
+      <div class="smalltext">Hours</div>
+    </div>
+    <div>
+      <span class="minutes" id="minute"></span>
+      <div class="smalltext">Minutes</div>
+    </div>
+    <div>
+      <span class="seconds" id="second"></span>
+      <div class="smalltext">Seconds</div>
+    </div>
+  </div>
+
+  <p id="demo"></p>
+</div>
+<style>
+  .ten-days {
+    margin-top: 20px;
+    max-width: 100%;
+    border: 2px solid grey;
+    padding: 15px;
+  }
+  #clockdiv {
+    font-family: 'Poppins';
+    color: #000;
+    position: absolute;
+    top: 51%;
+    right: 23%;
+    bottom: 0;
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    font-size: 21px;
+    background-color: transparent;
+    margin: auto;
+    padding: 18px;
+  }
+
+  #clockdiv span {
+    color: #000;
+    line-height: 24px;
+  }
+  #clockdiv > div {
+    display: inline-block;
+    margin: 5px;
+    line-height: 0;
+  }
+  @media only screen and (max-width: 767px) {
+    #clockdiv span {
+      color: #000;
+    }
+
+    #clockdiv {
+      font-family: sans-serif;
+      color: #000;
+      position: absolute;
+      top: 70%;
+      right: 12%;
+      bottom: 0;
+      display: inline-block;
+      font-weight: bold;
+      text-align: center;
+      font-size: 14px;
+      background-color: transparent;
+      margin: auto;
+      padding: 18px;
+    }
+    .ten-days {
+      margin-top: 20px;
+      border: 2px solid grey;
+      padding: 10px;
+    }
+  }
+  #clockdiv > div {
+    display: inline-block;
+    margin: 5px;
+    line-height: 16px;
+  }
+  #clockdiv > p {
+    color: #000;
+    font-weight: bolder;
+    font-size: 23px;
+    margin-bottom: 30px;
+  }
+  #clockdiv div > span {
+    display: inline-block;
+
+  }
+  .container.ten-days-section {
+    position: relative;
+  }
+</style>
+<script>
+  var deadline = new Date("Jan 31, 2023 12:00:00").getTime();
+
+  var x = setInterval(function() {
+
+    var now = new Date().getTime();
+    var t = deadline - now;
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((t % (1000 * 60)) / 1000);
+    document.getElementById("day").innerHTML = days;
+    document.getElementById("hour").innerHTML = hours;
+    document.getElementById("minute").innerHTML = minutes;
+    document.getElementById("second").innerHTML = seconds;
+    if (t < 0) {
+      clearInterval(x);
+      document.getElementById("demo").innerHTML = "TIME UP";
+      document.getElementById("day").innerHTML = '0';
+      document.getElementById("hour").innerHTML = '0';
+      document.getElementById("minute").innerHTML = '0';
+      document.getElementById("second").innerHTML = '0';
+    }
+  }, 1000);
+</script>

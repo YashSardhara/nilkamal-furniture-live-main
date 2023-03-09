@@ -1,0 +1,189 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .mySwiperModular {
+    border-radius: 0 !important;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .modular__bed__container__slider {
+    margin: -30px 0 20px;
+    background-color: #fff !important;
+  }
+
+  .modular__bed__container__slider .swiper-pagination-progressbar {
+    position: static !important;
+    /* margin-top: 30px; */
+    border: 2px solid rgb(179 184 187);
+  }
+
+  .swiper-wrapper.swiper__wrapper__modular {
+    padding-bottom: 25px;
+  }
+
+  .modular__bed__container__slider .swiper-pagination-progressbar-fill {
+    background: #7C7C7C !important;
+
+  }
+
+  .swiper__wrapper__modular {
+    background-color: #fff !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .swiper__slide__modular {
+    border-radius: 0 !important;
+  }
+
+  .swiper-pagination-progressbar {
+    height: 10px !important;
+    border-radius: 10px !important;
+    /*     border-radius : 50% !important; */
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    display: none !important;
+  }
+</style>
+
+<!-- Swiper -->
+<section class="modular__bed__container__slider">
+  {% assign pcd = 1 %}
+    <div class="swiper mySwiperModular">
+    <div class="swiper-wrapper swiper__wrapper__modular">
+      {% assign productMainImage = product.metafields.Product %}
+      {% if productMainImage["king_image"] != 0 and productMainImage["king_image"] != blank %}
+        <div class="swiper-slide swiper__slide__modular modualr__bed__images__king" id="modular__bed__king">
+          <img src="{{ productMainImage["king_image"] }}">
+        </div>
+      {% endif %}
+      {% assign productMainImage = product.metafields.Product %}
+      {% if productMainImage["queen_image"] != 0 and productMainImage["queen_image"] != blank %}
+        <div class="swiper-slide swiper__slide__modular modualr__bed__images__queen" id="modular__bed__queen">
+          <img src="{{ productMainImage["queen_image"] }}">
+        </div>
+      {% endif %}
+      {% assign varpci = 0 %}
+      {%- if product.media.size > 0 -%}
+        {% for media in product.media %}
+          {% assign varpci = varpci | plus: 1 %}
+
+          <div class="swiper-slide swiper__slide__modular modualr__bed__images--{% increment pcd %}">
+            <img
+              src="{{ media | img_url: '1024x' }}"
+              alt="{{ product.title | escape }}"
+              class="modular__bed__single__image__{% increment pcd %}">
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div class="swiper-button-next">
+      <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Vector_2.svg?v=1677928099" alt="">
+    </div>
+    <div class="swiper-button-prev">
+      <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/svgviewer-output_2.svg?v=1677928099" alt="">
+    </div>
+    <!-- Add Scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+</section>
+
+<script>
+  var swiper = new Swiper(".mySwiperModular", {
+    freeMode: true,
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      hide: false,
+      draggable: true
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 40
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      }
+    }
+  });
+</script>
+<script>
+
+  // $(".king__metafield").hide()
+// $(".modualr__bed__images__king").hide()
+  $('.multi__select__onchange').on('change', function() {
+    var meta_value_size = $('.multi__select__onchange option:selected').text();
+    console.log('meta_valueee des', meta_value_size);
+    if (meta_value_size == 'King') {
+      $(".king__metafield")
+        .show()
+        $(".modualr__bed__images__king")
+        .show()
+        $(".queen__metafield")
+        .hide()
+        $(".modualr__bed__images__queen")
+        .hide()
+    } else if (meta_value_size == 'Queen') { // alert("This is Queen")
+      $(".king__metafield")
+        .hide()
+        $(".modualr__bed__images__king")
+        .hide()
+        $(".queen__metafield")
+        .show()
+        $(".modualr__bed__images__queen")
+        .show()
+    }
+  });
+</script>
+{% comment %} <script>
+var meta_valueee =  $('.multi__select__onchange option:selected').val();
+console.log('meta_valueee img', meta_valueee);
+// $("#modular__bed__king").hide();
+$('.multi__select__onchange').on('change', function() {
+
+if (this.data-name == 'King')
+{
+$("#modular__bed__king").show();
+$("#modular__bed__queen").hide();
+}
+else if (this.data-name == 'Queen')
+{
+$("#modular__bed__king").hide();
+$("#modular__bed__queen").show();
+}
+});
+</script> {% endcomment %}

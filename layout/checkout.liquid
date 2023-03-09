@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+  <meta name="referrer" content="origin">
+  <title>{{ page_title }}</title>
+  {{ content_for_header }}
+  {{ checkout_stylesheets }}
+  {{ checkout_scripts }}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    fbq('track', 'InitiateCheckout');
+  </script>
+  <script>
+    dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+    dataLayer.push({
+      event: "begin_checkout",
+      ecommerce: {
+        items: [
+          {
+            item_id: "{{ checkout.id }}", // product id 
+            item_name: "{{ checkout.name }}", //product name
+            // affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
+            // coupon: "", //The coupon name/code associated with the item if applied
+            // currency: "INR",
+            discount: {{ discount.amount | money }}, //if any discount is applied
+      //index: 0, //The index/position of the item in a list
+      //item_brand: "", //The brand of the item
+      //item_category: "Living Room", //The category of the item
+      //item_category2: "Sofa",
+      //item_category3: "1 Seater Sofas",
+      //item_category4: "",
+      //item_category5: "",
+      //item_list_id: "related_products", //The ID of the list in which the item was presented to the user
+      //item_list_name: "Related Products", //The name of the list in which the item was presented to the user.
+      //item_variant: "Velvet", //The item variant or unique code or description for additional item details/options.
+      //location_id: "", //Dynamically pass the location_id  if available
+      price: {{ checkout.total_price | money_without_currency }}, //The monetary price of the item, in units of the specified currency parameter
+      quantity: "{{ cart.item_count }}", //Item quantity
+      user_id: "{{ customer.id }}"//user id of logged in user   
+    }
+    ]
+  }
+});
+  </script>
+
+  <!-- Start VWO Async SmartCode -->
+  <script type='text/javascript'>
+    _vis_opt_url = document.location.protocol + '//' + document.location.hostname +
+      document.location.pathname + "?preview_theme_id=123654799449&" +
+      document.location.search.substring(1,) + document.location.hash; //Replace “XXXXXXX” with your Shopify Preview theme ID
+    window._vwo_code = window._vwo_code || (function () {
+      var account_id = 639461, //Replace XXXXX with your accountID
+        _vis_opt_url = window._vis_opt_url || document.URL,
+        settings_tolerance = 2000,
+        library_tolerance = 2500,
+        use_existing_jquery = false,
+        is_spa = 1,
+        hide_element = 'body',
+        /* DO NOT EDIT BELOW THIS LINE */
+        f = false,
+        d = document,
+        code = {
+          use_existing_jquery: function () {
+            return use_existing_jquery;
+          },
+          library_tolerance: function () {
+            return library_tolerance;
+          },
+          finish: function () {
+            if (!f) {
+              f = true;
+              var a = d.getElementById('_vis_opt_path_hides');
+              if (a) a.parentNode.removeChild(a);
+            }
+          },
+          finished: function () {
+            return f;
+          },
+          load: function (a) {
+            var b = d.createElement('script');
+            b.src = a;
+            b.type = 'text/javascript';
+            b.innerText;
+            b.onerror = function () {
+              _vwo_code.finish();
+            };
+            d.getElementsByTagName('head')[0].appendChild(b);
+          },
+          init: function () {
+            window.settings_timer = setTimeout('_vwo_code.finish()', settings_tolerance);
+            var a = d.createElement('style'),
+              b = hide_element ? hide_element + '{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}' : '',
+              h = d.getElementsByTagName('head')[0];
+            a.setAttribute('id', '_vis_opt_path_hides');
+            a.setAttribute('type', 'text/css');
+            if (a.styleSheet) a.styleSheet.cssText = b;
+            else a.appendChild(d.createTextNode(b));
+            h.appendChild(a);
+            this.load('https://dev.visualwebsiteoptimizer.com/j.php?a=' + account_id +
+              '&u=' + encodeURIComponent(_vis_opt_url) + '&f=' + (+is_spa) + '&r=' + Math.random());
+            return settings_timer;
+          }
+        };
+      window._vwo_settings_timer = code.init();
+      return code;
+    }()); 
+  </script>
+  <!--End VWO Async SmartCode -->
+
+
+
+  <script
+    type="application/javascript">(function (w, d, t, r, u) { w[u] = w[u] || []; w[u].push({ 'projectId': '10000', 'properties': { 'pixelId': '10153440', 'userEmail': '<email_address>' } }); var s = d.createElement(t); s.src = r; s.async = true; s.onload = s.onreadystatechange = function () { var y, rs = this.readyState, c = w[u]; if (rs && rs != "complete" && rs != "loaded") { return } try { y = YAHOO.ywa.I13N.fireBeacon; w[u] = []; w[u].push = function (p) { y([p]) }; y(c) } catch (e) { } }; var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr) })(window, document, "script", "https://s.yimg.com/wi/ytc.js", "dotq");</script>
+</head>
+
+<body>
+  {{ skip_to_content_link }}
+
+  <header class="banner" data-header role="banner">
+    <div class="wrap">
+      {{ content_for_logo }}
+    </div>
+  </header>
+  {% comment %}
+  <span class="super-sale-price-text">Use code <b>DEC10</b> to get extra 10%off on Best Deals Product</span>
+  {% endcomment %}
+  {{ order_summary_toggle }}
+  <div class="content" data-content>
+    <div class="wrap">
+      <div class="main">
+        <header class="main__header" role="banner">
+          {{ content_for_logo }}
+          {{ breadcrumb }}
+          {{ alternative_payment_methods }}
+        </header>
+        <main class="main__content" role="main">
+          {{ content_for_layout }}
+        </main>
+        <footer class="main__footer" role="contentinfo">
+          {{ content_for_footer }}
+        </footer>
+      </div>
+      <aside class="sidebar" role="complementary">
+        <div class="sidebar__header">
+          {{ content_for_logo }}
+        </div>
+        <div class="sidebar__content">
+          {{ content_for_order_summary }}
+          <!--       Sale       -->
+          <div class="sidebar__header" style="display:block">
+            {% comment %}
+            Need for nilkamal sale shikha dont delete it
+            {% if product.tags contains 'Best Deals' %}
+            <div class="communications">
+              <small id="p1">DEC10</small>
+              <p id="to-copy"><b>DEC10</b> - Get extra 10% off on (Best Deals Product)
+                <button id="applyBtn" onclick="copyToClipboard('#p1')" class="copyfrom">
+                  APPLY
+                </button>
+              </p>
+            </div>
+            {% endif %}
+
+            {% endcomment %}
+          </div>
+
+          <!--       End-Sale       -->
+
+
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+
+  {{ tracking_code }}
+  <style>
+    .infomessage {
+      padding-top: 20px;
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.8em;
+      color: #0e649e;
+      font-weight: bold;
+    }
+
+    .section--shipping-method {
+      display: none;
+    }
+
+    iframe#preview-bar-iframe {
+      display: none;
+    }
+
+    .super-sale-price-text {
+      text-align: center;
+      background-color: #0af;
+      color: #fff;
+      padding: 5px;
+    }
+
+    #continue_button:disabled {
+      background: #dddddd;
+    }
+
+    #p1 {
+      display: none
+    }
+
+    .communications {
+      margin-top: -100px;
+    }
+
+    .offer-msg {
+      position: relative;
+      padding: 20px;
+      border-radius: 10px;
+      font-weight: 500;
+      background: #fff;
+      border: 2px solid #28b8c7;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .offer-detail {
+      margin-top: 5px;
+    }
+
+    p#to-copy {
+      font-size: 18px;
+    }
+
+    small#p1 {
+      display: none;
+    }
+
+    .copyfrom {
+      width: 20px;
+      margin-left: 10px;
+    }
+
+    .copyfrom {
+      width: 90px !important;
+      margin-left: 10px;
+      background-color: #121e6a;
+      padding: 10px 5px;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .copyfrom:hover {
+      background-color: #3c3c9f;
+    }
+
+    @media only screen and (max-width:768px) {
+      .communications {
+        margin-top: 15px;
+      }
+    }
+  </style>
+  {% include 'checkout_mobile_script' %}
+  {% include 'checkout_shipping_script' %}
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3957952320958033');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=3957952320958033&ev=PageView&noscript=1" /></noscript>
+  <!-- End Facebook Pixel Code -->
+  <script>
+    var note = "{{checkout.note}}";
+    if (note == 'B2B') {
+      $('.logged-in-customer-information__paragraph').find('a').hide();
+    }
+    $.getJSON("/cart.json", function (cart) {
+      $('.field__input--zip').val(cart.attributes.Pincode);
+      //         $('.field__input--zip').attr('readonly', true);
+    });
+  </script>
+  <script>
+    var checkoutSubmit = document.getElementById('checkout_submit');
+    var applyBtn = document.getElementById('applyBtn');
+
+    applyBtn.onclick = function () {
+      document.getElementById('checkout_reduction_code').value = 'DEC10';
+      checkoutSubmit.disabled = false;
+      checkoutSubmit.classList.remove("btn--disabled");
+      checkoutSubmit.click(); // this will trigger the click event
+    };
+  </script>
+  <script>
+    $(document).ready(function () {
+      $("#checkout_shipping_address_phone_custom").attr("autocomplete", "off");
+      $('#checkout_shipping_address_phone_custom').attr('autofill', 'off');
+      $("#checkout_shipping_address_phone_custom").attr("autocomplete", "none");
+
+    });
+  </script>
+
+
+</body>
+
+</html>

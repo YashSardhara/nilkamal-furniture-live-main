@@ -1,0 +1,94 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script>
+  
+   $( document ).ready(function() { 
+       cartDeliveryDate();
+   });
+  
+  function cartDeliveryDate(){
+    var pincode = {{cart.attributes.Pincode}};
+    var cartSku = {};
+        $.ajax({
+        type: 'GET',
+        url: '/cart.js',
+        cache: false,
+        dataType: 'json',
+        success: function(cart) {
+          $.each(cart.items, function (ci, item) {
+             cartSku[item.sku] = item.quantity;
+          });
+        }
+    });
+    var url = "https://admin.nilkamalfurniture.com/api/cart-deliverydate"; 
+        setTimeout(function(){
+          $.ajax({          
+          url: url,
+          type: 'POST',
+          dataType: "json",
+          data: {cartSku,pincode},
+          success: function(response){
+            if(response)
+            {
+              $.each(response.data, function (k, v) {
+                if(v != "not_available")
+                {
+                  $('#'+k+"_date").html('Delivery Date '+v).css('color','black');
+                }else{
+                  $('#'+k+"_date").text('');    
+                }
+              });
+
+            }else{
+            }
+          },
+            error:function(){
+            //console.log('error');
+          }
+        });
+      }, 3000);
+  };
+ 
+$('#cart_checkout').on('click',function(){
+    var pincode = {{cart.attributes.Pincode}};
+ 	var myObj = {};
+
+    $.ajax({
+        type: 'GET',
+        url: '/cart.js',
+        cache: false,
+        dataType: 'json',
+        success: function(cart) {
+          $.each(cart.items, function (ci, item) {
+             myObj[item.sku] = item.quantity;
+          });
+        }
+    });
+  
+   setTimeout(function(){
+      $.ajax({
+          type: "POST",
+          url: "https://admin.nilkamalfurniture.com/api/cart-validation",
+          dataType: 'json',
+          async: true,
+          data:{myObj,pincode},
+          success: function(response){
+            if(response.success != true)
+            {
+              $.each(response.data, function (k, v) {
+                if(v != "available")
+                {
+                  $('#'+k).html('This product Available quantity is '+v).css('color','red');
+                }else{
+                  $('#'+k).text('');    
+                }
+              });
+
+            }else{
+              $("#checkout").trigger("click");
+            }
+          },
+      });
+     }, 3000);
+});     
+</script>
+

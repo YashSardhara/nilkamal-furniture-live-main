@@ -1,0 +1,43 @@
+{% comment %}
+Renders a axio widget
+Usage:
+{% render 'axio'%}
+{% endcomment %}
+{%- liquid
+if use_variant
+assign target = product.selected_or_first_available_variant
+else
+assign target = product
+endif
+assign compare_at_price = target.compare_at_price
+assign price = target.price | default: 1999
+assign money_price = price | divided_by: 100
+-%}
+<script type="text/javascript"
+src="https://pl-widget.capitalfloat.com/assets/widget/widget.js"></script>
+<script>
+let _w369 = new w369({
+button: {
+show: true,
+preferredLabel: '-1',
+onClickCallBack: null
+},
+merchant: {
+name: 'Nilkamal Furniture',
+code: '208b852e-af9e-4ad1-9ce1-fe804ef9fa10'
+,productMetaData: {
+type: '1',
+theme: '2'
+},
+amount: {{money_price}},
+preferredTenure: 6
+},
+showCheckoutLine: true,
+tagLine: {
+text: 'Buy on w369_tenure interest-free EMIs of w369_price with',
+showText: false,
+defaultText: 'Buy on interest-free EMIs with'
+},
+environment: "prod"
+});
+</script>

@@ -1,0 +1,162 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+<div class="container">
+  <div class="static-page clearfix feedback-page">
+    <div class="page-content">
+    	
+      {% if section.settings.show_banner %}
+      {% assign default = '1400x' %}
+      {% assign size1 = '480x' %}
+      {% assign size2 = '765x' %}
+      {% assign size3 = '900x' %}
+      {% assign size4 = '1000x' %}
+      {% assign size5 = '1100x' %}
+      {% assign size6 = '1300x' %}
+      {% assign size7 = '1500x' %}
+      {% assign size8 = '1700x' %}
+      {% assign size9 = '1900x' %}
+      {% assign size10 = '2000x' %}
+      <div id="banner-{{section.id}}" class="page-banner">
+        {% if section.settings.image != nil %}
+        <img  src="{{ section.settings.image | img_url: '100x', format: 'pjpg' }}"
+             alt="{{ section.settings.image.alt | escape }}"
+             class="lazyload {{ settings.image_loading_style }} desktop-xs"
+             sizes="100vw"
+             data-src="{{ section.settings.image | img_url: default, format: 'pjpg' }}"
+             srcset="
+                     {{ section.settings.image | img_url: default, format: 'pjpg' }} {{default | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size1, format: 'pjpg' }} {{size1 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size2, format: 'pjpg' }} {{size2 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size3, format: 'pjpg' }} {{size3 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size4, format: 'pjpg' }} {{size4 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size5, format: 'pjpg' }} {{size5 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size6, format: 'pjpg' }} {{size6 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size7, format: 'pjpg' }} {{size7 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size8, format: 'pjpg' }} {{size8 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size9, format: 'pjpg' }} {{size9 | replace: 'x', 'w'}},
+                     {{ section.settings.image | img_url: size10, format: 'pjpg' }} {{size10 | replace: 'x', 'w'}}"
+
+             / style="width: 100%">
+        <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Mobile_Feedback_600X470.png?v=1579609979" class="mobile-xs" style="width: 100%">
+        {% else %}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--banner' }}
+        {% endif %}
+      </div>
+      {% endif %}
+      
+      <div class="content">
+        <div class="clearfix">
+          <h1 class="center">
+            {{ page.title }}
+          </h1>
+          <div class="feature_divider"></div>
+          <div class="feedback-form">
+            <form id="feedback" name="feedback" > 
+              <div class="first_content">
+                <div class="input">
+                  <input type="text" id="name" name="name" autocapitalize="words" placeholder="Name*" required>
+                  <span id="name_error" class="name_error err"></span>
+                </div>
+                <div class="input">
+                  <input type="email" id="email" name="email" autocapitalize="words" placeholder="Email*" required>
+                  <span id="email_error" class="email_error err"></span>
+                </div>
+              </div>
+              <div class="second_content">
+                <div class="input">
+                  <input type="tel" name="mobile" id="mobile" autocorrect="off" autocapitalize="off" placeholder="Mobile Number*" required>
+                  <span id="mobile_error" class="mobile_error err"></span>
+                </div>
+                <div class="input">
+                  <input type="text" name="state" id="state" placeholder="State*" required>
+                  <span id="state_error" class="state_error err"></span>
+                </div>
+                <div class="input">
+                  <input type="text" name="city" id="city" placeholder="City*" required>
+                  <span id="city_error" class="city_error err"></span>
+                </div>
+              </div>
+              <div class="textarea">
+                <textarea rows="5"  name="body" id="body" cols="70" placeholder="Message*" required></textarea>
+                <span id="body_error" class="body_error err"></span>
+              </div>
+              <div class="button-area">
+                <button class="sub_enf action_button reverse" id="feedback_submit"> Submit</button>
+              </div>
+            </form>
+            <div id="thank_you" class="thank_you_form center">
+              <img src="{{'check-icon.png' | asset_img_url }}">
+              <h3>Thank You</h3>
+              <p>Your submission is received and we will contact you soon.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-1.8.0.min.js" type="text/javascript"></script>
+<script src="https://malsup.github.com/jquery.form.js" type="text/javascript"></script>
+  
+<script>
+  $(document).ready(function() {
+    $('#thank_you').css('display','none');
+  });
+  $("#feedback_submit").click(function(e){
+    e.preventDefault();
+    $('.err').html('');
+    var form = $('#feedback');
+    $.ajax({
+      url: "https://admin.nilkamalfurniture.com/api/feedback-store",
+      type: 'POST',
+      data: form.serialize(),
+      dataType: 'json',
+      beforeSend:function(){
+        $('#feedback_submit').attr('disabled',true);
+        $('#feedback_submit').html('Please wait...');
+      },
+      success : function(resp)
+      { 
+        $('#feedback').css('display','none');
+        $('#thank_you').css('display','block');
+      },
+      error: function (data) {
+        $('#feedback_submit').attr('disabled',false);
+        $('#feedback_submit').html('submit');
+        $.each(data.responseJSON.errors, function(k,v){
+          $('.'+k+'_error').text(v);
+        });
+      },
+    });
+  });
+</script>
+
+
+{% schema %}
+  {
+    "name": "Feedback Page",
+    "settings": [
+	{
+      "type": "checkbox",
+      "id": "show_banner",
+      "label": "Show banner",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "1800 x 1000px recommended"
+    }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,323 @@
+ <div class="left-colmn">
+                      {% if collection_handles contains 'coming-soon' %}
+                      <p class="modal_price">{{ 'collections.general.coming_soon' | t }}</p>
+                      {% else %}
+                      <div class="modal_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                        <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+                        <meta itemprop="seller" content="{{ shop.name | escape }}" />
+                        <link itemprop="availability" href="http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}">
+                        <meta itemprop="itemCondition" itemtype="http://schema.saleorg/OfferItemCondition" content="http://schema.org/NewCondition"/>
+                    
+                      <p class="new-sold-out">Sold out</p>
+
+                                            <div class="service-info" style="display:none;">
+                          <span>Assembly Service Provided by</span>
+                          <span class="seller">Nilkamal Furniture</span>
+                        </div>
+                        {% comment %}
+                        <div class="meta" style="overflow:auto;clear:both;">
+                          {% if section.settings.display_social_buttons %}
+                          {% include "social-buttons" with "product" %}
+                          {% endif %}
+                        </div>
+                        {% endcomment %}
+                      </div>
+                      {% endif %}
+                      
+                      {% comment %}
+                      {% if product.handle contains 'nilkamal-flora-bonnell-spring-mattress' or product.handle contains 'nilkamal-flora-bonnell-spring-mattress' or product.handle contains 'nilkamal-well-bond-foam-mattress' or product.handle contains 'nilkamal-sofi-memory-soft-and-bonded-foam-mattress' or product.handle contains 'nilkamal-vibrant-box-top-pocket-spring-mattress' or product.handle contains 'nilkamal-blue-sky-foam-mattress' or product.handle contains 'nilkamal-stanfield-6-seater-dining-table-grey' or product.handle contains 'nilkamal-pure-foam-mattress' or product.handle contains 'nilkamal-amazzze-foam-mattress' or product.handle contains 'nilkamal-auxton-2-seater-fabric-sofa-brown' or product.handle contains 'nilkamal-cushy-foam-mattress' or product.handle contains 'nilkamal-comfa-foam-mattress' or product.handle contains 'nilkamal-arkansas-1-seater-fabric-sofa-dark-olive' or product.handle contains 'nilkamal-reed-1-seater-sofa-black' or product.handle contains 'nilkamal-reed-2-seater-sofa-black' or product.handle contains 'nilkamal-reed-3-seater-sofa-black'  %}
+                      <p class="">Super Sale Price is inclusive of 10% Discount with code <b>SUPER10</b></p>
+                      {% else %}
+                      <p class="offer"> Use code <b>SUPER10</b> at checkout to avail Super Sale Price</p>
+                      {% endif %}
+                      {% endcomment %}
+                      {% if section.settings.product_description_position == "top" %}
+                      {% if product.description != blank %}
+                      <div class="description" itemprop="description">
+                        {{ product.description | split: '<!-- split -->' | first }}
+                      </div>
+                      {% endif %}
+                      {% endif %}
+                      
+                      
+                      {% if product.options.size > 1 %}
+                      <div class="select product-variant-dropdown customlt">
+                        <label>{{ product.options[0] }}</label>
+                       
+                        <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
+                          {% for v in product.variants %}
+                          <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
+                          {% endfor %}
+                        </select>
+                         
+                      </div>
+
+                        
+                      {% elsif product.options.size == 1 and product.variants.size > 1 or product.options.size == 1 and product.options[0] != "Title" %}
+                      
+                      <div class="select product-variant-dropdown customlt">
+                        <label>{{ product.options[0] }}</label>
+                        <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
+                          {% for v in product.variants %}
+                          <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>     
+                      {% else %}
+                    {% comment %}   <input type="hidden" name="id" value="{{ variant.id }}" /> {% endcomment %} 
+                      {% endif %}
+                      
+                      
+                      
+                      
+                     {% comment %}  
+                     {% for option in product.options %}
+            {% if product.available and product.variants.size >= 1 and option == 'Color' %}
+                 {% include 'swatch' with 'Color' as swatch %}
+                      
+                      {% elsif product.available and product.variants.size >= 1 and option == 'Size' %}
+                      <div class="select product-variant-dropdown">
+                     <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select multi_select_new" style="display:none!imprtant">
+                          {% for v in product.variants %}
+                          <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
+                          {% endfor %}
+                        </select> 
+                      </div>
+                      {% else %}
+                      <input type="hidden" name="id" value="{{ variant.id }}" />
+            {% endif %}
+           {% endfor %}  
+                     {% endcomment %} 
+                    
+<div class="mobile_socialmedia">
+    <div class="wish_mobile">
+        {% include 'iwish_v2' with 'iwishproduct' %} <span class="wish_mob_txt">Add to Wishlist</span>
+    </div>
+    <div class="wish_mobile_share">
+        <span class="share_mob" id="shareBtn">
+        
+        {% render 'share_svg' %} </span> <span class="share_mob_txt">Share</span>
+    </div>
+</div>
+
+<script>
+document.querySelector('#shareBtn')
+.addEventListener('click', event => {
+
+    // Fallback, Tries to use API only
+    // if navigator.share function is
+    // available
+    if (navigator.share) {
+        navigator.share({
+
+            // Title that occurs over
+            // web share dialog
+            title: '{{ product.title }}',
+
+            // URL to share
+            url: '#'
+        }).then(() => {
+            console.log('Thanks for sharing!');
+        }).catch(err => {
+
+            // Handle errors, if occured
+            console.log(
+            "Error while using Web share API:");
+            console.log(err);
+        });
+    } else {
+
+        // Alerts user if API not available 
+        alert("Browser doesn't support this API !");
+    }
+})
+</script>                      
+                      
+                      
+                     
+                       {% for option in product.options %}
+            {% if product.available and product.variants.size >= 1 and option == 'Color' %}
+              
+                 {% include 'swatch' with 'Color' as swatch %}
+                      
+                      {% elsif product.available and product.variants.size >= 1 and option == 'Size' %}
+                    <div class="select product-variant-dropdown">
+                        <label>{{ product.options[0] }}</label>
+                        <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id1" class="multi_select">
+                          {% for v in product.variants %}
+                          <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
+                          {% endfor %}
+                        </select> 
+                      </div>
+              {% elsif product.available and product.variants.size == 1 and option != 'Color' and option != 'Size' %}
+              <input type="hidden" name="id" value="{{ variant.id }}" /> 
+                      {% else %}
+                     
+            {% endif %}
+           {% endfor %}  
+                  
+                      
+                      
+                    {% comment %}   		  
+             {% if product.options.size > 1 %}
+                      <div class="select product-variant-dropdown customlt">
+                        <label>{{ product.options[0] }}</label>
+                       
+                        <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
+                          {% for v in product.variants %}
+                          <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
+                          {% endfor %}
+                        </select>
+                         
+                      </div>
+                      {% elsif product.options.size == 1 and product.variants.size > 1 or product.options.size == 1 and product.options[0] != "Title" %}
+                      
+                      <div class="select product-variant-dropdown customlt">
+                        <label>{{ product.options[0] }}</label>
+                        <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
+                          {% for v in product.variants %}
+                          <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                  
+				  
+				  
+				   {% elsif product.variants.size > 1 %}
+					   {% for option in product.options %}
+            {% if product.available and product.variants.size >= 1 and option == 'Color' %}
+                 {% include 'swatch' with 'Color' as swatch %}
+                      
+                      {% elsif product.available and product.variants.size >= 1 and option == 'Size' %}
+                    <div class="select product-variant-dropdown">
+                        <label>{{ product.options[0] }}</label>
+                        <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
+                          {% for v in product.variants %}
+                          <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
+                          {% endfor %}
+                        </select> 
+                      </div>
+                      {% else %}
+                      <input type="hidden" name="id" value="{{ variant.id }}" />
+                {% endif %}
+                {% endfor %}
+		       	  {% else %}
+                      <input type="hidden" name="id" value="{{ variant.id }}" />
+                      {% endif %}
+                     {% endcomment %} 
+                      
+                      
+                        
+                      <div class="product-pay-swatch vl-ly">
+                        {% unless collection_handles contains 'coming-soon' %}
+                           {% include 'product-form-1' with 'product' %}
+                        {% endunless %}
+                      </div>
+                       
+                      <div class="form-box">
+                        <div class="new-quantity-pincode">
+                        <div class="col-sm-6">
+                {% include 'pincode-checker' %}
+               </div>
+               <div class="right-col col-sm-6">
+                          <div class="purchase-details">
+                            {% if settings.display_product_quantity %}
+                            <label for="quantity">QTY</label>
+                            <div class="purchase-details__quantity test product-quantity-box">
+                              
+                              <span class="ss-icon product-minus js-change-quantity" data-func="minus"><span class="icon-minus"></span></span>
+                              {% if product.tags contains 'Plastic Chairs' %} 
+                               <span class="min4qty" id="minqtyvalue" style="display:none">4</span>
+                              <input type="number" min="4" size="2" class="quantity" name="quantity" id="quantity" value="4"
+                              {% if settings.limit_quantity and variant.inventory_management != blank and variant.inventory_policy == "deny" %}max="{{ variant.inventory_quantity }}"
+                              {% endif %} />
+                               
+                              {% elsif product.tags contains 'Min Quantity Two' %} 
+                              <span class="min4qty" id="minqtyvalue" style="display:none">2</span>
+                              <input type="number" min="2" size="2" class="quantity" name="quantity" id="quantity" value="2"
+                              {% if settings.limit_quantity and variant.inventory_management != blank and variant.inventory_policy == "deny" %}max="{{ variant.inventory_quantity }}"
+                              {% endif %} />
+                              
+                              {% else %}
+                              <span class="min4qty" id="minqtyvalue" style="display:none">0</span>
+                              <input type="number" min="1" size="2" class="quantity" name="quantity" id="quantity" value="1"
+                              {% if settings.limit_quantity and variant.inventory_management != blank and variant.inventory_policy == "deny" %}max="{{ variant.inventory_quantity }}"
+                              {% endif %} />
+                              
+                              {% endif %}
+                              <span class="ss-icon product-plus js-change-quantity" data-func="plus"><span class="icon-plus"></span></span>
+                            </div>
+                            {% endif %}
+                
+                {% if product.tags contains 'Plastic Chairs' %}
+                            <span class="qtity-text">Min. Qty <b>4</b> </span>
+                          {% elsif product.tags contains 'Min Quantity Two' %}
+                            <span class="qtity-text">Min. Qty <b>2</b> </p>
+                            {% endif %}
+                          </div>
+                <div class="total_price mob"></div>
+                          
+                        </div>
+                  
+</div>
+             
+               {% comment %}   <div class="total_price desc"></div> {% endcomment %}
+                
+                
+               
+               
+               
+                          <div class="purchase-details__buttons"> 
+                {% include 'iwish_v2' with 'iwishproduct' %}  
+ 
+  {% if settings.cart_action == 'reload_page' %}
+  <input type="hidden" name="return_to" value="back" />
+  {% elsif settings.cart_action == 'redirect_checkout' %}
+  <input type="hidden" name="return_to" value="/checkout" />
+  {% endif %}
+
+  {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
+    <div class="price-info new-price footer_fix">
+                   
+                        <p class="new-sold-out-mobile">Sold out</p>
+                  </div>
+ {%- if product.price > 0 -%}
+   <button type="submit" onclick="obApi('track', 'Add to Cart');" name="add" class="shopify_button action_button add_to_cart {% if show_payment_button %} action_button--secondary {% endif %}" data-label={{ add_to_cart_label | json }}>
+    <span class="text">{{ add_to_cart_label }}</span>
+    <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+      <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+    </svg>
+  </button>
+    
+                            
+  <button type="button" name="add" class="action_button custom_cart_action_button disable" onclick="return addTOcartDisable1();" data-label="Add to Cart"> <span class="text">Add to Cart</span> <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark"> <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path></svg></button>                          
+  <button type="button" class="custom_payment__button disable" onclick="return addTOcartDisable1();">Buy it now</button>               
+  {{ form | payment_button }}
+   {%- endif -%}
+ 
+  <button type="button" name="add" class="action_button add_to_cart {% if show_payment_button %} action_button--secondary {% endif %}" data-label={{ add_to_cart_label | json }} disabled 
+          style="width: 100%;background: gray;border-color: gray;font-size: 18px !important;line-height: 1.5;">
+    <span class="text">Sold out</span>
+    <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+      <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+    </svg>
+  </button>
+                            
+
+</div>
+
+                
+                  
+        {% if product.variants[0].price > 50000 %}
+            <div class="emi-box">
+              <p class="emi-text">No cost EMI As low as <span>{{ product.variants[0].price | divided_by: 6 | money_without_currency | split: '.' | first }}</span> Per Month. <span id="more-details">More Details</span></p>
+              {% render 'emi-chart' %}
+            </div>
+                     
+            {% endif %}
+                 <div id="w369-widget-control"></div>               
+                        <div id="emi-instacred"></div>                 
+                        {% include 'zest-money-widget' %}
+                        
+                      </div>
+                    </div>

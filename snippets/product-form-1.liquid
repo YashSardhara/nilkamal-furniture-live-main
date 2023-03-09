@@ -1,0 +1,9 @@
+<div class="clearfix product_form init smart-payment-button--{{ show_payment_button }} {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %} product_form--{{ settings.product_form_style }}"
+     id="product-form-{{ product.id }}"
+     data-money-format="{{ shop.money_format }}"
+     data-shop-currency="{{ shop.currency }}"
+     data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+     data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+     data-product="{{ product | json | escape }}"
+     data-product-id="{{ product.id }}">
+</div>

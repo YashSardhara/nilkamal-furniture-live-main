@@ -1,0 +1,99 @@
+<div class="background-wrapper">
+  <div class="container main content main-wrapper">
+    <h1 class="collection_title center">{{ 'general.search.title' | t }}</h1>
+
+    <p class="bc-sf-search-result-number"></p>
+
+    <form class="bc-sf-search-form" action="/search" method="get" role="search">
+      <input class="bc-sf-search-box" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}">
+      <button type="submit" class="bc-sf-search-btn"></button>
+    </form>
+
+    <div id="bc-sf-filter-tree-h">
+      {% comment %} Include placeholder template {% endcomment %}
+      {% include 'bc-sf-filter-tree-placeholder-h' %}
+
+    </div>
+    <!--   <div class="eight columns section_select medium-down--one-whole">
+<select class="sort_by" id="bc-sf-filter-top-sorting"></select>
+</div> -->
+    <div id="bc-sf-filter-tree-mobile">{% include 'bc-sf-filter-skeleton', type: 'button' %}</div>
+    <div id="bc-sf-filter-tree">
+      {% comment %} Include placeholder template {% endcomment %}
+      {% include 'bc-sf-filter-tree-placeholder' %}
+    </div>
+
+    {% comment %} Remove collection-matrix class to prevent conflict infinite loading between app & theme {% endcomment %}
+    <div id="bc-sf-filter-products" itemtype="http://schema.org/ItemList" class="product-list equal-specifier clearfix">
+      {% comment %} Fix Shopify search term report {% endcomment %}
+      {% paginate search.results by 2 %}
+      {% if search.performed %}
+      {% for item in search.results %}
+      <div class="grid__item" style="display: none !important"></div>
+      {% endfor %}
+      {% endif %}
+      {% endpaginate %}
+    </div>
+
+    <div class="sixteen columns">
+      <div class="section clearfix">
+        <div id="bc-sf-filter-bottom-pagination" class="paginate"></div>
+        <div id="bc-sf-filter-load-more"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  // Declare bcSfFilterConfig variable
+  var bcSfFilterConfig = {
+    label: {
+      sorting: {% assign temp = 'collections.sorting.title' | t  %} {% unless temp contains 'translation missing'  %} {{temp | json}} {% else %} "Sorting" {% endunless %},
+      sorting_best_selling: {% assign temp = 'collections.sorting.best_selling' | t %} {% unless temp contains 'translation missing'  %} {{temp | json}} {% else %} "Best Selling" {% endunless %},
+      sorting_featured: {% assign temp = 'collections.sorting.featured' | t %} {% unless temp contains 'translation missing'  %} {{temp | json}} {% else %} "Featured" {% endunless %},
+      sorting_title_ascending: {% assign temp = 'collections.sorting.az' | t %} {% unless temp contains 'translation missing'  %} {{temp | json}} {% else %} "Alphabetically, A-Z" {% endunless %},
+      sorting_title_descending: {% assign temp = 'collections.sorting.za' | t %} {% unless temp contains 'translation missing'  %} {{temp | json}} {% else %} "Alphabetically, Z-A" {% endunless %},
+      sorting_price_ascending: {% assign temp = 'collections.sorting.price_ascending' | t %} {% unless temp contains 'translation missing'  %} {{temp | json}} {% else %} "Lowest Price" {% endunless %},
+      sorting_price_descending: {% assign temp = 'collections.sorting.price_descending' | t %} {% unless temp contains 'translation missing'  %} {{temp | json}} {% else %} "Highest Price" {% endunless %},
+      sorting_date_ascending: {% assign temp = 'collections.sorting.date_ascending' | t %} {% unless temp contains 'translation missing'  %} {{temp | json}} {% else %} "Date, Old to New" {% endunless %},
+      sorting_date_descending: {% assign temp = 'collections.sorting.date_descending' | t %} {% unless temp contains 'translation missing'  %} {{temp | json}} {% else %} "Date, New to Old" {% endunless %},
+      sorting_sale_descending: {% assign temp = 'collections.sorting.sale_descending' | t %} {% unless temp contains 'translation missing'  %} {{temp | json}} {% else %} "% Off" {% endunless %},
+      sorting_relevance: {% assign temp = 'collections.sorting.relevance' | t %} {% unless temp contains 'translation missing'  %} {{temp | json}} {% else %} "Relevance" {% endunless %},
+
+      sale: {{ 'collections.general.sale' | t | json }},
+      sold_out: {{ 'products.product.sold_out' | t | json }},
+      new: {{ 'collections.general.new' | t | json }},
+      coming_soon: {{ 'collections.general.coming_soon' | t | json }},
+      pre_order: {{ 'collections.general.pre_order' | t | json }},
+      quick_shop: {{ 'collections.general.quick_shop' | t | json }},
+      free_price: {{ settings.free_price_text | json }},
+      from_price: {{ 'products.general.from' | t | json }},
+      view_detail: {{ 'collections.general.view_product_details_html' | t | json }},
+      quantity: {{ 'products.product.quantity' | t | json }},
+      add_to_cart: {{ 'products.product.add_to_cart' | t | json }},
+      breadcrumb_home: {{ 'general.breadcrumbs.home' | t | json }},
+      breadcrumb_page: {{ 'general.breadcrumbs.page' | t | json }},
+      paginate_prev: {{ 'shopify.pagination.previous' | t | json }},
+      paginate_next: {{ 'shopify.pagination.next' | t | json }}
+    },
+    custom: {
+      sidebar: false,
+      products_per_page: 24,
+      products_per_row:  4,
+      mobile_products_per_row: {% if settings.mobile_products_per_row %} {{ settings.mobile_products_per_row | json }} {% else %} '1' {% endif %},
+      secondary_image: {% if settings.collection_secondary_image %} {{ settings.collection_secondary_image | json }} {% else %} false {% endif %},
+      sale_banner_enabled: {% if settings.sale_banner_enabled %} {{ settings.sale_banner_enabled | json }} {% else %} false {% endif %},
+      image_loading_style: {% if settings.image_loading_style %} {{ settings.image_loading_style | json }} {% else %} '' {% endif %},
+      vendor_enable: {% if settings.display_vendor %} {{ settings.display_vendor | json }} {% else %} false {% endif %},
+      quick_shop_enabled: {% if settings.quick_shop_enabled %} {{ settings.quick_shop_enabled | json }} {% else %} false {% endif %},
+      collection_swatches: {% if settings.collection_swatches %} {{ settings.collection_swatches | json }} {% else %} false {% endif %},
+      description_words: {% if settings.description_words %} {{ settings.description_words | json }} {% else %} 25 {% endif %},
+      loader_image_url: "{{ 'loader.gif' | asset_url }}",
+      thumbnail_hover_enabled: {% if settings.thumbnail_hover_enabled %} {{ settings.thumbnail_hover_enabled | json }} {% else %} false {% endif %},
+      enable_shopify_collection_badges: {% if settings.enable_shopify_collection_badges %} {{ settings.enable_shopify_collection_badges | json }} {% else %} false {% endif %},
+      enable_shopify_review_comments: {% if settings.enable_shopify_review_comments %} {{ settings.enable_shopify_review_comments | json }} {% else %} false {% endif %},
+      align_height: {% if settings.align_height %} {{ settings.align_height | json }} {% else %} false {% endif %},
+      collection_height: {% if settings.collection_height %} {{ settings.collection_height | plus: 0 }} {% else %} 0 {% endif %},
+      show_multiple_currencies: {% if settings.show_multiple_currencies %} {{ settings.show_multiple_currencies | json }} {% else %} false {% endif %},
+    }
+  };
+</script>

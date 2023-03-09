@@ -1,0 +1,32 @@
+{% for link in linklists[menu].links %}
+<li class="{% if linklists[link.handle] != empty %}dropdown_hover_link {% endif %}">
+  <a href="{{ link.url }}" class="{% if link.active %}active{% endif %} {% if linklists[link.handle] != empty %}dropdown_link dropdown_hover_link{% else %} top_link {% endif %}" data-dropdown-rel="{{ link.handle }}">
+    {{ link.title }} {% if linklists[link.handle] != empty %}<span class="icon-down-arrow"></span>{% endif %}
+  </a>
+  {% assign normalMenu = settings.menu | downcase %}
+  {% assign linkHandle = link.title | downcase %}
+  {% if normalMenu contains linkHandle %}
+  <div class="dropdown_normal_Content">
+    {% for sublink in linklists[link.handle].links %}
+    <div class="dropdown_normal_column">
+      <ul class="{% if linklists[sublink.handle] != empty %}dropdown_title{% else %}dropdown_item{% endif %}">
+        <li>
+          <a href="{{ sublink.url }}">{{ sublink.title }}</a>
+        </li>
+      </ul>
+
+      {% if linklists[sublink.handle] != empty %}
+      <ul>
+        {% for subsublink in linklists[sublink.handle].links %}
+        <li>
+          <a href="{{ subsublink.url }}">{{ subsublink.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</li>
+{% endfor %}

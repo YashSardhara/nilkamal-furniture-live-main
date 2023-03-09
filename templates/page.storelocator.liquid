@@ -1,0 +1,31 @@
+<header class="page-header">
+  {% if settings.enable_multilang %}
+  <h2 class="lang1">{{ page.title | split: '|' | first }}</h2>
+  <h2 class="lang2">{{ page.title | split: '|' | last }}</h2>
+  {% else %}
+  {% comment %}
+  <h2>{{ page.title | split: '|' | first }}</h2>
+  {% endcomment %}
+  {% endif %}
+</header>
+
+{% if settings.enable_multilang %}
+<div class="rte lang1">{{ page.content | split: '[lang2]' | first }}</div>
+<div class="rte lang2">{{ page.content | split: '[lang2]' | last }}</div>
+{% else %}
+<div class="rte">{{ page.content | split: '[lang2]' | first }}</div>
+{% endif %}
+
+{{ 'storelocator.css' | asset_url | stylesheet_tag }}
+
+<div class="clearfix"></div>
+
+<div class="rte static-page storelocator-panel">
+  <div id="panel"></div>
+  <div id="map-canvas"></div>
+</div>
+  {{ page.content }}
+
+<script src="//maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDPwlzUg8HS2_3zOF3GYvUTzvlftYDJHrY" type="text/javascript"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
+{{ 'store-locator-binaryic.js' | asset_url | script_tag }}

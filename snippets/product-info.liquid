@@ -1,0 +1,44 @@
+<div class="product-details">
+  <span class="title" itemprop="name">{{ product.title | truncate: 50 }}</span>
+  {% if settings.enable_shopify_collection_badges and settings.enable_shopify_review_comments %}
+    <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+  {% endif %}
+  {% if settings.display_vendor %}
+    <span itemprop="brand" class="brand">{{ product.vendor }}</span>
+  {% endif %}
+
+  {% if collection_handles contains 'coming-soon' %}
+    <span class="modal_price">{{ 'collections.general.coming_soon' | t }}</span>
+  {% else %}
+    <span class="price {% if product.compare_at_price_max > product.price %}sale{% endif %}">
+      {% if product.price_min > 0 %}
+      <span class="money">&#8377;{{ product.price_min | money }}</span>
+      {% else %}
+      {{ settings.free_price_text }}
+      {% endif %}
+
+      {% if product.available %}
+      {% else %}
+      <span class="sold_out">{{ 'products.product.sold_out' | t }}</span>
+      {% endif %}
+      {% if product.compare_at_price_max > product.price %}
+      <span class="was_price">
+        <span class="money">&#8377;{{ product.compare_at_price_max | money }}</span>
+      </span>
+      {% endif %}
+    </span>
+  {% endif %}
+  {% if product.compare_at_price > product.price %}
+  <span class="savings">
+    {{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}% OFF      
+  </span>
+  {% endif %}
+</div>
+<div class="product-collection-form">
+  {% include "collection-product-form" %}
+</div>
+<!--
+<a href="" class="wishlist-btn">
+  {% include 'svg-icons', id:'heart' %}
+</a>
+-->
