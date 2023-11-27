@@ -3,7 +3,7 @@ var bcSfFilterSettings = {
     general: {
         limit: bcSfFilterConfig.custom.products_per_page,
         // Optional
-        loadProductFirst: true,
+        loadProductFirst: false,
     },
     template: {
         loadMoreLoading: '<div id="bc-sf-filter-load-more-loading"><div class="load-more__icon" style="width: 44px; height: 44px; opacity: 1;"></div></div>',
@@ -19,10 +19,12 @@ var bcSfFilterTemplate = {
     'newRowHtml': '<br class="clear product_clear" />',
 
     // Grid Template
-    'productGridItemHtml': '<div class="{{itemColumnNumberClass}} {{itemCollectionGroupThumbClass}} thumbnail {{itemCollectionGroupSmallClass}}" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product"">' +
+    'productGridItemHtml':
+    '<div class="mycustomcollectionparent" >'+
+    '<div class="{{itemColumnNumberClass}} {{itemCollectionGroupThumbClass}} thumbnail {{itemCollectionGroupSmallClass}}" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product"">' +
         '<div class="product-wrap">' +
         '<div class="relative product_image swap-' + bcSfFilterConfig.custom.secondary_image + '">' +
-        '{{itemWishlist}}' + 
+        '{{itemWishlist}}' +
         '<a href="{{itemUrl}}" itemprop="url">' +
         '{{itemImages}}' +
         '</a>' +
@@ -39,12 +41,14 @@ var bcSfFilterTemplate = {
         '</div>' +
         '</div>' +
         '<a class="product-info__caption {{itemHiddenClass}}" href="{{itemUrl}}" itemprop="url">' +
+        '{{itemExclusiveLabel}}' +
+        '{{itemTagsLabel}}' +
         '{{itemProductInfo}}' +
         '</a>' +
-        '</div>' +
         '{{itemColorSwatches}}' +
         '</div>' +
-        '{{itemNewRow}}',
+        '</div>' +
+        '{{itemNewRow}}'+ '</div>',
 
     // Pagination Template
     'previousHtml': '<span class="prev"><a href="{{itemUrl}}">« ' + bcSfFilterConfig.label.paginate_prev + '</a></span>',
@@ -192,7 +196,7 @@ BCSfFilter.prototype.buildProductGridItem = function (data, index) {
         }
     }
     var itemImagesHtml = '<div class="image__container" style="max-width: ' + product_set_width + 'px;">';
-    itemImagesHtml += '<img src="' + itemThumbUrl + '"' +
+    itemImagesHtml += '<img loading="lazy" src="' + itemThumbUrl + '"' +
         ' alt="{{itemTitle}}" ' +
         ' class="lazyload ' + bcSfFilterConfig.custom.image_loading_style + '"' +
         ' style="' + align_height_value + ' max-width: ' + data.featured_image.width + 'px;"' +
@@ -250,7 +254,7 @@ BCSfFilter.prototype.buildProductGridItem = function (data, index) {
     //                         bcSfFilterConfig.label.quick_shop +
     //                         '</span>';
 
-    // Build Product Info when hovering 
+    // Build Product Info when hovering
     var itemProductInfoHoverHtml = '';
     if (bcSfFilterConfig.custom.thumbnail_hover_enabled && bcSfFilterConfig.custom.quick_shop_enabled) {
         itemProductInfoHoverHtml += '{{itemProductInfo}}';
@@ -337,7 +341,7 @@ BCSfFilter.prototype.buildProductGridItem = function (data, index) {
                 itemPriceHtml += ' <span class="was_price"><span class="money">₹' + this.formatMoney(customPriceCompared) + '</span></span>';
               }
             }
-            
+
         }
         itemPriceHtml += '</span>';
     }
@@ -361,9 +365,13 @@ BCSfFilter.prototype.buildProductGridItem = function (data, index) {
             if (colorTypes.indexOf(downcasedOption) > -1) {
                 var option_index = k;
                 var values = [];
-                itemColorSwatchesHtml += '<div class="collection_swatches">';
+                itemColorSwatchesHtml += '<div class="collection_swatches mycustomvariantswatches">';
                 for (var i in data.variants) {
                     var variant = data['variants'][i];
+                    var variantStatus = '';
+                    if(!variant.available){
+                      variantStatus = 'oos'
+                    }
                     var value = variant['options'][option_index];
                     if (values.indexOf(value) == -1) {
                         var values = values.join(',');
@@ -375,7 +383,7 @@ BCSfFilter.prototype.buildProductGridItem = function (data, index) {
                         if (variant.image !== null) {
                             fileColorUrl = this.optimizeImage(variant.image, '50x');
                         }
-                        itemColorSwatchesHtml += '<a href="' + this.buildProductItemUrl(data) + '?variant=' + variant.id + '" class="swatch" data-swatch-name="meta-' + downcasedOption + '_' + (value.replace(/\s/g, '_')).toLowerCase() + '">';
+                        itemColorSwatchesHtml += '<a href="' + this.buildProductItemUrl(data) + '?variant=' + variant.id + '" class="swatch '+ variantStatus +'" data-swatch-name="meta-' + downcasedOption + '_' + (value.replace(/\s/g, '_')).toLowerCase() + '">';
                         itemColorSwatchesHtml += '<span ';
                         if (bcSfFilterConfig.custom.products_per_row == 2) {
                             itemColorSwatchesHtml += 'data-image="' + this.optimizeImage(variant.image, '600x') + '" ';
@@ -405,14 +413,69 @@ BCSfFilter.prototype.buildProductGridItem = function (data, index) {
     itemWishListHtml += '  </a>';
     itemHtml = itemHtml.replace(/{{itemWishlist}}/g, itemWishListHtml);
 
+    itemHtml = itemHtml.replace(/{{itemExclusiveLabel}}/g, buildExclusiveLabel(data));
+
+    // Start Boost 177854
+    itemHtml = itemHtml.replace(/{{itemTagsLabel}}/g, buildTagsLabel(data));
+    // End Boost 177854
+
     // Add main attribute
     itemHtml = itemHtml.replace(/{{itemId}}/g, data.id);
     itemHtml = itemHtml.replace(/{{itemHandle}}/g, data.handle);
     itemHtml = itemHtml.replace(/{{itemTitle}}/g, data.title);
     itemHtml = itemHtml.replace(/{{itemUrl}}/g, this.buildProductItemUrl(data, false));
 
+
     return itemHtml;
 };
+
+
+//
+function buildExclusiveLabel(data){
+  var exclusiveLabel = ''
+  if (data.tags.includes('pfs:label-Online Exclusive')) {
+    exclusiveLabel = '<span class="boost-exclusive">ONLINE EXCLUSIVE</span>';
+  }
+  return exclusiveLabel
+}
+
+// Start Boost 177854
+function buildTagsLabel(data){
+  var customLabels = ''
+
+  if (data.tags.includes("pfs:label-Best-Seller")) {
+    customLabels = '<span class="boost-best-seller">BEST SELLER</span>';
+  }
+
+  if (data.tags.includes("pfs:label-New-Launch")) {
+    customLabels = '<span class="boost-new-launch">NEW LAUNCH</span>';
+  }
+
+  if (data.tags.includes("pfs:label-Best-Deals")) {
+    customLabels = '<span class="boost-best-deals">BEST DEALS</span>';
+  }
+
+    if (data.tags.includes("pfs:label-Freedom-Special")) {
+        customLabels = '<span class="boost-freedom-special">FREEDOM SPECIAL</span>';
+    }
+
+    if (data.tags.includes("pfs:label-Flash-Deal")) {
+        customLabels = '<span class="boost-flash-deal">' +
+            '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+            '<path d="M10.8914 13.6798L7.81786 12.8562L14.4267 5.40339L13.109 10.321L16.1825 11.1445L9.57369 18.5974L10.8914 13.6798Z" fill="#FFA133"/>' +
+            '</svg>' +
+            '<span class="flash_txt">FLASH DEAL</span>' +
+            '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+            '<path d="M10.8914 13.6798L7.81786 12.8562L14.4267 5.40339L13.109 10.321L16.1825 11.1445L9.57369 18.5974L10.8914 13.6798Z" fill="#FFA133"/>' +
+            '</svg>' +
+            '</span>';
+    }
+
+  console.log('TAGGS', data.tags);
+  return customLabels
+}
+
+// End Boost 177854
 
 // Build advanced class
 function buildItemCollectionGroupThumbClass(index, productsPerRow) {
@@ -499,7 +562,7 @@ BCSfFilter.prototype.buildFilterSorting = function () {
 
         var sortingArr = this.getSortingList();
         if (sortingArr) {
-            // Build content 
+            // Build content
             var sortingItemsHtml = '';
             for (var k in sortingArr) {
                 sortingItemsHtml += '<option value="' + k + '">' + sortingArr[k] + '</option>';
@@ -617,6 +680,20 @@ BCSfFilter.prototype.buildAdditionalElements = function (data) {
     });
     if (typeof iwishCheckColl === 'function') iwishCheckColl();
     */
+    if (typeof iwishCheckColl === 'function') iwishCheckColl();
+    jQuery(".iWishAddColl").click(function (e) {
+      e.stopImmediatePropagation();
+      var iWishvId = jQuery(this).attr("data-variant");
+      if (jQuery(this).hasClass('iwishAdded')) {
+          iwish_addCollection(jQuery(this), iWishvId);
+          jQuery(this).removeClass('iwishAdded');
+      } else {
+          iwish_addCollection(jQuery(this), iWishvId);
+      }
+      iWishCounter();
+      return false;
+  });
+
 };
 
 // Build Default layout

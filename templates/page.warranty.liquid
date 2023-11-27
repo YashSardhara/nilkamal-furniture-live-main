@@ -1,0 +1,785 @@
+<style>
+  /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+  .text-danger {
+    color: #dc3545;
+}
+  .warranty_container {
+    width: 950px;
+    margin: 0 auto;
+    font-family: 'League Spartan';
+}
+span.d_flex.heading_div.warranty_head {
+    text-align: left;
+    width: 100%;
+    align-items: flex-start;
+    padding: 30px 0 60px;
+}
+
+form#warrenty_form {
+    margin-top: 10px;
+}
+.form-row input,.form-row select {
+    height: 55px;
+    margin-bottom: 5px;
+}
+.form-row input::placeholder,.form-row select::placeholder{
+  color: #707070;
+}
+select#online-purchase::placeholder, select#Offline-purchase::placeholder{
+  color: #000;
+}
+.form-row select {
+    color: #000;
+}
+.form-row {
+    display: flex;
+    flex: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.form-group.col-md-6 {
+    width: 462px;
+}
+.form-group.col-12 {
+    width: 100%;
+}
+.trms-checkbox {
+    display: flex;
+    align-items: center;
+}
+input.i-accpt {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #1d4786;
+    margin-bottom: 0;
+}
+label.location {
+    padding: 0;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: inherit;
+    font-family: 'League Spartan';
+}
+a#accpt-terms {
+    color: #1d4786;
+}
+.warranty_container .submit_btn input#vtigerFormSubmitBtn_6 {
+    font-weight: 400;
+    overflow: hidden;
+    color: #fff;
+}
+div#pop-terms {
+    background: #fff;
+    box-shadow: -4px -10px 19px #ebebeb;
+}
+div#pop-terms {
+    background: #fff;
+    box-shadow: -4px -10px 19px #ebebeb;
+    padding: 2% 5%;
+    position: relative;
+}
+h3.heading-title {
+    font-size: 24px;
+    padding: 30px 0 15px;
+    font-weight: 500;
+}
+
+.pop-terms_p p:first-child {
+    padding-bottom: 15px;
+}
+p.close_arrow {
+    float: right;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+}
+.form-row select:focus-visible {
+    outline: none;
+}
+.form_head_p {
+  align-items: center;
+}
+.warranty-page input.form-control.fname.buttonstyle{
+  margin-bottom: 5px;
+}
+.warranty-page span.text-danger{
+  margin-bottom: 15px;
+}
+p.order_inv_txt {
+    margin-top: 18px;
+}
+.trms-checkbox.terms__online {
+    justify-content: center;
+}
+.trms-checkbox.terms__offline {
+    justify-content: center;
+}
+.submit_btn {
+    text-align: -webkit-center;
+}
+.form-row_block {
+    margin-top: 28px;
+}
+@media screen and (max-width:767px) {
+  .warranty_container {
+    width: 100%;
+    padding: 0 16px;
+}
+span.d_flex.heading_div.warranty_head {
+    padding: 30px 0;
+}
+.form-row {
+    display: block;
+}
+.form-group.col-md-6 {
+    width: 100%;
+}
+form#warrenty_form {
+    margin-top: 20px;
+}
+label.location{
+  font-size: 15px;
+}
+.form-row input, .form-row select {
+    height: 56px;
+    margin-bottom: 18px;
+}
+.form-row input::placeholder, .form-row select::placeholder {
+    font-size: 16px;
+}
+input.i-accpt {
+    margin-bottom: 0;
+}
+.warranty_container h2.featured-collections--heading.heading_text {
+         text-transform: capitalize;
+}
+.warranty_container .submit_btn input#vtigerFormSubmitBtn_6 {
+    font-weight: 400;
+    overflow: hidden;
+    width: 175px;
+    height: 50px;
+    margin: 0 auto;
+  }
+div#pop-terms {
+  padding: 5% 5% 8%;
+  margin-top: 40px;
+}
+h3.heading-title{
+    font-size: 20px;
+}
+.pop-terms_p {
+    font-size: 13px;
+    color: #A4A4A4;
+}
+p.log_in_p {
+    font-size: 16px;
+}
+.form_head_p .l_para{
+  font-size: 20px;  
+}
+.log_in_p a{
+  color: #1B4786;
+    text-decoration: underline;
+}
+.form-group.col-md-3.warr__radio__cont {
+    display: block;
+}
+div#onlinePurchase, div#warOffline {
+    width: 100%;
+    margin-top: 15px;
+}
+}
+@media screen and (min-width:768px) and (max-width:1200px){
+.warranty_container {
+  padding: 0 4%;
+    width: 100%;
+}
+.form-row {
+  gap: 2%;
+  padding-bottom: 15px;
+}
+}
+
+#warrantyDop{
+  overflow: hidden;
+}
+
+.terms__offline{
+  display: none;
+}
+
+.warning {
+  border: solid 2px #F00;
+}
+.terms_cond_err_container {
+    text-align-last: center;
+}
+
+input#warrantyImage {
+    width: auto;
+    margin-left: 24px;
+}
+
+span#cancel-upload {
+    position: absolute;
+    right: 293px;
+}
+
+  </style>
+<div class="warranty_container">
+    <div class="warranty-page row">
+     <span class="d_flex heading_div warranty_head">
+       <h2 class="featured-collections--heading heading_text" data-item="section-heading"> Warranty Registration </h2>
+        </span>
+     </div>
+          <div class="form_head_p">
+            <p class="l_para">Your Details</p>
+            <p class="log_in_p">Already have an account?&nbsp;&nbsp;<a href="https://doctordreams.com/account/login">Log In</a></p>
+          </div>
+        <form id="warrenty_form" method="POST" enctype="multipart/form-data">
+          <div class="warrenty-form">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input class="form-control fname buttonstyle" type="text" id="first-name" name="first_name" autocapitalize="words" placeholder="First Name*" v-on:keypress="isLetter($event)" required>
+                <span id="first_name_error" class="help-inline text-danger"></span>
+              </div>
+              <div class="form-group col-md-6">
+                <input class="form-control lname buttonstyle" type="text" id="last-name" name="last_name" autocapitalize="words" placeholder="Last Name*" required>
+                <span id="last_name_error" class="help-inline text-danger"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="email" class="form-control emailadd buttonstyle" name="email" id="Email" autocorrect="off" autocapitalize="off" placeholder="Email ID*" required>
+                <span id="email_error" class="help-inline text-danger"></span>
+              </div>
+              <div class="form-group col-md-6">
+                <input class="form-control buttonstyle" type="tel" name="mobile" id="contactFormPhone" pattern="[0-9]{10}" maxlength="10" placeholder="Mobile No.*" required>
+                <span id="mobile_error" class="help-inline text-danger"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <select id="address_state" class="buttonstyle" name="state">
+                  <option value="" selected disabled>State</option>
+                </select>
+                <span id="state_error" class="help-inline text-danger"></span>
+              </div>
+              <div class="form-group col-md-6">
+                <select id="address_city" class="buttonstyle" name="city">
+                  <option value="" selected disabled>City</option>
+                </select>
+                <span id="city_error" class="help-inline text-danger"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-3 warr__radio__cont">
+                <div class="radio_online_off">
+                  <div class="col-md-3 war_radio_box">
+                    <input type="radio" class="form-control" id="war_on_click" name="warranty" value="OnlinePurchase" checked>Online Purchase
+                  </div>
+                  <div class="col-md-3 war_radio_box">
+                    <input type="radio" class="form-control" id="war_of_click" name="warranty" value="offlinePurchase">Offline Purchase
+                  </div>
+                </div>
+                <div class="radio_online_off_1">
+                <div class="col-3 war__offline" id="warOffline">
+                <select class="buttonstyle" id="Offline-purchase" name="offline" onchange="showfield(this.options[this.selectedIndex].value)">
+                  <option value="" selected disabled>Purchase Source*</option>
+                  <option value="Homeretail">Home Retail Store</option>
+                  <option value="offother">Other</option>
+                </select>
+                <span id="offline_error" class="help-inline text-danger"></span>
+               </div>
+               <div class="col-3 war__online" id="onlinePurchase">
+                  <select class="buttonstyle" id="online-purchase" name="online" onchange="showfield(this.options[this.selectedIndex].value)">
+                  <option value=""  selected disabled>Purchase Source*</option>
+                  <option value="Amazon">Amazon</option>
+                  <option value="flipkart">Flipkart</option>
+                  <option value="pepperfry">Pepperfry</option>
+                  <option value="Doctor Dreams">Doctor Dreams</option>
+                  <option value="onother">Other</option>
+                </select>
+                 <span id="online_error" class="help-inline text-danger"></span>
+                </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="date" name="date_of_purchase" onclick="dateChange()" id="warrantyDop" class=" form-control buttonstyle" placeholder="Date of purchase*"/>
+                  <span id="warrantyDop_error" class="help-inline text-danger"></span>
+                </div>
+              </div>
+              <div class="form-group col-md-3">
+               
+              </div>
+            </div>
+            <div class="form-row">
+              {% comment %}<div class="form-group col-md-6">
+                <input type="text" name="modal_name" id="warrantyModel" placeholder="Model Name*" class="form-control buttonstyle" required/>
+                <span id="mobile_error" class="help-inline text-danger"></span>
+              </div>{% endcomment %}
+                <div class="form-group col-md-6">
+                <select type="text" name="modal_name" id="warrantyModel" placeholder="Model Name*" class="form-control buttonstyle" required>
+                    <option value="" selected disabled>Product Model*</option>
+                    <option value="Trendzzz Foam Mattress" >Trendzzz Foam Mattress</option>
+                    <option value="Docdrm Lite Mem Foam Mat" >Docdrm Lite Mem Foam Mat</option>
+                    <option value="Curve 5 Foam Mattress" >Curve 5 Foam Mattress</option>
+                    <option value="Regal Foam Mattress" >Regal Foam Mattress</option>
+                    <option value="Docdrm Plus 6 Memory Foam Mattress" >Docdrm Plus 6 Memory Foam Mattress</option>
+                    <option value="Selfie Coir Mattress" >Selfie Coir Mattress</option>
+                    <option value="Snehamxl Coir Mattress" >Snehamxl Coir Mattress</option>
+                    <option value="Firmo Bonnel Spring Mattress" >Firmo Bonnel Spring Mattress</option>
+                    <option value="Well Bond Foam Mattress" >Well Bond Foam Mattress</option>
+                    <option value="Amazzze Foam Mattress" >Amazzze Foam Mattress</option>
+                    <option value="Accube Foam Mattress" >Accube Foam Mattress</option>
+                    <option value="Sofi 6 Foam Mattress" >Sofi 6 Foam Mattress</option>
+                    <option value="Flora Double Pt Bonnel Spring Mattress" >Flora Double Pt Bonnel Spring Mattress</option>
+                    <option value="Pure Foam Mattress" >Pure Foam Mattress</option>
+                    <option value="Sparkle 5 Coir Mattress" >Sparkle 5 Coir Mattress</option>
+                    <option value="Natural Latex Mattress" >Natural Latex Mattress</option>
+                    <option value="Ultra Bliss Foam Mattress" >Ultra Bliss Foam Mattress</option>
+                    <option value="Docdrm Max 6 Memory Foam Mattress" >Docdrm Max 6 Memory Foam Mattress</option>
+                    <option value="Docdrm Max 8 Memory Foam Mattress" >Docdrm Max 8 Memory Foam Mattress</option>
+                    <option value="Sparkle Coir Mattress" >Sparkle Coir Mattress</option>
+                    <option value="Curve 6 Foam Mattress" >Curve 6 Foam Mattress</option>
+                    <option value="Hd Coir 5 Mattress" >Hd Coir 5 Mattress</option>
+                    <option value="Rejuve Foam Mattress" >Rejuve Foam Mattress</option>
+                    <option value="Aeroluxe Foam Mattress" >Aeroluxe Foam Mattress</option>
+                    <option value="Dreamer Foam Mattress" >Dreamer Foam Mattress</option>
+                    <option value="Vibrant Pocket Spring Mattress" >Vibrant Pocket Spring Mattress</option>
+                    <option value="Soft Bond  Foam Mattress" >Soft Bond  Foam Mattress</option>
+                    <option value="Prem Coir Mattress" >Prem Coir Mattress</option>
+                    <option value="Mckenzie Ortho Coir Mattress" >Mckenzie Ortho Coir Mattress</option>
+                    <option value="Euro Sleep Foam Mattress" >Euro Sleep Foam Mattress</option>
+                    <option value="Vibrant Box Top Spring Mattress" >Vibrant Box Top Spring Mattress</option>
+                    <option value="Health Plus Coir Mattress" >Health Plus Coir Mattress</option>
+                    <option value="Cool Bond Coir Mattress" >Cool Bond Coir Mattress</option>
+                    <option value="Flora Bonnel Spring Mattress" >Flora Bonnel Spring Mattress</option>
+                    <option value="Bluesky 5 Foam Mattress" >Bluesky 5 Foam Mattress</option>
+                    <option value="Ortho Comfort Bonnel Spring Mattress" >Ortho Comfort Bonnel Spring Mattress</option>
+                    <option value="Blueskyfm" >Blueskyfm</option>
+                    <option value="Radiance Pocket Spring Mattress" >Radiance Pocket Spring Mattress</option>
+                    <option value="Sofi  Foam Mattress" >Sofi  Foam Mattress</option>
+                    <option value="Docdrm Max Mem Foam Mat" >Docdrm Max Mem Foam Mat</option>
+                    <option value="Spinefit Coir Mattress" >Spinefit Coir Mattress</option>
+                    <option value="Flora Single Pt Bonnel Spring Mattress" >Flora Single Pt Bonnel Spring Mattress</option>
+                    <option value="Atithi Foldable Mattress" >Atithi Foldable Mattress</option>
+                    <option value="Rest Bond Foam Mattress" >Rest Bond Foam Mattress</option>
+                  </select>
+                <span id="warrantyModel_error" class="help-inline text-danger"></span>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="number" name="model__size" id="warrantySize" placeholder="Sub Model/Size*" class="form-control buttonstyle" required/>
+                <span id="warrantySize_error" class="help-inline text-danger"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="number" name="invoice_id" id="warrantyInvoice"  placeholder="Invoice ID*" class="form-control buttonstyle" required/>
+                <span id="warrantyInvoice_error" class="help-inline text-danger"></span>
+              </div>
+              <div class="form-group col-md-6" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+                <div class="flx_img_picker">
+                  <span class="col-md-3">Order Invoice*</span>
+                  <input class="form-control buttonstyle col-md-3" accept="application/pdf,image/*" type="file" name="file" id="warrantyImage" onchange="checkFileInput()" required />
+                  <span class="" type="button" id="cancel-upload" style="display: none;" onclick="clearFileInput()">Clear</span>
+                </div>
+                  <span id="warrantyImage_error" class="help-inline text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row_block">
+              <div class="form-group col-12 text-center">
+                <div class="trms-checkbox terms__online">
+                  <input type="checkbox" class="i-accpt" name="terms-condition">
+                  <label class="location" for="terms-condition">I accept the <a id="accpt-terms" href="https://doctordreams.com/pages/terms-and-conditions-new"> terms and conditions</a>.</label>
+                </div>
+                <div class="terms_cond_err_container">
+                <span id="terms_cond_error" class="help-inline text-danger"></span>
+                </div>
+                <div class="trms-checkbox terms__offline">
+                  <input type="checkbox" class="i-accpt" name="terms-condition">
+                  <label class="location" for="terms-condition">I accept the <a id="accpt-terms" href="https://doctordreams.com/pages/warranty-registration-offline"> terms and conditions</a>.</label>
+                </div>
+                <div class="terms_cond_err_container">
+                <span id="terms_cond_error" class="help-inline text-danger"></span>
+                </div>
+              </div>
+              <div class="submit_btn">
+              {%- comment -%} <input type="submit" value="Submit" id="vtigerFormSubmitBtn_6" class="secondary-lg-button secondary-button"> {%- endcomment -%}
+              <!-- id="otp-btn" -->
+              <input type="button" value="Generate OTP" id="vtigerFormSubmitBtn_6" class="secondary-lg-button secondary-button generate_otp">
+            </div>
+            </div>
+          </div>
+          <div class="otp-form" style="display: none;">
+            <div class="text-center">
+              <h6 class="verify-txt">Please verify Your OTP</h6>
+                <div class="form-group">
+                  <input type="text" class="form-control buttonstyle form-group" id="otp-txt" name="otp" autocapitalize="words" placeholder="Enter OTP" required="">
+                </div>
+                <span id="otp_error" class="help-inline text-danger"></span>
+                <!-- id="otp-btn" -->
+                <input type="button" value="Verify" id="vtigerFormSubmitBtn_6" class="secondary-lg-button secondary-button verify_otp">
+            </div>
+          </div>
+          </form>
+
+
+
+        </div>
+        <div id="pop-terms">
+        <p class="close_arrow">
+                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 8.727 17.944.783l1.273 1.273L11.273 10l7.944 7.944-1.273 1.273L10 11.273l-7.944 7.944-1.273-1.273L8.727 10 .783 2.056 2.056.783 10 8.727Z" fill="#000" fill-rule="nonzero"></path>
+            </svg>  
+          </p>     
+            <!-- <a onclick="cls()" href="javascript:void();" class="close_brandpopup">x</a> -->
+          <h3 class="heading-title">Terms and Conditions</h3>
+          <div class="pop-terms_p">
+            <p>Doctor dreams Mattresses are warrantied against any manufacturing defect for a period of 10 years from the date of purchase. In case of any manufacturing defect (specified below) within 1 year of purchase, the mattress will be repaired or replaced with an identical product. In case of any manufacturing defect after the first year, either a repair or in case if a repair is not possible, a Prorated Credit Settlement will be applicable.</p>
+            <p>Which means for every year you own it, you would receive less and less credit.</p>
+          </div>
+        </div>
+
+                </div>
+<style>
+  .overflow_pop{overflow: hidden;}
+</style>
+<script>
+  const nameInput = document.getElementById('first-name');
+  const errorMessage = document.getElementById('first_name_error');
+  const lastnameInput = document.getElementById('last-name');
+  const errorMessagelast = document.getElementById('last_name_error');
+  const emailnameInput = document.getElementById('Email');
+  const errorMessageemail = document.getElementById('email_error');
+  const mobilenoInput = document.getElementById('contactFormPhone');
+  const errorMessagemobile = document.getElementById('mobile_error');
+  const stateInput = document.getElementById('address_state');
+  const errorMessagestate = document.getElementById('state_error');
+  const cityInput = document.getElementById('address_city');
+  const errorMessagecity = document.getElementById('city_error');
+  const offlineInput = document.getElementById('Offline-purchase');
+  const errorMessageoffline = document.getElementById('offline_error');
+  const onlineInput = document.getElementById('online-purchase');
+  const errorMessageonline = document.getElementById('online_error');
+
+  const warrantyDopInput = document.getElementById('warrantyDop');
+  const errorMessagewarrantywarrantyDop = document.getElementById('warrantyDop_error');
+
+  const warrantyModelInput = document.getElementById('warrantyModel');
+  const errorMessagewarrantywarrantyModel = document.getElementById('warrantyModel_error');
+
+  const warrantySizeInput = document.getElementById('warrantySize');
+  const errorMessagewarrantywarrantySize = document.getElementById('warrantySize_error');
+
+  const warrantywarrantyInvoice = document.getElementById('warrantyInvoice');
+  const errorMessagewarrantywarrantyInvoice = document.getElementById('warrantyInvoice_error');
+
+  const warrantywarrantywarrantyImage = document.getElementById('warrantyImage');
+  const errorMessagewarrantywarrantyImage = document.getElementById('warrantyImage_error');
+
+  const inputs = document.querySelectorAll('.buttonstyle');
+
+  const cancelButton = document.getElementById("cancel-upload");
+
+
+  function checkFileInput() {
+  if (warrantywarrantywarrantyImage.value) {
+    cancelButton.style.display = "block";
+  } else {
+    cancelButton.style.display = "none";
+  }
+}
+
+function clearFileInput() {
+  warrantywarrantywarrantyImage.value = "";
+  cancelButton.style.display = "none";
+}
+
+
+ 
+  nameInput.addEventListener('blur', () => {
+    if (nameInput.value.trim() === '') {
+      errorMessage.textContent = 'Please enter your First Name';
+    } else {
+      errorMessage.textContent = '';
+    }
+    });
+    inputs.forEach(input => {
+    input.addEventListener('blur', (e) => {
+      if(e.target.value.trim().length == 0){
+        e.target.classList.add('warning')
+      }else{
+        e.target.classList.remove('warning')
+      }
+    });
+  });
+    lastnameInput.addEventListener('blur', () => {
+    if (lastnameInput.value.trim() === '') {
+      errorMessagelast.textContent = 'Please enter your Last Name';
+    } else {
+      errorMessagelast.textContent = '';
+    }
+    });
+    emailnameInput.addEventListener('blur', () => {
+    if (emailnameInput.value.trim() === '') {
+      errorMessageemail.textContent = 'Please enter your Email ID';
+    } else {
+      errorMessageemail.textContent = '';
+    }
+    });
+    mobilenoInput.addEventListener('blur', () => {
+    if (mobilenoInput.value.trim() === '') {
+      errorMessagemobile.textContent = 'Please enter your Mobile No.';
+    } else {
+      errorMessagemobile.textContent = '';
+    }
+    });
+    stateInput.addEventListener('blur', () => {
+    if (stateInput.value.trim() === '') {
+      errorMessagestate.textContent = 'Please enter State field';
+    } else {
+      errorMessagestate.textContent = '';
+    }
+    });
+    cityInput.addEventListener('blur', () => {
+    if (cityInput.value.trim() === '') {
+      errorMessagecity.textContent = 'Please enter City field';
+    } else {
+      errorMessagecity.textContent = '';
+    }
+    });
+    offlineInput.addEventListener('blur', () => {
+    if (offlineInput.value.trim() === '') {
+      errorMessageoffline.textContent = 'Please select a Purchase Source';
+    } else {
+      errorMessageoffline.textContent = '';
+    }
+    });
+    onlineInput.addEventListener('blur', () => {
+    if (onlineInput.value.trim() === '') {
+      errorMessageonline.textContent = 'Please select a Purchase Source';
+    } else {
+      errorMessageonline.textContent = '';
+    }
+    });
+
+  warrantyDopInput.addEventListener('blur', () => {
+    if (warrantyDopInput.value.trim() === '') {
+      errorMessagewarrantywarrantyDop.textContent = 'Please select a Date of Purchase';
+    } else {
+      errorMessagewarrantywarrantyDop.textContent = '';
+    }
+    });
+
+  warrantyModelInput.addEventListener('blur', () => {
+    if (warrantyModelInput.value.trim() === '') {
+      errorMessagewarrantywarrantyModel.textContent = 'Please select a Product Model';
+    } else {
+      errorMessagewarrantywarrantyModel.textContent = '';
+    }
+    });
+
+  warrantySizeInput.addEventListener('blur', () => {
+    if (warrantySizeInput.value.trim() === '') {
+      errorMessagewarrantywarrantySize.textContent = 'Please select a Sub/Model Size';
+    } else {
+      errorMessagewarrantywarrantySize.textContent = '';
+    }
+    });
+
+  warrantywarrantyInvoice.addEventListener('blur', () => {
+    if (warrantywarrantyInvoice.value.trim() === '') {
+      errorMessagewarrantywarrantyInvoice.textContent = 'Please select a Invoice ID';
+    } else {
+      errorMessagewarrantywarrantyInvoice.textContent = '';
+    }
+    });
+
+  warrantywarrantywarrantyImage.addEventListener('blur', () => {
+    if (warrantywarrantywarrantyImage.value.trim() === '') {
+      errorMessagewarrantywarrantyImage.textContent = 'Please choose order invoice';
+    } else {
+      errorMessagewarrantywarrantyImage.textContent = '';
+    }
+    });
+
+    
+
+
+    function validateInputs() {
+      if (input1.value.trim() === '' || input2.value.trim() === '' || input3.value.trim() === '' || input4.value.trim() === '' || input5.value.trim() === '') {
+        errorMessage.textContent = 'All fields are required';
+      } else {
+        errorMessage.textContent = '';
+      }
+    }
+
+
+
+
+  // drag and drop script to only accept images and pdf.
+  function dragOverHandler(event) {
+    event.preventDefault();
+  }
+
+  function dropHandler(event) {
+    event.preventDefault();
+    const files = event.dataTransfer.files;
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      if (file.type.includes('image/') || file.type === 'application/pdf') {
+        // Handle the file here
+      }
+    }
+  }
+
+</script>
+<script>
+  $('.generate_otp').click(function(e) {
+
+    $("#warrantyImage").on('change', function () {
+          var MAX_FILE_SIZE = 2 * 1024 * 1024; 
+          var fileSize = this.files[0].size;
+          if (fileSize > MAX_FILE_SIZE) {
+            this.setCustomValidity("Your file allowded size must not be more than 2 MB!");
+            this.reportValidity();
+            $('#warrantyImage').val('');
+          } else {
+            this.setCustomValidity("");
+          }
+        });
+    
+    $('.help-inline').text('');
+   var file_data = $('#warrantyImage').val();
+    
+    var form = $('#warrenty_form');
+      $.ajax({
+        url: "https://middleware.doctordreams.com/api/warranty-register",
+        type: 'POST',
+        data: form.serialize(),
+        dataType: 'json',
+        success : function(resp)
+        {   
+          if(resp.success == true){
+            if ($("input[type=checkbox]").is(":checked")) { 
+              $('.warrenty-form').hide();
+              $('.form_head_p').hide();
+              $('.otp-form').show();
+              } else { 
+              $('#terms_cond_error').text('Please select terms & condition');
+              //alert("Please select terms & condition"); 
+              } 
+          }  
+        },
+        error: function (data) {
+          console.log('Errors Data Vivek',data.responseJSON[0])
+          $.each(data.responseJSON[0], function(k,v){
+          $('#'+k+'_error').text(v);
+          });
+        },
+    });
+  });
+  $('.verify_otp').click(function(e){
+    e.preventDefault();
+
+    $("#warrenty_form").ajaxSubmit({
+      url: "https://middleware.doctordreams.com/api/verify-otp",
+      type: 'POST',
+      dataType: 'json',
+      success : function(resp)
+      {   
+        if(resp.success == true){
+          window.location.href = 'https://doctordreams.com/pages/thank-you';
+        }else{
+          $('#otp_error').text('OTP not verified');
+        }  
+      },
+    });
+  });
+  $('#online-purchase').change(function(){
+    var online_val = $(this).val();
+    if(online_val == 'onother'){
+      $('#olothers').show();
+    }else{
+      $('#olothers').hide();
+    }
+  });
+  $('#Offline-purchase').change(function(){
+    var online_val = $(this).val();
+    if(online_val == 'offother'){
+      $('#ofothers').show();
+
+    }else{
+      $('#ofothers').hide();
+    }
+  });
+</script>
+<script>
+  $(document).ready(function(){
+
+   $.ajax({
+    url: "https://middleware.doctordreams.com/api/state",
+    type: 'get',
+    dataType: 'json',
+    success: function (data) {
+      var states = data.states;
+      $.each(states, function(k,v){
+        $('#address_state').append('<option value="'+k+'">'+v+'</option>');
+      });
+    }
+  });
+  $(".close_arrow").click(function(){
+    $("#pop-terms").hide();
+  });
+});
+
+ $('#address_state').change(function(){
+
+    var state_val = $(this).val();
+
+    $.ajax({
+      url: "https://middleware.doctordreams.com/api/city",
+      type: 'post',
+      data: {'state':state_val},
+      dataType: 'json',
+      success: function (data) {
+        var states = data.cities;
+        $.each(states, function(k,v){
+          $('#address_city').append('<option value="'+v+'">'+v+'</option>');
+        });
+      }
+    });
+  });
+</script>
+<script>
+  $("#war_on_click").click(function(){
+  $(".war__offline").css("display","none")
+  $(".war__online").css("display","block")
+  $(".terms__online").css("display","flex")
+  $(".terms__offline").css("display","none")
+});
+  $("#war_of_click").click(function(){
+  $(".war__online").css("display","none")
+  $(".war__offline").css("display","block")
+  $(".terms__online").css("display","none")
+  $(".terms__offline").css("display","flex")
+});
+
+  function dateChange(){
+      let dateInutID = document.getElementById("warrantyDop");
+      dateInutID.type = 'date';
+      let today = new Date().toISOString().split('T')[0];
+      document.getElementsByName("date_of_purchase")[0].setAttribute('max', today);
+     }
+</script>

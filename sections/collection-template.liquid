@@ -1,20 +1,69 @@
+<!-- Nilkamal- Affiliate Retag Codes start -->
+<script type="text/javascript">
+    window.ad_category = "{{ collection.id }}";   // required
+
+    window._retag = window._retag || [];
+    window._retag.push({code: "9ce8884b32", level: 1});
+    (function () {
+      console.log('retag-collection');
+        var id = "admitad-retag";
+        if (document.getElementById(id)) {return;}
+        var s=document.createElement("script");
+        s.async = true; s.id = id;
+        var r = (new Date).getDate();
+        s.src = (document.location.protocol == "https:" ? "https:" : "http:") + "//cdn.lenmit.com/static/js/retag.js?r="+r;
+        var a = document.getElementsByTagName("script")[0]
+        a.parentNode.insertBefore(s, a);
+    })()
+</script>
+<!-- Nilkamal- Affiliate Retag Codes end -->
+
 <script>
 {% for collection in product.collections %}
    fbq('track', 'ViewContent', {
      content_type: '{{product_type}}',
-  }); 
-{% endfor %}  
+  });
+{% endfor %}
 </script>
 
 <a name="pagecontent" id="pagecontent"></a>
 {% if collection.handle contains 'spine-health-technology' %}
 {% include 'collection-banner' %}
+{% endif %}
+
+{% if collection.handle contains 'fyrebird-gaming-chairs' %}
+    <style>
+  div#shopify-section-collection-template {
+    background-color: #262626 !important;
+  }
+
+  .header__content__para,
+  .box .readmore-btn{
+    color: rgba(255,255,255,.5) !important;
+  }
+  .product-wrap {
+    background: #262626 !important;
+  }
+  span.money.pfs-cross-regular-price {
+    color: #fff !important;
+  }
+    </style>
+{% include 'collection-banner' %}
   {% endif %}
+
   {% if section.settings.featured_collection_image %}
   {% capture sizes %}100x,480x,765x,1400x,2048x{% endcapture %}
   {% assign sizes = sizes | split: ',' %}
 
+
+
   <header class="banner center dark-overlay-{{ section.settings.image_darken }}">
+  {% if collection.handle == "colors-of-india" %}
+    <div class="collection_maindiv">
+    <img class="collection_desk-img" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/desktop1300x188.jpg?v=1699529904">
+    <img class="collection_mob-img" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/mobile-474x200.jpg?v=1699529904">
+    </div>
+  {% endif %}
     <div class="container">
         {% if section.settings.collection_breadcrumb %}
       <div class="clearfix breadcrumb-collection">
@@ -50,9 +99,9 @@
       </div>
       {% endif %}
     </div>
-    
+
     {% include 'header_content' %}
-    
+
   </header>
   {% endif %}
 
@@ -132,6 +181,296 @@
   {% if collection.handle contains 'spine-health-technology' %}
  {% include 'collection-extra-footer' %}
     {% endif %}
+    {% if collection.handle contains 'fyrebird-gaming-chairs' %}
+  <main class="main__custom">
+    <div class="custom__container">
+    <section class="banner__gamincair">
+      <div class="banner__img">
+        <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/1800x720.jpg?v=1673590261" alt="">
+      </div>
+    </section>
+  <section class="banner__gamincair__mobile">
+      <div class="banner__img__mob">
+        <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/800x600.jpg?v=1673590483" alt="">
+      </div>
+      <div class="banner__content__mob">
+        <p>
+          Nilkamal presents Fyrebird, a range of battle-ready gaming chairs for those who love gaming. The Fyrebird collection is designed to breathe new life into your gaming world with chairs designed for unmatched comfort, unrestricted mobility, and ergonomic support to enjoy hours of non-stop gaming.
+        </p>
+      </div>
+    </section>
+    <section class="gaming__main__feature">
+      <div class="gamin__main__heading">
+        <span>What Makes Fyrebird Gaming Chairs The Best For Gamers?</span>
+      </div>
+      <div class="gaming__main__container">
+        <lottie-player src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/TransBG_fireball.json?v=1672665035"   background="transparent"  speed="1" class="chair__back__video" loop  autoplay></lottie-player>
+        <lottie-player src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/TransBG_fireball.json?v=1672665035"   background="transparent"  speed="1" class="chair__back__video1" loop  autoplay></lottie-player>
+        <lottie-player src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/TransBF_Firetorch.json?v=1672665034"   background="transparent"  speed="1" class="fire__ball__lottie_1" loop  autoplay></lottie-player>
+        <lottie-player src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/TransBF_Firetorch.json?v=1672665034"   background="transparent"  speed="1" class="fire__ball__lottie_2" loop  autoplay></lottie-player>
+        <div class="gaming__main_box">
+          <div class="gamin__main__images">
+            <lottie-player src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Vader_lumbar.json?v=1677739971"  background="transparent"  speed="1" class="chair__video"  loop  autoplay></lottie-player>
+          </div>
+          <div class="gamin__main__content">
+            <span class="gaming__main__content__heading">Win gaming battles like a pro with Advanced Lumbar Support</span>
+            <p class="gamin__main__content__para">Never let back pain get in the way of your gameplay. Our innovative adjustable lumbar support
+              mechanism relieves pressure on your spine by ergonomically reinforcing your back for
+              comfortable sitting, even during long and intense gameplay. As a result, you&#39;ll have a superior
+              gaming experience with less pain and more victories. </p>
+          </div>
+        </div>
+        <div class="gaming__main_box">
+          <div class="gamin__main__content">
+            <span class="gaming__main__content__heading">The Adjustable Neck Pillow keeps you fixated on your game</span>
+            <p class="gamin__main__content__para">During long gaming sessions, your neck suffers the most, but that is no longer the case. The
+              adjustable magnetic neck pillow contours to your head and neck anatomy, allowing it to withstand
+              the constant pushback and shocks without giving you any discomfort. Because of its magnetic
+              design, you can easily snap the pillow into the desired position.</p>
+          </div>
+          <div class="gamin__main__images gamin__main__images1">
+            <lottie-player src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Vader_magnet.json?v=1677739971"  background="transparent"  speed="1" class="chair__video"  loop  autoplay></lottie-player>
+          </div>
+        </div>
+        <div class="gaming__main_box">
+          <div class="gamin__main__images">
+            <lottie-player src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Vader_4darmrest.json?v=1677739971"  background="transparent"  speed="1" class="chair__video"  loop  autoplay></lottie-player>
+          </div>
+          <div class="gamin__main__content">
+            <span class="gaming__main__content__heading">Use Multi-Dimensional Hand Rests for competitive advantage </span>
+            <p class="gamin__main__content__para">We designed the hand rests with a multi-dimensional motion to help your hands have quick
+              reflexes and fast, accurate keystrokes. These ergonomically designed armrests move forward,
+              backwards, left, right, and even slide, providing a full range of motion to reduce fatigue-related
+              mistakes and keep you in the game for longer.</p>
+          </div>
+        </div>
+        <div class="gaming__main_box">
+          <div class="gamin__main__content">
+            <span class="gaming__main__content__heading">Play your strategy; the Advanced Tilt Mechanism has your back</span>
+            <p class="gamin__main__content__para">Keeping your back in the most comfortable position is critical to remaining comfortable during the
+              game. The innovative frog-tilt and butterfly-tilt mechanisms on the Fyrebird Gaming Chairs allow
+              you to easily recline them to your preference and find a naturally supportive posture. So no
+              more back pains from awkward sitting postures while gaming!</p>
+          </div>
+          <div class="gamin__main__images gamin__main__images2">
+            <lottie-player src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Vader_backrest.json?v=1677739971"  background="transparent"  speed="1" class="chair__video"  loop  autoplay></lottie-player>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="generic__features">
+      <div class="gamin__main__heading">
+        <span>Salient Fyrebird Gaming Chair Features</span>
+      </div>
+      <div class="generic__feat__box">
+        <div class="generic__feat__item">
+          <img class="lazyload" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Adjustable_Height.svg?v=1672657326" alt="">
+          <span>Adjustable Height</span>
+        </div>
+        <div class="generic__feat__item">
+          <img class="lazyload" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Base.svg?v=1672657326" alt="">
+          <span>Solid Aluminium Base</span>
+        </div>
+        <div class="generic__feat__item">
+          <img class="lazyload" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Caster.svg?v=1672657326" alt="">
+          <span>Nylon Gaming Castors</span>
+        </div>
+        <div class="generic__feat__item">
+          <img class="lazyload" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Bucket_seat.svg?v=1672657327" alt="">
+          <span>Ergonomic Seat Design</span>
+        </div>
+        <div class="generic__feat__item">
+          <img class="lazyload" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/360_Swivel_Deisgn.svg?v=1672657326" alt="">
+          <span>360° Swivel Design</span>
+        </div>
+        <div class="generic__feat__item">
+          <img class="lazyload" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/No_animal_cruelty.svg?v=1672657326" alt="">
+          <span>No Animal Cruelty</span>
+        </div>
+      </div>
+    </section>
+    <div class="gamin__main__heading whats__inside_gaming">
+        <span>What's Inside Your Fyrebird Gaming Chairs?</span>
+      </div>
+    <section class="chair__box">
+      <div class="chair__box__img">
+        <img class="lazyload" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/800-Vaden-plp.jpg?v=1673249604" alt="">
+      </div>
+      <div class="chair__box__content">
+        <div class="head_desc">
+          <span class="head_desc_head">
+            Heavy Duty Aluminium Base
+          </span>
+          <span class="head_desc_para">
+            Fyrebird gaming chairs feature a solid aluminium base that provides advanced shock absorption and enduring support, making intense gaming sessions comfortable and enjoyable.
+          </span>
+        </div>
+        <div class="head_desc">
+          <span class="head_desc_head">
+            Smooth-Gliding Nylon Castors
+          </span>
+          <span class="head_desc_para">
+            Glide smoothly around your gaming setup using the solid mechanical strength of the nylon castors. They provide gamers with easy manoeuvrability for a more stable and smoother ride.
+          </span>
+        </div>
+        <div class="head_desc">
+          <span class="head_desc_head">
+            Comforting Virgin Moulded Foam
+          </span>
+          <span class="head_desc_para">
+            The ultra-comfortable Virgin Moulded Foam provides the ideal balance of relieving comfort and ergonomic support to keep you engrossed In your gaming world for hours without discomfort.
+          </span>
+        </div>
+        <div class="head_desc">
+          <span class="head_desc_head">
+            TUV-certified Gas-Lift Mechanism
+          </span>
+          <span class="head_desc_para">
+            The TUV-certified gas-lift mechanism ensures that the chair's height can be adjusted smoothly and safely, allowing for greater adjustability and comfort, which aids in gaming comfort.
+          </span>
+        </div>
+      </div>
+    </section>
+    <section class="brand__warranty">
+      <span class="bran__warranty__mobile">Fyrebird Gaming Chairs Come With A Warranty!</span>
+      <div class="brand__warranty__image">
+        <img class="lazyload" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Group_922_2.svg?v=1673348255" alt="">
+      </div>
+      <div class="brand__warranty__content">
+        <span class="brand__warranty__content__head">Fyrebird Gaming Chairs Come With A Warranty!</span>
+        <div class="brand__warr__box">
+          <div class="brand__warr__item">
+            <span>1 Year Standard Warranty on any manufacturing defects</span>
+            <br>
+<!--              <span> We offer a one-year warranty on all Nilkamal Fyrebird Gaming Chairs that covers any non-artificial damage encountered while using the chair. </span> -->
+          </div>
+          {%  comment  %}  <div class="brand__warr__item">
+            <span>Scope of Coverage:</span>
+             <span>This warranty covers any repair or replacement of parts found to be defective under normal use. </span>
+          </div>
+          {% endcomment %}
+        </div>
+      </div>
+    </section>
+    <div class="gaming__relate__blog">
+      <div class="gamin__main__heading">
+        <span>Related Blog</span>
+      </div>
+      <div class="gamin__main__slider">
+        <div class="swiper mySwiper1">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="gaming__blog__images">
+            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/When_Should_You_Decide_to_Buy_a_Gaming_Chair_for_Your_Home_Office.png?v=1673258633" alt="" class="swiper-lazy">
+              <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+          </div>
+          <div class="gaming__blog__contents">
+            <span class="gaming__blog__content_heads"><a href="https://www.nilkamalfurniture.com/blogs/blog/when-should-you-decide-to-buy-a-gaming-chair-for-your-home-office">When should you decide to buy a gaming chair for your home office?</a></span>
+            <p class="gaming__blog__content__paras">
+              After the advent of the online working lifestyle, people spend a lot of time sitting in chairs. The work-from-home culture has compelled everyone to sit in the same position for long hours. It has led to many health issues, including back pain, neck pain, breathing problems, etc. Amidst such a situation, the  best gaming chair has emerged as a boon for a sedentary person. A gaming chair is specially designed for gamers. But its highly comfortable and customizable design has also appealed to those who have to sit for long hours for other purposes.
+            </p>
+            <a href="https://www.nilkamalfurniture.com/blogs/blog/when-should-you-decide-to-buy-a-gaming-chair-for-your-home-office" class="gaming__blog__redirect__btns">Read Full Article</a>
+          </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="gaming__blog__images">
+            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Tips_for_Selecting_the_Best_Gaming_Chair_for_Every_Gamer_Out_There.png?v=1673258680" alt="" class="swiper-lazy">
+              <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+          </div>
+          <div class="gaming__blog__contents">
+            <span class="gaming__blog__content_heads"><a href="https://www.nilkamalfurniture.com/blogs/blog/tips-for-selecting-the-best-gaming-chair-for-every-gamer-out-there">Tips for selecting the best gaming chair for every gamer out there</a></span>
+            <p class="gaming__blog__content__paras">
+              Gaming chairs have taken the market by storm. Their designs, adjustability and ergonomics advantages make them famous. They are not just fancy chairs for gamers, it is for everyone who spends a great amount of time at their desk. In the case of an ordinary chair, you might randomly pick anyone without much thought, but when it comes to a  gaming chair, you must put your hard-earned income into a chair. It is an investment that will benefit you for years.
+            </p>
+            <a href="https://www.nilkamalfurniture.com/blogs/blog/tips-for-selecting-the-best-gaming-chair-for-every-gamer-out-there" class="gaming__blog__redirect__btns">Read Full Article</a>
+          </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="gaming__blog__images">
+            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Tips_for_Cleaning_and_Maintaining_Your_Gaming_Chair.png?v=1673258740" alt="" class="swiper-lazy">
+              <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+          </div>
+          <div class="gaming__blog__contents">
+            <span class="gaming__blog__content_heads"><a href="https://www.nilkamalfurniture.com/blogs/blog/tips-for-cleaning-and-maintaining-your-gaming-chair">Tips for cleaning and maintaining your gaming chair</a></span>
+            <p class="gaming__blog__content__paras">
+              A  gaming chair is your body's best friend. Whether you are a gamer or a work-from-home person, you spend a great deal of your time at your desk. Long hours of sitting have a substantial negative impact on your posture, and it leads to soreness and stiffness in muscles. The gaming chair adjusts according to the body frame and provides ergonomic benefits. It is crucial to return the love to your  gaming chair that cares for and supports your delicate body and lets you enjoy an uninterrupted game.
+            </p>
+            <a href="https://www.nilkamalfurniture.com/blogs/blog/tips-for-cleaning-and-maintaining-your-gaming-chair" class="gaming__blog__redirect__btns">Read Full Article</a>
+          </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="gaming__blog__images">
+            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Expert_Guide_to_Buy_the_Best_Gaming_Chair_in_2023.png?v=1673258561" alt="" class="swiper-lazy">
+              <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+          </div>
+          <div class="gaming__blog__contents">
+            <span class="gaming__blog__content_heads"><a href="https://www.nilkamalfurniture.com/blogs/blog/expert-guide-to-buy-the-best-gaming-chair-in-2023">Expert guide to buy the best gaming chair in 2023</a></span>
+            <p class="gaming__blog__content__paras">
+              Whether you are a pro gamer or a person who spends long hours at his desk, the gaming chair is here to provide support and enhance your comfort. A gaming chair will level up your gaming sessions and allow you to play for long hours without worrying about your posture and back pain. It is not only about looks, but a gaming chair is more than aesthetics, and the  best gaming chair is a fusion of style and sturdiness. A good investment in a gaming chair will be a fantastic addition to your workstation.
+            </p>
+            <a href="https://www.nilkamalfurniture.com/blogs/blog/expert-guide-to-buy-the-best-gaming-chair-in-2023" class="gaming__blog__redirect__btns">Read Full Article</a>
+          </div>
+            </div>
+            </div>
+            <div class="swiper-button-prev">
+              <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Group_799.svg?v=1673348453" alt="">
+            </div>
+             <div class="swiper-button-next">
+              <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Group_798.svg?v=1673348453" alt="">
+             </div>
+          <div class="swiper-pagination swiper-pagination__adjust"></div>
+          </div>
+      </div>
+    </div>
+     {%  comment  %}   <div class="swiper mySwiper1">
+        <div class="swiper-wrapper gaming__blog__box">
+          <div class="swiper-slide gamin__blog__item">
+          <div class="gaming__blog__image">
+            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/image_15.jpg?v=1672897012" alt="">
+          </div>
+          <div class="gaming__blog__content">
+            <span class="gaming__blog__content_head">What are the main differences between Gaming & Office Chair?</span>
+            <p class="gaming__blog__content__para">
+              Guest rooms are very important to our culture. We reside in a country where we treat our guests as gods; we cannot let such people live in unacceptable conditions in such a culture. This means that such a bedroom should be at least equipped with aqueen-size bed and enough amenities so that a person can live there for about 10-15 days.
+            </p>
+            <a href="" class="gaming__blog__redirect__btn">Read Full Article</a>
+          </div>
+        </div>
+
+        <div class="swiper-slide gamin__blog__item">
+          <div class="gaming__blog__image">
+            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/image_15.jpg?v=1672897012" alt="">
+          </div>
+          <div class="gaming__blog__content">
+            <span class="gaming__blog__content_head">What are the main differences between Gaming & Office Chair?</span>
+            <p class="gaming__blog__content__para">
+              Guest rooms are very important to our culture. We reside in a country where we treat our guests as gods; we cannot let such people live in unacceptable conditions in such a culture. This means that such a bedroom should be at least equipped with aqueen-size bed and enough amenities so that a person can live there for about 10-15 days.
+            </p>
+            <a href="" class="gaming__blog__redirect__btn">Read Full Article</a>
+          </div>
+        </div>
+
+        <div class="swiper-slide gamin__blog__item">
+          <div class="gaming__blog__image">
+            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/image_15.jpg?v=1672897012" alt="">
+          </div>
+          <div class="gaming__blog__content">
+            <span class="gaming__blog__content_head">What are the main differences between Gaming & Office Chair?</span>
+            <p class="gaming__blog__content__para">
+              Guest rooms are very important to our culture. We reside in a country where we treat our guests as gods; we cannot let such people live in unacceptable conditions in such a culture. This means that such a bedroom should be at least equipped with aqueen-size bed and enough amenities so that a person can live there for about 10-15 days.
+            </p>
+            <a href="" class="gaming__blog__redirect__btn">Read Full Article</a>
+          </div>
+        </div>
+        </div>{% endcomment %}
+      </div>
+
+
+    </section>
+  </div>
+  </main>
+  {% endif %}
+
   <script>
   // Declare bcSfFilterConfig variable
   var bcSfFilterConfig = {
@@ -184,80 +523,60 @@
     }
   };
   </script>
-  <script>
-dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
-dataLayer.push({
-  event: "view_item_list",
-  ecommerce: {
-    items: [    
-      {
-      item_id: "{{ collection.id }}", // product id 
-      item_name: "{{ collection.title }}", //product name
-      affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
-      coupon: "", //The coupon name/code associated with the item if applied
-      currency: "INR",
-       discount: "{{ discount.amount | money }}", //if any discount is applied
-       index: 0, //The index/position of the item in a list
-       item_brand: "{{ collection.all_vendors }}", //The brand of the item
-       item_category: "{{ collection.title }}", //The category of the item
-       item_category2: "Sofa",
-       item_category3: "1 Seater Sofas",
-       item_category4: "",
-       item_category5: "",
-       item_list_id: "related_products", //The ID of the list in which the item was presented to the user
-       item_list_name: "Related Products", //The name of the list in which the item was presented to the user.
-       item_variant: "Velvet", //The item variant or unique code or description for additional item details/options.
-       location_id: "", //Dynamically pass the location_id  if available
-       price: {{ product.price | money_without_currency | remove: '.00'  }}, //The monetary price of the item, in units of the specified currency parameter
-       quantity: "{{ cart.item_count }}", //Item quantity
-      user_id: "{{ customer.id }}"//user id of logged in user
-   }]
-  }
-});
-</script>
-<script>
-   $(.iWishAddColl).on('click', function() {
-     dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
-dataLayer.push({
-  event: "add_to_wishlist",
-  ecommerce: {
-    currency: "INR",
-    items: [
-    {
-      item_id: "{{ product.id }}", // product id 
-      item_name: "{{ product.title }}", //product name
-      // affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
-      // coupon: "", //The coupon name/code associated with the item if applied
-      currency: "INR",
-     //  discount: {{ discount.amount | money }}, //if any discount is applied
-      // index: 0, //The index/position of the item in a list
-      // item_brand: "", //The brand of the item
-      // item_category: "Living Room", //The category of the item
-      // item_category2: "Sofa",
-      // item_category3: "1 Seater Sofas",
-      // item_category4: "",
-      // item_category5: "",
-      // item_list_id: "related_products", //The ID of the list in which the item was presented to the user
-      // item_list_name: "Related Products", //The name of the list in which the item was presented to the user.
-      // item_variant: "Velvet", //The item variant or unique code or description for additional item details/options.
-      // location_id: "", //Dynamically pass the location_id  if available
-     // quantity: 1, //Item quantity
-      user_id: "{{ customer.id }}"//user id of logged in user
-    }
-    ]
-  }
-});
-});
-   </script>
+
+    {% comment %} GA4 code commented {% endcomment %}
+    <script>
+      // Get all products in the current collection
+      var products = {{ collection.products | json }};
+
+      // Log the products to the console
+     //console.log("GA4 code commented",products);
+        console.log("GA4 code commented view_item_list");
+
+       // dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+        products.forEach(function(product) {
+
+        dataLayer.push({
+          event: "view_item_list",
+          ecommerce: {
+            item_list_id: "{{ collection.id }}", //The ID of the list in which the item was presented to the user
+            item_list_name: "{{ collection.title }}", //The name of the list in which the item was presented to the user.
+            items: [{
+                    item_id: product.id, // product id
+                    item_name: product.title, //product name
+                    affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
+                    coupon: "", //The coupon name/code associated with the item if applied
+                    currency: "INR",
+                    discount: Math.round((product?.compare_at_price - product?.price) / 100), //if any discount is applied
+                    // index: 0, //The index/position of the item in a list
+                    item_brand: product.vendor, //The brand of the item
+                    item_category: product.type, //The category of the item
+                    //item_category2: "Sofa",
+                    //item_category3: "1 Seater Sofas",
+                    //item_category4: "",
+                    //item_category5: "",
+                    //item_variant: product.variants, //The item variant or unique code or description for additional item details/options.
+                    location_id: "", //Dynamically pass the location_id  if available
+                    price: Math.round(product.price/100),  //The monetary price of the item, in units of the specified currency parameter
+                    MRP: Math.round(product.compare_at_price/100),  //MRP
+                    quantity: "1", //Item quantity
+                    user_id: "{{ customer.id }}" //user id of logged in user
+                }]
+      }
+    });
+    });
+    </script>
+     {% comment %} GA4 code commented end {% endcomment %}
+
 <script>
   $('.product-wrap').on('click', function() {
-     dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+    // dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
 dataLayer.push({
   event: "select_item",
   ecommerce: {
     items: [
     {
-       item_id: "{{ collection.id }}", // product id 
+       item_id: "{{ collection.id }}", // product id
       item_name: "{{ collection.title }}",
       affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
       coupon: "", //The coupon name/code associated with the item if applied
@@ -275,34 +594,72 @@ dataLayer.push({
       // item_variant: "Velvet", //The item variant or unique code or description for additional item details/options.
       // location_id: "", //Dynamically pass the location_id  if available
      // quantity: "{{ cart.item_count }}", //Item quantity
-      user_id: "{{ customer.id }}"//user id of logged in user   
+      user_id: "{{ customer.id }}"//user id of logged in user
     }
     ]
   }
 });
   });
-        
+
+      </script>
+      <script>
+        //swiper slider
+    var swiper = new Swiper(".mySwiper1", {
+      slidesPerView: 1.3,
+      spaceBetween: 30,
+      loop: true,
+      lazy: true,
+      pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      breakpoints: {
+          640: {
+            slidesPerView: 1.3,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+        },
+      });
       </script>
 <style>
-  #bc-sf-filter-products a.iWishAddColl{
+  #bc-sf-filter-products a.iWishAddColl {
     position: absolute;
     right: 1px;
     top: 4px;
     z-index: 2;
     height: fit-content;
-    padding-left: 11px;
-    padding-top: 11px;
-    padding-right: 11px;
-    padding-bottom: 5px;
-    margin-right: 10px;
-    margin-top: 9px;
-  }
+    padding-left: 10px !important;
+    padding-top: 13px !important;
+    padding-right: 11px !important;
+    padding-bottom: 0px !important;
+    margin-right: 10px !important;
+    margin-top: 9px !important;
+    border-radius: 100px;
+}
+.product-wrap .wishlist-btn {
+    line-height: 1.8 !important;
+}
+.product-wrap .wishlist-btn svg {
+    fill: #fffdfd !important;
+}
   a.iWishAddColl svg {
     stroke: #de0000;
 }
   a.iWishAddColl {
     background: #FFFDFD;
-    box-shadow: 0px 2px 10px rgb(222 0 0 / 20%);
+    box-shadow: 0px 2px 10px rgb(222 0 0 / 20%);z
     border-radius: 100px;
 }
   #bc-sf-filter-products .iwishAdded svg {

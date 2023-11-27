@@ -6,6 +6,8 @@
 {{ image.id }}`~`{{ image.alt }}`~`{{ image | product_img_url: '100x' }}`~`{{ image | product_img_url: '200x' }}`~`{{ image | product_img_url: '400x' }}`~`{{ image | product_img_url: '600x' }}`~`{{ image | product_img_url: '800x' }}`~`{{ image | product_img_url: '1200x' }}`~`{{ image | product_img_url: '2000x' }}`~`{{-image.width-}}px`~`{{-image.height-}}px{% if forloop.last == false %}^{% endif %}
 {% endfor %}
 {% endcapture %}
+
+
 <style>
     .content__box__container {
         display: flex;
@@ -13,6 +15,18 @@
         margin: 30px 0;
         gap: 20px;
     }
+
+  h2.cbb-frequently-bought-title.translatable {
+    color: #444 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, .1) !important;
+    font-family: Poppins;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 28px !important;
+    line-height: 53px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    color: #444;
+}
 
   p.product-sub-title {
     margin: 10px 6px 0px 0px !important;
@@ -28,13 +42,14 @@
     .headerboard__content__design__box {
         position: relative;
         border-left: 6px solid #0093DD;
-        padding: 10px 30px;
+        padding: 10px 0px 0px 20px;
     }
 
     .headerboard__content__design__box__heading {
         font-size: 28px;
         line-height: 32px;
         color: #444444;
+        text-transform: capitalize;
     }
 
     .headerboard__content__design__box__border {
@@ -160,13 +175,14 @@
             display: block;
             position: absolute;
             top: 0;
-            left: 10px;
+            left: 0px;
             border-left: 6px solid #0093DD;
             height: 80px;
         }
 
         .headerboard__content__design__box__heading {
             font-size: 24px;
+            text-transform: capitalize;
         }
 
         .headerboard__content__design__box__border {
@@ -181,11 +197,12 @@
 <main class="main">
     <sction class="content__box__container column">
 
+        {% assign productheadboard = product.metafields.Product %}
         <div class="headerboard__content__design__box">
-            <span class="headerboard__content__design__box__heading">Headboard Design</span>
+            <span class="headerboard__content__design__box__heading">{{productheadboard["headboard_name"]}}</span>
             <div class="headerboard__content__design__box__border"></div>
             <div class="headerboard__content__design__box__mobile__border"></div>
-            {% assign productheadboard = product.metafields.Product %}
+            
             {% if productheadboard["main_headboard"] != 0 and productheadboard["main_headboard"] != blank %}
             <p>
                 {{ productheadboard["main_headboard"] }}
@@ -193,7 +210,7 @@
             {% endif %}
         </div>
         <div class="headerboard__content__design__box">
-            <span class="headerboard__content__design__box__heading">Base Design</span>
+            <span class="headerboard__content__design__box__heading">{{productheadboard["base_name"]}}</span>
             <div class="headerboard__content__design__box__border"></div>
             <div class="headerboard__content__design__box__mobile__border"></div>
             {% assign productboardesigh = product.metafields.Product %}

@@ -1,0 +1,294 @@
+{% unless settings.cart_action == 'ajax' and template contains 'cart' %}
+<div class="cart_content">
+  <div class="js-empty-cart__message {% if cart.item_count > 0 %} hidden{% endif %}">
+     <div class="myempty__cart__image__content">
+      <div class="myemptycart__img">
+        {% render 'side-cart-empty' %}
+      </div>
+      <div class="emptycart__image">
+        <span>No items in your cart</span>
+      </div>
+     </div>
+     <div class="related__empty__state">
+      <div class="res__main__box__parent">
+        <div class="res__content">
+          {% if section.settings.side__cart__collection__heading != blank %}
+<span>{{ section.settings.side__cart__collection__heading }}</span>
+{% endif %}
+      </div>
+      <div class="res__box__of__collection">
+        <div class="swiper mySwiperCartEmpty">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'Text' %}
+            <div class="swiper-slide">
+              <a href="{{ block.settings.side__cart__collection__url }}">
+                <div class="res__box__of__collection__image">
+                <img src="{{ block.settings.side__cart__collection__image | img_url: 'medium' }}"  alt="">
+              </div>
+              <div class="res__box__of__collection__content">
+                <p class="ellipsis-text">{{ block.settings.side__cart__collection__title }}</p>
+                <div class="collection__money">
+                  <span class="side__cart__collection__from">from</span>
+                  <div class="side__cart__money__container">
+                    <span class="price__sidecart">₹</span>
+                  <span class="price__sidecart">{{ block.settings.side__cart__collection__proce }} </span>
+                  </div>
+                </div>
+              </div>
+              </a>
+            </div>
+        {% endcase %}
+      {% endfor %}
+      
+      
+      
+    </div>
+  </div>
+      </div>
+      <div class="res__skip__button_parent">
+        <a href="javascript:void(0)" onclick="mysideCartClose()">Skip & Continue Shopping</a>
+      </div>
+     </div>
+     </div>
+  </div>
+  <form action="/checkout" method="post" data-money-format="{{ shop.money_format }}"
+    data-shop-currency="{{ shop.currency }}" data-shop-name="{{ shop.name | escape }}"
+    class="js-cart_content__form {% if cart.item_count == 0 %}hidden{% endif %}">
+    <div class="myPositionAbsolut">
+      <div class="mychildParent">
+        <div class="mychildLoader">
+          <div class="sidecartLoader"></div>
+        </div>
+      </div>
+    </div>
+   <div class="side__cart__parent__div">
+    <ul class="cart_items js-cart_items clearfix">
+        {% assign total_saving = 0 %}
+        {% for item in cart.items %}
+        {% if item.variant.compare_at_price > item.variant.price %}
+        {% assign saving = item.variant.compare_at_price | minus: item.variant.price | times: item.quantity %}
+        {% assign total_saving = saving | plus: total_saving %}
+        {% endif %}
+  
+        <li class="cart_item">
+            {% if item.image %}
+            <div class="cart_image">
+              <img src="{{ item | img_url: '320x' }}" alt="{{ item.title | escape }}" />
+            </div>
+            {% endif %}
+  
+            <div class="cart_item__title">
+              <div class="item__title__cont">
+                <div class="item_title">
+                  {{ item.product.title }}
+                  {% if item.variant.title == 'Default Title' %}
+                  <div class="variant__title">
+                  </div>
+  {% else %}
+  <div class="variant__title">
+    {{ item.variant.title }}
+  </div>
+  {% endif %}
+                  
+                {% comment %}
+                  
+                  {% unless item.product.has_only_default_variant or item.variant.title contains "Title" %}
+               
+                {% for option in item.product.options %}
+                {{ item.variant.options[forloop.index0] }} {% unless forloop.last %}/{% endunless %}
+                {% endfor %}
+                {% endunless %}
+                {% if item.properties %}
+                {% for p in item.properties %}
+                {% if p.last != blank %}
+                <div class="line-item">
+                  {{ p.first }}: {{ p.last }}
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+                {% endcomment %}
+              </div>
+              <div class="item__delete__icon">
+                <a href="javascript:void(0)" class="icon__sidecart__close" data-item-key="{{ item.key }}">
+                  {% render 'side-cart-trash-icon' %}
+                </a>
+              </div>
+              </div>
+          <div class="qty__price__sideCart">
+            <div class=" left product-quantity-box">
+            <span class="ss-icon product-minus js-change-quantity" data-func="minus"><span
+              class="qty__icon icon-minus"></span></span>
+            {% if item.product.tags contains 'Plastic Chairs' %}
+            <input type="number" min="4" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}"
+              value="{{ item.quantity }}"    data-line-id="{{ forloop.index }}"
+              {% if settings.limit_quantity and item.variant.inventory_management != blank and item.variant.inventory_quantity > 0 and item.variant.inventory_policy == "deny" %}max="{{ item.variant.inventory_quantity }}"
+              {% endif %} />
+            <span class="min4qty" id="minqtyvalue" style="display:none">4</span>
+            {% elsif item.product.tags contains 'Min Quantity Two' %}
+            <input type="number" min="2" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}"
+              value="{{ item.quantity }}"   data-line-id="{{ forloop.index }}"
+              {% if settings.limit_quantity and item.variant.inventory_management != blank and item.variant.inventory_quantity > 0 and item.variant.inventory_policy == "deny" %}max="{{ item.variant.inventory_quantity }}"
+              {% endif %} />
+            <span class="min4qty" id="minqtyvalue" style="display:none">2</span>
+            {% else %}
+            <input type="number" min="0" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}"
+              value="{{ item.quantity }}"   data-line-id="{{ forloop.index }}"
+              {% if settings.limit_quantity and item.variant.inventory_management != blank and item.variant.inventory_quantity > 0 and item.variant.inventory_policy == "deny" %}max="{{ item.variant.inventory_quantity }}"
+              {% endif %} />
+            <span class="min4qty" id="minqtyvalue" style="display:none">0</span>
+            {% endif %}
+            <span class="ss-icon product-plus js-change-quantity" data-func="plus"><span
+                class="icon-plus"></span></span>
+          </div>
+  
+          <strong class="price">
+            {% comment %}
+            {% if item.price < item.variant.compare_at_price %}
+            <span class="money was_price">&#8377;{{ item.variant.compare_at_price | money }}</span>
+            {% endif %}
+            {% endcomment %}
+  
+            <span class="money">&#8377;{{ item.price | money }}</span>
+          </strong>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="mySideCartBtn">
+        <ul class="btn__or__total__div">
+        <li class="cart_subtotal js-cart_subtotal">
+          <span class="right">
+            <span class="money">&#8377; {{ cart.total_price | money }}</span>
+          </span>
+          <span>{{ 'layout.general.subtotal' | t }}</span>
+        </li>
+        {% if settings.display_savings %}
+        <li class="cart_savings sale js-cart_savings">
+          {% if total_saving > 0 %}
+          <span class="right">
+            <span class="money">&#8377;{{ total_saving | money }}</span>
+          </span>
+          <span>{{ 'layout.general.savings' | t }}</span>
+          {% endif %}
+        </li>
+        {% endif %}
+        <li>
+          <span class="shipping__title">Shipping calculated at checkout</span>
+          {% if settings.display_special_instructions and settings.go_to_checkout %}
+          <textarea id="note" name="note" rows="2" placeholder="{{ 'layout.general.cart_note' | t }}"
+            class="clearfix">{{ cart.note }}</textarea>
+          {% endif %}
+  
+          {% if settings.display_tos_checkbox and settings.go_to_checkout %}
+          <p class="tos">
+            <input type="checkbox" class="tos_agree" id="sliding_agree" required />
+            <label class="tos_label">
+              {{ 'cart.general.agree_to_terms_html' | t }}
+            </label>
+            {% if settings.tos_page != blank %}
+            <a href="{{ pages[settings.tos_page].url }}" target="_blank"
+              class="tos_icon">{{ 'cart.general.view_terms' | t }}</a>
+            {% endif %}
+          </p>
+          {% endif %}
+  
+          {% if settings.cart_message != blank %}
+          <div class="cart_text">
+            {{ settings.cart_message }}
+          </div>
+          {% endif %}
+  
+          <input type="submit" class="action_button reverse"
+            value="{% if settings.go_to_checkout %}{{ 'layout.general.checkout' | t }}{% else %}{{ 'layout.general.go_to_cart' | t }}{% endif %}" />
+        </li>
+        <!--  Magic Checkout 1CC Begins -->
+        {%- if shop.metafields.magic_checkout.buyNowEnabled == false -%}
+        {{ form | payment_button }}
+        {%- else -%}
+        <div style="margin:12px;" id="header-706">
+          <magic-checkout-btn page-type="product" border-radius="40px" onclick="openRzpCheckout(event)">
+          </magic-checkout-btn>
+        </div>
+        {%- endif -%}
+        <!--  Magic Checkout 1CC ends -->
+      </ul>
+      </div>
+   </div>
+  </form>
+</div>
+{% endunless %}
+<script>
+  var swiper = new Swiper(".mySwiperCartEmpty", {
+    slidesPerView: 1.5,
+    spaceBetween: 20,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    },
+    breakpoints: {
+      640: {
+        slidesPerView:1.5 ,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 2.3,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 2.3,
+        spaceBetween: 20,
+      },
+    },
+  });
+
+ /* $(document).on("click", ".icon__sidecart__close", function() {
+    //console.log("itemKey : " + itemKey);
+    var itemKey = $(this).data('item-key');
+    var itemToRemove = $(this).closest('.cart_item');
+    $.ajax({
+      type: 'POST',
+      url: '/cart/update.js',
+      data: {
+        updates: { [itemKey]: 0 } 
+      },
+      dataType: 'json',
+      success: function(cart) {
+        refreshCart(cart);
+        itemToRemove.hide();
+      },
+      error: function() {
+        
+        alert("Error");
+      }
+    });
+  });*/
+
+  $(document).on("click", ".icon__sidecart__close", function() {
+  var itemKey = $(this).data('item-key');
+  var itemToRemove = $(this).closest('.cart_item');
+  itemToRemove.hide();
+  $('.myPositionAbsolut').show();
+  $.ajax({
+    type: 'POST',
+    url: '/cart/update.js',
+    data: {
+      updates: { [itemKey]: 0 } 
+    },
+    dataType: 'json',
+    success: function(cart) {
+      refreshCart(cart);
+      $('.myPositionAbsolut').hide();
+    },
+    error: function() {
+      alert("Error");
+      // If you want to show the div again in case of an error, you can use itemToRemove.show();
+    }
+  });
+});
+
+
+</script>
+

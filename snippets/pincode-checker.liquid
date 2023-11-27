@@ -2,73 +2,127 @@
   .product-pincode-info {
     position: relative;
   }
-
+  
   .preloader {
     position: absolute;
     width: 73%;
     height: 100%;
     z-index: 2;
     display: block;
-    background: #fff;
+    background: transparent;
     padding: 0;
     display: none;
-
+    
   }
-
+  
+  @media(max-width:764px) {
+    .preloader__position {
+      top: 26px !important;
+    }
+    .pd-deliver-info tr {
+      margin-bottom: 50px !important;
+    }
+    
+    .product__delivery__info__modular,
+    .product__delivery__info__modular .dt-title {
+      border-bottom: 0 solid rgba(0, 0, 0, 0) !important;
+    }
+    
+    .product__delivery__info__modular {
+      border-bottom: 0 solid #000 !important;
+    }
+    
+  }
+  
   .ErrDiv {
     color: red;
   }
-
   .left-col-modular {
     display: flex;
   }
+  .pd-deliver-info table td {
+    white-space: nowrap !important;
+    padding-top: 10px;
+  }
+  
+  .pd-deliver-info table tr,
+  .pd-deliver-info table td,
+  .pd-deliver-info table th {
+    border-bottom: 0 solid #fff !important;
+    border-right: 0 solid #fff !important;
+    border-top: 0 solid #fff !important;
+  }
+  
+  .preloader__position {
+    border-radius: 10px;
+  }
+  
+  .pd-deliver-info table {
+    background-color: #fff;
+    border: 1px solid white;
+    border-collapse: collapse;
+  }
 </style>
-
-<div class="left-col {% if product.tags contains  'modular-bed'%} left-col-modular{%endif%}">
-  <div class="lds-ellipsis preloader">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+<div class="left-col{% if product.tags contains  'modular-bed'%} left-col-modular{%endif%}">
   <p class="product-sub-title">Pincode</p>
   <div class="pincode-checker pincode-check-page">
     <div id="variant-inventory" class="zip-input-show">
-
-
+      
+      
       <div class="input-group relative pincode-infoss">
-
+        
         <input
-          type="text"
-          class="input-pincode pincode_ckecker_service number_only"
-          name="pincode"
-          placeholder="Enter Pincode"
-          value="{{cart.attributes.pincode}}"
-          maxlength="6"
-          minlength="6" />
+        type="text"
+        class="input-pincode pincode_ckecker_service number_only"
+        name="pincode"
+        placeholder="Enter Pincode"
+        value="{{cart.attributes.pincode}}"
+        maxlength="6"
+        minlength="6" />
+        <div class="lds-ellipsis preloader {% if product.tags contains  'modular-bed'%} preloader__position{%endif%}">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <input
-          type="button"
-          class="action_button reverse check_pincode"
-          value="Check" />
+        type="button"
+        class="action_button reverse check_pincode"
+        value="Check" />
       </div>
     </div>
     <p class="product_order_text"></p>
-    <div class="pd-deliver-info"></div>
-
+    <div class="pd-deliver-info {% if product.tags contains 'modular-bed' %}product__delivery__info__modular {% endif %}"></div>
+    
   </div>
 </div>
-<script>
 
+{%- if product.tags contains 'knockdown' -%}
+  <script>
+    window.product_type = 1;
+  </script>
+{%- elsif product.tags contains 'DIY' -%}
+  <script>
+    window.product_type = 2;
+  </script>
+{%- else -%}
+  <script>
+    window.product_type = 0; // Or set it to another default value
+  </script>
+{%- endif -%}
+
+<script>
+  
   function addTOcartDisable1() {
     $(".ErrDiv ").remove();
     var pincode_val = $(".pincode_ckecker_service").val();
     if (pincode_val == '') {
       $('.product_order_text').html('');
-      $('.product_order_text').html('Please enter pincode').css("color", "#2e7295");
+      $('.product_order_text').html('Please enter pincode').css("color", "red");
     }
   }
-
-
+  
+  
   function addPincodeCart(pincode) {
     $.ajax({
       type: 'POST',
@@ -83,70 +137,77 @@
       success: function() {}
     });
   }
-
+  
   $(".number_only").keypress(function(h) {
     if (8 != h.which && 0 != h.which && 32 != h.which && (h.which < 48 || h.which > 57)) 
-      return !1
-
+    return !1
     
-
   });
+
+  
   $('.check_pincode').click(function(e) {
     $('.preloader').css('display', 'block');
     $('.product_order_text').html('');
     $('.preloader').css('display', 'block');
-    var url = "https://admin.nilkamalfurniture.com/api/get-pincodecheckerdata";
-    var pincode = $('.pincode_ckecker_service').val();
-    var qty = $('#quantity').val();
-    var sku = '{{ variant.sku }}';
 
-    var variant_id = '{{ variant.id }}';
-    console.log("k1", variant_id)
     var numericReg = /^\d*[0-9](|.\d*[0-9]|,\d*[0-9])?$/; // Number Validation
     var num6charReg = /^((?!(0))[0-9]{6})$/; // Number and only ^ Chart
+    var url = "https://admin.nilkamalfurniture.com/api/get-pincodecheckerdata";
+    var pincode = $('.pincode_ckecker_service').val();
+    var qty = parseInt($('#quantity').val());
+    var product_type = window.product_type;
 
-    var sku_qty = 0;
-    var sku_available = '';
-
+    var variant_id = Cookies.get("variant_id");
+    // console.log("BI01 variant_id", variant_id)
+    if (variant_id == ""){
+      variant_id = '{{ variant.id }}';
+      var sku = '{{ variant.sku }}';
+      var sku_qty = '{{variant.inventory_quantity}}';
+      var sku_available = '{{ variant.available }}';
+       var product_type = window.product_type;
+    } else {
+      var sku = Cookies.get("sku");
+      var sku_qty = Cookies.get("sku_qty");
+      var sku_available = Cookies.get("sku_available");
+       var product_type = window.product_type;
+    }
+    
+    var qty = parseInt($('#quantity').val());
     var date = new Date();
     date.setDate(date.getDate() + 14);
-
     var delivery_date = date.toLocaleDateString('en-us', {
       day: "numeric",
       month: "short",
       year: "numeric"
     });
-
+    
     var pincode_length = pincode.length;
-    var qty = parseInt($('#quantity').val());
-
-
-    window._VARIANTS = {};{% for variant in product.variants %}window._VARIANTS[{{ variant.id }}] = [
-        {{ variant.inventory_quantity }}, {{ variant.available }}
-      ],{% endfor %}$.each(window._VARIANTS, function(j, variantQty) {
-
-// console.log("BI01", variantQty);
-      if (j == variant_id) {
-        sku_qty = variantQty[0];
-
-        sku_available = variantQty[1];
-
-        return false;
-      }
-    });
-
-    console.log("sku_available", sku_available)
-    console.log("sku_qty", sku_qty)
-
+    // window._VARIANTS = {};{% for variant in product.variants %}window._VARIANTS[{{ variant.id }}] = [
+    // {{ variant.inventory_quantity }}, {{ variant.available }}
+    // ],{% endfor %}$.each(window._VARIANTS, function(j, variantQty) {
+      
+    //   // console.log("BI01", variantQty);
+    //   if (j == variant_id) {
+    //     sku_qty = variantQty[0];
+        
+    //     sku_available = variantQty[1];
+        
+    //     return false;
+    //   }
+    // });
+    // console.log("sku_available", sku_available)
+    // console.log("sku_qty", sku_qty)
+    
     if (pincode == '') {
       $('.preloader').css('display', 'none');
       $('.product_order_text').html('Please enter pincode').css("color", "red");
-
+      
     } else if (pincode_length >= 7) {
       $('.preloader').css('display', 'none');
       $('.product_order_text').html('Please enter pincode only 6 digit').css("color", "red");
     } else {
       e.preventDefault();
+      console.log("BI01 Before Ajax",pincode, sku, qty,sku_qty,sku_available );
       $.ajax({
         url: url,
         type: 'POST',
@@ -156,7 +217,8 @@
           sku: sku,
           qty: qty,
           sku_qty: sku_qty,
-          sku_available: sku_available
+          sku_available: sku_available,
+          product_type: product_type
         },
         success: function(res) {
           $('.preloader').css('display', 'none');
@@ -164,17 +226,14 @@
           if (response_data.indexOf('Your Pincode is not Servicable.') != -1) {
             return false;
           }
-
-
           $('.product_order_text').html('');
           $('.pd-deliver-info').css('display', 'block');
           $('.pincode-infoss').hide();
           $('.pd-deliver-info').html(res.data);
-
+          
           if (res.success == false) {
             $('.pd-deliver-info').html(res.data)
             return false;
-
           } else {
             $("input.input-pincode.pincode_ckecker_service").val(pincode);
             $('.pd-deliver-info').html(res.data)
@@ -183,6 +242,7 @@
             $(".custom_payment__button").hide();
             $(".shopify-payment-button").show();
             addPincodeCart(pincode, res.success);
+            console.log("BI01 After Check", pincode, res.success, " & ",window.product_type ," = window.product_type");
           }
         },
         error: function() {
@@ -191,16 +251,16 @@
       });
     }
   });
-
+  
   function changetopincode() {
     $(".shopify_button").hide();
     $(".custom_cart_action_button").show();
-
+    
     $('.product_order_text').html('');
     $('.pd-deliver-info').html('');
     $('.pincode-infoss').show();
   }
-
+  
   $(document).ready(function(e) {
     var pincode_val = $('.pincode_ckecker_service').val();
     if (pincode_val != '') {
@@ -214,28 +274,15 @@
         $("#zip-check").click();
         return false;
       }
-    });
-
-
+    });    
   });
 </script>
 <style>
   .lds-ellipsis {
     position: absolute;
-    width: 83px;
-    height: 23px;
-    left: 87%;
-    top: 22%;
+    left: 90%;
+    top: 30%;
   }
-  {% if product.tags contains 'modular-bed' %}
-    .lds-ellipsis {
-      position: absolute;
-      width: 83px;
-      height: 23px;
-      left: 87%;
-      top: 22%;
-    }
-  {% endif %}
   .lds-ellipsis div {
     position: absolute;
     top: 0;
@@ -245,54 +292,50 @@
     background: #00AAFF;
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
   }
-
   .lds-ellipsis div:nth-child(1) {
     left: 8px;
     animation: lds-ellipsis1 0.6s infinite;
   }
-
   .lds-ellipsis div:nth-child(2) {
     left: 8px;
     animation: lds-ellipsis2 0.6s infinite;
   }
-
   .lds-ellipsis div:nth-child(3) {
     left: 32px;
     animation: lds-ellipsis2 0.6s infinite;
   }
-
   .lds-ellipsis div:nth-child(4) {
     left: 56px;
     animation: lds-ellipsis3 0.6s infinite;
   }
-
   @keyframes lds-ellipsis1 {
     0% {
       transform: scale(0);
     }
-
     100% {
       transform: scale(1);
     }
   }
-
   @keyframes lds-ellipsis3 {
     0% {
       transform: scale(1);
     }
-
     100% {
       transform: scale(0);
     }
   }
-
   @keyframes lds-ellipsis2 {
     0% {
       transform: translate(0, 0);
     }
-
     100% {
       transform: translate(24px, 0);
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .lds-ellipsis {
+      left: 92% !important;
+      top: 35% !important;
     }
   }
 </style>

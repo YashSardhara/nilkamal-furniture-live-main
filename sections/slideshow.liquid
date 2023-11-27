@@ -4,6 +4,57 @@
 - Uses blocks
 {% endcomment %}
 
+
+<style>
+  .video_mobile_index {
+    display: none;
+  }
+
+  .head_vid-banner {
+    max-width: 1400px;
+    margin: 0px auto;
+  }
+
+  #shopify-section-a50f909c-4e0e-42a5-bdfc-ae49c3130c81 .collection_swatches {
+    display: none;
+  }
+
+  #shopify-section-a50f909c-4e0e-42a5-bdfc-ae49c3130c81 {
+    margin-bottom: -30px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .video_desktop_index {
+      display: none;
+    }
+
+    .video_mobile_index {
+      display: block;
+    }
+
+{% comment %}     #shopify-section-a50f909c-4e0e-42a5-bdfc-ae49c3130c81 {
+      margin-bottom: -100px;
+    } {% endcomment %}
+
+    .head_vid-banner .video_mobile_index {
+      min-height: 256px;
+    }
+  }
+
+</style>
+{% comment %}
+<div class="head_vid-banner">
+  <a href="https://www.nilkamalfurniture.com/collections/best-deals-1"><video autoplay muted loop
+      class="video_desktop_index lazyload">
+      <source src="https://cdn.shopify.com/videos/c/o/v/1ac76763b9f446eba066dcaae0f6b4a2.mp4">
+    </video></a>
+  <a href="https://www.nilkamalfurniture.com/collections/best-deals-1"><video autoplay muted loop playsinline
+      class="video_mobile_index lazyload">
+      <source src="https://cdn.shopify.com/videos/c/o/v/eebdc8dea27c4fb0975ea520f0b458c6.mp4">
+    </video></a>
+</div>
+{% endcomment %}
+
 {% assign default = '1400x' %}
 {% assign size1 = '480x' %}
 {% assign size2 = '765x' %}
@@ -17,27 +68,20 @@
 {% assign size10 = '2000x' %}
 
 {% if section.blocks.size > 0 %}
-  <div class="container">
-    <section
-      id="homepage_slider-{{section.id}}"
-      class="homepage-slideshow  js-homepage-slideshow slideshow_animation--{{ section.settings.slideshow_animation }} {% if section.settings.slideshow_text_animation != '' %}text-animation--true{% else %}text-animation--false{% endif %} {% if settings.slideshow_button_style != true %}light-button{% endif %}"
-      data-slider-id="homepage_slider-{{section.id}}"
-      data-slideshow-speed="{{section.settings.slideshow_speed}}"
-      data-slideshow-text-animation="{{section.settings.slideshow_text_animation}}"
-      data-adaptive-height="{{section.settings.activate_adaptiveHeight}}">
-      {% for block in section.blocks %}
-        <div
-          class="gallery-cell slide-{{ forloop.index }} "
-          {{ block.shopify_attributes }}
-          data-block-id="{{block.id}}">
-          {% if block.settings.image != nil %}
-            <img
-              src="{{ block.settings.image | img_url: '100x', format: 'pjpg' }}"
-              class="lazyload visible-desktop {{ settings.image_loading_style }}"
-              alt="{{ block.settings.image.alt | escape }}"
-              sizes="100vw"
-              data-src="{{ block.settings.image | img_url: default, format: 'pjpg' }}"
-              srcset="
+<div class="">
+  <section id="homepage_slider-{{section.id}}"
+    class="homepage-slideshow  js-homepage-slideshow slideshow_animation--{{ section.settings.slideshow_animation }} {% if section.settings.slideshow_text_animation != '' %}text-animation--true{% else %}text-animation--false{% endif %} {% if settings.slideshow_button_style != true %}light-button{% endif %}"
+    data-slider-id="homepage_slider-{{section.id}}" data-slideshow-speed="{{section.settings.slideshow_speed}}"
+    data-slideshow-text-animation="{{section.settings.slideshow_text_animation}}"
+    data-adaptive-height="{{section.settings.activate_adaptiveHeight}}">
+    {% for block in section.blocks %}
+    <div class="gallery-cell slide-{{ forloop.index }} " {{ block.shopify_attributes }} data-block-id="{{block.id}}">
+      {% if block.settings.image != nil %}
+      <img loading="lazy" src="{{ block.settings.image | img_url: '100x', format: 'pjpg' }}"
+        class="lazyload visible-desktop {{ settings.image_loading_style }}"
+        alt="{{ block.settings.image.alt | escape }}" sizes="100vw"
+        data-src="{{ block.settings.image | img_url: default, format: 'pjpg' }}"
+        srcset="
                                                                                                                                                                    {{ block.settings.image | img_url: default, format: 'pjpg' }} {{default | replace: 'x', 'w'}},
                                                                                                                                                                    {{ block.settings.image | img_url: size1, format: 'pjpg' }} {{size1 | replace: 'x', 'w'}},
                                                                                                                                                                    {{ block.settings.image | img_url: size2, format: 'pjpg' }} {{size2 | replace: 'x', 'w'}},
@@ -49,13 +93,11 @@
                                                                                                                                                                    {{ block.settings.image | img_url: size8, format: 'pjpg' }} {{size8 | replace: 'x', 'w'}},
                                                                                                                                                                    {{ block.settings.image | img_url: size9, format: 'pjpg' }} {{size9 | replace: 'x', 'w'}},
                                                                                                                                                                    {{ block.settings.image | img_url: size10, format: 'pjpg' }} {{size10 | replace: 'x', 'w'}}" />
-            <img
-              src="{{ block.settings.mobimage | img_url: '100x', format: 'pjpg' }}"
-              class="visible-mobile lazyload {{ settings.image_loading_style }}"
-              alt="{{ block.settings.mobimage.alt | escape }}"
-              sizes="100vw"
-              data-src="{{ block.settings.mobimage | img_url: default, format: 'pjpg' }}"
-              srcset="
+      <img src="{{ block.settings.mobimage | img_url: '100x', format: 'pjpg' }}"
+        class="visible-mobile lazyload {{ settings.image_loading_style }}"
+        alt="{{ block.settings.mobimage.alt | escape }}" sizes="100vw"
+        data-src="{{ block.settings.mobimage | img_url: default, format: 'pjpg' }}"
+        srcset="
                                                                                                                                                                    {{ block.settings.mobimage | img_url: default, format: 'pjpg' }} {{default | replace: 'x', 'w'}},
                                                                                                                                                                    {{ block.settings.mobimage | img_url: size1, format: 'pjpg' }} {{size1 | replace: 'x', 'w'}},
                                                                                                                                                                    {{ block.settings.mobimage | img_url: size2, format: 'pjpg' }} {{size2 | replace: 'x', 'w'}},
@@ -67,291 +109,299 @@
                                                                                                                                                                    {{ block.settings.mobimage | img_url: size8, format: 'pjpg' }} {{size8 | replace: 'x', 'w'}},
                                                                                                                                                                    {{ block.settings.mobimage | img_url: size9, format: 'pjpg' }} {{size9 | replace: 'x', 'w'}},
                                                                                                                                                                    {{ block.settings.mobimage | img_url: size10, format: 'pjpg' }} {{size10 | replace: 'x', 'w'}}" />
-          {% else %}
-            {% capture i %}
-              {% cycle "1", "2" %}{% endcapture %}
-            {{ 'lifestyle-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--slideshow' }}
-          {% endif %}
-          {% unless block.settings.button1_link != blank and block.settings.button2_link != blank %}
-            {% if block.settings.button1_link != blank %}
-              <a href="{{ block.settings.button1_link }}" class="banner-full-link">
-                {{ block.settings.title }}
-              </a>
-            {% elsif block.settings.button2_link != blank %}
-              <a href="{{ block.settings.button2_link }}" class="banner-full-link">
-                {{ block.settings.title }}
-              </a>
-            {% endif %}
-          {% endunless %}
-          {% unless block.settings.pretext == blank and block.settings.title == blank and block.settings.subtitle == blank and block.settings.button1 == blank and block.settings.button2 == blank %}
-            <div class="caption position-{{block.settings.text_position}} js-caption">
-              <div class="caption-content
+      {% else %}
+      {% capture i %}
+      {% cycle "1", "2" %}{% endcapture %}
+      {{ 'lifestyle-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--slideshow' }}
+      {% endif %}
+      {% unless block.settings.button1_link != blank and block.settings.button2_link != blank %}
+      {% if block.settings.button1_link != blank %}
+      <a href="{{ block.settings.button1_link }}" class="banner-full-link">
+        {{ block.settings.title }}
+      </a>
+      {% elsif block.settings.button2_link != blank %}
+      <a href="{{ block.settings.button2_link }}" class="banner-full-link">
+        {{ block.settings.title }}
+      </a>
+      {% endif %}
+      {% endunless %}
+      {% unless block.settings.pretext == blank and block.settings.title == blank and block.settings.subtitle == blank and block.settings.button1 == blank and block.settings.button2 == blank %}
+      <div class="caption position-{{block.settings.text_position}} js-caption">
+        <div
+          class="caption-content
                                                                                                                                                                                       caption-background-{{block.settings.caption_background}}
                                                                                                                                                                                       caption-transparency-{{ block.settings.caption_background_transparency }}
                                                                                                                                                                                       align-{{block.settings.text_align}}">
-                {% if block.settings.pretext != blank %}
-                  <div class="pretext">
-                    {{ block.settings.pretext }}
-                  </div>
-                {% endif %}
-                {% if forloop.first == true and block.settings.title != blank %}
-                  <h1 class="headline">
-                    {{ block.settings.title }}
-                  </h1>
-                {% elsif block.settings.title != blank %}
-                  <p class="headline">
-                    {{ block.settings.title }}
-                  </p>
-                {% endif %}
-                {% if block.settings.subtitle != blank %}
-                  <div class="subtitle">
-                    {{ block.settings.subtitle }}
-                  </div>
-                {% endif %}
-                {% if block.settings.button1 != blank %}
-                  <a {% if block.settings.button1_link != blank %}href="{{ block.settings.button1_link }}"{% endif %} class="action_button first_button highlight-{{block.settings.button1_highlight}}">
-                    {{ block.settings.button1 }}
-                  </a>
-                {% endif %}
-                {% if block.settings.button2 != blank %}
-                  <a {% if block.settings.button2_link != blank %}href="{{ block.settings.button2_link }}"{% endif %} class="action_button second_button highlight-{{block.settings.button2_highlight}}">
-                    {{ block.settings.button2 }}
-                  </a>
-                {% endif %}
-              </div>
-            </div>
-          {% endunless %}
+          {% if block.settings.pretext != blank %}
+          <div class="pretext">
+            {{ block.settings.pretext }}
+          </div>
+          {% endif %}
+          {% if forloop.first == true and block.settings.title != blank %}
+          <h1 class="headline">
+            {{ block.settings.title }}
+          </h1>
+          {% elsif block.settings.title != blank %}
+          <p class="headline">
+            {{ block.settings.title }}
+          </p>
+          {% endif %}
+          {% if block.settings.subtitle != blank %}
+          <div class="subtitle">
+            {{ block.settings.subtitle }}
+          </div>
+          {% endif %}
+          {% if block.settings.button1 != blank %}
+          <a {% if block.settings.button1_link != blank %}href="{{ block.settings.button1_link }}" {% endif %}
+            class="action_button first_button highlight-{{block.settings.button1_highlight}}">
+            {{ block.settings.button1 }}
+          </a>
+          {% endif %}
+          {% if block.settings.button2 != blank %}
+          <a {% if block.settings.button2_link != blank %}href="{{ block.settings.button2_link }}" {% endif %}
+            class="action_button second_button highlight-{{block.settings.button2_highlight}}">
+            {{ block.settings.button2 }}
+          </a>
+          {% endif %}
         </div>
-      {% endfor %}
-    </section>
-  </div>
+      </div>
+      {% endunless %}
+    </div>
+    {% endfor %}
+  </section>
+</div>
 {% endif %}
 
 {% schema %}
 
-  {
-    "name": "Slideshow",
-    "class": "slideshow-section under-menu",
-    "settings": [
-      {
-        "type": "select",
-        "id": "slideshow_text_animation",
-        "label": "Text animation",
-        "options": [
-          {
-            "value": "",
-            "label": "None"
-          }, {
-            "value": "fadeIn",
-            "label": "Fade In"
-          }, {
-            "value": "fadeInUp",
-            "label": "Fade Up"
-          }, {
-            "value": "fadeInDown",
-            "label": "Fade Down"
-          }
-        ],
-        "default": "fadeInDown"
-      }, {
-        "type": "select",
-        "id": "slideshow_animation",
-        "label": "Gallery transition",
-        "options": [
-          {
-            "value": "slide",
-            "label": "Slide"
-          }, {
-            "value": "fade",
-            "label": "Fade"
-          }
-        ],
-        "default": "slide"
-      }, {
-        "type": "range",
-        "id": "slideshow_speed",
-        "label": "Change slides every",
-        "min": 4,
-        "max": 12,
-        "step": 1,
-        "default": 6,
-        "unit": "sec"
-      }, {
-        "type": "checkbox",
-        "id": "activate_adaptiveHeight",
-        "label": "Enable adaptive height",
-        "info": "Slideshow will adjust based on height of individual slides"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "image",
-        "name": "Slide",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image",
-            "info": "1600 x 1000px recommended"
-          },
-          {
-            "type": "image_picker",
-            "id": "mobimage",
-            "label": "Mobile Image"
-          },
-          {
-            "type": "richtext",
-            "id": "pretext",
-            "label": "Preheading"
-          },
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Heading",
-            "default": "Your headline"
-          }, {
-            "type": "richtext",
-            "id": "subtitle",
-            "label": "Subheading"
-          }, {
-            "type": "select",
-            "id": "text_position",
-            "label": "Text position",
-            "options": [
-              {
-                "value": "left",
-                "label": "Left"
-              }, {
-                "value": "center",
-                "label": "Center"
-              }, {
-                "value": "right",
-                "label": "Right"
-              }
-            ],
-            "default": "center"
-          }, {
-            "type": "select",
-            "id": "text_align",
-            "label": "Text alignment",
-            "options": [
-              {
-                "value": "left",
-                "label": "Left"
-              }, {
-                "value": "center",
-                "label": "Center"
-              }, {
-                "value": "right",
-                "label": "Right"
-              }
-            ],
-            "default": "center"
-          }, {
-            "type": "checkbox",
-            "id": "caption_background",
-            "label": "Display text background"
-          }, {
-            "type": "checkbox",
-            "id": "caption_background_transparency",
-            "label": "Enable text background transparency"
-          }, {
-            "type": "text",
-            "id": "button1",
-            "label": "First button label"
-          }, {
-            "type": "url",
-            "id": "button1_link",
-            "label": "First slide link"
-          }, {
-            "type": "checkbox",
-            "id": "button1_highlight",
-            "label": "Highlight first button"
-          }, {
-            "type": "text",
-            "id": "button2",
-            "label": "Second button label"
-          }, {
-            "type": "url",
-            "id": "button2_link",
-            "label": "Second slide link"
-          }, {
-            "type": "checkbox",
-            "id": "button2_highlight",
-            "label": "Highlight second button"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Slideshow",
-        "category": "Image",
-        "settings": {},
-        "blocks": [
-          {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "title": "Turbo Shopify Theme",
-              "subtitle": "",
-              "text_align": "center"
-            }
-          }, {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "title": "",
-              "subtitle": "",
-              "text_align": "center"
-            }
-          }
-        ]
-      }
-    ]
-  }
+{
+"name": "Slideshow",
+"class": "slideshow-section under-menu",
+"settings": [
+{
+"type": "select",
+"id": "slideshow_text_animation",
+"label": "Text animation",
+"options": [
+{
+"value": "",
+"label": "None"
+}, {
+"value": "fadeIn",
+"label": "Fade In"
+}, {
+"value": "fadeInUp",
+"label": "Fade Up"
+}, {
+"value": "fadeInDown",
+"label": "Fade Down"
+}
+],
+"default": "fadeInDown"
+}, {
+"type": "select",
+"id": "slideshow_animation",
+"label": "Gallery transition",
+"options": [
+{
+"value": "slide",
+"label": "Slide"
+}, {
+"value": "fade",
+"label": "Fade"
+}
+],
+"default": "slide"
+}, {
+"type": "range",
+"id": "slideshow_speed",
+"label": "Change slides every",
+"min": 4,
+"max": 12,
+"step": 1,
+"default": 6,
+"unit": "sec"
+}, {
+"type": "checkbox",
+"id": "activate_adaptiveHeight",
+"label": "Enable adaptive height",
+"info": "Slideshow will adjust based on height of individual slides"
+}
+],
+"blocks": [
+{
+"type": "image",
+"name": "Slide",
+"settings": [
+{
+"type": "image_picker",
+"id": "image",
+"label": "Image",
+"info": "1600 x 1000px recommended"
+},
+{
+"type": "image_picker",
+"id": "mobimage",
+"label": "Mobile Image"
+},
+{
+"type": "richtext",
+"id": "pretext",
+"label": "Preheading"
+},
+{
+"type": "text",
+"id": "title",
+"label": "Heading",
+"default": "Your headline"
+}, {
+"type": "richtext",
+"id": "subtitle",
+"label": "Subheading"
+}, {
+"type": "select",
+"id": "text_position",
+"label": "Text position",
+"options": [
+{
+"value": "left",
+"label": "Left"
+}, {
+"value": "center",
+"label": "Center"
+}, {
+"value": "right",
+"label": "Right"
+}
+],
+"default": "center"
+}, {
+"type": "select",
+"id": "text_align",
+"label": "Text alignment",
+"options": [
+{
+"value": "left",
+"label": "Left"
+}, {
+"value": "center",
+"label": "Center"
+}, {
+"value": "right",
+"label": "Right"
+}
+],
+"default": "center"
+}, {
+"type": "checkbox",
+"id": "caption_background",
+"label": "Display text background"
+}, {
+"type": "checkbox",
+"id": "caption_background_transparency",
+"label": "Enable text background transparency"
+}, {
+"type": "text",
+"id": "button1",
+"label": "First button label"
+}, {
+"type": "url",
+"id": "button1_link",
+"label": "First slide link"
+}, {
+"type": "checkbox",
+"id": "button1_highlight",
+"label": "Highlight first button"
+}, {
+"type": "text",
+"id": "button2",
+"label": "Second button label"
+}, {
+"type": "url",
+"id": "button2_link",
+"label": "Second slide link"
+}, {
+"type": "checkbox",
+"id": "button2_highlight",
+"label": "Highlight second button"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Slideshow",
+"category": "Image",
+"settings": {},
+"blocks": [
+{
+"type": "image",
+"settings": {
+"image": "",
+"title": "Turbo Shopify Theme",
+"subtitle": "",
+"text_align": "center"
+}
+}, {
+"type": "image",
+"settings": {
+"image": "",
+"title": "",
+"subtitle": "",
+"text_align": "center"
+}
+}
+]
+}
+]
+}
 {% endschema %}
 
 {% include 'tendays-section' %}
 {% comment %}
 <div class="tendeals">
   <div>
-    <a href="https://www.nilkamalfurniture.com/products/nilkamal-baylor-shoe-cabinet-walnut-white">
-      <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Baylor_Shoe_Cabinet.png?v=1674455696" alt="first-deal" />
-      <p class="tendays-title">Nilkamal Baylor Shoe Cabinet</p>
+    <a href="https://www.nilkamalfurniture.com/products/nilkamal-rosia-pine-wood-1-seater-recliner-sofa-light-brown">
+      <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Artboard_1-1_49a963cc-65ce-46d1-8a7a-0b13ef5c3cee.jpg?v=1689330779"
+        alt="first-deal" />
+      <p class="tendays-title">Nilkamal Rosia 1 Seater Manual Recliner Sofa </p>
       <p class="tendays-mrp">
-        MRP: 14,500
+        MRP: 37,500
       </p>
       <p class="tendays-sp">
-        Selling Price: 9,900
+        Selling Price: 23,500
       </p>
     </a>
   </div>
 
   <div>
-    <a href="https://www.nilkamalfurniture.com/products/nilkamal-alpine-shoe-cabinet-classic-walnut">
-      <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Alpine_Shoe_Cabinet_Classic_Walnut.png?v=1674455697" alt="second-deal" />
-      <p class="tendays-title">Nilkamal Alpine Shoe Cabinet</p>
+    <a href="https://www.nilkamalfurniture.com/products/nilkamal-sierra-engineered-wood-1-seater-recliner-sofa-brown">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Artboard_1_a6216dda-8ccb-45c3-ba99-6489c850b493.jpg?v=1689330779"
+        alt="second-deal" />
+      <p class="tendays-title">Nilkamal Sierra 1 Seater Manual Recliner Sofa </p>
       <p class="tendays-mrp">
-        MRP: 8,000
+        MRP: 47,900
       </p>
       <p class="tendays-sp">
-        Selling Price: 6,000
+        Selling Price:17,500
       </p>
     </a>
 
   </div>
   <div>
-    <a href="https://www.nilkamalfurniture.com/products/nilkamal-tuskar-shoe-cabinet-walnut">
-      <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Tuskar_Shoe_Cabinet.png?v=1674455697" alt="third-deal" />
-      <p class="tendays-title">Nilkamal Tuskar Shoe Cabinet</p>
+    <a href="https://www.nilkamalfurniture.com/products/nilkamal-skelton-1-seater-recliner-brown">
+      <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Artboard_1-2_a64bbd8d-ed26-4034-839c-ce6da55d4a66.jpg?v=1689330778"
+        alt="third-deal" />
+      <p class="tendays-title">Nilkamal Skelton 1 Seater Manual Recliner</p>
       <p class="tendays-mrp">
-        MRP: 10,700
+        MRP: 39,000
       </p>
       <p class="tendays-sp">
-        Selling Price: 7,500
+        Selling Price: 23,900
       </p>
     </a>
   </div>
 </div>
 {% endcomment %}
+

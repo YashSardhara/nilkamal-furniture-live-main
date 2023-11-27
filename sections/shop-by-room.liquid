@@ -1,4 +1,20 @@
-<div class="container">
+<style>
+  .mobile_gifimg {
+    display: none;
+  }
+@media only screen and (max-width: 600px) {
+  .desktop_gifimg {
+    display: none;
+  }
+  .mobile_gifimg {
+    display: block;
+  }
+}
+</style>
+<div class="">
+  <!-- <a href="https://www.nilkamalfurniture.com/pages/modular-beds?utm_source=home+page&utm_medium=Banner&utm_campaign=Bed+Banao&utm_id=Modular+Beds+Home"><img class="desktop_gifimg lazyload" data-src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/desktop_e1dd9a89-4285-4f68-bcbb-80500daa0515.gif?v=1686055939" width="100%"></a>
+  <a href="https://www.nilkamalfurniture.com/pages/modular-beds?utm_source=home+page&utm_medium=Banner&utm_campaign=Bed+Banao&utm_id=Modular+Beds+Home"><img class="mobile_gifimg lazyload" data-src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/mobile_196f2424-3ea4-4f90-8328-2d31197e3d7e.gif?v=1686055939" width="100%"></a>
+  -->
   <div class="section clearfix homepage_content">
     <div class="title-wrapper">
       <h2 class="title center">{{ section.settings.heading_title }}</h2>
@@ -13,7 +29,7 @@
             {% assign svgIcons = block.settings.iconsId %}
 			{% include 'svg-icons', id:svgIcons %}
           </div>
-          <span class="feature-title">{{ block.settings.title }}</span>
+          <a class="feature-title">{{ block.settings.title }}</a>
         </a>
       </div>
       {% endfor %}

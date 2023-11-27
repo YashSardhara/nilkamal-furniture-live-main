@@ -14,21 +14,16 @@
 {% if page.handle contains 'franchise' %}
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 {% endif %}
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700 &family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-</style>
 
 <!-- banner section start here  -->
 <section class="franchise_banner" id="home">
+  <img class="deskfran_banner" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/stock-photo-modern-design-interior-scandinavian-furniture-d-illustration-yellow-armchair-1717326919_1.png?v=1672141943" width="100%" height="100%">
   <div class="banner_content">
     <span class="banner_top__heading">Let's succeed together!</span>
     <span class="banner_heading">Become a member of the
-      <span>Nilkamal</span>
+      <span>Nilkamal Furniture</span>
       franchisee family.</span>
     <div class="banner_border"></div>
     <div class="banner__icon">
@@ -38,8 +33,8 @@
         </div>
         <div class="banner_icon_con">
           <span>
-            <strong>Trusted Legacy Brand</strong>
-            in Furniture Industry</span>
+            <strong>Initial Investment</strong>
+            of Rs 60 Lakhs for 5000 sq.ft.</span>
         </div>
       </div>
       <div class="banner_icon_box">
@@ -60,7 +55,7 @@
         <div class="banner_icon_con">
           <span>
             <strong>35% Average</strong>
-            Return on Investment (ROl) in 3 yrs</span>
+            Return on Investment (ROl) in 3 years</span>
         </div>
       </div>
     </div>
@@ -78,7 +73,7 @@
         </div>
         <div class="about__desc">
           <p>Nilkamal, India's most trusted brand in furniture, has been a part of Indian homes for more than 3 decades. It has been an undisputed world leader in moulded plastic furniture. With a total of 15 factories across India, Nilkamal opened its doors to welcome partners from all over India and take this legacy ahead with Nilkamal Furniture Ideas. 
-            Launched in the year 2011, Nilkamal Furniture Ideas is a retail chain of exclusive Nilkamal brand stores. It is spread across 70+ cities with more than 80 Franchisee partners across India. Nilkamal Furniture Ideas offers a complete range of home furniture, office furniture, and mattresses to our partners with an unparalleled plethora of services like professional guidance in buying the right products, easy EMI loan options, safe convenient home delivery, product installation, and other value-added services. Explore franchise opportunities with India's favourite furniture brand and be a part of the Nilkamal Family</p>
+            Launched in the year 2011, Nilkamal Furniture Ideas is a retail chain of exclusive Nilkamal brand stores. It is spread across 70+ cities with more than 80 Franchisee partners across India. Nilkamal Furniture Ideas offers a complete range of home furniture, office furniture, and mattresses to our partners with an unparalleled plethora of services like professional guidance in buying the right products, easy EMI loan options, safe convenient home delivery, product installation, and other value-added services. Explore franchise opportunities with India's favourite furniture brand and be a part of the Nilkamal Family.</p>
         </div>
       </div>
       <div class="why__section">
@@ -162,21 +157,21 @@
               <ul class="ul_list">
                 <li class="franch_list">
                   <strong>Initial Investment:</strong><br>
-                  Rs 30-35 Lakhs for 3000-3500 Sq Ft</li>
+                  Rs 60 Lakhs for 5000 sq.ft</li>
                 <li class="franch_list">
                   <strong>Franchisee Fee:</strong><br>
-                  NILL</li>
+                  Zero Franchisee fee valid only till 31st October</li>
               </ul>
             </div>
           </div>
           <div class="franch_box_left">
             <div class="franch_boxitem">
               <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/texture-box_1_16d20b27-8ca2-48ef-a7bb-fa08768cdf0b.svg?v=1672168214" alt="">
-              <p>Minimum 3500 sq. ft. carpet area</p>
+              <p>Minimum 5000 sq. ft. carpet area</p>
             </div>
             <div class="franch_boxitem">
               <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/storefront_1.svg?v=1672168261" alt="">
-              <p>A minimum frontage of 20 ft or more is required.</p>
+              <p>A minimum frontage of 40 ft or more is required.</p>
             </div>
             <div class="franch_boxitem">
               <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/account-tie_1.svg?v=1672168376" alt="">
@@ -220,6 +215,20 @@
             <div class="fran_row">
               <div class="fran_col floating-label-group">
                 <input
+                  type="text"
+                  name="alter_phoneno"
+                  pattern="[0-9]{10}"
+                  id="alternate_address_phone_no"
+                  class="address_phone_no"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  required>
+                <label class="floating-label">Alternate Number
+                </label>
+                <span id="alter_phoneno_error" class="alternate_phone_no_error err"></span>
+              </div>
+              <div class="fran_col floating-label-group">
+                <input
                   type="email"
                   name="email"
                   id="contactFormEmail"
@@ -230,18 +239,7 @@
                 </label>
                 <span id="email_error" class="email_error err"></span>
               </div>
-              <div class="fran_col floating-label-group">
-                <input
-                  type="text"
-                  name="turnover"
-                  id="contactFormcurrent_turnover"
-                  autocorrect="off"
-                  autocapitalize="off"
-                  required>
-                <label class="floating-label">Annual turnover<span>*</span>
-                </label>
-                <span id="turnover_error" class="turnover_error err"></span>
-              </div>
+
             </div>
             <div class="fran_row">
               <div class="fran_col floating-label-group">
@@ -366,9 +364,9 @@
                   disabled
                   required>
                   <option value="">Area of property available</option>
-                  <option value="Less than 2000 Sqft">Less than 2000 Sqft</option>
-                  <option value="2000-4000 Sqft">2000-4000 Sqft</option>
-                  <option value="4000 and above Sqft">4000 & above Sqft</option>
+                  <option value="Less than 5000 sq.ft.">Less than 5000 sq.ft.</option>
+                  <option value="5000-7000 sq.ft.">5000-7000 sq.ft.</option>
+                  <option value="above 7000 sq.ft.">above 7000 sq.ft.</option>
                 </select>
 
               </div>
@@ -454,7 +452,7 @@
     Nilkamal Has It All
   </span>
   <span class="nilhad2">
-    HOME & OFFICES FURNITURE RANGE
+    HOME & OFFICE FURNITURE RANGE
   </span>
 </div>
 <section class="nilkamalhas container__custom ">
@@ -463,7 +461,7 @@
       <div class="itemnil">
         <a href="https://www.nilkamalfurniture.com/collections/bed" class="item__link">
           <div class="item__image">
-            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/240_x_240_bed.jpg?v=1672313405" alt="">
+            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/bed_4e78e375-8a6d-41c8-8e1d-ceb6b9c6ca2b.jpg?v=1695649042" alt="">
           </div>
           <p>Bed</p>
         </a>
@@ -479,7 +477,7 @@
       <div class="itemnil">
         <a href="https://www.nilkamalfurniture.com/collections/mattress" class="item__link">
           <div class="item__image">
-            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/240_x_240_Mattress.jpg?v=1672313442" alt="">
+            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/mattress_36fc4dd6-aa04-4079-8909-5f8d9a9e8418.jpg?v=1695649043" alt="">
           </div>
           <p>Mattress</p>
         </a>
@@ -487,7 +485,7 @@
       <div class="itemnil">
         <a href="https://www.nilkamalfurniture.com/collections/sofa" class="item__link">
           <div class="item__image">
-            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/240_x_240_sofa.jpg?v=1672313442" alt="">
+            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/sofa_5baa17d4-e376-42f5-86e6-29e71f7c0229.jpg?v=1695649042" alt="">
           </div>
           <p>Sofa</p>
         </a>
@@ -495,63 +493,63 @@
       <div class="itemnil">
         <a href="https://www.nilkamalfurniture.com/collections/recliners" class="item__link">
           <div class="item__image">
-            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/240_x_240_recliner.jpg?v=1672313441" alt="">
+            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/recliner_af5d1c33-5248-4a76-b6cb-3f540bfc53b1.jpg?v=1695649042" alt="">
           </div>
           <p>Recliner</p>
         </a>
       </div>
-      <div class="itemnil">
+      <!-- <div class="itemnil">
         <a href="https://www.nilkamalfurniture.com/collections/centre-tables" class="item__link">
           <div class="item__image">
             <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/240_x_240_coffee_table.jpg?v=1672313442" alt="">
           </div>
           <p>Coffee Table</p>
         </a>
-      </div>
+      </div> -->
       <div class="itemnil">
         <a href="https://www.nilkamalfurniture.com/collections/dining-sets" class="item__link">
           <div class="item__image">
-            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/240_x_240_dining_set.jpg?v=1672313442" alt="">
+            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/dinig.jpg?v=1695649043" alt="">
           </div>
           <p>Dining Set</p>
         </a>
       </div>
-      <div class="itemnil">
+      <!-- <div class="itemnil">
         <a href="https://www.nilkamalfurniture.com/collections/steel-almirah" class="item__link">
           <div class="item__image">
             <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/240_x_240_Steel_Almirah.jpg?v=1672313441" alt="">
           </div>
           <p>Steel Almirah</p>
         </a>
-      </div>
+      </div> -->
       <div class="itemnil">
         <a href="https://www.nilkamalfurniture.com/collections/entertainment-units" class="item__link">
           <div class="item__image">
-            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/240_x_240_TV_Unit.jpg?v=1672313442" alt="">
+            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/tv_unit_b9061751-f7d7-42d9-8a85-748f560257c9.jpg?v=1695649043" alt="">
           </div>
           <p>TV Unit</p>
         </a>
       </div>
-      <div class="itemnil">
+      <!-- <div class="itemnil">
         <a href="https://www.nilkamalfurniture.com/collections/shoe-racks-1" class="item__link">
           <div class="item__image">
             <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/240_x_240-_shoe_rack.jpg?v=1672313442" alt="">
           </div>
           <p>Shoe rack</p>
         </a>
-      </div>
-      <div class="itemnil">
+      </div> -->
+      <!-- <div class="itemnil">
         <a href="https://www.nilkamalfurniture.com/collections/book-cases-shelves" class="item__link">
           <div class="item__image">
             <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/240_x_240-_bookcase.jpg?v=1672313442" alt="">
           </div>
           <p>Bookcase</p>
         </a>
-      </div>
+      </div> -->
       <div class="itemnil">
         <a href="https://www.nilkamalfurniture.com/collections/premium-plastic-series" class="item__link">
           <div class="item__image">
-            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/240_x_240_plastic_storage.jpg?v=1672313442" alt="">
+            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Premium_Plastic.jpg?v=1695649041" alt="">
           </div>
           <p>Premium Plastic Storage</p>
         </a>
@@ -559,19 +557,19 @@
       <div class="itemnil">
         <a href="https://www.nilkamalfurniture.com/collections/garden-sofas" class="item__link">
           <div class="item__image">
-            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/240_x_240_outdoor_furniture.jpg?v=1672313441" alt="">
+            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/out_door.jpg?v=1695649042" alt="">
           </div>
           <p>Outdoor Furniture</p>
         </a>
       </div>
-      <div class="itemnil">
+      <!-- <div class="itemnil">
         <a href="https://www.nilkamalfurniture.com/collections/kids-furniture" class="item__link">
           <div class="item__image">
             <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/240_x_240_kids_furniture.jpg?v=1672313441" alt="">
           </div>
           <p>Kids Furniture</p>
         </a>
-      </div>
+      </div> 
       <div class="itemnil">
         <a href="https://www.nilkamalfurniture.com/collections/chairs" class="item__link">
           <div class="item__image">
@@ -579,13 +577,13 @@
           </div>
           <p>Chair</p>
         </a>
-      </div>
+      </div>-->
       <div class="itemnil">
         <a href="https://www.nilkamalfurniture.com/collections/office-tables" class="item__link">
           <div class="item__image">
-            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/240_x_240_office_desk.jpg?v=1672313442" alt="">
+            <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/wfh_dfac3750-52fe-4f21-87fc-6df761a595f7.jpg?v=1695649042" alt="">
           </div>
-          <p>Office Desks</p>
+          <p>Home Office</p>
         </a>
       </div>
 
@@ -600,21 +598,21 @@
     <div class="store_slider">
       <div class="main-carousel">
         <div class="cell">
-          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/1000_x_1000-09.jpg?v=1672315996">
+          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Artboard_1-1_fd2cde82-a64d-45db-98f2-4af3b7f8c211.jpg?v=1695649042">
         </div>
         <div class="cell">
-          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/1000_x_1000-10.jpg?v=1672315996">
+          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Artboard_1-2_c6c83cea-e84d-4b30-9f25-c5fa7bcd4471.jpg?v=1695649042">
         </div>
         <div class="cell">
-          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/1000_x_1000-12.jpg?v=1672315996">
+          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Artboard_1_ef0c3036-d126-4ac5-8685-27a5936ee850.jpg?v=1695649042">
         </div>
         <div class="cell">
-          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/1000_x_1000-08.jpg?v=1672315996">
+          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Artboard_1-3_e0054857-1ba2-4400-8207-bfbc70b3906c.jpg?v=1695649042">
         </div>
         <div class="cell">
-          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/1000_x_1000-06.jpg?v=1672315995">
+          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Artboard_1-4_4778a764-c6d7-4b84-bd92-85f3d3b346db.jpg?v=1695649042">
         </div>
-        <div class="cell">
+        <!-- <div class="cell">
           <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/1000_x_1000-01.jpg?v=1672315995">
         </div>
         <div class="cell">
@@ -634,7 +632,7 @@
         </div>
         <div class="cell">
           <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/1000_x_1000-04.jpg?v=1672315992">
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -760,6 +758,10 @@
     document.getElementById("property_availability").disabled = true;
     document.getElementById("area_of_property_available").disabled = true;
   }
+
+  $('#alternate_address_phone_no').on('input', function() {
+    $(this).val($(this).val().replace(/[^0-9]/g, '').substr(0, 10));
+  });
 </script>
 
 <script>
@@ -1357,9 +1359,7 @@
     var location_preference = $('#contactFormcity_name').val();
     var preferred_time_for_discussion = $('#preferred_time_for_discussion').val();
     var property_availability = $('#property_availability').val();
-    var area_of_property_available = $('#area_of_property_available').val();
-    var turnover = $('#contactFormcurrent_turnover').val();
-    var franchisee = $("input[name='franchisee']:checked").val();
+    var area_of_property_available = $('#area_of_property_available').val();{% comment %}var turnover = $('#alternate_address_phone_no').val();{% endcomment %}var franchisee = $("input[name='franchisee']:checked").val();
     var state_name = $('#state_name').val();
     var reatil_space = $("input[name='reatil_space']:checked").val();
     var city_name = $('#city_name').val();
@@ -1378,7 +1378,8 @@
         "preferred_time_for_discussion": preferred_time_for_discussion,
         "property_availability": property_availability,
         "area_of_property_available": area_of_property_available,
-        "turnover": turnover,
+
+// "turnover": turnover,
         "franchisee": franchisee,
         "state_name": state_name,
         "reatil_space": reatil_space,
@@ -1402,7 +1403,7 @@
         window.location = url;
       },
       error: function(data) {
-        console.log(data)
+        console.log('Vivek error data', data)
         $('#franchise_submit').attr('disabled', false);
         $('#franchise_submit').html('Send');
         var errr = data.responseJSON[0];

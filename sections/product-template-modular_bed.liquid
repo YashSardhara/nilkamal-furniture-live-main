@@ -27,7 +27,7 @@
         "availability": "https://schema.org/InStock"
       },
     }
-    </script>
+</script>
 
 <style>
 
@@ -39,21 +39,45 @@ h1.product_name {
     line-height: 26px;
 }
 
+  @media only screen and (max-width: 600px) {
+  .new-quantity-pincode {
+    margin-bottom: 2px !important;
+}
+.lds-ellipsis {
+    width: 75px !important;
+    left: 86% !important;
+    top: 48% !important;
+}
+.product-template .pdp.customer-services {
+    margin-top: 10px !important;
+}
+.pd-deliver-info table tr td {
+    padding-top: 10px !important;
+}
+}
+
+{% comment %}   .lds-ellipsis {
+    width: 75px !important;
+    left: 86% !important;
+    top: 20% !important;
+} {% endcomment %}
+
   .purchase-details {
   align-items: initial;
 }
 
 h2.cbb-frequently-bought-title.translatable {
-    color: #444 !important;
+  color: #444 !important;
+  border-bottom: 1px solid rgba(0, 0, 0, .1) !important;
 }
 
   .product-template .purchase-details label {
         margin-top: 10px;
   }
 
-  .new-quantity-pincode {
+/*   .new-quantity-pincode {
     margin-bottom: 20px;
-}
+} */
 
 .judg_me_flx {
 /*     padding-top: 15px; */
@@ -62,7 +86,11 @@ h2.cbb-frequently-bought-title.translatable {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin: 15px 0px;
+    margin: 8px 0px;
+}
+
+.social_rating_flex .judg_me_flx .jdgm-widget {
+  margin-right: 30px !important;
 }
 
   .main-colmn {
@@ -161,7 +189,7 @@ h2.cbb-frequently-bought-title.translatable {
 
   .price-info.new-price .col-sm-5.left-price {
     border-right: 4px solid rgba(0, 0, 0, 0.03);
-    height: 85px;
+    height: 100px;
   }
 
   button.shopify_button.action_button.add_to_cart:hover {
@@ -251,12 +279,16 @@ position:relative;
   margin:0;
   padding:0;
 }
-  
+
   @media (max-width:767px) {
 
   .swiper-button-next, .swiper-rtl .swiper-button-prev {
     padding: 21px !important;
     padding-left: 24px !important;
+}
+
+.savings_modular_bed_mobile{
+  width: 68px !important;
 }
 
 .pd-deliver-info {
@@ -283,6 +315,12 @@ li.headboard_data span {
     padding-bottom: 20px !important;
     font-size:12px;
 }
+
+.product-wrap .product_image{
+  height: auto !important;
+}
+
+
 
 .swiper-button-prev, .swiper-rtl .swiper-button-next {
     padding: 21px !important;
@@ -530,23 +568,25 @@ li.headboard_data span {
 
 .desc_cotainer {
     display: grid;
-    width: 100%;
-    grid-template-columns: 60% 40%;
+    width: 98%;
+    grid-template-columns: 55% 45%;
     grid-gap: 5%;
 }
 .custom_bullet li{
       list-style: none;
     font-size: 16px;
-    border-bottom: 0.5px solid #6A6A6A;
-    color: #000;
+    border-bottom: 1px solid #00000012 !important;
+    color: rgba(0, 0, 0, 0.4);
     padding-bottom: 5px;
 }
 .meta_call li {
   list-style: none;
-    padding-left: 1em !important;
+    /*padding-left: 1em !important;*/
     margin-bottom: 5px !important;
     font-size: 13px;
     color: #6A6A6A;
+    list-style-position: inside;
+    line-height: 1.6;
 }
 .custom_bullet li::before {
   content: "\2022";
@@ -556,23 +596,24 @@ li.headboard_data span {
     width: 1em;
 }
 .meta_call li::before {
-   /* content: "\2022"; */
+    content: "\2022";
     color: #6A6A6A;
     font-weight: bold;
     display: inline-block;
     width: 1em;
-    margin-left: -1em;
+    margin-left: -1.3em;
 }
 
   #toworkon,#toworkon_color {
   animation-name: scrollUp;
   animation-duration: .5s;
-  position: absolute;
+/*   position: absolute; */
 }
 
 .headboard_data a {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 li.headboard_data span {
@@ -588,6 +629,7 @@ li.headboard_data span {
 
 .jdgm-rev-widg{
   margin-bottom: -40px !important;
+      padding: 16px !important;
 }
 
 h2.cbb-frequently-bought-title.translatable{
@@ -644,8 +686,15 @@ h2.cbb-frequently-bought-title.translatable{
 }
 
 .share__point__hover{
-  transition: .3s ease-in-out;
+  padding-right: 15px;
+  padding-top: 15px;
 }
+
+.sharepoint {
+  transition: all 1s ease-in-out !important;
+}
+
+
 
 
 /* .share__point__hover:hover ul.sharing-list{
@@ -689,32 +738,796 @@ h2.cbb-frequently-bought-title.translatable{
     top: 0px;
     right: -10px;
   }
-
- .share__point__hover .sharepoint_txt {
-    position: absolute !important;
-   
-  }
 }
 
+.sales__saving__container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30px !important;
+  padding: 0px 16px !important;
+  border: none !important;
+  border-radius: 4px !important;
+  margin-top: 6px !important;
+}
 
 
 @media only screen and (min-width:1024px){
   .image__container__modular {
-    height: 600px;
+    height: 700px;
     width: auto;
     overflow: hidden;
     position: relative;
 }
-  
+
   .image__container__modular .main__product__image {
     position: absolute;
     top: -5rem;
   }
 }
 
-.blog__section__container__modular{
+.blog__section__container__modular {
   border-bottom: none !important;
 }
+.sale.savings.savings_modular_bed {
+    width: 260px;
+    border-right: none;
+    padding-top: 5px;
+    margin-top: 10px;
+    font-family: Inter;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.request-loader {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.25);
+}
+.request-loader span {
+  width: 100%;
+  height: 100%;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.request-loader::after {
+  opacity: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: 0;
+  bottom: 0;
+  content: "";
+  height: 100%;
+  width: 100%;
+  border: 8px solid #ffffffba;
+  border-radius: 100%;
+  -webkit-animation-name: ripple;
+  animation-name: ripple;
+  -webkit-animation-duration: 3s;
+  animation-duration: 2.5s;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+  animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+  z-index: 0;
+  box-shadow: 0 0 4px 3px #bbb9b978;
+}
+.request-loader::before {
+  opacity: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: 0;
+  bottom: 0;
+  content: "";
+  height: 100%;
+  width: 100%;
+  border: 8px solid #e4e4e496;
+  border-radius: 100%;
+  -webkit-animation-name: ripple;
+  animation-name: ripple;
+  -webkit-animation-duration: 3s;
+  animation-duration: 4s;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+  animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+  z-index: 0;
+  box-shadow: 0 0 4px 3px #bbb9b978;
+}
+
+
+@-webkit-keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale3d(0.75, 0.75, 1);
+  }
+  to {
+    opacity: 0;
+    transform: scale3d(1.5, 1.5, 1);
+  }
+}
+
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale3d(0.75, 0.75, 1);
+  }
+  to {
+    opacity: 0;
+    transform: scale3d(1.5, 1.5, 1);
+  }
+}
+
+.custom__bullet__get{
+  border-bottom: #00000012 !important ;
+}
+
+
+
+  /******/
+  .swiper_button_blog{
+    top: 53.5%;
+  }
+  .swiper-wrapper-modular{
+    margin-bottom: 20px;
+  }
+  .swiper__modula__content__button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 10px;
+  margin: 20px 0px;
+  color: #0093DD;
+  font-size: 14px;
+  line-height: 18px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 10px rgba(0, 147, 221, 0.3);
+  border-radius: 38px;
+  }
+
+  .swiper__modula__border{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  .swiper__modula__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+  }
+  .swiper__modula__content__heading {
+    font-weight: 500;
+    font-size: 23px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-bottom: 20px;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    line-height: 32px;
+    text-align: left !important;
+    color: #444444;
+  }
+
+  .swiper__modula__content__para{
+    text-align: left !important;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .swiper-slide-modular{
+    display: flex !important;
+    flex-direction: column !important;
+    padding:10px 22px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 10px rgb(143 143 143 / 30%);
+    margin-top: 10px;
+  }
+
+  .product-wrap .product_image{
+    height: auto  !important;
+  }
+
+  .swiper__modula__img{
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+
+  html.shopify-features__smart-payment-buttons--enabled{
+    padding-bottom: 0px !important;
+  }
+
+  .swiper__modula__img .swiper__modula__img{
+    width: 100%;
+    height: auto;
+  }
+
+  .blog__modular__section {
+    margin-top: -90px ;
+  }
+
+  .blog__modular__section .container {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 23px;
+  }
+
+  .blog__section__modular__items{
+    position: relative;
+  }
+
+  .blog__modular__section .title {
+    font-size: 28px;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-family: 'poppins', sans-serif;
+  }
+
+  .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+  #back-to-top {
+    position: fixed;
+    top: 1%;
+    left: 2%;
+    z-index: 9999;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 30px;
+    color: #444;
+    cursor: pointer;
+    border: 0;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: opacity 0.2s ease-out;
+    opacity: 0;
+  }
+
+  #back-to-top.show {
+    opacity: 1;
+  }
+
+  #back-to-top svg {
+    width: 16px;
+    color: #fff;
+    height: 14px;
+  }
+
+  .pd-deliver-info .dt-title {
+    text-align: center;
+    background: linear-gradient(0deg, rgb(225 243 251 / 47%), rgb(207 239 255)), #FFFFFF;
+    border: 1px solid white;
+    width: 71px;
+    border-radius: 24px;
+    height: 40px;
+  }
+
+  .mySwiperModularBlog{
+    height: auto !important;
+    margin-bottom: 30px !important;
+    padding: 10px;
+  }
+
+  #elementtoworkon {
+      margin-top: -50px;
+      display: none;
+      scroll-behavior: smooth;
+    }
+
+    #elementtoworkon li a {
+      color: #1C1B1F;
+    }
+
+    #elementtoworkon_color {
+      margin-top: -50px;
+      display: none;
+      scroll-behavior: smooth;
+      display: none;
+      scroll-behavior: smooth;
+    }
+
+    #elementtoworkon {
+      background: #fff;
+      padding: 10px;
+      height: auto;
+      max-height: 350px;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+      border-radius: 10px;
+    }
+
+    #elementtoworkon_color {
+      background: #fff;
+      padding: 0;
+      scroll-behavior: smooth;
+      border-radius: 10px;
+      height: fit-content;
+    }
+
+    .main_cont_mod {
+      display: flex;
+      position: absolute;
+      top: 38%;
+      left: 10%;
+    }
+
+    .main_cont_mod_color {
+      display: flex;
+      position: absolute;
+      bottom: 25%;
+      right: 10%;
+    }
+
+    .main_cont_mod ul,
+    .main_cont_mod_color ul {
+      list-style: none;
+      padding: 0;
+      color: #9F9F9F;
+    }
+
+    .main_cont_mod ul:hover,
+    .main_cont_mod_color ul:hover {
+      color: #0093DD;
+    }
+
+    li.circle.pulse.orange {
+      background: #ffffff;
+      border-radius: 100% !important;
+      padding: 6px 10px;
+      font-size: 25px;
+      border: 7px solid #b484844d;
+    }
+
+    div#elementtoworkon li {
+      list-style: none;
+      padding: 10px 5px;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 12px;
+    }
+
+    div#elementtoworkon_color li{
+      list-style: none;
+      padding: 8px 5px;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 12px;
+    }
+
+    div#elementtoworkon_color li a{
+      display: flex;
+      align-items: center;
+    }
+
+
+    .headboard_active,
+    .color_active {
+      background : #D9EFFA !important;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    div#elementtoworkon li:hover,
+    div#elementtoworkon_color li:hover {
+      background-color: rgb(50 42 42 / 15%);
+      cursor: pointer;
+    }
+
+    .headboard_img {
+      width: 80px;
+      height: auto;
+      padding: 0 10px;
+    }
+
+    div#elementtoworkon span,
+    div#elementtoworkon_color span {
+      vertical-align: super;
+      text-align: left;
+      width: 100%;
+    }
+
+    .pulse {
+      animation: pulse-animation 2s infinite;
+    }
+
+  .animation_prent_pulse {
+    animation: pulse-animation 4.5s 2s infinite;
+}
+.animation_child_pulse {
+    animation: pulse-animation 3s 1.5s infinite;
+}
+
+  .plus__icon{
+      width: 40px ;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.75);
+    }
+
+    .headboard__storage__container {
+      position: absolute;
+      width: 524px;
+      height: auto;
+      background: rgba(255, 255, 255, 0.6);
+      top: 3%;
+      left: 18%;
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .headboar__storage__boxes {
+      background-color: #fff;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 10px;
+      gap: 18px;
+      box-shadow: 0 40px 50px rgba(0, 0, 0, 0.08), 0 4px 18px rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+    }
+
+    /*.headboar__storage__box_image:active,
+    .headboar__storage__box_image img:active,
+    .headboar__storage__box_image img:hover {
+       border: 3px solid #0093DD;
+      border-radius: 5px;
+      box-shadow: 0px 0px 4px 2px rgb(0 147 221 / 65%);
+    }*/
+
+    .base_active {
+      border: 3px solid #0093DD;
+      border-radius: 5px;
+      box-shadow: 0 0 4px 2px rgb(0 147 221 / 65%);
+    }
+
+    .headboar__storage__box_image img {
+      /* border: 3px solid #0000; */
+      border-radius: 5px;
+      width: 70px;
+      height: auto;
+    }
+
+    span.base_active_bldtxt {
+      font-weight: bold !important;
+    }
+
+    /*.headboar__storage__box_image:hover {
+      border: 3px solid #0093DD;
+      border-radius: 5px;
+      box-shadow: 0px 0px 4px 2px rgb(0 147 221 / 65%);
+    } */
+
+    .headboar__storage__box:hover span {
+      font-weight: bold;
+    }
+
+    .headboar__storage__box:hover img {
+      border: 3px solid #322a2a26;
+    box-shadow: 0 0 4px 2px #322a2a26;
+    }
+
+    .headboar__storage__box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+
+    .headboar__storage__box span {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      opacity: 0.7;
+      margin-bottom: 6px;
+      color: #4D4D4D;
+    }
+
+
+    /*  */
+
+    .container .five.columns {
+      width: 40%;
+    }
+
+    .pd-deliver-info {
+      width: 170px;
+    }
+
+    .gallery-arrows--true .product_gallery .flickity-prev-next-button {
+      opacity: 1;
+      transition: opacity 0.3s linear;
+      display: block;
+    }
+
+    .light-button .flickity-prev-next-button .arrow {
+      fill: #166c98;
+      opacity: 1 !important;
+    }
+
+    .flickity-prev-next-button svg {
+      height: 10%;
+      background: #f6fcff;
+      border-radius: 50px;
+      box-shadow: 2px 6px 11px #888;
+    }
+
+    .product-template .pincode-checker {
+      border: 0 solid #E0E6EF !important;
+    }
+
+    body#test-box-storage-galaxy-headboard-white-product_title_bosgalhwh {
+      margin-bottom: -60px !important;
+    }
+
+    div#elementtoworkon_color {
+      margin-top: -60px;
+      padding: 8px;
+      width: 190px;
+
+    }
+
+    /*.sharepoint {
+      width: 80% !important;
+      position: unset;
+      top: 32.9%;
+      z-index: 9999;
+      right: 321px;
+      list-style: none;
+    }*/
+
+    .swiper {
+      background: #fff;
+    }
+
+    .sharepoint:hover .sharing-list {
+      z-index: 3;
+    }
+
+    a.sharetxt_svgside {
+      display: flex;
+    }
+
+    .product-template .product_name {
+      margin-bottom: 0;
+      color: #6a6a6a;
+    }
+
+    .sharepoint_txt {
+     /* position: absolute; */
+      left: 78.2%;
+      top: 28.4%;
+      font-weight: 600;
+      color: #0093dd;
+      cursor: pointer;
+      padding-right: 15px;
+    }
+
+    .flickity-page-dots .dot {
+      width: 4% !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+    }
+
+    .flickity-page-dots .dot.is-selected {
+      border-radius: 30px !important;
+    }
+
+    li.dot:first-child {
+      border-radius: 6px 0 0 6px !important;
+    }
+
+    li.dot:last-child {
+      border-radius: 0 6px 6px 0 !important;
+    }
+
+    .light-button .dot {
+      background: #7c7c7c;
+    }
+
+
+    @media(max-width :1300px) {
+      .sharepoint {
+       /* width: 2.4%;*/
+        top: 35.9%;
+      }
+
+      .sharepoint_txt {
+        top: 38.4%;
+      }
+    }
+
+
+
+    @media(max-width:768px) {
+      .request-loader{
+        height: 40px !important;
+        width: 40px  !important;
+      }
+
+      .headboard__storage__container {
+        width: 100%;
+        left: 0;
+        top: 5%;
+        padding: 0;
+        background-color: #fff;
+      }
+
+      .flickity-page-dots .dot.is-selected {
+        border-radius: 5px !important;
+      }
+
+      .new-quantity-pincode {
+        margin-bottom: 15px;
+      }
+
+      body#test-box-storage-galaxy-headboard-white-product_title_bosgalhwh {
+        margin-bottom: -300px !important;
+      }
+
+      div#elementtoworkon_color {
+        margin-top: -73px;
+      }
+
+      .flickity-prev-next-button svg {
+        height: 11%;
+        width: 40px;
+        left: 0;
+      }
+
+      .product-template .pincode-checker {
+        border: 0 solid #E0E6EF !important;
+      }
+
+      .headboar__storage__boxes {
+        padding: 0;
+        width: 100%;
+        height: auto;
+        gap: 5px;
+        box-shadow: none;
+        border-radius: none;
+      }
+
+      .content__box__container {
+        margin: 10px 0 30px !important;
+      }
+
+      #test-capsule-max-engineered-wood-king-bed-with-box-storage-amp-headboard .product-image-column-modular_bed {
+        width: 100%;
+      }
+
+      #test-capsule-max-engineered-wood-king-bed-with-box-storage-amp-headboard .product-template .gallery-wrap .product_gallery {
+        margin-top: 112px;
+      }
+
+      .headboar__storage__box span {
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+      }
+
+      li.circle.pulse.orange {
+        display: flex;
+        width: 35px;
+        height: 35px;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+      }
+
+      .main_cont_mod {
+        top: 53%;
+      }
+
+      .left-col-modular .product-template .pincode-checker {
+        margin: 10px 0;
+        border: 0 solid #E0E6EF;
+      }
+
+      .image__container__modular {
+        margin-top: 132px;
+      }
+
+      .main_cont_mod {
+        display: flex;
+        position: absolute;
+        top: 57%;
+        left: 10%;
+        display: none;
+      }
+
+      .main_cont_mod_color {
+        display: flex;
+        position: absolute;
+        bottom: 27%;
+        right: 15%;
+        display: none;
+      }
+
+      #elementtoworkon {
+        max-height: 200px;
+        position: relative;
+        z-index: 1;
+      }
+
+      #test-capsule-max-engineered-wood-king-bed-with-box-storage-amp-headboard.clearfix.js-product_section {
+        margin-top: 30px !important;
+      }
+      .Modular_pdp_megic_checkout{
+        display: none;
+        width: 100%;
+      }
+    }
+
+    @keyframes pulse-animation {
+    0% {
+      box-shadow: 0 0 0 0 rgb(255 255 255 / 84%);
+    }
+
+    100% {
+      box-shadow: 0 0 0 20px rgb(255 255 255 / 8%);
+    }
+  }
+
+  .fixed__body{
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  }
+
 </style>
 
 <script>
@@ -742,16 +1555,16 @@ h2.cbb-frequently-bought-title.translatable{
 </script>
 
 {% comment %}
-** Product - default view **
-- Product template
+** Product - Modular bed view **
+- Product Modular bed template
 {% endcomment %}
 
 <a name="pagecontent" id="pagecontent"></a>
 
-<div class="main content">
-  <div class="container clearfix">
+<div class="main content container">
+  <div class=" clearfix">
     <div class="row">
-      <div class="sixteen columns">
+     {% comment %} <div class="sixteen columns">
         {% if collection.previous_product or collection.next_product or section.settings.product_breadcrumb %}
         <div class="clearfix breadcrumb-collection">
           {% if collection.previous_product or collection.next_product %}
@@ -806,6 +1619,56 @@ h2.cbb-frequently-bought-title.translatable{
           {% endif %}
         </div>
         {% endif %}
+      </div>{% endcomment %}
+      <div class="sixteen columns">
+        {% if collection.previous_product or collection.next_product or section.settings.product_breadcrumb %}
+        <div class="clearfix breadcrumb-collection">
+          {% if collection.previous_product or collection.next_product %}
+          <div class="nav_arrows breadcrumb_text">
+            {% if collection.previous_product %}
+            <a href="{{ collection.previous_product }}" title="{{ 'products.general.previous_product_html' | t }}" class="breadcrumb_link"><span class="icon-left-arrow"> {{ 'products.general.previous_product_html' | t }}</span></a>
+            {% endif %}
+            {% if collection.previous_product and collection.next_product %}<span class="breadcrumb-divider"> | </span>{% endif %}
+
+            {% if collection.next_product %}
+            <a href="{{collection.next_product}}" title="{{ 'products.general.next_product_html' | t }}" class="breadcrumb_link">{{ 'products.general.next_product_html' | t }} <span class="icon-right-arrow"></span></a>
+            {% endif %}
+          </div>
+          {% endif %}
+
+          {% if section.settings.product_breadcrumb %}
+          <div class="breadcrumb_text" itemscope itemtype="http://schema.org/BreadcrumbList">
+            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <a href="{{ shop.url }}" title="{{ shop.name | escape }}" itemprop="item" class="breadcrumb_link">
+                <span itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span>
+              </a>
+              <meta itemprop="position" content="1" />
+            </span>
+            <span class="breadcrumb-divider">|</span>
+            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              {% if collection %}
+              <a href="{{ collection.url }}" title="{{ collection.title | escape }}" itemprop="item" class="breadcrumb_link">
+                <span itemprop="name">{{ collection.title }}</span>
+                <meta itemprop="position" content="2" />
+              </a>
+              {% else %}
+              <a href="/collections/all" title="{{ collections.all.title }}" itemprop="item" class="breadcrumb_link">
+                <span itemprop="name">{{ collections.all.title }}</span>
+                <meta itemprop="position" content="2" />
+              </a>
+              {% endif %}
+            </span>
+            <span class="breadcrumb-divider">|</span>
+            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <a href="{{ product.url }}" itemprop="item" class="breadcrumb_link">
+                <span itemprop="name">{{ product.title }}</span>
+                <meta itemprop="position" content="3" />
+              </a>
+            </span>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
       </div>
       {% comment %}Check to see if sidebar should be enabled{% endcomment %}
       {% if section.blocks.size > 0 %}
@@ -833,7 +1696,10 @@ h2.cbb-frequently-bought-title.translatable{
               data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
               {% endif %} data-product-id="{{ product.id }}">
               {% form 'product', product %}
-              <div class="v-sticky-bar">
+                {% assign customerId2 = customer.id | strip %}
+              <div class="v-sticky-bar" {% if customerId2 == '6419587661913' %}
+                style="display: none !important;"
+              {% endif %}>
                 <div class="container">
                   <div class="row">
                     <div class="pf-col xs-12">
@@ -870,10 +1736,7 @@ h2.cbb-frequently-bought-title.translatable{
                               class="widthbutton shopify_button action_button add_to_cart {% if show_payment_button %} action_button--secondary {% endif %}"
                               data-label={{ add_to_cart_label | json }}>
                               <span class="text">{{ add_to_cart_label }}</span>
-                              <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
-                                <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10"
-                                  d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11" />
-                              </svg>
+                              <div class="checkmark"></div>
                             </button>
 
                             <button type="button" name="add" class="action_button custom_cart_action_button"
@@ -883,9 +1746,11 @@ h2.cbb-frequently-bought-title.translatable{
                                 <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10"
                                   d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
                               </svg></button>
-                            <button type="button" class="custom_payment__button"
+                            <button type="button" class="custom_payment__button here"
                               onclick="return addTOcartDisable1();">Buy it now</button>
-                            {{ form | payment_button }}
+                   {{ form | payment_button }}
+
+
 
                             {%- endif -%}
 
@@ -895,10 +1760,7 @@ h2.cbb-frequently-bought-title.translatable{
                               data-label={{ add_to_cart_label | json }} disabled
                               style="width: 100%;background: gray;border-color: gray;font-size: 18px !important;line-height: 1.5;">
                               <span class="text">Sold out</span>
-                              <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
-                                <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10"
-                                  d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11" />
-                              </svg>
+                              <div class="checkmark"></div>
                             </button>
 
                             {% endif %}
@@ -913,6 +1775,7 @@ h2.cbb-frequently-bought-title.translatable{
               </div>
 
               <div class="row product-{{ product.id }}" data-free-text="{{ settings.free_price_text }}">
+                {%- render 'breadcrumbs' -%}
                 <div
                   class="section product_section clearfix js-product_section {% if section.settings.product_images_position == 'right' %}align_right--images{% endif %}"
                   itemscope itemtype="http://schema.org/Product" data-rv-handle="{{ product.handle }}">
@@ -933,13 +1796,46 @@ h2.cbb-frequently-bought-title.translatable{
                         {% endif %}
 
 
-                        {% if product.tags contains  'modular-bed'%}
+                      {% if product.tags contains  'modular-bed'%}
+
+                      {% comment  %} box storage {% endcomment %}
                         {% if product.tags contains 'box-storages' %}
                           {% if product.tags contains 'white-colour' %}
                             {% include 'modular-box-white.liquid' %}
                           {% endif %}
                           {% if product.tags contains 'walnut-colour' %}
                             {% include 'modular-box-walnut.liquid' %}
+                          {% endif %}
+                        {% endif %}
+
+                      {% comment  %} no storage {% endcomment %}
+                        {% if product.tags contains 'no-storage' %}
+                          {% if product.tags contains 'white-colour' %}
+                            {% include 'modular-no-storage-white.liquid' %}
+                          {% endif %}
+                          {% if product.tags contains 'walnut-colour' %}
+                            {% include 'modular-no-storage-walnut.liquid' %}
+                          {% endif %}
+                        {% endif %}
+
+                      {% comment  %} Semi Hydraulic storage {% endcomment %}
+                        {% if product.tags contains 'semi-hydraulic' %}
+                          {% if product.tags contains 'white-colour' %}
+                            {% include 'modular-semi-hydraulic-white.liquid' %}
+                          {% endif %}
+                          {% if product.tags contains 'walnut-colour' %}
+                            {% include 'modular-semi-hydraulic-walnut.liquid' %}
+                          {% endif %}
+                        {% endif %}
+
+
+                      {% comment  %} Full Hydraulic storage {% endcomment %}
+                        {% if product.tags contains 'full-hydraulic' %}
+                          {% if product.tags contains 'white-colour' %}
+                            {% include 'modular-full-hydraulic-white.liquid' %}
+                          {% endif %}
+                          {% if product.tags contains 'walnut-colour' %}
+                            {% include 'modular-full-hydraulic-walnut.liquid' %}
                           {% endif %}
                         {% endif %}
                       {% endif %}
@@ -988,55 +1884,11 @@ h2.cbb-frequently-bought-title.translatable{
 
 
 <div class="sharing social-links">
-  <ul>
-    <li class="sharepoint share__point__hover">
-        <svg
-          width="64"
-          height="64"
-          viewBox="0 0 64 64"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <g filter="url(#filter0_d_1139_2001)">
-            <rect
-              x="10"
-              y="8"
-              width="44"
-              height="44"
-              rx="22"
-              shape-rendering="crispEdges" />
-            <path d="M37.08 34.1365C36.32 34.1365 35.64 34.4378 35.12 34.9096L27.91 30.743C27.96 30.512 28 30.2811 28 30.0402C28 29.7992 27.96 29.5683 27.91 29.3373L34.96 25.2108C35.5 25.7129 36.21 26.0241 37 26.0241C38.66 26.0241 40 24.6787 40 23.012C40 21.3454 38.66 20 37 20C35.34 20 34 21.3454 34 23.012C34 23.253 34.04 23.4839 34.09 23.7149L27.04 27.8414C26.5 27.3394 25.79 27.0281 25 27.0281C23.34 27.0281 22 28.3735 22 30.0402C22 31.7068 23.34 33.0522 25 33.0522C25.79 33.0522 26.5 32.741 27.04 32.239L34.24 36.4157C34.19 36.6265 34.16 36.8474 34.16 37.0683C34.16 38.6847 35.47 40 37.08 40C38.69 40 40 38.6847 40 37.0683C40 35.4518 38.69 34.1365 37.08 34.1365Z" fill="#0093DD" />
-          </g>
-          <defs>
-            <filter
-              id="filter0_d_1139_2001"
-              x="0"
-              y="0"
-              width="64"
-              height="64"
-              filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB">
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
-              <feColorMatrix
-                in="SourceAlpha"
-                type="matrix"
-                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                result="hardAlpha" />
-              <feOffset dy="2" />
-              <feGaussianBlur stdDeviation="5" />
-              <feComposite in2="hardAlpha" operator="out" />
-              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.576471 0 0 0 0 0.866667 0 0 0 0.2 0" />
-              <feBlend
-                mode="normal"
-                in2="BackgroundImageFix"
-                result="effect1_dropShadow_1139_2001" />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="effect1_dropShadow_1139_2001"
-                result="shape" />
-            </filter>
-          </defs>
-        </svg>
+  <div>
+    <div class="sharepoint share__point__hover">
+        <svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.5667 12.9472C12.9333 12.9472 12.3667 13.1982 11.9333 13.5914L5.925 10.1192C5.96667 9.92679 6 9.73435 6 9.53355C6 9.33275 5.96667 9.14031 5.925 8.94787L11.8 5.50912C12.25 5.92746 12.8417 6.18683 13.5 6.18683C14.8833 6.18683 16 5.06568 16 3.67679C16 2.2879 14.8833 1.16675 13.5 1.16675C12.1167 1.16675 11 2.2879 11 3.67679C11 3.87759 11.0333 4.07003 11.075 4.26246L5.2 7.70122C4.75 7.28288 4.15833 7.02351 3.5 7.02351C2.11667 7.02351 1 8.14466 1 9.53355C1 10.9224 2.11667 12.0436 3.5 12.0436C4.15833 12.0436 4.75 11.7842 5.2 11.3659L11.2 14.8465C11.1583 15.0222 11.1333 15.2062 11.1333 15.3903C11.1333 16.7374 12.225 17.8334 13.5667 17.8334C14.9083 17.8334 16 16.7374 16 15.3903C16 14.0433 14.9083 12.9472 13.5667 12.9472Z" fill="#0093DD" stroke="#0093DD" stroke-width="0.763889"/>
+</svg>
         <span class="sharepoint_txt">Share</span>
         {% comment %} <span class="sharing-label">{{ 'general.social.share_heading' | t }}</span>{% endcomment %}
         <ul class="sharing-list" style="display:none;">
@@ -1059,9 +1911,9 @@ h2.cbb-frequently-bought-title.translatable{
 
           </li>
         </ul>
-      
-      </li>
-  </ul>
+
+      </div>
+  </div>
 </div>
 
 
@@ -1103,7 +1955,8 @@ h2.cbb-frequently-bought-title.translatable{
                         {% if collection_handles contains 'coming-soon' %}
                         <p class="modal_price">{{ 'collections.general.coming_soon' | t }}</p>
                         {% else %}
-                        <div class="modal_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                          {% assign customerId = customer.id | strip %}
+                        <div class="modal_price" {% if customerId == '6419587661913' %}style="display:none;"{% endif %} itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                           <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
                           <meta itemprop="seller" content="{{ shop.name | escape }}" />
                           <link itemprop="availability"
@@ -1113,8 +1966,7 @@ h2.cbb-frequently-bought-title.translatable{
                           {% if product.tags contains 'Best Deals' %}
                           <div class="price-info new-price">
                             <div class="col-sm-5 left-price">
-                              <span class="sale-text {% if product.available == false %}hidden{% endif %}">Sale
-                                Price</span>
+                              <span class="sale-text {% if product.available == false %}hidden{% endif %}">Sale Price</span>
                               <span itemprop="price" content="{{ variant.price | money_without_currency }}"
                                 class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
 
@@ -1132,7 +1984,7 @@ h2.cbb-frequently-bought-title.translatable{
                             <div class="col-sm-7 right-price">
                               {% if variant.price < variant.compare_at_price %}
                               <span>MRP</span> <span class="inter-rupe">&#8377;</span><span class="was_price">
-                                <span class="money">{{ variant.compare_at_price | money }}</span>
+                                <span class="money">&#8377;{{ variant.compare_at_price | money }}</span>
                               </span><br>
                               {% endif %}
 
@@ -1144,14 +1996,16 @@ h2.cbb-frequently-bought-title.translatable{
                                 </svg>
                               </span>
 
-                              <span class="priceimghover">Get upto 60% off</span>
+                              <span class="priceimghover">The Grand Furniture Fest</span>
+
+
                             </div>
                             {% if section.settings.display_savings %}
                             {% if variant.price < variant.compare_at_price %}
-                            <span class="sale savings">
+                            <span class="sale savings savings_modular_bed">
                               You Save &nbsp; <span
-                                class="fffsfs">&#8377;{{ variant.compare_at_price | minus: variant.price | money | remove: '.00'}}
-                              </span> &nbsp; (<span
+                                class="fffsfs">&#8377;{{ variant.compare_at_price | minus: variant.price | money | remove: '.00'}} </span> &nbsp;
+                              (<span
                                 class="fffsfs">{{ variant.compare_at_price | minus: variant.price | times: 100 | divided_by: variant.compare_at_price }}%
                                 Off</span>)
                             </span>
@@ -1159,24 +2013,10 @@ h2.cbb-frequently-bought-title.translatable{
                             {% endif %}
                             {% endif %}
                           </div>
-                          <!--Convert the tags into a string by joining them with COMMA-->
-                          {% assign productTags = product.tags | join: ', ' %}
-                          <!--Now Check for the desired tag name-->
-                          {% if productTags contains 'King Size Beds' %}
-
-                          {% comment %}Okay.. I found the tag {% endcomment %}
-
                           {% else %}
-
-                          <!--Tag not found :( -->
-                          {% endif %}
-                          {% else %}
-
-
                           <div class="price-info new-price">
                             <div class="col-sm-5 left-price">
-                              <span class="sale-text {% if product.available == false %}hidden{% endif %}">Sale
-                                Price</span>
+                              <span class="sale-text {% if product.available == false %}hidden{% endif %}">Sale Price</span>
                               <span itemprop="price" content="{{ variant.price | money_without_currency }}"
                                 class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
 
@@ -1193,8 +2033,8 @@ h2.cbb-frequently-bought-title.translatable{
                             </div>
                             <div class="col-sm-7 right-price">
                               {% if variant.price < variant.compare_at_price %}
-                              <span>MRP</span> <span class="inter-rupe">&#8377;</span><span class="was_price">
-                                <span class="money">{{ variant.compare_at_price | money | remove: '.00'}}</span>
+                              <span>MRP</span> <span class="inter-rupe"> &#8377; </span><span class="was_price">
+                                <span class="money">&#8377;{{ variant.compare_at_price | money | remove: '.00'}}</span>
                               </span><br>
                               {% endif %}
                               <span class="priceimgg"><svg width="11" height="10" viewBox="0 0 21 20" fill="none"
@@ -1204,16 +2044,15 @@ h2.cbb-frequently-bought-title.translatable{
                                     fill="#87BEDA" />
                                 </svg>
                               </span>
-
-                              <span class="priceimghover">Get upto 60% off</span>
+                              <span class="priceimghover">The Grand Furniture Fest</span>
 
                             </div>
                             {% if section.settings.display_savings %}
                             {% if variant.price < variant.compare_at_price %}
-                            <span class="sale savings">
+                            <span class="sale savings savings_modular_bed">
                               You Save &nbsp; <span
-                                class="fffsfs">&#8377;{{ variant.compare_at_price | minus: variant.price | money | remove: '.00'}}
-                              </span> &nbsp; (<span
+                                class="fffsfs">&#8377;{{ variant.compare_at_price | minus: variant.price | money | remove: '.00'}} </span> &nbsp;
+                              (<span
                                 class="fffsfs">{{ variant.compare_at_price | minus: variant.price | times: 100 | divided_by: variant.compare_at_price }}%
                                 Off</span>)
                             </span>
@@ -1241,18 +2080,16 @@ h2.cbb-frequently-bought-title.translatable{
 
                         {% comment %}
                         {% if product.handle contains 'nilkamal-flora-bonnell-spring-mattress' or product.handle contains 'nilkamal-flora-bonnell-spring-mattress' or product.handle contains 'nilkamal-well-bond-foam-mattress' or product.handle contains 'nilkamal-sofi-memory-soft-and-bonded-foam-mattress' or product.handle contains 'nilkamal-vibrant-box-top-pocket-spring-mattress' or product.handle contains 'nilkamal-blue-sky-foam-mattress' or product.handle contains 'nilkamal-stanfield-6-seater-dining-table-grey' or product.handle contains 'nilkamal-pure-foam-mattress' or product.handle contains 'nilkamal-amazzze-foam-mattress' or product.handle contains 'nilkamal-auxton-2-seater-fabric-sofa-brown' or product.handle contains 'nilkamal-cushy-foam-mattress' or product.handle contains 'nilkamal-comfa-foam-mattress' or product.handle contains 'nilkamal-arkansas-1-seater-fabric-sofa-dark-olive' or product.handle contains 'nilkamal-reed-1-seater-sofa-black' or product.handle contains 'nilkamal-reed-2-seater-sofa-black' or product.handle contains 'nilkamal-reed-3-seater-sofa-black'  %}
-                        <p class="">Super Sale Price is inclusive of 10% Discount with code <b>SUPER10</b></p>
+                        <p class="">The Grand Furniture Fest Price is inclusive of 10% Discount with code <b>SUPER10</b></p>
                         {% else %}
-                        <p class="offer"> Use code <b>SUPER10</b> at checkout to avail Super Sale Price</p>
+                        <p class="offer"> Use code <b>SUPER10</b> at checkout to avail The Grand Furniture Fest Price</p>
                         {% endif %}
                         {% endcomment %}
-                        {% if section.settings.product_description_position == "top" %}
-                        {% if product.description != blank %}
+
                         <div class="description" itemprop="description">
-                          {{ product.description | split: '<!-- split -->' | first }}
+                          {% comment %} {{ product.description  }} {% endcomment %}
                         </div>
-                        {% endif %}
-                        {% endif %}
+
 
 
                         {% if product.options.size > 1 %}
@@ -1481,11 +2318,15 @@ h2.cbb-frequently-bought-title.translatable{
 
                         <div class="form-box">
                           <div class="new-quantity-pincode">
-                            <div class="col-sm-6">
+                            <div class="col-sm-6" {% if customerId == '6419587661913' %}
+                              style="display:none;"
+                            {% endif %}>
                               {% include 'pincode-checker' %}
                             </div>
                             <div class="right-col col-sm-6">
-                              <div class="purchase-details">
+                              <div class="purchase-details" {% if customerId == '6419587661913' %}
+                              style="display:none;"
+                            {% endif %}>
                                 {% if settings.display_product_quantity %}
                                 <label for="quantity">QTY</label>
                                 <div class="purchase-details__quantity test product-quantity-box">
@@ -1533,11 +2374,15 @@ h2.cbb-frequently-bought-title.translatable{
 
                           {% comment  %} <div class="total_price desc"></div> {% endcomment %}
 
+                          {% assign customerId1 = customer.id | strip %}
+                          <div id="razorpay-affordability-widget razor-pay-affordability-widget-background" {% if customerId1 == '6419587661913' %}
+                            style="display: none;"
+                          {% endif %}> </div>
 
-                          <div id="razorpay-affordability-widget"> </div>
 
-
-                          <div class="purchase-details__buttons">
+                          <div class="purchase-details__buttons" {% if customerId == '6419587661913' %}
+                          style="display:none;"
+                        {% endif %}>
                             {% include 'iwish_v2' with 'iwishproduct' %}
 
                             {% if settings.cart_action == 'reload_page' %}
@@ -1552,7 +2397,7 @@ h2.cbb-frequently-bought-title.translatable{
                               <span class="sale-text {% if product.available == false %}hidden{% endif %}"></span>
                               <span itemprop="price" content="{{ variant.price | money_without_currency }}"
                                 class="{% if variant.compare_at_price > variant.price %}sale{% endif %} footer_fix">
-                                <p><span class="sale savings">
+                                <p><span class="sale savings savings_modular_bed savings_modular_bed_mobile">
                                     <span
                                       class="fffsfs">{{ variant.compare_at_price | minus: variant.price | times: 100 | divided_by: variant.compare_at_price }}%</span>
                                   </span>
@@ -1569,7 +2414,7 @@ h2.cbb-frequently-bought-title.translatable{
 
                             </div>
                             {%- if product.price > 0 -%}
-                            <button type="submit" onclick="obApi('track', 'Add to Cart');" name="add"
+                            <button id="dataLayerClickAddModular" type="submit" onclick="obApi('track', 'Add to Cart 3');" name="add"
                               class="shopify_button action_button add_to_cart {% if show_payment_button %} action_button--secondary {% endif %}"
                               data-label={{ add_to_cart_label | json }}>
                               <span class="text">{{ add_to_cart_label }}</span>
@@ -1589,7 +2434,19 @@ h2.cbb-frequently-bought-title.translatable{
                               </svg></button>
                             <button type="button" class="custom_payment__button"
                               onclick="return addTOcartDisable1();">Buy it now</button>
-                            {{ form | payment_button }}
+            {{ form | payment_button }}
+                              <!--  Magic Checkout 1CC Begins -->
+                              <div class="Modular_pdp_megic_checkout" style=" width: 100%;">
+{%- if shop.metafields.magic_checkout.buyNowEnabled == false -%}
+
+{%- else -%}
+   <div style="margin-top:10px; width:100%;" id="line2453">
+      <magic-checkout-btn page-type="product" border-radius="40px" onclick="onBuyNowClickMagic(event)">
+      </magic-checkout-btn>
+   </div>
+{%- endif -%}
+</div>
+<!--  Magic Checkout 1CC ends -->
                             {%- endif -%}
 
                             <button type="button" name="add"
@@ -1597,10 +2454,7 @@ h2.cbb-frequently-bought-title.translatable{
                               data-label={{ add_to_cart_label | json }} disabled
                               style="width: 100%;background: gray;border-color: gray;font-size: 18px !important;line-height: 1.5;">
                               <span class="text">Sold out</span>
-                              <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
-                                <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10"
-                                  d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11" />
-                              </svg>
+                              <div class="checkmark"></div>
                             </button>
 
 
@@ -1681,7 +2535,7 @@ h2.cbb-frequently-bought-title.translatable{
 <div class="desc_cotainer mt-5">
   <div class="des_cont_box ">
     <div class="desc_cont">
-      <ul class="custom_bullet">
+      <ul class="custom_bullet custom__bullet__get">
         <li>Highlights</li>
       </ul>
       <ul class="meta_call">
@@ -1720,34 +2574,63 @@ h2.cbb-frequently-bought-title.translatable{
   </div>
   <div class="des_cont_box">
     <div class="desc_cont">
-      <ul class="custom_bullet">
+      <ul class="custom_bullet custom__bullet__get">
         <li>Dimensions</li>
       </ul>
       <ul class="meta_call">
 
                       {% assign productModularDimension = product.metafields.product %}
                         <div class="king__metafield">
+                          {% if productModularDimension["modular_width_king"] != 0 and productModularDimension["modular_width_king"] != blank %}
                           <li class="list_span">
-                          {% if productModularDimension["king_dimension"] != 0 and productModularDimension["king_dimension"] != blank %}
-                              <span class="custom_list">{{ productModularDimension["king_dimension"] }}</span>
+                            Width (cm) <span class="custom_list">{{ productModularDimension["modular_width_king"] }}</span>
                           </li>
                           {% endif %}
-
+                          {% if productModularDimension["modular_depth_king"] != 0 and productModularDimension["modular_depth_king"] != blank %}
                           <li class="list_span">
-                        {% if productModularDimension["kingbed_weight"] != 0 and productModularDimension["kingbed_weight"] != blank %}
-                              Weight (Kg)	<span class="custom_list">{{ productModularDimension["kingbed_weight"] }}</span>
+                            Depth (cm) <span class="custom_list">{{ productModularDimension["modular_depth_king"] }}</span>
+                          </li>
+                          {% endif %}
+                          {% if productModularDimension["modular_height_king"] != 0 and productModularDimension["modular_height_king"] != blank %}
+                          <li class="list_span">
+                            Height (cm) <span class="custom_list">{{ productModularDimension["modular_height_king"] }}</span>
+                          </li>
+                          {% endif %}
+                          {% if productModularDimension["kingbed_weight"] != 0 and productModularDimension["kingbed_weight"] != blank %}
+                          <li class="list_span">
+                              Weight (Kg) <span class="custom_list">{{ productModularDimension["kingbed_weight"] }}</span>
+                          </li>
+                        {% endif %}
+                          {% if productModularDimension["king_mattress_size"] != 0 and productModularDimension["king_mattress_size"] != blank %}
+                          <li class="list_span">
+                            Recommended Mattress Size <br> - <span class="custom_list">{{ productModularDimension["king_mattress_size"] }}</span>
                           </li>
                         {% endif %}
                         </div>
                         <div class="queen__metafield">
+                        {% if productModularDimension["modular_width_queen"] != 0 and productModularDimension["modular_width_queen"] != blank %}
                           <li class="list_span">
-                          {% if productModularDimension["queen_dimension"] != 0 and productModularDimension["queen_dimension"] != blank %}
-                            <span class="custom_list">{{ productModularDimension["queen_dimension"] }}</span>
+                              Width (cm) <span class="custom_list">{{ productModularDimension["modular_width_queen"] }}</span>
                           </li>
                         {% endif %}
+                        {% if productModularDimension["modular_depth_queen"] != 0 and productModularDimension["modular_depth_queen"] != blank %}
                         <li class="list_span">
+                              Depth (cm) <span class="custom_list">{{ productModularDimension["modular_depth_queen"] }}</span>
+                          </li>
+                        {% endif %}
+                        {% if productModularDimension["modular_height_queen"] != 0 and productModularDimension["modular_height_queen"] != blank %}
+                        <li class="list_span">
+                             Height (cm) <span class="custom_list">{{ productModularDimension["modular_height_queen"] }}</span>
+                          </li>
+                        {% endif %}
                         {% if productModularDimension["queenbed_weight"] != 0 and productModularDimension["queenbed_weight"] != blank %}
-                              Weight (Kg)	<span class="custom_list">{{ productModularDimension["queenbed_weight"] }}</span>
+                        <li class="list_span">
+                              Weight (Kg) <span class="custom_list">{{ productModularDimension["queenbed_weight"] }}</span>
+                          </li>
+                        {% endif %}
+                        {% if productModularDimension["queen_mattress_size"] != 0 and productModularDimension["queen_mattress_size"] != blank %}
+                        <li class="list_span">
+                              Recommended Mattress Size <br> - <span class="custom_list">{{ productModularDimension["queen_mattress_size"] }}</span>
                           </li>
                         {% endif %}
                         </div>
@@ -1887,13 +2770,9 @@ h2.cbb-frequently-bought-title.translatable{
     <!--Now Check for the desired tag name-->
     {% if productTags contains 'King Size Beds' %}
 
-    {% comment %}
-      kay.. I found the tag {{productTags}}
-    {% endcomment %}
-
     {% else %}
 
-    <!--Tag not found :( -->
+    <!--Tag not found -->
     {% endif %}
 
     {% include 'mattress-firmness-meter' %}
@@ -1911,7 +2790,6 @@ h2.cbb-frequently-bought-title.translatable{
       </div>
     </div>
     {% endif %}
-
 
     {% if settings.enable_shopify_review_comments and section.settings.review_position == "below_gallery" %}
     <div class="shopify-reviews">
@@ -1939,6 +2817,7 @@ h2.cbb-frequently-bought-title.translatable{
 {% comment %} Mobile plus btn start {% endcomment %}
 
 {% if product.tags contains  'modular-bed'%}
+
   {% if product.tags contains 'box-storages' %}
     {% if product.tags contains 'white-colour' %}
       {% include 'modular-box-white-mobile.liquid' %}
@@ -1947,773 +2826,128 @@ h2.cbb-frequently-bought-title.translatable{
       {% include 'modular-box-walnut-mobile.liquid' %}
     {% endif %}
   {% endif %}
+
+  {% if product.tags contains 'no-storage' %}
+    {% if product.tags contains 'white-colour' %}
+      {% include 'modular-no-storage-white-mobile.liquid' %}
+    {% endif %}
+    {% if product.tags contains 'walnut-colour' %}
+      {% include 'modular-no-storage-walnut-mobile.liquid' %}
+    {% endif %}
+  {% endif %}
+
+  {% if product.tags contains 'semi-hydraulic' %}
+    {% if product.tags contains 'white-colour' %}
+      {% include 'modular-semi-hydraulic-white-mobile.liquid' %}
+    {% endif %}
+    {% if product.tags contains 'walnut-colour' %}
+      {% include 'modular-semi-hydraulic-walnut-mobile.liquid' %}
+    {% endif %}
+  {% endif %}
+
+  {% if product.tags contains 'full-hydraulic' %}
+    {% if product.tags contains 'white-colour' %}
+      {% include 'modular-full-hydraulic-white-mobile.liquid' %}
+    {% endif %}
+    {% if product.tags contains 'walnut-colour' %}
+      {% include 'modular-full-hydraulic-walnut-mobile.liquid' %}
+    {% endif %}
+  {% endif %}
+
 {% endif %}
 
 {% comment %} Mobile plus btn end {% endcomment %}
 
 
 
-{% if section.settings.display_related_products %}
- {% include 'related-products' %} 
-{% endif %}
+{% comment %}{% if section.settings.display_related_products %}
+ {% include 'related-products' %}
+{% endif %}{% endcomment %}
 
 {% endif %}
-<section class="blog__modular__section">
-<div class="container">
-  <h4 class="title left">Similar Blog</h4>
-</div>
-<div class="container blog__section__container__modular">
-  <div class="blog__section__modular__items">
-  <div class="swiper mySwiperModularBlog">
-    <div class="swiper-wrapper swiper-wrapper-modular">
-      <div class="swiper-slide swiper-slide-modular">
-        <div class="swiper__modula__img">
-          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/image_15_3f2751df-cd3d-4e4f-9c6a-1c9af7e61e7a.png?v=1677751583" alt="">
-        </div>
-        <div class="swiper__modula__content">
-          <span class="swiper__modula__content__heading">Top 12 reasons you need to give your spine the proper support</span>
-          <span class="swiper__modula__content__para">
-            Guest rooms are very important to our culture. We reside in a country where we treat our guests as gods; we cannot let such people live in unacceptable conditions in such a culture. This means that such a bedroom should be at least equipped with aqueen-size bed and enough amenities so that a person can live there for about 10-15 days.
-          </span>
-          <a href="" class="swiper__modula__content__button">Read Full Article</a>
-        </div>
-      </div>
-      <div class="swiper-slide swiper-slide-modular">
-        <div class="swiper__modula__img">
-          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/image_15_3f2751df-cd3d-4e4f-9c6a-1c9af7e61e7a.png?v=1677751583" alt="">
-        </div>
-        <div class="swiper__modula__content">
-          <span class="swiper__modula__content__heading">Top 12 reasons you need to give your spine the proper support</span>
-          <span class="swiper__modula__content__para">
-            Guest rooms are very important to our culture. We reside in a country where we treat our guests as gods; we cannot let such people live in unacceptable conditions in such a culture. This means that such a bedroom should be at least equipped with aqueen-size bed and enough amenities so that a person can live there for about 10-15 days.
-          </span>
-          <a href="" class="swiper__modula__content__button">Read Full Article</a>
-        </div>
-      </div>
-      <div class="swiper-slide swiper-slide-modular">
-        <div class="swiper__modula__img">
-          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/image_15_3f2751df-cd3d-4e4f-9c6a-1c9af7e61e7a.png?v=1677751583" alt="">
-        </div>
-        <div class="swiper__modula__content">
-          <span class="swiper__modula__content__heading">Top 12 reasons you need to give your spine the proper support</span>
-          <span class="swiper__modula__content__para">
-            Guest rooms are very important to our culture. We reside in a country where we treat our guests as gods; we cannot let such people live in unacceptable conditions in such a culture. This means that such a bedroom should be at least equipped with aqueen-size bed and enough amenities so that a person can live there for about 10-15 days.
-          </span>
-          <a href="" class="swiper__modula__content__button">Read Full Article</a>
-        </div>
-      </div>
-      <div class="swiper-slide swiper-slide-modular">
-        <div class="swiper__modula__img">
-          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/image_15_3f2751df-cd3d-4e4f-9c6a-1c9af7e61e7a.png?v=1677751583" alt="">
-        </div>
-        <div class="swiper__modula__content">
-          <span class="swiper__modula__content__heading">Top 12 reasons you need to give your spine the proper support</span>
-          <span class="swiper__modula__content__para">
-            Guest rooms are very important to our culture. We reside in a country where we treat our guests as gods; we cannot let such people live in unacceptable conditions in such a culture. This means that such a bedroom should be at least equipped with aqueen-size bed and enough amenities so that a person can live there for about 10-15 days.
-          </span>
-          <a href="" class="swiper__modula__content__button">Read Full Article</a>
-        </div>
-      </div>
-    </div>
-    <div class="swiper-button-next swiper_button_blog">
-      <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Vector_2.svg?v=1677928099" alt="">
-    </div>
-    <div class="swiper-button-prev swiper_button_blog">
-      <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/svgviewer-output_2.svg?v=1677928099" alt="">
-    </div>
-  </div>
-</div>
-</div>
-</section>
+
 
 
 <div class="product_form_fbt"></div>
-<style>
-  /******/
-  .swiper_button_blog{
-    top: 53.5%;
-  }
-  .swiper-wrapper-modular{
-    margin-bottom: 20px;
-  }
-  .swiper__modula__content__button{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 16px;
-  gap: 10px;
-  margin: 20px 0px;
-  color: #0093DD;
-  font-size: 14px;
-  line-height: 18px;
-  background: #FFFFFF;
-  box-shadow: 0px 2px 10px rgba(0, 147, 221, 0.3);
-  border-radius: 38px;
-  }
 
-  .swiper__modula__border{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
-
-  .swiper__modula__content{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: left;
-  }
-  .swiper__modula__content__heading {
-    font-weight: 500;
-    font-size: 23px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    padding-bottom: 20px;
-    display: block;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    line-height: 32px;
-    text-align: left !important;
-    color: #444444;
-  }
-
-  .swiper__modula__content__para{
-    text-align: left !important;
-    font-size: 14px;
-    line-height: 18px;
-    color: rgba(0, 0, 0, 0.8);
-  }
-
-  .swiper-slide-modular{
-    display: flex !important;
-    flex-direction: column !important;
-    padding:10px 22px;
-    border-radius: 20px;
-  }
-
-  .swiper__modula__img{
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-  }
-
-  .swiper__modula__img .swiper__modula__img{
-    width: 100%;
-    height: auto;
-  }
-
-  .blog__modular__section {
-    margin-top: -90px ;
-  }
-
-  .blog__modular__section .container {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    margin-bottom: 23px;
-  }
-
-  .blog__section__modular__items{
-    position: relative;
-  }
-
-  .blog__modular__section .title {
-    font-size: 28px;
-    font-weight: 500;
-    text-transform: capitalize;
-    font-family: 'poppins', sans-serif;
-  }
-
-  .swiper {
-      width: 100%;
-      height: 100%;
-    }
-
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-  #back-to-top {
-    position: fixed;
-    top: 1%;
-    left: 2%;
-    z-index: 9999;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    line-height: 30px;
-    color: #444;
-    cursor: pointer;
-    border: 0;
-    border-radius: 2px;
-    text-decoration: none;
-    transition: opacity 0.2s ease-out;
-    opacity: 0;
-  }
-
-  #back-to-top.show {
-    opacity: 1;
-  }
-
-  #back-to-top svg {
-    width: 16px;
-    color: #fff;
-    height: 14px;
-  }
-
-  .pd-deliver-info .dt-title {
-    text-align: center;
-    background: linear-gradient(0deg, rgb(225 243 251 / 47%), rgb(207 239 255)), #FFFFFF;
-    border: 1px solid white;
-    width: 71px;
-    border-radius: 24px;
-    height: 40px;
-  }
-
-  .mySwiperModularBlog{
-    height: auto !important;
-    margin-bottom: 50px !important;
-  }
-
-  #elementtoworkon {
-      margin-top: -50px;
-      display: none;
-      scroll-behavior: smooth;
-    }
-  
-    #elementtoworkon li a {
-      color: #1C1B1F;
-    }
-  
-    #elementtoworkon_color {
-      margin-top: -50px;
-      display: none;
-      scroll-behavior: smooth;
-      display: none;
-      scroll-behavior: smooth;
-    }
-  
-    #elementtoworkon {
-      background: #fff;
-      padding: 10px;
-      height: auto;
-      max-height: 350px;
-      overflow-y: scroll;
-      scroll-behavior: smooth;
-      border-radius: 10px;
-    }
-  
-    #elementtoworkon_color {
-      background: #fff;
-      padding: 0; 
-      scroll-behavior: smooth;
-      border-radius: 10px;
-      height: fit-content;
-    }
-  
-    .main_cont_mod {
-      display: flex;
-      position: absolute;
-      top: 38%;
-      left: 10%;
-    }
-  
-    .main_cont_mod_color {
-      display: flex;
-      position: absolute;
-      bottom: 27%;
-      right: 10%;
-    }
-  
-    .main_cont_mod ul,
-    .main_cont_mod_color ul {
-      list-style: none;
-      padding: 0;
-      color: #9F9F9F;
-    }
-  
-    .main_cont_mod ul:hover,
-    .main_cont_mod_color ul:hover {
-      color: #0093DD;
-    }
-  
-    li.circle.pulse.orange {
-      background: #ffffff;
-      border-radius: 100% !important;
-      padding: 6px 10px;
-      font-size: 25px;
-      border: 7px solid #b484844d;
-    }
-  
-    div#elementtoworkon li {
-      list-style: none;
-      padding: 10px 5px;
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: 12px;
-    }
-  
-    div#elementtoworkon_color li{
-      list-style: none;
-      padding: 8px 5px;
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: 12px;
-    }
-
-    div#elementtoworkon_color li a{
-      display: flex;
-      align-items: center;
-    }
-  
-  
-    .headboard_active,
-    .color_active {
-      background-color: rgb(50 42 42 / 15%);
-      cursor: pointer;
-      font-weight: 600;
-    }
-  
-    div#elementtoworkon li:hover,
-    div#elementtoworkon_color li:hover {
-      background-color: rgb(50 42 42 / 15%);
-      cursor: pointer;
-    }
-  
-    .headboard_img {
-      width: 80px;
-      height: auto;
-      padding: 0 10px;
-    }
-  
-    div#elementtoworkon span,
-    div#elementtoworkon_color span {
-      vertical-align: super;
-      text-align: left;
-      width: 100%;
-    }
-  
-    .pulse {
-      animation: pulse-animation 2s infinite;
-    }
-  
-    .headboard__storage__container {
-      position: absolute;
-      width: 524px;
-      height: auto;
-      background: rgba(255, 255, 255, 0.6);
-      top: 3%;
-      left: 18%;
-      border-radius: 14px;
-      padding: 20px;
-    }
-  
-    .headboar__storage__boxes {
-      background-color: #fff;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      padding: 10px;
-      gap: 18px;
-      box-shadow: 0 40px 50px rgba(0, 0, 0, 0.08), 0 4px 18px rgba(0, 0, 0, 0.3);
-      border-radius: 8px;
-    }
-  
-    /*.headboar__storage__box_image:active,
-    .headboar__storage__box_image img:active,
-    .headboar__storage__box_image img:hover {
-       border: 3px solid #0093DD;
-      border-radius: 5px;
-      box-shadow: 0px 0px 4px 2px rgb(0 147 221 / 65%);
-    }*/
-  
-    .base_active {
-      border: 3px solid #0093DD;
-      border-radius: 5px;
-      box-shadow: 0 0 4px 2px rgb(0 147 221 / 65%);
-    }
-  
-    .headboar__storage__box_image img {
-      /* border: 3px solid #0000; */
-      border-radius: 5px;
-      width: 70px;
-      height: auto;
-    }
-  
-    span.base_active_bldtxt {
-      font-weight: bold !important;
-    }
-  
-    /*.headboar__storage__box_image:hover {
-      border: 3px solid #0093DD;
-      border-radius: 5px;
-      box-shadow: 0px 0px 4px 2px rgb(0 147 221 / 65%);
-    } */
-  
-    .headboar__storage__box:hover span {
-      font-weight: bold;
-    }
-  
-    .headboar__storage__box:hover img {
-      border: 3px solid #322a2a26;
-    box-shadow: 0 0 4px 2px #322a2a26;
-    }
-  
-    .headboar__storage__box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-evenly;
-    }
-  
-    .headboar__storage__box span {
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 22px;
-      opacity: 0.7;
-      margin-bottom: 6px;
-      color: #4D4D4D;
-    }
-  
-  
-    /*  */
-  
-    .container .five.columns {
-      width: 40%;
-    }
-  
-    .pd-deliver-info {
-      width: 170px;
-    }
-  
-    .gallery-arrows--true .product_gallery .flickity-prev-next-button {
-      opacity: 1;
-      transition: opacity 0.3s linear;
-      display: block;
-    }
-  
-    .light-button .flickity-prev-next-button .arrow {
-      fill: #166c98;
-      opacity: 1 !important;
-    }
-  
-    .flickity-prev-next-button svg {
-      height: 10%;
-      background: #f6fcff;
-      border-radius: 50px;
-      box-shadow: 2px 6px 11px #888;
-    }
-  
-    .product-template .pincode-checker {
-      border: 0 solid #E0E6EF !important;
-    }
-  
-    body#test-box-storage-galaxy-headboard-white-product_title_bosgalhwh {
-      margin-bottom: -60px !important;
-    }
-  
-    div#elementtoworkon_color {
-      margin-top: -60px;
-      padding: 8px;
-      width: 190px;
-  
-    }
-  
-    /*.sharepoint {
-      width: 80% !important;
-      position: unset;
-      top: 32.9%;
-      z-index: 9999;
-      right: 321px;
-      list-style: none;
-    }*/
-  
-    .swiper {
-      background: #fff;
-    }
-  
-    .sharepoint:hover .sharing-list {
-      z-index: 3;
-    }
-  
-    a.sharetxt_svgside {
-      display: flex;
-    }
-  
-    .product-template .product_name {
-      margin-bottom: 0;
-    }
-  
-    .sharepoint_txt {
-      position: absolute;
-      left: 78.2%;
-      top: 28.4%;
-      font-weight: 600;
-      color: #0093dd;
-      cursor: pointer;
-    }
-  
-    .flickity-page-dots .dot {
-      width: 4% !important;
-      margin: 0 !important;
-      border-radius: 0 !important;
-    }
-  
-    .flickity-page-dots .dot.is-selected {
-      border-radius: 30px !important;
-    }
-  
-    li.dot:first-child {
-      border-radius: 6px 0 0 6px !important;
-    }
-  
-    li.dot:last-child {
-      border-radius: 0 6px 6px 0 !important;
-    }
-  
-    .light-button .dot {
-      background: #7c7c7c;
-    }
-  
-  
-    @media(max-width :1400px) {
-      .sharepoint {
-        width: 2.4%;
-        top: 35.9%;
-      }
-  
-      .sharepoint_txt {
-        top: 38.4%;
-      }
-    }
-  
-  
-  
-    @media(max-width:768px) {
-      .headboard__storage__container {
-        width: 100%;
-        left: 0;
-        top: 5%;
-        padding: 0;
-        background-color: #fff;
-      }
-  
-      .flickity-page-dots .dot.is-selected {
-        border-radius: 5px !important;
-      }
-  
-      .new-quantity-pincode {
-        margin-bottom: 15px;
-      }
-  
-      body#test-box-storage-galaxy-headboard-white-product_title_bosgalhwh {
-        margin-bottom: -300px !important;
-      }
-  
-      div#elementtoworkon_color {
-        margin-top: -73px;
-      }
-  
-      .flickity-prev-next-button svg {
-        height: 11%;
-        width: 40px;
-        left: 0;
-      }
-  
-      .product-template .pincode-checker {
-        border: 0 solid #E0E6EF !important;
-      }
-  
-      .headboar__storage__boxes {
-        padding: 0;
-        width: 100%;
-        height: auto;
-        gap: 5px;
-        box-shadow: none;
-        border-radius: none;
-      }
-  
-      .content__box__container {
-        margin: 10px 0 30px !important;
-      }
-  
-      #test-capsule-max-engineered-wood-king-bed-with-box-storage-amp-headboard .product-image-column-modular_bed {
-        width: 100%;
-      }
-  
-      #test-capsule-max-engineered-wood-king-bed-with-box-storage-amp-headboard .product-template .gallery-wrap .product_gallery {
-        margin-top: 112px;
-      }
-  
-      .headboar__storage__box span {
-        font-size: 12px;
-        line-height: 14px;
-        text-align: center;
-      }
-  
-      li.circle.pulse.orange {
-        display: flex;
-        width: 35px;
-        height: 35px;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-      }
-  
-      .main_cont_mod {
-        top: 53%;
-      }
-  
-      .left-col-modular .product-template .pincode-checker {
-        margin: 10px 0;
-        border: 0 solid #E0E6EF;
-      }
-  
-      .image__container__modular {
-        margin-top: 132px;
-      }
-  
-      .main_cont_mod {
-        display: flex;
-        position: absolute;
-        top: 57%;
-        left: 10%;
-      }
-  
-      .main_cont_mod_color {
-        display: flex;
-        position: absolute;
-        bottom: 27%;
-        right: 15%;
-      }
-  
-      #elementtoworkon {
-        max-height: 200px;
-        position: relative;
-        z-index: 1;
-      }
-  
-      #test-capsule-max-engineered-wood-king-bed-with-box-storage-amp-headboard.clearfix.js-product_section {
-        margin-top: 30px !important;
-      }
-    }
-  
-    @keyframes pulse-animation {
-      0% {
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
-      }
-  
-      100% {
-        box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
-      }
-    }
-  
-</style>
-
-<script>
-  var swiper = new Swiper(".mySwiperModularBlog", {
-      slidesPerView: 1,
-      spaceBetween: 10,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      breakpoints: {
-        640: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-        1024: {
-          slidesPerView: 3,
-          spaceBetween: 20,
-        },
-      },
-    });
-</script>
-
-
-<script>
-  dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+ {% comment %} GA4 code commented {% endcomment %}
+ <script>
+  var product = {{ product | json }};
+  //dataLayer.push({ ecommerce: "view_item" });  // Clear the previous ecommerce object.
   dataLayer.push({
     event: "view_item",
     ecommerce: {
-      items: [
-        {
-          item_id: "{{ product.id }}", // product id
-          item_name: "{{ product.title }}", //product name
-          affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
-          /* coupon: "", //The coupon name/code associated with the item if applied */
-          currency: "INR",
-          /* discount: {{ discount.amount | money }}, //if any discount is applied */
-          index: 0, //The index/position of the item in a list
-          /* item_brand: "", //The brand of the item */
-          /* item_category: "Living Room", //The category of the item */
-          /* item_category2: "Sofa", */
-          /* item_category3: "1 Seater Sofas",*/
-          /* item_category4: "", */
-          /* item_category5: "", */
-          /* item_list_id: "related_products", //The ID of the list in which the item was presented to the user */
-          /* item_list_name: "Related Products", //The name of the list in which the item was presented to the user. */
-          /* item_variant: "Velvet", //The item variant or unique code or description for additional item details/options. */
-          /* rtlocation_id: "", //Dynamically pass the location_id  if available */
-          /* quantity: "{{ cart.item_count }}", //Item quantity */
-          user_id: "{{ customer.id }}"//user id of logged in user
+      currency: "INR",
+      value: Math.round(product.price / 100),
+      items: [{
+        item_id: product.id, // product id
+        item_name: product.title, //product name
+        affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
+        coupon: "", //The coupon name/code associated with the item if applied
+        currency: "INR",
+        discount: Math.round((product.compare_at_price - product.price) / 100), //if any discount is applied
+        // index: 0, //The index/position of the item in a list
+        item_brand: product.vendor, //The brand of the item
+        item_category: product.type, //The category of the item
+        //item_category2: "Sofa",
+        //item_category3: "1 Seater Sofas",
+        //item_category4: "",
+        //item_category5: "",
+        //item_list_id: "related_products", //The ID of the list in which the item was presented to the user
+        //item_list_name: "Related Products", //The name of the list in which the item was presented to the user.
+        //item_variant: product.variants, //The item variant or unique code or description for additional item details/options.
+        location_id: "", //Dynamically pass the location_id  if available
+        price: Math.round(product.price / 100), //The monetary price of the item, in units of the specified currency parameter
+        MRP: Math.round(product.compare_at_price / 100), //The monetary price of the item, in units of the specified currency parameter
+        quantity: "1", //Item quantity
+        user_id: "{{ customer.id }}" //user id of logged in user
         }
       ]
     }
   });
 </script>
+
 <script>
-  $(".shopify_button.action_button.add_to_cart").on('click', function () {
-    dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+  $('#dataLayerClickAddModular2').on('click',function (){
+   // alert("Hurrah its working !!! 😂😂😂🤣🤣🤣")
+   // dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
     dataLayer.push({
       event: "add_to_cart",
       ecommerce: {
+        currency: "INR",
+        value: Math.round(product.price / 100),
         items: [
-          {
-            item_id: "{{ item.product.id }}", // product id
-            item_name: "{{ item.product.title }}", //product name
-            //affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
-            //coupon: "", //The coupon name/code associated with the item if applied
+        {
+          item_id: product.id, // product id
+            item_name: product.title, //product name
+            affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
+            coupon: "", //The coupon name/code associated with the item if applied
             currency: "INR",
-            //discount: {{ discount.amount | money }}, //if any discount is applied
-            //index: 0, //The index/position of the item in a list
-            //item_brand: "", //The brand of the item
-            //item_category: "Living Room", //The category of the item
+            discount: Math.round((product.compare_at_price - product.price) / 100), //if any discount is applied
+            // index: 0, //The index/position of the item in a list
+            item_brand: product.vendor, //The brand of the item
+            item_category: product.type, //The category of the item
             //item_category2: "Sofa",
             //item_category3: "1 Seater Sofas",
             //item_category4: "",
             //item_category5: "",
             //item_list_id: "related_products", //The ID of the list in which the item was presented to the user
             //item_list_name: "Related Products", //The name of the list in which the item was presented to the user.
-            //item_variant: "Velvet", //The item variant or unique code or description for additional item details/options.
-            //location_id: "", //Dynamically pass the location_id  if available
+            //item_variant: product.variants, //The item variant or unique code or description for additional item details/options.
+            location_id: "", //Dynamically pass the location_id  if available
+            price: Math.round(product.price / 100), //The monetary price of the item, in units of the specified currency parameter
+            MRP: Math.round(product.compare_at_price / 100), //The monetary price of the item, in units of the specified currency parameter
             quantity: "{{ cart.item_count }}", //Item quantity
-            user_id: "{{ customer.id }}"//user id of logged in user
-          }
+            user_id: "{{ customer.id }}" //user id of logged in user
+        }
         ]
       }
     });
-  });
+  })
 </script>
+ {% comment %} GA4 code commented end {% endcomment %}
+
+
 <script>
   /*** Back to top **/
   if ($('#back-to-top').length) {
@@ -2739,32 +2973,7 @@ h2.cbb-frequently-bought-title.translatable{
   }
 
 </script>
-<script>
-  window.onICMerchantSDKReady = function () {
-    //Initialize the ICMerchantSDK once ic-merchant-sdk.js has been loaded
-    ICMerchantSDK.init({
-      "merchantKey": "0b7b2724-2622-4b4c-acf6-a69e56c5b200",
-      "onSDKInit": function () {
-        //Call ICMerchantSDK.showCEWidget only after SDK is initialized
-        ICMerchantSDK.showCEWidget({
-          "loanAmount": "{{product.price | divided_by: 100 }}",
-          "size": "compact",
-          "pageType": "pdp",
-        },
-          "emi-instacred");
-      }
-    });
-  }
-</script>
-<script>
-    (function () {
-      var script = document.createElement("script");
-      script.async = true;
-      script.src = "https://iccdn.in/web-merchant-sdk/v-1.0/static/instaCred-merchant-sdk.js";
-      var entry = document.getElementsByTagName("script")[0];
-      entry.parentNode.insertBefore(script, entry);
-    })();
-</script>
+
 <script>
   $('.img-numLayering,.layerDescAccordian').click(function () {
     var fav = $(this).data("layer");
@@ -2831,42 +3040,48 @@ h2.cbb-frequently-bought-title.translatable{
   const divContainer_color_mobl = document.querySelector('#toworkon_color');
   const divContainermoblhidemod = document.querySelector('#toworkon');
   const divContainermoblhidecolormod = document.querySelector('#toworkon_color');
-  const bodyfix = document.getElementById("test-box-storage-galaxy-headboard-white-product_title_bosgalhwh");
+  //const bground_opacity = document.getElementById("test-box-storage-galaxy-headboard-white-product_title_bosgalhwh");
   const bground_opacity = document.getElementById("mobilefull__width__background");
+  var Popbody = document.body;
    function mobileshowOrHide() {
-    divContainermobl.style.display = 'block';
-     bodyfix.style.width = '100vw';
-      bodyfix.style.height = '100vh';
-    bodyfix.style.overflow = 'hidden';
-     bground_opacity.style.display = 'block';
-      isClickedMobl = false;
-   }  
+     divContainermobl.style.display = 'block';
+      bground_opacity.style.width = '100vw';
+       bground_opacity.style.height = '100vh';
+       bground_opacity.style.overflow = 'hidden';
+       bground_opacity.style.display = 'block';
+       Popbody.classList.add('fixed__body');
+   }
  function mobileshowOrHide_color() {
-      divContainer_color_mobl.style.display = 'block';
-      bodyfix.style.width = '100vw';
-      bodyfix.style.height = '100vh';
-      bodyfix.style.overflow = 'hidden';
-      bground_opacity.style.display = 'block';
-    } 
+   divContainer_color_mobl.style.display = 'block';
+   bground_opacity.style.width = '100vw';
+   bground_opacity.style.height = '100vh';
+   bground_opacity.style.overflow = 'hidden';
+   bground_opacity.style.display = 'block';
+  Popbody.classList.add('fixed__body');
+    }
 
   let hidemodularvarient = function() {
     divContainermoblhidemod.style.display = 'none';
-    bodyfix.style.overflow = 'auto';
+    bground_opacity.style.overflow = 'auto';
     bground_opacity.style.display = 'none';
+    Popbody.classList.remove('fixed__body');
   };
   let hidemodularcolor = function() {
     divContainermoblhidecolormod.style.display = 'none';
-    bodyfix.style.overflow = 'auto';
+    bground_opacity.style.overflow = 'auto';
     bground_opacity.style.display = 'none';
+    Popbody.classList.remove('fixed__body');
   };
 
   bground_opacity.onclick = function() {
     this.style.display = 'none';
     divContainermobl.style.display = 'none';
     divContainer_color_mobl.style.display = 'none';
-    bodyfix.style.overflow = 'auto';
+    bground_opacity.style.overflow = 'auto';
+     Popbody.classList.remove('fixed__body');
   }
-</script> 
+
+</script>
 
 <script>
   const divContainer = document.querySelector('#elementtoworkon');
@@ -2899,7 +3114,7 @@ h2.cbb-frequently-bought-title.translatable{
       isClicked2 = true;
     }
   };
-</script>  
+</script>
 
  <script>
   var meta_valueee = $('.multi__select__onchange option:selected').val();
@@ -2916,7 +3131,7 @@ h2.cbb-frequently-bought-title.translatable{
       $("#modular__bed__queen").show();
     }
   });
-</script> 
+</script>
 {% schema %}
 {
 "name": "Product",

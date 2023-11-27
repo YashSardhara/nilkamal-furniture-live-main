@@ -1,11 +1,25 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/lightbox.css?v=1678794778">
+<script src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/lightbox.js?v=1678794764"></script>
+
 
 
 <style>
   .swiper {
     width: 100%;
     height: 100%;
+  }
+
+  .pagi__scroll {
+    display: grid;
+    /* grid-template-columns: 19% 80%; */
+    grid-template-columns: 100%;
+    background: rgba(0, 0, 0, .3);
+    height: 7px;
+    border-radius: 5px;
+    /* grid-gap: 20px; */
+    /* place-items: center;*/
   }
 
   .mySwiperModular {
@@ -19,6 +33,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 20px 0;
   }
 
   .swiper-slide img {
@@ -69,23 +84,73 @@
   .swiper-button-prev:after {
     display: none !important;
   }
+
+  .flickity-enabled.is-draggable .flickity-viewport {
+    height: 400px !important;
+  }
+
+  .swiper-power-fraction {
+    display: none;
+  }
+
+  @media(max-width:767px) {
+    .pagi__scroll {
+      margin: 0 30px 0 3px;
+      display: grid;
+      grid-template-columns: 19% 80%;
+      background: transparent;
+      height: fit-content;
+      grid-gap: 20px;
+      place-items: center;
+    }
+
+    .swiper-power-fraction {
+      color:#000;
+      font-weight:700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-scrollbar-modular {
+      width: 100%;
+      height: 5px;
+      background: rgba(185, 185, 185, 0.3);
+      border-radius: 2px;
+    }
+
+    .swiper-scrollbar-modular .swiper-scrollbar-drag {
+      background: #7C7C7C !important;
+      height: 5px !important;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+    }
+  }
 </style>
 
 <!-- Swiper -->
 <section class="modular__bed__container__slider">
+
   {% assign pcd = 1 %}
-    <div class="swiper mySwiperModular">
+  <div class="swiper mySwiperModular">
     <div class="swiper-wrapper swiper__wrapper__modular">
       {% assign productMainImage = product.metafields.Product %}
       {% if productMainImage["king_image"] != 0 and productMainImage["king_image"] != blank %}
         <div class="swiper-slide swiper__slide__modular modualr__bed__images__king" id="modular__bed__king">
-          <img src="{{ productMainImage["king_image"] }}">
+          <a href="{{ productMainImage["king_image"] }}" data-lightbox="{{ product.title | escape }}">
+            <img src="{{ productMainImage["king_image"] }}">
+          </a>
         </div>
       {% endif %}
       {% assign productMainImage = product.metafields.Product %}
-      {% if productMainImage["queen_image"] != 0 and productMainImage["queen_image"] != blank %}
+      {% if productMainImage["queen_dimension_image"] != 0 and productMainImage["queen_dimension_image"] != blank %}
         <div class="swiper-slide swiper__slide__modular modualr__bed__images__queen" id="modular__bed__queen">
-          <img src="{{ productMainImage["queen_image"] }}">
+          <a href="{{ productMainImage["queen_dimension_image"] }}" data-lightbox="{{ product.title | escape }}">
+            <img src="{{ productMainImage["queen_dimension_image"] }}">
+          </a>
         </div>
       {% endif %}
       {% assign varpci = 0 %}
@@ -94,10 +159,12 @@
           {% assign varpci = varpci | plus: 1 %}
 
           <div class="swiper-slide swiper__slide__modular modualr__bed__images--{% increment pcd %}">
-            <img
-              src="{{ media | img_url: '1024x' }}"
-              alt="{{ product.title | escape }}"
-              class="modular__bed__single__image__{% increment pcd %}">
+            <a href="{{ media | img_url: '1024x' }}" data-lightbox="{{ product.title | escape }}">
+              <img
+                src="{{ media | img_url: '1024x' }}"
+                alt="{{ product.title | escape }}"
+                class="modular__bed__single__image__{% increment pcd %}">
+            </a>
           </div>
         {% endfor %}
       {% endif %}
@@ -108,16 +175,30 @@
     <div class="swiper-button-prev">
       <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/svgviewer-output_2.svg?v=1677928099" alt="">
     </div>
-    <!-- Add Scrollbar -->
-    <div class="swiper-scrollbar"></div>
+    <div class="pagi__scroll">
+      <div class="swiper-power-fraction"></div>
+      <div class="swiper-scrollbar-modular"></div>
+    </div>
+
   </div>
+
+
 </section>
 
 <script>
-  var swiper = new Swiper(".mySwiperModular", {
+  var swiperProduct = new Swiper(".mySwiperModular", {
     freeMode: true,
+    pagination: {
+      el: '.swiper-power-fraction',
+      type: 'custom',
+      renderCustom: function(swiper, current, total) {
+        return current + ' of ' + (
+          total - 1
+        );
+      }
+    },
     scrollbar: {
-      el: '.swiper-scrollbar',
+      el: '.swiper-scrollbar-modular',
       hide: false,
       draggable: true
     },
@@ -140,50 +221,70 @@
       }
     }
   });
-</script>
-<script>
 
-  // $(".king__metafield").hide()
+// $(".king__metafield").hide()
 // $(".modualr__bed__images__king").hide()
-  $('.multi__select__onchange').on('change', function() {
-    var meta_value_size = $('.multi__select__onchange option:selected').text();
-    console.log('meta_valueee des', meta_value_size);
-    if (meta_value_size == 'King') {
-      $(".king__metafield")
-        .show()
-        $(".modualr__bed__images__king")
-        .show()
-        $(".queen__metafield")
-        .hide()
-        $(".modualr__bed__images__queen")
-        .hide()
-    } else if (meta_value_size == 'Queen') { // alert("This is Queen")
-      $(".king__metafield")
-        .hide()
-        $(".modualr__bed__images__king")
-        .hide()
-        $(".queen__metafield")
-        .show()
-        $(".modualr__bed__images__queen")
-        .show()
-    }
-  });
-</script>
-{% comment %} <script>
-var meta_valueee =  $('.multi__select__onchange option:selected').val();
-console.log('meta_valueee img', meta_valueee);
-// $("#modular__bed__king").hide();
-$('.multi__select__onchange').on('change', function() {
+  //  $('.multi__select__onchange').on('change', function() {
 
-if (this.data-name == 'King')
-{
-$("#modular__bed__king").show();
-$("#modular__bed__queen").hide();
-}
-else if (this.data-name == 'Queen')
-{
-$("#modular__bed__king").hide();
-$("#modular__bed__queen").show();
-}
+  //   var meta_value_size = $('.multi__select__onchange option:selected').text();
+    // console.log('meta_valueee des', meta_value_size);
+    // if (meta_value_size == 'King') {
+    //   for (i = 1; i < 11; i ++) {
+    //     $('.swiper-button-prev').trigger('click');
+    //   }
+    //   $(".king__metafield").show();
+      // $(".modualr__bed__images__king").show();
+   //   $(".queen__metafield").hide();
+   //   $(".modualr__bed__images__queen").hide();
+   // } else if (meta_value_size == 'Queen') { // alert("This is Queen")
+   //   for (i = 1; i < 11; i ++) {
+   //     $('.swiper-button-prev').trigger('click');
+
+  //    }
+
+
+   //   $(".king__metafield").hide();
+  //    $(".modualr__bed__images__king").hide();
+   //   $(".queen__metafield").show();
+   //   $(".modualr__bed__images__queen").show();
+   // }
+ // }); 
+
+  $(function () {
+    yourFunction(); //this calls it on load
+    $(".multi__select__onchange").change(yourFunction);
 });
-</script> {% endcomment %}
+
+function yourFunction() {
+  var meta_value_size = $('.multi__select__onchange option:selected').text();
+  console.log('meta_valueee des', meta_value_size);
+  if (meta_value_size == 'King') {
+    // alert("This is king" ,meta_value_size)
+    for (i = 1; i < 11; i ++) {
+      $('.swiper-button-prev').trigger('click');
+    }
+    $(".king__metafield").show();
+    $(".modualr__bed__images__king").show();
+    // $(".queen__metafield").hide();
+    // $(".modualr__bed__images__queen").hide();
+  } else if (meta_value_size == 'Queen') { 
+    // alert("This is Queen",meta_value_size)
+    $(".queen__metafield").show();
+    $(".modualr__bed__images__queen").show();
+    for (i = 1; i < 11; i ++) {
+      $('.swiper-button-prev').trigger('click');
+    }
+    $(".king__metafield").hide();
+    $(".modualr__bed__images__king").hide();
+    $(".queen__metafield").show();
+    $(".modualr__bed__images__queen").show();
+  }
+}
+</script>
+
+<script>
+  lightbox.option({'disableScrolling': true, 'alwaysShowNavOnTouchDevices': true})
+  if ($(window).width() < 767) {
+    lightbox.option({'disableScrolling': true, 'positionFromTop': 200, 'alwaysShowNavOnTouchDevices': true})
+  }
+</script>

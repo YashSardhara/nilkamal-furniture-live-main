@@ -1,0 +1,117 @@
+<style>
+  .myMoney {
+    font-family: Inter !important;
+  }
+
+  .tendays__price{
+    padding-left:10px;
+  }
+</style>
+<div class="tendeals">
+  {% for block in section.blocks %}
+    <div>
+      <a href="{{ block.settings.tendays-product-url }}">
+        <img
+          src="{{block.settings.tendays-product-image | img_url:"450x300"}}"
+          style="margin-top: {{ section.settings.tendays__section__margin }};"
+          alt="first-deal" />
+        <div class="tendays__price">
+          <p class="tendays-title" style="color: {{ section.settings.product_title_color_title }};">{{ block.settings.tendays-product-title }}</p>
+          <p class="tendays-mrp myMoney" style="color:{{ section.settings.mrp_color_title }} !important;">
+            MRP: ₹{{ block.settings.tendays-product-mrp }}
+          </p>
+          <p class="tendays-sp myMoney" style="color: {{ section.settings.selling_color_title }};">
+            Selling Price: ₹{{ block.settings.tendays-product-selling }}
+          </p>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "Tendays Three Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "tendays-section-heading",
+        "label": "Header",
+        "default": "Section Heading"
+      },
+      {
+        "type": "text",
+        "id": "tendays-section-para",
+        "label": "Paagraph",
+        "default": "Section Para"
+      },
+      {
+        "type": "color",
+        "id": "selling_color_title",
+        "label": "Selling Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "mrp_color_title",
+        "label": "MRP color",
+        "default": "#FFFFFF"
+      }, {
+        "type": "color",
+        "id": "product_title_color_title",
+        "label": "Product Title color",
+        "default": "#FFFFFF"
+      }, {
+        "type": "range",
+        "id": "tendays__section__margin",
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size",
+        "default": 22
+      }
+    ],
+
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Tendays Card",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "tendays-product-image",
+            "label": "Product Image"
+          },
+          {
+            "type": "text",
+            "id": "tendays-product-title",
+            "label": "Product title",
+            "default": "Enter product title"
+          },
+          {
+            "type": "text",
+            "id": "tendays-product-mrp",
+            "label": "Enter Product MRP",
+            "default": "Enter product MRP"
+          },
+          {
+            "type": "text",
+            "id": "tendays-product-selling",
+            "label": "Enter Product Selling Price",
+            "default": "Enter product Selling Price"
+          }, {
+            "type": "url",
+            "id": "tendays-product-url",
+            "label": "Enter Product URL"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Tendays Three Section"
+      }
+    ]
+  }
+{% endschema %}

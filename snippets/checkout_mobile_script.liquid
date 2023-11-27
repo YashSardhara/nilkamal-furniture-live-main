@@ -13,6 +13,7 @@
   var current_step = $(".step").attr("data-step");
   $(document).ready(function () {
     if (current_step == "contact_information") {
+
       find_button_div.hide();
       $('.step__footer').prepend('<button name="button" type="button" class="step__footer__continue-btn btn " id="continue_to_shipping_button_custom" data-trekkie-id="complete_order_button_custom" aria-busy="false"><span class="btn__content">Continue to shipping</span><svg class="icon-svg icon-svg--size-18 btn__spinner icon-svg--spinner-button" aria-hidden="true" focusable="false"> <use xlink:href="#spinner-button"></use> </svg></button>');
       var current_phone_field = $('#checkout_shipping_address_phone');

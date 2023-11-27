@@ -1,0 +1,151 @@
+<script type="text/javascript">	var __wzrk_account_id = "694-668-786Z";
+	var __wzrk_region = "in1";
+	var __wzrk_version = 2;
+	var __wzrk_web_push_enabled = true;
+	var __wzrk_webhook_enabled = "true";
+	var __wzrk_variables = "shop_url,shop_domain,shop_email,shop_money_format,product_json,product_title,product_price,cart_json,cart_item_count,cart_total_price";
+	var __wzrk_shop_url = "{{ shop.url }}";
+	var __wzrk_shop_domain = "{{ shop.domain }}";
+	var __wzrk_shop_email = "{{ shop.email }}";
+	var __wzrk_shop_money_format = "{{ shop.money_format }}";
+	var __wzrk_shop_name ="{{shop.name}}";
+	var __wzrk_charged_currency = "{{shop.currency}}";
+	var __wzrk_customer_name = "{{ customer.name }}";
+	var __wzrk_customer_identity = "{{ customer.id }}";
+	var __wzrk_customer_email = "{{ customer.email }}";
+	var __wzrk_customer_phone = "{{ customer.phone }}";
+	{% if template contains 'product' %}
+	var __wzrk_product_json = {{ product | json }};
+	var __wzrk_product_title = "{{ product.title }}";
+	var __wzrk_product_price = "{{ product.price | money }}"
+	var __wzrk_product_category_name = "{{ collection.title }}";
+	var __wzrk_currency = "{{ shop.currency }}";
+	var __wzrk_quantity ="{{ line_item.quantity }}";
+	var __wzrk_seller_name = "{{product.vendor}}"
+	{% endif %}
+	{% if template contains 'collection' %}
+	var __wzrk_collection_name = "{{collection.title}}"
+	{% endif %}
+	{% if search.performed %}
+	var __wzrk_searchterm = "{{search.terms}}"
+	{% endif %}
+window.clevertapApp = {
+        config: {
+          	currency: '{{ shop.currency }}',
+            meta : {
+                title : '{{ page_title }}',
+                template : '{{ template }}',
+                url : '{{ canonical_url }}',
+                type : '{{ request.page_type }}',
+            },
+            routes: {
+                customer: {
+                    account: '{{ routes.account_url }}',
+                    login: '{{ routes.account_login_url }}',
+                    logout: '{{ routes.account_logout_url }}',
+                    register: '{{ routes.account_register_url }}'
+                },
+                cart: {
+                    list: '{{ routes.cart_url }}',
+                    add: '{{ routes.cart_add_url }}',
+                    clear: '{{ routes.cart_clear_url }}',
+                    update: '{{ routes.cart_change_url }}',
+                    change: '{{ routes.cart_change_url }}',
+                }    
+            }
+        }
+    };
+
+    {% if template == 'search' %}
+
+        clevertapApp.searchProduct = {
+            items: [],
+            terms: '{{ search.terms }}'
+        }; 
+
+        {% for item in search.results %}
+            {% if item.object_type == 'product' %}
+                clevertapApp.searchProduct.items.push({
+                    SKUCode: '{{ item.variants[0].sku }}',
+                    id: parseInt('{{ item.variants[0].id }}'),
+                    type: '{{ item.type }}',
+                    title: '{{ item.title }}',
+                    available: '{{ item.available }}',
+                    image: '{{ item.featured_image }}',
+                    price: parseFloat((parseInt('{{ item.price }}') / 100).toFixed(2)),
+                });
+            {% endif %}
+        {% endfor %}
+    {% elsif template == 'collection' %}
+  		{% if collection.handle != 'all' and collection.url != '' %}
+            clevertapApp.collection = {
+                url: '{{ collection.url }}',
+                title: '{{ collection.title }}',
+                image: '{{ collection.image }}',
+                handle: '{{ collection.handle }}',
+                id: parseInt('{{ collection.id }}'),
+                productCount: parseInt('{{ collection.products_count }}')
+            }
+        {% endif %}
+    {% elsif template == 'product' %}
+        clevertapApp.product = {
+            variants : {},
+            url : '{{ product.url }}',
+            title : '{{ product.title }}',
+          	handle : '{{ product.handle }}',
+          	id : parseInt('{{ product.id }}'),
+          	available : '{{ product.available }}',
+            image : '{{ product.featured_image }}',
+          	price : parseFloat((parseInt('{{ product.price }}') / 100).toFixed(2))
+        };
+        {% for variant in product.variants %}
+            clevertapApp.product.variants[parseInt('{{ variant.id }}')] = {
+				title: '{{ variant.title }}',
+				id : parseInt('{{ variant.id }}'),
+                available : '{{ variant.available }}',
+                image : '{{ variant.featured_media }}',
+				price : parseFloat((parseInt('{{ variant.price }}') / 100).toFixed(2)),
+            };
+        {% endfor %}
+    {% endif %}
+
+    {% if customer %}
+
+        var tags = [];
+        {% for tag in customer.tags %}
+           tags.push('{{tag}}');
+        {% endfor %}
+        clevertapApp.customer = {
+            phone: '{{ customer.phone }}',
+            email: '{{ customer.email }}',
+            name: '{{ customer.name }}',
+            id: parseInt('{{ customer.id }}'),
+            lastName: '{{ customer.last_name }}',
+            firstName: '{{ customer.first_name }}',
+            city: '{{ customer.default_address.city }}',
+            acceptsMarketing: '{{ customer.accepts_marketing }}',
+            hasAccount: '{{ customer.has_account }}',
+            ordersCount: parseInt('{{ customer.orders_count }}'),
+            taxExempt: '{{ customer.tax_exempt }}',
+            totalSpent:  (parseFloat('{{ customer.total_spent }}') / 100).toFixed(2),
+            tags: tags
+        };
+
+    {% endif %}clevertapApp.frame = {
+        hide: function(){
+            window.document.getElementById('clevertap-frame').style.display = 'none';
+        }
+    };
+if (localStorage) {
+	localStorage.setItem("WZRK_SHOP_INFO", "{ \"acct_id\" : \"694-668-786Z\" , \"region\" : \"in1\" , \"webPushEnabled\" : true , \"webhookEnabled\" : true}");
+}</script><style>
+  #clevertap-frame{
+  	position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    min-width: 100vw;
+  }
+</style>

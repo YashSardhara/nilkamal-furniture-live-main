@@ -1,0 +1,531 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> -->
+
+<style > :root
+{
+  --modular--primary--color: #550D00;
+  --modular--text--color: rgba(0, 0, 0, 0.7);
+  --modular--bg--second--title: #FFF7F0;
+  --modular--border--second--title: rgba(85, 13, 0, 1);
+  --shine-degree: 120deg;
+	 --shine-color: rgba(255, 255, 255, 0.4);
+	 --shine-effect: linear-gradient(var(--shine-degree), transparent, var(--shine-color), transparent);
+}
+
+.modular__container {
+  width: 90vw;
+  max-width: 90vw;
+  margin: 0 auto;
+  margin-bottom: -30px !important;
+}
+
+.footer__modular__plp span.modular__inner__title {
+  margin-bottom: 10px;
+}
+
+.modular__banner__down__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modular__inner__title {
+  display: block;
+  font-weight: 300;
+  font-size: 30px;
+  color: var(--modular--primary--color);
+  line-height: 2.6rem;
+  text-transform: capitalize;
+}
+  .footer__modular__plp .modular__inner__title{
+    margin-top: 20px;
+  }
+
+.modular__inner__para {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--modular--text--color);
+  text-align:justify;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+.modular__inner__second__title {
+  display: block;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 125%;
+  color: var(--modular--primary--color);
+}
+
+.product-wrap .product-info__caption .price .sold_out {
+  text-align: center !important;
+  margin-left: 10px !important;
+  margin-top: 5px !important;
+}
+
+@media(max-width : 1040px) {
+  .modular__container {
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0 auto;
+    margin-bottom: 0px !important;
+  }
+
+  .footer__modular__plp .modular__inner__title{
+    margin-top: 30px;
+    {% comment %} padding-bottom: 10px; {% endcomment %}
+  }
+
+  li.modular__inner__para {
+    list-style: inside;
+  }
+
+  .modular__content__box {
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .modular__inner__title {
+    font-size: 20px;
+    line-height: 110%;
+  }
+
+  .modular__inner__para {
+    font-size: 14px;
+    font-weight:400;
+  }
+
+  .modular__inner__second__title {
+    font-size: 18px;
+  }
+
+
+}
+
+.modual__plp__getinsp a.iWishAddColl {
+  margin-right: 10px !important;
+  z-index: 2;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  margin-top: 9px !important;
+  border-radius: 50%;
+  background: #FFFDFD;
+  box-shadow: 0 2px 10px rgb(222 0 0 / 20%)
+}
+
+.modual__plp__getinsp .container {
+  width: 100% !important;
+}
+
+
+.modual__plp__getinsp a.iWishAddColl svg {
+  stroke: #de0000;
+  fill: #fff;
+}
+
+.modual__plp__getinsp a.iWishAddColl:hover svg {
+  fill: #fff;
+}
+
+.modual__plp__getinsp .iwishAdded svg {
+  fill: #de0000 !important;
+}
+
+.featured-collection-section .products-slider .flickity-prev-next-button.previous {
+  top: 37% !important;
+  left: -14px !important;
+}
+
+.featured-collection-section .products-slider .flickity-prev-next-button.next {
+  top: 37% !important;
+  right: -14px !important;
+}
+
+.similar__product__modular .was_price {
+  text-decoration: none !important;
+}
+
+.similar__product__modular .was_price .money {
+  text-decoration: line-through;
+}
+
+.product-wrap .product_image {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+}
+
+/* Bottom Bar CSS */
+
+.modular__plp__bottom__bar {
+  width: 100%;
+  {% comment %} padding: 20px 0; {% endcomment %}
+  height:13vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  position: fixed;
+  top: 5vh;
+  left: 0;
+  z-index: 5;
+  box-shadow: 0 -7px 4px rgba(0, 0, 0, 0.02), 0 6px 5px rgba(227, 227, 227, 0.4);
+}
+
+.btbar__left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.btbar__right .btbar__right__btn {
+  padding: 14px 86px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  background: #00AAFF;
+  border-radius: 100px;
+  color: #FFFFFF;
+  overflow:hidden;
+}
+
+.btbar__left__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btbar__left__top span {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 20px;
+  color: #444444;
+}
+
+.btbar__left span {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-transform: capitalize;
+  color: #444444;
+}
+
+.modular__plp__bottom__bar__cont {
+  width: 87.5vw;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom__bar__desktop__show {
+ display:flex;
+}
+
+.bottom__bar__desktop__hide {
+  display:none;
+}
+
+.modular__plp__bottom__bar__mobile {
+  display: none;
+}
+
+.modual__plp__getinsp .products-slider.slider-gallery .thumbnail-overlay{
+  Background:rgba(0,0,0,0);
+  Border-radius:0px;
+}
+
+.modual__plp__getinsp .product-wrap .product_image a {
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  {% comment %} border-radius: 16px; {% endcomment %}
+  overflow: hidden;
+  }
+
+.modual__plp__getinsp  .product-wrap .product_image{
+  border-radius: 16px !important;
+  overflow: hidden !important;
+ height: auto;
+}
+
+.modual__plp__getinsp .flickity-viewport {
+  height: 445px !important;
+}
+
+.my__own__container{
+width:90vw;
+margin:0px auto;
+}
+
+.my__own__container .was_price {
+color:#000 !important;
+}
+
+@media(max-width : 1040px) {
+  .modular__plp__bottom__bar__mobile {
+    display: flex;
+    justify-content : center;
+  }
+
+  .footer__modular__plp .modular__inner__title{
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+
+  li.modular__inner__para {
+    list-style: inside;
+  }
+
+  .modular__plp__bottom__bar {
+    display: none;
+  }
+
+  .btbar__mobile {
+    background: #00A5F8;
+    display: flex;
+    position: fixed;
+    bottom: 3%;
+    z-index: 999;
+    border-radius: 32px;
+    overflow: hidden;
+  }
+
+  .btbar__mobile a {
+    color: #fff;
+    font-size: 1rem;
+    /* padding: 20px 30px; */
+    padding: 10px 20px;
+    display: flex;
+    font-weight: 600;
+    gap: 10px;
+    letter-spacing: 0.03em !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-button-next-2,.swiper-button-prev-2{
+    display:none;
+  }
+
+  .bottom__bar__mobile__hide {
+    display:none;
+  }
+
+  .bottom__bar__mobile__show {
+    display:flex;
+  }
+
+  .btn-mod {
+    position: relative;
+    overflow: hidden;
+  }
+
+ .modual__plp__getinsp .products-slider .slider-gallery .product-wrap{
+    height:370px;
+  }
+
+  .modual__plp__getinsp .product-wrap .product_image{
+  height:auto;
+  }
+
+  .modual__plp__getinsp .flickity-viewport{
+  height:400px !important;
+  }
+
+  .btn-mod::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /*border-radius:100px;*/
+    overflow:hidden;
+    background: var(--shine-effect);
+ }
+
+ .btn-anim::before {
+	 animation: shine 5s ease-in-out infinite;
+}
+ @keyframes shine {
+	 0% {
+		 left: -100%;
+		 transition-property: left;
+	}
+
+   100% {
+    left: 100%;
+    transition-property: left;
+    overflow:hidden;
+ }
+}
+
+
+
+@media (max-width:768px){
+  .flickity-viewport {
+    /*touch-action: none !important;
+    -webkit-user-select: none !important; 
+    -webkit-user-drag: none !important;*/
+    }
+
+  .my__own__container{
+    width:100vw;
+    margin:0px auto;
+    }
+
+    .modual__plp__getinsp .flickity-viewport{
+      height:430px !important;
+    }
+
+    body#nilkamal-modular-bed-buy-modular-bed-online-at-best-price div#shopify-section-footer .container .col-sm-6 h5 {
+    margin-bottom: 0px;
+    margin-top: 15px;
+  }
+}
+
+</style>
+<a name="pagecontent" id="pagecontent"></a>
+{% section 'modular-landing-page' %}<div class="modual__plp__getinsp">
+{% section 'featured-collection--four' %}
+<div class="similar__product__modular">
+  {% section 'modular-landing-page-two' %}
+  <div class="modular__plp__bottom__bar bottom__bar__desktop__hide" id="modularBottomBar">
+<div class="modular__plp__bottom__bar__cont">
+  <div class="btbar__left">
+    <a href="javascript:void(0)" class="btbar__left__top bottombarclick">
+      <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Vector_18.svg?v=1680696175" alt="">
+      <span>Top</span>
+    </a>
+    <span class="btbar__left__content">Design your Dream Bed Now!</span>
+  </div>
+  <div class="btbar__right">
+    <a href="https://www.nilkamalfurniture.com/products/nilkamal-galaxy-max-engineered-wood-bed-with-box-storage-headboard-light-white" class="btbar__right__btn">Explore Now</a>
+  </div>
+</div>
+</div>
+<div class="modular__plp__bottom__bar__mobile bottom__bar__mobile__hide" id="modularBottomBarMobile">
+
+  <div class="btbar__mobile">
+    <a href="https://www.nilkamalfurniture.com/products/nilkamal-galaxy-max-engineered-wood-bed-with-box-storage-headboard-light-white" class="btbar__right__btn btn-mod btn-anim">Design Your Dream Bed Now!
+    <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/CTA_Arrow.svg?v=1680779570" />
+  </a>
+  </div>
+</div>
+</div>
+<div class="sixteen columns page clearfix">
+
+
+
+<div class="feature_divider"></div>
+
+<div>
+  {% include 'page-multi-column', content: page.content %}
+</div></div><script>
+$(document).ready(function() {
+
+  $(".modularreadmore").on("click", function() {
+    $(".modular__truncate").removeClass("truncate__para");
+    $(this).css("display", "none");
+    $(".modularreadless").css("display", "inline-block")
+  });
+
+  $(".modularreadless").on("click", function() {
+    $(".modular__truncate").addClass("truncate__para");
+    $(this).css("display", "none");
+    $(".modularreadmore").css("display", "inline-block")
+  });
+
+  var swiper = new Swiper(".mySwiperModPlpBlog", {
+    slidesPerView: 1.2,
+    spaceBetween: 10,
+    navigation: {
+      nextEl: ".swiper-button-next-2",
+      prevEl: ".swiper-button-prev-2",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 1.2,
+        spaceBetween: 20
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      }
+    }
+  });
+
+  var swiper = new Swiper(".mySwiperPlpSlider", {
+    touchRatio: 0,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    loop: true,
+  });
+  var swiper = new Swiper(".mySwiperPlpSlidercontent", {
+    touchRatio: 0,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    loop: true,
+  });
+
+  var myID = document.getElementById("modularBottomBar");
+
+  var myScrollFunc = function() {
+    var y = window.scrollY;
+    //console.log(y)
+    if (y >= 3016) {
+      myID.className = "modular__plp__bottom__bar bottom__bar__desktop__show"
+    } else {
+      myID.className = "modular__plp__bottom__bar bottom__bar__desktop__hide"
+    }
+  };
+
+  window.addEventListener("scroll", myScrollFunc);
+
+  var myID1 = document.getElementById("modularBottomBarMobile");
+
+  var myScrollFunc1 = function() {
+    var z = window.scrollY;
+    if (z >= 490) {
+      myID1.className = "modular__plp__bottom__bar__mobile bottom__bar__mobile__show"
+    } else {
+      myID1.className = "modular__plp__bottom__bar__mobile bottom__bar__mobile__hide"
+    }
+  };
+
+  window.addEventListener("scroll", myScrollFunc1);
+});
+
+$('.bottombarclick').click(function(){
+  // Animate the scroll to the top of the page
+  $('html, body').animate({scrollTop : 0},800);
+  return false;
+});
+</script>

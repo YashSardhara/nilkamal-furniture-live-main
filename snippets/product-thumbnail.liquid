@@ -1,4 +1,5 @@
 {% if sidebar %}
+   {%- continue -%}
   <div class="{% if products_per_row == 2 %}six columns {% cycle collection_group_thumb: 'alpha', 'omega' %}{% elsif products_per_row == 3 %}four columns {% cycle collection_group_thumb: 'alpha', '', 'omega' %}{% elsif products_per_row == 4 %}three columns {% cycle collection_group_thumb: 'alpha', '', '', 'omega' %}{% else %}one-fifth-sidebar column {% cycle collection_group_thumb: 'alpha', '', '', '', 'omega' %}{% endif %} thumbnail {% cycle collection_group_mobile: 'even', 'odd' %}">
 {% else %}
   <div class="
@@ -40,8 +41,9 @@
 
   <div class="product-wrap">
     <div class="relative product_image swap-{{ settings.collection_secondary_image }}">
+      {% include 'iwish_v2' with 'iwishCollection' %}
       <a href="{{ product.url | within: collection }}" itemprop="url">
-        <div class="image__container" style="{% if settings.align_height %} max-width: {{ product_set_width }}px; {% else %} max-width: {{- product.featured_image.width -}}px; {% endif %}">
+        <div class="image__container" style="{% if settings.align_height %}  {% else %} max-width: {{- product.featured_image.width -}}px; {% endif %}">
           <img class="lazyload {{ settings.image_loading_style }}" data-src="{{ product.featured_image | product_img_url: '100x' }}"
                 alt="{{ alt_text | escape }}"
                 style="{{ align_height_value }} max-width: {{- product.featured_image.width -}}px;"

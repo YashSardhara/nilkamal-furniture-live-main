@@ -1,0 +1,93 @@
+{% assign desktopImg = section.settings.desktop_img %}
+{% assign mobileImg = section.settings.mobile_img %}
+{% assign imageURL = section.settings.image_url %}
+<style>
+  .pay_banner {
+    margin-top: 20px;
+    max-width: 100%;
+    /* padding: 15px; */
+    margin: 0px auto;
+  }
+
+  img.pay_banner.visible-desktop-paybanner.lazyautosizes.lazyloaded {
+    width: 100%;
+  }
+
+  .visible-desktop-paybanner {
+    display: block !important;
+  }
+
+  .visible-mobile-paybanner {
+    display: none !important;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .visible-desktop-paybanner {
+      display: none !important;
+    }
+
+    .visible-mobile-paybanner {
+      display: block !important;
+    }
+
+    .pay_banner {
+      margin-top: 20px;
+      /* padding: 10px; */
+    }
+  }
+
+  .container.pay_banner-section {
+    position: relative;
+    margin-bottom: 20px;
+  }
+</style>
+
+<div class="pay_banner-section">
+  {% unless section.settings.image_url == null or  section.settings.image_url == ' '  %}
+    <a href="{{ imageURL }}">
+  {% endunless %}
+  <img
+    loading="lazy"
+    class="pay_banner visible-desktop-paybanner lazyload"
+    data-sizes="auto"
+    data-src="{{ desktopImg | image_url}}"
+    alt="ten days"
+  >
+  <img
+    loading="lazy"
+    class="pay_banner visible-mobile-paybanner lazyload"
+    data-sizes="auto"
+    data-src="{{ mobileImg | image_url }}"
+    alt="ten days"
+  >
+  {% unless section.settings.image_url == null  or  section.settings.image_url == ' ' %}
+    </a>
+  {% endunless %}
+</div>
+ 
+{% schema %}
+{
+  "name": "Full width Image",
+  "settings": [
+   {
+    "id": "desktop_img",
+    "label": "Desktop Image",
+    "type": "image_picker"
+    },
+    {
+    "id": "mobile_img",
+    "label": "Mobile Image",
+    "type": "image_picker"
+    },
+    {
+    "id": "image_url",
+    "label": "Redirect URL",
+    "type": "url"
+    }
+  ],
+  "presets": [{
+    "name": "Full width Image"
+  }],
+  "blocks" : []
+}
+{% endschema %}

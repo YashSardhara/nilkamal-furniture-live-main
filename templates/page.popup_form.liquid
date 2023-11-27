@@ -70,7 +70,7 @@
     background: #dff0d7;
     text-align: center;
     position: absolute;
-    top: 234px;
+    top: 165px;
     background-size: auto;
     width: 100%;
     }
@@ -146,6 +146,14 @@ Thank you for registering an account.
         </div><!-- /#create-customer -->
       </div>
         <div id="success_msg_mob">
+          <div id="img_check_success" class="img_check" style="display: none; width: 100%; text-align: center;">
+            <div class="success-animation_mobile">
+              <svg class="checkmark_pop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle_pop" cx="26" cy="26" r="25" fill="none" />
+                <path class="checkmark__check_pop" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+              </svg>
+            </div>
+          </div>
           <p id="reg_success_msg_mob_id" class="reg_success_msg"> </p>
         </div>
     </div>
@@ -196,8 +204,8 @@ Thank you for registering an account.
         event.preventDefault();
       } else {
         var email = $("#email").val();
-        document.getElementById("reg_success_msg_mob_id").innerHTML = `Thank You, your account has been successfully registered.<br> We have sent an email to ${email}, please click the link to verify your email address.`;
-        document.getElementById("reg_success_msg_mob_id").style.cssText = "color: #04AA6D; padding: 20px; text-align: center";  
+        document.getElementById("reg_success_msg_mob_id").innerHTML = `Thank You, Your account has been successfully registered.<br> We have sent an email to ${email}, please click the link to verify your email address.`;
+        document.getElementById("reg_success_msg_mob_id").style.cssText = "color: rgb(32, 69, 132); padding: 20px; text-align: center";  
         document.getElementById("success_msg_mob").style.cssText = "";
         document.getElementById("img_check_success").style.display = "block";
         console.log("myFunction clicked");

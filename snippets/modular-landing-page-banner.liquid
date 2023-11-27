@@ -1,0 +1,166 @@
+<style>
+  .modular__banner {
+    width: 100%;
+    height: auto;
+  }
+
+  .modular__banner img {
+    width: 100%;
+    height: 75vh;
+  }
+
+  .modular__banner__mobile,
+  .modular__bannerc__mobile {
+    display: none;
+  }
+
+  .modular__banner__desktop {
+    margin-top: -20px;
+  }
+  @media(max-width:768px) {
+    .modular__banner img {
+      width: 100%;
+      height: 25vh;
+    }
+    .modular__banner__mobile {
+      display: block;
+      margin-top: 18px;
+    }
+
+    .modular__banner__desktop,
+    .modular__bannerc__desktop {
+      display: none;
+    }
+
+    .modular__bannerc__mobile {
+      background: linear-gradient(0deg, #FFF7F0, #FFF7F0), #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 16px 16px;
+    }
+
+    .truncate__para {
+      width: 100%;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      /* truncate to 4 lines */
+      -webkit-line-clamp: 4;
+    }
+
+    .modularreadmore,
+    .modularreadless {
+      font-weight: 800;
+    }
+
+    .modularreadless {
+      display: none;
+    }
+
+    .modualr__banner__down .modular__bannerc__mobile .modular__inner__title {
+      text-align: center;
+      font-weight: 300;
+    }
+
+    .modular__left__box .modular__left__item .modular__left__title {
+      display: none;
+    }
+
+    .modualr__banner__down {
+      margin-bottom: 10px;
+    }
+
+    .modular__banner__mobile {
+      margin-bottom: 0;
+    }
+
+    .modular__banner__down__content.modular__bannerc__mobile .modular__inner__title {
+    font-size: 26px;
+    font-weight: 500;
+    }
+
+  }
+
+  .modular__bannerc__desktop .modular__inner__title {
+    margin-top: 30px;
+  }
+
+  .modular__banner .modular__video__desktop,
+  .modular__banner .modular__video__mobile {
+    width: 100%;
+    height: auto;
+  }
+
+  @media(min-width:1300px) and (max-width:1800px) {
+    .modular__banner .modular__video__desktop {
+      height: 600px;
+          margin-top: 20px;
+    }
+  }
+</style>
+
+<div class="modular__banner modular__banner__desktop">
+  <video
+    autoplay
+    muted
+    loop
+    class="modular__video modular__video__desktop">
+    <source src="https://cdn.shopify.com/videos/c/o/v/b9eba6e8ff2a42ca9956f7633ba7aef1.mp4">
+  </video>
+</div>
+<div class="modular__banner modular__banner__mobile">
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    class="modular__video modular__video__mobile"
+    id="myVideo">
+    <source src="https://cdn.shopify.com/videos/c/o/v/9181cbb7f90448d99ed206e596c9d2c3.mp4">
+  </video>
+</div>
+
+<div class="modualr__banner__down modular__container">
+  <div class="modular__banner__down__content modular__bannerc__desktop">
+    <span class="modular__inner__title">Design Your Dream Bed In a Snap!</span>
+    <p class="modular__inner__para">
+      Nilkamal Furniture presents stylish modular beds to enhance the beauty and aesthetics of your
+      bedroom. The modular bed design offers resilient construction and beautiful designs for long-term
+      usage. Fashionable headboards and minimalistic frame structures make modular beds with
+      storage perfect for your contemporary bedroom. Multiple storage options, ranging from <u><a href="https://www.nilkamalfurniture.com/products/nilkamal-galaxy-max-engineered-wood-bed-with-box-storage-headboard-light-white">box
+      storage</a></u> to fully hydraulic storage and even without storage, are available with these modular beds.
+      You can also choose between king and queen sizes. Whether you prefer a modular bed with
+      storage or a modular bed without storage, a fully modular <u><a href="https://www.nilkamalfurniture.com/products/nilkamal-galaxy-premier-engineered-wood-bed-with-hydraulic-storage-headboard-light-white">hydraulic bed</a></u> or a semi-hydraulic
+      modular bed, Nilkamal has you covered with its modular beds with headboard. You can easily
+      customise the modular bed to suit your preferences by interchanging the headboard and the base.
+    </p>
+  </div>
+  <div class="modular__banner__down__content modular__bannerc__mobile">
+    <span class="modular__inner__title">Design Your Dream Bed In a Snap!</span>
+    <p class="modular__inner__para">
+      <span class="modular__truncate truncate__para">Nilkamal Furniture presents stylish modular beds to enhance the
+        beauty and aesthetics of your
+        bedroom. The modular bed design offers resilient construction and beautiful designs for long-term
+        usage. Fashionable headboards and minimalistic frame structures make modular beds with
+        storage perfect for your contemporary bedroom. Multiple storage options, ranging from <u><a href="https://www.nilkamalfurniture.com/products/nilkamal-galaxy-max-engineered-wood-bed-with-box-storage-headboard-light-white">box
+        storage</a></u> to fully hydraulic storage and even without storage, are available with these modular beds.
+        You can also choose between king and queen sizes. Whether you prefer a modular bed with
+        storage or a modular bed without storage, a fully modular <u><a href="https://www.nilkamalfurniture.com/products/nilkamal-galaxy-premier-engineered-wood-bed-with-hydraulic-storage-headboard-light-white">hydraulic bed</a></u> or a semi-hydraulic
+        modular bed, Nilkamal has you covered with its modular beds with headboard. You can easily
+        customise the modular bed to suit your preferences by interchanging the headboard and the base.</span>
+      <span class="modularreadmore">Read More</span>
+      <span class="modularreadless">Read Less</span>
+    </p>
+  </div>
+</div>
+
+<script>
+  var video = document.getElementById("myVideo");
+  var playButton = document.getElementById("playButton");
+
+  playButton.addEventListener("click", function() {
+    video.play();
+  });
+</script>

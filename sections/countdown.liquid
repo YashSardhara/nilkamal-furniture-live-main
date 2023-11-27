@@ -1,0 +1,232 @@
+{% assign endDate = section.settings.end_date %}
+{% assign desktopImg = section.settings.desktop_img %}
+{% assign mobileImg = section.settings.mobile_img %}
+{% assign textColor = section.settings.font_color_seconds %}
+{% assign textHorizontal = section.settings.text_Horizontal %}
+{% assign textVertical = section.settings.text_Vertical %}
+{% if endDate != blank %}
+<style>
+  .ten-days {
+    margin-top: 20px;
+    max-width: 100%;
+    border: 2px solid grey;
+    padding: 15px;
+  }
+
+  #clockdiv {
+    position: absolute;
+    top: {{textVertical}}vh;
+    right: {{textHorizontal}}em;
+    display: inline-block;
+    font-weight: 600;
+    text-align: center;
+    font-size: 21px;
+    background-color: transparent;
+    margin: auto;
+    padding: 18px;
+  }
+
+
+  #clockdiv span {
+    color: {{textColor}};
+    line-height: 24px;
+  }
+
+  #clockdiv>div {
+    display: inline-block;
+    margin: 5px;
+  }
+
+  .visible-desktop-tendeals {
+    display: block !important;
+  }
+
+  .visible-mobile-tendeals {
+    display: none !important;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .visible-desktop-tendeals {
+      display: none !important;
+    }
+
+    .visible-mobile-tendeals {
+      display: block !important;
+    }
+
+    #clockdiv>div,
+    #clockdiv>span {
+      display: inline-block;
+      margin: 5px;
+      line-height: 6px !important;
+    }
+
+    #clockdiv span {
+      color: {{textColor}};
+      }
+
+    #clockdiv {
+      font-family: sans-serif;
+      color: {{textColor}};
+      position: absolute;
+      top: 74%;
+      right: 0;
+      left: 14%;
+      font-weight: bold;
+      text-align: center;
+      font-size: 14px;
+      background-color: transparent;
+      margin: 0;
+      padding: 0;
+      height: 3em;
+      width: 71%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .ten-days {
+      margin-top: 20px;
+      border: 2px solid grey;
+      padding: 10px;
+    }
+  }
+
+  #clockdiv>div,
+  #clockdiv>span {
+    display: inline-block;
+    margin: 5px;
+    line-height: 15px;
+  }
+
+  #clockdiv>p {
+
+    font-weight: bolder;
+    font-size: 23px;
+    margin-bottom: 30px;
+  }
+
+  #clockdiv div>span {
+    display: inline-block;
+
+  }
+
+  .container.ten-days-section {
+    position: relative;
+    margin-bottom: 20px;
+  }
+</style>
+
+<div class="container ten-days-section">
+  <img class="ten-days visible-desktop-tendeals lazyload" data-sizes="auto" data-src="{{ desktopImg | image_url}}"
+    alt="ten days">
+  <img class="ten-days visible-mobile-tendeals lazyload" data-sizes="auto" data-src="{{ mobileImg | image_url }}"
+    alt="ten days">
+  <div id="clockdiv" style="color: {{ textColor }};">
+
+    <div>
+      <span class="days" id="day">00</span>
+      <div class="smalltext">Days</div>
+    </div>
+    <div>
+      <span class="hours" id="hour">00</span>
+      <div class="smalltext">Hours</div>
+    </div>
+    <div>
+      <span class="minutes" id="minute">00</span>
+      <div class="smalltext">Minutes</div>
+    </div>
+    <div>
+      <span class="seconds" id="second">00</span>
+      <div class="smalltext">Seconds</div>
+    </div>
+  </div>
+  <p id="demo"></p>
+</div>
+
+<script>
+  var deadline = new Date('{{ endDate  }}').getTime();
+
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var t = deadline - now;
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((t % (1000 * 60)) / 1000);
+    document.getElementById("day").innerHTML = days;
+    document.getElementById("hour").innerHTML = hours;
+    document.getElementById("minute").innerHTML = minutes;
+    document.getElementById("second").innerHTML = seconds;
+    if (t < 0) {
+      clearInterval(x);
+      document.getElementById("demo").innerHTML = "TIME UP";
+      document.getElementById("day").innerHTML = '0';
+      document.getElementById("hour").innerHTML = '0';
+      document.getElementById("minute").innerHTML = '0';
+      document.getElementById("second").innerHTML = '0';
+    }
+  }, 1000);
+</script>
+
+{% endif %}
+
+{% schema %}
+{
+"name": "Timer",
+"settings": [
+{
+"id": "desktop_img",
+"label": "Desktop Image",
+"type": "image_picker"
+},
+{
+"id": "mobile_img",
+"label": "Mobile Image",
+"type": "image_picker"
+},
+{
+"type": "text",
+"id": "title",
+"label": "Title"
+},
+{
+"type": "text",
+"id": "end_date",
+"label": "End Date",
+"default": "Apr 15, 2023 12:00:00",
+"info": "e.g. Apr 15, 2023 12:00:00"
+},
+{
+"type": "color",
+"id": "font_color_seconds",
+"label": "Seconds Font Color",
+"default": "#000000",
+"info": "Choose the font color for the seconds element."
+},
+{
+"type": "range",
+"label": "Text Horizontal Align",
+"id": "text_Horizontal",
+"min": 10,
+"max": 20,
+"step": 0.5,
+"default": 15,
+"unit": "em"
+},
+{
+"type": "range",
+"label": "Text Vertical Align",
+"id": "text_Vertical",
+"min": 10,
+"max": 20,
+"step": 0.5,
+"default": 15,
+"unit": "vh"
+}
+],
+"presets": [{
+"name": "Countdown"
+}],
+"blocks" : []
+}
+{% endschema %}

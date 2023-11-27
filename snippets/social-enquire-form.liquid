@@ -289,7 +289,7 @@
 <option value="ZW">Zimbabwe</option>
 </select>
 </li> 
-<span id="country_error" class="err"></span> -->
+<span id="country_error" class="err"></span>
         <li>
           <select>        
             <option disabled selected>1</option>
@@ -298,7 +298,7 @@
             <option>4</option>
             <option>5</option>
           </select>
-        </li>
+        </li> -->
       </div>
       <div class="formright">
         <li class="required" id="contact_us_category_input">
@@ -371,12 +371,15 @@
     $('#thank_you').css('display','none');
   });
 
+  
+  
   $("#enquire_now_submit").click(function(e){
     $('.err').html('');
     e.preventDefault();
     var form = $('#enquire_now');
+    var apiURL = "https://admin.nilkamalfurniture.com/";
     $.ajax({
-      url: apiURL+"api/enquire",
+      url: "https://admin.nilkamalfurniture.com/api/enquire",
       type: 'POST',
       data: form.serialize(),
       dataType: 'json',

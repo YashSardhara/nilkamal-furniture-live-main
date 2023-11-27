@@ -1,0 +1,29 @@
+<style>
+  .modular__container__down {
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .modular__container__blog {
+    width: 90vw;
+    margin: -50px auto 0;
+  }
+
+  @media(max-width:768px) {
+    .modular__container__down {
+      width: 90vw;
+      margin: 0 auto;
+    }
+
+    .modular__container__blog {
+      width: 100vw;
+      margin: 0 auto;
+    }
+  }
+</style>
+<div class="modular__container__blog">
+  {% include 'modular-landing-related-blog' %}
+</div>
+<div class="modular__container__down">
+  {% include 'modular-plp-faq' %}
+</div>

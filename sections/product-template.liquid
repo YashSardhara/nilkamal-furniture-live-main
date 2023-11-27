@@ -1,3 +1,5 @@
+
+
 <script type="application/ld+json">
     {
       "@context": "https://schema.org/",
@@ -28,6 +30,43 @@
       }
     }
     </script>
+
+<style>
+      @media only screen and (max-width: 600px) {
+  .cbb-frequently-bought-container.cbb-mobile-view {
+    height: 837px !important;
+}
+}
+    </style>
+
+<!-- Nilkamal- Affiliate Retag Codes start -->
+<script type="text/javascript">
+    // required object
+    window.ad_product = {
+        "id": "{{ product.id }}",   // required
+        "vendor": "{{ product.vendor }}",
+        "price": "{{ product.price | divided_by: 100.00 }}",
+        "url": "{{ shop.url | append: product.url }}",
+        "picture": "https:{{ product | img_url }}",
+        "name": "{{ product.title | escape }}",
+        "category": "{{ collection.id }}"
+    };
+
+    window._retag = window._retag || [];
+    window._retag.push({code: "9ce8884b31", level: 2});
+    (function () {
+    console.log('retag-product');
+        var id = "admitad-retag";
+        if (document.getElementById(id)) {return;}
+        var s = document.createElement("script");
+        s.async = true; s.id = id;
+        var r = (new Date).getDate();
+        s.src = (document.location.protocol == "https:" ? "https:" : "http:") + "//cdn.lenmit.com/static/js/retag.js?r="+r;
+        var a = document.getElementsByTagName("script")[0]
+        a.parentNode.insertBefore(s, a);
+    })()
+</script>
+    <!-- Nilkamal- Affiliate Retag Codes end -->
 
 
 {% comment %}
@@ -120,7 +159,10 @@
               data-product-id="{{ product.id }}"
               >
               {% form 'product', product %}
-                <div class="v-sticky-bar">
+                {% assign customerId2 = customer.id | strip %}
+                <div class="v-sticky-bar" {% if customerId2 == '6419587661913' %}
+                style="display: none !important;"
+              {% endif %}>
 			<div class="container">
 				<div class="row">
 					<div class="pf-col xs-12">
@@ -151,12 +193,12 @@
  {%- if product.price > 0 -%}
    <button type="submit" onclick="_tfa.push({notify: 'event', name: 'add_to_cart', id: 1390599});" name="add" class="widthbutton shopify_button action_button add_to_cart {% if show_payment_button %} action_button--secondary {% endif %}" data-label={{ add_to_cart_label | json }}>
     <span class="text">{{ add_to_cart_label }}</span>
-    <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
-      <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
-    </svg>
+    <div class="checkmark"></div>
   </button>
 
-  <button type="button" name="add" class="action_button custom_cart_action_button" onclick="return addTOcartDisable1();" data-label="Add to Cart"> <span class="text">Add to Cart</span> <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark"> <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path></svg></button>
+  <button type="button" name="add" class="action_button custom_cart_action_button" onclick="return addTOcartDisable1();" data-label="Add to Cart"> <span class="text">Add to Cart</span>
+  <div class="checkmark"></div>
+  </button>
   <button type="button" class="custom_payment__button" onclick="return addTOcartDisable1();">Buy it now</button>
   {{ form | payment_button }}
 
@@ -166,9 +208,7 @@
   <button type="button" name="add" class="action_button add_to_cart {% if show_payment_button %} action_button--secondary {% endif %}" data-label={{ add_to_cart_label | json }} disabled
           style="width: 100%;background: gray;border-color: gray;font-size: 18px !important;line-height: 1.5;">
     <span class="text">Sold out</span>
-    <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
-      <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
-    </svg>
+    <div class="checkmark"></div>
   </button>
 
   {% endif %}
@@ -246,12 +286,14 @@
                   <a href="#size-chart" class="size_chart" data-remodal-target="size-chart" data-no-instant>{{ 'products.product.size_chart' | t }} <span class="icon-right-arrow"></span></a>
                   {% endif %}
 
-                  <div class="main-colmn">
+                  <div class="main-colmn {% if product.tags contains 'Gaming Chair' %} gaming-chair-border {% endif %}">
                     {% if product.available == false %}
                 <p class="new-sold-out">Sold out</p>
                   {% endif %}
                 {% if product.available == true %}
                     <div class="left-colmn">
+                  {% assign customerId1 = customer.id | strip %}
+                  {% unless customerId1 == '6419587661913' %}
                       {% if collection_handles contains 'coming-soon' %}
                       <p class="modal_price">{{ 'collections.general.coming_soon' | t }}</p>
                       {% else %}
@@ -268,7 +310,9 @@
 
                         <p><span class="current_price totalpricequantity">
                               {% if variant.price > 0 %}
-                              <span class="sale totalpricequantity">&#8377; {{ variant.price | money_without_currency | remove: '.00'}}</span>
+                              <span class="sale totalpricequantity">
+                                &#8377;
+                                {{ variant.price | money_without_currency | remove: '.00'}}</span>
                               {% else %}
                               {{ settings.free_price_text }}
                               {% endif %}
@@ -278,8 +322,8 @@
 </div>
                          <div class="col-sm-7 right-price">
               {% if variant.price < variant.compare_at_price %}
-                         <span>MRP</span> <span class="inter-rupe">&#8377;</span><span class="was_price">
-                           <span class="money">{{ variant.compare_at_price | money }}</span>
+                         <span>MRP</span> <span class="inter-rupe"> &#8377; </span><span class="was_price">
+                          <span class="money">{{ variant.compare_at_price | money }}</span>
                           </span><br>
                           {% endif %}
 
@@ -288,7 +332,7 @@
 </svg>
 </span>
 
-                          <span class="priceimghover">Get upto 60% off</span>
+                          <span class="priceimghover">The Shagun Collection</span>
 
 
 </div>
@@ -300,11 +344,8 @@
 
                           {% endif %}
                           {% endif %}
-                  </div>
-
+                          </div>
                         {% else %}
-
-
                         <div class="price-info new-price">
                         <div class="col-sm-5 left-price">
                         <span class="sale-text {% if product.available == false %}hidden{% endif %}">Sale Price</span>
@@ -312,7 +353,7 @@
 
                         <p><span class="current_price totalpricequantity">
                               {% if variant.price > 0 %}
-                              <span class="sale totalpricequantity">&#8377; {{ variant.price | money_without_currency | remove: '.00'}}</span>
+                              <span class="sale totalpricequantity">&#8377;{{ variant.price | money_without_currency | remove: '.00'}}</span>
                               {% else %}
                               {{ settings.free_price_text }}
                               {% endif %}
@@ -322,7 +363,7 @@
 </div>
                          <div class="col-sm-7 right-price">
               {% if variant.price < variant.compare_at_price %}
-                         <span>MRP</span>  <span class="inter-rupe">&#8377;</span><span class="was_price">
+                         <span>MRP</span>  <span class="inter-rupe"> &#8377; </span><span class="was_price">
                             <span class="money">{{ variant.compare_at_price | money | remove: '.00'}}</span>
                           </span><br>
                           {% endif %}
@@ -330,8 +371,7 @@
 <path d="M10.5 0C4.98 0 0.5 4.48 0.5 10C0.5 15.52 4.98 20 10.5 20C16.02 20 20.5 15.52 20.5 10C20.5 4.48 16.02 0 10.5 0ZM11.5 15H9.5V9H11.5V15ZM11.5 7H9.5V5H11.5V7Z" fill="#87BEDA"/>
 </svg>
 </span>
-
-                               <span class="priceimghover">Get upto 60% off</span>
+<span class="priceimghover">The Shagun Collection</span>
 
 </div>
                         {% if section.settings.display_savings %}
@@ -344,7 +384,7 @@
                           {% endif %}
                           {% endif %}
 
-                  </div>
+                        </div>
                         {% endif %}
 
                                             <div class="service-info" style="display:none;">
@@ -360,12 +400,12 @@
                         {% endcomment %}
                       </div>
                       {% endif %}
-
+                      {% endunless %}
                       {% comment %}
                       {% if product.handle contains 'nilkamal-flora-bonnell-spring-mattress' or product.handle contains 'nilkamal-flora-bonnell-spring-mattress' or product.handle contains 'nilkamal-well-bond-foam-mattress' or product.handle contains 'nilkamal-sofi-memory-soft-and-bonded-foam-mattress' or product.handle contains 'nilkamal-vibrant-box-top-pocket-spring-mattress' or product.handle contains 'nilkamal-blue-sky-foam-mattress' or product.handle contains 'nilkamal-stanfield-6-seater-dining-table-grey' or product.handle contains 'nilkamal-pure-foam-mattress' or product.handle contains 'nilkamal-amazzze-foam-mattress' or product.handle contains 'nilkamal-auxton-2-seater-fabric-sofa-brown' or product.handle contains 'nilkamal-cushy-foam-mattress' or product.handle contains 'nilkamal-comfa-foam-mattress' or product.handle contains 'nilkamal-arkansas-1-seater-fabric-sofa-dark-olive' or product.handle contains 'nilkamal-reed-1-seater-sofa-black' or product.handle contains 'nilkamal-reed-2-seater-sofa-black' or product.handle contains 'nilkamal-reed-3-seater-sofa-black'  %}
-                      <p class="">Super Sale Price is inclusive of 10% Discount with code <b>SUPER10</b></p>
+                      <p class="">The Grand Furniture Fest Price is inclusive of 10% Discount with code <b>SUPER10</b></p>
                       {% else %}
-                      <p class="offer"> Use code <b>SUPER10</b> at checkout to avail Super Sale Price</p>
+                      <p class="offer"> Use code <b>SUPER10</b> at checkout to avail The Grand Furniture Fest Price</p>
                       {% endif %}
                       {% endcomment %}
                       {% if section.settings.product_description_position == "top" %}
@@ -407,7 +447,7 @@
 
 
 
-                     {% comment %}
+                    {% comment %}
                      {% for option in product.options %}
             {% if product.available and product.variants.size >= 1 and option == 'Color' %}
                  {% include 'swatch' with 'Color' as swatch %}
@@ -472,7 +512,7 @@ document.querySelector('#shareBtn')
 
 
 
-                       {% for option in product.options %}
+                        {% for option in product.options %}
             {% if product.available and product.variants.size >= 1 and option == 'Color' %}
 
               <div class="select product-variant-dropdown customlt">
@@ -560,6 +600,7 @@ document.querySelector('#shareBtn')
                         {% endunless %}
                       </div>
 
+                  {% unless customerId1 == '6419587661913' %}
                       <div class="form-box">
                         <div class="new-quantity-pincode">
                         <div class="col-sm-6">
@@ -611,7 +652,8 @@ document.querySelector('#shareBtn')
 
 
                <div id="razorpay-affordability-widget"> </div>
-
+               <div id="w369-widget-control"></div>
+                <p class="offer">{% comment %}Cashback of 10% upto Rs.1000 on Axio pay later{% endcomment %} </p>
 
                           <div class="purchase-details__buttons">
                 {% include 'iwish_v2' with 'iwishproduct' %}
@@ -641,15 +683,15 @@ document.querySelector('#shareBtn')
 
                   </div>
  {%- if product.price > 0 -%}
-   <button type="submit" onclick="obApi('track', 'Add to Cart');" name="add" class="shopify_button action_button add_to_cart {% if show_payment_button %} action_button--secondary {% endif %}" data-label={{ add_to_cart_label | json }}>
+   <button type="submit" id="dataLayerClickAdd" onclick="obApi('track', 'Add to Cart 1');" name="add" class="shopify_button action_button add_to_cart {% if show_payment_button %} action_button--secondary {% endif %}" data-label={{ add_to_cart_label | json }}>
     <span class="text">{{ add_to_cart_label }}</span>
-    <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
-      <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
-    </svg>
+    <div class="checkmark"></div>
   </button>
 
 
-  <button type="button" name="add" class="action_button custom_cart_action_button" onclick="return addTOcartDisable1();" data-label="Add to Cart"> <span class="text">Add to Cart</span> <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark"> <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path></svg></button>
+  <button type="button" name="add" class="action_button custom_cart_action_button" onclick="return addTOcartDisable1();" data-label="Add to Cart"> <span class="text">Add to Cart</span>
+  <div class="checkmark"></div>
+  </button>
   <button type="button" class="custom_payment__button" onclick="return addTOcartDisable1();">Buy it now</button>
   {{ form | payment_button }}
    {%- endif -%}
@@ -657,14 +699,21 @@ document.querySelector('#shareBtn')
   <button type="button" name="add" class="action_button add_to_cart {% if show_payment_button %} action_button--secondary {% endif %}" data-label={{ add_to_cart_label | json }} disabled
           style="width: 100%;background: gray;border-color: gray;font-size: 18px !important;line-height: 1.5;">
     <span class="text">Sold out</span>
-    <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
-      <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
-    </svg>
+    <div class="checkmark loader"></div>
   </button>
 
 
 </div>
-
+ <!--  Magic Checkout 1CC Begins -->
+{%- if shop.metafields.magic_checkout.buyNowEnabled == false -%}
+{% comment %}    {{ form | payment_button }} {% endcomment %}
+{%- else -%}
+   <div style="margin-top:10px;" id="pt-703">
+      <magic-checkout-btn page-type="product" border-radius="40px" onclick="onBuyNowClickMagic(event)">
+      </magic-checkout-btn>
+   </div>
+{%- endif -%}
+<!--  Magic Checkout 1CC ends -->
 
      {% comment %}
         {% if product.variants[0].price > 50000 %}
@@ -679,6 +728,7 @@ document.querySelector('#shareBtn')
                         {% include 'zest-money-widget' %}
                      {% include 'hdfc-popup.liquid' %} {% endcomment %}
                       </div>
+                    {% endunless %}
                     </div>
 
                          {% endif %}
@@ -981,7 +1031,6 @@ document.querySelector('#shareBtn')
 
       <div class="col-6 grounded-radiants">
     <?xml version="1.0" encoding="UTF-8"?>
-{% comment %}
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 518 518">
   <defs>
     <style>
@@ -1010,8 +1059,6 @@ document.querySelector('#shareBtn')
     <path class="cls-3" d="M233.45,328.01c-2.42-.99-3.1-2.13-3.09-4.69,.1-30.05,.07-60.1,.07-90.15,0-15.08,0-30.17,0-45.25,0-15.43,.06-30.85-.03-46.28-.04-7.51-7.18-12.41-14-9.79-4.5,1.73-6.6,5.26-6.6,11.2,0,59.87-.02,119.75,.06,179.62,0,2.86-.59,4.26-3.48,5.46-15.38,6.4-23.6,22.39-20.48,39.1,2.84,15.24,17.14,27.3,32.99,27.83,16.7,.56,31.61-11.04,35.35-27.5,3.68-16.22-5.12-33.15-20.79-39.56Zm-13.36,46.31c-7.69,.02-14.18-6.39-14.27-14.09-.08-7.75,6.65-14.46,14.39-14.35,7.74,.11,14.07,6.55,14.03,14.3-.04,7.8-6.37,14.13-14.16,14.14Z"/>
   </g>
 </svg>
-{% endcomment %}
-    kbscsmcbm
       </div>
       <div class="col-6 sting-health-content">
        <h2>Highly Advanced Thermo-Regulating Cool Fabric </h2>
@@ -4353,6 +4400,108 @@ Temperature-regulating foam with advanced support and softness
 </div>
 </div>
 {% endif %}
+
+{% if product.handle contains 'nilkamal-marvel-gaming-chair-black-red' or product.handle contains 'nilkamal-vaden-gaming-chair-black-red' or product.handle contains 'nilkamal-greta-gaming-chair-gery-white' or product.handle contains 'nilkamal-canophy-gaming-chair-black' or product.handle contains 'nilkamal-razos-gaming-chair-brown-beige' or product.handle contains 'nilkamal-athena-gaming-chair-grey-turquoise' or product.handle contains 'nilkamal-bosco-gaming-chair-black-blue' %}
+    <main class="main__custom">
+    <div class="custom__container__product">
+      {%  comment  %}
+      <section class="banner__gamincair">
+        <div class="banner__img">
+          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/1800x720.jpg?v=1673590261" alt="">
+        </div>
+      </section>
+      <section class="banner__gamincair__mobile">
+        <div class="banner__img__mob">
+          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/800x600.jpg?v=1673590483" alt="">
+        </div>
+        <div class="banner__content__mob">
+          <p>
+            Nilkamal presents Fyrebird, a range of battle-ready gaming chairs for those who love gaming. The Fyrebird collection is designed to breathe new life into your gaming world with chairs designed for unmatched comfort, unrestricted mobility, and ergonomic support to enjoy hours of non-stop gaming.
+          </p>
+        </div>
+      </section>
+      {% endcomment %}
+    <section class="gaming__main__feature">
+      <div class="gamin__main__heading">
+        <span>What Makes Fyrebird Gaming Chairs The Best For Gamers?</span>
+      </div>
+      <div class="gaming__main__container">
+        <lottie-player src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/TransBG_fireball.json?v=1672665035"   background="transparent"  speed="1" class="chair__back__product_video" loop  autoplay></lottie-player>
+        <lottie-player src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/TransBG_fireball.json?v=1672665035"   background="transparent"  speed="1" class="chair__back__product_video1" loop  autoplay></lottie-player>
+        <lottie-player src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/TransBF_Firetorch.json?v=1672665034"   background="transparent"  speed="1" class="fire__ball__lottie_1" loop  autoplay></lottie-player>
+        <lottie-player src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/TransBF_Firetorch.json?v=1672665034"   background="transparent"  speed="1" class="fire__ball__lottie_2" loop  autoplay></lottie-player>
+        <div class="gaming__main_box">
+          <div class="gamin__main__images">
+      {% if product.handle contains 'nilkamal-vaden-gaming-chair-black-red' or product.handle contains 'nilkamal-greta-gaming-chair-gery-white' %}
+            <lottie-player src="{{ product.metafields['product']['gaming_chair1_image'] }}"  background="transparent"  speed="1" class="chair__video"  loop  autoplay></lottie-player>
+        {% endif %}
+      {% if product.handle contains 'nilkamal-canophy-gaming-chair-black' or product.handle contains 'nilkamal-razos-gaming-chair-brown-beige' or product.handle contains 'nilkamal-athena-gaming-chair-grey-turquoise' or product.handle contains 'nilkamal-marvel-gaming-chair-black-red' or product.handle contains 'nilkamal-bosco-gaming-chair-black-blue' %}
+        <img src="{{ product.metafields['product']['gaming_chair1_image'] }}" class="chair__video">
+        {% endif %}
+          </div>
+          <div class="gamin__main__content">
+            <span class="gaming__main__content__heading">{{ product.metafields['product']['gaming_chair1_title'] }}</span>
+            <p class="gamin__main__content__para">{{ product.metafields['product']['gaming_chair1_para'] }}</p>
+          </div>
+        </div>
+        <div class="gaming__main_box">
+          <div class="gamin__main__content">
+      <span class="gaming__main__content__heading">{{ product.metafields['product']['gaming_chair2_title'] }}</span>
+      <p class="gamin__main__content__para">{{ product.metafields['product']['gaming_chair2_para'] }}</p>
+      </div>
+          <div class="gamin__main__images gamin__main__images1">
+            {% if product.handle contains 'nilkamal-vaden-gaming-chair-black-red' or product.handle contains 'nilkamal-greta-gaming-chair-gery-white' %}
+            <lottie-player src="{{ product.metafields['product']['gaming_chair2_image'] }}"  background="transparent"  speed="1" class="chair__video"  loop  autoplay></lottie-player>
+        {% endif %}
+      {% if product.handle contains 'nilkamal-canophy-gaming-chair-black' or product.handle contains 'nilkamal-razos-gaming-chair-brown-beige' or product.handle contains 'nilkamal-athena-gaming-chair-grey-turquoise' or product.handle contains 'nilkamal-marvel-gaming-chair-black-red' or product.handle contains 'nilkamal-bosco-gaming-chair-black-blue' %}
+        <img src="{{ product.metafields['product']['gaming_chair2_image'] }}" class="chair__video">
+        {% endif %}
+          </div>
+        </div>
+        <div class="gaming__main_box">
+          <div class="gamin__main__images">
+      {% if product.handle contains 'nilkamal-vaden-gaming-chair-black-red' or product.handle contains 'nilkamal-greta-gaming-chair-gery-white' %}
+            <lottie-player src="{{ product.metafields['product']['gaming_chair3_image'] }}"  background="transparent"  speed="1" class="chair__video"  loop  autoplay></lottie-player>
+        {% endif %}
+      {% if product.handle contains 'nilkamal-canophy-gaming-chair-black' or product.handle contains 'nilkamal-razos-gaming-chair-brown-beige' or product.handle contains 'nilkamal-athena-gaming-chair-grey-turquoise' or product.handle contains 'nilkamal-marvel-gaming-chair-black-red' or product.handle contains 'nilkamal-bosco-gaming-chair-black-blue' %}
+        <img src="{{ product.metafields['product']['gaming_chair3_image'] }}" class="chair__video">
+        {% endif %}
+          </div>
+          <div class="gamin__main__content">
+      <span class="gaming__main__content__heading">{{ product.metafields['product']['gaming_chair3_title'] }}</span>
+      <p class="gamin__main__content__para">{{ product.metafields['product']['gaming_chair3_para'] }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="generic__features">
+      <div class="gamin__main__heading">
+        <span>Salient Fyrebird Gaming Chair Features</span>
+      </div>
+      <div class="generic__feat__box">
+        <div class="generic__feat__item">
+          <img class="lazyload" src="{{ product.metafields['product']['generic_features_image1'] }}" alt="">
+          <span>{{ product.metafields['product']['generic_features_title1'] }}</span>
+        </div>
+        <div class="generic__feat__item">
+          <img class="lazyload" src="{{ product.metafields['product']['generic_features_image2'] }}" alt="">
+          <span>{{ product.metafields['product']['generic_features_title2'] }}</span>
+        </div>
+        <div class="generic__feat__item">
+          <img class="lazyload" src="{{ product.metafields['product']['generic_features_image3'] }}" alt="">
+          <span>{{ product.metafields['product']['generic_features_title3'] }}</span>
+        </div>
+        <div class="generic__feat__item">
+          <img class="lazyload" src="{{ product.metafields['product']['generic_features_image4'] }}" alt="">
+          <span>{{ product.metafields['product']['generic_features_title4'] }}</span>
+        </div>
+      </div>
+    </section>
+    </div>
+    </main>
+    {% endif %}
+
+
           {% include 'mattress-firmness-meter' %}
      <h2 class="information-product">Product Information</h2>
                 {% include "vertical-product-description-new" %}
@@ -4377,7 +4526,8 @@ Temperature-regulating foam with advanced support and softness
             {% endform %}
           </div>
           {% if sidebar %}
-
+          {% comment %} store login user {% endcomment %}
+          {% unless customerId1 == '6419587661913' %}
           {% if section.settings.display_related_products %}
             <div class="container">
           {% include 'related-products' %}
@@ -4386,7 +4536,7 @@ Temperature-regulating foam with advanced support and softness
           {% if section.settings.display_recently_viewed %}
           {% include 'recently-viewed' %}
           {% endif %}
-
+        {% endunless %}
         </div>
       </div>
     </div>
@@ -4441,72 +4591,124 @@ Temperature-regulating foam with advanced support and softness
 }
 </style>
 
+{% comment %} GA4 code commented {% endcomment %}
 
+<script>
+  var product = {{ product | json }};
+    console.log("GA4 code commented view_item");
 
-      <script>
-          dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
-dataLayer.push({
-  event: "view_item",
-  ecommerce: {
-    items: [
-    {
-      item_id: "{{ product.id }}", // product id
-      item_name: "{{ product.title }}", //product name
-      affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
-      /* coupon: "", //The coupon name/code associated with the item if applied */
+   // dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+
+      console.log("GA4 code commented view_item",product);
+    dataLayer.push({
+      event: "view_item",
+      ecommerce: {
       currency: "INR",
-     /* discount: {{ discount.amount | money }}, //if any discount is applied */
-      index: 0, //The index/position of the item in a list
-      /* item_brand: "", //The brand of the item */
-      /* item_category: "Living Room", //The category of the item */
-      /* item_category2: "Sofa", */
-      /* item_category3: "1 Seater Sofas",*/
-      /* item_category4: "", */
-      /* item_category5: "", */
-      /* item_list_id: "related_products", //The ID of the list in which the item was presented to the user */
-      /* item_list_name: "Related Products", //The name of the list in which the item was presented to the user. */
-      /* item_variant: "Velvet", //The item variant or unique code or description for additional item details/options. */
-      /* rtlocation_id: "", //Dynamically pass the location_id  if available */
-     /* quantity: "{{ cart.item_count }}", //Item quantity */
-      user_id: "{{ customer.id }}"//user id of logged in user
-    }
-    ]
-  }
-});
-      </script>
-       <script>
-          $(".shopify_button.action_button.add_to_cart").on('click', function (){
-             dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
-dataLayer.push({
-  event: "add_to_cart",
-  ecommerce: {
-    items: [
-    {
-      item_id: "{{ item.product.id }}", // product id
-      item_name: "{{ item.product.title }}", //product name
-      //affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
-      //coupon: "", //The coupon name/code associated with the item if applied
-      currency: "INR",
-      //discount: {{ discount.amount | money }}, //if any discount is applied
-      //index: 0, //The index/position of the item in a list
-      //item_brand: "", //The brand of the item
-      //item_category: "Living Room", //The category of the item
-      //item_category2: "Sofa",
-      //item_category3: "1 Seater Sofas",
-      //item_category4: "",
-      //item_category5: "",
-      //item_list_id: "related_products", //The ID of the list in which the item was presented to the user
-      //item_list_name: "Related Products", //The name of the list in which the item was presented to the user.
-      //item_variant: "Velvet", //The item variant or unique code or description for additional item details/options.
-      //location_id: "", //Dynamically pass the location_id  if available
-      quantity: "{{ cart.item_count }}", //Item quantity
-      user_id: "{{ customer.id }}"//user id of logged in user
-    }
-    ]
-  }
-});
-          });
+        value: Math.round(product.price/100),
+        items: [{
+          item_id: product.id, // product id
+          item_name: product.title, //product name
+          affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
+          coupon: "", //The coupon name/code associated with the item if applied
+          currency: "INR",
+          discount: Math.round((product.compare_at_price - product.price)/100), //if any discount is applied
+          // index: 0, //The index/position of the item in a list
+          item_brand: product.vendor, //The brand of the item
+          item_category: product.type, //The category of the item
+          //item_category2: "Sofa",
+          //item_category3: "1 Seater Sofas",
+          //item_category4: "",
+          //item_category5: "",
+          //item_list_id: "related_products", //The ID of the list in which the item was presented to the user
+          //item_list_name: "Related Products", //The name of the list in which the item was presented to the user.
+          //item_variant: product.variants, //The item variant or unique code or description for additional item details/options.
+          location_id: "", //Dynamically pass the location_id  if available
+          price: Math.round(product.price/100), //The monetary price of the item, in units of the specified currency parameter
+          MRP: Math.round(product.compare_at_price/100), //The monetary price of the item, in units of the specified currency parameter
+          quantity: "1", //Item quantity
+          user_id: "{{ customer.id }}" //user id of logged in user
+        }]
+      }
+    });
+
 </script>
+<script>
+  $('#dataLayerClickAdd2').on('click',function (){
+   // alert("Hurrah its working !!! 😂😂😂🤣🤣🤣")
+   // dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+    dataLayer.push({
+      event: "add_to_cart",
+      ecommerce: {
+        currency: "INR",
+        value: Math.round(product.price / 100),
+        items: [
+        {
+          item_id: product.id, // product id
+            item_name: product.title, //product name
+            affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
+            coupon: "", //The coupon name/code associated with the item if applied
+            currency: "INR",
+            discount: Math.round((product.compare_at_price - product.price) / 100), //if any discount is applied
+            // index: 0, //The index/position of the item in a list
+            item_brand: product.vendor, //The brand of the item
+            item_category: product.type, //The category of the item
+            //item_category2: "Sofa",
+            //item_category3: "1 Seater Sofas",
+            //item_category4: "",
+            //item_category5: "",
+            //item_list_id: "related_products", //The ID of the list in which the item was presented to the user
+            //item_list_name: "Related Products", //The name of the list in which the item was presented to the user.
+            //item_variant: product.variants, //The item variant or unique code or description for additional item details/options.
+            location_id: "", //Dynamically pass the location_id  if available
+            price: Math.round(product.price / 100), //The monetary price of the item, in units of the specified currency parameter
+            MRP: Math.round(product.compare_at_price / 100), //The monetary price of the item, in units of the specified currency parameter
+            quantity: "1", //Item quantity
+            user_id: "{{ customer.id }}" //user id of logged in user
+        }
+        ]
+      }
+    });
+  })
+</script>
+
+{% comment %} GA4 code commented end {% endcomment %}
+       <script>
+          $(".shopify_button.action_button.add_to_cart").addEventListener('click', function(event) {
+
+            // dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+dataLayer.push({
+  event: "add_to_cart new 3",
+  ecommerce: {
+    items: [
+    {
+      item_id: product.id, // product id
+        item_name: product.title, //product name
+        affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
+        coupon: "", //The coupon name/code associated with the item if applied
+        currency: "INR",
+        discount: Math.round((product.compare_at_price - product.price) / 100), //if any discount is applied
+        // index: 0, //The index/position of the item in a list
+        item_brand: product.vendor, //The brand of the item
+        item_category: product.type, //The category of the item
+        //item_category2: "Sofa",
+        //item_category3: "1 Seater Sofas",
+        //item_category4: "",
+        //item_category5: "",
+        //item_list_id: "related_products", //The ID of the list in which the item was presented to the user
+        //item_list_name: "Related Products", //The name of the list in which the item was presented to the user.
+        //item_variant: product.variants, //The item variant or unique code or description for additional item details/options.
+        location_id: "", //Dynamically pass the location_id  if available
+        price: Math.round(product.price / 100), //The monetary price of the item, in units of the specified currency parameter
+        MRP: Math.round(product.compare_at_price / 100), //The monetary price of the item, in units of the specified currency parameter
+        quantity: "{{ cart.item_count }}", //Item quantity
+        user_id: "{{ customer.id }}" //user id of logged in user
+    }
+    ]
+  }
+});
+});
+</script>
+
    <script>
 /*** Back to top **/
 if ($('#back-to-top').length) {
@@ -4532,32 +4734,7 @@ if ($('#back-to-top').length) {
 }
 
 </script>
-<script>
-window.onICMerchantSDKReady = function() {
-//Initialize the ICMerchantSDK once ic-merchant-sdk.js has been loaded
-ICMerchantSDK.init({
-"merchantKey": "0b7b2724-2622-4b4c-acf6-a69e56c5b200",
-"onSDKInit": function() {
-//Call ICMerchantSDK.showCEWidget only after SDK is initialized
-ICMerchantSDK.showCEWidget({
-  "loanAmount": "{{product.price | divided_by: 100 }}",
-"size": "compact",
-"pageType": "pdp",
-},
-"emi-instacred");
-}
-});
-}
-</script>
-<script>
-(function() {
-var script = document.createElement("script");
-script.async = true;
-script.src = "https://iccdn.in/web-merchant-sdk/v-1.0/static/instaCred-merchant-sdk.js";
-var entry = document.getElementsByTagName("script")[0];
-entry.parentNode.insertBefore(script, entry);
-})();
-</script>
+
 
 <script>
   $('.img-numLayering,.layerDescAccordian').click(function(){
@@ -4662,7 +4839,7 @@ entry.parentNode.insertBefore(script, entry);
 }
   .price-info.new-price .col-sm-5.left-price {
     border-right: 4px solid rgba(0, 0, 0, 0.03);
-        height: 85px;
+        height: 100px;
 }
   button.shopify_button.action_button.add_to_cart:hover {
     box-shadow: 0px 10px 14px rgb(0 0 0 / 8%);
@@ -4722,7 +4899,17 @@ entry.parentNode.insertBefore(script, entry);
     background: #00AAFF;
     box-shadow: 0px 10px 14px rgb(0 0 0 / 8%);
 }
-
+{% if product.tags contains 'Gaming Chair' %}
+.w369-tag-line {
+      font-size: 14px;
+    text-align: center;
+    font-family: 'Inter';
+    color: #fff !important;
+}
+p.offer {
+    color: #fff !important;
+}
+  {% endif %}
 
 
   @media (max-width:767px){

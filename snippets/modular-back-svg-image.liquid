@@ -1,0 +1,224 @@
+<style>
+  .image__bg__container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-image: url('https://cdn.shopify.com/s/files/1/0044/1208/0217/files/extend_copy_2.jpg?v=1681733101');
+    background-position: top;
+    background-size: 100%;
+  }
+
+  .bg__images_svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  .bg__shadow {
+    background: linear-gradient(2deg, #F0E6DD 0%, rgba(255, 247, 240, 0.86) 42.05%, rgba(255, 244, 240, 0) 90%);
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .item__container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: flex-start;
+    padding: 10rem 1rem 1rem;
+  }
+
+  .item__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 23%;
+  }
+
+  .item__box img {
+    width: 100%;
+    height: auto;
+  }
+
+  .item__box span {
+    text-align: center;
+    margin-top: -20px;
+    background: rgba(0, 0, 0, 0.04);
+    border-left: 2.53409px solid #8A1600;
+    font-weight: 600;
+    font-size: 12.6705px;
+    line-height: 140%;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.6);
+    width: 80%;
+    padding-left: 8px;
+  }
+
+  .item__container_color {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    margin: 0;
+    background: #FFF7F0;
+    border-radius: 10px;
+  }
+
+  .item__box_color_title {
+    color: #550D00;
+    opacity: 0.7;
+    font-weight: 600;
+    font-size: 26px;
+    text-transform: capitalize;
+  }
+
+  .item__box_color {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+  }
+
+  .item__box_color_walnut,
+  .item__box_color_white {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .item__box_color_walnut span,
+  .item__box_color_white span {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 2px 4px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+    text-transform: uppercase;
+  }
+
+  @media(max-width:1040px) {
+
+    .item__container {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .item__box {
+      width: 50%;
+    }
+
+    .item__container_color {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .item__box span {
+      text-align: center;
+      margin-top: -10px;
+      font-size: 0.75rem;
+
+    }
+
+    .item__box_color_title {
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .item__box_color_walnut,
+    .item__box_color_white {
+      flex-direction: column;
+    }
+
+    .item__box_color {
+      justify-content: space-evenly;
+      width: 100%;
+    }
+
+    .bg__shadow {
+      background: linear-gradient(2deg, #F0E6DD 0%, rgb(255 247 240 / 98%) 60%, rgba(255, 244, 240, 0) 80%);
+    }
+
+    .image__bg__container {
+      background-image: url('https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Modular-Storage-banner-low-res_96d42f02-f8fe-4e88-9597-3ed09267d525.jpg?v=1681212326');
+      background-size: 108%;
+      background-position: 100vw -4vh;
+      border-radius: 0;
+    }
+
+    .item__box_color_walnut span,
+    .item__box_color_white span {
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      padding: 2px 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.6);
+      text-transform: uppercase;
+    }
+
+    .item__box img {
+      width: 65%;
+    }
+
+    .item__box_color_walnut img,
+    .item__box_color_white img {
+      width: 80%;
+      height: auto;
+    }
+  }
+</style>
+
+<div class="image__bg__container">
+  {% comment %} <img
+  src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Modular-Storage-banner-low-res.jpg?v=1681123165"
+  class="bg__images_svg" alt=""> {% endcomment %}<div class="bg__shadow">
+    <div class="item__container">
+      <a href="https://www.nilkamalfurniture.com/products/nilkamal-galaxy-premier-engineered-wood-bed-with-hydraulic-storage-headboard-light-white" class="item__box">
+        <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Icons_bed_2_export-01_70c322cd-e933-495e-997f-e92043a02edc.svg?v=1681127528" alt="">
+        <span>Premier - Full Hydraulic Storage</span>
+      </a>
+      <a href="https://www.nilkamalfurniture.com/products/nilkamal-galaxy-prime-engineered-wood-bed-with-3-4-hydraulic-storage-headboard-light-white" class="item__box">
+        <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Icons_bed_2_export-04_cdd7aa95-1327-4e7b-919a-71d59496fc37.svg?v=1681127528" alt="">
+        <span>Prime - Semi <br> Hydraulic Storage</span>
+      </a>
+      <a href="https://www.nilkamalfurniture.com/products/nilkamal-galaxy-max-engineered-wood-bed-with-box-storage-headboard-light-white" class="item__box">
+        <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Icons_bed_2_export-03_2cc5647d-f1ed-4db8-aa38-1b2f3ceedf90.svg?v=1681127528" alt="">
+        <span>Max - Box Storage</span>
+      </a>
+      <a href="https://www.nilkamalfurniture.com/products/nilkamal-galaxy-meta-engineered-wood-without-storage-bed-with-headboard-light-white" class="item__box">
+        <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Icons_bed_2_export-02_887ded80-338c-4eb9-a8c7-d385fd241d69.svg?v=1681127528" alt="">
+        <span>Meta - No Storage</span>
+      </a>
+      
+      
+    </div>
+    <div class="item__container_color">
+      <div class="item__box_color_title">
+        4 Bases Available in 2 Colours
+      </div>
+      <div class="item__box_color">
+        <div class="item__box_color_walnut">
+          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Rectangle.svg?v=1681132113" alt="">
+          <span>Walnut
+          </span>
+        </div>
+        <div class="item__box_color_white">
+          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Rectangle_1.svg?v=1681132134" alt="">
+          <span>White</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

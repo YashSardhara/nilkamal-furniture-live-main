@@ -15,38 +15,6 @@
   <script>
     fbq('track', 'InitiateCheckout');
   </script>
-  <script>
-    dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
-    dataLayer.push({
-      event: "begin_checkout",
-      ecommerce: {
-        items: [
-          {
-            item_id: "{{ checkout.id }}", // product id 
-            item_name: "{{ checkout.name }}", //product name
-            // affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
-            // coupon: "", //The coupon name/code associated with the item if applied
-            // currency: "INR",
-            discount: {{ discount.amount | money }}, //if any discount is applied
-      //index: 0, //The index/position of the item in a list
-      //item_brand: "", //The brand of the item
-      //item_category: "Living Room", //The category of the item
-      //item_category2: "Sofa",
-      //item_category3: "1 Seater Sofas",
-      //item_category4: "",
-      //item_category5: "",
-      //item_list_id: "related_products", //The ID of the list in which the item was presented to the user
-      //item_list_name: "Related Products", //The name of the list in which the item was presented to the user.
-      //item_variant: "Velvet", //The item variant or unique code or description for additional item details/options.
-      //location_id: "", //Dynamically pass the location_id  if available
-      price: {{ checkout.total_price | money_without_currency }}, //The monetary price of the item, in units of the specified currency parameter
-      quantity: "{{ cart.item_count }}", //Item quantity
-      user_id: "{{ customer.id }}"//user id of logged in user   
-    }
-    ]
-  }
-});
-  </script>
 
   <!-- Start VWO Async SmartCode -->
   <script type='text/javascript'>
@@ -108,14 +76,40 @@
         };
       window._vwo_settings_timer = code.init();
       return code;
-    }()); 
+    }());
   </script>
   <!--End VWO Async SmartCode -->
 
 
 
-  <script
-    type="application/javascript">(function (w, d, t, r, u) { w[u] = w[u] || []; w[u].push({ 'projectId': '10000', 'properties': { 'pixelId': '10153440', 'userEmail': '<email_address>' } }); var s = d.createElement(t); s.src = r; s.async = true; s.onload = s.onreadystatechange = function () { var y, rs = this.readyState, c = w[u]; if (rs && rs != "complete" && rs != "loaded") { return } try { y = YAHOO.ywa.I13N.fireBeacon; w[u] = []; w[u].push = function (p) { y([p]) }; y(c) } catch (e) { } }; var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr) })(window, document, "script", "https://s.yimg.com/wi/ytc.js", "dotq");</script>
+  <script type="application/javascript">(function (w, d, t, r, u) { w[u] = w[u] || []; w[u].push({ 'projectId': '10000', 'properties': { 'pixelId': '10153440', 'userEmail': '<email_address>' } }); var s = d.createElement(t); s.src = r; s.async = true; s.onload = s.onreadystatechange = function () { var y, rs = this.readyState, c = w[u]; if (rs && rs != "complete" && rs != "loaded") { return } try { y = YAHOO.ywa.I13N.fireBeacon; w[u] = []; w[u].push = function (p) { y([p]) }; y(c) } catch (e) { } }; var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr) })(window, document, "script", "https://s.yimg.com/wi/ytc.js", "dotq");
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBD4GRD6VM"></script>
+
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-MBD4GRD6VM');
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
 
 <body>
@@ -264,6 +258,7 @@
         margin-top: 15px;
       }
     }
+
   </style>
   {% include 'checkout_mobile_script' %}
   {% include 'checkout_shipping_script' %}
@@ -316,7 +311,40 @@
     });
   </script>
 
+  <script>
+    $("#continue_to_shipping_button_custom").on('click', function () {
+      dataLayer.push({
+        event: "add_shipping_info",
+        ecommerce: {
+          currency: "INR",
+          value: "{{ cart.total_price | money }}",
+          items: products.map((product, index) => ({
+            item_id: product.id, // product id
+            item_name: product.title, //product name
+            affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
+            coupon: "", //The coupon name/code associated with the item if applied
+            currency: "INR",
+            discount: "Math.round((product.compare_at_price - product.price) / 100)", //if any discount is applied
+            index: index, //The index/position of the item in a list
+            item_brand: product.vendor, //The brand of the item
+            item_category: product.type, //The category of the item
+            //item_category2: "Sofa",
+            //item_category3: "1 Seater Sofas",
+            //item_category4: "",
+            //item_category5: "",
+            //item_variant: product.variants, //The item variant or unique code or description for additional item details/options.
+            location_id: "", //Dynamically pass the location_id  if available
+            price: Math.round(product.price / 100),  //The monetary price of the item, in units of the specified currency parameter
+            // MRP: Math.round(product.compare_at_price / 100),  //MRP
+            quantity: product.quantity, //Item quantity
+            user_id: "{{ customer.id }}" //user id of logged in user
+          })),
 
-</body>
+        }
+      });
+    });
+  </script>
+  <script src="https://assets.snapmint.com/assets/merchant/2494/snm_shopify_popup_min.js"></script>
+<link rel="stylesheet" href="https://gravity-software.com/js/shopify/rondell/jquery.rondellf85.css?v=123"/></body>
 
 </html>

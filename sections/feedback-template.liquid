@@ -1,3 +1,4 @@
+
 <a name="pagecontent" id="pagecontent"></a>
 
 <div class="container">
@@ -53,31 +54,32 @@
           <div class="feedback-form">
             <form id="feedback" name="feedback" > 
               <div class="first_content">
-                <div class="input">
-                  <input type="text" id="name" name="name" autocapitalize="words" placeholder="Name*" required>
+                <div class="input text_feedback_Im">
+                  <input type="text" class="name_feed" id="name" name="name" autocapitalize="words" placeholder="Name*" required>
                   <span id="name_error" class="name_error err"></span>
                 </div>
-                <div class="input">
-                  <input type="email" id="email" name="email" autocapitalize="words" placeholder="Email*" required>
+                <div class="input email_feedback_Im">
+                  <input type="email" class="email_feed" id="email" name="email" autocapitalize="words" placeholder="Email*" required>
                   <span id="email_error" class="email_error err"></span>
                 </div>
               </div>
               <div class="second_content">
-                <div class="input">
-                  <input type="tel" name="mobile" id="mobile" autocorrect="off" autocapitalize="off" placeholder="Mobile Number*" required>
+                <div class="input tel_feedback_Im">
+                  <input class="feedback_tel mobile_feed" type="tel" name="mobile" id="mobile" autocorrect="off" autocapitalize="off" placeholder="Mobile Number*" required>
                   <span id="mobile_error" class="mobile_error err"></span>
                 </div>
-                <div class="input">
-                  <input type="text" name="state" id="state" placeholder="State*" required>
-                  <span id="state_error" class="state_error err"></span>
-                </div>
-                <div class="input">
-                  <input type="text" name="city" id="city" placeholder="City*" required>
+                <div class="input city_feedback_Im">
+                  <input class="feedback_city city_feed" type="text" name="city" id="city" placeholder="City*" required>
                   <span id="city_error" class="city_error err"></span>
                 </div>
+                
               </div>
+              <div class="input state_feedback-Im">
+                <input class="feedback_state state_feed" type="text" name="state" id="state" placeholder="State*" required>
+                <span id="state_error" class="state_error err"></span>
+                </div>
               <div class="textarea">
-                <textarea rows="5"  name="body" id="body" cols="70" placeholder="Message*" required></textarea>
+                <textarea  class="feed_textarea" rows="5"  name="body" id="body" cols="70" placeholder="Message*" required></textarea>
                 <span id="body_error" class="body_error err"></span>
               </div>
               <div class="button-area">

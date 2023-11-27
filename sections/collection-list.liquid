@@ -30,111 +30,105 @@
     {% endif %}
     <div class="list-collection-custom">
       <div class="section list-collection-wrapper clearfix">
-        <div 
-        id="collectionList-{{section.id}}"
-        class="collectionList-slideshow js-collectionList list-collections row {% if section.settings.testimonial_text_animation != '' %}text-animation--true{% endif %} {% if settings.slideshow_button_style != true %}light-button{% endif %}"
-        data-slider-id="collectionList-{{section.id}}"
-        data-slideshow-speed="{{section.settings.testimonial_speed}}"
-        data-slideshow-text-animation="{{section.settings.testimonial_text_animation}}"
-        >
+        <div id="collectionList-{{section.id}}"
+          class="collectionList-slideshow js-collectionList list-collections row {% if section.settings.testimonial_text_animation != '' %}text-animation--true{% endif %} {% if settings.slideshow_button_style != true %}light-button{% endif %}"
+          data-slider-id="collectionList-{{section.id}}" data-slideshow-speed="{{section.settings.testimonial_speed}}"
+          data-slideshow-text-animation="{{section.settings.testimonial_text_animation}}">
           {% for block in section.blocks %}
 
-            {% assign feature_collection = block.settings.feature_collection %}
-            {% assign collection = collections[feature_collection] %}
+          {% assign feature_collection = block.settings.feature_collection %}
+          {% assign collection = collections[feature_collection] %}
 
-            {% if block.settings.image %}
-              {% assign collection_image = block.settings.image %}
-              {% assign collection_image_alt = block.settings.image.alt | escape %}
-            {% elsif collection.image != blank %}
-              {% assign collection_image = collection.image %}
-              {% assign collection_image_alt = collection.title | escape %}
-            {% else collection.empty? == false %}
-              {% assign collection_image = collection.products.first.featured_image %}
-              {% assign collection_image_alt = collection.products.first.featured_image.alt | escape %}
-            {% endif %}
+          {% if block.settings.image %}
+          {% assign collection_image = block.settings.image %}
+          {% assign collection_image_alt = block.settings.image.alt | escape %}
+          {% elsif collection.image != blank %}
+          {% assign collection_image = collection.image %}
+          {% assign collection_image_alt = collection.title | escape %}
+          {% else collection.empty? == false %}
+          {% assign collection_image = collection.products.first.featured_image %}
+          {% assign collection_image_alt = collection.products.first.featured_image.alt | escape %}
+          {% endif %}
 
-            {% if settings.align_height %}
-              {% assign collection_height = settings.collection_height | plus: 0 %}
-              {% assign product_aspect_ratio = collection_image.aspect_ratio | plus: 0 %}
-              {% assign product_set_width = product_aspect_ratio | times: collection_height %}
+          {% if settings.align_height %}
+          {% assign collection_height = settings.collection_height | plus: 0 %}
+          {% assign product_aspect_ratio = collection_image.aspect_ratio | plus: 0 %}
+          {% assign product_set_width = product_aspect_ratio | times: collection_height %}
 
-              {% if collection_image.width >= collection_image.height %}
-                {% assign align_height_value = 'width: 100%; height: auto;' %}
-              {% else %}
-                {% assign align_height_value = 'width: 100%;' %}
-              {% endif %}
+          {% if collection_image.width >= collection_image.height %}
+          {% assign align_height_value = 'width: 100%; height: auto;' %}
+          {% else %}
+          {% assign align_height_value = 'width: 100%;' %}
+          {% endif %}
 
-            {% endif %}
+          {% endif %}
 
-            <div class="collectionList-block gallery-cell slide-{{ forloop.index }} 
+          <div class="collectionList-block gallery-cell slide-{{ forloop.index }}
                         {% if collections_per_row == 2 %}eight columns {% cycle 'alpha', 'omega' %}
                         {% elsif collections_per_row == 3 %}one-third column {% cycle 'alpha', '', 'omega' %}
                         {% elsif collections_per_row == 4 %}four columns {% cycle 'alpha', '', '', 'omega' %}
                         {% else %}one-fifth column {% cycle 'alpha', '', '', '', 'omega' %}{% endif %}
-                        thumbnail {% if section.settings.collection_count == blank and section.settings.frontpage_collections_title == blank %}blank{% endif %} 
+                        thumbnail {% if section.settings.collection_count == blank and section.settings.frontpage_collections_title == blank %}blank{% endif %}
                         {% cycle 'even', 'odd' %}" {{ block.shopify_attributes }} data-block-id="{{block.id}}">
 
-              <div class="product-wrap">
-                {% if collection_image != nil %}
-                  <div class="image__container" style="{% if settings.align_height %} max-width: {{ product_set_width }}px; {% else %} max-width: {{- collection_image.width -}}px; {% endif %}">
-                    <img class="collectionListImage lazyload {{ settings.image_loading_style }}" data-src="{{ collection_image.src | img_url: '100x' }}"
-                          alt="{{ collection_image_alt }}"
-                          style="{{ align_height_value }} max-width: {{- collection_image.width -}}px;"
-                          data-sizes="auto"
-                          data-src="{{ collection_image.src | img_url: '580x' }}"
-                          data-srcset=" {{ collection_image.src | img_url: '760x'}} 760w,
-                                        {{ collection_image.src | img_url: '472x'}} 472w,
-                                        {{ collection_image.src | img_url: '380x' }} 380w,
-                                        {{ collection_image.src | img_url: '236x' }} 236w"
-                          />
-                  </div>
-                {% else %}
-                  {% capture num %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
-                  {{ 'collection-' | append: num | placeholder_svg_tag: 'placeholder-svg' }}
-                {% endif %}
+            <div class="product-wrap">
+              {% if collection_image != nil %}
+              <div class="image__container"
+                style="{% if settings.align_height %} max-width: {{ product_set_width }}px; {% else %} max-width: {{- collection_image.width -}}px; {% endif %}">
+                <img loading="lazy" class=" collectionListImage  {{ settings.image_loading_style }}"
+                  style="{{ align_height_value }} max-width: {{- collection_image.width -}}px;" data-sizes="auto"
+                  src="{{ collection_image.src | img_url: '580x' }}" />
+              </div>
+              {% else %}
+              {% capture num %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+              {{ 'collection-' | append: num | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
 
+              <a href="{{ collection.url }}" class="hidden-product-link">
+                {% if collection != blank %}
+                {{ collection.title }}
+                {% else %}
+                {{ "homepage.onboarding.collection_title" | t }}
+                {% endif %}
+              </a>
+              {% if settings.thumbnail_hover_enabled %}
+              <div class="thumbnail-overlay">
                 <a href="{{ collection.url }}" class="hidden-product-link">
                   {% if collection != blank %}
-                    {{ collection.title }}
+                  {{ collection.title }}
                   {% else %}
-                    {{ "homepage.onboarding.collection_title" | t }}
+                  {{ "homepage.onboarding.collection_title" | t }}
                   {% endif %}
                 </a>
-                {% if settings.thumbnail_hover_enabled %}
-                  <div class="thumbnail-overlay">
-                    <a href="{{ collection.url }}" class="hidden-product-link">
+                <div class="info">
+                  <div class="collection-details">
+                    <span class="title">
                       {% if collection != blank %}
-                        {{ collection.title }}
-                      {% else %}
-                        {{ "homepage.onboarding.collection_title" | t }}
-                      {% endif %}
-                    </a>
-                    <div class="info">
-                      <div class="collection-details">
-                        <span class="title">
-                          {% if collection != blank %}
-                            {{ collection.title }}
-                          {% else %}
-                            {{ "homepage.onboarding.collection_title" | t }}
-                          {% endif %}
-                        </span>
-                      </div>
-                      <a href="{{ collection.url }}"><span class="view_all">{{ 'collections.general.view_all' | t }}</span></a>
-                    </div>
-                  </div>
-                {% endif %}
-                <div class="collection-info">
-                  <a class="collection-title {% if settings.thumbnail_hover_enabled %}hidden{% endif %}" href="{{ collection.url }}" itemprop="url">
-                    {% if collection != blank %}
                       {{ collection.title }}
-                    {% else %}
+                      {% else %}
                       {{ "homepage.onboarding.collection_title" | t }}
-                    {% endif %}
-                  </a>
-                  <p class="collection-desc {% if settings.thumbnail_hover_enabled %}hidden{% endif %}">{{ collection.description | truncate: 88 }}</p>
+                      {% endif %}
+                    </span>
+                  </div>
+                  <a href="{{ collection.url }}"><span
+                      class="view_all">{{ 'collections.general.view_all' | t }}</span></a>
                 </div>
               </div>
+              {% endif %}
+              <div class="collection-info">
+                <a class="collection-title {% if settings.thumbnail_hover_enabled %}hidden{% endif %}"
+                  href="{{ collection.url }}" itemprop="url">
+                  {% if collection != blank %}
+                  {{ collection.title }}
+                  {% else %}
+                  {{ "homepage.onboarding.collection_title" | t }}
+                  {% endif %}
+                </a>
+                <p class="collection-desc {% if settings.thumbnail_hover_enabled %}hidden{% endif %}">
+                  {{ collection.description | truncate: 88 }}</p>
+              </div>
             </div>
+          </div>
           {% endfor %}
         </div>
       </div>
@@ -145,95 +139,95 @@
 
 {% schema %}
 {
-  "name": "Collection list slider",
-  "class": "collection-list-slider",
-  "max_blocks": 8,
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Heading",
-      "default": "Collection list"
-    },
-    {
-      "type": "range",
-      "id": "frontpage_collections_per_row",
-      "label": "Collections per row",
-      "min": 2,
-      "max": 5,
-      "step": 1,
-      "default": 3
-    },
-	{
-      "type": "select",
-      "id": "testimonial_text_animation",
-      "label": "Text animation",
-      "options": [
-        {
-          "value": "",
-          "label": "None"
-        },
-        {
-          "value": "fadeIn",
-          "label": "Fade In"
-        },
-        {
-          "value": "fadeInUp",
-          "label": "Fade Up"
-        },
-        {
-          "value": "fadeInDown",
-          "label": "Fade Down"
-        }
-      ],
-      "default": "fadeInDown"
-    },
-    {
-      "type": "range",
-      "id": "testimonial_speed",
-      "label": "Change collections every",
-      "min": 4,
-      "max": 12,
-      "step": 1,
-      "default": 6,
-      "unit": "sec"        
-    }
-  ],
-  "blocks": [
-    {
-      "type": "collection",
-      "name": "Collection",
-      "settings": [
-        {
-          "type": "collection",
-          "id": "feature_collection",
-          "label": "Collection"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        }
-      ]
-    }
-  ],
-  "presets": [{
-    "name": "Collection list slider",
-    "category": "Collection",
-    "settings": {
+"name": "Collection list slider",
+"class": "collection-list-slider",
+"max_blocks": 8,
+"settings": [
+{
+"type": "text",
+"id": "title",
+"label": "Heading",
+"default": "Collection list"
+},
+{
+"type": "range",
+"id": "frontpage_collections_per_row",
+"label": "Collections per row",
+"min": 2,
+"max": 5,
+"step": 1,
+"default": 3
+},
+{
+"type": "select",
+"id": "testimonial_text_animation",
+"label": "Text animation",
+"options": [
+{
+"value": "",
+"label": "None"
+},
+{
+"value": "fadeIn",
+"label": "Fade In"
+},
+{
+"value": "fadeInUp",
+"label": "Fade Up"
+},
+{
+"value": "fadeInDown",
+"label": "Fade Down"
+}
+],
+"default": "fadeInDown"
+},
+{
+"type": "range",
+"id": "testimonial_speed",
+"label": "Change collections every",
+"min": 4,
+"max": 12,
+"step": 1,
+"default": 6,
+"unit": "sec"
+}
+],
+"blocks": [
+{
+"type": "collection",
+"name": "Collection",
+"settings": [
+{
+"type": "collection",
+"id": "feature_collection",
+"label": "Collection"
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": "Image"
+}
+]
+}
+],
+"presets": [{
+"name": "Collection list slider",
+"category": "Collection",
+"settings": {
 
-    },
-    "blocks": [
-      {
-        "type": "collection"
-      },
-      {
-        "type": "collection"
-      },
-      {
-        "type": "collection"
-      }
-    ]
-  }]
+},
+"blocks": [
+{
+"type": "collection"
+},
+{
+"type": "collection"
+},
+{
+"type": "collection"
+}
+]
+}]
 }
 {% endschema %}

@@ -3,9 +3,9 @@
 <div class="product-description clearfix product-description-desktop">
   <div class="desc-container product-details">
     {% if Description != 0 and Description != blank %}
-      <h2>
-        Description<span class="right">{% include 'svg-icons', id: 'down-arrow' %}</span>
-      </h2>
+      <h3>
+        Description
+      </h3>
     {% endif %}
 
     <div class="container more-info-tab">
@@ -20,7 +20,7 @@
           </a>
         </li>
         <li>
-          <a href="#tab2">Description</a>
+          <a class="" href="#tab2">Description</a>
         </li>
         {% comment %}
         <li><a href="#tab5">Description</a></li>
@@ -958,7 +958,75 @@
     </div>
 
   </div>
-
+  {% if product.handle contains 'nilkamal-marvel-gaming-chair-black-red' or product.handle contains 'nilkamal-vaden-gaming-chair-black-red' or product.handle contains 'nilkamal-greta-gaming-chair-gery-white' or product.handle contains 'nilkamal-canophy-gaming-chair-black' or product.handle contains 'nilkamal-razos-gaming-chair-brown-beige' or product.handle contains 'nilkamal-athena-gaming-chair-grey-turquoise' or product.handle contains 'nilkamal-bosco-gaming-chair-black-blue' %}
+    <div class="mar__up">
+      <div class="gamin__main__heading">
+        <span>What's Inside Your Fyrebird Gaming Chairs?</span>
+      </div>
+      <section class="chair__box">
+        <div class="chair__box__img">
+          <img class="lazyload" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/800-Vaden-plp.jpg?v=1673249604" alt="">
+        </div>
+        <div class="chair__box__content">
+          <div class="head_desc">
+            <span class="head_desc_head">
+              Heavy Duty Aluminium Base
+            </span>
+            <span class="head_desc_para">
+              Fyrebird gaming chairs feature a solid aluminium base that provides advanced shock absorption and enduring support, making intense gaming sessions comfortable and enjoyable.
+            </span>
+          </div>
+          <div class="head_desc">
+            <span class="head_desc_head">
+              Smooth-Gliding Nylon Castors
+            </span>
+            <span class="head_desc_para">
+              Glide smoothly around your gaming setup using the solid mechanical strength of the nylon castors. They provide gamers with easy manoeuvrability for a more stable and smoother ride.
+            </span>
+          </div>
+          <div class="head_desc">
+            <span class="head_desc_head">
+              Comforting Virgin Moulded Foam
+            </span>
+            <span class="head_desc_para">
+              The ultra-comfortable Virgin Moulded Foam provides the ideal balance of relieving comfort and ergonomic support to keep you engrossed In your gaming world for hours without discomfort.
+            </span>
+          </div>
+          <div class="head_desc">
+            <span class="head_desc_head">
+              TUV-certified Gas-Lift Mechanism
+            </span>
+            <span class="head_desc_para">
+              The TUV-certified gas-lift mechanism ensures that the chair's height can be adjusted smoothly and safely, allowing for greater adjustability and comfort, which aids in gaming comfort.
+            </span>
+          </div>
+        </div>
+      </section>
+      <section class="brand__warranty">
+        <span class="bran__warranty__mobile"></span>
+        <div class="brand__warranty__image">
+          <img class="lazyload" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Group_922_2.svg?v=1673348255" alt="">
+        </div>
+        <div class="brand__warranty__content">
+          <span class="brand__warranty__content__head">Fyrebird Gaming Chairs Come With A Warranty!</span>
+          <div class="brand__warr__box">
+            <div class="brand__warr__item">
+              <span>1 Year Standard Warranty on any manufacturing defects</span>
+              <br>
+<!--               <span>
+                We offer a one-year warranty on all Nilkamal Fyrebird Gaming Chairs that covers any non-artificial damage encountered while using the chair.
+              </span> -->
+            </div>
+            {% comment %}  <div class="brand__warr__item">
+            <span>Scope of Coverage:</span>
+            <span>This warranty covers any repair or replacement of parts found to be defective under normal use. </span>
+            </div>
+            {% endcomment %}
+          </div>
+        </div>
+      </section>
+    </div>
+  {% endif %}
 </div>
 
 <style>

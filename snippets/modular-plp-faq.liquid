@@ -1,0 +1,297 @@
+<style>
+ .modular__faq__container {
+    margin-top: 30px;
+  }
+
+  {% comment %} h2 {
+    color: #fff;
+    font-weight: 300;
+    text-align: center;
+    margin: 50px 0 30px;
+  } {% endcomment %}
+
+ .dropdown__faq {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    /*border: 3px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;*/
+    border-left: 6px solid var(--modular--border--second--title);
+    background-color: var(--modular--bg--second--title);
+  }
+
+ .dropdown__faq+.dropdown__faq {
+    margin-top: 10px;
+  }
+
+ .dropdown__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #550D00;
+    padding: 5px 12px;
+    box-sizing: border-box;
+    background: #FFF7F0;
+    font-size: 1rem;
+    line-height:25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+ .dropdown__top::after {
+    /*content: '+';*/
+    font-weight: 500;
+    font-size: 2rem;
+    transition: transform 0.5s ease;
+    will-change: transform;
+  }
+
+ .open.dropdown__top::after {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+ .dropdown__btm {
+    background: #FFF7F0;
+    box-sizing: border-box;
+    padding: 0px 15px 7px 15px;
+    display: none;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    text-transform: inherit;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+ .modular__faq__container.modular__inner__title {
+    margin-bottom: 30px;
+  }
+
+ .dropdown__faq.open svg#Capa_1 {
+    transform: rotate(180deg);
+    transition: transform 0.5s ease;
+  }
+
+  @media(max-width:1040px) {
+   .dropdown__top {
+      font-size: 16px;
+      line-height:19px;
+    }
+
+   .modular__faq__container {
+      margin-top: 35px;
+    }
+
+   .dropdown__btm {
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: justify;
+      text-align-last: left;
+      padding-top: 15px;
+    }
+
+   .modular__faq__container.modular__inner__title {
+      margin-bottom: 18px;
+    }
+  }
+
+  .modular__faq__container .modular__inner__title {
+    padding-bottom: 30px;
+  }
+
+  .headboard__option__container .swiper-button-next, .swiper-button-prev {
+    width: 8% !important;
+  }
+
+  .fix__bg .swiper-button-next, .swiper-button-prev {
+    width: 0% !important;
+  }
+
+  .fix__bg .swiper-button-prev.custom__button__abs.custom__button__abs_2 {
+    left: 55px;
+  }
+
+  .fix__bg .swiper-button-next.custom__button__abs.custom__button__abs_1 {
+    right: 55px;
+  }
+
+  @media only screen and (max-width: 600px) {
+  span.quest_cont {
+    width: 92%;
+  }
+  .headboard__option__container .swiper-button-next, .swiper-button-prev {
+    width: 14% !important;
+  }
+  .fix__bg .swiper-button-prev.custom__button__abs.custom__button__abs_2 {
+    left: 10px;
+  }
+
+  .fix__bg .swiper-button-next.custom__button__abs.custom__button__abs_1 {
+    right: 10px;
+  }
+}
+  
+</style>
+{% include 'footer_content_5' %}
+<div class="modular__faq__container">
+  <span class="modular__inner__title">Frequently Asked Questions</span>
+  <div class="modulr__faq__item__box">
+    <div class="dropdown__faq">
+      <div class="dropdown__top"><span class="quest_cont">What is a modular bed?</span> <svg version="1.1" class="rotate" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13px" height="13px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve"> <g> <g id="expand-more"> <polygon points="270.3,58.65 153,175.95 35.7,58.65 0,94.35 153,247.35 306,94.35 		"></polygon></g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g>
+</svg></div>
+      <div class="dropdown__btm">
+        A modular bed is a flexible arrangement of a bed that can be easily assembled and disassembled. This bed can be designed as per your requirements.
+      </div>
+    </div>
+
+    <div class="dropdown__faq">
+      <div class="dropdown__top"><span class="quest_cont">What are the benefits of a modular bed?</span> <svg version="1.1" class="rotate" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13px" height="13px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve"> <g> <g id="expand-more"> <polygon points="270.3,58.65 153,175.95 35.7,58.65 0,94.35 153,247.35 306,94.35 		"></polygon></g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g>
+</svg></div>
+      <div class="dropdown__btm">
+        The benefits of modular beds include durability, lesser maintenance, adjustable in any space, and minimalistic designs.
+      </div>
+    </div>
+
+    <div class="dropdown__faq">
+      <div class="dropdown__top"><span class="quest_cont">How do I assemble a modular bed?</span> <svg version="1.1" class="rotate" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13px" height="13px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve"> <g> <g id="expand-more"> <polygon points="270.3,58.65 153,175.95 35.7,58.65 0,94.35 153,247.35 306,94.35 		"></polygon></g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g>
+</svg></div>
+      <div class="dropdown__btm">
+        When you purchase a modular bed from Nilkamal Furniture, you don&rsquo;t have to worry about assembling the unit. The brand provides free installation and demo of the product within 2 to 5 days of delivery.
+      </div>
+    </div>
+
+    <div class="dropdown__faq">
+      <div class="dropdown__top"><span class="quest_cont">Are modular bed durable?</span> <svg version="1.1" class="rotate" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13px" height="13px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve"> <g> <g id="expand-more"> <polygon points="270.3,58.65 153,175.95 35.7,58.65 0,94.35 153,247.35 306,94.35 		"></polygon></g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g>
+</svg></div>
+      <div class="dropdown__btm">
+        Nilkamal modular beds use resilient engineered wood construction as its base, which makes the bed long-lasting.
+      </div>
+    </div>
+
+    <div class="dropdown__faq">
+      <div class="dropdown__top"><span class="quest_cont">Are there any downsides to using a modular bed?</span> <svg version="1.1" class="rotate" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13px" height="13px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve"> <g> <g id="expand-more"> <polygon points="270.3,58.65 153,175.95 35.7,58.65 0,94.35 153,247.35 306,94.35 		"></polygon></g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g>
+</svg></div>
+      <div class="dropdown__btm">
+        Modular bed comes with various customisable options. So, you will be able to find a durable bed that will match your requirements. The only downside that you might face is that its a bit expensive compared to your normal beds.
+      </div>
+    </div>
+
+    <div class="dropdown__faq">
+      <div class="dropdown__top"><span class="quest_cont">Can I customise the size of modular bed?</span> <svg version="1.1" class="rotate" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13px" height="13px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve"> <g> <g id="expand-more"> <polygon points="270.3,58.65 153,175.95 35.7,58.65 0,94.35 153,247.35 306,94.35 		"></polygon></g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g>
+</svg></div>
+      <div class="dropdown__btm">
+        At Nilkamal Furniture, you will get variety of modular bed designs in king and queen size. You can get over 100+ design combination in both these sizes.
+      </div>
+    </div>
+
+    <div class="dropdown__faq">
+      <div class="dropdown__top"><span class="quest_cont">Can I get a modular bed online in India?</span> <svg version="1.1" class="rotate" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13px" height="13px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve"> <g> <g id="expand-more"> <polygon points="270.3,58.65 153,175.95 35.7,58.65 0,94.35 153,247.35 306,94.35 		"></polygon></g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g>
+</svg></div>
+      <div class="dropdown__btm">
+        Yes. You can get modular beds online in India from Nilkamal Furniture. Nilkamal Furniture offers a wide selection of modular beds with an array of stylish headboards and storage options.
+      </div>
+    </div>
+
+    <div class="dropdown__faq">
+      <div class="dropdown__top"><span class="quest_cont">I like a modular hydraulic bed on the Nilkamal website but want it with a different headboard. Can I change the headboard design?</span> <svg version="1.1" class="rotate" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13px" height="13px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve"> <g> <g id="expand-more"> <polygon points="270.3,58.65 153,175.95 35.7,58.65 0,94.35 153,247.35 306,94.35 		"></polygon></g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g>
+</svg></div>
+      <div class="dropdown__btm">
+        Yes, you can.  <strong>Modular hydraulic beds</strong>  from Nilkamal Furniture can be easily customised, and we have many headboard designs. Choose the <strong> modular bed design</strong>  you like in your preferred size and colour, then choose the hydraulic storage option and add it to the cart.
+      </div>
+    </div>
+
+    <div class="dropdown__faq">
+      <div class="dropdown__top"><span class="quest_cont">Can I get a modular bed without storage at Nilkamal Furniture?</span> <svg version="1.1" class="rotate" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13px" height="13px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve"> <g> <g id="expand-more"> <polygon points="270.3,58.65 153,175.95 35.7,58.65 0,94.35 153,247.35 306,94.35 		"></polygon></g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g>
+</svg></div>
+      <div class="dropdown__btm">
+        Nilkamal furniture offers a multitude of storage options in its  <strong>modular bed</strong>  catalogue. You can choose a  <strong>modular bed without storage</strong>  if you don't want a storage option.
+      </div>
+    </div>
+
+    <div class="dropdown__faq">
+      <div class="dropdown__top"><span class="quest_cont">What material is used for Nilkamal modular beds?</span> <svg version="1.1" class="rotate" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13px" height="13px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve"> <g> <g id="expand-more"> <polygon points="270.3,58.65 153,175.95 35.7,58.65 0,94.35 153,247.35 306,94.35 		"></polygon></g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g>
+</svg></div>
+      <div class="dropdown__btm">
+        Nilkamal modular beds are manufactured from high-quality solid rubber wood and engineered wood. The durable material makes modular beds structure sturdy and long-lasting.
+      </div>
+    </div>
+
+    <div class="dropdown__faq">
+      <div class="dropdown__top"><span class="quest_cont">Why are modular beds better than traditional bed designs?</span> <svg version="1.1" class="rotate" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13px" height="13px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve"> <g> <g id="expand-more"> <polygon points="270.3,58.65 153,175.95 35.7,58.65 0,94.35 153,247.35 306,94.35 		"></polygon></g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g>
+</svg></div>
+      <div class="dropdown__btm">
+        Modular beds with headboard</strong>  are better than traditional bed designs as they are robustly built with maximum functionality in a compact frame. They offer all the features of a traditional bed within a sleek frame that saves space. Their resilient structure requires minimum maintenance, and their contemporary design makes them easily blendable into any aesthetics and d&eacute;cor. Moreover, the  <strong>modular bed price</strong>  makes it more affordable than other beds with similar features.
+      </div>
+    </div>
+
+    <div class="dropdown__faq">
+      <div class="dropdown__top"><span class="quest_cont">Which is the better modular bed with storage or without storage?</span> <svg version="1.1" class="rotate" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13px" height="13px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve"> <g> <g id="expand-more"> <polygon points="270.3,58.65 153,175.95 35.7,58.65 0,94.35 153,247.35 306,94.35 		"></polygon></g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g>
+</svg></div>
+      <div class="dropdown__btm">
+        Both with and without storage options modular beds are equally good. The choice to purchase a  <strong>modular bed with storage</strong>  or without storage for your bedroom depends on your storage requirement.  <strong>Modular beds with storage</strong>  are a wise choice when you need ample storage space in your bedroom. When you already have enough storage space, go for a  <strong>modular bed without storage</strong>.
+      </div>
+    </div>
+
+    <div class="dropdown__faq">
+      <div class="dropdown__top"><span class="quest_cont">Will the Nilkamal modular bed price differ for different models?</span> <svg version="1.1" class="rotate" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13px" height="13px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve"> <g> <g id="expand-more"> <polygon points="270.3,58.65 153,175.95 35.7,58.65 0,94.35 153,247.35 306,94.35 		"></polygon></g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g>
+</svg></div>
+      <div class="dropdown__btm">
+        Nilkamal's  <strong>modular bed price in India</strong>  will differ depending on the size and storage type. A fully hydraulic storage  <strong>modern bed price </strong> will be higher than the no-storage  <strong>modular bed price</strong>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer__modular__plp">
+  <span class="modular__inner__title">Get Your Dream Modular Bed With Nilkamal Furniture</span>
+  <p class="modular__inner__para">Every individual has their own unique tastes and preferences. And their homes, especially the bedrooms, are the greatest display of their unique taste. Their bedroom is their sleep and relaxation haven, with their bed playing the most important role. Therefore, when it comes to purchasing a bed, everyone wants the trendiest, the most stylish and the best bed for their bedroom. And  <strong>modular beds</strong>  are the best and the trendiest beds of all times. However, visiting a local furniture store multiple times to get&nbsp;  <strong>modular beds</strong>  &nbsp;as per your requirement might be a tedious task. However, you don't need to worry with Nilkamal Furniture's <strong> modular beds with headboard</strong>. The store has a wide range of  <strong>modular beds with storage</strong>  available at affordable prices. Nilkamal  <strong>modular beds</strong>  are available in a choice of headboard designs and storage options, making it convenient for you to customise your  <strong>modular bed </strong> in more than 200+ combinations. From choice of sizes- King and queen, headboard, and colour to storage type,  <u><a href="https://www.nilkamalfurniture.com/">Nilkamal Furniture</a></u>  has all designs available in all possible combinations. So, if you like a particular  <strong>modular bed design</strong>  but want a different storage option, switch the storage type, and you will have your preferred  <strong>modular bed with storage</strong>  or modular bed without storage as per your need. With so many combinations available, you can get your dream  <u><a href="https://www.nilkamalfurniture.com/collections/bed">bed</a></u>  within your budget price.</p>
+  <span class="modular__inner__title">Nilkamal&nbsp; Designing Guide for Modular Beds</span>
+  <p class="modular__inner__para">Before you start your Nilkamal modular bed designing, let's briefly understand what a modular bed is. A  <strong>modular bed </strong> is designed based on modularity implying it can be subdivided into smaller pre-made parts or modules. These subparts or modules can be modified. Nilkamal understands and embodies the core of modularity in delivering the perfect modular bed for your home. Though modular furniture is not a new concept,  <strong>modular beds</strong>  are still a late entrant to the collection. The reason is the high  <strong>modular bed price in India</strong>  that a brand incurs in making  <strong>modular bed design</strong>. However, Nilkamal believes in delighting customers. Therefore, the  <strong>modern bed price</strong>  for the modular range is suited for every budget. Whether you want a modular bed without storage or a  <strong>modular bed with storage</strong> , you will find our  <strong>modular bed price</strong>  affordable as per the features and quality.</p>
+  <br>
+  <p class="modular__inner__para">However, it's not the price of Nilkamal's modular beds that is foremost in customers' minds while purchasing. It is the premium quality of designs, materials and construction along with the option of customisation of headboards and storage.</p>
+  <br>
+  <p class="modular__inner__para">Now let's know how you can choose and customise  <strong>modular bed design</strong>  at Nilkamal Furniture.</p>
+  <span class="modular__inner__title">Choose the Storage</span>
+  <p class="modular__inner__para">Nilkamal furniture offers four types of storage in all its <strong> modular bed design</strong>. The storage options are:</p>
+  <br>
+  <ul>
+  <li class="modular__inner__para"> <strong>Box Storage</strong> - The box storage has four spacious compartments in the bed structure. They are ample in size to store your bedding, clothes and other things. You can keep your belongings in the box store to save bedroom space otherwise occupied by a cupboard.</li>
+  <li class="modular__inner__para"> <strong>No Storage</strong> - In the  <u><a href="https://www.nilkamalfurniture.com/products/nilkamal-galaxy-meta-engineered-wood-without-storage-bed-with-headboard-light-white">no-storage bed designs</a></u>  of Nilkamal, there is no storage space available in the bed. Instead, the bed frame has chrome-plated robust metal legs fitted to the footboard. The bed frame has space beneath it for easy cleaning and stowing storage boxes or other belongings.</li>
+  <li class="modular__inner__para"> <strong>Semi-Hydraulic Storage</strong> -  <u><a href="https://www.nilkamalfurniture.com/products/nilkamal-galaxy-prime-engineered-wood-bed-with-3-4-hydraulic-storage-headboard-light-white">Modular beds with semi-hydraulic storage</a></u>  have three spacious compartments with &frac34; hydraulic storage. At the back of the bed is a box storage with two compartments for additional storage space to keep your belongings that you can access quickly.</li>
+  <li class="modular__inner__para"> <strong>Full Hydraulic storage</strong> - Nilkamal's  <u><a href="https://www.nilkamalfurniture.com/products/nilkamal-galaxy-premier-engineered-wood-bed-with-hydraulic-storage-headboard-light-white"> <strong>modular hydraulic bed</strong> </a></u>  comes with a full hydraulic storage system. There are two spacious compartments under the hydraulic panel with two drawers at the foot of the bed for easy-pull additional storage. The large compartments can be used to store bedding and other clothes. You can also use the front drawers to store everyday essentials easily.</li>
+  </ul>
+  <br>
+  <p class="modular__inner__para">Moreover, from the four storage options, you can choose the one that best fulfils your storage needs.</p>
+  <span class="modular__inner__title">Choose the Headboard</span>
+  <p class="modular__inner__para">When choosing your dream bed, the design plays the most crucial role. The design of  <strong>modular beds</strong>  majorly lies in the headboards. The  <strong>modular beds with headboard</strong>  structures are minimalistic to fit into any space and almost the same depending on the storage type. So, to choose the design of a <strong> modular bed</strong> , you need to choose the headboard design. The brand offers twelve headboard designs ranging from simple and contemporary headboards to plush and padded headboards. Each headboard design is unique and stylish to enhance your bedroom appeal. Depending on your preference, you can opt for a simple, padded or elaborate design. Some of the headboard designs come with LED lighting, to illuminate your bedroom in the dark and add a touch of elegance.</p>
+  <span class="modular__inner__title">Choose the Color</span>
+  <p class="modular__inner__para">Modular furniture is contemporary and minimalistic to be cohesive with a multitude of bedroom decors. Therefore, keeping this in mind, Nilkamal Furniture offers two classic and timeless colour options for all its  <strong>modular beds</strong> - white and walnut. These timeless colours are perfect for uplifting your bedroom aesthetics without being obtrusive and blend perfectly with all the colours. So, whatever colour you choose, it will be perfect for your bedroom.</p>
+  <span class="modular__inner__title">Choose the size</span>
+  <p class="modular__inner__para">Nilkamal furniture has  <strong>modular beds</strong>  in two most popular and prominent sizes- king and queen size. These two sizes are the major bed sizes purchased as they are adequate for a couple or a small family. Depending on your bedroom size and requirement, you can choose a  <u><a href="https://www.nilkamalfurniture.com/collections/king-size-beds">king-size bed </a></u> or  <u><a href="https://www.nilkamalfurniture.com/collections/queen-size-beds">queen-size bed</a></u>. To ensure you make the right size choice, measure your bedroom space and then check dimensions mentioned on the product page. Choose the one that fits your bedroom.</p>
+  <span class="modular__inner__title">Benefits Of Purchasing Modular Beds From Nilkamal Furniture</span>
+  <p class="modular__inner__para"> <strong>Modular beds</strong>  from Nilkamal Furniture are aesthetically pleasing, stylish, and comfortable. They create an elegant visual interest in any bedroom they are used in. The <strong> modular bed design</strong>  by Nilkamal Furniture is focused on optimising space and functionality. Their contemporary feel and timeless appeal make them a pleasant addition to your bedroom. However, there are many other benefits, apart from these you enjoy when you purchase a Nilkamal modular bed. They are:</p>
+  <ul>
+  <li class="modular__inner__para"> <strong>Individual Designing</strong> - With an array of headboard designs and various storage options, you can customise Nilkamal <strong> modular bed</strong>  as per your preference and individual taste. You can customise every aspect of the modular bed, from size to colour and storage to headboard design. Tailor your  <strong>modular bed with storage</strong>  at Nilkamal to create your dream bed with optimum functionality.</li>
+  <li class="modular__inner__para"> <strong>Sturdy Structure</strong> - Nilkamal pride itself on its premium quality furniture offering. All  <strong>modular beds</strong>  are made from high-quality solid runner wood and engineered wood with sturdy and robust construction. The bed frame and joints offer a stable and resilient structure to last several years. So, the  <strong>modular bed</strong>  you purchase will remain intact and functional for many years without damage.</li>
+  <li class="modular__inner__para"> <strong>Ease of Maintenance- </strong> Using quality materials in its construction, Nilkamal  <strong>modular beds</strong>  ensure no wear and tear. Therefore, all you need to do is occasionally clean them for dust and dirt, and they will last for years.  <strong>&nbsp;</strong> </li>
+  <li class="modular__inner__para"> <strong>Compatibility-</strong>  Whether or not you are a d&eacute;cor enthusiast, you would still want all your furniture pieces to maintain a cohesive appearance. You wouldn't want a bed that sticks out in your modern bedroom or a traditional d&eacute;cor. The minimalistic and sleek  <strong>modular bed design</strong>  makes it the perfect and most compatible bed for any bedroom. The <strong> modular beds</strong>  with a simplistic headboard appearance suit any furniture style without a hinge. So you don't need to worry about it blending in with your other  <u><a href="https://www.nilkamalfurniture.com/collections/bed-room">bedroom furniture</a></u>.</li>
+  <li class="modular__inner__para"> <strong>Easy Installation-</strong>  Once you have selected the  <strong>modular bed design</strong>  from Nilkamal and paid for it, your work is done. Now, your modular bed will be sent to your mentioned address safely and with speedy delivery. And then, it will be installed by the brands team in your bedroom, and you will be provided with a demo to understand its functionality.</li>
+  </ul>
+</div>
+
+<script>
+  jQuery('document').ready(function ($) {
+    $('.dropdown__top').click(function () {
+      if ($(this).parent(".dropdown__faq").hasClass("open")) {
+        $(this).parent(".dropdown__faq").removeClass("open");
+        $(this).siblings(".dropdown__btm").slideUp(500);
+      } else {
+        $(".dropdown__faq").removeClass("open");
+        $(".dropdown__faq .dropdown__btm").slideUp(500);
+        $(this).parent(".dropdown__faq").addClass("open");
+        $(this).siblings(".dropdown__btm").slideDown(500);
+      }
+    })
+  });
+</script>

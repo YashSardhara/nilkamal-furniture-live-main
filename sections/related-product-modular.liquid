@@ -1,0 +1,238 @@
+<style>
+  ul.tabs {
+    border-bottom: 1px solid #DDDDDD;
+    display: block;
+    margin: 0 0 20px;
+    padding: 0;
+  }
+  ul.tabs li {
+    display: block;
+    float: left;
+    height: 30px;
+    margin-bottom: 0;
+    padding: 0;
+    width: auto;
+  }
+  ul.tabs li a {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #F5F5F5;
+    border-color: #DDDDDD !important;
+    border-style: solid;
+    border-width: 1px 1px 0 1px;
+    display: block;
+    font-size: 13px;
+    height: 29px;
+    line-height: 30px;
+    margin: 0;
+    padding: 0 20px;
+    text-decoration: none;
+    width: auto;
+    color: #303030;
+    border-bottom: none !important;
+  }
+  ul.tabs li a.active {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-left-width: 1px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    color: #111111;
+    height: 30px;
+    margin: 0 0 0 -1px;
+    padding-top: 4px;
+    position: relative;
+    top: -4px;
+  }
+  ul.tabs li:first-child a.active {
+    margin-left: 0;
+  }
+  ul.tabs li:first-child a {
+    border-top-left-radius: 2px;
+    border-width: 1px 1px 0;
+  }
+  ul.tabs li:last-child a {
+    border-top-right-radius: 2px;
+  }
+  ul.tabs:before,
+  ul.tabs:after {
+    content: " ";
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+  }
+  ul.tabs:after {
+    clear: both;
+  }
+
+  .slider__product__collection {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .slider__product__collection .column.flex.max-cols-4{
+    width: 100% !important;
+  }
+</style>
+
+<section class="custom-tab-with-slider">
+<div class="container">
+<div>
+<ul class="tabs">
+{% for block in section.blocks %}
+<li>
+<a href="#tab-{{ forloop.index }}">{{ block.settings.tab__header__text }}</a>
+</li>
+{% endfor %}
+</ul>
+{% for block in section.blocks %}
+  <div id="tab-{{ forloop.index }}" class="slider__product__collection">
+    <div class="swiper mySwiperCollection">
+      <div class="swiper-wrapper">
+        {% assign productCollection =  block.settings.collection.products %} 
+        {% for product in productCollection %}
+          <div class="swiper-slide swiper__slide__collection">
+            {% include 'product-loop' %}
+          </div>
+           
+        {% endfor %}
+      </div>
+
+    </div>
+    {% if condition %}
+      
+    {% endif %}
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+{% endfor %}
+</div>
+</section> 
+
+<script>
+  $(document).ready(function() {
+    $('ul.tabs').each(function() {
+      var active,
+        content,
+        links = $(this).find('a');
+      active = links.first().addClass('active');
+      content = $(active.attr('href'));
+      links.not(':first').each(function() {
+        $($(this).attr('href')).hide();
+        
+      });
+      $(this).find('a').click(function(e) {
+        active.removeClass('active');
+        content.hide();
+        active = $(this);
+        content = $($(this).attr('href'));
+        active.addClass('active');
+        content.show();
+        return false;
+        
+      });
+      
+    });
+  });
+
+// Slider Js
+ var prev = $(".swiper-button-prev");
+ var next = $(".swiper-button-next");
+  var swiper = new Swiper(".mySwiperCollection", {
+    watchSlidesProgress: true,
+    slidesPerView: 6,
+    spaceBetween: 10,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    },
+
+/* breakpoints: {
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 40
+      },
+    } */
+
+  
+  });
+
+  swiper.on('init', function() {
+    var totalSlides = swiper.slides.length;
+    if (totalSlides == 6) {
+      prev.hide();
+      next.hide();
+    }
+  });
+
+  
+</script>
+{% schema %}
+  {
+    "name": "custom tab with slider",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "tab",
+        "name": "Tab Content",
+        "settings": [
+          {
+            "type": "text",
+            "id": "tab__header__text",
+            "label": "Tab Heading"
+          }, {
+            "type": "text",
+            "id": "title",
+            "default": "Featured Collection",
+            "label": "Feature Collection Name"
+          }, {
+            "type": "collection",
+            "id": "collection",
+            "label": "Select Collection"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Feature Collection Tab",
+        "blocks": [
+          {
+            "type": "tab"
+          }
+        ]
+      }
+
+    ]
+  }
+{% endschema %}

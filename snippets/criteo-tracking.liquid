@@ -4,8 +4,12 @@
     window.criteo_q = window.criteo_q || [];
     window.criteo_q.push(
       { event: "setAccount", account: 88265 },
-      { event: "setEmail", email: "{{ customer.email | remove: ' ' | strip_newlines | downcase | sha256 }}", hash_method: "sha256" },
-      { event: "setEmail", email: "{{ customer.email | remove: ' ' | strip_newlines | downcase | md5 }}", hash_method: "md5" },
+      {% if customer.email and customer.email != "" %}
+        { event: "setEmail", email: "{{ customer.email | remove: ' ' | strip_newlines | downcase | sha256 }}", hash_method: "sha256" },
+        { event: "setEmail", email: "{{ customer.email | remove: ' ' | strip_newlines | downcase | md5 }}", hash_method: "md5" },
+      {% else %}
+        { event: "setEmail", email: "", hash_method: "none"},
+      {% endif %}
       { event: "setSiteType", type: deviceType },
       { event: "setZipcode", zipcode: "{{ customer.default_address.zip }}" },
         {% assign template-type = template | split: '.' | first %}
@@ -13,15 +17,15 @@
         {% unless template-type == 'cart' and cart.item_count < 1 %}
         {% assign id_prefix = "shopify_IN" %}
           {% case template-type %}
-            {% when 'cart' %}{ event: "viewBasket", ecpplugin: "shopify-mc", item: [{% for item in cart.items %}{% unless forloop.index0 == 0 %}, {% endunless %}{ id: "{{ id_prefix }}_{{ item.product.id }}_{{ item.variant.id }}", price: (typeof({{ item.price }}) != "number") ? {{ item.price }} : ({{ item.price }}/100), quantity: {{ item.quantity }} }{% endfor %}]}
-            {% when 'search' %}{ event: "viewSearchResult", ecpplugin: "shopify-mc", "keyword":"{{search.terms}}", item: [{% for product in search.results limit:3 %}{% if forloop.index0 != 0 %},{% endif %}"{{product.id}}"{% endfor %}]}
-            {% when 'collection' %}{ event: "viewList", ecpplugin: "shopify", category:"{{collection.handle}}", item: [{% for product in collection.products limit:3 %}{% if forloop.index0 != 0 %},{% endif %}"{{product.id}}"{% endfor %}]}
-            {% when 'index' %}{ event: "viewHome", ecpplugin: "shopify-mc" }
-            {% when 'product' %}{ event: "viewItem", ecpplugin: "shopify-mc", item: {% if product.selected_variant != nil %} "{{ id_prefix }}_{{ product.id }}_{{product.selected_variant.id}}" {% else %} "{{ product.id }}" {% endif %} }
+            {% when 'cart' %}{ event: "viewBasket", ecpplugin: "shopify-cg", item: [{% for item in cart.items %}{% unless forloop.index0 == 0 %}, {% endunless %}{ id: "{{ id_prefix }}_{{ item.product.id }}_{{ item.variant.id }}", price: (typeof({{ item.price }}) != "number") ? {{ item.price }} : ({{ item.price }}/100), quantity: {{ item.quantity }} }{% endfor %}]}
+            {% when 'search' %}{ event: "viewSearchResult", ecpplugin: "shopify-cg", "keyword":"{{search.terms}}", item: [{% for product in search.results limit:3 %}{% if forloop.index0 != 0 %},{% endif %}"{{product.id}}"{% endfor %}]}
+            {% when 'collection' %}{ event: "viewList", ecpplugin: "shopify-cg", category:"{{collection.handle}}", item: [{% for product in collection.products limit:3 %}{% if forloop.index0 != 0 %},{% endif %}"{{product.id}}"{% endfor %}]}
+            {% when 'index' %}{ event: "viewHome", ecpplugin: "shopify-cg" }
+            {% when 'product' %}{ event: "viewItem", ecpplugin: "shopify-cg", item: {% if product.selected_variant != nil %} "{{ id_prefix }}_{{ product.id }}_{{product.selected_variant.id}}" {% else %} "{{ product.id }}" {% endif %} }
           {% endcase %}
         {% endunless %}
         {% else %}
-          { event: "viewPage" , ecpplugin: "shopify-mc" }
+          { event: "viewPage" , ecpplugin: "shopify-cg" }
         {% endif %}
     );
     window.addEventListener('load', function() {
@@ -47,7 +51,7 @@
                   }
                   window.criteo_q.push({
                     event: "addToCart",
-                    ecpplugin: "shopify-mc",
+                    ecpplugin: "shopify-cg",
                     product: basketData 
                   });
                 });
@@ -56,7 +60,7 @@
               }
             }
           }, false);
-          open.call(this, method, url, async, user, pass);
+          open.apply(this, arguments);
         };
       })(XMLHttpRequest.prototype.open);
 
@@ -84,7 +88,7 @@
                     }
                     window.criteo_q.push({
                       event: "addToCart",
-                      ecpplugin: "shopify-mc",
+                      ecpplugin: "shopify-cg",
                       product: basketData 
                     });
                   });

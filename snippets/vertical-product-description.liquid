@@ -6,7 +6,7 @@
     .information-product-mobile {
       color: #000;
       display: block;
-      border-bottom: 1px solid #6A6A6A;
+      border-bottom: 1px solid #E1E1E1;
     }
   }
 </style>
@@ -21,7 +21,7 @@
     {% if Description != 0 and Description != blank %}
       {% unless product.tags contains 'modular-bed' %}
         <h2>
-          Description<span class="right">{% include 'svg-icons', id: 'down-arrow' %}</span>
+          Description
         </h2>
       {% endunless %}
 
@@ -662,273 +662,275 @@
         </div>
 
       </div>
+      {% comment %}
       {% unless product.tags contains 'modular-bed' %}
-        <div class="pd-dimension-table">
-          <h3 class="accordion">Dimensions
-            <span id="uparrow"></span>
-            <span id="downarrow"></span>
-          </h3>
-          <div class="panel">
-            <table>
-              <tbody>
+      <div class="pd-dimension-table">
+      <h3 class="accordion">Dimensions
+      <span id="uparrow"></span>
+      <span id="downarrow"></span>
+      </h3>
+      <div class="panel">
+      <table>
+      <tbody>
 
-                {% if productDimensions["Length"] != 0 and productDimensions["Length"] != blank %}
-                  <tr>
-                    <td>Length (cm)</td>
-                    <td>{{ productDimensions["Length"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Length"] != 0 and productDimensions["Length"] != blank %}
+      <tr>
+      <td>Length (cm)</td>
+      <td>{{ productDimensions["Length"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Length (cm)"] != 0 and productDimensions["Length (cm)"] != blank %}
-                  <tr>
-                    <td>Length (cm)</td>
-                    <td>{{ productDimensions["Length (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Length (cm)"] != 0 and productDimensions["Length (cm)"] != blank %}
+      <tr>
+      <td>Length (cm)</td>
+      <td>{{ productDimensions["Length (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Width (cm)"] != 0 and productDimensions["Width (cm)"] != blank %}
-                  <tr>
-                    <td>Width (cm)</td>
-                    <td>{{ productDimensions["Width (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Width (cm)"] != 0 and productDimensions["Width (cm)"] != blank %}
+      <tr>
+      <td>Width (cm)</td>
+      <td>{{ productDimensions["Width (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Width"] != 0 and productDimensions["Width"] != blank %}
-                  <tr>
-                    <td>Width (cm)</td>
-                    <td>{{ productDimensions["Width"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Width"] != 0 and productDimensions["Width"] != blank %}
+      <tr>
+      <td>Width (cm)</td>
+      <td>{{ productDimensions["Width"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Height (cm)"] != 0 and productDimensions["Height (cm)"] != blank %}
-                  <tr>
-                    <td>Height (cm)</td>
-                    <td>{{ productDimensions["Height (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Height (cm)"] != 0 and productDimensions["Height (cm)"] != blank %}
+      <tr>
+      <td>Height (cm)</td>
+      <td>{{ productDimensions["Height (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Height"] != 0 and productDimensions["Height"] != blank %}
-                  <tr>
-                    <td>Height (cm)</td>
-                    <td>{{ productDimensions["Height"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Height"] != 0 and productDimensions["Height"] != blank %}
+      <tr>
+      <td>Height (cm)</td>
+      <td>{{ productDimensions["Height"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Weight (Kg)"] != 0 and productDimensions["Weight (Kg)"] != blank %}
-                  <tr>
-                    <td>Weight (Kg)</td>
-                    <td>{{ productDimensions["Weight (Kg)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Weight (Kg)"] != 0 and productDimensions["Weight (Kg)"] != blank %}
+      <tr>
+      <td>Weight (Kg)</td>
+      <td>{{ productDimensions["Weight (Kg)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Depth (cm)"] != 0 and productDimensions["Depth (cm)"] != blank %}
-                  <tr>
-                    <td>Depth (cm)</td>
-                    <td>{{ productDimensions["Depth (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Depth (cm)"] != 0 and productDimensions["Depth (cm)"] != blank %}
+      <tr>
+      <td>Depth (cm)</td>
+      <td>{{ productDimensions["Depth (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Back Height (cm)"] != 0 and productDimensions["Back Height (cm)"] != blank %}
-                  <tr>
-                    <td>Back Height (cm)</td>
-                    <td>{{ productDimensions["Back Height (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Back Height (cm)"] != 0 and productDimensions["Back Height (cm)"] != blank %}
+      <tr>
+      <td>Back Height (cm)</td>
+      <td>{{ productDimensions["Back Height (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Maximum TV Size (cm)"] != 0 and productDimensions["Maximum TV Size (cm)"] != blank %}
-                  <tr>
-                    <td>Maximum TV Size (cm)</td>
-                    <td>{{ productDimensions["Maximum TV Size (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Maximum TV Size (cm)"] != 0 and productDimensions["Maximum TV Size (cm)"] != blank %}
+      <tr>
+      <td>Maximum TV Size (cm)</td>
+      <td>{{ productDimensions["Maximum TV Size (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Seat Depth (cm)"] != 0 and productDimensions["Seat Depth (cm)"] != blank %}
-                  <tr>
-                    <td>Seat Depth (cm)</td>
-                    <td>{{ productDimensions["Seat Depth (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Seat Depth (cm)"] != 0 and productDimensions["Seat Depth (cm)"] != blank %}
+      <tr>
+      <td>Seat Depth (cm)</td>
+      <td>{{ productDimensions["Seat Depth (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Seat Height (cm)"] != 0 and productDimensions["Seat Height (cm)"] != blank %}
-                  <tr>
-                    <td>Seat Height (cm)</td>
-                    <td>{{ productDimensions["Seat Height (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Seat Height (cm)"] != 0 and productDimensions["Seat Height (cm)"] != blank %}
+      <tr>
+      <td>Seat Height (cm)</td>
+      <td>{{ productDimensions["Seat Height (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Seat Width (cm)"] != 0 and productDimensions["Seat Width (cm)"] != blank %}
-                  <tr>
-                    <td>Seat Width (cm)</td>
-                    <td>{{ productDimensions["Seat Width (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Seat Width (cm)"] != 0 and productDimensions["Seat Width (cm)"] != blank %}
+      <tr>
+      <td>Seat Width (cm)</td>
+      <td>{{ productDimensions["Seat Width (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Under Desk Clearance (cm)"] != 0 and productDimensions["Under Desk Clearance (cm)"] != blank %}
-                  <tr>
-                    <td>Under Desk Clearance (cm)</td>
-                    <td>{{ productDimensions["Under Desk Clearance (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Under Desk Clearance (cm)"] != 0 and productDimensions["Under Desk Clearance (cm)"] != blank %}
+      <tr>
+      <td>Under Desk Clearance (cm)</td>
+      <td>{{ productDimensions["Under Desk Clearance (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                <!--      chair dimension      -->
-                {% assign ChairWidth = productDimensions['Chair Width (cm)'] %}
-                {% if ChairWidth != 0 and ChairWidth != blank %}
-                  <tr>
-                    <td>Width</td>
-                    <td>{{ ChairWidth }}</td>
-                  </tr>
-                {% endif %}
+      <!--      chair dimension      -->
+      {% assign ChairWidth = productDimensions['Chair Width (cm)'] %}
+      {% if ChairWidth != 0 and ChairWidth != blank %}
+      <tr>
+      <td>Width</td>
+      <td>{{ ChairWidth }}</td>
+      </tr>
+      {% endif %}
 
-                {% assign ChairDepth = productDimensions['Chair Depth (cm)'] %}
-                {% if ChairDepth != 0 and ChairDepth != blank %}
-                  <tr>
-                    <td>Depth</td>
-                    <td>{{ ChairDepth }}</td>
-                  </tr>
-                {% endif %}
+      {% assign ChairDepth = productDimensions['Chair Depth (cm)'] %}
+      {% if ChairDepth != 0 and ChairDepth != blank %}
+      <tr>
+      <td>Depth</td>
+      <td>{{ ChairDepth }}</td>
+      </tr>
+      {% endif %}
 
-                {% assign ChairHeight = productDimensions['Chair Height (cm)'] %}
-                {% if ChairHeight != 0 and ChairHeight != blank %}
-                  <tr>
-                    <td>Height</td>
-                    <td>{{ ChairHeight }}</td>
-                  </tr>
-                {% endif %}
+      {% assign ChairHeight = productDimensions['Chair Height (cm)'] %}
+      {% if ChairHeight != 0 and ChairHeight != blank %}
+      <tr>
+      <td>Height</td>
+      <td>{{ ChairHeight }}</td>
+      </tr>
+      {% endif %}
 
-                {% assign ChairWeight = productDimensions['Chair Weight (kg)'] %}
-                {% if ChairWeight != 0 and ChairWeight != blank %}
-                  <tr>
-                    <td>Weight</td>
-                    <td>{{ ChairHeight }}</td>
-                  </tr>
-                {% endif %}
-                <!--      chair dimension end      -->
+      {% assign ChairWeight = productDimensions['Chair Weight (kg)'] %}
+      {% if ChairWeight != 0 and ChairWeight != blank %}
+      <tr>
+      <td>Weight</td>
+      <td>{{ ChairHeight }}</td>
+      </tr>
+      {% endif %}
+      <!--      chair dimension end      -->
 
-                {% if productDimensions["Bed Seating Height"] != 0 and productDimensions["Bed Seating Height"] != blank %}
-                  <tr>
-                    <td>Bed Seating Height</td>
-                    <td>{{ productDimensions["Bed Seating Height"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Bed Seating Height"] != 0 and productDimensions["Bed Seating Height"] != blank %}
+      <tr>
+      <td>Bed Seating Height</td>
+      <td>{{ productDimensions["Bed Seating Height"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Floor Clearance (cm)"] != 0 and productDimensions["Floor Clearance (cm)"] != blank %}
-                  <tr>
-                    <td>Floor Clearance (cm)</td>
-                    <td>{{ productDimensions["Floor Clearance (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Floor Clearance (cm)"] != 0 and productDimensions["Floor Clearance (cm)"] != blank %}
+      <tr>
+      <td>Floor Clearance (cm)</td>
+      <td>{{ productDimensions["Floor Clearance (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Leg Height (cm)"] != 0 and productDimensions["Leg Height (cm)"] != blank %}
-                  <tr>
-                    <td>Leg Height (cm)</td>
-                    <td>{{ productDimensions["Leg Height (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Leg Height (cm)"] != 0 and productDimensions["Leg Height (cm)"] != blank %}
+      <tr>
+      <td>Leg Height (cm)</td>
+      <td>{{ productDimensions["Leg Height (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Mirror Height (cm)"] != 0 and productDimensions["Mirror Height (cm)"] != blank %}
-                  <tr>
-                    <td>Mirror Height (cm)</td>
-                    <td>{{ productDimensions["Mirror Height (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Mirror Height (cm)"] != 0 and productDimensions["Mirror Height (cm)"] != blank %}
+      <tr>
+      <td>Mirror Height (cm)</td>
+      <td>{{ productDimensions["Mirror Height (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Mirror Width (cm)"] != 0 and productDimensions["Mirror Width (cm)"] != blank %}
-                  <tr>
-                    <td>Mirror Width (cm)</td>
-                    <td>{{ productDimensions["Mirror Width (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Mirror Width (cm)"] != 0 and productDimensions["Mirror Width (cm)"] != blank %}
+      <tr>
+      <td>Mirror Width (cm)</td>
+      <td>{{ productDimensions["Mirror Width (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Sofa Backrest Height (cm)"] != 0 and productDimensions["Sofa Backrest Height (cm)"] != blank %}
-                  <tr>
-                    <td>Sofa Backrest Height (cm)</td>
-                    <td>{{ productDimensions["Sofa Backrest Height (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Sofa Backrest Height (cm)"] != 0 and productDimensions["Sofa Backrest Height (cm)"] != blank %}
+      <tr>
+      <td>Sofa Backrest Height (cm)</td>
+      <td>{{ productDimensions["Sofa Backrest Height (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Sofa Seat Height (cm)"] != 0 and productDimensions["Sofa Seat Height (cm)"] != blank %}
-                  <tr>
-                    <td>Sofa Seat Height (cm)</td>
-                    <td>{{ productDimensions["Sofa Seat Height (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Sofa Seat Height (cm)"] != 0 and productDimensions["Sofa Seat Height (cm)"] != blank %}
+      <tr>
+      <td>Sofa Seat Height (cm)</td>
+      <td>{{ productDimensions["Sofa Seat Height (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Table Depth (cm) "] != 0 and productDimensions["Table Depth (cm) "] != blank %}
-                  <tr>
-                    <td>Table Depth (cm)
-                    </td>
-                    <td>{{ productDimensions["Table Depth (cm) "] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Table Depth (cm) "] != 0 and productDimensions["Table Depth (cm) "] != blank %}
+      <tr>
+      <td>Table Depth (cm)
+      </td>
+      <td>{{ productDimensions["Table Depth (cm) "] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Stool Width (cm)"] != 0 and productDimensions["Stool Width (cm)"] != blank %}
-                  <tr>
-                    <td>Stool Width (cm)</td>
-                    <td>{{ productDimensions["Stool Width (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Stool Width (cm)"] != 0 and productDimensions["Stool Width (cm)"] != blank %}
+      <tr>
+      <td>Stool Width (cm)</td>
+      <td>{{ productDimensions["Stool Width (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Stool Height (cm)"] != 0 and productDimensions["Stool Height (cm)"] != blank %}
-                  <tr>
-                    <td>Stool Height (cm)</td>
-                    <td>{{ productDimensions["Stool Height (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Stool Height (cm)"] != 0 and productDimensions["Stool Height (cm)"] != blank %}
+      <tr>
+      <td>Stool Height (cm)</td>
+      <td>{{ productDimensions["Stool Height (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Table Diameter (cm)"] != 0 and productDimensions["Table Diameter (cm)"] != blank %}
-                  <tr>
-                    <td>Table Diameter (cm)</td>
-                    <td>{{ productDimensions["Table Diameter (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Table Diameter (cm)"] != 0 and productDimensions["Table Diameter (cm)"] != blank %}
+      <tr>
+      <td>Table Diameter (cm)</td>
+      <td>{{ productDimensions["Table Diameter (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Table Height (cm)"] != 0 and productDimensions["Table Height (cm)"] != blank %}
-                  <tr>
-                    <td>Table Height (cm)</td>
-                    <td>{{ productDimensions["Table Height (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Table Height (cm)"] != 0 and productDimensions["Table Height (cm)"] != blank %}
+      <tr>
+      <td>Table Height (cm)</td>
+      <td>{{ productDimensions["Table Height (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Table Weight (kg)"] != 0 and productDimensions["Table Weight (kg)"] != blank %}
-                  <tr>
-                    <td>Table Weight (kg)</td>
-                    <td>{{ productDimensions["Table Weight (kg)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Table Weight (kg)"] != 0 and productDimensions["Table Weight (kg)"] != blank %}
+      <tr>
+      <td>Table Weight (kg)</td>
+      <td>{{ productDimensions["Table Weight (kg)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Table Width (cm)"] != 0 and productDimensions["Table Width (cm)"] != blank %}
-                  <tr>
-                    <td>Table Width (cm)</td>
-                    <td>{{ productDimensions["Table Width (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Table Width (cm)"] != 0 and productDimensions["Table Width (cm)"] != blank %}
+      <tr>
+      <td>Table Width (cm)</td>
+      <td>{{ productDimensions["Table Width (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Tabletop Thickness (cm)"] != 0 and productDimensions["Tabletop Thickness (cm)"] != blank %}
-                  <tr>
-                    <td>Tabletop Thickness (cm)</td>
-                    <td>{{ productDimensions["Tabletop Thickness (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Tabletop Thickness (cm)"] != 0 and productDimensions["Tabletop Thickness (cm)"] != blank %}
+      <tr>
+      <td>Tabletop Thickness (cm)</td>
+      <td>{{ productDimensions["Tabletop Thickness (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Headboard Thickness (cm)"] != 0 and productDimensions["Headboard Thickness (cm)"] != blank %}
-                  <tr>
-                    <td>Headboard Thickness (cm)</td>
-                    <td>{{ productDimensions["Headboard Thickness (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Headboard Thickness (cm)"] != 0 and productDimensions["Headboard Thickness (cm)"] != blank %}
+      <tr>
+      <td>Headboard Thickness (cm)</td>
+      <td>{{ productDimensions["Headboard Thickness (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-                {% if productDimensions["Seating Height (cm)"] != 0 and productDimensions["Seating Height (cm)"] != blank %}
-                  <tr>
-                    <td>Seating Height (cm)</td>
-                    <td>{{ productDimensions["Seating Height (cm)"] }}</td>
-                  </tr>
-                {% endif %}
+      {% if productDimensions["Seating Height (cm)"] != 0 and productDimensions["Seating Height (cm)"] != blank %}
+      <tr>
+      <td>Seating Height (cm)</td>
+      <td>{{ productDimensions["Seating Height (cm)"] }}</td>
+      </tr>
+      {% endif %}
 
-              </tbody>
-            </table>
-          </div>
-        </div>
+      </tbody>
+      </table>
+      </div>
+      </div>
       {% endunless %}
+      {% endcomment %}
 
       <div class="pd-material-table">
         <h3 class="accordion">Description
@@ -936,7 +938,11 @@
           <span id="downarrow"></span>
         </h3>
         <div class="panel">
-          {{ product.description }}
+          <div class="product__des__accordian">
+            {% if productDimensions["Color"] != 0 and productDimensions["Color"] != blank %}
+              <p>{{ productDimensions["Description"] }}</p>
+            {% endif %}
+          </div>
         </div>
 
       </div>
@@ -1210,5 +1216,19 @@
   }
   h3.accordion.active span#downarrow {
     display: block;
+  }
+
+  .product__des__accordian p {
+    font-size: 12px !important;
+    margin-bottom: 20px;
+  }
+
+  .information-product-mobile {
+    margin-left: 5px;
+    text-transform: capitalize;
+  }
+
+  .product__des__accordian {
+    padding: 4px 4px 20px;
   }
 </style>

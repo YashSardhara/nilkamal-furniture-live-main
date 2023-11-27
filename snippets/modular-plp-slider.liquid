@@ -1,0 +1,392 @@
+<style>
+  .swiper-slide {
+    width: 100%;
+    height: auto;
+  }
+
+  .fix__bg {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main__content__slider{
+  position:relative;
+  position: relative;
+  top: -75px;
+  z-index: 5;
+  }
+
+  .swiper {
+  margin-top:0px !important
+}
+
+  .slide__one {
+    position: relative;
+    width: 100%;
+    height: auto
+  }
+
+  .modular__base {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: 3;
+  }
+
+  .swiper-wrapper,
+  .swiper,
+  .swiper-slide {
+    background: transparent !important;
+    display: flex !important;
+  }
+
+  .modular__bg {
+    z-index: -1;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .slide__one .headboard {
+    width: 100%;
+    height: auto;
+  }
+
+
+  .custom__button__abs {
+    z-index: 4 !important;
+    position: absolute !important;
+  }
+
+  .custom__button__abs {
+    width: 55px;
+    height: 55px;
+  }
+
+  .swiper-button-next {
+    right: 08%;
+  }
+
+
+  .headoard__content {
+    {% comment %} position: absolute;
+    z-index:2000;
+    bottom: 6%; {% endcomment %}
+    display: flex;
+    width: auto;
+    align-items: center;
+    padding: 4.88752px 16.1288px;
+    gap: 15.64px;
+    border: 0.552783px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .headoard__content p {
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 102.5%;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .headoard__content a {
+    background: #0093DD;
+    border-radius: 2.1px;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 7px 8px;
+    gap: 3px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 102.5%;
+  }
+
+  .headoard__content a img {
+    width: 16px;
+    height: 16px;
+    margin-left: 11px;
+  }
+
+
+
+  @media (max-width:768px) {
+    .modular__bg {
+      border-radius: 0;
+    }
+
+    .swiper-button-next{
+    right:0%;
+
+    }
+
+    .swiper-button-prev{
+    left:0%;
+    }
+
+    .headoard__content a img {
+      width: 12px;
+      height: 12px;
+      margin-left: 5px;
+    }
+
+    .headoard__content a {
+      font-weight: 500;
+      font-size: 8px;
+      line-height: 102.5%;
+      padding: 5px 10px;
+    }
+
+    .headoard__content p {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 102.5%;
+    }
+
+    .headoard__content {
+      padding: 2.76392px;
+      gap: 8.29px;
+    }
+
+    .custom__button__abs {
+      width: 70px;
+      height: 70px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .custom__button__abs img {
+    width:60%;
+    height:auto;
+    }
+
+    .main__content__slider{
+      top: -40px;
+    }
+
+    .swiper-button-next {
+      right: 04%;
+    }
+
+    .swiper-button-prev {
+      left: 04%;
+    }
+
+    .slide__one .headboard {
+      width: 130vw;
+      height: auto;
+    }
+
+    .modular__base {
+      width: 130vw;
+      height: auto;
+    }
+
+    .custom__button__abs_2{
+    left:0%;
+    }
+    .custom__button__abs_1{
+    right:0%;
+    }
+  }
+</style>
+<!-- Swiper -->
+<div class="fix__bg">
+  <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/bed_0cc16065-c6d2-42cb-b6e2-0219e0524330.png?v=1680775354" class="modular__base"
+    alt="">
+  <div class="swiper mySwiperPlpSlider">
+    <div class="swiper-wrapper ">
+      <div class="swiper-slide slide__one">
+        <img class="headboard"
+          src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/GALAXY-hb_1fa8df5a-d446-4838-b537-6e905ea16170.png?v=1681113361" alt="">
+        
+      </div>
+      <div class="swiper-slide slide__one">
+        <img class="headboard" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/MAPPLE-hb.png?v=1681113361"
+          alt="">
+       
+      </div>
+      <div class="swiper-slide slide__one">
+        <img class="headboard" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/MALCOM-hb.png?v=1681113361"
+          alt="">
+        
+      </div>
+      <div class="swiper-slide slide__one">
+        <img class="headboard" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/NOIR-hb.png?v=1681113361"
+          alt="">
+        
+      </div>
+      <div class="swiper-slide slide__one">
+        <img class="headboard" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/ORNET-hb.png?v=1681113361"
+          alt="">
+        
+      </div>
+      <div class="swiper-slide slide__one">
+        <img class="headboard" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/ELECTRA-HB_73a0bb31-2c24-4634-8577-be46d991c985.png?v=1681113361"
+          alt="">
+        
+      </div>
+      {% comment %} <div class="swiper-slide slide__one">
+        <img class="headboard" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/ELECTRA-HB_73a0bb31-2c24-4634-8577-be46d991c985.png?v=1681113361"
+          alt="">
+        <div class="headoard__content">
+          <p>Electra Headboard</p>
+          <a href="">Explore Now <img
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/explore-svg.svg?v=1681296739" alt=""></a>
+        </div>
+      </div> {% endcomment %}
+      <div class="swiper-slide slide__one">
+        <img class="headboard" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/capsule_ead0ffa3-8009-4af9-9e74-cde54ec43da2.png?v=1681113360"
+          alt="">
+        </div>
+      <div class="swiper-slide slide__one">
+        <img class="headboard" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/ASTA-hb_3bc2d3c8-99be-4490-aaac-77948c7ea72c.png?v=1681113360"
+          alt="">
+        
+      </div>
+      <div class="swiper-slide slide__one">
+        <img class="headboard" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/ORION-hb.png?v=1681113360"
+          alt="">
+        
+      </div>
+      <div class="swiper-slide slide__one">
+        <img class="headboard" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/SLEW-hb.png?v=1681113360"
+          alt="">
+        
+      </div>
+      {% comment %} <div class="swiper-slide slide__one">
+        <img class="headboard" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/SLEW-hb.png?v=1681113360"
+          alt="">
+        <div class="headoard__content">
+          <p>Slew Headboard</p>
+          <a href="">Explore Now <img
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/explore-svg.svg?v=1681296739" alt=""></a>
+        </div>
+      </div> {% endcomment %}
+      <div class="swiper-slide slide__one">
+        <img class="headboard" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/PLUSH-hb.png?v=1681113361"
+          alt="">
+        
+      </div>
+      <div class="swiper-slide slide__one">
+        <img class="headboard" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/zion-hb.png?v=1681113361"
+          alt="">
+        
+      </div>
+      <div class="swiper-slide slide__one">
+        <img class="headboard" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/ALPS-hb.png?v=1681815668"
+          alt="">
+        
+      </div>
+    </div>
+  </div>
+  <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/base_background_mew.jpg?v=1681212221"
+    class="modular__base modular__bg">
+  {% comment %} <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/BG.jpg?v=1680775353"
+    class="modular__base modular__bg"> {% endcomment %}
+  <div class="swiper-button-next custom__button__abs custom__button__abs_1">
+    <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Group_5.svg?v=1680601142" alt="">
+  </div>
+  <div class="swiper-button-prev custom__button__abs custom__button__abs_2">
+    <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Group_6.svg?v=1680601142" alt="">
+  </div>
+</div>
+<div class="main__content__slider">
+  <div class="swiper swiper-container-mine mySwiperPlpSlidercontent">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="headoard__content">
+          <p>Galaxy Headboard</p>
+          <a href="https://www.nilkamalfurniture.com/products/nilkamal-galaxy-max-engineered-wood-bed-with-box-storage-headboard-light-white">Explore Now <img
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/explore-svg.svg?v=1681296739" alt=""></a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="headoard__content">
+          <p>Maple Headboard</p>
+          <a href="https://www.nilkamalfurniture.com/products/nilkamal-maple-max-solid-wood-bed-with-box-storage-white">Explore Now <img
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/explore-svg.svg?v=1681296739" alt=""></a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="headoard__content">
+          <p>Malcom Headboard</p>
+          <a href="https://www.nilkamalfurniture.com/products/nilkamal-malcom-max-engineerd-wood-bed-with-box-storage-headboard-storage-white">Explore Now <img
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/explore-svg.svg?v=1681296739" alt=""></a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="headoard__content">
+          <p>Noir Headboard</p>
+          <a href="https://www.nilkamalfurniture.com/products/nilkamal-noir-max-engineered-wood-upholstered-headboard-bed-with-box-storage-white">Explore Now <img
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/explore-svg.svg?v=1681296739" alt=""></a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="headoard__content">
+          <p>Ornate Headboard</p>
+          <a href="https://www.nilkamalfurniture.com/products/nilkamal-ornate-max-engineered-wood-bed-with-box-storage-white">Explore Now <img
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/explore-svg.svg?v=1681296739" alt=""></a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="headoard__content">
+          <p>Electra Headboard</p>
+          <a href="https://www.nilkamalfurniture.com/products/nilkamal-electra-max-solid-wood-bed-with-box-storage-white">Explore Now <img
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/explore-svg.svg?v=1681296739" alt=""></a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="headoard__content">
+          <p>Capsule Headboard</p>
+          <a href="https://www.nilkamalfurniture.com/products/nilkamal-capsule-max-engineered-wood-bed-with-box-storage-headboard-light-white">Explore Now <img
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/explore-svg.svg?v=1681296739" alt=""></a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="headoard__content">
+          <p>Asta Headboard</p>
+          <a href="https://www.nilkamalfurniture.com/products/nilkamal-asta-max-engineered-wood-bed-with-box-storage-white">Explore Now <img
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/explore-svg.svg?v=1681296739" alt=""></a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="headoard__content">
+          <p>Orion Headboard</p>
+          <a href="https://www.nilkamalfurniture.com/products/nilkamal-orion-max-engineered-wood-bed-with-box-storage-white">Explore Now <img
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/explore-svg.svg?v=1681296739" alt=""></a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="headoard__content">
+          <p>Slew Headboard</p>
+          <a href="https://www.nilkamalfurniture.com/products/nilkamal-slew-max-solid-wood-bed-with-box-storage-headboard-storage-white">Explore Now <img
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/explore-svg.svg?v=1681296739" alt=""></a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="headoard__content">
+          <p>Plush Headboard</p>
+          <a href="https://www.nilkamalfurniture.com/products/nilkamal-plush-max-engineered-wood-bed-with-box-storage-headboard-light-white">Explore Now <img
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/explore-svg.svg?v=1681296739" alt=""></a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="headoard__content">
+          <p>Zion Headboard</p>
+          <a href="https://www.nilkamalfurniture.com/products/nilkamal-zion-max-solid-wood-bed-with-box-storage-white">Explore Now <img
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/explore-svg.svg?v=1681296739" alt=""></a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="headoard__content">
+          <p>Alps Headboard</p>
+          <a href="https://www.nilkamalfurniture.com/products/nilkamal-alps-max-engineered-wood-bed-with-box-storage-white">Explore Now <img
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/explore-svg.svg?v=1681296739" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

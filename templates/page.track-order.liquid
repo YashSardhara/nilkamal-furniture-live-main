@@ -1,15 +1,15 @@
-{% if page.title == 'SBI' or page.title == 'Referral Program Details' or page.title == 'amazon offer T&C' or page.title == 'Safety measures taken by @home' %} 
-{% else %}
-{% endif %}
-<div class="container">
-  <a name="pagecontent" id="pagecontent"></a>
-  <div class="col-sm-12 page clearfix static-pages track-order {% if page.url contains 'search-results' %}search-page{% endif %}">
-    <h1>{{ page.title }}</h1>
-    <div class="feature_divider"></div>
-    <iframe src='https://nilkamalfurniture.clickpost.in/' name='iframecallout' scrolling='no' frameborder='0' marginheight='0' marginwidth='0' height='790px' width='100%' allowfullscreen></iframe>
-  </div>
+<div class = "tracking_page" style="height:100%; width:100%;">
+    <iframe class="tracking_order_iframe" src='https://nilkamalfurniture.clickpost.in/' name='iframecallout' scrolling='no' frameborder='0' marginheight='0' marginwidth='0' height='790px' width='100%' allowfullscreen></iframe>
 </div>
 <style>
+  /* .page-track-order.promo_banner-show #shopify-section-header{
+    display:none !important;
+  } */
+    @media (max-width: 1020px)
+  .mt-40{
+    margin-top: 40px;
+  }
+  }
   .track-order {
     text-align: center;
   }
@@ -24,5 +24,16 @@
   #iframecallout{
     border: 0 solid #989898;
     padding-top: 10px;
+  }
+  .nilkamalfurniture.header-wrapper{
+    display : none;
+  }
+  iframe.tracking_order_iframe {
+    margin-top: -61px;
+}
+  @media screen and (max-width: 767px){
+    iframe.tracking_order_iframe {
+    margin-top: 41px;
+}
   }
 </style>

@@ -26,12 +26,23 @@
         price: price,
         quantity: 1
     });
+
     window.criteo_q = window.criteo_q || [];
-    window.criteo_q.push(
-        { event: "setAccount", account: 88265 },
-        { event: "setEmail", email: crto_md5(c.email), hash_method: "md5" },
-        { event: "setEmail", email: crto_sha256(c.email), hash_method: "sha256" },
-        { event: "setSiteType", type: deviceType },
-        { event: "trackTransaction", zipcode: c.billing_address.zip, ecpplugin: "shopify-mc", id: c.order_id, item: products }
-    );
+    if(typeof(c.email) != 'undefined' && c.email != null && c.email != "")
+    {
+        window.criteo_q.push(
+            { event: "setAccount", account: 88265 },
+            { event: "setEmail", email: crto_md5(c.email), hash_method: "md5" },
+            { event: "setEmail", email: crto_sha256(c.email), hash_method: "sha256" },
+            { event: "setSiteType", type: deviceType },
+            { event: "trackTransaction", zipcode: c.billing_address.zip, ecpplugin: "shopify-cg", id: c.order_id, item: products }
+        );
+    } else {
+        window.criteo_q.push(
+            { event: "setAccount", account: 88265 },
+            { event: "setEmail", email: "", hash_method: "none" },
+            { event: "setSiteType", type: deviceType },
+            { event: "trackTransaction", zipcode: c.billing_address.zip, ecpplugin: "shopify-cg", id: c.order_id, item: products }
+        );
+    }
 })(Shopify.checkout, navigator.userAgent);

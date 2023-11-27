@@ -4024,7 +4024,7 @@
     "table_styles_enabled": true,
     "slideshow_arrow_size": "light",
     "arrow_color": "#333333",
-    "slideshow_button_style": false,
+    "slideshow_button_style": true,
     "slideshow_nav_buttons": false,
     "border_color": "#cccccc",
     "headline_border_color": "#aaaaaa",
@@ -4118,7 +4118,7 @@
     "collection_height": 200,
     "thumbnail_hover_enabled": false,
     "display_vendor": false,
-    "collection_secondary_image": true,
+    "collection_secondary_image": false,
     "sale_banner_enabled": false,
     "collection_swatches": true,
     "notify_me_form": false,
@@ -4132,7 +4132,7 @@
     "size_chart": "",
     "enable_shopify_review_comments": true,
     "enable_shopify_collection_badges": false,
-    "quick_shop_enabled": true,
+    "quick_shop_enabled": false,
     "quick_shop_display_vendor": false,
     "quick_shop_display_savings": true,
     "show_payment_button": true,
@@ -4752,7 +4752,7 @@
             "settings": {
               "title": "Support",
               "tel_no": "1800 1219 115",
-              "contact_time": "You can reach us 7 days a week. Chat with us or call our toll-free number.",
+              "contact_time": "You can reach us 7 days a week. Chat with us or call our toll-free number between 10.00 am to 7.00 pm.",
               "contact_mail": "furniture.enquiry@nilkamal.com",
               "social_icons_footer": false
             }
@@ -4805,35 +4805,14 @@
           "display_payment_methods": true
         }
       },
-      "1489283389016": {
-        "type": "image-with-text-overlay",
-        "settings": {
-          "image": "shopify:\/\/shop_images\/1300x380.png",
-          "mobimage": "shopify:\/\/shop_images\/mobile_banner_mattress.png",
-          "pretext": "",
-          "title": "",
-          "subtitle": "",
-          "caption_background": false,
-          "caption_background_transparency": false,
-          "text_position": "center",
-          "text_align": "center",
-          "button1": "",
-          "button1_link": "https:\/\/www.nilkamalfurniture.com\/collections\/mattress",
-          "button1_highlight": false,
-          "button2": "",
-          "button2_link": "",
-          "button2_highlight": false
-        }
-      },
       "1489284011497": {
         "type": "slideshow",
         "blocks": {
-          "4df1d8be-b1e4-410c-ae53-934559add4a7": {
+          "e116edb9-8097-4809-b939-ce83cf46e550": {
             "type": "image",
-            "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/desktop_living_56249500-8762-4af8-9685-ba8b7a950cb1.png",
-              "mobimage": "shopify:\/\/shop_images\/mobile_living_42747647-dc0d-4d69-919d-d252930e81a7.png",
+              "image": "shopify:\/\/shop_images\/modular_bed_01cd59e6-0ae6-4c34-949d-27932bc40988.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Artboard_1-1_9e470beb-65be-48a6-9e18-9974dabde123.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4842,7 +4821,47 @@
               "caption_background": false,
               "caption_background_transparency": false,
               "button1": "",
-              "button1_link": "shopify:\/\/collections\/best-deals",
+              "button1_link": "shopify:\/\/collections\/modular-beds",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          },
+          "ea0cea26-75de-44ce-bc48-1d8905fbfa57": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/wardrobe_4b559c84-adbb-4c70-a390-50fedaade471.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Artboard_1-3_6357a584-ffae-4dc9-a9c0-387b1cbc989f.jpg",
+              "pretext": "",
+              "title": "",
+              "subtitle": "",
+              "text_position": "center",
+              "text_align": "center",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "button1": "",
+              "button1_link": "shopify:\/\/collections\/wardrobes",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          },
+          "766fa416-58b1-45f2-9f1f-c6f5671c78be": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/dressing_table.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Artboard_1_5eaf481a-79e4-4af2-8aab-2bbec42e9daa.jpg",
+              "pretext": "",
+              "title": "",
+              "subtitle": "",
+              "text_position": "center",
+              "text_align": "center",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "button1": "",
+              "button1_link": "shopify:\/\/collections\/dressers",
               "button1_highlight": false,
               "button2": "",
               "button2_link": "",
@@ -4852,8 +4871,8 @@
           "e8692b67-cd4c-4966-980e-3c2b340d9dae": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/desktop_59f9d0fb-fa85-4ec4-99b7-3a21b9a28e72.png",
-              "mobimage": "shopify:\/\/shop_images\/mobile_banner_447f4245-6bb2-4ac8-b094-c4781feba6a6.png",
+              "image": "shopify:\/\/shop_images\/Dining_set.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Artboard_1-2_88819b0a-c1d0-4e46-8a00-361610cf47db.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4865,15 +4884,15 @@
               "button1_link": "",
               "button1_highlight": false,
               "button2": "",
-              "button2_link": "shopify:\/\/collections\/best-deals-1",
+              "button2_link": "shopify:\/\/collections\/dining-sets",
               "button2_highlight": false
             }
           },
-          "27bfdce4-7a35-4c6d-bbab-65b4d4a65a73": {
+          "4df1d8be-b1e4-410c-ae53-934559add4a7": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/iffs_redesign_bedroom_074c511d-4653-4b51-8e5f-db87ee3442f7.png",
-              "mobimage": "shopify:\/\/shop_images\/mobile_banner_bedroom_8a8b50b1-fa13-4627-b826-fc1051d1ccc1.png",
+              "image": "shopify:\/\/shop_images\/sofa_set.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Artboard_1-4_79a1ce02-6e92-416d-91f4-704693d38127.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4882,18 +4901,18 @@
               "caption_background": false,
               "caption_background_transparency": false,
               "button1": "",
-              "button1_link": "shopify:\/\/collections\/bed-room",
+              "button1_link": "shopify:\/\/collections\/sofa",
               "button1_highlight": false,
               "button2": "",
               "button2_link": "",
               "button2_highlight": false
             }
           },
-          "58e1e717-639e-4b76-a088-3fe714fda1f4": {
+          "996706c8-a987-443e-8be6-205d1f780438": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/iffs_redesign_living_room_banner_a29e3742-79d2-4dff-a16a-ec5cfb5bf229.png",
-              "mobimage": "shopify:\/\/shop_images\/mobile_banner_living_room.png",
+              "image": "shopify:\/\/shop_images\/desktop_2199434f-9669-4165-be5e-78d7159affd6.jpg",
+              "mobimage": "shopify:\/\/shop_images\/mobile_c992ce98-42da-4fc3-b491-4ec5609a084b.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4902,277 +4921,7 @@
               "caption_background": false,
               "caption_background_transparency": false,
               "button1": "",
-              "button1_link": "shopify:\/\/collections\/living-room",
-              "button1_highlight": false,
-              "button2": "",
-              "button2_link": "",
-              "button2_highlight": false
-            }
-          },
-          "5d762771-c573-4aaf-8c94-1d45cd804a31": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/iffs_redesign_Dining_975bb061-e255-476f-acd9-4d096b71ed28.png",
-              "mobimage": "shopify:\/\/shop_images\/mobile_banner_dining_3b33bb91-1f56-4ff9-ad5b-3f38c88ed9a4.png",
-              "pretext": "",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "caption_background": false,
-              "caption_background_transparency": false,
-              "button1": "",
-              "button1_link": "https:\/\/www.nilkamalfurniture.com\/collections\/dining-sets",
-              "button1_highlight": false,
-              "button2": "",
-              "button2_link": "",
-              "button2_highlight": false
-            }
-          },
-          "45837e17-a131-45cb-9d0b-f2ae89daea00": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/iffs_redesign_WFH_016d688a-a8bb-429b-994c-227113543819.png",
-              "mobimage": "shopify:\/\/shop_images\/mobile_banner_c4242064-9880-4ed3-95f3-44eebc022a29.png",
-              "pretext": "",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "caption_background": false,
-              "caption_background_transparency": false,
-              "button1": "",
-              "button1_link": "https:\/\/www.nilkamalfurniture.com\/collections\/work-from-home",
-              "button1_highlight": false,
-              "button2": "",
-              "button2_link": "",
-              "button2_highlight": false
-            }
-          },
-          "fe3a2159-40ec-4ba5-a707-44db540e7c35": {
-            "type": "image",
-            "disabled": true,
-            "settings": {
-              "image": "shopify:\/\/shop_images\/desktop_4c512b11-0627-4f83-b002-b588e95adb0e.png",
-              "mobimage": "shopify:\/\/shop_images\/mobile_234d6cf6-cca0-42ba-918c-7cc2bfc25a14.png",
-              "pretext": "",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "caption_background": false,
-              "caption_background_transparency": false,
-              "button1": "",
-              "button1_link": "shopify:\/\/collections\/premium-plastic-series",
-              "button1_highlight": false,
-              "button2": "",
-              "button2_link": "",
-              "button2_highlight": false
-            }
-          },
-          "f0c317d8-de21-4411-9809-e255115729aa": {
-            "type": "image",
-            "disabled": true,
-            "settings": {
-              "image": "shopify:\/\/shop_images\/kids_44a05420-180a-44d7-81a2-b8ba1eeb6a5e.png",
-              "mobimage": "shopify:\/\/shop_images\/mobile_banner_kids.png",
-              "pretext": "",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "caption_background": false,
-              "caption_background_transparency": false,
-              "button1": "",
-              "button1_link": "https:\/\/www.nilkamalfurniture.com\/collections\/kids-furniture",
-              "button1_highlight": false,
-              "button2": "",
-              "button2_link": "",
-              "button2_highlight": false
-            }
-          },
-          "7d2762ee-3d7a-457a-8730-1ac2df063585": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Spine_website__desktop.png",
-              "mobimage": "shopify:\/\/shop_images\/mobile_banner_1_9bd1061c-31de-4a20-b2c5-831fb7489cf4.png",
-              "pretext": "",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "caption_background": false,
-              "caption_background_transparency": false,
-              "button1": "",
-              "button1_link": "shopify:\/\/collections\/spine-health-technology",
-              "button1_highlight": false,
-              "button2": "",
-              "button2_link": "",
-              "button2_highlight": false
-            }
-          },
-          "766fa416-58b1-45f2-9f1f-c6f5671c78be": {
-            "type": "image",
-            "disabled": true,
-            "settings": {
-              "image": "shopify:\/\/shop_images\/living_27e2b89e-9463-4a71-8d78-30ab4808c663.png",
-              "mobimage": "shopify:\/\/shop_images\/living_8c5a1030-5a43-46fb-b882-8469e384fe3d.png",
-              "pretext": "",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "caption_background": false,
-              "caption_background_transparency": false,
-              "button1": "",
-              "button1_link": "shopify:\/\/collections\/living-room",
-              "button1_highlight": false,
-              "button2": "",
-              "button2_link": "",
-              "button2_highlight": false
-            }
-          },
-          "7ca8efa2-7c5c-4d6c-b3e3-93f706fa742e": {
-            "type": "image",
-            "disabled": true,
-            "settings": {
-              "image": "shopify:\/\/shop_images\/bedroom_49250df0-096b-497f-ba1e-8d741da57919.png",
-              "mobimage": "shopify:\/\/shop_images\/bedroom_8bb32cdb-74fb-4ca5-80ed-4d3a24e33f60.png",
-              "pretext": "",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "caption_background": false,
-              "caption_background_transparency": false,
-              "button1": "",
-              "button1_link": "https:\/\/www.nilkamalfurniture.com\/collections\/bed-room",
-              "button1_highlight": false,
-              "button2": "",
-              "button2_link": "",
-              "button2_highlight": false
-            }
-          },
-          "485ba904-b634-40ff-8253-1c9ec7422b52": {
-            "type": "image",
-            "disabled": true,
-            "settings": {
-              "image": "shopify:\/\/shop_images\/wfh_da91a12e-7fbc-42ba-bee5-13091430ae67.png",
-              "mobimage": "shopify:\/\/shop_images\/wfh_3210335b-c6fd-4109-be39-778155df9094.png",
-              "pretext": "",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "caption_background": false,
-              "caption_background_transparency": false,
-              "button1": "",
-              "button1_link": "https:\/\/www.nilkamalfurniture.com\/collections\/work-from-home",
-              "button1_highlight": false,
-              "button2": "",
-              "button2_link": "",
-              "button2_highlight": false
-            }
-          },
-          "055c3cec-9df0-404c-be38-a0851472332d": {
-            "type": "image",
-            "disabled": true,
-            "settings": {
-              "image": "shopify:\/\/shop_images\/master_shagun_collection_banner_14fda2e3-5f0a-4f4b-ab8e-6e9892ae3905.png",
-              "mobimage": "shopify:\/\/shop_images\/MOBILE_4.png",
-              "pretext": "",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "caption_background": false,
-              "caption_background_transparency": false,
-              "button1": "",
-              "button1_link": "https:\/\/www.nilkamalfurniture.com\/collections\/the-shagun-collection",
-              "button1_highlight": false,
-              "button2": "",
-              "button2_link": "",
-              "button2_highlight": false
-            }
-          },
-          "d80b26f2-caa7-4fcf-9018-f429b77c3921": {
-            "type": "image",
-            "disabled": true,
-            "settings": {
-              "image": "shopify:\/\/shop_images\/mattress_2.png",
-              "mobimage": "shopify:\/\/shop_images\/Mattress_M.png",
-              "pretext": "",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "caption_background": false,
-              "caption_background_transparency": false,
-              "button1": "",
-              "button1_link": "https:\/\/www.nilkamalfurniture.com\/collections\/mattress",
-              "button1_highlight": false,
-              "button2": "",
-              "button2_link": "",
-              "button2_highlight": false
-            }
-          },
-          "213c02b8-3bd6-4a05-a7cc-dbec74a661cb": {
-            "type": "image",
-            "disabled": true,
-            "settings": {
-              "image": "shopify:\/\/shop_images\/2_designer_6c3635c4-41fe-46dc-a1d4-531a40466c8f.png",
-              "mobimage": "shopify:\/\/shop_images\/m_designer_9a24054c-15e1-446e-ada6-85846163cf61.png",
-              "pretext": "",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "caption_background": false,
-              "caption_background_transparency": false,
-              "button1": "",
-              "button1_link": "https:\/\/www.nilkamalfurniture.com\/collections\/the-designer-collection",
-              "button1_highlight": false,
-              "button2": "",
-              "button2_link": "",
-              "button2_highlight": false
-            }
-          },
-          "ea0cea26-75de-44ce-bc48-1d8905fbfa57": {
-            "type": "image",
-            "disabled": true,
-            "settings": {
-              "image": "shopify:\/\/shop_images\/3_trendy_414c1d71-abf3-48a3-8bbb-4d9c92ed84e7.png",
-              "mobimage": "shopify:\/\/shop_images\/m_trendy_145ff03d-0336-4d6a-ba3e-4fce1e7a61e4.png",
-              "pretext": "",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "caption_background": false,
-              "caption_background_transparency": false,
-              "button1": "",
-              "button1_link": "https:\/\/www.nilkamalfurniture.com\/collections\/the-trendy-collection",
-              "button1_highlight": false,
-              "button2": "",
-              "button2_link": "",
-              "button2_highlight": false
-            }
-          },
-          "055cc1d8-b391-48b0-ab25-46589785d014": {
-            "type": "image",
-            "disabled": true,
-            "settings": {
-              "image": "shopify:\/\/shop_images\/matress_1.png",
-              "mobimage": "shopify:\/\/shop_images\/mattress_banner_62f9027d-f4f0-4958-9b6b-8c3d27a4d578.png",
-              "pretext": "",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "caption_background": false,
-              "caption_background_transparency": false,
-              "button1": "",
-              "button1_link": "https:\/\/www.nilkamalfurniture.com\/collections\/mattress",
+              "button1_link": "shopify:\/\/collections\/mattress",
               "button1_highlight": false,
               "button2": "",
               "button2_link": "",
@@ -5181,28 +4930,17 @@
           }
         },
         "block_order": [
-          "4df1d8be-b1e4-410c-ae53-934559add4a7",
-          "e8692b67-cd4c-4966-980e-3c2b340d9dae",
-          "27bfdce4-7a35-4c6d-bbab-65b4d4a65a73",
-          "58e1e717-639e-4b76-a088-3fe714fda1f4",
-          "5d762771-c573-4aaf-8c94-1d45cd804a31",
-          "45837e17-a131-45cb-9d0b-f2ae89daea00",
-          "fe3a2159-40ec-4ba5-a707-44db540e7c35",
-          "f0c317d8-de21-4411-9809-e255115729aa",
-          "7d2762ee-3d7a-457a-8730-1ac2df063585",
-          "766fa416-58b1-45f2-9f1f-c6f5671c78be",
-          "7ca8efa2-7c5c-4d6c-b3e3-93f706fa742e",
-          "485ba904-b634-40ff-8253-1c9ec7422b52",
-          "055c3cec-9df0-404c-be38-a0851472332d",
-          "d80b26f2-caa7-4fcf-9018-f429b77c3921",
-          "213c02b8-3bd6-4a05-a7cc-dbec74a661cb",
+          "e116edb9-8097-4809-b939-ce83cf46e550",
           "ea0cea26-75de-44ce-bc48-1d8905fbfa57",
-          "055cc1d8-b391-48b0-ab25-46589785d014"
+          "766fa416-58b1-45f2-9f1f-c6f5671c78be",
+          "e8692b67-cd4c-4966-980e-3c2b340d9dae",
+          "4df1d8be-b1e4-410c-ae53-934559add4a7",
+          "996706c8-a987-443e-8be6-205d1f780438"
         ],
         "settings": {
           "slideshow_text_animation": "fadeInDown",
           "slideshow_animation": "slide",
-          "slideshow_speed": 5,
+          "slideshow_speed": 7,
           "activate_adaptiveHeight": false
         }
       },
@@ -5459,21 +5197,8 @@
           "parent": ""
         }
       },
-      "1576477765349": {
-        "type": "featured-collection",
-        "disabled": true,
-        "settings": {
-          "title": "Most Shopped Furniture Categories",
-          "collection": "new-arrivals",
-          "collection_style": "slider",
-          "collection_description": true,
-          "products_per": 4,
-          "products_limit": 20
-        }
-      },
       "1576479867168": {
         "type": "social-feeds",
-        "disabled": true,
         "blocks": {
           "1576479867168-1": {
             "type": "instagram",
@@ -5487,6 +5212,7 @@
         "block_order": [
           "1576479867168-1"
         ],
+        "disabled": true,
         "settings": {}
       },
       "1576481521441": {
@@ -5496,131 +5222,74 @@
             "type": "collection",
             "settings": {
               "feature_collection": "plastic-cabinets",
-              "image": "shopify:\/\/shop_images\/plastic_cabinet_8e4a782f-2e4b-41fe-a0a6-b5622e191fb7.png"
-            }
-          },
-          "c25e1867-39ae-4593-afe4-b335e95f952e": {
-            "type": "collection",
-            "settings": {
-              "feature_collection": "chests-of-drawers",
-              "image": "shopify:\/\/shop_images\/chest_of_drawar_e3c41df6-1a91-40ec-8901-b38eee4ecd48.png"
-            }
-          },
-          "93d87003-7f35-4082-9655-dee0856ef01e": {
-            "type": "collection",
-            "settings": {
-              "feature_collection": "kids-furniture",
-              "image": "shopify:\/\/shop_images\/kids_furniture_634a1d8d-e272-41c1-9430-b2c3f0830e14.png"
-            }
-          },
-          "11acf045-6c0e-47c2-a32b-fed20cd7d581": {
-            "type": "collection",
-            "settings": {
-              "feature_collection": "signature-series-1",
-              "image": "shopify:\/\/shop_images\/signature.png"
+              "image": "shopify:\/\/shop_images\/Artboard_1-5_660e323d-170a-4af0-8920-e31b2c35d9d8.jpg"
             }
           },
           "49992f68-7f9c-49cb-a3e7-195036aae635": {
             "type": "collection",
             "settings": {
               "feature_collection": "goa-sofa",
-              "image": "shopify:\/\/shop_images\/goa_sofa_da11f481-b303-4c83-a600-116fa2bc61f2.png"
+              "image": "shopify:\/\/shop_images\/Artboard_1-1_036da770-6c59-40ac-969b-a5f485790493.jpg"
+            }
+          },
+          "11acf045-6c0e-47c2-a32b-fed20cd7d581": {
+            "type": "collection",
+            "settings": {
+              "feature_collection": "signature-series-1",
+              "image": "shopify:\/\/shop_images\/Artboard_1_a3cc3507-75af-455b-b0aa-52ca458a9df3.jpg"
+            }
+          },
+          "c25e1867-39ae-4593-afe4-b335e95f952e": {
+            "type": "collection",
+            "settings": {
+              "feature_collection": "plastic-racks-trolleys",
+              "image": "shopify:\/\/shop_images\/Artboard_1-3_e4b89960-4cfb-4e12-83ea-67adf39a08bf.jpg"
+            }
+          },
+          "93d87003-7f35-4082-9655-dee0856ef01e": {
+            "type": "collection",
+            "settings": {
+              "feature_collection": "kids-furniture",
+              "image": "shopify:\/\/shop_images\/Artboard_2_dc2960c5-ab4b-4569-beb7-32a3fcfed16c.jpg"
             }
           },
           "26b78643-f42d-4cb0-9b51-2a4e761517dc": {
             "type": "collection",
             "settings": {
-              "feature_collection": "outdoor-chair",
-              "image": "shopify:\/\/shop_images\/outside_chair_e5ff5c57-47b9-4124-b88e-45d316bfbf68.png"
+              "feature_collection": "corner-cabinets",
+              "image": "shopify:\/\/shop_images\/Artboard_1-4_e88b821f-3fc9-41bd-bf78-e633a3c647a0.jpg"
+            }
+          },
+          "1b1aae2a-ef5d-4e31-b5e5-1201782d2f83": {
+            "type": "collection",
+            "settings": {
+              "feature_collection": "shoe-racks",
+              "image": "shopify:\/\/shop_images\/Artboard_1-2_3ebb93b2-4a2a-4aed-b71c-3e4829c9fcb0.jpg"
+            }
+          },
+          "a82ca69b-9efd-4f7a-a57d-808e00209cf8": {
+            "type": "collection",
+            "settings": {
+              "feature_collection": "plastic-stools",
+              "image": "shopify:\/\/shop_images\/Artboard_2-1_2c1344b7-40df-4d62-a316-82c507f50f07.jpg"
             }
           }
         },
         "block_order": [
           "1576481521441-2",
+          "49992f68-7f9c-49cb-a3e7-195036aae635",
+          "11acf045-6c0e-47c2-a32b-fed20cd7d581",
           "c25e1867-39ae-4593-afe4-b335e95f952e",
           "93d87003-7f35-4082-9655-dee0856ef01e",
-          "11acf045-6c0e-47c2-a32b-fed20cd7d581",
-          "49992f68-7f9c-49cb-a3e7-195036aae635",
-          "26b78643-f42d-4cb0-9b51-2a4e761517dc"
+          "26b78643-f42d-4cb0-9b51-2a4e761517dc",
+          "1b1aae2a-ef5d-4e31-b5e5-1201782d2f83",
+          "a82ca69b-9efd-4f7a-a57d-808e00209cf8"
         ],
         "settings": {
           "title": "Premium Plastic Furniture",
           "frontpage_collections_per_row": 3,
           "testimonial_text_animation": "fadeInUp",
           "testimonial_speed": 6
-        }
-      },
-      "1576481766490": {
-        "type": "collection-list",
-        "disabled": true,
-        "blocks": {
-          "1576481766490-0": {
-            "type": "collection",
-            "settings": {
-              "feature_collection": "test-homepage",
-              "image": "shopify:\/\/shop_images\/Image_54.jpg"
-            }
-          },
-          "1576481766490-1": {
-            "type": "collection",
-            "settings": {
-              "feature_collection": "test-homepage",
-              "image": "shopify:\/\/shop_images\/Image_53.jpg"
-            }
-          },
-          "1576481766490-2": {
-            "type": "collection",
-            "settings": {
-              "feature_collection": "test-homepage",
-              "image": "shopify:\/\/shop_images\/Image_55.jpg"
-            }
-          }
-        },
-        "block_order": [
-          "1576481766490-0",
-          "1576481766490-1",
-          "1576481766490-2"
-        ],
-        "settings": {
-          "title": "Hot Deals for selected products",
-          "frontpage_collections_per_row": 3,
-          "testimonial_text_animation": "fadeInDown",
-          "testimonial_speed": 6
-        }
-      },
-      "1576483248220": {
-        "type": "collection-list-without-slider",
-        "blocks": {
-          "3d4437ca-d89e-46f8-8c0d-6bc820f4f6c4": {
-            "type": "collection",
-            "settings": {
-              "feature_collection": "bed",
-              "image": "shopify:\/\/shop_images\/bedroom_7823fbbe-f7e4-4d5b-bb89-29bee3657f5d.png"
-            }
-          },
-          "2c2fe665-0a83-4107-b160-3c3553707010": {
-            "type": "collection",
-            "settings": {
-              "feature_collection": "dining-sets",
-              "image": "shopify:\/\/shop_images\/dining_set_414d92e2-4cd2-401f-bf45-8268f3746893.png"
-            }
-          },
-          "1576483248220-1": {
-            "type": "collection",
-            "settings": {
-              "feature_collection": "sofa",
-              "image": "shopify:\/\/shop_images\/living_20c2cc4a-3de1-4710-bacb-c3070ff04fb3.png"
-            }
-          }
-        },
-        "block_order": [
-          "3d4437ca-d89e-46f8-8c0d-6bc820f4f6c4",
-          "2c2fe665-0a83-4107-b160-3c3553707010",
-          "1576483248220-1"
-        ],
-        "settings": {
-          "title": "HOT COLLECTION",
-          "frontpage_collections_per_row": 3
         }
       },
       "1576587126205": {
@@ -5650,12 +5319,20 @@
               "link": "shopify:\/\/collections\/bed-room"
             }
           },
+          "1578904990680": {
+            "type": "Icon",
+            "settings": {
+              "iconsId": "studyroom",
+              "title": "study room",
+              "link": "https:\/\/www.nilkamalfurniture.com\/collections\/study-room"
+            }
+          },
           "1578904965509": {
             "type": "Icon",
             "settings": {
-              "iconsId": "bathroom",
-              "title": "bathroom",
-              "link": "shopify:\/\/collections\/bath-room"
+              "iconsId": "kids_furniture",
+              "title": "kids furniture",
+              "link": "https:\/\/www.nilkamalfurniture.com\/collections\/kids-furniture"
             }
           },
           "1578904979183": {
@@ -5665,23 +5342,15 @@
               "title": "kitchen",
               "link": "shopify:\/\/collections\/kitchen"
             }
-          },
-          "1578904990680": {
-            "type": "Icon",
-            "settings": {
-              "iconsId": "studyroom",
-              "title": "study room",
-              "link": "https:\/\/www.nilkamalfurniture.com\/collections\/study-room"
-            }
           }
         },
         "block_order": [
           "1578904823384",
           "1578904850487",
           "1578904919521",
+          "1578904990680",
           "1578904965509",
-          "1578904979183",
-          "1578904990680"
+          "1578904979183"
         ],
         "settings": {
           "heading_title": "Shop By Room"
@@ -5991,44 +5660,11 @@
         "type": "featured-text",
         "settings": {
           "title": "About Nilkamal",
-          "content": "<p>Nilkamal’s association with Furniture needs no introduction. Nilkamal is the world’s largest manufacturer of moulded furniture &amp; India’s favourite furniture brand with 50 stores &amp; 3,000+ distributors. Our furniture has eternally been a part of Indian home’s interiors, knowingly or unknowingly taking space in the form of a simple plastic chair in your living room or an entire furniture set in your bedrooms or offices adding both emotion and charm to your sheen interiors.<\/p><p><\/p><p>Nilkamal’s expertise in wooden Furniture is expanding with a strong network of approximately 20,000+ dealers spread across the country. From the fast-paced metro cities to the deepest regions in India, Nilkamal aims to bring quality and budget friendly furniture to everyone. With plethora of trending yet quality products, Nilkamal has been providing the best furnishing experience to its customers.<\/p><p><\/p><p>So what are you waiting for? Begin your best furnishing experience with our one-stop-shop only at Nilkamal furniture.<\/p>",
+          "content": "<p>Nilkamal’s association with Furniture needs no introduction. Nilkamal is the world’s largest manufacturer of moulded furniture & India’s favourite furniture brand with 50 stores & 3,000+ distributors. Our furniture has eternally been a part of Indian home’s interiors, knowingly or unknowingly taking space in the form of a simple plastic chair in your living room or an entire furniture set in your bedrooms or offices adding both emotion and charm to your sheen interiors.<\/p><p><\/p><p>Nilkamal’s expertise in wooden Furniture is expanding with a strong network of approximately 20,000+ dealers spread across the country. From the fast-paced metro cities to the deepest regions in India, Nilkamal aims to bring quality and budget friendly furniture to everyone. With plethora of trending yet quality products, Nilkamal has been providing the best furnishing experience to its customers.<\/p><p><\/p><p>So what are you waiting for? Begin your best furnishing experience with our one-stop-shop only at Nilkamal furniture.<\/p>",
           "text_size": "featured_text",
           "text_alignment": "center",
           "button_label": "",
           "button_link": ""
-        }
-      },
-      "16201319107a553c9b": {
-        "type": "featured-text",
-        "disabled": true,
-        "settings": {
-          "title": "Talk about your brand",
-          "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
-          "text_size": "featured_text",
-          "text_alignment": "center",
-          "button_label": "",
-          "button_link": ""
-        }
-      },
-      "16209148877e43d292": {
-        "type": "image-with-text-overlay",
-        "disabled": true,
-        "settings": {
-          "image": "shopify:\/\/shop_images\/WFH-Desktop_Banner_-_1400_x_350_235e2a84-0635-40e1-b4b2-70a1aad9a400.jpg",
-          "mobimage": "shopify:\/\/shop_images\/WFH-Mobile_Banner_-_600_x_400_bf653750-3fff-4dd9-804f-f168299c133d.jpg",
-          "pretext": "",
-          "title": "",
-          "subtitle": "",
-          "caption_background": false,
-          "caption_background_transparency": false,
-          "text_position": "center",
-          "text_align": "center",
-          "button1": "",
-          "button1_link": "https:\/\/www.nilkamalfurniture.com\/collections\/work-from-home",
-          "button1_highlight": false,
-          "button2": "",
-          "button2_link": "",
-          "button2_highlight": false
         }
       },
       "article-template": {
@@ -6063,32 +5699,12 @@
           "toggle": false
         }
       },
-      "1633414852f5db403a": {
-        "type": "image-with-text-overlay",
-        "disabled": true,
-        "settings": {
-          "image": "shopify:\/\/shop_images\/desktop_1400x350_1.png",
-          "mobimage": "shopify:\/\/shop_images\/mobile_4_2e1dad84-a5c9-47cf-92c4-6efcf00b4e74.png",
-          "pretext": "",
-          "title": "Your Headline",
-          "subtitle": "",
-          "caption_background": false,
-          "caption_background_transparency": false,
-          "text_position": "center",
-          "text_align": "center",
-          "button1": "",
-          "button1_link": "shopify:\/\/collections\/spine-health-technology",
-          "button1_highlight": false,
-          "button2": "",
-          "button2_link": "",
-          "button2_highlight": false
-        }
-      },
       "1633414963454337f0": {
         "type": "image-with-text-overlay",
+        "custom_css": [],
         "settings": {
-          "image": "shopify:\/\/shop_images\/store_locationbanner_ffb5d17d-2243-4d41-a356-5b5f53085212.png",
-          "mobimage": "shopify:\/\/shop_images\/mobile_store_banner_aa628bda-5427-4ae7-bc74-9b8d5dc8473a.png",
+          "image": "shopify:\/\/shop_images\/Deskstop.jpg",
+          "mobimage": "shopify:\/\/shop_images\/Mobile_1.jpg",
           "pretext": "",
           "title": "",
           "subtitle": "",
@@ -6097,7 +5713,7 @@
           "text_position": "center",
           "text_align": "center",
           "button1": "",
-          "button1_link": "https:\/\/www.nilkamalfurniture.com\/pages\/store-locator",
+          "button1_link": "https:\/\/stores.nilkamalfurniture.com\/",
           "button1_highlight": false,
           "button2": "",
           "button2_link": "",
@@ -6111,60 +5727,60 @@
             "type": "collection",
             "settings": {
               "feature_collection": "bed",
-              "image": "shopify:\/\/shop_images\/bedv_a8260607-876b-4f1f-8f1a-59979b290daa.png"
-            }
-          },
-          "1634215966dbb73ddb-1": {
-            "type": "collection",
-            "settings": {
-              "feature_collection": "book-cases-shelves",
-              "image": "shopify:\/\/shop_images\/book_case_08fad20e-b9ac-471a-87d2-563ec5e17d2b.png"
+              "image": "shopify:\/\/shop_images\/Artboard_1_91fc03fe-b2b6-4f8e-96ac-9ae6f0f7a07a.jpg"
             }
           },
           "1634215966dbb73ddb-2": {
             "type": "collection",
             "settings": {
               "feature_collection": "sofas",
-              "image": "shopify:\/\/shop_images\/sofa_c7d83002-cefc-4841-8880-b46e2b79405b.png"
+              "image": "shopify:\/\/shop_images\/Artboard_1-6_b03d7acd-93b7-42b6-abdc-0aca1fe8d5e4.jpg"
             }
           },
-          "f835981d-e45e-4f82-8898-90c3bba5e6d9": {
+          "1634215966dbb73ddb-1": {
             "type": "collection",
             "settings": {
-              "feature_collection": "steel-almirah",
-              "image": "shopify:\/\/shop_images\/steel_7f0e6b87-73b9-4818-a7c1-f3ba960a299b.png"
-            }
-          },
-          "5d9159ee-0ba1-496f-8f1d-ddbfe0486aed": {
-            "type": "collection",
-            "settings": {
-              "feature_collection": "entertainment-units",
-              "image": "shopify:\/\/shop_images\/tv_b9e7f8c2-6c64-43c2-aa21-a6c11ea214b1.png"
+              "feature_collection": "shoe-racks-1",
+              "image": "shopify:\/\/shop_images\/Artboard_1-5_ef03a245-ccbd-4faf-a14b-40f713ef433b.jpg"
             }
           },
           "84c9376c-965f-4a27-83b2-eb228b775591": {
             "type": "collection",
             "settings": {
               "feature_collection": "wardrobes",
-              "image": "shopify:\/\/shop_images\/wardrobe_82649320-4b2b-4635-8e83-6f250495b4c1.png"
+              "image": "shopify:\/\/shop_images\/Artboard_1-1_829f9576-ec4b-43be-a719-3e60aef521cd.jpg"
+            }
+          },
+          "5d9159ee-0ba1-496f-8f1d-ddbfe0486aed": {
+            "type": "collection",
+            "settings": {
+              "feature_collection": "entertainment-units",
+              "image": "shopify:\/\/shop_images\/Artboard_1-4_04d63a02-c67a-4a28-8a4a-b4b9b6b4cda8.jpg"
             }
           },
           "af29e889-e5b0-4fe7-bb43-205c186313ff": {
             "type": "collection",
             "settings": {
               "feature_collection": "work-from-home",
-              "image": "shopify:\/\/shop_images\/wfh_823bb0cf-ccf0-43f8-8cfb-cafd2e1c0a98.png"
+              "image": "shopify:\/\/shop_images\/Artboard_1-3_123afac6-cd2a-4380-87d0-0c06b43bc427.jpg"
+            }
+          },
+          "f835981d-e45e-4f82-8898-90c3bba5e6d9": {
+            "type": "collection",
+            "settings": {
+              "feature_collection": "steel-almirah",
+              "image": "shopify:\/\/shop_images\/Artboard_1-2_4de240a2-0333-4e69-89ad-1df5e50242d2.jpg"
             }
           }
         },
         "block_order": [
           "1634215966dbb73ddb-0",
-          "1634215966dbb73ddb-1",
           "1634215966dbb73ddb-2",
-          "f835981d-e45e-4f82-8898-90c3bba5e6d9",
-          "5d9159ee-0ba1-496f-8f1d-ddbfe0486aed",
+          "1634215966dbb73ddb-1",
           "84c9376c-965f-4a27-83b2-eb228b775591",
-          "af29e889-e5b0-4fe7-bb43-205c186313ff"
+          "5d9159ee-0ba1-496f-8f1d-ddbfe0486aed",
+          "af29e889-e5b0-4fe7-bb43-205c186313ff",
+          "f835981d-e45e-4f82-8898-90c3bba5e6d9"
         ],
         "settings": {
           "title": "MOST SHOPPED FURNITURE CATEGORIES",
@@ -6173,38 +5789,11 @@
           "testimonial_speed": 12
         }
       },
-      "1647517175c11dce9c": {
-        "type": "image-with-text-overlay",
-        "disabled": true,
-        "settings": {
-          "image": "shopify:\/\/shop_images\/desktop_4_16cd7895-3fb3-4f06-8abe-5e32eb6d2118.png",
-          "mobimage": "shopify:\/\/shop_images\/mobile_1_6c55b8e6-b989-43de-bb32-f366c97e7752.png",
-          "pretext": "",
-          "title": "",
-          "subtitle": "",
-          "caption_background": false,
-          "caption_background_transparency": false,
-          "text_position": "center",
-          "text_align": "center",
-          "button1": "",
-          "button1_link": "shopify:\/\/pages\/nf-rewards",
-          "button1_highlight": false,
-          "button2": "",
-          "button2_link": "",
-          "button2_highlight": false
-        }
-      },
-      "16596965311efe39d8": {
-        "type": "custom-html",
-        "disabled": true,
-        "settings": {
-          "custom_html": "<h3 class=\"livetitle\">\n<span style=\"color:#1965ac;font-size: 18px;font-weight: normal;line-height: 30px;\">Get Ready to witness<\/span><br><span style=\"color:#ff4d00;font-family: 'turbo';font-weight: bolder;font-size: 27px;\"> India’s First Live Furniture Sale<\/span>\n<\/h3>\n<div class=\"col-sm-6\">\n<h3 class=\"livened\">Watch, Chat & Shop Live <\/h3>\n\n    <script async src=\"\/\/asset.fwcdn3.com\/js\/storyblock.js\"><\/script>\n    <fw-storyblock channel=\"nilkamal\" playlist=\"o8ZNQv\" autoplay=\"true\" style=\"--fw-storyblock-background: rgba(255, 255, 255, 0.6);\"><\/fw-storyblock>\n    \n    \n<\/div>\n\n<div class=\"col-sm-6\">\n\n<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0044\/1208\/0217\/files\/sale_live__4.png?v=1659954838\" class=\"live-img\" style=\"margin-top:50px;\">\n<\/div>\n\n<style>\n.live-img {\n                   display: block;\n}\nh3.livetitle{\n text-align: center;\n    font-family: 'gothamRounded-book';\n    color: #0093dd;\n    font-size: 30px;\n    margin-bottom: 0px;\n    margin-right: 15%;\ndisplay: none;\n}\nh3.livened {\n    text-align: center;\n    font-family: 'gothamRounded-book';\n    color: #0093dd;\n    font-size: 30px;\n    margin-bottom: 5%;\n    margin-right: 15%;\ndisplay: block;\n}\n  @media (max-width:767px){\n  .live-img {\n                   display: none;\n}\nh3.livened {\ndisplay:none;\n}\nh3.livetitle{\n  text-align: center;\n    font-family: 'gothamRounded-book';\n    color: #0093dd;\n    font-size: 15px;\n    margin-bottom: 0px;\nfont-weight:bold;\n    margin-bottom: 8%;\n    display: block;\nmargin-right: 0px !important;\n}\n}\n<\/style>"
-        }
-      },
       "16597948753c204f24": {
         "type": "custom-html",
+        "disabled": true,
         "settings": {
-          "custom_html": "<script async src=\"\/\/asset.fwcdn3.com\/js\/storyblock.js\"><\/script>\n    <fw-storyblock channel=\"nilkamal\" playlist=\"gpbxQ5\" mode=\"pinned\" autoplay=\"true\"><\/fw-storyblock>"
+          "custom_html": ""
         }
       },
       "product-template-modular_bed": {
@@ -6216,7 +5805,7 @@
           "activate_autoplay": false,
           "slideshow_animation": "slide",
           "product_images_position": "left",
-          "product_thumbs": true,
+          "product_thumbs": false,
           "thumbnail_position": "bottom-thumbnails",
           "product_breadcrumb": false,
           "display_vendor": false,
@@ -6232,7 +5821,7 @@
           "review_position": "next_to_gallery",
           "display_related_products": true,
           "related_products_style": "slider",
-          "related_products_limit": 4,
+          "related_products_limit": 10,
           "products_per": 3,
           "display_recently_viewed": false,
           "rv_title": "Recently Viewed Items",
@@ -6241,31 +5830,331 @@
           "rv_per": 4,
           "toggle": false
         }
+      },
+      "related-product-modular": {
+        "type": "related-product-modular",
+        "blocks": {
+          "e573841f-b474-4856-bb2d-2be6bf73eea1": {
+            "type": "tab",
+            "settings": {
+              "tab__header__text": "",
+              "title": "Featured Collection",
+              "collection": "modular-beds"
+            }
+          }
+        },
+        "block_order": [
+          "e573841f-b474-4856-bb2d-2be6bf73eea1"
+        ],
+        "settings": {}
+      },
+      "featured-collection": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "Similar Product",
+          "collection": "modular-bed-related-product",
+          "collection_style": "grid",
+          "collection_description": false,
+          "products_per": 4,
+          "products_limit": 5
+        }
+      },
+      "modular__bed__blog": {
+        "type": "modular__bed__blog",
+        "settings": {}
+      },
+      "featured-collection-two": {
+        "type": "featured-collection-two",
+        "settings": {
+          "title": "Similar Product",
+          "collection": "modular-bed-related-product",
+          "collection_style": "grid",
+          "collection_description": true,
+          "products_per": 4,
+          "products_limit": 5
+        }
+      },
+      "featured-collection-three": {
+        "type": "featured-collection-three",
+        "settings": {
+          "title": "",
+          "collection": "modular-bed-related-product",
+          "collection_style": "slider",
+          "collection_description": true,
+          "products_per": 3,
+          "products_limit": 8
+        }
+      },
+      "a991650a-770d-4602-b16d-9333db9dcca9": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "Best Selling products",
+          "collection": "best-sellers",
+          "collection_style": "slider",
+          "collection_description": false,
+          "products_per": 4,
+          "products_limit": 8
+        }
+      },
+      "modular-landing-page": {
+        "type": "modular-landing-page",
+        "settings": {}
+      },
+      "featured-collection--four": {
+        "type": "featured-collection--four",
+        "settings": {
+          "title": "",
+          "collection": "top-picks-modular-design",
+          "collection_style": "slider",
+          "collection_description": true,
+          "products_per": 4,
+          "products_limit": 16
+        }
+      },
+      "modular-landing-page-two": {
+        "type": "modular-landing-page-two",
+        "settings": {}
+      },
+      "video": {
+        "type": "video",
+        "settings": {
+          "aspect_ratio": "16:9",
+          "autoplay": true,
+          "autoloop": true,
+          "video_dark_overlay": false,
+          "video": "https:\/\/youtu.be\/HKsnvGC_Zr0",
+          "mp4": "",
+          "ogv": "",
+          "display_text_over_video": false,
+          "pretext": "",
+          "title": "",
+          "subtitle": "",
+          "text_position": "center",
+          "text_align": "center",
+          "caption_background": false,
+          "caption_background_transparency": false,
+          "button1_label": "",
+          "button1_link": "",
+          "button1_highlight": false,
+          "button2_label": "",
+          "button2_link": "",
+          "button2_highlight": false
+        }
+      },
+      "5194def5-441f-4277-bf38-b7ba21e39b38": {
+        "type": "countdown",
+        "disabled": true,
+        "settings": {
+          "desktop_img": "shopify:\/\/shop_images\/super_sale__desktop.jpg",
+          "mobile_img": "shopify:\/\/shop_images\/super_sale__mobile-02.jpg",
+          "title": "",
+          "end_date": "September 14, 2023 00:00:00",
+          "font_color_seconds": "#ffffff",
+          "text_Horizontal": 17.5,
+          "text_Vertical": 15
+        }
+      },
+      "a50f909c-4e0e-42a5-bdfc-ae49c3130c81": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "Discover Shagun Top Picks",
+          "collection": "best-deals-1",
+          "collection_style": "slider",
+          "collection_description": false,
+          "products_per": 4,
+          "products_limit": 8
+        }
+      },
+      "462479a9-19ea-4e90-b40e-b32677b85c60": {
+        "type": "collection-list",
+        "blocks": {
+          "462479a9-19ea-4e90-b40e-b32677b85c60-16884478839df21ab8-0": {
+            "type": "collection",
+            "settings": {
+              "feature_collection": "recliners",
+              "image": "shopify:\/\/shop_images\/recliner_730d320c-a2b7-4642-a756-82303fb58ddc.jpg"
+            }
+          },
+          "462479a9-19ea-4e90-b40e-b32677b85c60-16884478839df21ab8-1": {
+            "type": "collection",
+            "settings": {
+              "feature_collection": "entertainment-units",
+              "image": "shopify:\/\/shop_images\/tv_unit_e310c0dc-6cca-4ae4-91b9-fb00f020559d.jpg"
+            }
+          },
+          "462479a9-19ea-4e90-b40e-b32677b85c60-16884478839df21ab8-2": {
+            "type": "collection",
+            "settings": {
+              "feature_collection": "wardrobes",
+              "image": "shopify:\/\/shop_images\/wardrobe_5353ca5f-0bab-4cbf-9e56-94fa6a831238.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "462479a9-19ea-4e90-b40e-b32677b85c60-16884478839df21ab8-0",
+          "462479a9-19ea-4e90-b40e-b32677b85c60-16884478839df21ab8-1",
+          "462479a9-19ea-4e90-b40e-b32677b85c60-16884478839df21ab8-2"
+        ],
+        "settings": {
+          "title": "Hot Collection",
+          "frontpage_collections_per_row": 3,
+          "testimonial_text_animation": "fadeInDown",
+          "testimonial_speed": 6
+        }
+      },
+      "d2b1d62c-30ab-46e6-9d93-e85f215681e3": {
+        "type": "tendays-section",
+        "blocks": {
+          "50debb65-1420-4079-bd6f-50b44c8abcde": {
+            "type": "text",
+            "settings": {
+              "tendays-product-image": "shopify:\/\/shop_images\/Nilkamal_Baylor_Shoe_Cabinet.jpg",
+              "tendays-product-title": "Nilkamal Baylor Shoe Cabinet",
+              "tendays-product-mrp": "14,500",
+              "tendays-product-selling": "8,900",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-baylor-shoe-cabinet-walnut-white"
+            }
+          },
+          "62bf939c-b7a3-4205-a11c-e6b5fb67a53a": {
+            "type": "text",
+            "settings": {
+              "tendays-product-image": "shopify:\/\/shop_images\/Claymont_Engineered_Wood_Shoe_Cabinet.jpg",
+              "tendays-product-title": "Nilkamal Claymont Engineered Wood Shoe Cabinet",
+              "tendays-product-mrp": "8,600",
+              "tendays-product-selling": "6,700",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-claymont-shoe-cabinet-classic-walnut"
+            }
+          },
+          "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037": {
+            "type": "text",
+            "settings": {
+              "tendays-product-image": "shopify:\/\/shop_images\/Tuskar_Shoe_Cabinet.jpg",
+              "tendays-product-title": "Nilkamal Tuskar Shoe Cabinet",
+              "tendays-product-mrp": "10,700",
+              "tendays-product-selling": "7,500",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-tuskar-shoe-cabinet-walnut"
+            }
+          }
+        },
+        "block_order": [
+          "50debb65-1420-4079-bd6f-50b44c8abcde",
+          "62bf939c-b7a3-4205-a11c-e6b5fb67a53a",
+          "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037"
+        ],
+        "disabled": true,
+        "settings": {
+          "tendays-section-heading": "Section Heading",
+          "tendays-section-para": "Section Para",
+          "selling_color_title": "#ff1b00",
+          "mrp_color_title": "#4d4d4d",
+          "product_title_color_title": "#0166b3",
+          "tendays__section__margin": 22
+        }
+      },
+      "9759deaf-c224-4c3e-87ed-66e16f61ed90": {
+        "type": "payment_banner",
+        "disabled": true,
+        "settings": {
+          "desktop_img": "shopify:\/\/shop_images\/desktop1-50.jpg",
+          "mobile_img": "shopify:\/\/shop_images\/mobile2-50.jpg",
+          "image_url": ""
+        }
+      },
+      "side-cart-section": {
+        "type": "side-cart-section",
+        "blocks": {
+          "59c4ee40-2575-4244-9d47-b37e682af6eb": {
+            "type": "Text",
+            "settings": {
+              "side__cart__collection__image": "shopify:\/\/shop_images\/sofa.webp",
+              "side__cart__collection__title": "Sofas",
+              "side__cart__collection__proce": "5,530",
+              "side__cart__collection__url": "https:\/\/www.nilkamalfurniture.com\/collections\/sofas"
+            }
+          },
+          "b4790142-b1a6-465c-b966-dcd321704989": {
+            "type": "Text",
+            "settings": {
+              "side__cart__collection__image": "shopify:\/\/shop_images\/Beds.webp",
+              "side__cart__collection__title": "Beds",
+              "side__cart__collection__proce": "5,900",
+              "side__cart__collection__url": "https:\/\/www.nilkamalfurniture.com\/collections\/bed"
+            }
+          },
+          "56fff401-0b47-4b90-b68e-933d52bf8a1f": {
+            "type": "Text",
+            "settings": {
+              "side__cart__collection__image": "shopify:\/\/shop_images\/WardDrobes.webp",
+              "side__cart__collection__title": "Wardrobes",
+              "side__cart__collection__proce": "4,900",
+              "side__cart__collection__url": "https:\/\/www.nilkamalfurniture.com\/collections\/wardrobes"
+            }
+          },
+          "e83e07c6-fd96-41e9-a42a-be20e0576929": {
+            "type": "Text",
+            "settings": {
+              "side__cart__collection__image": "shopify:\/\/shop_images\/SA.webp",
+              "side__cart__collection__title": "Steel Almirah",
+              "side__cart__collection__proce": "18,900",
+              "side__cart__collection__url": "https:\/\/www.nilkamalfurniture.com\/collections\/steel-almirah"
+            }
+          },
+          "afdbc282-750f-4460-b433-5f655aef829b": {
+            "type": "Text",
+            "settings": {
+              "side__cart__collection__image": "shopify:\/\/shop_images\/sr.webp",
+              "side__cart__collection__title": "Shoe Racks",
+              "side__cart__collection__proce": "890",
+              "side__cart__collection__url": "shopify:\/\/collections\/shoe-racks-1"
+            }
+          }
+        },
+        "block_order": [
+          "59c4ee40-2575-4244-9d47-b37e682af6eb",
+          "b4790142-b1a6-465c-b966-dcd321704989",
+          "56fff401-0b47-4b90-b68e-933d52bf8a1f",
+          "e83e07c6-fd96-41e9-a42a-be20e0576929",
+          "afdbc282-750f-4460-b433-5f655aef829b"
+        ],
+        "settings": {
+          "side__cart__collection__heading": "Take a look at our Popular Collections"
+        }
+      },
+      "c210a9f3-b14b-4964-9ece-ba05fe253ba2": {
+        "type": "payment_banner",
+        "settings": {
+          "desktop_img": "shopify:\/\/shop_images\/C3.jpg",
+          "mobile_img": "shopify:\/\/shop_images\/c3_mobile.jpg",
+          "image_url": "shopify:\/\/collections\/paradise-series"
+        }
       }
     },
     "content_for_index": [
       "1489284011497",
-      "1647517175c11dce9c",
-      "16596965311efe39d8",
-      "1633414852f5db403a",
-      "1576483248220",
-      "16209148877e43d292",
+      "9759deaf-c224-4c3e-87ed-66e16f61ed90",
+      "d2b1d62c-30ab-46e6-9d93-e85f215681e3",
+      "a50f909c-4e0e-42a5-bdfc-ae49c3130c81",
+      "5194def5-441f-4277-bf38-b7ba21e39b38",
+      "c210a9f3-b14b-4964-9ece-ba05fe253ba2",
       "1576587126205",
-      "1576477765349",
+      "462479a9-19ea-4e90-b40e-b32677b85c60",
       "1634215966dbb73ddb",
-      "1489283389016",
-      "1576481766490",
+      "a991650a-770d-4602-b16d-9333db9dcca9",
       "1576481521441",
       "1633414963454337f0",
       "1489285418400",
       "1576479867168",
       "1584704606887",
-      "16201319107a553c9b",
       "16597948753c204f24"
     ],
     "blocks": {
-      "1486654112309516955": {
-        "type": "shopify:\/\/apps\/discos-smart-bogo-cart-upsell\/blocks\/feeniks-offers\/9416ce92-aaaf-4a81-8fdf-b9a4e639d6dc",
+      "11724500921838622758": {
+        "type": "shopify:\/\/apps\/frequently-bought-together\/blocks\/app-embed-block\/b1a8cbea-c844-4842-9529-7c62dbab1b1f",
+        "disabled": false,
+        "settings": {}
+      },
+      "18281310450600262962": {
+        "type": "shopify:\/\/apps\/clevertap\/blocks\/app-embed\/2566991a-cd89-49d8-997d-74717582b9ed",
         "disabled": false,
         "settings": {}
       }

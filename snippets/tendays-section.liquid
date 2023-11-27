@@ -1,132 +1,207 @@
-<div class="container ten-days-section">
-  <img
-    src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/desktop_e80285b1-a547-4f4d-a6ed-202c86612919.png?v=1674555777"
-    alt="ten days"
-    class="ten-days visible-desktop">
-  <img
-    src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/mobile_1affb34d-0ede-4a53-bd71-d33b4398046c.png?v=1674555778"
-    alt="ten days"
-    class="ten-days visible-mobile">
-  <div id="clockdiv">
-    <div>
-      <span class="days" id="day"></span>
-      <div class="smalltext">Days</div>
-    </div>
-    <div>
-      <span class="hours" id="hour"></span>
-      <div class="smalltext">Hours</div>
-    </div>
-    <div>
-      <span class="minutes" id="minute"></span>
-      <div class="smalltext">Minutes</div>
-    </div>
-    <div>
-      <span class="seconds" id="second"></span>
-      <div class="smalltext">Seconds</div>
-    </div>
+<!-- Axio start -->
+<!--
+  <style>
+    .mobile_axio_bnnr {
+      display: none;
+    }
+    img.desktop_axio_bnnr {
+      width: 100%;
+    }
+    @media only screen and (max-width: 600px) {
+      .mobile_axio_bnnr {
+        display: block !important;
+      }
+      .desktop_axio_bnnr {
+        display: none !important;
+      }
+      img.mobile_axio_bnnr {
+      width: 100%;
+      }
+    }
+  </style>
+  <div class="axio_imgbanner">
+  <img class="desktop_axio_bnnr" src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/AXIO_1301_x_188_1aaf52c8-e531-4358-95ba-9cfd016067d0.jpg?v=1676629143">
+  <img class="mobile_axio_bnnr" src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/AXIO_474_x_201.jpg?v=1676629143">
   </div>
+-->
+<!-- Axio end -->
 
-  <p id="demo"></p>
-</div>
 <style>
-  .ten-days {
-    margin-top: 20px;
-    max-width: 100%;
-    border: 2px solid grey;
-    padding: 15px;
-  }
-  #clockdiv {
-    font-family: 'Poppins';
-    color: #000;
-    position: absolute;
-    top: 51%;
-    right: 23%;
-    bottom: 0;
-    display: inline-block;
-    font-weight: 500;
-    text-align: center;
-    font-size: 21px;
-    background-color: transparent;
-    margin: auto;
-    padding: 18px;
-  }
-
-  #clockdiv span {
-    color: #000;
-    line-height: 24px;
-  }
-  #clockdiv > div {
-    display: inline-block;
-    margin: 5px;
-    line-height: 0;
-  }
-  @media only screen and (max-width: 767px) {
-    #clockdiv span {
-      color: #000;
+    .ten-days {
+      margin-top: 20px;
+      width: 100%;
+      border: 1px solid grey;
+  /*     padding: 15px; */
     }
 
     #clockdiv {
-      font-family: sans-serif;
-      color: #000;
+      font-family: 'Poppins';
+      color: #fea43e;
       position: absolute;
-      top: 70%;
-      right: 12%;
+         top: 41%;
+      right: 12em;
       bottom: 0;
       display: inline-block;
-      font-weight: bold;
+      font-weight: 500;
       text-align: center;
-      font-size: 14px;
+      font-size: 21px;
       background-color: transparent;
       margin: auto;
       padding: 18px;
     }
-    .ten-days {
-      margin-top: 20px;
-      border: 2px solid grey;
-      padding: 10px;
-    }
-  }
-  #clockdiv > div {
-    display: inline-block;
-    margin: 5px;
-    line-height: 16px;
-  }
-  #clockdiv > p {
-    color: #000;
-    font-weight: bolder;
-    font-size: 23px;
-    margin-bottom: 30px;
-  }
-  #clockdiv div > span {
-    display: inline-block;
 
+
+    #clockdiv span {
+      color: #fea43e;
+      line-height: 24px;
+    }
+
+    #clockdiv>div {
+      display: inline-block;
+      margin: 5px;
+    }
+
+    .visible-desktop-tendeals {
+      display: block !important;
+    }
+
+    .visible-mobile-tendeals {
+      display: none !important;
+    }
+
+    @media only screen and (max-width: 767px) {
+      .visible-desktop-tendeals {
+        display: none !important;
+      }
+
+      .visible-mobile-tendeals {
+        display: block !important;
+      }
+      #clockdiv>div, #clockdiv>span {
+      display: inline-block;
+      margin: 5px;
+      line-height: 6px !important;
   }
-  .container.ten-days-section {
-    position: relative;
-  }
+
+      #clockdiv span {
+        color: #fea43e;
+      }
+
+      #clockdiv {
+      font-family: sans-serif;
+      color: #fea43e;
+      position: absolute;
+      top: 62%;
+      right: 0;
+      left: 14%;
+      font-weight: bold;
+      text-align: center;
+      font-size: 14px;
+      background-color: transparent;
+      margin: 0;
+      padding: 0;
+      height: 3em;
+      width: 71%;
+      display: flex;
+      justify-content: space-evenly;
+      }
+
+      .ten-days {
+        margin-top: 20px;
+        border: 1px solid grey;
+  /*       padding: 10px; */
+      }
+    }
+
+    #clockdiv>div,
+    #clockdiv>span {
+      display: inline-block;
+      margin: 5px;
+      line-height: 15px;
+    }
+
+    #clockdiv>p {
+      color: #000;
+      font-weight: bolder;
+      font-size: 23px;
+      margin-bottom: 30px;
+    }
+
+    #clockdiv div>span {
+      display: inline-block;
+
+    }
+
+    .container.ten-days-section {
+      position: relative;
+          min-height: 197px;
+    }
 </style>
-<script>
-  var deadline = new Date("Jan 31, 2023 12:00:00").getTime();
+{% comment %}
+<div class="container ten-days-section">
+  <img
+    class="ten-days visible-desktop-tendeals lazyload"
+    data-src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/desktop_dfbad988-b23d-4365-8e12-62fddadb098a.jpg?v=1689330068"
+    alt="ten days"
+    loading="lazy"
+  >
+  <img
+    class="ten-days visible-mobile-tendeals lazyload"
+    data-src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/mobile_230c0eb7-f1e2-44f9-bfb5-acde51cf627b.jpg?v=1689330068"
+    alt="ten days"
+    loading="lazy"
+  >
 
-  var x = setInterval(function() {
+  {% comment %} Uncomment To Show Timer Section {% endcomment %}
+  {% comment %}
+    <div id="clockdiv">
+      <div>
+        <span class="days" id="day"></span>
+        <div class="smalltext">Days</div>
+      </div>
+      <div>
+        <span class="hours" id="hour"></span>
+        <div class="smalltext">Hours</div>
+      </div>
+      <div>
+        <span class="minutes" id="minute"></span>
+        <div class="smalltext">Minutes</div>
+      </div>
+      <div>
+        <span class="seconds" id="second"></span>
+        <div class="smalltext">Seconds</div>
+      </div>
+    </div>
 
-    var now = new Date().getTime();
-    var t = deadline - now;
-    var days = Math.floor(t / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((t % (1000 * 60)) / 1000);
-    document.getElementById("day").innerHTML = days;
-    document.getElementById("hour").innerHTML = hours;
-    document.getElementById("minute").innerHTML = minutes;
-    document.getElementById("second").innerHTML = seconds;
-    if (t < 0) {
-      clearInterval(x);
-      document.getElementById("demo").innerHTML = "TIME UP";
-      document.getElementById("day").innerHTML = '0';
-      document.getElementById("hour").innerHTML = '0';
-      document.getElementById("minute").innerHTML = '0';
-      document.getElementById("second").innerHTML = '0';
-    }
-  }, 1000);
-</script>
+    <p id="demo"></p>
+  {% endcomment %}
+</div>
+{% endcomment %}
+{% comment %} Uncomment To Show Timer Section {% endcomment %}
+{% comment %}
+   <script>
+    var deadline = new Date("Apr 15, 2023 12:00:00").getTime();
+
+    var x = setInterval(function () {
+
+      var now = new Date().getTime();
+      var t = deadline - now;
+      var days = Math.floor(t / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((t % (1000 * 60)) / 1000);
+      document.getElementById("day").innerHTML = days;
+      document.getElementById("hour").innerHTML = hours;
+      document.getElementById("minute").innerHTML = minutes;
+      document.getElementById("second").innerHTML = seconds;
+      if (t < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "TIME UP";
+        document.getElementById("day").innerHTML = '0';
+        document.getElementById("hour").innerHTML = '0';
+        document.getElementById("minute").innerHTML = '0';
+        document.getElementById("second").innerHTML = '0';
+      }
+    }, 1000);
+  </script>
+{% endcomment %}

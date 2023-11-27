@@ -1,8 +1,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <section class="contactform">
    <div class="container">
-      <div class="col-md-12">
-         <h2 class="contact"> WRITE TO US</h2>
+      <div class="col-md-12 ">
+        
       </div>
    </div>
 
@@ -10,8 +10,11 @@
 <section class="container form-container-contact-us">
     <section class="contactform">
    <div class="container">
-      <div class="col-md-12">
-         <h3 class="contact">   YOUR DETAILS </h3>
+    <h2 class="contact write_to_us">Write To Us</h2>
+      <div class="form_heading_cn">
+         <h3 class="contact your_details"> Your Details </h3>
+         <p class="log_in_p">Already have an account? <a href="https://www.nilkamalfurniture.com/account/login?return_url=%2Faccount">Log
+        In</a></p>
       </div>
    </div>
 
@@ -24,30 +27,59 @@
                       	<input type="hidden" name="urlencodeenable" value="1">
 	                     <input type="hidden" name="name" value="Nilkamal_Contact_us_Webform">
                         	<input type="hidden" name="__vtCurrency" value="1">
-                      <div class="contact-us-form">
-                      <label class="label-name">Name *</label>
-                         <input type="text" placeholder="" id="name" name="contact_id" autocomplete="off" validate="1" data-valid-attr="name" class="input-form-contact" required>
+                      <div class="contact-us-form flex_contact_pg mydisplayGrid">
+                     <!-- <label class="label-name">Name *</label> -->
+                         <input type="text" placeholder="Full Name*" id="name" name="contact_id" autocomplete="off" validate="1" data-valid-attr="name" class="input-form-contact im_ip" required>
+                         <div class="mobile-input-cl contact-us-form"><span class="red-alert-message"></span>
+                     <!-- <label class="label-email">Mobile No *</label>-->
+                            <input type="number" id="mobile-no" placeholder="Mobile No *" name="cf_cases_wfphonenumber" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==10) return false;" class="input-form-contact im_ip" required />
+                         </div><span class="red-alert-message"></span>
                       </div>
-                      <div class="contact-us-form">
-                      <label class="label-email">Email *</label>
-                         <input type="email" placeholder="" id="email" name="contact_id::Contacts::email" autocomplete="off" validate="1" data-valid-attr="email" class="input-form-contact" required>
+                      <div class="contact-us-form flex_contact_pg">
+                      <!--<label class="label-email">Email *</label>-->
+                         <input type="email" placeholder="Email *" id="Email ID*" name="contact_id::Contacts::email" autocomplete="off" validate="1" data-valid-attr="email" class="input-form-contact im_cp inp-em" required>
+                      </div><span class="red-alert-message"></span>
+
+
+                        
+                      <div class="container query-container">
+                      <h3 class="contact query_contact">  TELL US YOUR QUERY </h3>
                       </div>
-                        <div class="contact-us-form">
-                      <label class="label-email">Mobile No *</label>
-                            <input type="number" id="mobile-no" name="cf_cases_wfphonenumber" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==10) return false;" class="input-form-contact" required />
-                         </div>
-                      <div class="container">
-                      <h3 class="contact">  TELL US YOUR QUERY </h3>
-                      </div>
-                      <div class="contact-us-form">
-                      <label class="label-name">Type *</label>
-                        <select id="Category" name="cf_cases_wftype" data-label="label:WF_TYPE">
-                          <option value="order">Select a type</option>
-                           <option value="order">Order Related</option>
-                           <option value="nonorder">Non-Order Related</option>
-                           <option value="nilkamal">Nilkamal Services</option>
-                        </select>
+                      <div class="contact-us-form chk_type">
+                        <div class="type_query"><label class="query-name">Query Type*</label></div>
+                        <div class="checkbox_order">
+                       <div class="chk_box"> <input type="radio" class="cn_radio" value="sub_cat"  name="radioButton"  onclick="showDropdown()" checked><span class="or_related">Order Related</span></div>
+                       <div class="chk_box"> <input type="radio" class="cn_radio" value="sub_cat"  name="radioButton"  onclick="showDropdown()"  ><span class="non_related ">Non-Order Related</span></div>
+                       <div class="chk_box"> <input type="radio" class="cn_radio" value="sub_cat"  name="radioButton"  onclick="showDropdown()" ><span class="nkl_related">Nilkamal Services</span></div>
+                        </div>
                       </div> 
+
+                    <select id="SubCategory" name="cf_cases_wfsubtype" data-label="label:WF_SUBTYPE" style="display: block;">
+                      <option value="order">Select a type</option>
+                      <option value="payment_related">Payment related</option>
+                      <option value="track_your_order">Track your order</option>
+                      <option value="return_item">Return item</option>
+                      <option value="change_details">Change Details</option>
+                    </select>
+                    <div id="SubSubCategory_Content"> SubSubCategory_Content</div>
+
+                    <select id="SubCategory2" name="cf_cases_wfsubtype" data-label="label:WF_SUBTYPE"  style="display: none;">
+                      <option value="order">Select a type</option>
+                      <option value="various_payment_opition">Various payment opition</option>
+                      <option value="offer_and_discount">Offers and discount</option>
+                      <option value="website_related">Website Related/Feedback</option>
+                      <option value="product_related_query">Product Related Query</option>
+                    </select>
+
+                    <select id="SubCategory3" name="cf_cases_wfsubtype" data-label="label:WF_SUBTYPE"  style="display: none;">
+                      <option value="order">Select a type</option>
+                      <option value="Corporate_sale">Corporate sale/ Bulk Order</option>
+                      <option value="policies">Policies</option>
+                      <option value="sell_on_doctor">Sell on Nilkaml</option>
+                      <option value="product_related_query">Product Related Query</option>
+                    </select>
+
+
                      
                      <div class="contact-us-form">
                       <label class="label-name" id="subcategory">Sub Type *</label>
@@ -85,15 +117,56 @@
                       <label class="label-name" id="order_id">Order ID *</label>
                          <input type="text" placeholder="" id="Order_id" name="cf_cases_orderid" autocomplete="off" validate="1" data-valid-attr="name" class="input-form-contact" maxlength="30" onclick="product_related_query" required>
                       </div>
-                      <div class="upload-a-file">
+
+                      <!--image picker-->
+                      <div class="form-group  file-upload-cg" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+
+          <div class="contact-us-form flex_contact_pg">
+            <div class="upload-a-file">
                        <label for="myfile">Upload a file:</label>
   <input type="file" name="cf_cases_uploadfile[]" id="filePHOTO" class="file_upload1" accept="image/*">
-                      <span>(Maximum allowed file size is 5MB) </span>
+                      <span class="file_desk">(Maximum allowed file size is 5MB) </span>
                        </div>
+                      <span class="file_mob">(Maximum allowed file size is 5MB) </span>
+
+            <!--<div class="file__box">
+              <div class="button__container" id="upload">
+                <button class="file_content_btn upload__file">
+                  <span class="file__content__drop"><span class="mobilehide">Drag & Drop your file or</span> <span
+                      class="file__browser">Browse</span></span>
+                </button>
+                <input type="file" name="file" accept="image/jpeg,image/jpg, image/png, application/pdf"
+                  id="warrantyImage" onchange="displayFileName()" class="warrantyImage filepond">
+                <span id="warrantyImage_error" class="help-inline text-danger error__text__position"></span>
+
+                <span id="warrantyiages" class="help-inline text-danger error__text__position"></span>
+              </div>
+
+              <div class="file__name__message" id="file_upload_container">
+                <span id="file__name__error"></span>
+                <span class="" type="button" id="cancel-upload">
+                  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10 8.727 17.944.783l1.273 1.273L11.273 10l7.944 7.944-1.273 1.273L10 11.273l-7.944 7.944-1.273-1.273L8.727 10 .783 2.056 2.056.783 10 8.727Z"
+                      fill="#000" fill-rule="nonzero"></path>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+          <span id="warrantyfile_error" class="help-inline text-danger error__text__position"></span>
+          <span id="warrantyfile_error_1" class="help-inline text-danger error__text__position"></span>-->
+
+          <!--                   <span id="warrantyImage__file_error" class="help-inline text-danger">Note: Only image and PDF files are allowed</span> -->
+        </div>
+
                    <div class="contact-us-form" id="order-comment">
-                     <label class="label-name">Your Comments *</label>
-                     <textarea name="description" required="" rows="5" cols="5"></textarea>
+                    <div class="text-area-contact">
+                     <!--<label class="label-name">Your Comments *</label>-->
+                     <textarea name="description" required="" rows="5" cols="5" placeholder="Your Comments*" class="feed_textarea"></textarea>
+                     </div>
                       </div>
+
                        <select name="casechannel" data-label="casechannel" hidden="">
 						<option value="">Select Value</option>
 						<option value="Email"> Email </option>
@@ -120,6 +193,39 @@
   </div>
                 <script  type="text/javascript">window.addEventListener("load", function() { var N=navigator.appName, ua=navigator.userAgent, tem;var M=ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);if(M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];M=M? [M[1], M[2]]: [N, navigator.appVersion, "-?"];var browserName = M[0];var form = document.getElementById("__vtigerWebForm_6"), inputs = form.elements; form.onsubmit = function() { document.getElementById("vtigerFormSubmitBtn_6").disabled=true;var required = [], att, val; var endDate;var startDate;var endDate1;for (var i = 0; i < inputs.length; i++) { att = inputs[i].getAttribute("required"); val = inputs[i].value; type = inputs[i].type; if(inputs[i].name == "birthday"){birthdayDate = new Date(inputs[i].value);todayDate = new Date();todayDate.setHours(0,0,0,0);birthdayDate.setHours(0,0,0,0);if(birthdayDate >= todayDate){alert("Date of Birth should be less than Today's Date.");document.getElementById("vtigerFormSubmitBtn_6").disabled=false;return false;}}if(inputs[i].name=="support_start_date" || inputs[i].name=="startdate"){startDate = inputs[i].value;}if(inputs[i].name=="support_end_date" || inputs[i].name=="targetenddate" || inputs[i].name=="enddate"){endDate = inputs[i].value;}if(inputs[i].name=="actualenddate"){endDate1 = inputs[i].value;}if(type == "email") {if(val != "") {var elemLabel = inputs[i].getAttribute("data-label");var emailFilter = /^[_/a-zA-Z0-9]+([!"#$%&()*+,./:;<=>?\^_`{|}~-]?[a-zA-Z0-9/_/-])*@[a-zA-Z0-9]+([\_\-\.]?[a-zA-Z0-9]+)*\.([\-\_]?[a-zA-Z0-9])+(\.?[a-zA-Z0-9]+)?$/;var illegalChars= /[\(\)\<\>\,\;\:\"\[\]]/ ;if (!emailFilter.test(val)) {alert("For "+ elemLabel +" field please enter valid email address"); document.getElementById("vtigerFormSubmitBtn_6").disabled=false;return false;} else if (val.match(illegalChars)) {alert(elemLabel +" field contains illegal characters");document.getElementById("vtigerFormSubmitBtn_6").disabled=false;return false;}}}if(startDate){if(typeof startDate !== "undefined") {if(endDate){if(typeof endDate !== "undefined") {startDate = new Date(startDate);endDate = new Date(endDate);if(endDate < startDate){alert("End Date should be greater than or equal to Start Date");document.getElementById("vtigerFormSubmitBtn_6").disabled = false;return false;}}}if(endDate1){if(typeof endDate1 !== "undefined") {startDate = new Date(startDate);endDate1 = new Date(endDate1);if(endDate1 < startDate){alert("End Date should be greater than or equal to Start Date");document.getElementById("vtigerFormSubmitBtn_6").disabled = false;return false;}}}}}if (att != null) { if (val.replace(/^\s+|\s+$/g, "") == "") { required.push(inputs[i].getAttribute("label")); } } } if (required.length > 0) { alert("The following fields are required: " + required.join()); document.getElementById("vtigerFormSubmitBtn_6").disabled=false;return false; } var numberTypeInputs = document.querySelectorAll("input[type=number]");for (var i = 0; i < numberTypeInputs.length; i++) { val = numberTypeInputs[i].value;var elemLabel = numberTypeInputs[i].getAttribute("label");if(val != "") {var intRegex = /^[+-]?\d+$/;if (!intRegex.test(val)) {alert("For "+ elemLabel +" field please enter valid number");document.getElementById("vtigerFormSubmitBtn_6").disabled=false; return false;}}}var dateTypeInputs = document.querySelectorAll("input[type=date]");for (var i = 0; i < dateTypeInputs.length; i++) {dateVal = dateTypeInputs[i].value;var elemLabel = dateTypeInputs[i].getAttribute("label");if(dateVal != "") {var dateRegex = /^[1-9][0-9]{3}-(0[1-9]|1[0-2]|[1-9]{1})-(0[1-9]|[1-2][0-9]|3[0-1]|[1-9]{1})$/;if(!dateRegex.test(dateVal)) {alert("For "+ elemLabel +" field please enter valid date in required format"); document.getElementById("vtigerFormSubmitBtn_6").disabled=false; return false;}}}var inputElems = document.getElementsByTagName("input");var totalFileSize = 0;for(var i = 0; i < inputElems.length; i++) {if(inputElems[i].type.toLowerCase() === "file") {var file = inputElems[i].files[0];if(typeof file !== "undefined") {var totalFileSize = totalFileSize + file.size;}}}if(totalFileSize > 52428800) {alert("Maximum allowed file size including all files is 50MB.");document.getElementById("vtigerFormSubmitBtn_6").disabled=false;return false;}var inputElem = document.querySelectorAll("input[type=file]");var fileSize = 0;for(var i = 0; i < inputElem.length; i++) {if(inputElem[i].type.toLowerCase() ===  "file") {if(inputElem[i].hasAttribute("selectedTypeImage")) {var imageFile = inputElem[i].files[0];var fileSize = imageFile.size;}}if(fileSize > 5242880) {alert("Maximum allowed image size is 5MB.");document.getElementById("vtigerFormSubmitBtn_6").disabled=false;return false;}}}; });</script>
 </section>
+
+
+<script>
+  function showDropdown() {
+    var SubCategory = document.getElementById("SubCategory");
+    var SubCategory2 = document.getElementById("SubCategory2");
+    var SubCategory3 = document.getElementById("SubCategory3");
+
+    
+    var radioButton = document.getElementsByName("radioButton");
+
+    if (radioButton[0].checked) {
+      SubCategory.style.display = "block";
+      SubCategory2.style.display = "none";
+      SubCategory3.style.display = "none";
+    } else if (radioButton[1].checked) {
+      SubCategory.style.display = "none";
+      SubCategory2.style.display = "block";
+      SubCategory3.style.display = "none";
+    } else if (radioButton[2].checked) {
+      SubCategory.style.display = "none";
+      SubCategory2.style.display = "none";
+      SubCategory3.style.display = "block";
+    } else {
+      SubCategory.style.display = "none";
+      SubCategory2.style.display = "none";
+      SubCategory3.style.display = "none";
+    }
+  }
+// my Code 
+</script>
+
+
 <script>
         $(function() {
             console.log("jQuery Active");
@@ -527,6 +633,330 @@ div#SubSubCategory_Content:after {
     border-right-color: #fff;
     border-width: 7px;
     margin-top: -8px;
+}
+
+
+/*contact us css payal */
+
+.write_to_us {
+  color: #5C6168;
+  font-family: Poppins;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 50px; 
+  text-transform: capitalize;
+  margin-top: 46px;
+  margin-bottom: 20px;
+  
+}
+/* h2.contact.write_to_us {
+  width: 900px;
+  margin: 0 auto;
+} */
+
+
+  .form_heading_cn {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.log_in_p a {
+  color: #2BA4DC !important;
+  text-decoration: underline;
+}
+
+
+.your_details , .query_contact{
+color: #252525;
+font-family: Poppins;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: 33.6px; /* 140% */
+text-transform: none;
+}
+p.log_in_p {
+  color: #252525;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+
+.chk_box {
+  display: flex;
+  gap: 10px;
+}
+
+section.contactform {
+  /* width: 950px; */
+  margin: 0 auto;
+}
+section.container.form-container-contact-us {
+  width: 900px;
+  margin: 0 auto;
+}
+
+/* .query-container{
+  margin-top: 50px;
+} */
+
+.container.query-container {
+    padding: 0px !important;
+}
+
+select#Category, select#SubCategory, select#SubSubCategory, select#SubCategory2 , select#SubCategory3 {
+  margin-top: 15px;
+  /* margin-left: 20px; */
+  height: 36px;
+  padding: 7px 12px 5px;
+  border: 1px solid #E0E0E0!important;
+  color: #3c3c3c;
+  width: 100%;
+  max-width: 380px;
+  outline: 0;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+
+}
+
+/* drag button cs */
+ .file__box {
+  width: 69%;
+} 
+
+button.file_content_btn.upload__file {
+  color: #252525;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55px;
+  border-radius: 05px;
+  background: #f0f0f0;
+}
+
+.button__container {
+  position: relative;
+}
+
+ .text-area-contact {
+    width: 100%;
+}
+
+
+label.contact_file_ss{
+color: #252525;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+opacity: 0.6000000238418579;
+}
+.file-upload-cg{
+  margin-top: 33px;
+  margin-bottom: 19px;
+}
+.chk_type {
+  display: flex;
+  align-items: center;
+      margin-bottom: 25px;
+    margin-top: 25px;
+}
+/* .query-name{
+color: #252525;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 33.6px;
+text-transform: none;
+} */
+                
+.checkbox_order {
+  display: flex !important;
+  gap: 18px !important;
+}
+                
+.feed_textarea{
+  border-radius: 5px;
+    border: 1px solid #969696;
+    font-size: 14px;
+    width: 100%;
+    resize: both;
+}
+textarea.feed_textarea {
+  margin-top: 71px;
+  border-radius: 5px;
+  border: 1px solid #E0E0E0;
+  background: #FFF;
+}
+
+label.contact_file_ss {
+  max-width: 360px;
+  width: 100%;
+}
+
+.g-recaptcha {
+  width: 304px;
+  height: 78px;
+  margin: 0 auto;
+}
+
+.submit-button{
+  text-align: center;
+}
+span.max-file-size {
+  color: #252525;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  opacity: 0.4000000059604645;
+}
+.im_ip{
+  max-width: 100%!important;
+  border-radius: 5px;
+  border: 1px solid #E0E0E0!important;
+  background: #FFF;
+}
+
+.im_cp{
+ max-width: 49%!important;
+ border-radius: 5px!important;
+ border: 1px solid #E0E0E0!important;
+ background: #FFF;
+}
+
+/* .contact-us-form {
+  display: flex;
+} */
+ 
+.mobile-input-cl {
+  width: 100%;
+}
+
+.flex_contact_pg {
+  display: flex;
+  gap: 20px;
+}
+.chk_box  input.cn_radio {
+  width: 23px;
+  height: 23px;
+}
+label.mobile_g{
+  display: none;
+}
+label.desktop_g{
+  display: block;
+} 
+
+.file_mob{
+  display: none;
+}
+
+/* for mobile view */
+
+@media only screen and (max-width: 767px){
+  section.container.form-container-contact-us {
+    width: 100%;
+}
+
+  .file_desk{
+  display: none;
+}
+
+  .file_mob{
+  display: block !important;
+}
+
+.flex_contact_pg {
+  flex-direction: column;
+  gap: none;
+  gap: 1px;
+}
+
+input#Email\ ID\* {
+  margin-top: 16px;
+}
+
+.inp-em{
+  max-width: 100%!important;
+}
+
+.contact-us-form.chk_type {
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+
+.checkbox_order {
+  flex-direction: column;
+}
+
+.chk_type {
+  align-items: flex-start;
+}
+h3.contact.query_contact {
+  font-size: 18px;
+}
+
+h2.contact.write_to_us {
+  margin-top: 99px;
+  text-align: center;
+  color: #5C6168;
+}
+
+h3.contact.your_details {
+  font-size: 15px;
+  
+}
+
+label.desktop_g{
+  display: none;
+}  
+
+label.mobile_g{
+  display: block;
+}
+
+ input#radioSh{
+  width: 24px;
+  height: 24px;
+} 
+
+ span.or_related, span.non_related , span.nkl_related{
+  color: #252525;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  opacity: 0.6000000238418579;
+} 
+h3.contact.your_details {
+  width: 124.614px;
+
+}
+p.log_in_p {
+  width: 212px;
+  font-size: 13px;
+}
+
+select#SubCategory , select#SubCategory2 , select#SubCategory3 {
+  margin-left: 0!important;
+}
+
+  .text-area-contact {
+    width: 100%;
+}
+
 }
                   
    </style>

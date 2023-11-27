@@ -1,0 +1,107 @@
+<style>
+   .grid2x2 {
+      min-height: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row;
+   }
+   .grid2x2 > div.product-image-back {
+      background-size: cover;
+      width: 50vw;
+   }
+   .grid2x2 > div {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+   }
+   .box {
+      margin: 0px;
+      width: 50vw;
+   }
+   .box2 {
+      background-color: #dfcda7;
+   }
+   .product-image-back-mobile {
+      display: none;
+   }
+   .product-image-back-desktop {
+      display: block;
+   }
+   .easyapp-box {
+      width: 48vw;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+   }
+   .logoss h2 {
+      font-family: "Josefin Sans", sans-serif;
+      color: #444;
+      margin-top: 10px;
+      margin-bottom: 0px;
+      text-transform: capitalize;
+   }
+   .logoss h1 {
+      font-family: "Josefin Sans", sans-serif;
+      color: #4d4d4d;
+      margin-top: 10px;
+      margin-bottom: 3em;
+   }
+   .logoss .sub-title {
+      margin: 10px 0 30px !important;
+   }
+   .logoss .features {
+      margin: 10px 0 30px !important;
+      font-size: 15px;
+      color: #444;
+      text-transform: capitalize;
+   }
+   @media only screen and (max-width: 600px) {
+      .grid2x2 {
+         min-height: 100%;
+         display: flex;
+         flex-wrap: wrap;
+         margin-top: 7em;
+      }
+      .box {
+         margin: 0px;
+         width: 100%;
+         height: auto;
+      }
+      .grid2x2 > div {
+         display: flex;
+         justify-content: center;
+         flex-direction: row;
+         width: 100vw;
+      }
+      .easyapp-box {
+         width: 100vw;
+      }
+      .product-image-back-mobile {
+         display: block;
+      }
+      .product-image-back-desktop {
+         display: none;
+      }
+      .logoss h1 {
+          margin-bottom: 2em;
+       }
+   }
+</style>
+<div class="grid2x2">
+   <img class="box box1 product-image-back product-image-back-desktop" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Nilkamal_Sidealign_Mattress_desktop.jpg?v=1688846599" />
+   <img class="box box1 product-image-back product-image-back-mobile" src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Nilkamal_Sidealign_Mattress_mobile.jpg?v=1688846580" />
+   <div class="box box2">
+      <div class="easyapp-box">
+         <div class="logoss" style="text-align: center;">
+            <h1>Launching Soon!</h1>
+            <h2><strong>Nilkamal Sidealign Mattress</strong></h2>
+            <p class="sub-title">India's first mattress exclusively designed for side sleepers.</p>
+            <p class="features">Adaptive to sleep position | Enhanced blood circulation | Perfect spine alignment</p>
+         </div>
+      </div>
+   </div>
+</div>

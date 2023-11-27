@@ -23,7 +23,7 @@
 		  <!-- <label for="customer_password" class="login">{{ 'customer.login.password' | t }}</label> -->
           <input type="password" value="" name="customer[password]" id="customer_password" class="large password" placeholder="Password" size="16" tabindex="2" />
 
-          <p class="center"><a href="#" onclick="showRecoverPasswordForm()">{{ 'customer.login.forgot_password' | t }}</a></p>
+          <p class="center" style="padding-bottom:10px;"><a href="#" onclick="showRecoverPasswordForm();return false;">{{ 'customer.login.forgot_password' | t }}</a></p>
           
           {% endif %}
 
@@ -108,7 +108,7 @@
           </div>
           
           <div id="email" class="clearfix large_form">
-            <input type="email" value="" name="customer[email]" id="email" class="large" size="30" placeholder="Email id(*)" required/>
+            <input type="email" value="" name="customer[email]" id="email" class="large" size="30" placeholder="Email id(*)" required />
           </div>
 
           <div id="password" class="clearfix large_form">
@@ -148,7 +148,7 @@
   function showRecoverPasswordForm() {
     document.getElementById('recover-password').style.display = 'block';
     document.getElementById('login_form').style.display='none';
-    return false;
+    
   }
 
   function hideRecoverPasswordForm() {
@@ -185,4 +185,25 @@
       $("#mobile_no").attr("autocomplete", "none");
      
 });
+
+
  </script>
+ <script type="text/javascript">
+ function showRecoverPasswordForm() {
+   document.getElementById('recover-password').style.display = 'block';
+   document.getElementById('login_form').style.display = 'none';
+ }
+
+ function hideRecoverPasswordForm() {
+   document.getElementById('recover-password').style.display = 'none';
+   document.getElementById('login_form').style.display = 'block';
+ }
+
+ function showRecoverSuccess() {
+   document.getElementById('account-reset').style.display = 'block';
+ }
+
+ if (window.location.hash == '#recover') { showRecoverPasswordForm() }
+
+ if (window.location.hash == '#recover-successful') { showRecoverSuccess() }
+</script>

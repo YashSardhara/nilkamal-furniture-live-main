@@ -1,12 +1,25 @@
+<style>
+  .new__badge__link__mobile {
+    position: absolute !important;
+    top: 0px;
+    left: 119px;
+    width: fit-content;
+}
+
+ .new__mt__text{
+    margin-top: -10px;
+    margin-left: -15px;
+  }
+</style>
 {% for link in linklists[mobile-menu].links %}
   {% if linklists[link.handle] == empty %}
     <li data-mobile-dropdown-rel="{{ link.handle }}">
       {% if link.url == 'http://' or link.url == '' or link.url == '/' or link.url == 'https://' or link.url == '#' %}
-        <a data-no-instant href="{{ link.url }}" class="parent-link--false">
+        <a data-no-instant href="{{ link.url }}" class="parent-link--false" data-new-tag="{{ link.title | remove:" " }}">
           {{ link.title }}
         </a>
       {% else %}
-        <a data-no-instant href="{{ link.url }}" class="parent-link--true">
+        <a data-no-instant href="{{ link.url }}" class="parent-link--true" data-new-tag="{{ link.title | remove:" " }}">
           {{ link.title }}
         </a>
       {% endif %}
@@ -14,32 +27,32 @@
   {% else %}
     <li data-mobile-dropdown-rel="{{ link.handle }}" class="sublink">
       {% if link.url == 'http://' or link.url == '' or link.url == '/' or link.url == 'https://' or link.url == '#' %}
-        <a data-no-instant href="{{ link.url }}" class="parent-link--false">
+        <a data-no-instant href="{{ link.url }}" class="parent-link--false" data-new-tag="{{ link.title | remove:" " }}">
           {{ link.title }} <span class="right icon-down-arrow"></span>
         </a>
       {% else %}
-        <a data-no-instant href="{{ link.url }}" class="parent-link--true">
+        <a data-no-instant href="{{ link.url }}" class="parent-link--true" data-new-tag="{{ link.title | remove:" " }}">
           {{ link.title }} <span class="right icon-down-arrow"></span>
         </a>
       {% endif %}
       <ul>
         {% for link in linklists[link.handle].links %}
           {% if linklists[link.handle] == empty %}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            <li><a class="{{ link.title }}__mobile__menu" href="{{ link.url }}">{{ link.title }}</a></li>
           {% else %}
             <li class="sublink">
               {% if link.url == 'http://' or link.url == '' or link.url == '/' or link.url == 'https://' or link.url == '#' %}
-                <a data-no-instant href="{{ link.url }}" class="parent-link--false">
+                <a data-no-instant href="{{ link.url }}" class="parent-link--false" data-new-tag="{{ link.title | remove:" " }}">
                   {{ link.title }} <span class="right icon-down-arrow"></span>
                 </a>
               {% else %}
-                <a data-no-instant href="{{ link.url }}" class="parent-link--true">
+                <a data-no-instant href="{{ link.url }}" class="parent-link--true" data-new-tag="{{ link.title | remove:" " }}">
                   {{ link.title }} <span class="right icon-down-arrow"></span>
                 </a>
               {% endif %}
               <ul>
                 {% for link in linklists[link.handle].links %}
-                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                  <li><a  href="{{ link.url }}">{{ link.title }}</a></li>
                 {% endfor %}
               </ul>
             </li>
@@ -51,3 +64,16 @@
   {% endif %}
 
 {% endfor %}
+<li class="custom__gamig_mobile">
+   <a href="https://www.nilkamalfurniture.com/pages/modular-beds">Modular Beds </a>
+  <span class="blink_me">NEW</span>
+</li>
+
+<script>
+  $(document).ready(function () {
+
+  $('.Chairs__mobile__menu').append("<div class='new_badge_blink new__badge__link__mobile'><div class='blink_me_chair_2 blink_me '>NEW</div></div>");
+  $('.India__mobile__menu').append("<div class='new_badge_blink new__badge__link__mobile'><div class='blink_me_color_2 blink_me '>NEW</div></div>");
+  $("[data-new-tag=ModularBeds]").append("<div class='new_badge_blink new__badge__link__mobile new__mt__text'><div class='blink_me_2 blink_me '>NEW</div></div>")
+  });
+</script>

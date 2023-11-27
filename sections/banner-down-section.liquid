@@ -1,0 +1,147 @@
+<style>
+  .ten-days {
+    margin-top: 20px;
+    width: 100%;
+    border: 1px solid grey;
+    /*     padding: 15px; */
+  }
+
+  #clockdiv {
+    font-family: 'Poppins';
+    color: #fea43e;
+    position: absolute;
+    top: 41%;
+    right: 12em;
+    bottom: 0;
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    font-size: 21px;
+    background-color: transparent;
+    margin: auto;
+    padding: 18px;
+  }
+
+
+  #clockdiv span {
+    color: #fea43e;
+    line-height: 24px;
+  }
+
+  #clockdiv > div {
+    display: inline-block;
+    margin: 5px;
+  }
+
+  .visible-desktop-tendeals {
+    display: block !important;
+  }
+
+  .visible-mobile-tendeals {
+    display: none !important;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .visible-desktop-tendeals {
+      display: none !important;
+    }
+
+    .visible-mobile-tendeals {
+      display: block !important;
+    }
+    #clockdiv > div,
+    #clockdiv > span {
+      display: inline-block;
+      margin: 5px;
+      line-height: 6px !important;
+    }
+
+    #clockdiv span {
+      color: #fea43e;
+    }
+
+    #clockdiv {
+      font-family: sans-serif;
+      color: #fea43e;
+      position: absolute;
+      top: 62%;
+      right: 0;
+      left: 14%;
+      font-weight: bold;
+      text-align: center;
+      font-size: 14px;
+      background-color: transparent;
+      margin: 0;
+      padding: 0;
+      height: 3em;
+      width: 71%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .ten-days {
+      margin-top: 20px;
+      border: 1px solid grey;
+      /*       padding: 10px; */
+    }
+  }
+
+  #clockdiv > div,
+  #clockdiv > span {
+    display: inline-block;
+    margin: 5px;
+    line-height: 15px;
+  }
+
+  #clockdiv > p {
+    color: #000;
+    font-weight: bolder;
+    font-size: 23px;
+    margin-bottom: 30px;
+  }
+
+  #clockdiv div > span {
+    display: inline-block;
+
+  }
+
+  .container.ten-days-section {
+    position: relative;
+    min-height: 197px;
+  }
+</style>
+
+<div class="container ten-days-section">
+  <img
+    class="ten-days visible-desktop-tendeals lazyload"
+    data-src="{{ section.settings.tendays-banner-image-desktop | img_url : "original" }}"
+    alt="ten days"
+    loading="lazy">
+  <img
+    class="ten-days visible-mobile-tendeals lazyload"
+    data-src="{{ section.settings.tendays-banner-image-mobile | img_url : "original" }}"
+    alt="ten days"
+    loading="lazy">
+</div>
+
+{% schema %}
+  {
+    "name": "Banner Down Section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "tendays-banner-image-desktop",
+        "label": "Desktop Banner Image"
+      }, {
+        "type": "image_picker",
+        "id": "tendays-banner-image-mobile",
+        "label": "Mobile Banner Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Banner Down Section"
+      }
+    ]
+  }
+{% endschema %}

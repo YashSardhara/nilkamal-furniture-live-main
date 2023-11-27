@@ -39,7 +39,7 @@
       {%- comment -%} Get currencies {%- endcomment -%}
       currencies: [
         {%- for currency in shop.enabled_currencies -%}
-        {{- currency.iso_code | json -}}{%- if forloop.last != true -%},{%- endif -%}        
+        {{- currency.iso_code | json -}}{%- if forloop.last != true -%},{%- endif -%}
         {%- endfor -%}
       ],
       current_currency: {{- cart.currency.iso_code | json -}},
@@ -56,9 +56,9 @@
     return obj3;
   }
   if (typeof bcSfFilterConfig !== 'undefined') {
-    var bcSfFilterConfig = mergeObject(bcSfFilterConfig, bcSfFilterMainConfig); 
+    var bcSfFilterConfig = mergeObject(bcSfFilterConfig, bcSfFilterMainConfig);
   } else {
-    var bcSfFilterConfig = mergeObject({}, bcSfFilterMainConfig); 
+    var bcSfFilterConfig = mergeObject({}, bcSfFilterMainConfig);
   }
 </script>
 

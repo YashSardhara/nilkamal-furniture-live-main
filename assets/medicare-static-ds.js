@@ -8,7 +8,7 @@ function MedicareDataSource() {
   var that = this;
   //   $.get('https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Furniture_sublime.csv?5041', function(data) {
   //     $.get('https://cdn.shopify.com/s/files/1/0044/1208/0217/files/nilkamal_furniture_store_locator_d4eb044b-dd47-46d1-9632-c359f9315cad.csv?v=1592289136', function(data) {
-  $.get('https://cdn.shopify.com/s/files/1/0044/1208/0217/files/nilkamal_frnutuire_12_3_12_8-11.csv', function(data) {
+  $.get('https://cdn.shopify.com/s/files/1/0044/1208/0217/files/nilkamal_frnutuire_12_3_12_9-24.csv', function(data) {
     that.setStores(that.parse_(data));
   });
 }

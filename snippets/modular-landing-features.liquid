@@ -1,0 +1,478 @@
+<style>
+  .modular__two__column {
+    display: flex;
+    width: 100%;
+    gap: 4%;
+    margin-top: 50px;
+  }
+
+  .modular__right__column {
+    width: 28%;
+  }
+
+  .modular__left__column {
+    width: 68%;
+  }
+
+  .modular__feature__box__container {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 28px;
+  }
+
+  .modular__feature__box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  .modular__feature__box p {
+    font-weight: 500;
+  }
+
+  .base__option__containor {
+    margin-top: 30px;
+  }
+
+  .modular__inner__second__cont {
+    display: inline-block;
+    border-left: 6px solid var(--modular--border--second--title);
+    background-color: var(--modular--bg--second--title);
+    margin: 30px 0;
+    padding: 10px 19px;
+  }
+
+  .modular__image__container {
+    margin-top: 30px;
+  }
+
+  .headboard__option__container {
+    margin-top: 30px;
+  }
+
+  .modular__headboard__slider {
+    border-radius: 10px;
+    margin-top: 30px;
+    overflow: hidden;
+    /*margin-bottom: -40px;*/
+  }
+
+  .modular__right__column {
+    position: relative;
+  }
+
+  .modular__left__box {
+    width: 100%;
+    height: fit-content;
+    position: sticky;
+    top: 50px;
+    right: 0;
+    max-height: 95vh;
+  }
+
+  .left__gif__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .modular__left__box {
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 -4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+  }
+
+  .modular__left__item {
+    padding: 28px 16px;
+    text-align: center;
+  }
+
+  .modular__left__title {
+    font-size: 32px;
+    line-height: 102.5%;
+    text-transform: capitalize;
+    color: var(--modular--primary--color);
+  }
+
+  .img__right {
+    width: 70%;
+    height: auto;
+  }
+
+  .modular__base__mobile {
+    display: none;
+  }
+
+  .steps lottie-player {
+    width: 100%;
+    height: auto;
+  }
+
+  .btn-mod {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-mod::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* border-radius: 100px; */
+    overflow: hidden;
+    background: var(--shine-effect);
+  }
+
+  .btn-anim::before {
+    animation: shine 5s ease-in-out infinite;
+  }
+  @keyframes shine {
+    0% {
+      left: -100%;
+      transition-property: left;
+    }
+
+    100% {
+      left: 100%;
+      transition-property: left;
+    }
+  }
+
+  @media(max-width: 768px) {
+    .modular__headboard__slider {
+      border-radius: 0;
+      margin-bottom: 0;
+    }
+
+    .modular__feature__box br {
+      display: none;
+    }
+
+    .modular__feature__box br {
+      display: block !important;
+    }
+
+    .modular__feature__box__container {
+      display: flex;
+      gap: 30px;
+      width: 100%;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .headboard__option__container {
+      margin-top: 0;
+    }
+
+    .modular__two__column {
+      display: flex;
+      flex-direction: column-reverse;
+      margin-top: 2rem;
+    }
+
+    .modular__right__column {
+      width: 100%;
+    }
+
+    .modular__left__column {
+      width: 100%;
+      margin-top: 44px;
+    }
+
+    .base__option__containor {
+      margin-top: 40px;
+    }
+
+    .modular__left__box {
+      width: 100%;
+      box-shadow: none;
+    }
+
+    .modular__left__title {
+      font-size: 26px;
+    }
+
+    .modular__base__mobile {
+      display: block;
+    }
+
+    .modular__base__desktop {
+      display: none;
+    }
+
+    .img__right {
+      width: 90%;
+      height: auto;
+    }
+
+    .modular__left__item {
+      padding: 10px;
+      margin-top: -40px;
+    }
+
+    .modular__features {
+      width: 90vw;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .modular__feature__box {
+      width: 45%;
+    }
+
+    .modular__feature__box p {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .modular__features .modular__inner__title {
+      text-align: center;
+    }
+
+    #shopify-section-modular-landing-page-two .modular__related__blog {
+      margin-top: -30px;
+    }
+
+    a.left__gif__bttn {
+      display: none;
+    }
+
+    .left__gif__container {
+      gap: 20px;
+    }
+
+
+  }
+
+  @media(max-width:1400px) {
+    .modular__left__title {
+      font-size: 28px;
+    }
+  }
+
+  .modular__feature__box lottie-player {
+    width: 70%;
+    height: auto;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
+
+  .steps span {
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.3rem;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .left__gif__bttn {
+    background: #00AAFF;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 14px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 0.95rem;
+    text-align: center;
+    text-transform: capitalize;
+    color: #fff !important;
+    margin-top: 1.2rem;
+  }
+
+  @media(max-width:768px) {
+    .steps span {
+      font-size: 1rem;
+    }
+  }
+
+ /* .modular__feature__box br {
+    display: none;
+}*/
+</style>
+
+<div class="modular__two__column ">
+  <div class="modular__left__column">
+    {% comment %}
+    Modula Feature Start here
+    {% endcomment %}
+    <div class="modular__features modular__content__box">
+      <div class="modular__features__box">
+        <span class="modular__inner__title">Why are Modular Beds ideal for you?</span>
+        <div class="modular__feature__box__container">
+          <div class="modular__feature__box">
+            <lottie-player
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/200_awe_inspiring_styles.json?v=1682075908"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay></lottie-player>
+            <p>Create from 200+ Bed<br> Designs</p>
+          </div>
+          <div class="modular__feature__box">
+            <lottie-player
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/13_spectacular_headboards.json?v=1682075908"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay></lottie-player>
+            <p>Pick from 13 Aesthetic<br> Headboards</p>
+          </div>
+          <div class="modular__feature__box">
+            <lottie-player
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/4_types_of_base_storage_options.json?v=1682075908"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay></lottie-player>
+            <p>Customise with 4 Storage<br> Bases</p>
+          </div>
+          <div class="modular__feature__box">
+            <lottie-player
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/2_base_color_options.json?v=1682075908"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay></lottie-player>
+            <p>
+              Choose between 2 Base<br> Colours</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% comment %}
+    Base option Start here
+    {% endcomment %}
+    <div class="base__option__containor">
+      <div class="modular__content__box">
+        <span class="modular__inner__title">Here’s how you can make your dream bed</span>
+        <div class="modular__inner__second__cont">
+          <span class="modular__inner__second__title">Choose from Four Base Options</span>
+        </div>
+        <p class="modular__inner__para">
+          Modular Bases combine functionality and style to elevate your sleep sanctuary. These engineered wood bases
+          provide four storage options in two sophisticated colour schemes. You can choose from hydraulic,
+                                                                                                                        semi-hydraulic, box, and no storage options according to the space and aesthetics of your bedroom.
+        </p>
+      </div>
+      {% include 'modular-back-svg-image' %}
+    </div>
+    {% comment %}
+    12 stylish Headboard option Start here
+    {% endcomment %}
+    <div class="headboard__option__container">
+      <div class="modular__content__box">
+        <div class="modular__inner__second__cont">
+          <span class="modular__inner__second__title">13 Stylish Headboards to choose from</span>
+        </div>
+        <p class="modular__inner__para">
+          Modular headboards employ trendy designs, exquisite textures, soothing colours, and spacious storage to create
+          a stylish and practical bedroom. They use rubberwood, engineered wood, PVC upholstery, LED lights, marble
+                                                                                                                        paper, groove panels, and other premium materials to accentuate your sleeping abode.
+        </p>
+      </div>
+      <div class="modular__headboard__slider">
+        {% include 'modular-plp-slider' %}
+      </div>
+    </div>
+    <div class="modular__features modular__content__box">
+      <div class="modular__features__box">
+        <span class="modular__inner__title">Why is Nilkamal the best choice for Modular Beds?</span>
+        <div class="modular__feature__box__container">
+          <div class="modular__feature__box">
+            <lottie-player
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Ensured_high_standard_quality.json?v=1682076276"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay></lottie-player>
+            <p>Premium Quality<br> Standards</p>
+          </div>
+          <div class="modular__feature__box">
+            <lottie-player
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Reliable_one_year_warranty.json?v=1682076276"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay></lottie-player>
+            <p>Reliable 1-Year<br> Warranty*</p>
+          </div>
+          <div class="modular__feature__box">
+            <lottie-player
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Free_and_Fast_Delivery.json?v=1682076276"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay></lottie-player>
+            <p>Free and Fast<br> Delivery*</p>
+          </div>
+          <div class="modular__feature__box">
+            <lottie-player
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/hastle_free_assembly.json?v=1682076276"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay></lottie-player>
+            <p>No-Cost Expert<br> Assembly</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modular__right__column">
+    <div class="modular__left__box">
+      <div class="modular__left__item">
+        <span class="modular__left__title">Design Your dream bed in 3 steps</span>
+        <div class="left__gif__container">
+          <div class="steps">
+            <lottie-player
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/step_1_db85e43b-44aa-4d62-871f-875839ae6cd7.json?v=1681736285"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay></lottie-player>
+            <span>Choose a Base Type</span>
+          </div>
+          <div class="steps">
+            <lottie-player
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Step_2_010c31b4-1351-4e17-832b-78558d3783b7.json?v=1681736285"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay></lottie-player>
+            <span>Pick a Headboard Style</span>
+          </div>
+          <div class="steps">
+            <lottie-player
+              src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/step_3_53acd3e4-93b9-4149-81fe-64d889ea354f.json?v=1681736285"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay></lottie-player>
+            <span>Select a Base Colour</span>
+          </div>
+        </div>
+        <a href="https://www.nilkamalfurniture.com/products/nilkamal-galaxy-max-engineered-wood-bed-with-box-storage-headboard-light-white" class="left__gif__bttn btn-mod btn-anim">
+          Design your Dream Bed Now!
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

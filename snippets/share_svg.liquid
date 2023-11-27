@@ -1,18 +1,101 @@
-<svg class="desk_share_btn" width="70" height="70" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_1139_2001)">
-<rect x="10" y="8" width="44" height="44" rx="22" fill="#F7FCFF" shape-rendering="crispEdges"/>
-<path d="M37.08 34.1365C36.32 34.1365 35.64 34.4378 35.12 34.9096L27.91 30.743C27.96 30.512 28 30.2811 28 30.0402C28 29.7992 27.96 29.5683 27.91 29.3373L34.96 25.2108C35.5 25.7129 36.21 26.0241 37 26.0241C38.66 26.0241 40 24.6787 40 23.012C40 21.3454 38.66 20 37 20C35.34 20 34 21.3454 34 23.012C34 23.253 34.04 23.4839 34.09 23.7149L27.04 27.8414C26.5 27.3394 25.79 27.0281 25 27.0281C23.34 27.0281 22 28.3735 22 30.0402C22 31.7068 23.34 33.0522 25 33.0522C25.79 33.0522 26.5 32.741 27.04 32.239L34.24 36.4157C34.19 36.6265 34.16 36.8474 34.16 37.0683C34.16 38.6847 35.47 40 37.08 40C38.69 40 40 38.6847 40 37.0683C40 35.4518 38.69 34.1365 37.08 34.1365Z" fill="#0093DD"/>
-</g>
-<defs>
-<filter id="filter0_d_1139_2001" x="0" y="0" width="64" height="64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="2"/>
-<feGaussianBlur stdDeviation="5"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.576471 0 0 0 0 0.866667 0 0 0 0.2 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1139_2001"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1139_2001" result="shape"/>
-</filter>
-</defs>
-</svg>
+{% if product.handle contains 'nilkamal-vaden-gaming-chair-black-red' or product.handle contains 'nilkamal-greta-gaming-chair-gery-white' or product.handle contains 'nilkamal-canophy-gaming-chair-black' or product.handle contains 'nilkamal-razos-gaming-chair-brown-beige' or product.handle contains 'nilkamal-athena-gaming-chair-grey-turquoise' or product.handle contains 'nilkamal-marvel-gaming-chair-black-red' or product.handle contains 'nilkamal-bosco-gaming-chair-black-blue' %}
+  <svg
+    width="64"
+    height="64"
+    viewBox="0 0 64 64"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#filter0_d_1139_2001)">
+      <rect
+        x="10"
+        y="8"
+        width="44"
+        height="44"
+        rx="22"
+        fill="#202020"
+        class="gaming__svg"
+        shape-rendering="crispEdges" />
+      <path d="M37.08 34.1365C36.32 34.1365 35.64 34.4378 35.12 34.9096L27.91 30.743C27.96 30.512 28 30.2811 28 30.0402C28 29.7992 27.96 29.5683 27.91 29.3373L34.96 25.2108C35.5 25.7129 36.21 26.0241 37 26.0241C38.66 26.0241 40 24.6787 40 23.012C40 21.3454 38.66 20 37 20C35.34 20 34 21.3454 34 23.012C34 23.253 34.04 23.4839 34.09 23.7149L27.04 27.8414C26.5 27.3394 25.79 27.0281 25 27.0281C23.34 27.0281 22 28.3735 22 30.0402C22 31.7068 23.34 33.0522 25 33.0522C25.79 33.0522 26.5 32.741 27.04 32.239L34.24 36.4157C34.19 36.6265 34.16 36.8474 34.16 37.0683C34.16 38.6847 35.47 40 37.08 40C38.69 40 40 38.6847 40 37.0683C40 35.4518 38.69 34.1365 37.08 34.1365Z" fill="#0093DD" />
+    </g>
+    <defs>
+      <filter
+        id="filter0_d_1139_2001"
+        x="0"
+        y="0"
+        width="64"
+        height="64"
+        filterUnits="userSpaceOnUse"
+        color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feColorMatrix
+          in="SourceAlpha"
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          result="hardAlpha" />
+        <feOffset dy="2" />
+        <feGaussianBlur stdDeviation="5" />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.576471 0 0 0 0 0.866667 0 0 0 0.2 0" />
+        <feBlend
+          mode="normal"
+          in2="BackgroundImageFix"
+          result="effect1_dropShadow_1139_2001" />
+        <feBlend
+          mode="normal"
+          in="SourceGraphic"
+          in2="effect1_dropShadow_1139_2001"
+          result="shape" />
+      </filter>
+    </defs>
+  </svg>
+{% else %}
+  <svg
+    class="desk_share_btn"
+    width="70"
+    height="70"
+    viewBox="0 0 64 64"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#filter0_d_1139_2001)">
+      <rect
+        x="10"
+        y="8"
+        width="44"
+        height="44"
+        rx="22"
+        fill="#F7FCFF"
+        shape-rendering="crispEdges" />
+      <path d="M37.08 34.1365C36.32 34.1365 35.64 34.4378 35.12 34.9096L27.91 30.743C27.96 30.512 28 30.2811 28 30.0402C28 29.7992 27.96 29.5683 27.91 29.3373L34.96 25.2108C35.5 25.7129 36.21 26.0241 37 26.0241C38.66 26.0241 40 24.6787 40 23.012C40 21.3454 38.66 20 37 20C35.34 20 34 21.3454 34 23.012C34 23.253 34.04 23.4839 34.09 23.7149L27.04 27.8414C26.5 27.3394 25.79 27.0281 25 27.0281C23.34 27.0281 22 28.3735 22 30.0402C22 31.7068 23.34 33.0522 25 33.0522C25.79 33.0522 26.5 32.741 27.04 32.239L34.24 36.4157C34.19 36.6265 34.16 36.8474 34.16 37.0683C34.16 38.6847 35.47 40 37.08 40C38.69 40 40 38.6847 40 37.0683C40 35.4518 38.69 34.1365 37.08 34.1365Z" fill="#0093DD" />
+    </g>
+    <defs>
+      <filter
+        id="filter0_d_1139_2001"
+        x="0"
+        y="0"
+        width="64"
+        height="64"
+        filterUnits="userSpaceOnUse"
+        color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feColorMatrix
+          in="SourceAlpha"
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          result="hardAlpha" />
+        <feOffset dy="2" />
+        <feGaussianBlur stdDeviation="5" />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.576471 0 0 0 0 0.866667 0 0 0 0.2 0" />
+        <feBlend
+          mode="normal"
+          in2="BackgroundImageFix"
+          result="effect1_dropShadow_1139_2001" />
+        <feBlend
+          mode="normal"
+          in="SourceGraphic"
+          in2="effect1_dropShadow_1139_2001"
+          result="shape" />
+      </filter>
+    </defs>
+  </svg>
+{% endif %}

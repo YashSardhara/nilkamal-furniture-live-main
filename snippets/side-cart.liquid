@@ -1,0 +1,32 @@
+{% render 'side-cart-css' %}
+<section class="main__side__cart" id="mySideCartParent">
+  <div class="mysidebarCartBg" id="mysidebarCartBg"></div>
+  <div class="side__cart__section mypositionSidebar" id="sideCart">
+    <div class="side__cart__container">
+      <div class="side__cart__close">
+        <div class="shopping__containre">
+          <span class="cart__heading">Cart</span>
+          <span class="cart_count">{{ cart.item_count }}</span>
+        </div>
+        <a href="javascript:void(0);" onclick="mysideCartClose()">
+          {% render 'side-cart-close' %}
+        </a>
+      </div>
+      <div class="side__cart__items">
+        {% render 'side-cart-item' %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  $('#mysidebarCartBg').on('click', function() {
+
+// alert("This is Testing");
+
+// Call your mysideCartClose() function or any other action you want to perform on click
+    mysideCartClose();
+  });
+
+  var cartCount = $('.cart_count').html();
+</script>

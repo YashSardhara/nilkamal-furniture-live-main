@@ -120,7 +120,7 @@ button&#34;
 	 border-color: #e1e1e1;
 }
  .product-quantity-box {
-	 width: 5em;
+	 width: 5rem;
 	 max-width: 100%;
 	 height: 46px;
 	 border: 1px solid #bfbfbf;
@@ -281,21 +281,20 @@ button&#34;
 }
  .product-wrap .product-info__caption .price .sold_out {
 	 color: #fff;
-	 font-family: &#39;
-	Montserrat&#39;
-	, sans-serif;
+	 font-family: Montserrat,sans-serif;
 	 font-size: 12px;
 	 font-weight: 400;
 	 text-transform: uppercase;
 	 background: #a8a8a8;
 	 display: block;
-	 width: 45px;
-	 height: 45px;
+	 width: 50px;
+	 height: 50px;
 	 border-radius: 50%;
 	 padding: 9px 0;
 	 position: absolute;
-	 top: 41px;
-	 left: 6px;
+	 top: 50px;
+	 left: 20px;
+	 text-align:center;
 }
  .product-wrap .product-info__caption .was_price {
 	 color: #b2b2b2;
@@ -1500,7 +1499,7 @@ email&#34;
 	 margin-bottom: 25px;
 }
  div.homepage_content .title-wrapper h2.title a {
-	 color: #000;
+	 /* color: #000; */
 }
  div.homepage_content .title-wrapper .feature_divider {
 	 display: none;
@@ -1522,10 +1521,10 @@ email&#34;
 	) no-repeat center top;
 	 */
 	 background-size: cover;
-	 padding-top: 28px;
+	 /* padding-top: 28px; */
 }
  .slideshow-section .flickity-page-dots {
-	 bottom: 20px;
+	 bottom: 4em;
 }
  .slideshow-section .flickity-page-dots .dot {
 	 width: 20px;
@@ -1779,7 +1778,8 @@ email&#34;
 	 transition: all 0.5s;
 }
  .collection-list-slider .collection-info {
-	 padding: 14px 25px 25px;
+	 /* padding: 14px 25px 25px; */
+     padding: 18px 18px;
 	 border-top: 1px solid #dbdbdb;
 }
  .collection-list-slider .collection-title {
@@ -1900,6 +1900,7 @@ email&#34;
 }
  .featured-blog-section .article .info-wrap a.action_button {
 	 margin: 25px 0 20px;
+	 font-family: 'Poppins';
 }
  .featured-blog-section .article .info-wrap .blog_meta span {
 	 color: #8a8a8a;
@@ -1924,6 +1925,7 @@ email&#34;
 	}
 	 .featured-blog-section .article .info-wrap a.action_button {
 		 margin: 17px 0;
+		 font-family: "Poppins";
 	}
 }
  .featured-blog-section .column.view-all {
@@ -2804,7 +2806,7 @@ text&#34;
 	 flex-wrap: wrap;
 }
  .product-template .pdp.customer-services .item {
-	 margin: 0 6% 18px 0;
+	 margin: 0 3% 18px 3% !important;
 	 -webkit-align-items: flex-start;
 	 -moz-align-items: flex-start;
 	 -ms-align-items: flex-start;
@@ -3091,7 +3093,7 @@ text&#34;
 	 margin: 0;
 }
  .cart-section #cart_form .product-quantity-box .product-minus, .cart-section #cart_form .product-quantity-box .product-plus {
-	 line-height: 40px;
+	 /* line-height: 40px; */
 	 height: 40px;
 }
  .cart-section #cart_form .product-quantity-box .quantity {
@@ -4319,6 +4321,9 @@ submit&#39;
 		 margin: 40px 0 0;
 	}
 }
+.gaming-chair-border{
+	border-bottom:1px solid #ffffff4d;
+  }
 /* product page zoom image */
  .product-image-column .gallery-wrap {
 	 position: relative;
@@ -4916,7 +4921,7 @@ li.sublink.newvermenu-sublink:hover a{
 .headerHover__brands_banner {
     width: 360px;
     min-height: 322px;
-    background-image: url(/s/files/1/0044/1208/0217/files/Campus_Single_Bed.png?v=1642217337) !important;
+    background-image: url(https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Campus_Single_Bed.png?v=1642217337) !important;
     background-repeat: no-repeat;
     position: absolute;
     display: inline-block;
@@ -4982,49 +4987,49 @@ background-color: red !important;
 }*/
 
 .main_nav .nav .menu .vertical-menu li:nth-child(1) .vertical-menu_submenu .vertical-menu_sub-submenu .headerHover__brands_banner  {
-background-image: url(/s/files/1/0044/1208/0217/files/Campus_Single_Bed.png?v=1642217337)!important;
+background-image: url(https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Campus_Single_Bed.png?v=1642217337)!important;
 background-repeat: no-repeat;
 }
 .main_nav .nav .menu .vertical-menu li:nth-child(2) .vertical-menu_submenu .vertical-menu_sub-submenu .headerHover__brands_banner  {
       width: 430px;
     height: 461px;
-background-image: url(/s/files/1/0044/1208/0217/files/bedroom_3de5e3b8-a80f-49f5-a7f9-76255f97b158.png?v=1659601528)!important;
+background-image: url(https://cdn.shopify.com/s/files/1/0044/1208/0217/files/bedroom_3de5e3b8-a80f-49f5-a7f9-76255f97b158.png?v=1659601528)!important;
     background-repeat: no-repeat;
 }
 .main_nav .nav .menu .vertical-menu li:nth-child(3) .vertical-menu_submenu .vertical-menu_sub-submenu .headerHover__brands_banner  {
       width: 430px;
     height: 461px;
-background-image: url(/s/files/1/0044/1208/0217/files/dining_set_294ed059-13d7-48e8-b1c0-79a86aa708cf.png?v=1659602233)!important;
+background-image: url(https://cdn.shopify.com/s/files/1/0044/1208/0217/files/dining_set_294ed059-13d7-48e8-b1c0-79a86aa708cf.png?v=1659602233)!important;
     background-repeat: no-repeat;
 }
 .main_nav .nav .menu .vertical-menu li:nth-child(4) .vertical-menu_submenu .vertical-menu_sub-submenu .headerHover__brands_banner  {
       width: 430px;
     height: 461px;
-background-image: url(/s/files/1/0044/1208/0217/files/home_office_740f95f2-52d9-46d0-8dde-a5835cecdd83.png?v=1659602375)!important;
+background-image: url(https://cdn.shopify.com/s/files/1/0044/1208/0217/files/home_office_740f95f2-52d9-46d0-8dde-a5835cecdd83.png?v=1659602375)!important;
     background-repeat: no-repeat;
 }
 .main_nav .nav .menu .vertical-menu li:nth-child(5) .vertical-menu_submenu .vertical-menu_sub-submenu .headerHover__brands_banner  {
       width: 430px;
     height: 461px;
-background-image: url(/s/files/1/0044/1208/0217/files/kids_furniture_66b73bf1-7cae-4042-9d4d-a3a17984bb01.png?v=1659602524)!important;
+background-image: url(https://cdn.shopify.com/s/files/1/0044/1208/0217/files/kids_furniture_66b73bf1-7cae-4042-9d4d-a3a17984bb01.png?v=1659602524)!important;
     background-repeat: no-repeat;
 }
 .main_nav .nav .menu .vertical-menu li:nth-child(6) .vertical-menu_submenu .vertical-menu_sub-submenu .headerHover__brands_banner  {
       width: 430px;
     height: 461px;
-background-image: url(/s/files/1/0044/1208/0217/files/mattress_dc9c2ee9-bc03-4541-8e59-f6eb8ef4dc1d.png?v=1659602649)!important;
+background-image: url(https://cdn.shopify.com/s/files/1/0044/1208/0217/files/mattress_dc9c2ee9-bc03-4541-8e59-f6eb8ef4dc1d.png?v=1659602649)!important;
     background-repeat: no-repeat;
 }
 .main_nav .nav .menu .vertical-menu li:nth-child(7) .vertical-menu_submenu .vertical-menu_sub-submenu .headerHover__brands_banner  {
       width: 430px;
     height: 461px;
-background-image: url(/s/files/1/0044/1208/0217/files/utility_bd21dd85-c2ad-46e2-adc0-580ea4452b59.png?v=1659602714)!important;
+background-image: url(https://cdn.shopify.com/s/files/1/0044/1208/0217/files/utility_bd21dd85-c2ad-46e2-adc0-580ea4452b59.png?v=1659602714)!important;
     background-repeat: no-repeat;
 }
 .main_nav .nav .menu .vertical-menu li:nth-child(8) .vertical-menu_submenu .vertical-menu_sub-submenu .headerHover__brands_banner  {
       width: 430px;
     height: 461px;
-background-image: url(/s/files/1/0044/1208/0217/files/plastic_premium_e6dead7f-6ba5-4188-a602-7365bde7eefe.png?v=1659602714)!important;
+background-image: url(https://cdn.shopify.com/s/files/1/0044/1208/0217/files/plastic_premium_e6dead7f-6ba5-4188-a602-7365bde7eefe.png?v=1659602714)!important;
     background-repeat: no-repeat;
 }
 .cbb-frequently-bought-container.cbb-desktop-view {
@@ -5484,10 +5489,11 @@ color: #0093DD;
   margin-top: 80px;
 }
 
-#franchise input, #franchiseselect{
+#franchise input, #franchise select{
   border-radius: 3.5px ;
   font-size:14px ;
   padding: 2px 10px;
+  text-overflow: ellipsis;
 }
 
 .fran_col_head p {
@@ -6020,7 +6026,7 @@ color: #FFFFFF;
     margin-top: -71px;
     border-radius: 12px;
   }
-
+£
   .fran_row{
     display:grid;
     grid-template-columns:100% !important;
@@ -6147,3 +6153,14 @@ ul{
   height:50vh;
 }
 }
+a.iWishAddColl {
+    right: 0px;
+}
+
+@media (max-width:600px){
+  .shop-by-room-section div.homepage_content{
+    min-height: 490px !important;
+  }
+}
+
+

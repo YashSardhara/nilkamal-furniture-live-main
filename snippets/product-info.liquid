@@ -1,5 +1,25 @@
 <div class="product-details">
-  <span class="title" itemprop="name">{{ product.title | truncate: 50 }}</span>
+
+  {% if product.tags contains 'Online Exclusive' %}
+    <div class="blinking-background_recent">ONLINE EXCLUSIVE</div>
+  {% endif %}
+  {% if product.tags contains 'pfs:label-Best-Seller' %}
+    <div class="best_seller-background_recent">BEST SELLER</div>
+  {% endif %}
+  {% if product.tags contains 'pfs:label-New-Launch' %}
+    <div class="new_launch-background_recent">NEW LAUNCH</div>
+  {% endif %}
+  {% if product.tags contains 'pfs:label-Best-Deals' %}
+    <div class="best_deals-background_recent">BEST DEALS</div>
+  {% endif %}
+  {% if product.tags contains 'pfs:label-Freedom-Special' %}
+  <div class="freedom_special-background_recent">FREEDOM SPECIAL</div>
+  {% endif %}
+  {% if product.tags contains 'pfs:label-Flash-Deal' %}
+  <div class="flash_deal-background_recent"><span class="flash_img">{%- render 'flash_deal_svg' -%}</span> <span class="flash_txt">FLASH DEAL</span> <span class="flash_img">{%- render 'flash_deal_svg' -%}</span></div>
+  {% endif %}
+
+  <span class="title" itemprop="name">{{ product.title }}</span>
   {% if settings.enable_shopify_collection_badges and settings.enable_shopify_review_comments %}
     <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
   {% endif %}
@@ -12,26 +32,26 @@
   {% else %}
     <span class="price {% if product.compare_at_price_max > product.price %}sale{% endif %}">
       {% if product.price_min > 0 %}
-      <span class="money">&#8377;{{ product.price_min | money }}</span>
+        <span class="money">&#8377;{{ product.price_min | money }}</span>
       {% else %}
-      {{ settings.free_price_text }}
+        {{ settings.free_price_text }}
       {% endif %}
 
       {% if product.available %}
-      {% else %}
-      <span class="sold_out">{{ 'products.product.sold_out' | t }}</span>
+        {% else %}
+          <span class="sold_out">{{ 'products.product.sold_out' | t }}</span>
       {% endif %}
       {% if product.compare_at_price_max > product.price %}
-      <span class="was_price">
-        <span class="money">&#8377;{{ product.compare_at_price_max | money }}</span>
-      </span>
+        <span class="was_price">
+          <span class="money">&#8377;{{ product.compare_at_price_max | money }}</span>
+        </span>
       {% endif %}
     </span>
   {% endif %}
   {% if product.compare_at_price > product.price %}
-  <span class="savings">
-    {{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}% OFF      
-  </span>
+    <span class="savings">
+      {{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}% OFF
+    </span>
   {% endif %}
 </div>
 <div class="product-collection-form">
@@ -39,6 +59,6 @@
 </div>
 <!--
 <a href="" class="wishlist-btn">
-  {% include 'svg-icons', id:'heart' %}
+{% include 'svg-icons', id:'heart' %}
 </a>
 -->

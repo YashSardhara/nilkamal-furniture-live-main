@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+{% render 'side-cart' %}
+
+{% schema %}
+  {
+    "name": "Side Cart Collection",
+    "settings": [
+      {
+        "id": "side__cart__collection__heading",
+        "type": "text",
+        "label": "Write Heading Here"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Side Cart Collection",
+        "type": "Text",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "side__cart__collection__image",
+            "label": "Collection Image"
+          }, {
+            "type": "text",
+            "id": "side__cart__collection__title",
+            "label": "Collection Name"
+          }, {
+            "type": "text",
+            "id": "side__cart__collection__proce",
+            "label": "Collection Starting Price"
+          }, {
+            "type": "url",
+            "id": "side__cart__collection__url",
+            "label": "Collection Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Side Cart Collection"
+      }
+    ]
+  }
+{% endschema %}

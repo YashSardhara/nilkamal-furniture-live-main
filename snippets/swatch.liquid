@@ -1,5 +1,5 @@
 {% comment %}
-  Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
+Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
 {% endcomment %}
 
 {% assign file_extension = 'png' %}
@@ -8,78 +8,161 @@
 {% if checjjj %}
 {% if swatch == blank %}
 <div class="swatch error">
-  <p>You must include the snippet swatch.liquid with the name of a product option.</p> 
+  <p>You must include the snippet swatch.liquid with the name of a product option.</p>
   <p>Use: <code>{% raw %}{% include 'swatch' with 'name of your product option here' %}{% endraw %}</code></p>
   <p>Example: <code>{% raw %}{% include 'swatch' with 'Color' %}{% endraw %}</code></p>
 </div>
 {% else %}
-
 {% assign found_option = false %}
 {% assign is_color = false %}
 {% assign option_index = 0 %}
 
 {% for option in product.options %}
-  {% if option == swatch %}
-    {% assign found_option = true %}
-    {% assign option_index = forloop.index0 %}
-    <style>
-      label[for="product-select-option-{{ option_index }}"] { display: none; }
-      #product-select-option-{{ option_index }} { display: none; }
-      #product-select-option-{{ option_index }} + .custom-style-select-box { display: none !important; }
-    </style>
-    <script>$(window).on('load', function() { $('.selector-wrapper:eq({{ option_index }})').hide(); });</script>
-    {% assign downcased_option = swatch | downcase %}
-    {% if downcased_option contains 'color' or downcased_option contains 'colour' %}
-      {% assign is_color = true %}
-    {% endif %}
-  {% endif %}
+{% if option == swatch %}
+{% assign found_option = true %}
+{% assign option_index = forloop.index0 %}
+<style>
+  label[for="product-select-option-{{ option_index }}"] {
+    display: none;
+  }
+
+  #product-select-option- {
+      {
+      option_index
+    }
+  }
+
+    {
+    display: none;
+  }
+
+  +.custom-style-select-box {
+    display: none !important;
+  }
+
+  .swatch.clearfix {
+    min-height: 75px !important;
+    height: auto;
+  }
+</style>
+<script>
+  $(window).on('load', function () {
+    $('.selector-wrapper:eq({{ option_index }})').hide();
+  });
+</script>
+{% assign downcased_option = swatch | downcase %}
+{% if downcased_option contains 'color' or downcased_option contains 'colour' %}
+{% assign is_color = true %}
+{% endif %}
+{% endif %}
 {% endfor %}
 
 {% unless found_option %}
 <div class="swatch error">
-  <p>You included the snippet swatch.liquid with the name of a product option — <code>'{{ swatch }}'</code> — that does not belong to your product.</p>
+  <p>You included the snippet swatch.liquid with the name of a product option — <code>'{{ swatch }}'</code> — that does
+    not belong to your product.</p>
   <p>Use <code>{% raw %}{% include 'swatch' with 'name of your product option here' %}{% endraw %}</code></p>
   <p>Example: <code>{% raw %}{% include 'swatch' with 'Color' %}{% endraw %}</code></p>
-  <p><strong>This is case-sensitive!</strong> Do not put in <code>'color'</code> if your product option name is <code>'Color'</code>.</p>
+  <p><strong>This is case-sensitive!</strong> Do not put in <code>'color'</code> if your product option name is
+    <code>'Color'</code>.
+  </p>
 </div>
 {% else %}
 <div class="swatch clearfix" data-option-index="{{ option_index }}">
   <div class="header">Colour</div>
   {% assign values = '' %}
-  {% for variant in product.variants %}
+  <div class="color__swatches__parent">
+    {% for variant in product.variants %}
     {% assign value = variant.options[option_index] %}
     {% unless values contains value %}
-      {% assign values = values | join: ',' %}
-      {% assign values = values | append: ',' | append: value %} 
-      {% assign values = values | split: ',' %}
-      <div data-value="{{ value | escape }}" class="swatch-element {% if is_color %}color {% endif %}{{ value | handle }} {% if variant.available %}available{% else %}soldout{% endif %}">
-        {% if is_color %}
-        <div class="tooltip">{{ value }}</div>
-        {% endif %}
-        <input id="swatch-{{ option_index }}-{{ value | handle }}" class="multi_sel" type="radio" name="option-{{ option_index }}" price="{{ variant.price | money }}" value="{{ value | escape }}"{% if forloop.first %} checked{% endif %} {% unless variant.available %}disabled{% endunless %} />
-        {% if is_color %}
-        {% comment %}
-        <label for="swatch-{{ option_index }}-{{ value | handle }}" style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value | handle | append: '.' | append: file_extension | asset_url }})">
-        {% endcomment %}
-        <label for="swatch-{{ option_index }}-{{ value | handle }}" style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ variant.image | img_url: '1024x' }})">
-          <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" />
-        </label>
-        {% else %}
-        <label for="swatch-{{ option_index }}-{{ value | handle }}">
-          {{ value }}
-          <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" />
-        </label>
-        {% endif %}
-      </div>
+    {% assign values = values | join: ',' %}
+    {% assign values = values | append: ',' | append: value %}
+    {% assign values = values | split: ',' %}
+    <div data-value="{{ value | escape }}"
+      class="swatch-element {% if is_color %}color {% endif %}{{ value | handle }} {% if variant.available %}available{% else %}soldout{% endif %} color__swatches__child">
+      {% if is_color %}
+      <div class="tooltip {% if variant.selected %}active{% endif %}">{{ value }}</div>
+      {% endif %}
+      <input id="swatch-{{ option_index }}-{{ value | handle }}" class="multi_sel binaryic" type="radio"
+        name="option-{{ option_index }}" price="{{ variant.price | money }}" value="{{ value | escape }}"
+        data-variantid="{{ variant.id }}" data-sku_qty="{{variant.inventory_quantity}}"
+        data-sku_available="{{ variant.available }}" data-sku="{{ variant.sku }}" {% assign
+        default_variant=product.variants.first %} {% if variant.id==default_variant.id %} checked {% elsif forloop.first
+        %} checked {% endif %} {% unless variant.available %}disabled{% endunless %} />
+      {% if is_color %}
+      <label for="swatch-{{ option_index }}-{{ value | handle }}"
+        style="background-color: {{ value | split: ' ' | last | handle }};  background-image: url({{ variant.image | img_url: '1024x' }})"
+        data-variantid={{ variant.id }}>
+        <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" />
+      </label>
+      {% else %}
+      <label for="swatch-{{ option_index }}-{{ value | handle }}">
+        {{ value }}
+        <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" />
+      </label>
+      {% endif %}
+    </div>
     {% endunless %}
     {% if variant.available %}
     <script>
-      jQuery('.swatch[data-option-index="{{ option_index }}"] .{{ value | handle }}').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
+      jQuery('.swatch[data-option-index=" {{ option_index }} "] .{{ value | handle }}')
+        .removeClass('soldout')
+        .addClass('available')
+        .find(':radio')
+        .removeAttr('disabled');
     </script>
     {% endif %}
-  {% endfor %}
+    {% endfor %}
+  </div>
 </div>
 
+<div id="selected-variant-info">
+  <!-- Display selected variant information here -->
+</div>
+
+<style>
+  /* Add border and hide tooltip on selected variant */
+  .swatch-element.color.available.active {
+    border: 4px solid #00AFEF;
+  }
+
+  /* Display tooltip on hover for non-selected variants */
+  .swatch-element.color.available:not(.active):hover .tooltip {
+    display: block;
+  }
+</style>
+
+<script>
+  // Add a click event listener to the swatch inputs
+  $('.swatch-element input[type="radio"]').on('change', function () {
+    var selectedVariantId = $(this).data('variantid');
+
+    // Remove the 'active' class from all variants
+    $('.swatch-element.color.available').removeClass('active');
+
+    // Add the 'active' class to the selected variant
+    $('.swatch-element.color.available input[data-variantid="' + selectedVariantId + '"]').parent().addClass('active');
+
+    var selectedVariantInfo = getProductVariantInfo(selectedVariantId); // Implement a function to fetch variant information
+    displaySelectedVariantInfo(selectedVariantInfo);
+  });
+
+  // Display selected variant information
+  function displaySelectedVariantInfo(variantInfo) {
+    var infoContainer = $('#selected-variant-info');
+    infoContainer.empty();
+
+    // Create and append elements to display variant information
+    var titleElement = $('<p>').text('Selected Variant: ' + variantInfo.title);
+    var priceElement = $('<p>').text('Price: ' + variantInfo.price);
+    var skuElement = $('<p>').text('SKU: ' + variantInfo.sku);
+
+    infoContainer.append(titleElement, priceElement, skuElement);
+  }
+
+  // Trigger the change event on page load to display information about the default variant
+  $('.swatch-element input[type="radio"]:checked').trigger('change');
+</script>
 {% endunless %}
 {% endif %}
 {% endif %}

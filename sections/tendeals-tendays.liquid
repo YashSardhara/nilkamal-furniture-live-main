@@ -1,0 +1,240 @@
+{% comment %}
+  ** Slideshow - homepage partial **
+  - Draggable section
+  - Uses blocks
+{% endcomment %}
+
+
+{% schema %}
+
+{
+"name": "Slideshow",
+"class": "slideshow-section under-menu",
+"settings": [
+{
+"type": "select",
+"id": "slideshow_text_animation",
+"label": "Text animation",
+"options": [
+{
+"value": "",
+"label": "None"
+}, {
+"value": "fadeIn",
+"label": "Fade In"
+}, {
+"value": "fadeInUp",
+"label": "Fade Up"
+}, {
+"value": "fadeInDown",
+"label": "Fade Down"
+}
+],
+"default": "fadeInDown"
+}, {
+"type": "select",
+"id": "slideshow_animation",
+"label": "Gallery transition",
+"options": [
+{
+"value": "slide",
+"label": "Slide"
+}, {
+"value": "fade",
+"label": "Fade"
+}
+],
+"default": "slide"
+}, {
+"type": "range",
+"id": "slideshow_speed",
+"label": "Change slides every",
+"min": 4,
+"max": 12,
+"step": 1,
+"default": 6,
+"unit": "sec"
+}, {
+"type": "checkbox",
+"id": "activate_adaptiveHeight",
+"label": "Enable adaptive height",
+"info": "Slideshow will adjust based on height of individual slides"
+}
+],
+"blocks": [
+{
+"type": "image",
+"name": "Slide",
+"settings": [
+{
+"type": "image_picker",
+"id": "image",
+"label": "Image",
+"info": "1600 x 1000px recommended"
+},
+{
+"type": "image_picker",
+"id": "mobimage",
+"label": "Mobile Image"
+},
+{
+"type": "richtext",
+"id": "pretext",
+"label": "Preheading"
+},
+{
+"type": "text",
+"id": "title",
+"label": "Heading",
+"default": "Your headline"
+}, {
+"type": "richtext",
+"id": "subtitle",
+"label": "Subheading"
+}, {
+"type": "select",
+"id": "text_position",
+"label": "Text position",
+"options": [
+{
+"value": "left",
+"label": "Left"
+}, {
+"value": "center",
+"label": "Center"
+}, {
+"value": "right",
+"label": "Right"
+}
+],
+"default": "center"
+}, {
+"type": "select",
+"id": "text_align",
+"label": "Text alignment",
+"options": [
+{
+"value": "left",
+"label": "Left"
+}, {
+"value": "center",
+"label": "Center"
+}, {
+"value": "right",
+"label": "Right"
+}
+],
+"default": "center"
+}, {
+"type": "checkbox",
+"id": "caption_background",
+"label": "Display text background"
+}, {
+"type": "checkbox",
+"id": "caption_background_transparency",
+"label": "Enable text background transparency"
+}, {
+"type": "text",
+"id": "button1",
+"label": "First button label"
+}, {
+"type": "url",
+"id": "button1_link",
+"label": "First slide link"
+}, {
+"type": "checkbox",
+"id": "button1_highlight",
+"label": "Highlight first button"
+}, {
+"type": "text",
+"id": "button2",
+"label": "Second button label"
+}, {
+"type": "url",
+"id": "button2_link",
+"label": "Second slide link"
+}, {
+"type": "checkbox",
+"id": "button2_highlight",
+"label": "Highlight second button"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Slideshow",
+"category": "Image",
+"settings": {},
+"blocks": [
+{
+"type": "image",
+"settings": {
+"image": "",
+"title": "Turbo Shopify Theme",
+"subtitle": "",
+"text_align": "center"
+}
+}, {
+"type": "image",
+"settings": {
+"image": "",
+"title": "",
+"subtitle": "",
+"text_align": "center"
+}
+}
+]
+}
+]
+}
+{% endschema %}
+
+
+  {% include 'tendays-section' %}
+
+  <div class="tendeals">
+    <div>
+      <a href="https://www.nilkamalfurniture.com/products/nilkamal-baylor-shoe-cabinet-walnut-white">
+        <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Baylor_Shoe_Cabinet.png?v=1674455696"
+          alt="first-deal" />
+        <p class="tendays-title">Nilkamal Baylor Shoe Cabinet</p>
+        <p class="tendays-mrp">
+          MRP: 14,500
+        </p>
+        <p class="tendays-sp">
+          Selling Price: 9,900
+        </p>
+      </a>
+    </div>
+
+    <div>
+      <a href="https://www.nilkamalfurniture.com/products/nilkamal-alpine-shoe-cabinet-classic-walnut">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Alpine_Shoe_Cabinet_Classic_Walnut.png?v=1674455697"
+          alt="second-deal" />
+        <p class="tendays-title">Nilkamal Alpine Shoe Cabinet</p>
+        <p class="tendays-mrp">
+          MRP: 8,000
+        </p>
+        <p class="tendays-sp">
+          Selling Price: 6,000
+        </p>
+      </a>
+
+    </div>
+    <div>
+      <a href="https://www.nilkamalfurniture.com/products/nilkamal-tuskar-shoe-cabinet-walnut">
+        <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Tuskar_Shoe_Cabinet.png?v=1674455697"
+          alt="third-deal" />
+        <p class="tendays-title">Nilkamal Tuskar Shoe Cabinet</p>
+        <p class="tendays-mrp">
+          MRP: 10,700
+        </p>
+        <p class="tendays-sp">
+          Selling Price: 7,500
+        </p>
+      </a>
+    </div>
+  </div>
+

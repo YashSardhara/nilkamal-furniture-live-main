@@ -1,5 +1,70 @@
 {% comment %}
   The contents of the cart.liquid template can be found in /sections/cart-template.liquid
 {% endcomment %}
-
+{% comment %} store login user {% endcomment %}
+{% assign customerId1 = customer.id | strip %}
+{% unless customerId1 == '6419587661913' %}
 {% section 'cart-template' %}
+
+<!-- Nilkamal- Affiliate Retag Codes start -->
+<script type="text/javascript">
+    window.ad_products = [
+	{% for product in cart.items %}
+  		{
+        	"id": "{{ product.id }}",   // required
+        	"number": "{{ product.quantity }}"
+    	},
+	{% endfor %}
+    ];
+
+    window._retag = window._retag || [];
+    window._retag.push({code: "9ce8884b30", level: 3});
+    (function () {
+      console.log('retag-cart');
+        var id = "admitad-retag";
+        if (document.getElementById(id)) {return;}
+        var s = document.createElement("script");
+        s.async = true; s.id = id;
+        var r = (new Date).getDate();
+        s.src = (document.location.protocol == "https:" ? "https:" : "http:") + "//cdn.lenmit.com/static/js/retag.js?r="+r;
+        var a = document.getElementsByTagName("script")[0]
+        a.parentNode.insertBefore(s, a);
+    })()
+</script>
+<!-- Nilkamal- Affiliate Retag Codes end -->
+
+
+{% comment %} Google Shopping App Add To Cart conversion start {% endcomment %}
+<!-- Event snippet for Google Shopping App Add To Cart conversion page -->
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-691987508/-pM-CJDVoMIBELTI-8kC',
+      'value': 0.0
+  });
+</script>
+{% comment %} Google Shopping App Add To Cart conversion end {% endcomment %}
+
+
+{% endunless %}
+
+{% if customerId1 == '6419587661913' %}
+<div>
+  <div class="columns cart_store_page">
+    <h2>These products are not shoppable online for store login accounts.</h2>
+    <h5>Please change the account details to proceed with placing an order online.</h5>
+  </div>
+</div>
+
+{% endif %}
+<style>
+  .cart_store_page {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 10rem;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+</style>
