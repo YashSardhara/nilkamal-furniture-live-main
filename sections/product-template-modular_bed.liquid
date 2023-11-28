@@ -2295,8 +2295,8 @@ h2.cbb-frequently-bought-title.translatable{
                             {% for v in product.variants %}
                             <option {% if v == variant.selected_variant %}selected="selected" {% endif %}
                               data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}'
-                              data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}
-                            </option>
+                              data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }} this
+                            </option> 
                             {% endfor %}
                           </select>
                         </div>
