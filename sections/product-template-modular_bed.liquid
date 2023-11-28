@@ -2285,14 +2285,15 @@ h2.cbb-frequently-bought-title.translatable{
                             </option>
                             {% endfor %}
                           </select>
-                        </div>{% endcomment %}
+                        </div>
+                        {% endcomment %}
                         {% elsif product.available and product.variants.size >= 1 and option == 'Size' %}
                         <div class="select product-variant-dropdown">
                           <label>{{ product.options[0] }}</label>
                           <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
                             name="id" class="multi_select">
                             {% for v in product.variants %}
-                            <option {% if v == variant %}selected="selected" {% endif %}
+                            <option {% if v == variant.selected_variant %}selected="selected" {% endif %}
                               data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}'
                               data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}
                             </option>
