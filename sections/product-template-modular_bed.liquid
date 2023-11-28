@@ -2222,7 +2222,7 @@ h2.cbb-frequently-bought-title.translatable{
                           <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
                             name="id" class="multi_select multi__select__onchange">
                             {% for v in product.variants %}
-                            <option {% if v == variant.selected_or_first_available_variant %}selected="selected" {% endif %}
+                            <option {% if v == variant.selected_variant %}selected="selected" {% endif %}
                               data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}'
                               data-available="{{ v.available }}" value="{{ v.id }}" name="{{v.title}}" data-sku="{{ v.sku }}">{{ v.title }} this
                             </option>
