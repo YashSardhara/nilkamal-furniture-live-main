@@ -7015,7 +7015,7 @@ button.cbb-frequently-bought-add-button .translatable:hover {
 }
 .collection_swatches {
   text-align: left;
-  background: white;
+  /* background: white; */
   margin-top:0px;
 }
 #shopify-section-a991650a-770d-4602-b16d-9333db9dcca9 .collection_swatches{
@@ -12109,9 +12109,3 @@ section.nilkamalhas.container__custom .asasas {
 .page-franchise header div.logo.text-align--left {
   z-index: 9;
 }
-
-{% if collection.handle == 'fyrebird-gaming-chairs' or page.handle == 'modular-beds' or product.tags contains 'Gaming Chair' %}
-  collection_swatches{
-    background: #262626;
-  }
-{% endif %}
