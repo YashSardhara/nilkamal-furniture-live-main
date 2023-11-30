@@ -12109,3 +12109,9 @@ section.nilkamalhas.container__custom .asasas {
 .page-franchise header div.logo.text-align--left {
   z-index: 9;
 }
+
+{% if products.tags contains 'Gaming Chair' %}
+  collection_swatches{
+    background: #262626;
+  }
+{% endif %}
