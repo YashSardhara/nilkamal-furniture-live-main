@@ -13,11 +13,14 @@
     display: flex;
     width: 100%;
     margin: 0px auto;
-    padding: 14px;
     gap: 20px;
 }
 .product_details_mob img {
     width: 95px;
+}
+.product_price_qty_mob {
+    display: flex;
+    gap: 30px;
 }
 </style>
 <!-- style for mobile end -->
@@ -306,7 +309,7 @@
                 </div>
                 {% endif %}
                 <div class="money_mobi">
-                  {{ line_item.quantity | times: line_item.final_price | money_without_currency }}
+                  <span>Total Price</span> {{ line_item.quantity | times: line_item.final_price | money_without_currency }}
                 </div>
               </div>
             </div>
