@@ -218,6 +218,22 @@
   </table>
   </div>
 
+
+
+<div class="table_parent_mobile">
+  <div class="order_item_mobile">
+    <div>{{ 'Product Details' }}</div>
+    <div>
+      <img src="{{ line_item | img_url: 'compact_cropped' }}"
+      class="order-list__product-image" />
+      <p>{{ line_item.title | link_to: line_item.product.url }}</p>
+    </div>
+  </div>
+</div>
+
+
+
+
   <div class="table__parent">
   <table id="order_details" class="order--table order__table_details responsive order__table__responsive">
     <thead>
