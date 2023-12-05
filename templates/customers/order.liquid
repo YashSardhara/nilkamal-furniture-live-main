@@ -348,6 +348,13 @@ span.rupee_price_sign:before {
     <div class="order_info_mob">
       <span>Fulfill Status</span> {{ order.fulfillment_status }}
     </div>
+    <div class="order_info_mob">
+      <div class="order_summ_head">Order Summery</div>
+      <div class="order_summ_details">
+        <div class="subtotal_item"><span class="order_item_count">Subtotal ({{ order.item_count }} item)</span><span
+          class="line_subtotal_price">{{ order.line_items_subtotal_price | money_without_currency }}</span></div>
+      </div>
+    </div>
   </div>
 </div>
 
