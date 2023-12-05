@@ -222,21 +222,13 @@
 
 <div class="table_parent_mobile">
   <div class="order_item_mobile">
-    <tbody>
       {% for line_item in order.line_items %}
-      <tr id="{{ line_item.id }}">
-        
-        <td class="order-image">
           <div class="image__order__container">
             <img src="{{ line_item | img_url: 'compact_cropped' }}"
             class="order-list__product-image" />
             <p>{{ line_item.title | link_to: line_item.product.url }}</p>
           </div>
-        </td>        
-        
-      </tr>
       {% endfor %}
-    </tbody>
   </div>
 </div>
 
