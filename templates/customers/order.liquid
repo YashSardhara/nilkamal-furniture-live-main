@@ -224,9 +224,16 @@
   <div class="order_item_mobile">
       {% for line_item in order.line_items %}
           <div class="image__order__container_mobile">
-            <img src="{{ line_item | img_url: 'compact_cropped' }}"
-            class="order-list__product-image_mobile" />
-            <p>{{ line_item.title | link_to: line_item.product.url }}</p>
+            <div class="product_details_mob">
+              <img src="{{ line_item | img_url: 'compact_cropped' }}"
+              class="order-list__product-image_mobile" />
+              <p>{{ line_item.title | link_to: line_item.product.url }}</p>
+            </div>
+            <div class="product_sku_mob">
+              <div class="sku_mobile">
+                <span>SKU</span> {{ line_item.sku }}
+              </div>
+            </div>
           </div>
       {% endfor %}
   </div>
