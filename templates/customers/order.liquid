@@ -223,9 +223,9 @@
 <div class="table_parent_mobile">
   <div class="order_item_mobile">
       {% for line_item in order.line_items %}
-          <div class="image__order__container">
+          <div class="image__order__container_mobile">
             <img src="{{ line_item | img_url: 'compact_cropped' }}"
-            class="order-list__product-image" />
+            class="order-list__product-image_mobile" />
             <p>{{ line_item.title | link_to: line_item.product.url }}</p>
           </div>
       {% endfor %}
