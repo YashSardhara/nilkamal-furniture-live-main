@@ -219,7 +219,7 @@
   </div>
 
 
-
+<!-- mobile start -->
 <div class="table_parent_mobile">
   <div class="order_item_mobile">
       {% for line_item in order.line_items %}
@@ -236,16 +236,16 @@
             </div>
             <div class="product_price_mob">
               {% if line_item.original_line_price > line_item.final_line_price %}
-          <div data-item="light-accent-text">
-            <s class="money">{{ line_item.original_price | money }}</s>
-          </div>
-          {% endif %}
+                <div data-item="light-accent-text">
+                  <s class="money_mob">{{ line_item.original_price | money }}</s>
+                </div>
+              {% endif %}
 
-          <div class="money" data-item="accent-text">
-            {{ line_item.final_price | money_without_currency }}
-          </div>
+              <div class="money_mob" data-item="accent-text">
+                {{ line_item.final_price | money_without_currency }}
+              </div>
 
-          <div class="order--item--unit-price-container" data-item="light-accent-text">
+              <div class="order--item--unit-price-container" data-item="light-accent-text">
                 {% if line_item.unit_price_measurement %}
                 {{- line_item.unit_price | money -}}/
                 {%- if line_item.unit_price_measurement.reference_value != 1 -%}
@@ -258,16 +258,24 @@
               {% if line_item.line_level_discount_allocations.size > 0 %}
               <div data-item="light-accent-text">
                 {% for discount_allocation in line_item.line_level_discount_allocations %}
-                {{ discount_allocation.discount_application.title }} (-<span
-                  class="money">{{ discount_allocation.amount | money }}</span>)
+                {{ discount_allocation.discount_application.title }} 
+                (-<span class="money_mob">{{ discount_allocation.amount | money }}</span>)
                 {% endfor %}
               </div>
               {% endif %}
+            </div>
+
+            <div class="product_qty">
+              <div class="order_qty_mob" data-label="{{ 'customer.order.quantity' | t }}">
+                <span>QTY</span> {{ line_item.quantity }}
+              </div>
             </div>
           </div>
       {% endfor %}
   </div>
 </div>
+
+<!-- mobile end -->
 
 
 
