@@ -345,9 +345,11 @@ span.rupee_price_sign:before {
     <div class="order_info_mob">
       <span>Payment Status</span> {{ order.financial_status }}
     </div>
+
     <div class="order_info_mob">
       <span>Fulfill Status</span> {{ order.fulfillment_status }}
     </div>
+
     <div class="order_info_mob">
       <div class="order_summ_head">Order Summery</div>
       <div class="order_summ_details">
@@ -363,6 +365,23 @@ span.rupee_price_sign:before {
         {% endfor %}
       </div>
     </div>
+
+      {% for discount in order.discounts %}
+        <div class="order_discount_mob">
+          <span class="shipping_charge_mob"> Coupon Name
+          </span>
+          <span class="dcode" data-item="accent-text">
+            {{ discount.code }}
+          </span>
+        </div>
+        <div class="order_discount_mob">
+          <span class="shipping_charge_mob"> Coupon Discount
+          </span>
+          <span class="order--item--total dcode" data-item="accent-text">
+            {{ discount.savings | money }}
+          </span>
+         </div>
+      {% endfor %}
   </div>
 </div>
 
