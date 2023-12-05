@@ -264,7 +264,7 @@ span.rupee_price_sign:before {
   </div>
 
 
-<!-- mobile start -->
+<!-- mobile product details start -->
 <div class="table_parent_mobile">
   <div class="order_item_mobile">
       {% for line_item in order.line_items %}
@@ -336,9 +336,17 @@ span.rupee_price_sign:before {
   </div>
 </div>
 
-<!-- mobile end -->
+<!-- mobile product details end -->
 
+<!-- mobile product payment details start -->
 
+<div class="table__parent">
+  <div class="order_info_mob">
+    <span>Payment Status</span> {{ order.financial_status }}
+  </div>
+</div>
+
+<!-- mobile product payment details end -->
 
 
   <div class="table__parent">
@@ -426,6 +434,8 @@ span.rupee_price_sign:before {
     </tbody>
   </table>
   </div>
+
+
   <div class="table__parent">
   <table id="order_details" class="order--table order__table_details order__table__responsive">
     <thead>
