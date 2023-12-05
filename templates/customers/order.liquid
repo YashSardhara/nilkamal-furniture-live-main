@@ -6,6 +6,19 @@
 .money_mobi:before {
     content: "\20b9";
 }
+.order_item_mobile {
+    padding: 20px;
+}
+.product_details_mob {
+    display: flex;
+    width: 100%;
+    margin: 0px auto;
+    padding: 14px;
+    gap: 20px;
+}
+.product_details_mob img {
+    width: 95px;
+}
 </style>
 <!-- style for mobile end -->
 
@@ -245,6 +258,7 @@
                 <span>SKU</span> {{ line_item.sku }}
               </div>
             </div>
+            <div class="product_price_qty_mob">
             <div class="product_price_mob">
               {% if line_item.original_line_price > line_item.final_line_price %}
                 <div data-item="light-accent-text">
@@ -253,7 +267,7 @@
               {% endif %}
 
               <div class="money_mob" data-item="accent-text">
-                {{ line_item.final_price | money_without_currency }}
+                <span>Price</span> {{ line_item.final_price | money_without_currency }}
               </div>
 
               <div class="order--item--unit-price-container" data-item="light-accent-text">
@@ -281,6 +295,7 @@
                 <span>QTY</span> {{ line_item.quantity }}
               </div>
             </div>
+          </div>
 
             <div class="product_total_price">
               <div class="total_price_mobi" data-item="accent-text"
