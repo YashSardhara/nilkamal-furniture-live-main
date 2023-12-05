@@ -357,7 +357,7 @@ span.rupee_price_sign:before {
         <td class="order_info  order__fulfillment">
           {{ order.fulfillment_status }}
         </td>
-        
+        {{ order.item_image }}
         <td class="order_info order_information">
           <div class="subtotal_item"><span class="order_item_count">Subtotal ({{ order.item_count }} item)</span><span
               class="line_subtotal_price">{{ order.line_items_subtotal_price | money_without_currency }}</span></div>
