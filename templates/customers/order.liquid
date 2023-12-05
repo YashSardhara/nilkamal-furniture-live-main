@@ -270,6 +270,20 @@
                 <span>QTY</span> {{ line_item.quantity }}
               </div>
             </div>
+
+            <div class="product_total_price">
+              <div class="order--item--total order_total" data-item="accent-text"
+                data-label="{{ 'customer.order.total' | t }}">
+                {% if line_item.original_line_price > line_item.final_line_price %}
+                <div data-item="light-accent-text">
+                  <s class="money">{{ line_item.original_line_price | money }}</s>
+                </div>
+                {% endif %}
+                <div class="money">
+                  {{ line_item.quantity | times: line_item.final_price | money_without_currency }}
+                </div>
+              </div>
+            </div>
           </div>
       {% endfor %}
   </div>
