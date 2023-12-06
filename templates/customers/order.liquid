@@ -424,21 +424,53 @@ span.rupee_price_sign:before {
 <!-- mobile product payment details end -->
 
 <!-- mobile shipping details start -->
-
-<div id="order_shipping" class="columns">
-  <div class="address--view">
-    <p class="shipping_order_name">{{ order.billing_address.name }}</p>
-    {% if order.billing_address.company != '' %}
-     <p>{{ order.billing_address.company }}</p> 
-    {% endif %}
-    <p class="shipping_order_address">{{ order.billing_address.street }}
-      {{ order.billing_address.city }}, {{ order.billing_address.province }}
-      <!-- {{ order.shipping_address.country }} -->
-      - {{ order.billing_address.zip }}
-    </p>
-    {%comment%} <p>{{ order.shipping_address.phone }}</p>{% endcomment%}
+<div class="bill_add_mob">
+<div class="sbilling_add_mobile_head">
+  <p>Billing Address</p>
+</div>
+<div class="billing_add_mobile_detail">
+    <div id="order_shipping_mob" class="columns">
+      <div class="address--view">
+        <p class="shipping_order_name">{{ order.billing_address.name }}</p>
+        {% if order.billing_address.company != '' %}
+        <p>{{ order.billing_address.company }}</p> 
+        {% endif %}
+        <p class="shipping_order_address">{{ order.billing_address.street }}
+          {{ order.billing_address.city }}, {{ order.billing_address.province }}
+          <!-- {{ order.shipping_address.country }} -->
+          - {{ order.billing_address.zip }}
+        </p>
+        {%comment%} <p>{{ order.shipping_address.phone }}</p>{% endcomment%}
+      </div>
+    </div>
   </div>
 </div>
+
+<div class="ship_add_mob">
+<div class="sbilling_add_mobile_head">
+  <p>Billing Address</p>
+</div>
+<div class="shipping_add_mobile_detail">
+    {% if order.shipping_address %}
+      <div id="order_shipping" class="columns">
+        <div class="address--view">
+          <p class="shipping_order_name">{{ order.shipping_address.name }}</p>
+          {% if order.shipping_address.company != '' %}
+               <p>{{ order.shipping_address.company }}</p> 
+              {% endif %}
+          <p class="shipping_order_address">{{ order.shipping_address.street }}
+            {{ order.shipping_address.city }}, {{ order.shipping_address.province }}
+            <!-- {{ order.shipping_address.country }} -->
+            - {{ order.shipping_address.zip }}
+          </p>
+          {%comment%} <p>{{ order.shipping_address.phone }}</p>{% endcomment%}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+
 
 <!-- mobile shipping details end -->
 
