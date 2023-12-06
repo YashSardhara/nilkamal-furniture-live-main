@@ -350,7 +350,7 @@ span.rupee_price_sign:before {
       <span>Fulfill Status</span> {{ order.fulfillment_status }}
     </div>
 
-    <div class="order_info_mob_summ">
+    <div class="order_info_mob_flex">
       <div class="order_summ_head">Order Summery</div>
       <div class="order_summ_details">
         <div class="subtotal_item_mob">
@@ -363,8 +363,6 @@ span.rupee_price_sign:before {
             <span class="order--item--total_mob" data-item="accent-text">{{ shipping_method.price | money_without_currency }}</span>
           </div>
         {% endfor %}
-      </div>
-    </div>
 
       {% for discount in order.discounts %}
         <div class="order_discount_mob">
@@ -402,7 +400,9 @@ span.rupee_price_sign:before {
           {{ order.total_price | money }}
         </span>
       </div>
+    </div>
   </div>
+</div>
 </div>
 
 <!-- mobile product payment details end -->
