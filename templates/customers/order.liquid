@@ -14,6 +14,18 @@ span.rupee_price_sign:before {
 }
 .order_item_mobile {
     font-size: 17px;
+    border: 1px solid #DFDFDF;
+    box-shadow: -2px 0 50px #00000014;
+    border-radius: 5px;
+    background: #fff;
+    padding: 10px;
+}
+.payment_order_mobile {
+    border: 1px solid #DFDFDF;
+    box-shadow: -2px 0 50px #00000014;
+    border-radius: 5px;
+    background: #fff;
+    padding: 10px;
 }
 .order_item_mobile span {
     font-size: 17px;
@@ -43,7 +55,7 @@ span.rupee_price_sign:before {
     width: 100%;
 }
 .order_summ_head {
-    width: 40%;
+    width: 100%;
     font-size: 14px;
     font-weight: bold;
 }
@@ -52,7 +64,7 @@ span.rupee_price_sign:before {
     width: 100%;
 }
 .order_info_mob_flxwidth {
-    width: 40%;
+    width: 50%;
     font-size: 14px;
     font-weight: bold;
 }
@@ -60,7 +72,7 @@ span.rupee_price_sign:before {
     width: 100%;
 }
 .billing_add_mobile_head {
-    width: 40%;
+    width: 100%;
     font-size: 14px;
     font-weight: bold;
 }
@@ -448,6 +460,7 @@ span.shipping_charge_mob {
 <!-- mobile shipping details start -->
 
 <div class="table_parent_mobile">
+<div class="main_billing_mobile">
 <div class="bill_add_mob">
 <div class="billing_add_mobile_head">
   <p>Billing Address</p>
@@ -492,6 +505,7 @@ span.shipping_charge_mob {
       </div>
     {% endif %}
   </div>
+</div>
 </div>
 </div>
 
