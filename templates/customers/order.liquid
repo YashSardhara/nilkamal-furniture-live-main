@@ -413,9 +413,7 @@ div#order_shipping_mob_bill {
               </div>
             </div>
           </div>
-      {% endfor %}
 
-      {% for line_item in order.line_items %}
           <div class="image__order__container_mobile">
             <div class="product_details_mob">
               <img src="{{ line_item | img_url: 'compact_cropped' }}"
