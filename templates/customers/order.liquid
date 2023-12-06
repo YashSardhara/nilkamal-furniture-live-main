@@ -63,7 +63,7 @@ span.rupee_price_sign:before {
 }
 .order_summ_head {
     width: 100%;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
     padding-bottom: 5px;
 }
@@ -74,7 +74,7 @@ span.rupee_price_sign:before {
 }
 .order_info_mob_flxwidth {
     width: 60%;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
 }
 .bill_add_mob {
@@ -82,7 +82,7 @@ span.rupee_price_sign:before {
 }
 .billing_add_mobile_head {
     width: 100%;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
     padding-bottom: 5px;
 }
@@ -90,7 +90,7 @@ span.rupee_price_sign:before {
     width: 100%;
 }
 .table_parent_mobile {
-    padding: 20px;
+    padding: 10px 15px;
 }
 .order_summ_details {
     width: 100%;
@@ -104,9 +104,11 @@ span.line_subtotal_price_mob:before {
 span.shipping_charge_mob {
     width: 60%;
 }
-
 .table_parent_mobile {
     display: none;
+}
+div#order_shipping_mob_bill {
+    padding-bottom: 20px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -489,7 +491,7 @@ span.shipping_charge_mob {
   <p>Billing Address</p>
 </div>
 <div class="billing_add_mobile_detail">
-    <div id="order_shipping_mob">
+    <div id="order_shipping_mob_bill">
       <div class="address--view">
         <p class="shipping_order_name_mob">{{ order.billing_address.name }}</p>
         {% if order.billing_address.company != '' %}
