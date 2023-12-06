@@ -393,6 +393,15 @@ span.rupee_price_sign:before {
           </span>
         </div>
       {% endfor %}
+
+      <div class="order_money_total_mob">
+        <span class="total_order_charges_mob">
+          {{ 'customer.order.total' | t }}
+        </span>
+        <span class="total_order_charges_mobi" data-item="accent-text">
+          {{ order.total_price | money }}
+        </span>
+      </div>
   </div>
 </div>
 
