@@ -81,6 +81,9 @@ span.rupee_price_sign:before {
     display: flex;
     justify-content: space-between;
 }
+span.line_subtotal_price_mob:before {
+    content: "\20b9";
+}
 </style>
 <!-- style for mobile end -->
 
@@ -398,12 +401,12 @@ span.rupee_price_sign:before {
       <div class="order_summ_details">
         <div class="subtotal_item_mob">
           <span class="order_item_count_mob">Subtotal ({{ order.item_count }} item)</span>
-          <span class="line_subtotal_price_mob">{{ order.line_items_subtotal_price | money_without_currency }}</span>
+          <span class="line_subtotal_price_mob"> {{ order.line_items_subtotal_price | money_without_currency }}</span>
         </div>
         {% for shipping_method in order.shipping_methods %}
           <div class="subtotal_item_mob">
             <span class="shipping_charge_mob"> Shipping Charge</span>
-            <span class="order--item--total_mob" data-item="accent-text">{{ shipping_method.price | money_without_currency }}</span>
+            <span class="line_subtotal_price_mob" data-item="accent-text"> {{ shipping_method.price | money_without_currency }}</span>
           </div>
         {% endfor %}
 
@@ -418,8 +421,8 @@ span.rupee_price_sign:before {
         <div class="subtotal_item_mob">
           <span class="shipping_charge_mob"> Coupon Discount
           </span>
-          <span class="" data-item="accent-text">
-            {{ discount.savings | money }}
+          <span class="line_subtotal_price_mob" data-item="accent-text">
+             {{ discount.savings | money }}
           </span>
          </div>
       {% endfor %}
@@ -429,8 +432,8 @@ span.rupee_price_sign:before {
           <span class="shipping_charge_tax_mob">
             {{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)
           </span>
-          <span class="tax_order_charges" data-item="accent-text">
-            {{ tax_line.price | money }}
+          <span class="line_subtotal_price_mob" data-item="accent-text">
+             {{ tax_line.price | money }}
           </span>
         </div>
       {% endfor %}
@@ -439,8 +442,8 @@ span.rupee_price_sign:before {
         <span class="total_order_charges_mob">
           {{ 'customer.order.total' | t }}
         </span>
-        <span class="total_order_charges_mobi" data-item="accent-text">
-          {{ order.total_price | money }}
+        <span class="line_subtotal_price_mob" data-item="accent-text">
+           {{ order.total_price | money }}
         </span>
       </div>
     </div>
