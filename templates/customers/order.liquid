@@ -445,7 +445,7 @@ span.rupee_price_sign:before {
         {% if order.billing_address.company != '' %}
         <p>{{ order.billing_address.company }}</p> 
         {% endif %}
-        <p class="shipping_order_address">{{ order.billing_address.street }}
+        <p class="shipping_order_address_mob">{{ order.billing_address.street }}
           {{ order.billing_address.city }}, {{ order.billing_address.province }}
           <!-- {{ order.shipping_address.country }} -->
           - {{ order.billing_address.zip }}
@@ -468,7 +468,7 @@ span.rupee_price_sign:before {
           {% if order.shipping_address.company != '' %}
                <p>{{ order.shipping_address.company }}</p> 
               {% endif %}
-          <p class="shipping_order_address">{{ order.shipping_address.street }}
+          <p class="shipping_order_address_mob">{{ order.shipping_address.street }}
             {{ order.shipping_address.city }}, {{ order.shipping_address.province }}
             <!-- {{ order.shipping_address.country }} -->
             - {{ order.shipping_address.zip }}
