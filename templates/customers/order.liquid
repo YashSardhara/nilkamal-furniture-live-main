@@ -79,7 +79,6 @@ span.rupee_price_sign:before {
 }
 .subtotal_item_mob {
     display: flex;
-    justify-content: space-between;
 }
 span.line_subtotal_price_mob:before {
     content: "\20b9";
@@ -429,7 +428,7 @@ span.line_subtotal_price_mob:before {
 
       {% for tax_line in order.tax_lines %}
         <div class="subtotal_item_mob">
-          <span class="shipping_charge_tax_mob">
+          <span class="shipping_charge_mob">
             {{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)
           </span>
           <span class="line_subtotal_price_mob" data-item="accent-text">
@@ -439,7 +438,7 @@ span.line_subtotal_price_mob:before {
       {% endfor %}
 
       <div class="subtotal_item_mob">
-        <span class="total_order_charges_mob">
+        <span class="shipping_charge_mob">
           {{ 'customer.order.total' | t }}
         </span>
         <span class="line_subtotal_price_mob" data-item="accent-text">
