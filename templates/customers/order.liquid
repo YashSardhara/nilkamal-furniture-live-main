@@ -441,7 +441,7 @@ span.rupee_price_sign:before {
 <div class="billing_add_mobile_detail">
     <div id="order_shipping_mob">
       <div class="address--view">
-        <p class="shipping_order_name">{{ order.billing_address.name }}</p>
+        <p class="shipping_order_name_mob">{{ order.billing_address.name }}</p>
         {% if order.billing_address.company != '' %}
         <p>{{ order.billing_address.company }}</p> 
         {% endif %}
@@ -464,7 +464,7 @@ span.rupee_price_sign:before {
     {% if order.shipping_address %}
       <div id="order_shipping_mob">
         <div class="address--view">
-          <p class="shipping_order_name">{{ order.shipping_address.name }}</p>
+          <p class="shipping_order_name_mob">{{ order.shipping_address.name }}</p>
           {% if order.shipping_address.company != '' %}
                <p>{{ order.shipping_address.company }}</p> 
               {% endif %}
