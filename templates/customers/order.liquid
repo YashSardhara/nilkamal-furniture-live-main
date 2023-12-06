@@ -115,6 +115,10 @@ div#order_shipping_mob_bill {
 .money_mobi_price {
     padding-bottom: 10px;
 }
+.image__order__container_mobile {
+    border-bottom: 1px solid grey;
+    margin-bottom: 12px;
+}
 
 @media only screen and (max-width: 600px) {
   .table_parent_mobile {
@@ -352,71 +356,6 @@ div#order_shipping_mob_bill {
 <div class="table_parent_mobile">
   <div class="order_item_mobile">
       {% for line_item in order.line_items %}
-          <div class="image__order__container_mobile">
-            <div class="product_details_mob">
-              <img src="{{ line_item | img_url: 'compact_cropped' }}"
-              class="order-list__product-image_mobile" />
-              <p>{{ line_item.title | link_to: line_item.product.url }}</p>
-            </div>
-            <div class="product_sku_mob">
-              <div class="sku_mobile">
-                <span>SKU</span> {{ line_item.sku }}
-              </div>
-            </div>
-            <div class="product_price_qty_mob">
-            <div class="product_price_mob">
-              {% if line_item.original_line_price > line_item.final_line_price %}
-                <div data-item="light-accent-text">
-                  <s class="money_mob">{{ line_item.original_price | money }}</s>
-                </div>
-              {% endif %}
-
-              <div class="money_mob_price" data-item="accent-text">
-                <span>Price</span> <span class="rupee_price_sign"> {{ line_item.final_price | money_without_currency }}</span>
-              </div>
-
-              <div class="order--item--unit-price-container" data-item="light-accent-text">
-                {% if line_item.unit_price_measurement %}
-                {{- line_item.unit_price | money -}}/
-                {%- if line_item.unit_price_measurement.reference_value != 1 -%}
-                {{- line_item.unit_price_measurement.reference_value -}}
-                {%- endif -%}
-                {{ line_item.unit_price_measurement.reference_unit }}
-                {% endif %}
-              </div>
-
-              {% if line_item.line_level_discount_allocations.size > 0 %}
-              <div data-item="light-accent-text">
-                {% for discount_allocation in line_item.line_level_discount_allocations %}
-                {{ discount_allocation.discount_application.title }} 
-                (-<span class="money_mob"> {{ discount_allocation.amount | money }}</span>)
-                {% endfor %}
-              </div>
-              {% endif %}
-            </div>
-
-            <div class="product_qty">
-              <div class="order_qty_mob" data-label="{{ 'customer.order.quantity' | t }}">
-                <span>QTY</span> {{ line_item.quantity }}
-              </div>
-            </div>
-          </div>
-
-            <div class="product_total_price">
-              <div class="total_price_mobi" data-item="accent-text"
-                data-label="{{ 'customer.order.total' | t }}">
-                {% if line_item.original_line_price > line_item.final_line_price %}
-                <div data-item="light-accent-text">
-                  <s class="money_mobi">{{ line_item.original_line_price | money }}</s>
-                </div>
-                {% endif %}
-                <div class="money_mobi_price">
-                  <span>Total Price</span> <span class="rupee_price_sign"> {{ line_item.quantity | times: line_item.final_price | money_without_currency }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div class="image__order__container_mobile">
             <div class="product_details_mob">
               <img src="{{ line_item | img_url: 'compact_cropped' }}"
