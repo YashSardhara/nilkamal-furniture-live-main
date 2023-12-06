@@ -423,6 +423,25 @@ span.rupee_price_sign:before {
 
 <!-- mobile product payment details end -->
 
+<!-- mobile shipping details start -->
+
+<div id="order_shipping" class="columns">
+  <div class="address--view">
+    <p class="shipping_order_name">{{ order.billing_address.name }}</p>
+    {% if order.billing_address.company != '' %}
+     <p>{{ order.billing_address.company }}</p> 
+    {% endif %}
+    <p class="shipping_order_address">{{ order.billing_address.street }}
+      {{ order.billing_address.city }}, {{ order.billing_address.province }}
+      <!-- {{ order.shipping_address.country }} -->
+      - {{ order.billing_address.zip }}
+    </p>
+    {%comment%} <p>{{ order.shipping_address.phone }}</p>{% endcomment%}
+  </div>
+</div>
+
+<!-- mobile shipping details end -->
+
 
   <div class="table__parent">
   <table id="order_details" class="order--table order__table_details responsive order__table__responsive">
