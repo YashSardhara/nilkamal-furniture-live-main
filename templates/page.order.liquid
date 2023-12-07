@@ -6,6 +6,9 @@
     .order-quick-info_mobile {
       display: block !important;
     }
+    .detail-info-button_mobile {
+      margin-left: 0px !important;
+    }
 }
 </style>
 
@@ -89,7 +92,7 @@
                             <span>Total Amount</span>
                           </b><br><br>{{ order.total_price | money }}</p>
                       </div>
-                      <div class="detail-info-button center">
+                      <div class="detail-info-button center detail-info-button_mobile">
                         <a href="{{ order.customer_url }}" class="action_button">View</a>
                       </div>
                     </div>
