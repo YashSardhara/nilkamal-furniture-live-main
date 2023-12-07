@@ -9,6 +9,10 @@
     .detail-info-button_mobile {
       margin-left: 0px !important;
     }
+    .flex_img_id_mobile {
+      display: flex;
+      justify-content: space-between;
+    }
 }
 </style>
 
@@ -53,7 +57,7 @@
                     <div class="order-quick-info relative order-quick-info_mobile">
                       <div class="quick-info quick-info_mobile">
 
-                      <div class="flex_img_id">
+                      <div class="flex_img_id_mobile">
                         <p class="product-img">
                           <a class="order_img" href="{{ order.customer_url }}"><img src="{{ order.line_items[0] | img_url: 'compact_cropped' }}"></a>
                         </p>
@@ -64,6 +68,7 @@
                         </p>
                       </div>
 
+                      <div class="flex_img_id_mobile">
                         <p class="order-amount">
                           <b>
                             <span>Payment Status
@@ -90,6 +95,8 @@
                             {% assign trans_partial = 'unfulfilled' | capitalize %}
                             {{ order.fulfillment_status | replace: 'unfulfilled', trans_unfulfilled | replace: 'fulfilled', trans_fulfilled | replace: 'partial', trans_partial }}</span>
                         </p>
+                      </div>
+
                         <p class="order-amount">
                           <b>
                             <span>Total Amount</span>
