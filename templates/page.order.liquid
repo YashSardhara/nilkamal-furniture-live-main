@@ -3,6 +3,9 @@
     .quick-info_mobile {
       display: block;
     }
+    .order-quick-info_mobile {
+      display: block;
+    }
 }
 </style>
 
@@ -44,7 +47,7 @@
 
                 {% for order in customer.orders %}
                   {% for line_item in order.line_items %}
-                    <div class="order-quick-info relative">
+                    <div class="order-quick-info relative order-quick-info_mobile">
                       <div class="quick-info quick-info_mobile">
                         <p class="product-img">
                           <a class="order_img" href="{{ order.customer_url }}"><img src="{{ order.line_items[0] | img_url: 'compact_cropped' }}"></a>
