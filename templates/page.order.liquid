@@ -52,6 +52,8 @@
                   {% for line_item in order.line_items %}
                     <div class="order-quick-info relative order-quick-info_mobile">
                       <div class="quick-info quick-info_mobile">
+
+                      <div class="flex_img_id">
                         <p class="product-img">
                           <a class="order_img" href="{{ order.customer_url }}"><img src="{{ order.line_items[0] | img_url: 'compact_cropped' }}"></a>
                         </p>
@@ -60,6 +62,7 @@
                           <b>Order ID {{ order.name | link_to: order.customer_url }}</b><br>
                           <span class="purchase-date">{{ order.created_at | date: format: "month_day_year" }}</span>
                         </p>
+                      </div>
 
                         <p class="order-amount">
                           <b>
