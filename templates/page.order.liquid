@@ -62,7 +62,7 @@
               <div class="loop-order-info">
 
                 {% for order in customer.orders %}
-                  {% for line_item in order.line_items %}
+                  {% comment %} {% for line_item in order.line_items %} {% endcomment %}
                     <div class="order-quick-info relative order-quick-info_mobile">
                       <div class="quick-info quick-info_mobile">
 
@@ -115,7 +115,7 @@
                         <a href="{{ order.customer_url }}" class="action_button">View</a>
                       </div>
                     </div>
-                  {% endfor %}
+                  {% comment %} {% endfor %} {% endcomment %}
                 {% endfor %}
               </div>
 
