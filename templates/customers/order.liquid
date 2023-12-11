@@ -459,7 +459,7 @@ p.all_orders img {
       <div class="order_summ_head">Order Summery</div>
       <div class="order_summ_details">
         <div class="subtotal_item_mob">
-          <span class="shipping_charge_mob">Subtotal ({{ order.item_count | pluralize: 'item', 'items'}}):</span>
+          <span class="shipping_charge_mob">Subtotal ({{ order.item_count }} {{ pluralize: 'item', 'items' }}):</span>
           <span class="line_subtotal_price_mob"> {{ order.line_items_subtotal_price | money_without_currency }}</span>
         </div>
         {% for shipping_method in order.shipping_methods %}
