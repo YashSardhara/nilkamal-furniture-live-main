@@ -55,10 +55,10 @@ span.rupee_price_sign:before {
     gap: 30px;
 }
 .sku_mobile {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 .product_price_qty_mob {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 .order_info_mob_flex {
     width: 100%;
@@ -73,6 +73,7 @@ span.rupee_price_sign:before {
     display: flex;
     width: 100%;
     padding-bottom: 10px;
+    text-transform: capitalize;
 }
 .order_info_mob_flxwidth {
     width: 60%;
@@ -99,6 +100,7 @@ span.rupee_price_sign:before {
 }
 .subtotal_item_mob {
     display: flex;
+    padding-bottom: 5px;
 }
 span.line_subtotal_price_mob:before {
     content: "\20b9";
@@ -127,6 +129,19 @@ div#order_shipping_mob_bill {
 .table__parent {
     display: none !important;
 }
+h1.orderid_head {
+  margin-top: 30px !important;
+}
+p.all_orders {
+    margin-top: 115px !important;
+    padding: 0px 20px !important;
+}
+h1.orderid_head {
+    font-size: 19.6px !important;
+}
+p.all_orders img {
+    width: 17px !important;
+}
 }
 </style>
 <!-- style for mobile end -->
@@ -153,7 +168,7 @@ div#order_shipping_mob_bill {
     <h5 id="order_cancelled_title">Order Cancelled On
       <span class="note">{{ order.cancelled_at | time_tag: format: 'date' }}</span>
     </h5>
-    <span class="note__cs">{{ order.cancel_reason }}</span>
+    {% comment %} <span class="note__cs">{{ order.cancel_reason }}</span> {% endcomment %}
   </div>
   {% endif %}
 
@@ -364,7 +379,7 @@ div#order_shipping_mob_bill {
             </div>
             <div class="product_sku_mob">
               <div class="sku_mobile">
-                <span>SKU</span> {{ line_item.sku }}
+                <span>SKU:</span> {{ line_item.sku }}
               </div>
             </div>
             <div class="product_price_qty_mob">
@@ -376,7 +391,7 @@ div#order_shipping_mob_bill {
               {% endif %}
 
               <div class="money_mob_price" data-item="accent-text">
-                <span>Price</span> <span class="rupee_price_sign"> {{ line_item.final_price | money_without_currency }}</span>
+                <span>Price:</span> <span class="rupee_price_sign">{{ line_item.final_price | money_without_currency }}</span>
               </div>
 
               <div class="order--item--unit-price-container" data-item="light-accent-text">
@@ -393,7 +408,7 @@ div#order_shipping_mob_bill {
               <div data-item="light-accent-text">
                 {% for discount_allocation in line_item.line_level_discount_allocations %}
                 {{ discount_allocation.discount_application.title }} 
-                (-<span class="money_mob"> {{ discount_allocation.amount | money }}</span>)
+                (-<span class="money_mob">{{ discount_allocation.amount | money }}</span>)
                 {% endfor %}
               </div>
               {% endif %}
@@ -401,7 +416,7 @@ div#order_shipping_mob_bill {
 
             <div class="product_qty">
               <div class="order_qty_mob" data-label="{{ 'customer.order.quantity' | t }}">
-                <span>QTY</span> {{ line_item.quantity }}
+                <span>QTY:</span> {{ line_item.quantity }}
               </div>
             </div>
           </div>
@@ -415,7 +430,7 @@ div#order_shipping_mob_bill {
                 </div>
                 {% endif %}
                 <div class="money_mobi_price">
-                  <span>Total Price</span> <span class="rupee_price_sign"> {{ line_item.quantity | times: line_item.final_price | money_without_currency }}</span>
+                  <span>Total Price:</span> <span class="rupee_price_sign">{{ line_item.quantity | times: line_item.final_price | money_without_currency }}</span>
                 </div>
               </div>
             </div>
@@ -431,12 +446,12 @@ div#order_shipping_mob_bill {
 <div class="table_parent_mobile">
   <div class="payment_order_mobile">
     <div class="order_info_mob">
-      <div class="order_info_mob_flxwidth">Payment Status</div> 
-      <div class="order_info_mob_flxwidth_1">{{ order.financial_status }}</div>
+      <div class="order_info_mob_flxwidth">Payment Status:</div> 
+      <div class="order_info_mob_flxwidth_1">{{ order.financial_status | replace: "pending", "COD" | replace: "paid", "Pre-Paid" }}</div>
     </div>
 
     <div class="order_info_mob">
-      <div class="order_info_mob_flxwidth">Fulfill Status</div> 
+      <div class="order_info_mob_flxwidth">Fulfill Status:</div> 
       <div class="order_info_mob_flxwidth_1">{{ order.fulfillment_status }}</div>
     </div>
 
@@ -444,7 +459,7 @@ div#order_shipping_mob_bill {
       <div class="order_summ_head">Order Summery</div>
       <div class="order_summ_details">
         <div class="subtotal_item_mob">
-          <span class="shipping_charge_mob">Subtotal ({{ order.item_count }} item):</span>
+          <span class="shipping_charge_mob">Subtotal ({{ order.item_count }} {{ order.item_count | pluralize: 'item', 'items'}}):</span>
           <span class="line_subtotal_price_mob"> {{ order.line_items_subtotal_price | money_without_currency }}</span>
         </div>
         {% for shipping_method in order.shipping_methods %}
