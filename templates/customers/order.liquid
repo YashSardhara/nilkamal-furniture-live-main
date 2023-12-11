@@ -55,10 +55,10 @@ span.rupee_price_sign:before {
     gap: 30px;
 }
 .sku_mobile {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 .product_price_qty_mob {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 .order_info_mob_flex {
     width: 100%;
@@ -99,6 +99,7 @@ span.rupee_price_sign:before {
 }
 .subtotal_item_mob {
     display: flex;
+    padding-bottom: 5px;
 }
 span.line_subtotal_price_mob:before {
     content: "\20b9";
@@ -431,12 +432,12 @@ div#order_shipping_mob_bill {
 <div class="table_parent_mobile">
   <div class="payment_order_mobile">
     <div class="order_info_mob">
-      <div class="order_info_mob_flxwidth">Payment Status</div> 
+      <div class="order_info_mob_flxwidth">Payment Status:</div> 
       <div class="order_info_mob_flxwidth_1">{{ order.financial_status }}</div>
     </div>
 
     <div class="order_info_mob">
-      <div class="order_info_mob_flxwidth">Fulfill Status</div> 
+      <div class="order_info_mob_flxwidth">Fulfill Status:</div> 
       <div class="order_info_mob_flxwidth_1">{{ order.fulfillment_status }}</div>
     </div>
 
