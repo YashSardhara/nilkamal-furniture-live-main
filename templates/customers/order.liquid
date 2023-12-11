@@ -443,7 +443,7 @@ h1.orderid_head {
   <div class="payment_order_mobile">
     <div class="order_info_mob">
       <div class="order_info_mob_flxwidth">Payment Status:</div> 
-      <div class="order_info_mob_flxwidth_1">{{ order.financial_status }}</div>
+      <div class="order_info_mob_flxwidth_1">{{ order.financial_status | replace: "pending", "COD" | replace: "paid", "Pre-Paid" }}</div>
     </div>
 
     <div class="order_info_mob">
