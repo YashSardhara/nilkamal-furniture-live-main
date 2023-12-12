@@ -59,6 +59,7 @@ span.rupee_price_sign:before {
 }
 .product_price_qty_mob {
     padding-bottom: 5px;
+    line-height: 27px;
 }
 .order_info_mob_flex {
     width: 100%;
@@ -386,7 +387,7 @@ p.all_orders img {
             <div class="product_price_mob">
               {% if line_item.original_line_price > line_item.final_line_price %}
                 <div data-item="light-accent-text">
-                  <s class="money_mob">{{ line_item.original_price | money }}</s>
+                  <span>MRP:</span> <s class="money_mob">{{ line_item.original_price | money }}</s>
                 </div>
               {% endif %}
 
@@ -407,7 +408,7 @@ p.all_orders img {
               {% if line_item.line_level_discount_allocations.size > 0 %}
               <div data-item="light-accent-text">
                 {% for discount_allocation in line_item.line_level_discount_allocations %}
-                {{ discount_allocation.discount_application.title }} 
+                  <span>Discount:</span> {{ discount_allocation.discount_application.title }} 
                 (-<span class="money_mob">{{ discount_allocation.amount | money }}</span>)
                 {% endfor %}
               </div>
@@ -424,11 +425,11 @@ p.all_orders img {
             <div class="product_total_price">
               <div class="total_price_mobi" data-item="accent-text"
                 data-label="{{ 'customer.order.total' | t }}">
-                {% if line_item.original_line_price > line_item.final_line_price %}
+                {% comment %} {% if line_item.original_line_price > line_item.final_line_price %}
                 <div data-item="light-accent-text">
                   <s class="money_mobi">{{ line_item.original_line_price | money }}</s>
                 </div>
-                {% endif %}
+                {% endif %} {% endcomment %}
                 <div class="money_mobi_price">
                   <span>Total Price:</span> <span class="rupee_price_sign">{{ line_item.quantity | times: line_item.final_price | money_without_currency }}</span>
                 </div>
