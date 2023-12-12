@@ -386,7 +386,7 @@ p.all_orders img {
             <div class="product_price_mob">
               {% if line_item.original_line_price > line_item.final_line_price %}
                 <div data-item="light-accent-text">
-                  <s class="money_mob">{{ line_item.original_price | money }}</s>
+                  <span>MRP:</span> <s class="money_mob">{{ line_item.original_price | money }}</s>
                 </div>
               {% endif %}
 
@@ -408,7 +408,7 @@ p.all_orders img {
               <div data-item="light-accent-text">
                 {% for discount_allocation in line_item.line_level_discount_allocations %}
                 {{ discount_allocation.discount_application.title }} 
-                (-<span class="money_mob">{{ discount_allocation.amount | money }}</span>)
+                <span>Discount:</span> (-<span class="money_mob">{{ discount_allocation.amount | money }}</span>)
                 {% endfor %}
               </div>
               {% endif %}
