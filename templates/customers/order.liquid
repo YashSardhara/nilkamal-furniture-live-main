@@ -407,8 +407,8 @@ p.all_orders img {
               {% if line_item.line_level_discount_allocations.size > 0 %}
               <div data-item="light-accent-text">
                 {% for discount_allocation in line_item.line_level_discount_allocations %}
-                {{ discount_allocation.discount_application.title }} 
-                <span>Discount:</span> (-<span class="money_mob">{{ discount_allocation.amount | money }}</span>)
+                  <span>Discount:</span> {{ discount_allocation.discount_application.title }} 
+                (-<span class="money_mob">{{ discount_allocation.amount | money }}</span>)
                 {% endfor %}
               </div>
               {% endif %}
