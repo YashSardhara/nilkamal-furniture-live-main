@@ -226,9 +226,9 @@
               >
               <div class="section product_section clearfix js-product_section {% if section.settings.product_images_position == 'right' %}align_right--images{% endif %}" itemscope itemtype="http://schema.org/Product" data-rv-handle="{{ product.handle }}">
 
-                {% comment %} <div class="product-image-column {% if sidebar %}six{% else %}six{% endif %} columns {% if section.settings.product_images_position == 'left' %}alpha{% else %}omega{% endif %}">
-                  {% include 'product-images' %}
-                </div> {% endcomment %}
+                <div class="product-image-column {% if sidebar %}six{% else %}six{% endif %} columns {% if section.settings.product_images_position == 'left' %}alpha{% else %}omega{% endif %}">
+                  {% comment %} {% include 'product-images' %} {% endcomment %}
+                </div>
 
                 <div class="{% if sidebar %}five{% else %}seven{% endif %} columns {% if section.settings.product_images_position == 'left' %}omega{% else %}alpha{% endif %}">
                   {% assign collection_handles = product.collections | map: 'handle' %}
