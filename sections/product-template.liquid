@@ -226,7 +226,7 @@
               >
               <div class="section product_section clearfix js-product_section {% if section.settings.product_images_position == 'right' %}align_right--images{% endif %}" itemscope itemtype="http://schema.org/Product" data-rv-handle="{{ product.handle }}">
 
-                <div class="product-image-column {% if sidebar %}six{% else %}six{% endif %} columns {% if section.settings.product_images_position == 'left' %}alpha{% else %}omega{% endif %}">
+                <div class="product-image-column columns omega {% if sidebar %}six{% else %}six{% endif %} columns {% if section.settings.product_images_position == 'left' %}alpha{% else %}omega{% endif %}">
                   {% comment %} {% include 'product-images' %} {% endcomment %}
                 </div>
 
