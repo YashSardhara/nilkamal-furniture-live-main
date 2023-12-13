@@ -1046,7 +1046,8 @@
           "block_order": [
             "1489285451288-1"
           ],
-          "settings": {}
+          "settings": {
+          }
         },
         "1489285524898": {
           "type": "testimonial",
@@ -2176,7 +2177,8 @@
           "block_order": [
             "1489285451288-1"
           ],
-          "settings": {}
+          "settings": {
+          }
         },
         "1489285524898": {
           "type": "testimonial",
@@ -3049,7 +3051,8 @@
           "block_order": [
             "1489285451288-1"
           ],
-          "settings": {}
+          "settings": {
+          }
         },
         "1489285524898": {
           "type": "testimonial",
@@ -3906,7 +3909,8 @@
           "block_order": [
             "1489285451288-1"
           ],
-          "settings": {}
+          "settings": {
+          }
         },
         "1489285524898": {
           "type": "testimonial",
@@ -5213,7 +5217,8 @@
           "1576479867168-1"
         ],
         "disabled": true,
-        "settings": {}
+        "settings": {
+        }
       },
       "1576481521441": {
         "type": "collection-list",
@@ -5701,7 +5706,9 @@
       },
       "1633414963454337f0": {
         "type": "image-with-text-overlay",
-        "custom_css": [],
+        "custom_css": [
+
+        ],
         "settings": {
           "image": "shopify:\/\/shop_images\/Deskstop.jpg",
           "mobimage": "shopify:\/\/shop_images\/Mobile_1.jpg",
@@ -5846,7 +5853,8 @@
         "block_order": [
           "e573841f-b474-4856-bb2d-2be6bf73eea1"
         ],
-        "settings": {}
+        "settings": {
+        }
       },
       "featured-collection": {
         "type": "featured-collection",
@@ -5861,7 +5869,8 @@
       },
       "modular__bed__blog": {
         "type": "modular__bed__blog",
-        "settings": {}
+        "settings": {
+        }
       },
       "featured-collection-two": {
         "type": "featured-collection-two",
@@ -5898,7 +5907,8 @@
       },
       "modular-landing-page": {
         "type": "modular-landing-page",
-        "settings": {}
+        "settings": {
+        }
       },
       "featured-collection--four": {
         "type": "featured-collection--four",
@@ -5913,7 +5923,8 @@
       },
       "modular-landing-page-two": {
         "type": "modular-landing-page-two",
-        "settings": {}
+        "settings": {
+        }
       },
       "video": {
         "type": "video",
@@ -6151,12 +6162,20 @@
       "11724500921838622758": {
         "type": "shopify:\/\/apps\/frequently-bought-together\/blocks\/app-embed-block\/b1a8cbea-c844-4842-9529-7c62dbab1b1f",
         "disabled": false,
-        "settings": {}
+        "settings": {
+        }
       },
       "18281310450600262962": {
         "type": "shopify:\/\/apps\/clevertap\/blocks\/app-embed\/2566991a-cd89-49d8-997d-74717582b9ed",
         "disabled": false,
-        "settings": {}
+        "settings": {
+        }
+      },
+      "5281749993944428517": {
+        "type": "shopify:\/\/apps\/variant-image-wizard-swatch\/blocks\/app-embed\/66205c03-f474-4e2c-b275-0a2806eeac16",
+        "disabled": false,
+        "settings": {
+        }
       }
     }
   }
