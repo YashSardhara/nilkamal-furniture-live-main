@@ -248,7 +248,7 @@
                     {% endif %}
                 <script>
                         document.addEventListener('DOMContentLoaded', function() {
-                          var variantSelect = document.getElementById('productSelect');
+                          var variantSelect = document.getElementByClass('swatch-element');
                     
                           variantSelect.addEventListener('change', function() {
                             var selectedVariantId = variantSelect.value;
