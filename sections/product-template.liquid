@@ -228,6 +228,45 @@
 
                 <div class="product-image-column columns omega {% if sidebar %}six{% else %}six{% endif %} columns {% if section.settings.product_images_position == 'left' %}alpha{% else %}omega{% endif %}">
                   {% comment %} {% include 'product-images' %} {% endcomment %}
+                {% assign totalVariants = product.variants.size %}
+
+{% if totalVariants == 1 %}
+  <!-- If there's only one variant, show all images -->
+  {% for variant in product.variants %}
+    <div class="variant-image-container">
+      <img src="{{ variant.featured_image.src | img_url: 'medium' }}" alt="{{ variant.title }}">
+    </div>
+  {% endfor %}
+{% else %}
+  <!-- If there are multiple variants, show variant-specific images -->
+  {% for variant in product.variants %}
+    <div class="variant-image-container" id="variantImage{{ variant.id }}" style="display: none;">
+      <img src="{{ variant.featured_image.src | img_url: 'medium' }}" alt="{{ variant.title }}">
+    </div>
+  {% endfor %}
+
+  <!-- JavaScript to handle variant change and show corresponding image -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var variantSelect = document.getElementById('productSelect');
+
+      variantSelect.addEventListener('change', function() {
+        var selectedVariantId = variantSelect.value;
+        var variantImageContainer = document.getElementById('variantImage' + selectedVariantId);
+
+        var allVariantImageContainers = document.querySelectorAll('.variant-image-container');
+        allVariantImageContainers.forEach(function(container) {
+          container.style.display = 'none';
+        });
+
+        if (variantImageContainer) {
+          variantImageContainer.style.display = 'block';
+        }
+      });
+    });
+  </script>
+{% endif %}
+
                 </div>
 
                 <div class="{% if sidebar %}five{% else %}seven{% endif %} columns {% if section.settings.product_images_position == 'left' %}omega{% else %}alpha{% endif %}">
