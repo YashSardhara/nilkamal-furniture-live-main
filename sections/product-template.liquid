@@ -244,8 +244,9 @@
                         </div>
                       {% endfor %}
                     
-                      <!-- JavaScript to handle variant change and show corresponding image -->
-                      <script>
+                      
+                    {% endif %}
+                <script>
                         document.addEventListener('DOMContentLoaded', function() {
                           var variantSelect = document.getElementById('productSelect');
                     
@@ -264,7 +265,6 @@
                           });
                         });
                       </script>
-                    {% endif %}
                 </div>
 
                 <div class="{% if sidebar %}five{% else %}seven{% endif %} columns {% if section.settings.product_images_position == 'left' %}omega{% else %}alpha{% endif %}">
