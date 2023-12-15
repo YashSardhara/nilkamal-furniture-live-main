@@ -256,6 +256,7 @@
                   maxlength="50"
                   autocorrect="off"
                   autocapitalize="off"
+                  autocomplete="off"
                   required>
                 <label class="floating-label">City Name<span>*</span>
                 </label>
@@ -1284,7 +1285,7 @@
                     listItem.classList.add("list-items");
                     listItem.style.cursor = "pointer";
                     listItem.setAttribute("onclick", "displayNames('" + i + "')");
-                    listItem.textContent = i; // Use textContent to set the whole city name
+                    listItem.textContent = i;
                     document.querySelector(".city_sugg").appendChild(listItem);
                 }
             }
