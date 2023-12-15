@@ -1275,32 +1275,35 @@
     "Titagarh"
   ];
   let sortedNames = cityNames.sort();
-  let input = document.getElementById("city_name");
-  input.addEventListener("keyup", (e) => {
-    removeElements();
-    for (let i of sortedNames) {
-      if (i.toLowerCase().startsWith(input.value.toLowerCase()) && input.value != "") {
-        let listItem = document.createElement("li");
-        listItem.classList.add("list-items");
-        listItem.style.cursor = "pointer";
-        listItem.setAttribute("onclick", "displayNames('" + i + "')");
-        let word = "<b>" + i.substr(0, input.value.length) + "</b>";
-        word += i.substr(input.value.length);
-        listItem.innerHTML = word;
-        document.querySelector(".city_sugg").appendChild(listItem);
-      }
+let input = document.getElementById("city_name");
+input.addEventListener("input", (e) => {
+  removeElements();
+  let inputValue = e.target.value.toLowerCase();
+  for (let i of sortedNames) {
+    if (i.toLowerCase().startsWith(inputValue) && inputValue !== "") {
+      let listItem = document.createElement("li");
+      listItem.classList.add("list-items");
+      listItem.style.cursor = "pointer";
+      listItem.setAttribute("onclick", "displayNames('" + i + "')");
+      let word = "<b>" + i.substr(0, inputValue.length) + "</b>";
+      word += i.substr(inputValue.length);
+      listItem.innerHTML = word;
+      document.querySelector(".city_sugg").appendChild(listItem);
     }
+  }
+});
+
+function displayNames(value) {
+  input.value = value;
+  removeElements();
+}
+
+function removeElements() {
+  let items = document.querySelectorAll(".list-items");
+  items.forEach((item) => {
+    item.remove();
   });
-  function displayNames(value) {
-    input.value = value;
-    removeElements();
-  }
-  function removeElements() {
-    let items = document.querySelectorAll(".list-items");
-    items.forEach((item) => {
-      item.remove();
-    });
-  }
+}
 </script>
 
 <script>
