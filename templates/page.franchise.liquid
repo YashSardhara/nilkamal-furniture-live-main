@@ -1275,12 +1275,11 @@
     "Tamluk",
     "Titagarh"
   ];
-  let sortedNames = cityNames.sort();
-    let input = document.getElementById("city_name");
+  let input = document.getElementById("city_name");
 
     input.addEventListener("input", (e) => {
         removeElements();
-        for (let i of sortedNames) {
+        for (let i of cityNames) {
             if (i.toLowerCase().startsWith(input.value.toLowerCase()) && input.value !== "") {
                 let listItem = document.createElement("li");
                 listItem.classList.add("list-items");
@@ -1293,7 +1292,7 @@
     });
 
     function displayNames(value) {
-        input.value = value; // Set the entire city name
+        input.value = value;
         removeElements();
     }
 
