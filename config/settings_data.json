@@ -4896,8 +4896,8 @@
           "4df1d8be-b1e4-410c-ae53-934559add4a7": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/sofa_set.jpg",
-              "mobimage": "shopify:\/\/shop_images\/Artboard_1-4_79a1ce02-6e92-416d-91f4-704693d38127.jpg",
+              "image": "shopify:\/\/shop_images\/Artboard_1-3_5f157394-a4ac-43fd-b36b-83c27d816f74.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Artboard_1_4a36582f-f7c0-42e6-ae86-a722334e1347.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4906,7 +4906,7 @@
               "caption_background": false,
               "caption_background_transparency": false,
               "button1": "",
-              "button1_link": "shopify:\/\/collections\/sofa",
+              "button1_link": "https:\/\/www.nilkamalfurniture.com\/collections\/work-from-home",
               "button1_highlight": false,
               "button2": "",
               "button2_link": "",
