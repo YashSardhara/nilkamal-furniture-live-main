@@ -4815,8 +4815,8 @@
           "e116edb9-8097-4809-b939-ce83cf46e550": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/modular_bed_01cd59e6-0ae6-4c34-949d-27932bc40988.jpg",
-              "mobimage": "shopify:\/\/shop_images\/Artboard_1-1_9e470beb-65be-48a6-9e18-9974dabde123.jpg",
+              "image": "shopify:\/\/shop_images\/Artboard_1_5a7f2a58-9366-44d2-9048-9bdf2a3525f4.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Artboard_1-3_6db1ebd1-5ca8-4787-a3cc-9f6111d98d21.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4825,7 +4825,7 @@
               "caption_background": false,
               "caption_background_transparency": false,
               "button1": "",
-              "button1_link": "shopify:\/\/collections\/modular-beds",
+              "button1_link": "shopify:\/\/collections\/bed-room",
               "button1_highlight": false,
               "button2": "",
               "button2_link": "",
