@@ -4855,8 +4855,8 @@
           "766fa416-58b1-45f2-9f1f-c6f5671c78be": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/dressing_table.jpg",
-              "mobimage": "shopify:\/\/shop_images\/Artboard_1_5eaf481a-79e4-4af2-8aab-2bbec42e9daa.jpg",
+              "image": "shopify:\/\/shop_images\/Artboard_1-1_1d6919e1-aef6-4d87-89aa-322beb5c3f62.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Artboard_1-2_e9c383b5-52f0-4ea5-af9b-caaf2626f6dc.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4865,7 +4865,7 @@
               "caption_background": false,
               "caption_background_transparency": false,
               "button1": "",
-              "button1_link": "shopify:\/\/collections\/dressers",
+              "button1_link": "",
               "button1_highlight": false,
               "button2": "",
               "button2_link": "",
