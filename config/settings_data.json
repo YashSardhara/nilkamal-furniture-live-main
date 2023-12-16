@@ -4835,8 +4835,8 @@
           "ea0cea26-75de-44ce-bc48-1d8905fbfa57": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/wardrobe_4b559c84-adbb-4c70-a390-50fedaade471.jpg",
-              "mobimage": "shopify:\/\/shop_images\/Artboard_1-3_6357a584-ffae-4dc9-a9c0-387b1cbc989f.jpg",
+              "image": "shopify:\/\/shop_images\/Artboard_1-2_31e3184b-ca13-4aa8-86a6-33d18b774b63.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Artboard_1-1_e6dbeebd-7377-4672-98b9-4d634ad3da08.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4845,7 +4845,7 @@
               "caption_background": false,
               "caption_background_transparency": false,
               "button1": "",
-              "button1_link": "shopify:\/\/collections\/wardrobes",
+              "button1_link": "shopify:\/\/collections\/living-room",
               "button1_highlight": false,
               "button2": "",
               "button2_link": "",
