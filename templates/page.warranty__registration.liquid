@@ -1002,7 +1002,14 @@
           </div>
         </div>
         <div class="form-group col-md-6">
-          <div class="did-floating-label-content-war">
+          <div class="form-group col-md-6 did-floating-box">
+            <input class="form-control buttonstyle"
+               type="text" name="city"
+              id="address_city"  placeholder=" " required>
+            <label class="did-floating-label">City</label>
+            <span id="city_error" class="help-inline text-danger"></span>
+          </div>
+          {% comment %} <div class="did-floating-label-content-war">
             <select id="address_city" name="city" class="did-floating-select"
               onclick="this.setAttribute('value', this.value);" onchange="this.setAttribute('value', this.value);"
               value="">
@@ -1010,7 +1017,7 @@
             </select>
             <label class="did-floating-label-war">City</label>
             <span id="city_error" class="help-inline text-danger"></span>
-          </div>
+          </div> {% endcomment %}
         </div>
       </div>
       <div class="form-row">
