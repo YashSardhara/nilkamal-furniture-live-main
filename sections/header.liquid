@@ -779,10 +779,16 @@
             $('.typerContainer').css('display', 'none');
         });
 
-        // When #myTyperFocus loses focus, show the typerContainer
-        $('#myTyperFocus').blur(function () {
-            $('.typerContainer').css('display', 'flex');
+      
+       // When #myTyperFocus loses focus, check input value and show/hide typerContainer
+       $('#myTyperFocus').blur(function () {
+            if ($(this).val().trim() === '') {
+                $('.typerContainer').css('display', 'flex');
+            } else {
+                $('.typerContainer').css('display', 'none');
+            }
         });
+    
 </script>
 
 
