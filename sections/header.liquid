@@ -796,29 +796,53 @@
    });
 
    // When #myTyperFocus is focused, hide the typerContainer
-   $('#myTyperFocus').focus(function () {
-            $('.typerContainer').css('display', 'none');
-        });
-   $('#myTyperFocusMobile').focus(function () {
-            $('.typerContainer').css('display', 'none');
-        });
+  //  $('#myTyperFocus').focus(function () {
+  //           $('.typerContainer').css('display', 'none');
+  //       });
+  //  $('#myTyperFocusMobile').focus(function () {
+  //           $('.typerContainer').css('display', 'none');
+  //       });
 
       
        // When #myTyperFocus loses focus, check input value and show/hide typerContainer
-       $('#myTyperFocus').blur(function () {
-            if ($(this).val().trim() === '') {
-                $('.typerContainer').css('display', 'flex');
+      //  $('#myTyperFocus').blur(function () {
+      //       if ($(this).val().trim() === '') {
+      //           $('.typerContainer').css('display', 'flex');
+      //       } else {
+      //           $('.typerContainer').css('display', 'none');
+      //       }
+      //   });
+      //  $('#myTyperFocusMobile').blur(function () {
+      //       if ($(this).val().trim() === '') {
+      //           $('.typerContainer').css('display', 'flex');
+      //       } else {
+      //           $('.typerContainer').css('display', 'none');
+      //       }
+      //   });
+
+      // Function to toggle typerContainer based on input focus and value
+      function toggleTyperContainer(input, container) {
+            if (input.val().trim() === '' && !input.is(':focus')) {
+                container.css('display', 'flex');
             } else {
-                $('.typerContainer').css('display', 'none');
+                container.css('display', 'none');
             }
+        }
+
+        // Desktop input events
+        $('#myTyperFocus').focus(function () {
+            $('.typerContainer').css('display', 'none');
+        }).blur(function () {
+            toggleTyperContainer($(this), $('.typerContainer'));
         });
-       $('#myTyperFocusMobile').blur(function () {
-            if ($(this).val().trim() === '') {
-                $('.typerContainer').css('display', 'flex');
-            } else {
-                $('.typerContainer').css('display', 'none');
-            }
+
+        // Mobile input events
+        $('#myTyperFocusMobile').focus(function () {
+            $('.typerContainer').css('display', 'none');
+        }).blur(function () {
+            toggleTyperContainer($(this), $('.typerContainer'));
         });
+
     
 </script>
 
