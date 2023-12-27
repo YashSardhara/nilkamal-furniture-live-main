@@ -853,6 +853,19 @@
             toggleTyperContainer($(this), $('.typerContainer'));
         });
 
+        // Mobile input events for iOS devices
+        var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        if (isIOS) {
+            $('#myTyperFocusMobile').on('touchstart touchend change', function () {
+                toggleTyperContainer($(this), $('.typerContainer'));
+            });
+        } else {
+            // Mobile input events for non-iOS devices
+            $('#myTyperFocusMobile').on('focus blur change', function () {
+                toggleTyperContainer($(this), $('.typerContainer'));
+            });
+        }
+
     
 </script>
 
