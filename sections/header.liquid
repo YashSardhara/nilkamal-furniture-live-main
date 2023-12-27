@@ -854,9 +854,16 @@
         });
 
         // Mobile input events for iOS devices
+        // Mobile input events for iOS devices
         var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
         if (isIOS) {
-            $('#myTyperFocusMobile').on('touchstart touchend change', function () {
+            // For iOS devices, use touchstart and touchend events
+            $('#myTyperFocusMobile').on('touchstart touchend', function () {
+                toggleTyperContainer($(this), $('.typerContainer'));
+            });
+            // Handle change event separately for iOS
+            $('#myTyperFocusMobile').on('input', function () {
                 toggleTyperContainer($(this), $('.typerContainer'));
             });
         } else {
