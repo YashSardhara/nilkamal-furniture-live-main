@@ -357,8 +357,8 @@
               value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
               autocapitalize="off" autocomplete="off" autocorrect="off" />
             <div class="typerContainer">
-              <div class="iam">I'm</div>
-              <div class="text"></div>
+              <div class="searchFor">Search For</div>
+              <div class="searchForContent"></div>
             </div>
           </form>
         </div>
@@ -749,6 +749,15 @@
     % endif %
   }
 </style>
+
+<script>
+   var typing=new Typed(".searchForContent", {
+       strings: ["", "Ashraf", "Praveen ", "Soumick", "Yash", "Saanp"],
+       typeSpeed: 100,
+       backSpeed: 40,
+       loop: true,
+   });
+</script>
 
 
 {% schema %}
