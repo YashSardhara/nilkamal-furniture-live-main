@@ -5711,8 +5711,8 @@
 
         ],
         "settings": {
-          "image": "shopify:\/\/shop_images\/Deskstop.jpg",
-          "mobimage": "shopify:\/\/shop_images\/Mobile_1.jpg",
+          "image": "shopify:\/\/shop_images\/desktop_store.jpg",
+          "mobimage": "shopify:\/\/shop_images\/mobile_store.jpg",
           "pretext": "",
           "title": "",
           "subtitle": "",
@@ -6178,9 +6178,9 @@
         "settings": {
           "button_color": "#000000",
           "button_icon": "chat_bubble",
+          "button_text": "chat_with_us",
           "button_horizontal_position": "bottom_right",
           "button_vertical_position": "lowest",
-          "button_text": "chat_with_us",
           "greeting_message": "👋 Hi, message us with any questions. We're happy to help!"
         }
       }
