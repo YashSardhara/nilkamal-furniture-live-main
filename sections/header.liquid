@@ -276,9 +276,14 @@
         <input type="hidden" name="type" value="product" />
         {% endif %}
         <span class="icon-search search-submit"></span>
-        <input type="text" name="q" placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}"
+        {% comment %} <input type="text" name="q" placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}"
+          autocapitalize="off" autocomplete="off" autocorrect="off" class="search-terms" /> {% endcomment %}
+          <input type="text" name="q" id="myTyperFocusMobile"
           autocapitalize="off" autocomplete="off" autocorrect="off" class="search-terms" />
-        <h3>Testing</h3>
+          <div class="typerContainer">
+            <div class="searchFor">Search For</div>
+            <div class="searchForContent"></div>
+          </div>
       </form>
     </div>
   </div>
