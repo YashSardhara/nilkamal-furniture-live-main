@@ -13,6 +13,10 @@
 <style>
   .typerContainer{
 	display: flex;
+  position: absolute;
+    top: 20%;
+    z-index: 99;
+    left: 4%;
 }
 
 .typerContainer .searchFor{
@@ -366,7 +370,6 @@
               value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
               autocapitalize="off" autocomplete="off" autocorrect="off" /> {% endcomment %}
               <input type="text" name="q" class="search-input"
-              placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}"
               value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
               autocapitalize="off" autocomplete="off" autocorrect="off" />
             <div class="typerContainer">
