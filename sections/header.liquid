@@ -290,7 +290,7 @@
           autocapitalize="off" autocomplete="off" autocorrect="off" class="search-terms" />
           <div class="typerContainer">
             <div class="searchFor">Search For</div>
-            <div class="searchForContent"></div>
+            <div class="searchForContentMobile"></div>
           </div>
       </form>
     </div>
@@ -788,14 +788,31 @@
        loop: true,
    });
 
+   var typingmobile =new Typed(".searchForContentMobile", {
+       strings: ["", "Ashraf", "Praveen ", "Soumick", "Yash", "Saanp"],
+       typeSpeed: 100,
+       backSpeed: 40,
+       loop: true,
+   });
+
    // When #myTyperFocus is focused, hide the typerContainer
    $('#myTyperFocus').focus(function () {
+            $('.typerContainer').css('display', 'none');
+        });
+   $('#myTyperFocusMobile').focus(function () {
             $('.typerContainer').css('display', 'none');
         });
 
       
        // When #myTyperFocus loses focus, check input value and show/hide typerContainer
        $('#myTyperFocus').blur(function () {
+            if ($(this).val().trim() === '') {
+                $('.typerContainer').css('display', 'flex');
+            } else {
+                $('.typerContainer').css('display', 'none');
+            }
+        });
+       $('#myTyperFocusMobile').blur(function () {
             if ($(this).val().trim() === '') {
                 $('.typerContainer').css('display', 'flex');
             } else {
