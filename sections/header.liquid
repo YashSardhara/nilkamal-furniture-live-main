@@ -361,7 +361,11 @@
             <input type="hidden" name="type" value="product" />
             {% endif %}
             <span class="icon-search search-submit"></span>
-            <input type="text" name="q" class="search-input"
+            {% comment %} <input type="text" name="q" class="search-input"
+              placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}"
+              value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
+              autocapitalize="off" autocomplete="off" autocorrect="off" /> {% endcomment %}
+              <input type="text" name="q" class="search-input"
               placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}"
               value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
               autocapitalize="off" autocomplete="off" autocorrect="off" />
