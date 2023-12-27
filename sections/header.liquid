@@ -143,22 +143,20 @@
       <div class="cart_container">
         {% include 'iwish_v2' with 'iwishlink_moblink' %}
         {% if template contains 'cart' %}
-        <a href="https://www.nilkamalfurniture.com/cart#"
-      class="{% if section.settings.cart_icon == "cart" %}icon-cart{% else %}icon-bag{% endif %} mini_cart dropdown_link"
-     data-no-instant>
-      {% include 'svg-icons', id:'shopping-cart' %}
-      <span class="cart_count">{{ cart.item_count }}</span>
-    </a>
+        <a href="https://www.nilkamalfurniture.com/cart#" class="{% if section.settings.cart_icon == " cart"
+          %}icon-cart{% else %}icon-bag{% endif %} mini_cart dropdown_link" data-no-instant>
+          {% include 'svg-icons', id:'shopping-cart' %}
+          <span class="cart_count">{{ cart.item_count }}</span>
+        </a>
         {% else %}
-        <a href="javascript:void(0);" onclick="mysideCartOpen()"
-      class="{% if section.settings.cart_icon == "cart" %}icon-cart{% else %}icon-bag{% endif %} mini_cart dropdown_link"
-     data-no-instant>
-      {% include 'svg-icons', id:'shopping-cart' %}
-      <span class="cart_count">{{ cart.item_count }}</span>
-    </a>
-          
+        <a href="javascript:void(0);" onclick="mysideCartOpen()" class="{% if section.settings.cart_icon == " cart"
+          %}icon-cart{% else %}icon-bag{% endif %} mini_cart dropdown_link" data-no-instant>
+          {% include 'svg-icons', id:'shopping-cart' %}
+          <span class="cart_count">{{ cart.item_count }}</span>
+        </a>
+
         {% endif %}
-       
+
       </div>
       {% endif %}
     </div>
@@ -180,7 +178,8 @@
                   d="M17.01 12.38C15.78 12.38 14.59 12.18 13.48 11.82C13.13 11.7 12.74 11.79 12.47 12.06L10.9 14.03C8.07 12.68 5.42 10.13 4.01 7.2L5.96 5.54C6.23 5.26 6.31 4.87 6.2 4.52C5.83 3.41 5.64 2.22 5.64 0.99C5.64 0.45 5.19 0 4.65 0H1.19C0.65 0 0 0.24 0 0.99C0 10.28 7.73 18 17.01 18C17.72 18 18 17.37 18 16.82V13.37C18 12.83 17.55 12.38 17.01 12.38Z"
                   fill="#0093DD" />
               </svg></span> <a
-              href="tel:+{{ section.settings.phone_number | replace: ' ', '' | replace: '+', '' | replace: '-', '' }}">{{ section.settings.phone_number }}</a>
+              href="tel:+{{ section.settings.phone_number | replace: ' ', '' | replace: '+', '' | replace: '-', '' }}">{{
+              section.settings.phone_number }}</a>
           </li>
           {% endif %}
 
@@ -209,7 +208,11 @@
               Your Order</a>
           </li>
           <li class="svg_megamenu_ui">
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="23" viewBox="0 0 24 25" fill="none"><path d="M11.9 10.9C10.64 12.17 10 13.84 10 15.5V12H4V16H10V15.5C10 16.35 10.17 17.2 10.5 18H2V12H1V10L2 5H18L18.89 9.46C16.56 8.53 13.79 9 11.9 10.9M18 2H2V4H18V2M23.39 21L22 22.39L18.88 19.32C18.19 19.75 17.37 20 16.5 20C14 20 12 18 12 15.5S14 11 16.5 11 21 13 21 15.5C21 16.38 20.75 17.21 20.31 17.9L23.39 21M19 15.5C19 14.12 17.88 13 16.5 13S14 14.12 14 15.5 15.12 18 16.5 18 19 16.88 19 15.5Z" fill="#0093DD"></path></svg></span> <a href="https://stores.nilkamalfurniture.com/">Store Locator</a>
+            <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="23" viewBox="0 0 24 25" fill="none">
+                <path
+                  d="M11.9 10.9C10.64 12.17 10 13.84 10 15.5V12H4V16H10V15.5C10 16.35 10.17 17.2 10.5 18H2V12H1V10L2 5H18L18.89 9.46C16.56 8.53 13.79 9 11.9 10.9M18 2H2V4H18V2M23.39 21L22 22.39L18.88 19.32C18.19 19.75 17.37 20 16.5 20C14 20 12 18 12 15.5S14 11 16.5 11 21 13 21 15.5C21 16.38 20.75 17.21 20.31 17.9L23.39 21M19 15.5C19 14.12 17.88 13 16.5 13S14 14.12 14 15.5 15.12 18 16.5 18 19 16.88 19 15.5Z"
+                  fill="#0093DD"></path>
+              </svg></span> <a href="https://stores.nilkamalfurniture.com/">Store Locator</a>
           </li>
           {% if shop.customer_accounts_enabled %}
           {% if customer %}
@@ -229,7 +232,7 @@
           </li>
           {% endif %}
           {% endif %}
-          
+
           {% if settings.show_multiple_currencies %}
           <li>
             {% include 'currencies-switcher' %}
@@ -243,9 +246,9 @@
                   fill="#0093DD" />
               </svg></span> {% include 'iwish_v2' with 'iwishmoblink' %}
           </li>
-          
+
         </ul>
-          
+
         {% if section.settings.social_icons_header %}
         {% include 'social-icons' %}
         {% endif %}
@@ -314,7 +317,8 @@
             {% comment %}
             {% if section.settings.phone_number != blank %}
             <li><a
-                href="tel:+{{ section.settings.phone_number | replace: ' ', '' | replace: '+', '' | replace: '-', '' }}">{{ section.settings.phone_number }}</a>
+                href="tel:+{{ section.settings.phone_number | replace: ' ', '' | replace: '+', '' | replace: '-', '' }}">{{
+                section.settings.phone_number }}</a>
             </li>
             {% endif %}
             {% endcomment %}
@@ -352,8 +356,11 @@
               placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}"
               value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
               autocapitalize="off" autocomplete="off" autocorrect="off" />
+            <div class="typerContainer">
+              <div class="iam">I'm</div>
+              <div class="text"></div>
+            </div>
           </form>
-          <h3>Testing</h3>
         </div>
 
         {% comment %}
@@ -458,21 +465,19 @@
           <div class="cart_container hi">
             {% include 'iwish_v2' with 'iwishlink' %}
             {% if template contains 'cart' %}
-            <a href="https://www.nilkamalfurniture.com/cart#"
-          class="{% if section.settings.cart_icon == "cart" %}icon-cart{% else %}icon-bag{% endif %} mini_cart dropdown_link"
-          data-no-instant>
-          {% include 'svg-icons', id:'shopping-cart' %}
-          <span class="cart_count">{{ cart.item_count }}</span>
-        </a>
-              {% else %}
-              <a href="javascript:void(0);" onclick="mysideCartOpen()"
-            class="{% if section.settings.cart_icon == "cart" %}icon-cart{% else %}icon-bag{% endif %} mini_cart dropdown_link"
-            data-no-instant>
-            {% include 'svg-icons', id:'shopping-cart' %}
-            <span class="cart_count">{{ cart.item_count }}</span>
-          </a>
+            <a href="https://www.nilkamalfurniture.com/cart#" class="{% if section.settings.cart_icon == " cart"
+              %}icon-cart{% else %}icon-bag{% endif %} mini_cart dropdown_link" data-no-instant>
+              {% include 'svg-icons', id:'shopping-cart' %}
+              <span class="cart_count">{{ cart.item_count }}</span>
+            </a>
+            {% else %}
+            <a href="javascript:void(0);" onclick="mysideCartOpen()" class="{% if section.settings.cart_icon == " cart"
+              %}icon-cart{% else %}icon-bag{% endif %} mini_cart dropdown_link" data-no-instant>
+              {% include 'svg-icons', id:'shopping-cart' %}
+              <span class="cart_count">{{ cart.item_count }}</span>
+            </a>
             {% endif %}
-            
+
           </div>
           {% endif %}
 
@@ -486,7 +491,8 @@
             <li>
               <a href="/account" class=""
                 title="{{ 'layout.customer.my_account' | t }} {% if customer %}({{ customer.email }}){% endif %}">
-                <span>{% if customer %}{{ 'layout.customer.my_account' | t }}{% else %}{{ 'layout.customer.log_in' | t }}
+                <span>{% if customer %}{{ 'layout.customer.my_account' | t }}{% else %}{{ 'layout.customer.log_in' | t
+                  }}
                   / Register{% endif %}</span></a>
             </li>
             {% endif %}
@@ -742,7 +748,6 @@
     {
     % endif %
   }
-
 </style>
 
 
