@@ -369,7 +369,7 @@
               placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}"
               value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
               autocapitalize="off" autocomplete="off" autocorrect="off" /> {% endcomment %}
-              <input type="text" name="q" class="search-input"
+              <input type="text" name="q" class="search-input" id="myTyperFocus"
               value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
               autocapitalize="off" autocomplete="off" autocorrect="off" />
             <div class="typerContainer">
@@ -773,6 +773,16 @@
        backSpeed: 40,
        loop: true,
    });
+
+   // When #myTyperFocus is focused, hide the typerContainer
+   $('#myTyperFocus').focus(function () {
+            $('.typerContainer').css('display', 'none');
+        });
+
+        // When #myTyperFocus loses focus, show the typerContainer
+        $('#myTyperFocus').blur(function () {
+            $('.typerContainer').css('display', 'flex');
+        });
 </script>
 
 
