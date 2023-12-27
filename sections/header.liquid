@@ -843,6 +843,16 @@
             toggleTyperContainer($(this), $('.typerContainer'));
         });
 
+        // Desktop input events
+        $('#myTyperFocus').on('focus blur change', function () {
+            toggleTyperContainer($(this), $('.typerContainer'));
+        });
+
+        // Mobile input events
+        $('#myTyperFocusMobile').on('focus blur change', function () {
+            toggleTyperContainer($(this), $('.typerContainer'));
+        });
+
     
 </script>
 
