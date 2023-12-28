@@ -256,6 +256,7 @@
                   maxlength="50"
                   autocorrect="off"
                   autocapitalize="off"
+                  autocomplete="off"
                   required>
                 <label class="floating-label">City Name<span>*</span>
                 </label>
@@ -764,7 +765,7 @@
   });
 </script>
 
-<script>
+{% comment %} <script>
   let cityNames = [
     "Adoni",
     "Chandigarh",
@@ -1301,7 +1302,7 @@
       item.remove();
     });
   }
-</script>
+</script> {% endcomment %}
 
 <script>
   $("#tab2").click(function() {
