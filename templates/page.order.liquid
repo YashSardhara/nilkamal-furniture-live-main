@@ -1,3 +1,31 @@
+<style>
+  .flex_img_id_mobile {
+    display: contents !important;
+  }
+  @media only screen and (max-width: 600px) {
+    .quick-info_mobile {
+      display: block;
+      margin-bottom: 15px;
+    }
+    .order-quick-info_mobile {
+      display: block !important;
+    }
+    .detail-info-button_mobile {
+      margin-left: 0px !important;
+    }
+    .flex_img_id_mobile {
+      display: flex !important;
+      justify-content: space-between;
+    }
+    p.order-amount {
+      padding-top: 20px;
+      line-height: 14px !important;
+      font-size: medium;
+    }
+}
+</style>
+
+
 <a name="pagecontent" id="pagecontent"></a>
 
 <div class="container page-orders">
@@ -34,9 +62,10 @@
               <div class="loop-order-info">
 
                 {% for order in customer.orders %}
-                  {% for line_item in order.line_items %}
-                    <div class="order-quick-info relative">
-                      <div class="quick-info">
+                    <div class="order-quick-info relative order-quick-info_mobile">
+                      <div class="quick-info quick-info_mobile">
+
+                      <div class="flex_img_id_mobile">
                         <p class="product-img">
                           <a class="order_img" href="{{ order.customer_url }}"><img src="{{ order.line_items[0] | img_url: 'compact_cropped' }}"></a>
                         </p>
@@ -45,7 +74,9 @@
                           <b>Order ID {{ order.name | link_to: order.customer_url }}</b><br>
                           <span class="purchase-date">{{ order.created_at | date: format: "month_day_year" }}</span>
                         </p>
+                      </div>
 
+                      <div class="flex_img_id_mobile">
                         <p class="order-amount">
                           <b>
                             <span>Payment Status
@@ -72,16 +103,17 @@
                             {% assign trans_partial = 'unfulfilled' | capitalize %}
                             {{ order.fulfillment_status | replace: 'unfulfilled', trans_unfulfilled | replace: 'fulfilled', trans_fulfilled | replace: 'partial', trans_partial }}</span>
                         </p>
+                      </div>
+
                         <p class="order-amount">
                           <b>
                             <span>Total Amount</span>
                           </b><br><br>{{ order.total_price | money }}</p>
                       </div>
-                      <div class="detail-info-button center">
+                      <div class="detail-info-button center detail-info-button_mobile">
                         <a href="{{ order.customer_url }}" class="action_button">View</a>
                       </div>
                     </div>
-                  {% endfor %}
                 {% endfor %}
               </div>
 
