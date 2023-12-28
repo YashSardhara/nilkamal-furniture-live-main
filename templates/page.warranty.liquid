@@ -277,11 +277,15 @@ span#cancel-upload {
                 <span id="state_error" class="help-inline text-danger"></span>
               </div>
               <div class="form-group col-md-6">
+                <input class="form-control buttonstyle" type="text" name="city" id="address_city"  placeholder="City*" required>
+                <span id="city_error" class="help-inline text-danger"></span>
+              </div>
+              {% comment %} <div class="form-group col-md-6">
                 <select id="address_city" class="buttonstyle" name="city">
                   <option value="" selected disabled>City</option>
                 </select>
                 <span id="city_error" class="help-inline text-danger"></span>
-              </div>
+              </div> {% endcomment %}
             </div>
             <div class="form-row">
               <div class="form-group col-md-3 warr__radio__cont">
