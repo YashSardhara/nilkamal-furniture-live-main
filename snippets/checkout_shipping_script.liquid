@@ -1,7 +1,32 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 {% comment %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script> {% endcomment %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+{% endcomment %}
 <script>
+  // To load custom shipping charges - Yash28/12/23 (Do Not Remove)
+  var currentUrl = window.location.href;
+
+  // Assuming the button is initially disabled - To load custom shipping charges - Yash28/12/23 (Do Not Remove)
+  const continueButton = document.getElementsByClassName('edit_checkout')[0].querySelector('#continue_button');
+
+  // Check if the URL contains 'shipping_method'
+  if (currentUrl.includes('shipping_method')) {
+    console.log('The URL contains "shipping_method".');
+
+    // disabled the button initially - To load custom shipping charges - Yash28/12/23 (Do Not Remove)
+    continueButton.disabled = true;
+    console.log("custom shipping charges disabled");
+
+  } else {
+    console.log('The URL does not contain "shipping_method".');
+  }
+
+  // Enable the button after 4 seconds
+  // setTimeout(function () {
+  // continueButton.disabled = false;
+  // console.log("custom shipping charges setTimeout ");
+  // }, 4000);
+
   $(document).ready(function () {
     console.log("BI01 - Page Loaded Shipping Started");
     var pincode_val = getCookie("pincode_val");
@@ -23,6 +48,26 @@
     }
 
   });
+
+  console.log("BI01 - Page Loaded Shipping Started");
+  var pincode_val = getCookie("pincode_val");
+  console.log("BI01 - Pincode Shipping Script", pincode_val);
+  var button_div = $('.step__footer').find('button');
+  var button_div_text = button_div.find('span').text();
+  if (button_div_text.toLowerCase() == 'continue to shipping') {
+    button_div.hide();
+  } else if (button_div_text.toLowerCase() == 'continue to payment') {
+    jQuery.getJSON('/cart.js', function (cart) {
+      var items = cart.items;
+      var pincode_value = cart.attributes.pincode;
+      $('.section__content').find('.content-box__row:eq(0)').hide();
+      $('.section__content').find('.content-box__row:eq(1)').hide();
+      $('.section__content').find('.content-box__row:eq(2)').hide();
+      getShippingRate(pincode_val);
+    });
+  } else {
+  }
+
   {% comment %} $('#checkout_submit').click(function () {
     jQuery.getJSON('/cart.js', function (cart) {
       var items = cart.items;
@@ -47,12 +92,15 @@
           if (ShippingRate == '999') {
             $('.section__content').find('.content-box__row:eq(1)').show();
             $('.radio__label:eq(1)').trigger('click');
+            continueButton.disabled = false;
           } else {
             $('.section__content').find('.content-box__row:eq(0)').show();
+            continueButton.disabled = false;
           }
         }
         else {
           $('.section__content').find('.content-box__row:eq(0)').show();
+          continueButton.disabled = false;
         }
         $('.section--shipping-method').show();
         var ttt = $('.fieldset').find('button');
@@ -61,6 +109,7 @@
       },
       error: function () {
         console.log('error');
+        console.log('Custom Shipping code not working - Yash');
       }
     });
   }
