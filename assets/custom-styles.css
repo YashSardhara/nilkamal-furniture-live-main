@@ -60,17 +60,11 @@ button&#34;
 	 box-shadow: none;
 }
  select {
-	 -webkit-appearance: none;
-	 -moz-appearance: none;
 	 cursor: pointer;
 	 padding-right: 40px;
 }
 
-input{
-	-webkit-appearance: none !important;
-    -moz-appearance: none !important;
-    appearance: none !important;
-}
+
  textarea {
 	 height: 110px;
 	 resize: none;
