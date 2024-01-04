@@ -196,7 +196,8 @@
   <meta name="MobileOptimized" content="320">
   {% comment %}
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> {% endcomment %}
-  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  {% comment %} <meta name="viewport" content="width=device-width,initial-scale=1"> {% endcomment %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="{{ settings.shop_bg_color }}">
   {% if settings.favicon != nil %}
   <link rel="shortcut icon" type="image/x-icon" href="{{ settings.favicon | img_url: '32x32' }}">
