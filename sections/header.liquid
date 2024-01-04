@@ -781,6 +781,7 @@
 </style>
 
 <script>
+  
    var typing=new Typed(".searchForContent", {
        strings: ["", "Ashraf", "Praveen ", "Soumick", "Yash", "Saanp"],
        typeSpeed: 100,
@@ -795,75 +796,32 @@
        loop: true,
    });
 
-   // When #myTyperFocus is focused, hide the typerContainer
-  //  $('#myTyperFocus').focus(function () {
-  //           $('.typerContainer').css('display', 'none');
-  //       });
-  //  $('#myTyperFocusMobile').focus(function () {
-  //           $('.typerContainer').css('display', 'none');
-  //       });
+  // When #myTyperFocus is focused, hide the typerContainer
+ var iosCheck = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-      
-       // When #myTyperFocus loses focus, check input value and show/hide typerContainer
-      //  $('#myTyperFocus').blur(function () {
-      //       if ($(this).val().trim() === '') {
-      //           $('.typerContainer').css('display', 'flex');
-      //       } else {
-      //           $('.typerContainer').css('display', 'none');
-      //       }
-      //   });
-      //  $('#myTyperFocusMobile').blur(function () {
-      //       if ($(this).val().trim() === '') {
-      //           $('.typerContainer').css('display', 'flex');
-      //       } else {
-      //           $('.typerContainer').css('display', 'none');
-      //       }
-      //   });
+      if(iosCheck){
+        $('.typerContainer').css('display', 'none');
+        alert("Ios Tested");
+      }else{
+        //When #myTyperFocus loses focus, check input value and show/hide typerContainer
+       $('#myTyperFocus').blur(function () {
+            if ($(this).val().trim() === '') {
+                $('.typerContainer').css('display', 'flex');
+            } else {
+                $('.typerContainer').css('display', 'none');
+            }
+        });
+       $('#myTyperFocusMobile').blur(function () {
+            if ($(this).val().trim() === '') {
+                $('.typerContainer').css('display', 'flex');
+            } else {
+                $('.typerContainer').css('display', 'none');
+            }
+        });
+      }
+       
 
-      // Function to toggle typerContainer based on input focus and value
-function toggleTyperContainer(input, container) {
-    if (input.val().trim() === '' && !input.is(':focus')) {
-        container.css('display', 'flex');
-    } else {
-        container.css('display', 'none');
-    }
-}
-
-// Desktop input events
-// Function to toggle typerContainer based on input focus and value
-function toggleTyperContainer(input, container) {
-    if (input.val().trim() === '' && !input.is(':focus')) {
-        container.css('display', 'flex');
-    } else {
-        container.css('display', 'none');
-    }
-}
-
-// Mobile input events for iOS devices
-var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-
-if (isIOS) {
-    // For iOS devices, set display to none
-    $('.typerContainer').css("display", "none");
-    //alert("Ios Devices");
-} else {
-    // Mobile input events for non-iOS devices
-    $('#myTyperFocusMobile').on('focus blur change', function () {
-        toggleTyperContainer($(this), $('.typerContainer'));
-    });
-}
-
-// Common input events for both desktop and mobile
-$('#myTyperFocus, #myTyperFocusMobile').on('focus blur change', function () {
-    toggleTyperContainer($(this), $('.typerContainer'));
-});
-
-
-
-
-     
-
-    
+         
 </script>
 
 
