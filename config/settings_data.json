@@ -5262,7 +5262,7 @@
           "26b78643-f42d-4cb0-9b51-2a4e761517dc": {
             "type": "collection",
             "settings": {
-              "feature_collection": "corner-cabinets",
+              "feature_collection": "bathroom-cabinets",
               "image": "shopify:\/\/shop_images\/Artboard_1-4_e88b821f-3fc9-41bd-bf78-e633a3c647a0.jpg"
             }
           },
@@ -6178,9 +6178,9 @@
         "settings": {
           "button_color": "#000000",
           "button_icon": "chat_bubble",
+          "button_text": "chat_with_us",
           "button_horizontal_position": "bottom_right",
           "button_vertical_position": "lowest",
-          "button_text": "chat_with_us",
           "greeting_message": "👋 Hi, message us with any questions. We're happy to help!"
         }
       }
