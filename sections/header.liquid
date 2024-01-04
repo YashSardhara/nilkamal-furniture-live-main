@@ -830,44 +830,35 @@ function toggleTyperContainer(input, container) {
 }
 
 // Desktop input events
-$('#myTyperFocus').focus(function () {
-    $('.typerContainer').css('display', 'none');
-}).blur(function () {
-    toggleTyperContainer($(this), $('.typerContainer'));
-});
-
-// Mobile input events
-$('#myTyperFocusMobile').focus(function () {
-    $('.typerContainer').css('display', 'none');
-}).blur(function () {
-    toggleTyperContainer($(this), $('.typerContainer'));
-});
-
-// Common input events for both desktop and mobile
-$('#myTyperFocus, #myTyperFocusMobile').on('focus blur change', function () {
-    toggleTyperContainer($(this), $('.typerContainer'));
-});
+// Function to toggle typerContainer based on input focus and value
+function toggleTyperContainer(input, container) {
+    if (input.val().trim() === '' && !input.is(':focus')) {
+        container.css('display', 'flex');
+    } else {
+        container.css('display', 'none');
+    }
+}
 
 // Mobile input events for iOS devices
 var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 if (isIOS) {
-    // For iOS devices, use touchstart and touchend events
-    $('#myTyperFocusMobile').on('touchstart touchend', function (event) {
-        event.preventDefault();
-        toggleTyperContainer($(this), $('.typerContainer'));
-    });
-
-    // Handle change event separately for iOS
-    $('#myTyperFocusMobile').on('input', function () {
-        toggleTyperContainer($(this), $('.typerContainer'));
-    });
+    // For iOS devices, set display to none
+    $('#myTyperFocusMobile').css("display", "none");
 } else {
     // Mobile input events for non-iOS devices
     $('#myTyperFocusMobile').on('focus blur change', function () {
         toggleTyperContainer($(this), $('.typerContainer'));
     });
 }
+
+// Common input events for both desktop and mobile
+$('#myTyperFocus, #myTyperFocusMobile').on('focus blur change', function () {
+    toggleTyperContainer($(this), $('.typerContainer'));
+});
+
+
+
 
      
 
