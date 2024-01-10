@@ -65,7 +65,7 @@
               </div>
               <div class="second_content">
                 <div class="input tel_feedback_Im">
-                  <input class="feedback_tel mobile_feed" type="tel" name="mobile" id="mobile" autocorrect="off" autocapitalize="off" placeholder="Mobile Number*" pattern="[0-9]{10}" maxlength="10" required>
+                  <input class="feedback_tel mobile_feed" type="tel" name="mobile" id="mobile" autocorrect="off" autocapitalize="off" placeholder="Mobile Number*" pattern="[0-9]{10}" maxlength="10" oninput="validateMobileNumber()" required>
                   <span id="mobile_error" class="mobile_error err"></span>
                 </div>
                 <div class="input city_feedback_Im">
