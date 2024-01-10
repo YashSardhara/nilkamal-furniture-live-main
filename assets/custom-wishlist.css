@@ -107,7 +107,7 @@
 }
 
 .iwishItem .product-wrap .product-info__caption{
-    height: 190px !important;
+    height: 151px !important;
 }
 
 @media (max-width:1024px){
@@ -163,7 +163,7 @@
     }
   
     .iwishItem .product-wrap .product-info__caption{
-        height: 270px !important;
+        height: 223px !important;
     }
 
     .iwishWrapper.container.background-wrapper{
