@@ -134,6 +134,11 @@
       },
     });
   });
+
+  function validateMobileNumber() {
+      var inputElement = document.getElementById("mobile");
+      inputElement.value = inputElement.value.replace(/\D/g, ''); // Remove non-numeric characters
+    }
 </script>
 
 
