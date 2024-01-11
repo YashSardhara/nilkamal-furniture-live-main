@@ -12,21 +12,21 @@
 {% endcomment %}
 <style>
   .typerContainer{
-	display: flex;
+    display: none;
   position: absolute;
     top: 20%;
     /* z-index: 99; */
     left: 4%;
 }
 
-.myTyperFocusMobile{
+/* .myTyperFocusMobile{
   background: transparent !important;
   transition: background-color 0.3s ease;
-}
-
+} */
+/* 
 .inputFocusEnable{
   background: #F8F8F8 !important;
-}
+} */
 
 .typerContainer .searchFor{
   margin-right: 5px;
@@ -34,6 +34,7 @@
 
 @media (max-width:768px){
   .typerContainer{
+    display: none;
     /* z-index: 9999; */
     top: 22%;
     left: 7%;
@@ -296,7 +297,7 @@
         {% comment %} <input type="text" name="q" placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}"
           autocapitalize="off" autocomplete="off" autocorrect="off" class="search-terms" /> {% endcomment %}
           <input type="text" name="q" 
-          autocapitalize="off" autocomplete="off" autocorrect="off" class="myTyperFocusMobile search-terms " />
+          autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="Search" class="myTyperFocusMobile search-terms " />
           <div class="typerContainer">
             <div class="searchFor">Search For</div>
             <div class="searchForContentMobile"></div>
@@ -394,7 +395,7 @@
               autocapitalize="off" autocomplete="off" autocorrect="off" /> {% endcomment %}
               <input type="text" name="q" class="myTyperFocusMobile search-input " 
               value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
-              autocapitalize="off" autocomplete="off" autocorrect="off" />
+              autocapitalize="off" placeholder="Search" autocomplete="off" autocorrect="off" />
             <div class="typerContainer">
               <div class="searchFor">Search For</div>
               <div class="searchForContent"></div>
