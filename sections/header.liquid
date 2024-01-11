@@ -21,10 +21,14 @@
 
 .myTyperFocusMobile{
   background: transparent !important;
-  -webkit-display: none !important;
+  transition: background-color 0.3s ease;
 }
 
-.myTyperFocusMobile:focus{
+/* .myTyperFocusMobile:focus{
+  background: #F8F8F8 !important;
+} */
+
+.inputFocusEnable{
   background: #F8F8F8 !important;
 }
 
@@ -791,25 +795,99 @@
 
 <script>
   
-   var typing=new Typed(".searchForContent", {
-       strings: ["", "Beds", "Chairs ", "Recliners", "Wardrobes", "Sofas"],
-       typeSpeed: 100,
-       backSpeed: 40,
-       loop: true,
-   }); 
+  //  var typing=new Typed(".searchForContent", {
+  //      strings: ["", "Beds", "Chairs ", "Recliners", "Wardrobes", "Sofas"],
+  //      typeSpeed: 100,
+  //      backSpeed: 40,
+  //      loop: true,
+  //  }); 
 
-   var typingmobile =new Typed(".searchForContentMobile", {
-       strings: ["", "Beds", "Chairs ", "Recliners", "Wardrobes", "Sofas"],
-       typeSpeed: 100,
-       backSpeed: 40,
-       loop: true,
-   });
+  //  var typingmobile =new Typed(".searchForContentMobile", {
+  //      strings: ["", "Beds", "Chairs ", "Recliners", "Wardrobes", "Sofas"],
+  //      typeSpeed: 100,
+  //      backSpeed: 40,
+  //      loop: true,
+  //  });
+ 
+//    $(document).ready(function() {
 
-   var myInput = document.getElementsByClassName('myTyperFocusMobile');
+//     //forsearch page issue 
+//     if (window.location.href.indexOf("search") > -1) {
+//      alert("your url contains the name seach");
+//      if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+//       $(".typerContainer").css("display", "none");
+//     $(".myTyperFocusMobile").addClass("inputFocusEnable");
+//     $(".myTyperFocusMobile").focus();
+//      }else{
 
-myInput.addEventListener('blur', function() {
-  myInput.style.backgroundColor = 'transparent';
-});
+//        //$(".myTyperFocusMobile").focus();
+//      }
+     
+//     }
+
+//     //Display none this on ios 
+//     if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+//       alert("ios detected")
+//     $(".typerContainer").css("display", "none");
+//     $(".myTyperFocusMobile").addClass("inputFocusEnable").attr("placeholder", "Search");
+//   }else{
+//     // Focus event
+//     $(".myTyperFocusMobile").focus(function () {
+//     console.log("Input Focused");
+//         $(this).addClass("inputFocusEnable");
+//       });
+
+   
+
+//     //Blur Event
+//    $(".myTyperFocusMobile").blur(function(){
+//  //alert("This input field has lost its focus.");
+//  if(this.value === ''){
+//   $(this).removeClass("inputFocusEnable");
+//     }else{
+//       $(this).addClass("inputFocusEnable");
+//     }
+// });
+//   }
+
+    
+//   });
+
+
+
+
+    
+
+// $(".myTyperFocusMobile").on({
+//     focusin: function () {
+//         console.log("Input Focused");
+//         $(this).addClass("inputFocusEnable");
+//     },
+//     focusout: function () {
+//         console.log("Input Blurred");
+//         if (this.value === '') {
+//             $(this).removeClass("inputFocusEnable");
+//         } else {
+//             $(this).addClass("inputFocusEnable");
+//         }
+//     },
+//     touchstart: function () {
+//         // This handles the touchstart event on iOS devices
+//         console.log("Touchstart Detected");
+//         $(this).addClass("inputFocusEnable");
+//     },
+//     touchend: function () {
+//         // This handles the touchend event on iOS devices
+//         console.log("Touchend Detected");
+//         if (this.value === '') {
+//             $(this).removeClass("inputFocusEnable");
+//         } else {
+//             $(this).addClass("inputFocusEnable");
+//         }
+//     }
+// });
+
+
   
 
 </script>

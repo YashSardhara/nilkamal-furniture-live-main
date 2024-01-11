@@ -106,6 +106,59 @@ var imageFunctions = {
 }
 
 /*============================================================================
+  Header Search Animation Viewed
+==============================================================================*/
+var typing=new Typed(".searchForContent", {
+       strings: ["", "Beds", "Chairs ", "Recliners", "Wardrobes", "Sofas"],
+       typeSpeed: 100,
+       backSpeed: 40,
+       loop: true,
+   }); 
+
+   var typingmobile =new Typed(".searchForContentMobile", {
+       strings: ["", "Beds", "Chairs ", "Recliners", "Wardrobes", "Sofas"],
+       typeSpeed: 100,
+       backSpeed: 40,
+       loop: true,
+   });
+
+  // Display none and focus for search page issue
+  $(document).ready(function() {
+  if (window.location.href.indexOf("search") > -1) {
+    //alert("Your URL contains the name 'search'.");
+    // if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+    //   $(".typerContainer").css("display", "none");
+    //   $(".myTyperFocusMobile").addClass("inputFocusEnable").attr("placeholder", "Search").focus();
+    // } else {
+      $(".myTyperFocusMobile").focus();
+      // $(".main-wrapper").addClass("searchPageClass")
+    // }
+  }
+  });
+
+  // Display none and placeholder for iOS devices
+  // if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+  //   alert("iOS detected");
+  //   $(".typerContainer").css("display", "none");
+  //   $(".myTyperFocusMobile").addClass("inputFocusEnable").attr("placeholder", "Search");
+  // }
+
+  // Focus and blur events for input
+  $(".myTyperFocusMobile").focus(function() {
+    console.log("Input Focused");
+    $(this).addClass("inputFocusEnable");
+  });
+
+  $(".myTyperFocusMobile").blur(function() {
+    if (this.value === '') {
+      $(this).removeClass("inputFocusEnable");
+    } else {
+      $(this).addClass("inputFocusEnable");
+    }
+  });
+
+
+/*============================================================================
   Recently Viewed
 ==============================================================================*/
 
