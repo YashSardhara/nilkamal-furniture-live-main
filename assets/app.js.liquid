@@ -106,6 +106,45 @@ var imageFunctions = {
 }
 
 /*============================================================================
+  Header Search Animation Viewed
+==============================================================================*/
+var typing=new Typed(".searchForContent", {
+       strings: ["", "Beds", "Chairs ", "Recliners", "Wardrobes", "Sofas"],
+       typeSpeed: 100,
+       backSpeed: 40,
+       loop: true,
+   }); 
+
+   var typingmobile =new Typed(".searchForContentMobile", {
+       strings: ["", "Beds", "Chairs ", "Recliners", "Wardrobes", "Sofas"],
+       typeSpeed: 100,
+       backSpeed: 40,
+       loop: true,
+   });
+
+  // Display none and focus for search page issue
+  $(document).ready(function() {
+  if (window.location.href.indexOf("search") > -1) {
+      $(".myTyperFocusMobile").focus();
+  }
+  });
+
+  // Focus and blur events for input
+  $(".myTyperFocusMobile").focus(function() {
+    console.log("Input Focused");
+    $(this).addClass("inputFocusEnable");
+  });
+
+  $(".myTyperFocusMobile").blur(function() {
+    if (this.value === '') {
+      $(this).removeClass("inputFocusEnable");
+    } else {
+      $(this).addClass("inputFocusEnable");
+    }
+  });
+
+
+/*============================================================================
   Recently Viewed
 ==============================================================================*/
 

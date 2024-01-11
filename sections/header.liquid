@@ -21,10 +21,10 @@
 
 .myTyperFocusMobile{
   background: transparent !important;
-  -webkit-display: none !important;
+  transition: background-color 0.3s ease;
 }
 
-.myTyperFocusMobile:focus{
+.inputFocusEnable{
   background: #F8F8F8 !important;
 }
 
@@ -788,31 +788,6 @@
     % endif %
   }
 </style>
-
-<script>
-  
-   var typing=new Typed(".searchForContent", {
-       strings: ["", "Beds", "Chairs ", "Recliners", "Wardrobes", "Sofas"],
-       typeSpeed: 100,
-       backSpeed: 40,
-       loop: true,
-   }); 
-
-   var typingmobile =new Typed(".searchForContentMobile", {
-       strings: ["", "Beds", "Chairs ", "Recliners", "Wardrobes", "Sofas"],
-       typeSpeed: 100,
-       backSpeed: 40,
-       loop: true,
-   });
-
-   var myInput = document.getElementsByClassName('myTyperFocusMobile');
-
-myInput.addEventListener('blur', function() {
-  myInput.style.backgroundColor = 'transparent';
-});
-  
-
-</script>
 
 
 {% schema %}
