@@ -125,23 +125,9 @@ var typing=new Typed(".searchForContent", {
   // Display none and focus for search page issue
   $(document).ready(function() {
   if (window.location.href.indexOf("search") > -1) {
-    //alert("Your URL contains the name 'search'.");
-    // if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
-    //   $(".typerContainer").css("display", "none");
-    //   $(".myTyperFocusMobile").addClass("inputFocusEnable").attr("placeholder", "Search").focus();
-    // } else {
       $(".myTyperFocusMobile").focus();
-      // $(".main-wrapper").addClass("searchPageClass")
-    // }
   }
   });
-
-  // Display none and placeholder for iOS devices
-  // if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
-  //   alert("iOS detected");
-  //   $(".typerContainer").css("display", "none");
-  //   $(".myTyperFocusMobile").addClass("inputFocusEnable").attr("placeholder", "Search");
-  // }
 
   // Focus and blur events for input
   $(".myTyperFocusMobile").focus(function() {
