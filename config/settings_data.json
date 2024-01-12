@@ -6139,6 +6139,26 @@
           "mobile_img": "shopify:\/\/shop_images\/c3_mobile.jpg",
           "image_url": "shopify:\/\/collections\/paradise-series"
         }
+      },
+      "fofo__banner": {
+        "type": "fofo__banner",
+        "settings": {
+          "fofo__image": "shopify:\/\/shop_images\/Untitled-2_03e0c681-09fc-4250-85a8-e17c04234916.jpg"
+        }
+      },
+      "fofo__form": {
+        "type": "fofo__form",
+        "settings": {
+        }
+      },
+      "fofo-franchise-collection": {
+        "type": "fofo-franchise-collection",
+        "settings": {
+          "title": "Collection list",
+          "frontpage_collections_per_row": 3,
+          "testimonial_text_animation": "fadeInDown",
+          "testimonial_speed": 6
+        }
       }
     },
     "content_for_index": [
