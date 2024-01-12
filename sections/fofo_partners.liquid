@@ -1,0 +1,92 @@
+<style>
+.fofopage__container {
+    max-width: 100%;
+}
+
+.franchise_partners_section {
+    margin-top: 5rem;
+    overflow-x: auto;
+}
+
+.main_item_card {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px; /* Optional: Add padding for better spacing on small screens */
+    box-sizing: border-box;
+     
+}
+
+.items_partners {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+p.title_card {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+p.location_card {
+    font-size: 15px;
+}
+
+.main_partner_image img {
+    border-radius: 0 !important;
+    max-width: 100%; /* Ensure images don't overflow their containers */
+}
+
+  @media(max-width:768px){
+    .main_item_card {
+     display: -webkit-inline-box;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+    .main_partner_image img{
+      margin-top:0px!important;
+    }
+  }
+</style>
+
+<div class="fofopage__container">
+<div class="franchise_partners_section">
+<div class="heading_partners">
+  <h2>Meet Our partners</h2>
+</div>
+<div class="main_item_card">
+<div class="items_partners">
+  <div class="main_partner_image"><img src="https://placehold.co/600x400" alt=""></div>
+  <p class="title_card">RUNJHUN & KAMALAKAR HANUMANTHU</p>
+  <p class="location_card">VIZAG, VIJAYAWADA & GUNTUR</p>
+  <p class="speech_card">We have been in partnership with Pepperfry since 2020, when we launched our first Franchisee Studio with them in Vizag. With the smooth experience we had, we launched our second studio at Vijayawada and our 3 rd studio at Guntur. it has been a great journey. The team at Pepperfry has been very supportive right from the time we signed-up. We are happy to partner with India’s leading home and furniture marketplace.</p>
+</div>
+<div class="items_partners">
+  <div class="main_partner_image"><img src="https://placehold.co/600x400" alt=""></div>
+  <p class="title_card">RUNJHUN & KAMALAKAR HANUMANTHU</p>
+  <p class="location_card">VIZAG, VIJAYAWADA & GUNTUR</p>
+  <p class="speech_card">We have been in partnership with Pepperfry since 2020, when we launched our first Franchisee Studio with them in Vizag. With the smooth experience we had, we launched our second studio at Vijayawada and our 3 rd studio at Guntur. it has been a great journey. The team at Pepperfry has been very supportive right from the time we signed-up. We are happy to partner with India’s leading home and furniture marketplace.</p>
+</div>
+<div class="items_partners">
+  <div class="main_partner_image"><img src="https://placehold.co/600x400" alt=""></div>
+  <p class="title_card">RUNJHUN & KAMALAKAR HANUMANTHU</p>
+  <p class="location_card">VIZAG, VIJAYAWADA & GUNTUR</p>
+  <p class="speech_card">We have been in partnership with Pepperfry since 2020, when we launched our first Franchisee Studio with them in Vizag. With the smooth experience we had, we launched our second studio at Vijayawada and our 3 rd studio at Guntur. it has been a great journey. The team at Pepperfry has been very supportive right from the time we signed-up. We are happy to partner with India’s leading home and furniture marketplace.</p>
+</div>
+</div>
+</div>
+</div>
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
