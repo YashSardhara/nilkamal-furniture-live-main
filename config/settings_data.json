@@ -6155,8 +6155,57 @@
       },
       "fofo-franchise-collection": {
         "type": "fofo-franchise-collection",
+        "blocks": {
+          "collection_98HPW9": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Comfort.jpg",
+              "fofo_text": "Comfort",
+              "fofo_url": ""
+            }
+          },
+          "collection_dqpEnf": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Couple-Pro.jpg",
+              "fofo_text": "Couple Pro",
+              "fofo_url": ""
+            }
+          },
+          "collection_F6Aaiy": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Deep-Sleep.jpg",
+              "fofo_text": "Deep Sleep",
+              "fofo_url": ""
+            }
+          },
+          "collection_hAHELm": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Luxuria_a33485f8-d2d4-4415-8dc3-4e29d3e3d1ea.jpg",
+              "fofo_text": "Luxuria",
+              "fofo_url": ""
+            }
+          },
+          "collection_D76fMA": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Health-pro.jpg",
+              "fofo_text": "Health Pro",
+              "fofo_url": ""
+            }
+          }
+        },
+        "block_order": [
+          "collection_98HPW9",
+          "collection_dqpEnf",
+          "collection_F6Aaiy",
+          "collection_hAHELm",
+          "collection_D76fMA"
+        ],
         "settings": {
-          "title": "Collection list",
+          "title": "Our Mattress",
           "frontpage_collections_per_row": 3,
           "testimonial_text_animation": "fadeInDown",
           "testimonial_speed": 6
