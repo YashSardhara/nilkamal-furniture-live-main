@@ -6183,6 +6183,81 @@
           "button_vertical_position": "lowest",
           "greeting_message": "👋 Hi, message us with any questions. We're happy to help!"
         }
+      },
+      "fofo__banner": {
+        "type": "fofo__banner",
+        "settings": {
+          "fofo__image": "shopify:\/\/shop_images\/Untitled-2_03e0c681-09fc-4250-85a8-e17c04234916.jpg"
+        }
+      },
+      "fofo__form": {
+        "type": "fofo__form",
+        "settings": {
+          "fofo_sleep_image": "shopify:\/\/shop_images\/Web_Banner_600X400_1.jpg",
+          "fofo_sleep_business_image": "shopify:\/\/shop_images\/Web_Banner_600X400_2.jpg"
+        }
+      },
+      "fofo_partners": {
+        "type": "fofo_partners",
+        "settings": {}
+      },
+      "fofo-franchise-collection": {
+        "type": "fofo-franchise-collection",
+        "blocks": {
+          "ee575bf9-fa42-4f6f-810f-ab692442c9af": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Luxuria.jpg",
+              "fofo_text": "Luxuria",
+              "fofo_url": "https:\/\/nilkamalsleep.com\/collections\/luxuria"
+            }
+          },
+          "da571fc9-8453-44af-9334-99f10830df07": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Couple-Pro.jpg",
+              "fofo_text": "Couple Pro",
+              "fofo_url": "https:\/\/nilkamalsleep.com\/collections\/couple-pro"
+            }
+          },
+          "c3765664-36fb-47ac-848b-c2400d83b6b3": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Deep-Sleep.jpg",
+              "fofo_text": "Deep Sleep",
+              "fofo_url": "https:\/\/nilkamalsleep.com\/collections\/deep-sleep"
+            }
+          },
+          "d959b22a-2687-4357-a60a-37caca1bcc76": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Comfort.jpg",
+              "fofo_text": "Comfort",
+              "fofo_url": "https:\/\/nilkamalsleep.com\/collections\/comfort"
+            }
+          },
+          "db8b622c-1fe3-4ae3-a5c8-4ddaa424f23d": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Health-pro.jpg",
+              "fofo_text": "Health Pro",
+              "fofo_url": "https:\/\/nilkamalsleep.com\/collections\/health-pro"
+            }
+          }
+        },
+        "block_order": [
+          "ee575bf9-fa42-4f6f-810f-ab692442c9af",
+          "da571fc9-8453-44af-9334-99f10830df07",
+          "c3765664-36fb-47ac-848b-c2400d83b6b3",
+          "d959b22a-2687-4357-a60a-37caca1bcc76",
+          "db8b622c-1fe3-4ae3-a5c8-4ddaa424f23d"
+        ],
+        "settings": {
+          "title": "See Our Mattresses",
+          "frontpage_collections_per_row": 3,
+          "testimonial_text_animation": "fadeInDown",
+          "testimonial_speed": 6
+        }
       }
     }
   }
