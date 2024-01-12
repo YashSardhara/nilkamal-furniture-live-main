@@ -10,37 +10,6 @@
   </div>
 </a>
 {% endcomment %}
-<style>
-  .typerContainer{
-    display: none;
-  position: absolute;
-    top: 20%;
-    /* z-index: 99; */
-    left: 4%;
-}
-
-/* .myTyperFocusMobile{
-  background: transparent !important;
-  transition: background-color 0.3s ease;
-} */
-/* 
-.inputFocusEnable{
-  background: #F8F8F8 !important;
-} */
-
-.typerContainer .searchFor{
-  margin-right: 5px;
-}
-
-@media (max-width:768px){
-  .typerContainer{
-    display: none;
-    /* z-index: 9999; */
-    top: 22%;
-    left: 7%;
-}
-}
-</style>
 <header id="header" class="mobile_nav-fixed--{{ section.settings.fixed_header }}">
   {% if customer %}
   <div class="promo_banner disabled-link">
@@ -297,11 +266,7 @@
         {% comment %} <input type="text" name="q" placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}"
           autocapitalize="off" autocomplete="off" autocorrect="off" class="search-terms" /> {% endcomment %}
           <input type="text" name="q" 
-          autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="Search" class="myTyperFocusMobile search-terms " />
-          <div class="typerContainer">
-            <div class="searchFor">Search For</div>
-            <div class="searchForContentMobile"></div>
-          </div>
+          autocapitalize="off" autocomplete="off" autocorrect="off" class="myTyperFocusMobile search-terms " />
       </form>
     </div>
   </div>
@@ -393,13 +358,9 @@
               placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}"
               value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
               autocapitalize="off" autocomplete="off" autocorrect="off" /> {% endcomment %}
-              <input type="text" name="q" class="myTyperFocusMobile search-input " 
+              <input type="text" name="q" class="myTyperFocusMobileTwo search-input " 
               value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
-              autocapitalize="off" placeholder="Search" autocomplete="off" autocorrect="off" />
-            <div class="typerContainer">
-              <div class="searchFor">Search For</div>
-              <div class="searchForContent"></div>
-            </div>
+              autocapitalize="off" autocomplete="off" autocorrect="off" />
           </form>
         </div>
 
@@ -789,6 +750,13 @@
     % endif %
   }
 </style>
+
+<script src="{{ 'typewriter.js' | asset_url}}"></script>
+
+<script>
+   new TypeWriter('.myTyperFocusMobile', ['Search For Beds', 'Search For Chairs', 'Search For Sofas']);
+   new TypeWriter('.myTyperFocusMobileTwo', ['Search For Beds', 'Search For Chairs', 'Search For Sofas']);
+</script>
 
 
 {% schema %}
