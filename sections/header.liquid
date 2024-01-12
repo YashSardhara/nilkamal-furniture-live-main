@@ -265,6 +265,8 @@
         <span class="icon-search search-submit"></span>
         {% comment %} <input type="text" name="q" placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}"
           autocapitalize="off" autocomplete="off" autocorrect="off" class="search-terms" /> {% endcomment %}
+	
+	{% comment %} Animated Search code {% endcomment %}
           <input type="text" name="q" 
           autocapitalize="off" autocomplete="off" autocorrect="off" class="myTyperFocusMobile search-terms " />
       </form>
@@ -358,6 +360,8 @@
               placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}"
               value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
               autocapitalize="off" autocomplete="off" autocorrect="off" /> {% endcomment %}
+
+		{% comment %} Animated Search code {% endcomment %}
               <input type="text" name="q" class="myTyperFocusMobileTwo search-input " 
               value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
               autocapitalize="off" autocomplete="off" autocorrect="off" />
