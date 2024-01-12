@@ -6149,6 +6149,8 @@
       "fofo__form": {
         "type": "fofo__form",
         "settings": {
+          "fofo_sleep_image": "shopify:\/\/shop_images\/600x400_5daa195e-07a5-4e12-8b19-ecb7bdc3193c.jpg",
+          "fofo_sleep_business_image": "shopify:\/\/shop_images\/600x400_5daa195e-07a5-4e12-8b19-ecb7bdc3193c.jpg"
         }
       },
       "fofo-franchise-collection": {
