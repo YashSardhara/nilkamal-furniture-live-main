@@ -23,6 +23,7 @@
   font-size: 18px;
   perspective: 1000px;
   z-index: 100;
+
 }
 .dropdown:hover {
   background: #2980b9;
@@ -31,6 +32,9 @@
 .dropdown:hover .dropdown_menu li {
   display: block;
 }
+.dropdown .dropdown_menu li {
+  display: none;
+}
 .dropdown_menu {
   position: absolute;
   top: 100%;
@@ -38,6 +42,7 @@
   width: 100%;
   perspective: 1000px;
   z-index: -1;
+  display: none;
 }
 .dropdown_menu li {
   display: none;
@@ -50,16 +55,7 @@
 .dropdown_menu li:hover {
   background-color: #2980b9;
 }
-.dropdown:hover .dropdown_menu--animated {
-  display: block;
-}
-.dropdown_menu--animated {
-  display: none;
-}
-.dropdown_menu--animated li {
-  display: block;
-  opacity: 1;
-}
+
 .dropdown_menu-4 .dropdown_item-1 {
   transform-origin: top center;
   animation: scaleZ 300ms 60ms ease-in-out forwards;
