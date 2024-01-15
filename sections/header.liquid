@@ -10,6 +10,55 @@
   </div>
 </a>
 {% endcomment %}
+<style>
+  .mypositionRelative{
+    position: relative;
+  }
+
+  .fanchise-enquiry:hover ul.franchise__dropdown_ul{
+    display: flex;
+
+  }
+
+  ul.franchise__dropdown_ul {
+    position: absolute;
+    top: 2rem;
+    left: 0px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 10px;
+    padding: 10px;
+    width: 150px;
+    z-index: 999;
+    margin: 0px;
+    margin-left: 2rem;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    transition: .3s all ease-in-out;
+}
+
+.mypositionRelative:hover ul.franchise__dropdown_ul{
+    display: flex;
+  }
+
+li.franchise__dropdown_li {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+li.franchise__dropdown_li::before {
+    width: 0px !important;
+    height: 0px !important;
+}
+
+a.franchise__dropdown_a{
+  font-size: 13px  !important;
+}
+
+</style>
 
 <header id="header" class="mobile_nav-fixed--{{ section.settings.fixed_header }}">
   {% if customer %}
