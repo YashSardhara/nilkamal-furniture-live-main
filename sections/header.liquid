@@ -29,12 +29,7 @@
   background: #2980b9;
   cursor: pointer;
 }
-.dropdown:hover .dropdown_menu li {
-  display: block;
-}
-.dropdown .dropdown_menu li {
-  display: none;
-}
+
 .dropdown_menu {
   position: absolute;
   top: 100%;
@@ -42,7 +37,16 @@
   width: 100%;
   perspective: 1000px;
   z-index: -1;
+  display: none;
 }
+
+.dropdown:hover .dropdown_menu {
+  display: block;
+}
+.dropdown .dropdown_menu  {
+  display: none;
+}
+
 .dropdown_menu li {
   display: none;
   color: #fff;
