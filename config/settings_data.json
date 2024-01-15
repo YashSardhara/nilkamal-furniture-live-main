@@ -4854,7 +4854,6 @@
           },
           "766fa416-58b1-45f2-9f1f-c6f5671c78be": {
             "type": "image",
-            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/Artboard_1-1_41b27e6b-ac18-4bc8-9dc5-aca335b30b2a.jpg",
               "mobimage": "shopify:\/\/shop_images\/Artboard_1-2_c9ef5d41-6436-4702-99ca-50afde5102cd.jpg",
@@ -4875,6 +4874,7 @@
           },
           "e8692b67-cd4c-4966-980e-3c2b340d9dae": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/Artboard_1-1_6de80168-81e5-4f78-9df6-4ebc5c533e17.jpg",
               "mobimage": "shopify:\/\/shop_images\/Artboard_1-2_6069f6cb-dab9-47cc-8b3d-08e152ce9a69.jpg",
