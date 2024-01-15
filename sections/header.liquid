@@ -377,7 +377,13 @@ a.franchise__dropdown_a{
             {% endif %}
             {% endcomment %}
 
-            <li><a href="/pages/franchise" class="fanchise-enquiry">Franchise Enquiry</a></li>
+            <li class="mypositionRelative">
+              <a href="javascript:void(0)" class="fanchise-enquiry">Franchise Enquiry</a>
+              <ul class="franchise__dropdown_ul">
+                <li class="franchise__dropdown_li"><a href="/pages/franchise" target="_blank" class="franchise__dropdown_a">Nilkamal Furniture</a></li>
+                <li class="franchise__dropdown_li"><a href="https://www.nilkamalsleep.com/pages/fofo-franchise" target="_blank" class="franchise__dropdown_a">Nilkamal Sleep</a></li>
+              </ul>
+            </li>
             <li><a href="/pages/warranty-registration" class="fanchise-enquiry">Warranty Registration</a></li>
             {% if section.settings.top_bar_menu != blank %}
             {% for link in linklists[section.settings.top_bar_menu].links %}
