@@ -10,123 +10,7 @@
   </div>
 </a>
 {% endcomment %}
-<style>
-.dropdown {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  font-size: 18px;
-  perspective: 1000px;
-  z-index: 100;
-  color: #0093dd!important;
 
-}
-.dropdown:hover {
-  cursor: pointer;
-}
-
-.dropdown_menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 230px;
-  perspective: 1000px;
-  z-index: 1100;
-  display: none;
-  padding-left: 0px;
-    margin-left: 0px;
-}
-
-.dropdown:hover .dropdown_menu {
-  display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #ffffff;
-    border-radius: 6px;
-    box-shadow: 1px 1px 2px #eee;
-}
-.dropdown .dropdown_menu  {
-  display: none;
-}
-
-.dropdown_menu li {
-  display: none;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 16px;
-  opacity: 0;
-  color: #2196F3;
-}
-.dropdown_menu li:hover {
-  background-color: #2980b9;
-  color: #fff;
-}
-
-.dropdown_menu-4 .dropdown_item-1 {
-  transform-origin: top center;
-  animation: scaleZ 300ms 60ms ease-in-out forwards;
-}
-.dropdown_menu-4 .dropdown_item-2 {
-  transform-origin: top center;
-  animation: scaleZ 300ms 120ms ease-in-out forwards;
-}
-
-@-moz-keyframes scaleZ {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  80% {
-    transform: scale(1.07);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-@-webkit-keyframes scaleZ {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  80% {
-    transform: scale(1.07);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-@-o-keyframes scaleZ {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  80% {
-    transform: scale(1.07);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-@keyframes scaleZ {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  80% {
-    transform: scale(1.07);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-</style>
 <header id="header" class="mobile_nav-fixed--{{ section.settings.fixed_header }}">
   {% if customer %}
   <div class="promo_banner disabled-link">
@@ -443,20 +327,8 @@
             </li>
             {% endif %}
             {% endcomment %}
-            <li><div class="menu-container">
-              <nav>
-                <ul class="menu">
-                  <li class="dropdown dropdown-4 ">
-                    Franchise Enquiry
-                    <ul class="dropdown_menu dropdown_menu-4">
-                      <li class="dropdown_item-1">Franchise Enquiry Nilkamal Furniture</li>
-                      <li class="dropdown_item-2">Franchise Enquiry Nilkamal Sleep</li>
-                    </ul>
-                  </li>
-                </ul>
-              </nav>
-              </div></li>
-            {% comment %} <li><a href="/pages/franchise" class="fanchise-enquiry">Franchise Enquiry</a></li> {% endcomment %}
+
+            <li><a href="/pages/franchise" class="fanchise-enquiry">Franchise Enquiry</a></li>
             <li><a href="/pages/warranty-registration" class="fanchise-enquiry">Warranty Registration</a></li>
             {% if section.settings.top_bar_menu != blank %}
             {% for link in linklists[section.settings.top_bar_menu].links %}
