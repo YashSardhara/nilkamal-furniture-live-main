@@ -11,7 +11,7 @@
 </a>
 {% endcomment %}
 <style>
-  .header-dropdown {
+.dropdown {
   padding: 20px 40px;
   display: flex;
   justify-content: center;
@@ -24,14 +24,14 @@
   perspective: 1000px;
   z-index: 100;
 }
-.header-dropdown:hover {
+.dropdown:hover {
   background: #2980b9;
   cursor: pointer;
 }
-.header-dropdown:hover .header-dropdown_menu li {
+.dropdown:hover .dropdown_menu li {
   display: block;
 }
-.header-dropdown_menu {
+.dropdown_menu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -39,7 +39,7 @@
   perspective: 1000px;
   z-index: -1;
 }
-.header-dropdown_menu li {
+.dropdown_menu li {
   display: none;
   color: #fff;
   background-color: #34495e;
@@ -47,28 +47,67 @@
   font-size: 16px;
   opacity: 0;
 }
-.header-dropdown_menu li:hover {
+.dropdown_menu li:hover {
   background-color: #2980b9;
 }
-.header-dropdown:hover .header-dropdown_menu--animated {
+.dropdown:hover .dropdown_menu--animated {
   display: block;
 }
-.header-dropdown_menu--animated {
+.dropdown_menu--animated {
   display: none;
 }
-.header-dropdown_menu--animated li {
+.dropdown_menu--animated li {
   display: block;
   opacity: 1;
 }
-.header-dropdown_menu-4 .header-dropdown_item-1 {
+.dropdown_menu-4 .dropdown_item-1 {
   transform-origin: top center;
   animation: scaleZ 300ms 60ms ease-in-out forwards;
 }
-.header-dropdown_menu-4 .header-dropdown_item-2 {
+.dropdown_menu-4 .dropdown_item-2 {
   transform-origin: top center;
   animation: scaleZ 300ms 120ms ease-in-out forwards;
 }
 
+@-moz-keyframes scaleZ {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.07);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes scaleZ {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.07);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-o-keyframes scaleZ {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.07);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 @keyframes scaleZ {
   0% {
     opacity: 0;
@@ -400,17 +439,16 @@
             </li>
             {% endif %}
             {% endcomment %}
-            <li><div class="header-menu-container">
+            <li><div class="menu-container">
               <nav>
-                <ul class="header-menu">
-                  <li class="header-dropdown header-dropdown-4">
+                <ul class="menu">
+                  <li class="dropdown dropdown-4">
                     Scale
-                    <ul class="header-dropdown_menu header-dropdown_menu-4">
-                      <li class="header-dropdown_item-1">Franchise Enquiry</li>
-                      <li class="header-dropdown_item-2">Franchise Enquiry</li>
+                    <ul class="dropdown_menu dropdown_menu-4">
+                      <li class="dropdown_item-1">Franchise Enquiry</li>
+                      <li class="dropdown_item-2">Franchise Enquiry</li>
                     </ul>
                   </li>
-
                 </ul>
               </nav>
               </div></li>
