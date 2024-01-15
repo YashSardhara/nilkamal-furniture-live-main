@@ -23,6 +23,7 @@
 
 }
 .dropdown:hover {
+  background: #2980b9;
   cursor: pointer;
 }
 
@@ -46,13 +47,13 @@
 .dropdown_menu li {
   display: none;
   color: #fff;
-  background-color: #34495e72;
+  background-color: #34495e;
   padding: 10px 20px;
   font-size: 16px;
   opacity: 0;
 }
 .dropdown_menu li:hover {
-  background-color: #34495e72;
+  background-color: #2980b9;
 }
 
 .dropdown_menu-4 .dropdown_item-1 {
@@ -65,6 +66,45 @@
 }
 
 @-moz-keyframes scaleZ {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.07);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes scaleZ {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.07);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-o-keyframes scaleZ {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.07);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes scaleZ {
   0% {
     opacity: 0;
     transform: scale(0);
@@ -398,7 +438,7 @@
             <li><div class="menu-container">
               <nav>
                 <ul class="menu">
-                  <li class="dropdown dropdown-4 fanchise-enquiry">
+                  <li class="dropdown dropdown-4 ">
                     Scale
                     <ul class="dropdown_menu dropdown_menu-4">
                       <li class="dropdown_item-1">Franchise Enquiry</li>
