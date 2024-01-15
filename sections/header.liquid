@@ -10,6 +10,80 @@
   </div>
 </a>
 {% endcomment %}
+<style>
+  .header-dropdown {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background: #c06162;
+  background: #34495e;
+  position: relative;
+  font-size: 18px;
+  perspective: 1000px;
+  z-index: 100;
+}
+.header-dropdown:hover {
+  background: #2980b9;
+  cursor: pointer;
+}
+.header-dropdown:hover .header-dropdown_menu li {
+  display: block;
+}
+.header-dropdown_menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  perspective: 1000px;
+  z-index: -1;
+}
+.header-dropdown_menu li {
+  display: none;
+  color: #fff;
+  background-color: #34495e;
+  padding: 10px 20px;
+  font-size: 16px;
+  opacity: 0;
+}
+.header-dropdown_menu li:hover {
+  background-color: #2980b9;
+}
+.header-dropdown:hover .header-dropdown_menu--animated {
+  display: block;
+}
+.header-dropdown_menu--animated {
+  display: none;
+}
+.header-dropdown_menu--animated li {
+  display: block;
+  opacity: 1;
+}
+.header-dropdown_menu-4 .header-dropdown_item-1 {
+  transform-origin: top center;
+  animation: scaleZ 300ms 60ms ease-in-out forwards;
+}
+.header-dropdown_menu-4 .header-dropdown_item-2 {
+  transform-origin: top center;
+  animation: scaleZ 300ms 120ms ease-in-out forwards;
+}
+
+@keyframes scaleZ {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.07);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+</style>
 <header id="header" class="mobile_nav-fixed--{{ section.settings.fixed_header }}">
   {% if customer %}
   <div class="promo_banner disabled-link">
@@ -265,9 +339,9 @@
         <span class="icon-search search-submit"></span>
         {% comment %} <input type="text" name="q" placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}"
           autocapitalize="off" autocomplete="off" autocorrect="off" class="search-terms" /> {% endcomment %}
-	
+
 	{% comment %} Animated Search code {% endcomment %}
-          <input type="text" name="q" 
+          <input type="text" name="q"
           autocapitalize="off" autocomplete="off" autocorrect="off" class="myTyperFocusMobile search-terms " />
       </form>
     </div>
@@ -326,7 +400,21 @@
             </li>
             {% endif %}
             {% endcomment %}
-            <li><a href="/pages/franchise" class="fanchise-enquiry">Franchise Enquiry</a></li>
+            <li><div class="header-menu-container">
+              <nav>
+                <ul class="header-menu">
+                  <li class="header-dropdown header-dropdown-4">
+                    Scale
+                    <ul class="header-dropdown_menu header-dropdown_menu-4">
+                      <a href="/pages/warranty-registration" class="fanchise-enquiry"> <li class="header-dropdown_item-1">Franchise Enquiry</li></a>
+                      <a href="/pages/warranty-registration" class="fanchise-enquiry"> <li class="header-dropdown_item-2">Franchise Enquiry</li></a>
+                    </ul>
+                  </li>
+
+                </ul>
+              </nav>
+              </div></li>
+            {% comment %} <li><a href="/pages/franchise" class="fanchise-enquiry">Franchise Enquiry</a></li> {% endcomment %}
             <li><a href="/pages/warranty-registration" class="fanchise-enquiry">Warranty Registration</a></li>
             {% if section.settings.top_bar_menu != blank %}
             {% for link in linklists[section.settings.top_bar_menu].links %}
@@ -362,7 +450,7 @@
               autocapitalize="off" autocomplete="off" autocorrect="off" /> {% endcomment %}
 
 		{% comment %} Animated Search code {% endcomment %}
-              <input type="text" name="q" class="myTyperFocusMobileTwo search-input " 
+              <input type="text" name="q" class="myTyperFocusMobileTwo search-input "
               value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
               autocapitalize="off" autocomplete="off" autocorrect="off" />
           </form>
