@@ -11,69 +11,68 @@
 </a>
 {% endcomment %}
 <style>
-  .mypositionRelative{
+  .mypositionRelative {
     position: relative;
   }
 
-  .fanchise-enquiry:hover ul.franchise__dropdown_ul{
+  .fanchise-enquiry:hover ul.franchise__dropdown_ul {
     display: flex;
 
   }
 
   ul.franchise__dropdown_ul {
-   position: absolute;
+    position: absolute;
     top: 2.4rem;
     left: -1.4rem;
     background: #fff;
-    border: 1px solid rgba(0,0,0,.2);
+    border: 1px solid rgba(0, 0, 0, .2);
     border-radius: 6px;
-    padding: 10px 15px;
+    padding: 10px;
     width: 150px;
     z-index: 9999999;
     margin: 0px;
     margin-left: 2rem;
     display: none;
-    gap:12px;
     flex-direction: column;
     text-align: center;
     justify-content: flex-start;
     align-items: flex-start;
     transition: .3s all ease-in-out;
-}
+  }
 
-.mypositionRelative:hover ul.franchise__dropdown_ul{
+  .mypositionRelative:hover ul.franchise__dropdown_ul {
     display: flex;
   }
 
-li.franchise__dropdown_li {
+  li.franchise__dropdown_li {
     padding: 0px !important;
     margin: 0px !important;
-}
-
-li.franchise__dropdown_li::before {
-    width: 0px !important;
-    height: 0px !important;
-}
-
-a.franchise__dropdown_a{
-  font-size: 13px  !important;
-  line-height: 22px !important;
-  height: 22px !important;
-}
-
-/* .myFranchiseDiv{
-    display: flex !important;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
   }
 
-  .myparent_link_true{
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-  } */
+  li.franchise__dropdown_li::before {
+    width: 0px !important;
+    height: 0px !important;
+  }
 
+  a.franchise__dropdown_a {
+    font-size: 13px !important;
+    line-height: 22px !important;
+    height: 22px !important;
+  }
+
+  a.parent-link--true.myparent_link_true {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+p.myfranchHide{
+  width: 90%;
+  margin-left: 10px !important;
+}
+
+  
 </style>
 
 <header id="header" class="mobile_nav-fixed--{{ section.settings.fixed_header }}">
