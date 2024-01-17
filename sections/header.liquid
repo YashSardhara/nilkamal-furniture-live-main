@@ -11,35 +11,70 @@
 </a>
 {% endcomment %}
 <style>
-  .typerContainer{
-	display: flex;
-  position: absolute;
-    top: 20%;
-    /* z-index: 99; */
-    left: 4%;
+  .mypositionRelative {
+    position: relative;
+  }
+
+  .fanchise-enquiry:hover ul.franchise__dropdown_ul {
+    display: flex;
+
+  }
+
+  ul.franchise__dropdown_ul {
+    position: absolute;
+    top: 2.4rem;
+    left: -1.4rem;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    padding: 10px;
+    width: 150px;
+    z-index: 9999999;
+    margin: 0px;
+    margin-left: 2rem;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transition: .3s all ease-in-out;
+  }
+
+  .mypositionRelative:hover ul.franchise__dropdown_ul {
+    display: flex;
+  }
+
+  li.franchise__dropdown_li {
+    padding: 0px !important;
+    margin: 0px !important;
+  }
+
+  li.franchise__dropdown_li::before {
+    width: 0px !important;
+    height: 0px !important;
+  }
+
+  a.franchise__dropdown_a {
+    font-size: 13px !important;
+    line-height: 22px !important;
+    height: 22px !important;
+  }
+
+  a.parent-link--true.myparent_link_true {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.myTyperFocusMobile{
-  background: transparent !important;
-  -webkit-display: none !important;
+
+p.myfranchHide{
+  width: 90%;
+  margin-left: 10px !important;
 }
 
-.myTyperFocusMobile:focus{
-  background: #F8F8F8 !important;
-}
-
-.typerContainer .searchFor{
-  margin-right: 5px;
-}
-
-@media (max-width:768px){
-  .typerContainer{
-    /* z-index: 9999; */
-    top: 22%;
-    left: 7%;
-}
-}
+  
 </style>
+
 <header id="header" class="mobile_nav-fixed--{{ section.settings.fixed_header }}">
   {% if customer %}
   <div class="promo_banner disabled-link">
@@ -202,6 +237,15 @@
           {% include 'mobile-menu' with section.settings.top_bar_menu %}
           {% endcomment %}
           {% if section.settings.phone_number != blank %}
+           <!-- <li data-mobile-dropdown-rel="living-room-furniture" class="sublink">  
+              <a data-no-instant=""
+                  href="javascript:void(0)" class="parent-link--true" data-new-tag="LivingRoomFurniture">
+                  Franchise Enquiry <span class="right icon-down-arrow"></span></a>
+                <ul>
+                  <li><a href="/pages/franchise">Nilkamal Furniture</a></li>
+                  <li><a href="/pages/fofo-franchise">Nilkamal Sleep</a></li>
+                </ul>
+              </li> -->
           <li class="svg_megamenu_ui">
             <span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -214,12 +258,43 @@
           {% endif %}
 
 
-          <li class="svg_megamenu_ui">
+          <!-- <li class="svg_megamenu_ui">
             <span><svg xmlns="http://www.w3.org/2000/svg" width="17" height="13" fill="none" viewBox="0 0 17 13"
                 fill="none">
                 <path d="M14 10H16V7H17V5L16 0H1L0 5V7H1V13H10V7H14V10ZM8 11H3V7H8V11Z" fill="#0093DD" />
               </svg></span> <a href="https://www.nilkamalfurniture.com/pages/franchise">Franchise Enquiry</a>
-          </li>
+          </li> -->
+        <!-- <li data-mobile-dropdown-rel="living-room-furniture" class="sublink myFranchiseDiv">  
+            <span><svg xmlns="http://www.w3.org/2000/svg" width="17" height="13" fill="none" viewBox="0 0 17 13"
+            fill="none">
+            <path d="M14 10H16V7H17V5L16 0H1L0 5V7H1V13H10V7H14V10ZM8 11H3V7H8V11Z" fill="#0093DD" />
+          </svg></span>  
+          <a data-no-instant=""
+                href="javascript:void(0)" class="parent-link--true myparent_link_true" data-new-tag="LivingRoomFurniture">
+                Franchise Enquiry <span class="right icon-down-arrow"></span></a>
+              <ul>
+                <li><a href="/pages/franchise">Nilkamal Furniture</a></li>
+                <li><a href="/pages/fofo-franchise">Nilkamal Sleep</a></li>
+              </ul>
+            </li> -->
+      <li data-mobile-dropdown-rel="living-room-furniture" class="sublink">
+          <a data-no-instant=""
+                href="javascript:void(0)" class="parent-link--true myparent_link_true" data-new-tag="LivingRoomFurniture">
+                 <span><svg xmlns="http://www.w3.org/2000/svg" width="17" height="13" fill="none" viewBox="0 0 17 13"
+            fill="none">
+            <path d="M14 10H16V7H17V5L16 0H1L0 5V7H1V13H10V7H14V10ZM8 11H3V7H8V11Z" fill="#0093DD" />
+          </svg></span> 
+          <p class="myfranchHide">
+            Franchise Enquiry
+          </p>
+          <span class="right icon-down-arrow"></span>
+                
+                </a>
+              <ul>
+                <li><a href="/pages/franchise">Nilkamal Furniture</a></li>
+                <li><a href="/pages/fofo-franchise">Nilkamal Sleep</a></li>
+              </ul>
+            </li>
           <li class="svg_megamenu_ui">
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="22" fill="none" viewBox="0 0 24 24">
@@ -295,12 +370,10 @@
         <span class="icon-search search-submit"></span>
         {% comment %} <input type="text" name="q" placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}"
           autocapitalize="off" autocomplete="off" autocorrect="off" class="search-terms" /> {% endcomment %}
-          <input type="text" name="q" 
+
+	{% comment %} Animated Search code {% endcomment %}
+          <input type="text" name="q"
           autocapitalize="off" autocomplete="off" autocorrect="off" class="myTyperFocusMobile search-terms " />
-          <div class="typerContainer">
-            <div class="searchFor">Search For</div>
-            <div class="searchForContentMobile"></div>
-          </div>
       </form>
     </div>
   </div>
@@ -358,7 +431,14 @@
             </li>
             {% endif %}
             {% endcomment %}
-            <li><a href="/pages/franchise" class="fanchise-enquiry">Franchise Enquiry</a></li>
+
+            <li class="mypositionRelative">
+              <a href="javascript:void(0)" class="fanchise-enquiry">Franchise Enquiry</a>
+              <ul class="franchise__dropdown_ul">
+                <li class="franchise__dropdown_li"><a href="/pages/franchise" target="_blank" class="franchise__dropdown_a">Nilkamal Furniture</a></li>
+                <li class="franchise__dropdown_li"><a href="/pages/fofo-franchise" target="_blank" class="franchise__dropdown_a">Nilkamal Sleep</a></li>
+              </ul>
+            </li>
             <li><a href="/pages/warranty-registration" class="fanchise-enquiry">Warranty Registration</a></li>
             {% if section.settings.top_bar_menu != blank %}
             {% for link in linklists[section.settings.top_bar_menu].links %}
@@ -392,13 +472,11 @@
               placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}"
               value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
               autocapitalize="off" autocomplete="off" autocorrect="off" /> {% endcomment %}
-              <input type="text" name="q" class="myTyperFocusMobile search-input " 
+
+		{% comment %} Animated Search code {% endcomment %}
+              <input type="text" name="q" class="myTyperFocusMobileTwo search-input "
               value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}"
               autocapitalize="off" autocomplete="off" autocorrect="off" />
-            <div class="typerContainer">
-              <div class="searchFor">Search For</div>
-              <div class="searchForContent"></div>
-            </div>
           </form>
         </div>
 
@@ -788,32 +866,14 @@
     % endif %
   }
 </style>
+{% comment %} Animated Search code {% endcomment %}
+<script src="{{ 'typewriter.js' | asset_url}}"></script>
 
 <script>
-  
-   var typing=new Typed(".searchForContent", {
-       strings: ["", "Beds", "Chairs ", "Recliners", "Wardrobes", "Sofas"],
-       typeSpeed: 100,
-       backSpeed: 40,
-       loop: true,
-   }); 
-
-   var typingmobile =new Typed(".searchForContentMobile", {
-       strings: ["", "Beds", "Chairs ", "Recliners", "Wardrobes", "Sofas"],
-       typeSpeed: 100,
-       backSpeed: 40,
-       loop: true,
-   });
-
-   var myInput = document.getElementsByClassName('myTyperFocusMobile');
-
-myInput.addEventListener('blur', function() {
-  myInput.style.backgroundColor = 'transparent';
-});
-  
-
+   new TypeWriter('.myTyperFocusMobile', ['Search For Beds', 'Search For Chairs', 'Search For Sofas']);
+   new TypeWriter('.myTyperFocusMobileTwo', ['Search For Beds', 'Search For Chairs', 'Search For Sofas']);
 </script>
-
+{% comment %} Animated Search code end {% endcomment %}
 
 {% schema %}
 

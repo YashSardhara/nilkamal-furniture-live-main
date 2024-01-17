@@ -4815,8 +4815,8 @@
           "e116edb9-8097-4809-b939-ce83cf46e550": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/bedroom_1c05ba70-4f3c-4aa3-9773-f8ddf7bcbb3f.jpg",
-              "mobimage": "shopify:\/\/shop_images\/Artboard_1-3_6db1ebd1-5ca8-4787-a3cc-9f6111d98d21.jpg",
+              "image": "shopify:\/\/shop_images\/Artboard_1_a17ddf40-cc3f-4fa3-89b6-37ffe6724dbd.jpg",
+              "mobimage": "shopify:\/\/shop_images\/bedroom_ba990d87-7ea7-4b79-9ae9-82a59c731fdd.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4835,8 +4835,8 @@
           "ea0cea26-75de-44ce-bc48-1d8905fbfa57": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Artboard_1-2_31e3184b-ca13-4aa8-86a6-33d18b774b63.jpg",
-              "mobimage": "shopify:\/\/shop_images\/Artboard_1-1_e6dbeebd-7377-4672-98b9-4d634ad3da08.jpg",
+              "image": "shopify:\/\/shop_images\/Artboard_1-2_5b43c589-066f-412d-9c6e-6eaffdad4763.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Artboard_1-1_4e81dfdb-f2e5-42e9-ae9b-89b8a3e55640.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4854,10 +4854,9 @@
           },
           "766fa416-58b1-45f2-9f1f-c6f5671c78be": {
             "type": "image",
-            "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/Artboard_1-1_1d6919e1-aef6-4d87-89aa-322beb5c3f62.jpg",
-              "mobimage": "shopify:\/\/shop_images\/Artboard_1-2_e9c383b5-52f0-4ea5-af9b-caaf2626f6dc.jpg",
+              "image": "shopify:\/\/shop_images\/Artboard_1-1_41b27e6b-ac18-4bc8-9dc5-aca335b30b2a.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Artboard_1-2_c9ef5d41-6436-4702-99ca-50afde5102cd.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4875,6 +4874,7 @@
           },
           "e8692b67-cd4c-4966-980e-3c2b340d9dae": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/Artboard_1-1_6de80168-81e5-4f78-9df6-4ebc5c533e17.jpg",
               "mobimage": "shopify:\/\/shop_images\/Artboard_1-2_6069f6cb-dab9-47cc-8b3d-08e152ce9a69.jpg",
@@ -4896,8 +4896,8 @@
           "4df1d8be-b1e4-410c-ae53-934559add4a7": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Artboard_1-3_5f157394-a4ac-43fd-b36b-83c27d816f74.jpg",
-              "mobimage": "shopify:\/\/shop_images\/Artboard_1_4a36582f-f7c0-42e6-ae86-a722334e1347.jpg",
+              "image": "shopify:\/\/shop_images\/Artboard_1-3_5f85d3af-fad8-48e7-95bf-31981ce7f953.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Artboard_1_2ad9ae97-3090-494d-be16-851964841415.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4915,6 +4915,7 @@
           },
           "996706c8-a987-443e-8be6-205d1f780438": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/desktop_2199434f-9669-4165-be5e-78d7159affd6.jpg",
               "mobimage": "shopify:\/\/shop_images\/450x450_mobile.jpg",
@@ -5984,7 +5985,7 @@
             "type": "collection",
             "settings": {
               "feature_collection": "recliners",
-              "image": "shopify:\/\/shop_images\/recliner_c66dde50-ef58-4356-a493-971fbbc2c1f7.jpg"
+              "image": "shopify:\/\/shop_images\/recliner_48209a7d-a31d-4dd6-a162-d6199a9b2e09.jpg"
             }
           },
           "462479a9-19ea-4e90-b40e-b32677b85c60-16884478839df21ab8-1": {
@@ -6135,9 +6136,80 @@
       "c210a9f3-b14b-4964-9ece-ba05fe253ba2": {
         "type": "payment_banner",
         "settings": {
-          "desktop_img": "shopify:\/\/shop_images\/C3.jpg",
-          "mobile_img": "shopify:\/\/shop_images\/c3_mobile.jpg",
-          "image_url": "shopify:\/\/collections\/paradise-series"
+          "desktop_img": "shopify:\/\/shop_images\/kids_banner_option_desktop.jpg",
+          "mobile_img": "shopify:\/\/shop_images\/kids_banner_option_mobile.jpg",
+          "image_url": "shopify:\/\/collections\/kids-furniture"
+        }
+      },
+      "fofo__banner": {
+        "type": "fofo__banner",
+        "settings": {
+          "fofo__image": "shopify:\/\/shop_images\/Untitled-2_03e0c681-09fc-4250-85a8-e17c04234916.jpg"
+        }
+      },
+      "fofo__form": {
+        "type": "fofo__form",
+        "settings": {
+          "fofo_sleep_image": "shopify:\/\/shop_images\/sleep_image_1_600x_6e83ae98-13b9-4bfc-be5f-6efc9208ac09.webp",
+          "fofo_sleep_business_image": "shopify:\/\/shop_images\/sleep_image_2_600x_f1ef44ae-122a-47d5-9d50-1bf06c057b81.webp"
+        }
+      },
+      "fofo-franchise-collection": {
+        "type": "fofo-franchise-collection",
+        "blocks": {
+          "collection_98HPW9": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Comfort.jpg",
+              "fofo_text": "Comfort",
+              "fofo_url": "https:\/\/www.nilkamalsleep.com\/collections\/comfort"
+            }
+          },
+          "collection_dqpEnf": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Couple-Pro.jpg",
+              "fofo_text": "Couple Pro",
+              "fofo_url": "https:\/\/www.nilkamalsleep.com\/collections\/couple-pro"
+            }
+          },
+          "collection_F6Aaiy": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Deep-Sleep.jpg",
+              "fofo_text": "Deep Sleep",
+              "fofo_url": "https:\/\/www.nilkamalsleep.com\/collections\/deep-sleep"
+            }
+          },
+          "collection_hAHELm": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Luxuria_a33485f8-d2d4-4415-8dc3-4e29d3e3d1ea.jpg",
+              "fofo_text": "Luxuria",
+              "fofo_url": "https:\/\/www.nilkamalsleep.com\/collections\/luxuria"
+            }
+          },
+          "collection_D76fMA": {
+            "type": "collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Health-pro.jpg",
+              "fofo_text": "Health Pro",
+              "fofo_url": "https:\/\/www.nilkamalsleep.com\/collections\/health-pro"
+            }
+          }
+        },
+        "block_order": [
+          "collection_98HPW9",
+          "collection_dqpEnf",
+          "collection_F6Aaiy",
+          "collection_hAHELm",
+          "collection_D76fMA"
+        ],
+        "settings": {
+          "title": "Our Mattresses",
+          "frontpage_collections_per_row": 3,
+          "testimonial_text_animation": "fadeInDown",
+          "testimonial_speed": 6
         }
       }
     },
