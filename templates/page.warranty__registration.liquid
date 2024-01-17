@@ -10,6 +10,8 @@
     display: none;
   }
 
+
+
   .cityFormContainer{
     padding-left: 0px !important;
     padding-right: 30px;
@@ -941,6 +943,19 @@
   label.did-floating-label-war.flt_prd_model {
     width: 30%;
 }
+
+/* Warranty Pincode Css */
+.pincode__checker__box{
+	padding: 0 15px ;
+}
+
+/* .cityStateRow{
+   display: none;
+} */
+
+.pincode__checker_diasbled{
+  color: rgba(0, 0, 0, .4) !important;
+}
 </style>
 <div class="warranty_container">
   <div class="warranty-page row">
@@ -976,7 +991,7 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-6 did-floating-box">
-          <input type="email" class="form-control emailadd buttonstyle"
+          <input type="email" class="form-control emailadd testing buttonstyle"
             value="{% if customer %}{{  customer.email  }}{% endif %}" name="email" id="Email" autocorrect="off"
             autocapitalize="off" placeholder=" " required>
           <label class="did-floating-label">Email ID</label>
@@ -991,27 +1006,35 @@
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group col-md-6">
-          <div class="did-floating-label-content-war">
-            <select id="address_state" name="state" class="did-floating-select"
+        <div class="form-group col-md-6 pincode__checker__box did-floating-box">
+           <input class="form-control pincode__checker buttonstyle" type="number"
+             id="pincode-check" name="pincode_check"
+            placeholder=" "  required> 
+          <label class="did-floating-label">Pincode</label>
+          <span id="pincode_check_error" class="help-inline text-danger"></span>
+        </div>
+      </div>
+      <div class="form-row cityStateRow">
+        <div class="form-group col-md-6 did-floating-box">
+            {% comment %} <select id="address_state" name="state" class="did-floating-select"
               onclick="this.setAttribute('value', this.value);" onchange="this.setAttribute('value', this.value);"
               value="">
-              {% comment %} {% if customer %}
-              <option value="{{ customer.default_address.province  }}" selected>{{ customer.default_address.province }}
-              </option>
-              {% endif %} {% endcomment %}
               <option value="" selected disabled></option>
-            </select>
-            <label class="did-floating-label-war">State</label>
-            <span id="state_error" class="help-inline text-danger"></span>
-          </div>
+            </select> {% endcomment %}
+            {% comment %} <label class="did-floating-label-war">State</label>
+            <span id="state_error" class="help-inline text-danger"></span> {% endcomment %}
+            <input class="form-control pincode__checker buttonstyle" type="text"
+             id="address_state" name="state"  
+            placeholder=" "  required disabled>
+          <label class="did-floating-label state__label pincode__checker_diasbled">State</label>
+          <span id="state_error" class="help-inline text-danger"></span>
         </div>
-        <div class="form-group col-md-6">
-          <div class="form-group col-md-6 did-floating-box cityFormContainer">
-            <input class="form-control buttonstyle"
+       
+          <div class="form-group col-md-6 did-floating-box">
+              <input class="form-control buttonstyle"
                type="text" name="city"
-              id="address_city"  placeholder=" " required>
-            <label class="did-floating-label">City</label>
+              id="address_city"  placeholder=" " required disabled>
+            <label class="did-floating-label city__label pincode__checker_diasbled">City</label>
             <span id="city_error" class="help-inline text-danger"></span>
           </div>
           {% comment %} <div class="did-floating-label-content-war">
@@ -1022,9 +1045,10 @@
             </select>
             <label class="did-floating-label-war">City</label>
             <span id="city_error" class="help-inline text-danger"></span>
-          </div> {% endcomment %}
+          
+          {% endcomment %}
+          {% comment %} </div> {% endcomment %}
         </div>
-      </div>
       <div class="form-row">
         <div class="col-md-3 col-sm-12  warr__radio__cont">
           <div class="radio_online_off">
@@ -1262,6 +1286,105 @@
 
 </style>
 <script>
+
+
+    // Assuming you have an input field with the id 'pincodeInput'
+    $('#pincode-check').on('input', function () {
+        var pincode = $(this).val();
+
+        // Remove non-digit characters and limit to 6 digits
+        pincode = pincode.replace(/\D/g, '').substring(0, 6);
+
+        // Update the input value
+        $(this).val(pincode);
+
+        // Check if the entered pincode has exactly 6 digits
+        if (pincode.length === 6) {
+            getPincodeData();
+        }
+    });
+
+
+function getPincodeData() {
+    var pincode = $('#pincode-check').val();
+    var csvFile = 'https://cdn.shopify.com/s/files/1/0044/1208/0217/files/pincode_data.csv?v=1704458039';
+
+    $.ajax({
+        type: 'GET',
+        url: csvFile,
+        dataType: 'text',
+        success: function (data) {
+            processData(data, pincode);
+        }
+    });
+}
+
+function processData(csv, pincode) {
+    var lines = csv.split('\n');
+    var headers = lines[0].split(',');
+    var pincodeFound = false;
+
+    for (var i = 1; i < lines.length; i++) {
+        var currentLine = lines[i].split(',');
+        var currentPincode = currentLine[0].trim();
+
+        if (currentPincode === pincode) {
+            var city = currentLine[1].trim();
+            var stateName = currentLine[2].trim();
+            pincodeFound = true;
+
+            
+
+            // You can break the loop if you only want the first match
+            break;
+        }
+    }
+
+    // Display error if pincode is not found
+    if (!pincodeFound) {
+        //alert("No data found for the provided pincode: " + pincode);
+        $("#pincode_check_error").html('Pincode is not available');
+        $('#address_city').attr('value', '');
+        $('#address_state').attr('value', '');
+        $('#address_city').attr('disabled',true);
+        $('#address_state').attr('disabled',true);
+        $('#address_city').removeAttr('readonly');
+        $('#address_state').removeAttr('readonly');
+        $('.state__label').addClass('pincode__checker_diasbled')
+        $('.city__label').addClass('pincode__checker_diasbled')
+        
+      }else{
+        // Display data and show the "cityStateRow" class
+        $("#pincode_check_error").html('');
+        $('#address_city').removeAttr('disabled');
+        $('#address_state').removeAttr('disabled');
+        $('#address_city').attr('readonly', true);
+        $('#address_state').attr('readonly', true);
+        $('.state__label').removeClass('pincode__checker_diasbled')
+        $('.city__label').removeClass('pincode__checker_diasbled')
+      displayData(city, stateName);
+    }
+}
+
+function displayData(city, stateName) {
+    // Assuming you have an element with the class 'cityStateRow' that you want to display
+   // $('.cityStateRow').css("display", "flex");
+
+    // Set the value of city in the input field with id 'address_city'
+    $('#address_city').attr('value', city);
+
+    // Set the value of stateName in the input field with id 'address_state'
+    $('#address_state').attr('value', stateName);
+
+    // Disable the input fields
+    // $('#address_city, #address_state').prop('disabled', true);
+
+    // You can update this part based on how you want to display the data in your HTML
+    console.log('City: ' + city);
+    console.log('State Name: ' + stateName);
+}
+
+
   $('.generate_otp').click(function (e) {
 
 
@@ -1425,6 +1548,9 @@
   const warrantySizeInput = document.getElementById('warrantySize');
   const errorMessagewarrantywarrantySize = document.getElementById('model__size_error');
 
+  const pincodeInput = document.getElementById('pincode-check');
+  const errorMessagePincode = document.getElementById('pincode_check_error');
+
   const warrantywarrantyInvoice = document.getElementById('warrantyInvoice');
   const errorMessagewarrantywarrantyInvoice = document.getElementById('invoice_id_error');
 
@@ -1516,14 +1642,22 @@
   });
   stateInput.addEventListener('blur', () => {
     if (stateInput.value?.trim() === '') {
-      errorMessagestate.textContent = 'Please enter State field';
+      errorMessagestate.textContent = 'Please enter Pincode field';
     } else {
       errorMessagestate.textContent = '';
     }
   });
+
+  pincodeInput.addEventListener('blur', () => {
+    if (pincodeInput.value?.trim() === '') {
+      errorMessagePincode.textContent = 'Please enter Pincode field';
+    } else {
+      errorMessagePincode.textContent = '';
+    }
+  });
   cityInput.addEventListener('blur', () => {
     if (cityInput.value?.trim() === '') {
-      errorMessagecity.textContent = 'Please enter City field';
+      errorMessagecity.textContent = 'Please enter Pincode field';
     } else {
       errorMessagecity.textContent = '';
     }
@@ -1709,45 +1843,6 @@
   });
 
 
-</script>
-
-
-<script>
-  $(document).ready(function () {
-    console.clear('console clear');
-    $.ajax({
-      url: "https://middleware.doctordreams.com/api/state",
-      type: 'get',
-      dataType: 'json',
-      success: function (data) {
-        var states = data.states;
-        $.each(states, function (k, v) {
-          $('#address_state').append('<option value="' + k + '">' + v + '</option>');
-        });
-      }
-    });
-    $(".close_arrow").click(function () {
-      $("#pop-terms").hide();
-    });
-  });
-
-  $('#address_state').change(function () {
-
-    var state_val = $(this).val();
-
-    $.ajax({
-      url: "https://middleware.doctordreams.com/api/city",
-      type: 'post',
-      data: { 'state': state_val },
-      dataType: 'json',
-      success: function (data) {
-        var states = data.cities;
-        $.each(states, function (k, v) {
-          $('#address_city').append('<option value="' + v + '">' + v + '</option>');
-        });
-      }
-    });
-  });
 </script>
 <script>
 
