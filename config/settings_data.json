@@ -5958,8 +5958,8 @@
         "type": "countdown",
         "disabled": true,
         "settings": {
-          "desktop_img": "shopify:\/\/shop_images\/super_sale__desktop.jpg",
-          "mobile_img": "shopify:\/\/shop_images\/super_sale__mobile-02.jpg",
+          "desktop_img": "shopify:\/\/shop_images\/desktop_4f7a6550-d31f-4666-be91-c218468ded69.jpg",
+          "mobile_img": "shopify:\/\/shop_images\/mobile_af8653b0-a4d4-4256-8861-2b9fe1e939a7.jpg",
           "title": "",
           "end_date": "September 14, 2023 00:00:00",
           "font_color_seconds": "#ffffff",
