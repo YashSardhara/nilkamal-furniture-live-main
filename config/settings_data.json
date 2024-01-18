@@ -4812,6 +4812,27 @@
       "1489284011497": {
         "type": "slideshow",
         "blocks": {
+          "996706c8-a987-443e-8be6-205d1f780438": {
+            "type": "image",
+            "disabled": true,
+            "settings": {
+              "image": "shopify:\/\/shop_images\/desktop_43a6dd10-210b-4655-9081-fc0927d95928.jpg",
+              "mobimage": "shopify:\/\/shop_images\/mobile_7c635482-e50f-41fd-acb6-30acc0acd777.jpg",
+              "pretext": "",
+              "title": "",
+              "subtitle": "",
+              "text_position": "center",
+              "text_align": "center",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "button1": "",
+              "button1_link": "shopify:\/\/collections\/mattress",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          },
           "e116edb9-8097-4809-b939-ce83cf46e550": {
             "type": "image",
             "settings": {
@@ -4912,36 +4933,15 @@
               "button2_link": "",
               "button2_highlight": false
             }
-          },
-          "996706c8-a987-443e-8be6-205d1f780438": {
-            "type": "image",
-            "disabled": true,
-            "settings": {
-              "image": "shopify:\/\/shop_images\/desktop_2199434f-9669-4165-be5e-78d7159affd6.jpg",
-              "mobimage": "shopify:\/\/shop_images\/450x450_mobile.jpg",
-              "pretext": "",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "caption_background": false,
-              "caption_background_transparency": false,
-              "button1": "",
-              "button1_link": "shopify:\/\/collections\/mattress",
-              "button1_highlight": false,
-              "button2": "",
-              "button2_link": "",
-              "button2_highlight": false
-            }
           }
         },
         "block_order": [
+          "996706c8-a987-443e-8be6-205d1f780438",
           "e116edb9-8097-4809-b939-ce83cf46e550",
           "ea0cea26-75de-44ce-bc48-1d8905fbfa57",
           "766fa416-58b1-45f2-9f1f-c6f5671c78be",
           "e8692b67-cd4c-4966-980e-3c2b340d9dae",
-          "4df1d8be-b1e4-410c-ae53-934559add4a7",
-          "996706c8-a987-443e-8be6-205d1f780438"
+          "4df1d8be-b1e4-410c-ae53-934559add4a7"
         ],
         "settings": {
           "slideshow_text_animation": "fadeInDown",
