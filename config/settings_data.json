@@ -6018,6 +6018,16 @@
       "d2b1d62c-30ab-46e6-9d93-e85f215681e3": {
         "type": "tendays-section",
         "blocks": {
+          "62bf939c-b7a3-4205-a11c-e6b5fb67a53a": {
+            "type": "text",
+            "settings": {
+              "tendays-product-image": "shopify:\/\/shop_images\/19-1.jpg",
+              "tendays-product-title": "Prime Engineered Wood Nightstand (Frosty White)",
+              "tendays-product-mrp": "12900",
+              "tendays-product-selling": "6900",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/meta-engineered-wood-nightstand-classic-walnut"
+            }
+          },
           "50debb65-1420-4079-bd6f-50b44c8abcde": {
             "type": "text",
             "settings": {
@@ -6026,16 +6036,6 @@
               "tendays-product-mrp": "9900",
               "tendays-product-selling": "4500",
               "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/meta-engineered-wood-nightstand-classic-walnut"
-            }
-          },
-          "62bf939c-b7a3-4205-a11c-e6b5fb67a53a": {
-            "type": "text",
-            "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/19-1.jpg",
-              "tendays-product-title": "Prime Engineered Wood Nightstand (Frosty White)",
-              "tendays-product-mrp": "12900",
-              "tendays-product-selling": "6900",
-              "tendays-product-url": ""
             }
           },
           "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037": {
@@ -6050,8 +6050,8 @@
           }
         },
         "block_order": [
-          "50debb65-1420-4079-bd6f-50b44c8abcde",
           "62bf939c-b7a3-4205-a11c-e6b5fb67a53a",
+          "50debb65-1420-4079-bd6f-50b44c8abcde",
           "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037"
         ],
         "disabled": true,
