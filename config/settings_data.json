@@ -5956,13 +5956,12 @@
       },
       "5194def5-441f-4277-bf38-b7ba21e39b38": {
         "type": "countdown",
-        "disabled": true,
         "settings": {
           "desktop_img": "shopify:\/\/shop_images\/desktop_4f7a6550-d31f-4666-be91-c218468ded69.jpg",
           "mobile_img": "shopify:\/\/shop_images\/mobile_af8653b0-a4d4-4256-8861-2b9fe1e939a7.jpg",
           "title": "",
           "end_date": "Jan 19, 2024 00:00:01",
-          "font_color_seconds": "#d54d4d",
+          "font_color_seconds": "#893737",
           "text_Horizontal": 17.5,
           "text_Vertical": 15
         }
