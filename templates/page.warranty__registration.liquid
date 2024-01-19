@@ -17,10 +17,6 @@
     padding-right: 30px;
   }
 
-  /*   .warning {
-    border: 1px solid red !important;
-  } */
-
   input#warrantyDop {
     display: inline-block;
     position: relative;
@@ -1029,7 +1025,7 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-6 did-floating-box">
-          <input type="email" class="form-control emailadd testing buttonstyle"
+          <input type="email" class="form-control emailadd buttonstyle"
             value="{% if customer %}{{  customer.email  }}{% endif %}" name="email" id="Email" autocorrect="off"
             autocapitalize="off" placeholder=" " required>
           <label class="did-floating-label">Email ID</label>
@@ -1265,10 +1261,12 @@
                 (Offline
                 purchase)</a>
             </span>
-            <!--             <span class="location terms-condition" for="terms-condition">I accept the <a id="accpt-terms-offline"
+            {% comment %}
+                         <span class="location terms-condition" for="terms-condition">I accept the <a id="accpt-terms-offline"
                 class="war__offline active-links" target="_blank"
                 href="https://nilkamalfurniture.myshopify.com/pages/warranty-registration-offline"> Terms & Conditions</a>
-            </span> -->
+            </span> 
+            {% endcomment %}
           </div>
           <div class="terms_cond_err_container">
             <span id="terms_cond_error" class="help-inline text-danger"></span>
@@ -1339,7 +1337,6 @@
   function getPincodeData() {
     var pincode = $('#pincode-check').val();
     var csvFile = 'https://cdn.shopify.com/s/files/1/0044/1208/0217/files/pincode_data.csv?v=1704458039';
-
     $.ajax({
       type: 'GET',
       url: csvFile,
@@ -1349,13 +1346,11 @@
       }
     });
   }
-
   // Function to process CSV data and update address_city and address_state
   function processData(csv, pincode) {
     var lines = csv.split('\n');
     var headers = lines[0].split(',');
     var pincodeFound = false;
-
     for (var i = 1; i < lines.length; i++) {
       var currentLine = lines[i].split(',');
       var currentPincode = currentLine[0].trim();
@@ -1445,30 +1440,15 @@
   $("#pincode-check").on('focusout', handleFocusOut);
 
 
-
-
-
-
   $('.generate_otp').click(function (e) {
-
-    validateInputsOnsubmit()
-
+    validateInputsOnsubmit();
     console.clear("console clear");
     console.log('e', e);
-
     var file_data = $('#warrantyImage').val();
-
-
     var MAX_FILE_SIZE = 1 * 1024 * 1024;
     var fileSize = $('#warrantyImage')[0]?.files[0]?.size;
-    // console.log('fileSize', fileSize);
-
-    // console.log('fileSize 4', !file_data == null || undefined ? 'Document is image or a PDF' :'Please upload your Invoice document as image or a PDF' );
 
     if (file_data != null || file_data != undefined) {
-
-
-
       var fileExt = file_data.substr(file_data.lastIndexOf('.') + 1).toLowerCase();
       if (fileExt === 'jpeg' || fileExt === 'png' || fileExt === 'jpg' || fileExt === 'pdf') {
 
@@ -1586,9 +1566,6 @@
     });
   });
 </script>
-
-
-
 <script>
 
   const nameInput = document.getElementById('first-name');
@@ -1630,15 +1607,10 @@
   const inputs = document.querySelectorAll('.buttonstyle');
 
   const cancelButton = document.getElementById("cancel-upload");
-
-
   // Get the selected date
   const selectedDate = new Date(document.getElementById("warrantyDop").value);
-
   // Get the current date
   const currentDate = new Date();
-
-
   function checkFileInput() {
     if (warrantywarrantywarrantyImage.value) {
       cancelButton.style.display = "block";
@@ -1646,8 +1618,6 @@
       cancelButton.style.display = "none";
     }
   }
-
-
 
   let phoneNumberInput = $("input[type='tel']");
 
@@ -1717,15 +1687,6 @@
     }
   });
 
-  // pincodeInput.addEventListener('blur', () => {
-  //   if (pincodeInput.value?.trim() === '') {
-  //     errorMessagePincode.textContent = 'Please enter your Pincode';
-  //   } else if (pincodeInput.value?.trim() > 6){
-  //     errorMessagePincode.textContent = 'Please enter valid Pincode';
-  //   } else {
-  //     errorMessagePincode.textContent = '';
-  //   }
-  // });
   cityInput.addEventListener('blur', () => {
     if (cityInput.value?.trim() === '') {
       errorMessagecity.textContent = 'Please enter Pincode field';
@@ -1833,9 +1794,6 @@
     }
   }
 
-
-
-
   // drag and drop script to only accept images and pdf.
   function dragOverHandler(event) {
     event.preventDefault();
@@ -1880,17 +1838,12 @@
       file.type === 'application/pdf') {
       // The selected file is an image or a PDF
       console.log('File type is valid');
-
       // Upload the file or do other actions
-
-
       if (file.size > 1000000) {
         console.log('darg & drop', file);
-
         //alert('File size must be less than 1MB'); // show an error message
         warrantyfile_error_1.textContent = 'File size must be less than 1MB';
         warrantyfile_error.textContent = '';
-
         $('.button__container').classList.add("warning");
         event.preventDefault(); // prevent form submission
       } else {
@@ -1909,23 +1862,14 @@
       console.log('Invalid file type in DropAndDrop');
       // Show an error message or prevent uploading the file
     }
-
-
   });
-
-
 </script>
 <script>
 
   const warrantyDop = document.getElementById('warrantyDop');
-
-  // Get today's date
   const today = new Date().toISOString().split('T')[0];
-
   // Set the minimum date to today
   warrantyDop.max = today;
-
-
   $("#war_on_click").click(function () {
     $(".war__offline").css("display", "none");
     $(".war__online").css("display", "block");
@@ -1975,9 +1919,6 @@
   $("#vtigerFormSubmitBtn_6").on("click", function () {
     window.scrollTo(0, 0);
   });
-
-
-
 </script>
 <script>
   function validateInputsOnsubmit() {
@@ -2073,18 +2014,6 @@
     } else {
       errorMessagewarrantywarrantyDop.textContent = '';
     }
-
-    // if (warrantyModelInput.value?.trim() === '') {
-    //   errorMessagewarrantywarrantyModel.textContent = 'Please select your Product model';
-    // } else {
-    //   errorMessagewarrantywarrantyModel.textContent = '';
-    // }
-
-    // if (warrantywarrantywarrantyImage.value?.trim() === '') {
-    //   errorMessagewarrantywarrantyImage.textContent = 'Please upload your Invoice document';
-    // } else {
-    //   errorMessagewarrantywarrantyImage.textContent = '';
-    // }
 
     const checkbox = document.getElementById('online__tandc');
     const checkboxError = document.getElementById('terms_cond_error');
