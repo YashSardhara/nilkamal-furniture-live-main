@@ -4812,6 +4812,27 @@
       "1489284011497": {
         "type": "slideshow",
         "blocks": {
+          "996706c8-a987-443e-8be6-205d1f780438": {
+            "type": "image",
+            "disabled": true,
+            "settings": {
+              "image": "shopify:\/\/shop_images\/desktop_43a6dd10-210b-4655-9081-fc0927d95928.jpg",
+              "mobimage": "shopify:\/\/shop_images\/mobile_7c635482-e50f-41fd-acb6-30acc0acd777.jpg",
+              "pretext": "",
+              "title": "",
+              "subtitle": "",
+              "text_position": "center",
+              "text_align": "center",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "button1": "",
+              "button1_link": "shopify:\/\/collections\/mattress",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          },
           "e116edb9-8097-4809-b939-ce83cf46e550": {
             "type": "image",
             "settings": {
@@ -4912,36 +4933,15 @@
               "button2_link": "",
               "button2_highlight": false
             }
-          },
-          "996706c8-a987-443e-8be6-205d1f780438": {
-            "type": "image",
-            "disabled": true,
-            "settings": {
-              "image": "shopify:\/\/shop_images\/desktop_2199434f-9669-4165-be5e-78d7159affd6.jpg",
-              "mobimage": "shopify:\/\/shop_images\/450x450_mobile.jpg",
-              "pretext": "",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "caption_background": false,
-              "caption_background_transparency": false,
-              "button1": "",
-              "button1_link": "shopify:\/\/collections\/mattress",
-              "button1_highlight": false,
-              "button2": "",
-              "button2_link": "",
-              "button2_highlight": false
-            }
           }
         },
         "block_order": [
+          "996706c8-a987-443e-8be6-205d1f780438",
           "e116edb9-8097-4809-b939-ce83cf46e550",
           "ea0cea26-75de-44ce-bc48-1d8905fbfa57",
           "766fa416-58b1-45f2-9f1f-c6f5671c78be",
           "e8692b67-cd4c-4966-980e-3c2b340d9dae",
-          "4df1d8be-b1e4-410c-ae53-934559add4a7",
-          "996706c8-a987-443e-8be6-205d1f780438"
+          "4df1d8be-b1e4-410c-ae53-934559add4a7"
         ],
         "settings": {
           "slideshow_text_animation": "fadeInDown",
@@ -5956,15 +5956,17 @@
       },
       "5194def5-441f-4277-bf38-b7ba21e39b38": {
         "type": "countdown",
-        "disabled": true,
         "settings": {
-          "desktop_img": "shopify:\/\/shop_images\/super_sale__desktop.jpg",
-          "mobile_img": "shopify:\/\/shop_images\/super_sale__mobile-02.jpg",
+          "desktop_img": "shopify:\/\/shop_images\/desktop_220c8d41-6013-49e7-88e0-c4f646d01c0b.jpg",
+          "mobile_img": "shopify:\/\/shop_images\/mobile_71185634-bbfe-4127-9955-17879fbb0383.jpg",
           "title": "",
-          "end_date": "September 14, 2023 00:00:00",
-          "font_color_seconds": "#ffffff",
-          "text_Horizontal": 17.5,
-          "text_Vertical": 15
+          "end_date": "Jan 19, 2024 23:59:00",
+          "font_color_seconds": "#6f84c5",
+          "text_Horizontal_desktop": 8,
+          "text_Vertical_desktop": 0.5,
+          "text_Horizontal_mobile": 3.5,
+          "text_Vertical_mobile": 4.5,
+          "font_color_time_up": "#6f84c5"
         }
       },
       "a50f909c-4e0e-42a5-bdfc-ae49c3130c81": {
@@ -6018,58 +6020,56 @@
       "d2b1d62c-30ab-46e6-9d93-e85f215681e3": {
         "type": "tendays-section",
         "blocks": {
-          "50debb65-1420-4079-bd6f-50b44c8abcde": {
-            "type": "text",
-            "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/Nilkamal_Baylor_Shoe_Cabinet.jpg",
-              "tendays-product-title": "Nilkamal Baylor Shoe Cabinet",
-              "tendays-product-mrp": "14,500",
-              "tendays-product-selling": "8,900",
-              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-baylor-shoe-cabinet-walnut-white"
-            }
-          },
           "62bf939c-b7a3-4205-a11c-e6b5fb67a53a": {
             "type": "text",
             "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/Claymont_Engineered_Wood_Shoe_Cabinet.jpg",
-              "tendays-product-title": "Nilkamal Claymont Engineered Wood Shoe Cabinet",
-              "tendays-product-mrp": "8,600",
-              "tendays-product-selling": "6,700",
-              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-claymont-shoe-cabinet-classic-walnut"
+              "tendays-product-image": "shopify:\/\/shop_images\/19-1.jpg",
+              "tendays-product-title": "Prime Engineered Wood Nightstand (Frosty White)",
+              "tendays-product-mrp": "12900",
+              "tendays-product-selling": "6900",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/prime-engineered-wood-nightstand-frosty-white"
+            }
+          },
+          "50debb65-1420-4079-bd6f-50b44c8abcde": {
+            "type": "text",
+            "settings": {
+              "tendays-product-image": "shopify:\/\/shop_images\/19_939ffb0c-f92d-493e-bb85-04b4cf8e8f65.jpg",
+              "tendays-product-title": "Meta Engineered Wood Nightstand (Classic Walnut)",
+              "tendays-product-mrp": "9900",
+              "tendays-product-selling": "4500",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/meta-engineered-wood-nightstand-classic-walnut"
             }
           },
           "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037": {
             "type": "text",
             "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/Tuskar_Shoe_Cabinet.jpg",
-              "tendays-product-title": "Nilkamal Tuskar Shoe Cabinet",
-              "tendays-product-mrp": "10,700",
-              "tendays-product-selling": "7,500",
-              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-tuskar-shoe-cabinet-walnut"
+              "tendays-product-image": "shopify:\/\/shop_images\/19-2.jpg",
+              "tendays-product-title": "Meta Engineered Wood Nightstand (Frosty White)",
+              "tendays-product-mrp": "900",
+              "tendays-product-selling": "4900",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/meta-engineered-wood-nightstand-frosty-white"
             }
           }
         },
         "block_order": [
-          "50debb65-1420-4079-bd6f-50b44c8abcde",
           "62bf939c-b7a3-4205-a11c-e6b5fb67a53a",
+          "50debb65-1420-4079-bd6f-50b44c8abcde",
           "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037"
         ],
-        "disabled": true,
         "settings": {
-          "tendays-section-heading": "Section Heading",
+          "tendays-section-heading": "",
           "tendays-section-para": "Section Para",
           "selling_color_title": "#ff1b00",
           "mrp_color_title": "#4d4d4d",
           "product_title_color_title": "#0166b3",
-          "tendays__section__margin": 22
+          "tendays__section__margin": 26
         }
       },
       "9759deaf-c224-4c3e-87ed-66e16f61ed90": {
         "type": "payment_banner",
-        "disabled": true,
         "settings": {
-          "desktop_img": "shopify:\/\/shop_images\/desktop1-50.jpg",
-          "mobile_img": "shopify:\/\/shop_images\/mobile2-50.jpg",
+          "desktop_img": "shopify:\/\/shop_images\/desktop_6e132be9-ecb2-43b5-8433-993ef6bbf180.jpg",
+          "mobile_img": "shopify:\/\/shop_images\/mobile_a20f7ac6-3671-4ca4-bf6c-597579356e8a.jpg",
           "image_url": ""
         }
       },
@@ -6216,9 +6216,9 @@
     "content_for_index": [
       "1489284011497",
       "9759deaf-c224-4c3e-87ed-66e16f61ed90",
+      "5194def5-441f-4277-bf38-b7ba21e39b38",
       "d2b1d62c-30ab-46e6-9d93-e85f215681e3",
       "a50f909c-4e0e-42a5-bdfc-ae49c3130c81",
-      "5194def5-441f-4277-bf38-b7ba21e39b38",
       "c210a9f3-b14b-4964-9ece-ba05fe253ba2",
       "1576587126205",
       "462479a9-19ea-4e90-b40e-b32677b85c60",
