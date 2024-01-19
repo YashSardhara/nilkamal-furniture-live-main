@@ -6067,10 +6067,9 @@
       },
       "9759deaf-c224-4c3e-87ed-66e16f61ed90": {
         "type": "payment_banner",
-        "disabled": true,
         "settings": {
-          "desktop_img": "shopify:\/\/shop_images\/desktop1-50.jpg",
-          "mobile_img": "shopify:\/\/shop_images\/mobile2-50.jpg",
+          "desktop_img": "shopify:\/\/shop_images\/desktop_6e132be9-ecb2-43b5-8433-993ef6bbf180.jpg",
+          "mobile_img": "shopify:\/\/shop_images\/mobile_a20f7ac6-3671-4ca4-bf6c-597579356e8a.jpg",
           "image_url": ""
         }
       },
@@ -6217,8 +6216,8 @@
     "content_for_index": [
       "1489284011497",
       "5194def5-441f-4277-bf38-b7ba21e39b38",
-      "d2b1d62c-30ab-46e6-9d93-e85f215681e3",
       "9759deaf-c224-4c3e-87ed-66e16f61ed90",
+      "d2b1d62c-30ab-46e6-9d93-e85f215681e3",
       "a50f909c-4e0e-42a5-bdfc-ae49c3130c81",
       "c210a9f3-b14b-4964-9ece-ba05fe253ba2",
       "1576587126205",
