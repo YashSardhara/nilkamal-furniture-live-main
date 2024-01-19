@@ -5962,8 +5962,11 @@
           "title": "",
           "end_date": "Jan 20, 2024 12:00:00",
           "font_color_seconds": "#893737",
-          "text_Horizontal": 17.5,
-          "text_Vertical": 15
+          "text_Horizontal_desktop": 8,
+          "text_Vertical_desktop": 0.5,
+          "text_Horizontal_mobile": 3.5,
+          "text_Vertical_mobile": 4.5,
+          "font_color_time_up": "#000000"
         }
       },
       "a50f909c-4e0e-42a5-bdfc-ae49c3130c81": {
