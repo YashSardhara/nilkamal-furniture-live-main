@@ -6052,7 +6052,6 @@
           },
           "text_RdbQQg": {
             "type": "text",
-            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/21-2.jpg",
               "tendays-product-title": "Nilkamal Luna Centre Table (Wenge)",
@@ -6063,7 +6062,6 @@
           },
           "text_eh9kcr": {
             "type": "text",
-            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/21-1.jpg",
               "tendays-product-title": "Nilkamal Mono Coffee Table (Urban Walnut \/ Oak White)",
