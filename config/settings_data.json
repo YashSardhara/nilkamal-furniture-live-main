@@ -5960,7 +5960,7 @@
           "desktop_img": "shopify:\/\/shop_images\/desktop_220c8d41-6013-49e7-88e0-c4f646d01c0b.jpg",
           "mobile_img": "shopify:\/\/shop_images\/mobile_71185634-bbfe-4127-9955-17879fbb0383.jpg",
           "title": "",
-          "end_date": "Jan 19, 2024 23:59:00",
+          "end_date": "Jan 20, 2024 23:59:00",
           "font_color_seconds": "#6f84c5",
           "text_Horizontal_desktop": 8,
           "text_Vertical_desktop": 0.5,
@@ -6023,31 +6023,31 @@
           "62bf939c-b7a3-4205-a11c-e6b5fb67a53a": {
             "type": "text",
             "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/19-1.jpg",
-              "tendays-product-title": "Prime Engineered Wood Nightstand (Frosty White)",
-              "tendays-product-mrp": "12900",
-              "tendays-product-selling": "6900",
-              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/prime-engineered-wood-nightstand-frosty-white"
+              "tendays-product-image": "shopify:\/\/shop_images\/20.jpg",
+              "tendays-product-title": "Nilkamal Troy Book Case (New Wenge)",
+              "tendays-product-mrp": "6,000",
+              "tendays-product-selling": "3,900",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-troy-book-case-new-wenge"
             }
           },
           "50debb65-1420-4079-bd6f-50b44c8abcde": {
             "type": "text",
             "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/19_939ffb0c-f92d-493e-bb85-04b4cf8e8f65.jpg",
-              "tendays-product-title": "Meta Engineered Wood Nightstand (Classic Walnut)",
-              "tendays-product-mrp": "9900",
-              "tendays-product-selling": "4500",
-              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/meta-engineered-wood-nightstand-classic-walnut"
+              "tendays-product-image": "shopify:\/\/shop_images\/20-1.jpg",
+              "tendays-product-title": "Nilkamal Madden Bookshelf (Urban Walnut \/ Oak White)",
+              "tendays-product-mrp": "16,900",
+              "tendays-product-selling": "8,900",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-madden-engineered-wood-book-shelf-urban-walnut-oak-white"
             }
           },
           "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037": {
             "type": "text",
             "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/19-2.jpg",
-              "tendays-product-title": "Meta Engineered Wood Nightstand (Frosty White)",
-              "tendays-product-mrp": "9900",
-              "tendays-product-selling": "4900",
-              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/meta-engineered-wood-nightstand-frosty-white"
+              "tendays-product-image": "shopify:\/\/shop_images\/20-2.jpg",
+              "tendays-product-title": "Nilkamal Troy New Book Case",
+              "tendays-product-mrp": "5,200",
+              "tendays-product-selling": "3,500",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-troy-new-book-case-walnut"
             }
           }
         },
