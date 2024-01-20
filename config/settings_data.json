@@ -6060,13 +6060,25 @@
               "tendays-product-selling": "8900",
               "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-luna-centre-table"
             }
+          },
+          "text_eh9kcr": {
+            "type": "text",
+            "disabled": true,
+            "settings": {
+              "tendays-product-image": "shopify:\/\/shop_images\/21-1.jpg",
+              "tendays-product-title": "Nilkamal Mono Coffee Table (Urban Walnut \/ Oak White)",
+              "tendays-product-mrp": "11900",
+              "tendays-product-selling": "5500",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-mono-engineered-wood-coffee-table-urban-walnut-oak-white"
+            }
           }
         },
         "block_order": [
           "62bf939c-b7a3-4205-a11c-e6b5fb67a53a",
           "50debb65-1420-4079-bd6f-50b44c8abcde",
           "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037",
-          "text_RdbQQg"
+          "text_RdbQQg",
+          "text_eh9kcr"
         ],
         "settings": {
           "tendays-section-heading": "",
