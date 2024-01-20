@@ -6049,12 +6049,24 @@
               "tendays-product-selling": "3,500",
               "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-troy-new-book-case-walnut"
             }
+          },
+          "text_RdbQQg": {
+            "type": "text",
+            "disabled": true,
+            "settings": {
+              "tendays-product-image": "shopify:\/\/shop_images\/21-2.jpg",
+              "tendays-product-title": "Nilkamal Luna Centre Table (Wenge)",
+              "tendays-product-mrp": "15500",
+              "tendays-product-selling": "8900",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-luna-centre-table"
+            }
           }
         },
         "block_order": [
           "62bf939c-b7a3-4205-a11c-e6b5fb67a53a",
           "50debb65-1420-4079-bd6f-50b44c8abcde",
-          "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037"
+          "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037",
+          "text_RdbQQg"
         ],
         "settings": {
           "tendays-section-heading": "",
