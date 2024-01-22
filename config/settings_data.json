@@ -6024,8 +6024,8 @@
             "type": "text",
             "disabled": true,
             "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/20.jpg",
-              "tendays-product-title": "Nilkamal Troy Book Case (New Wenge)",
+              "tendays-product-image": "shopify:\/\/shop_images\/22.jpg",
+              "tendays-product-title": "Prime Engineered Wood Dresser with Mirror (Frosty White)",
               "tendays-product-mrp": "6,000",
               "tendays-product-selling": "3,900",
               "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-troy-book-case-new-wenge"
@@ -6055,6 +6055,7 @@
           },
           "text_RdbQQg": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/21-2.jpg",
               "tendays-product-title": "Nilkamal Luna Centre Table (Wenge)",
@@ -6065,6 +6066,7 @@
           },
           "text_eh9kcr": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/21-1.jpg",
               "tendays-product-title": "Nilkamal Mono Coffee Table (Urban Walnut \/ Oak White)",
@@ -6075,6 +6077,7 @@
           },
           "text_6VzKFB": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/21.jpg",
               "tendays-product-title": "Nilkamal Luca Coffee Table (Ash wenge \/ Marble Beige)",
