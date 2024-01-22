@@ -4814,6 +4814,7 @@
         "blocks": {
           "996706c8-a987-443e-8be6-205d1f780438": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/desktop_43a6dd10-210b-4655-9081-fc0927d95928.jpg",
               "mobimage": "shopify:\/\/shop_images\/mobile_7c635482-e50f-41fd-acb6-30acc0acd777.jpg",
