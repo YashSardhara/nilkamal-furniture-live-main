@@ -10,14 +10,12 @@
     display: none;
   }
 
-  .cityFormContainer{
+
+
+  .cityFormContainer {
     padding-left: 0px !important;
     padding-right: 30px;
   }
-
-/*   .warning {
-    border: 1px solid red !important;
-  } */
 
   input#warrantyDop {
     display: inline-block;
@@ -135,7 +133,7 @@
   .form-row input,
   .form-row select {
     height: 55px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 
   .form-row input::placeholder,
@@ -259,13 +257,15 @@
     font-weight: 400;
     font-size: 18px;
   }
-.verify_otp{
-   background: #0093dd !important;
+
+  .verify_otp {
+    background: #0093dd !important;
     text-transform: capitalize !important;
     border-radius: 32px !important;
     font-weight: 400;
     font-size: 18px;
-}
+  }
+
   .trms-checkbox.terms__offline {
     justify-content: center;
   }
@@ -336,7 +336,7 @@
 
   .warr__radio__cont {
     display: flex;
-/*     align-items: center;
+    /*     align-items: center;
     padding-right: 28px; */
     gap: 10px;
   }
@@ -355,7 +355,7 @@
 
   .war__offline {
     display: none;
-   }
+  }
 
   .did-floating-box {
     position: relative;
@@ -741,7 +741,7 @@
     label.did-floating-label,
     label.did-floating-label-war {
       font-size: 16px !important;
-      left:1rem;
+      left: 1rem;
     }
 
     input[type=date],
@@ -879,7 +879,9 @@
     .did-floating-label-war {
       left: 1rem;
     }
-    .label.did-floating-label, .label.did-floating-label {
+
+    .label.did-floating-label,
+    .label.did-floating-label {
       left: 1rem;
     }
 
@@ -906,41 +908,88 @@
 
   .col-md-3.col-sm-12.warr__radio__cont {
     width: 50%;
-}
+  }
+
   .radio_online_off {
     display: flex;
     flex-direction: column;
-}
+  }
 
   span.location.terms-condition {
     display: flex;
-}
+  }
 
   @media only screen and (max-width: 600px) {
-  .radio_online_off {
-    flex-direction: row;
-  }
-  .col-md-3.col-sm-12.warr__radio__cont {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-  .col-md-3.col-sm-12.warr__radio__cont {
-    width: 100%;
-  }
-    div#onlinePurchase, div#warOffline {
-    width: 100% !important;
+    .radio_online_off {
+      flex-direction: row;
+    }
+
+    .col-md-3.col-sm-12.warr__radio__cont {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    .form-group.col-md-6.noteContainer {
+    padding: 10px 0px;
 }
+
+    .col-md-3.col-sm-12.warr__radio__cont {
+      width: 100%;
+    }
+
+    div#onlinePurchase,
+    div#warOffline {
+      width: 100% !important;
+    }
+
     label.did-floating-label-war.flt_prd_model {
-    width: 50% !important;
-}
+      width: 50% !important;
+    }
+
     span.location.terms-condition {
-    display: block;
-}
-}
+      display: block;
+    }
+  }
 
   label.did-floating-label-war.flt_prd_model {
     width: 30%;
-}
+  }
+
+  /* Warranty Pincode Css */
+  .pincode__checker__box {
+    padding: 0 15px;
+  }
+
+  /* .cityStateRow{
+   display: none;
+} */
+
+  .pincode__checker_diasbled {
+    color: rgba(0, 0, 0, .4) !important;
+  }
+
+  .noteContainer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .noteIcon svg {
+    width: 20px;
+    height: 20px;
+    fill: #0093dd;
+  }
+
+  .noteText {
+    display: flex;
+    align-items: center;
+  }
+
+  .noteText span {
+    color: #0093dd;
+    margin-top: -0.5rem;
+    font-weight: 400;
+  }
 </style>
 <div class="warranty_container">
   <div class="warranty-page row">
@@ -991,39 +1040,57 @@
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group col-md-6">
-          <div class="did-floating-label-content-war">
-            <select id="address_state" name="state" class="did-floating-select"
-              onclick="this.setAttribute('value', this.value);" onchange="this.setAttribute('value', this.value);"
-              value="">
-              {% comment %} {% if customer %}
-              <option value="{{ customer.default_address.province  }}" selected>{{ customer.default_address.province }}
-              </option>
-              {% endif %} {% endcomment %}
-              <option value="" selected disabled></option>
-            </select>
-            <label class="did-floating-label-war">State</label>
-            <span id="state_error" class="help-inline text-danger"></span>
+        <div class="form-group col-md-6 pincode__checker__box did-floating-box">
+          <input class="form-control pincode__checker buttonstyle" type="text" id="pincode-check" name="pincode_check"
+            placeholder=" " required>
+          <label class="did-floating-label">Pincode</label>
+          <span id="pincode_check_error" class="help-inline text-danger"></span>
+        </div>
+        <div class="form-group col-md-6 noteContainer">
+          <div class="noteIcon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+            </svg>
+          </div>
+          <div class="noteText">
+            <span>Please Enter Pincode To Fetch State & City</span>
           </div>
         </div>
-        <div class="form-group col-md-6">
-          <div class="form-group col-md-6 did-floating-box cityFormContainer">
-            <input class="form-control buttonstyle"
-               type="text" name="city"
-              id="address_city"  placeholder=" " required>
-            <label class="did-floating-label">City</label>
-            <span id="city_error" class="help-inline text-danger"></span>
-          </div>
-          {% comment %} <div class="did-floating-label-content-war">
-            <select id="address_city" name="city" class="did-floating-select"
-              onclick="this.setAttribute('value', this.value);" onchange="this.setAttribute('value', this.value);"
-              value="">
-              <option value="" selected disabled></option>
-            </select>
-            <label class="did-floating-label-war">City</label>
-            <span id="city_error" class="help-inline text-danger"></span>
-          </div> {% endcomment %}
+      </div>
+      <div class="form-row cityStateRow">
+        <div class="form-group col-md-6 did-floating-box">
+          {% comment %} <select id="address_state" name="state" class="did-floating-select"
+            onclick="this.setAttribute('value', this.value);" onchange="this.setAttribute('value', this.value);"
+            value="">
+            <option value="" selected disabled></option>
+          </select> {% endcomment %}
+          {% comment %} <label class="did-floating-label-war">State</label>
+          <span id="state_error" class="help-inline text-danger"></span> {% endcomment %}
+          <input class="form-control pincode__checker buttonstyle" type="text" id="address_state" name="state"
+            placeholder="" required disabled>
+          <label class="did-floating-label state__label pincode__checker_diasbled">State</label>
+          <span id="state_error" class="help-inline text-danger"></span>
         </div>
+
+        <div class="form-group col-md-6 did-floating-box">
+          <input class="form-control buttonstyle" type="text" name="city" id="address_city" placeholder="" required
+            disabled>
+          <label class="did-floating-label city__label pincode__checker_diasbled">City</label>
+          <span id="city_error" class="help-inline text-danger"></span>
+        </div>
+        {% comment %} <div class="did-floating-label-content-war">
+          <select id="address_city" name="city" class="did-floating-select"
+            onclick="this.setAttribute('value', this.value);" onchange="this.setAttribute('value', this.value);"
+            value="">
+            <option value="" selected disabled></option>
+          </select>
+          <label class="did-floating-label-war">City</label>
+          <span id="city_error" class="help-inline text-danger"></span>
+
+          {% endcomment %}
+          {% comment %}
+        </div> {% endcomment %}
       </div>
       <div class="form-row">
         <div class="col-md-3 col-sm-12  warr__radio__cont">
@@ -1067,7 +1134,7 @@
                 <span id="online_error" class="help-inline text-danger"></span>
               </div>
             </div>
-         </div>
+          </div>
         </div>
         <div class="form-group col-md-6 did-floating-box dd_bottom__remove">
           <input type="date" name="date_of_purchase" id="warrantyDop" placeholder="dd-mm-yyyy"
@@ -1087,8 +1154,9 @@
         </div>{% endcomment %}
         <div class="form-group col-md-6">
           <div class="did-floating-label-content-war">
-            <select class="did-floating-select buttonstyle warrantyModel" onclick="this.setAttribute('value', this.value);"
-              name="modal_name" id="warrantyModel" onchange="this.setAttribute('value', this.value);" value="">
+            <select class="did-floating-select buttonstyle warrantyModel"
+              onclick="this.setAttribute('value', this.value);" name="modal_name" id="warrantyModel"
+              onchange="this.setAttribute('value', this.value);" value="">
               <option value="" selected disabled></option>
               <option value="Sparkle Mattress">Sparkle Mattress</option>
               <option value="Prem Mattress">Prem Mattress</option>
@@ -1122,10 +1190,10 @@
               <option value="Aeroluxe Mattress">Aeroluxe Mattress</option>
               <option value="Accube Mattress">Accube Mattress</option>
               <option value="Rejuve Mattress">Rejuve Mattress</option>
-              <option value="Aerolite Foam Mattress" >Aerolite Foam Mattress</option>
-              <option value="Soft Dreams Foam Mattress" >Soft Dreams Foam Mattress</option>
-              <option value="Trugrid Foam Mattress" >Trugrid Foam Mattress</option>
-              <option value="Side Align Foam Mattress" >Side Align Foam Mattress</option>
+              <option value="Aerolite Foam Mattress">Aerolite Foam Mattress</option>
+              <option value="Soft Dreams Foam Mattress">Soft Dreams Foam Mattress</option>
+              <option value="Trugrid Foam Mattress">Trugrid Foam Mattress</option>
+              <option value="Side Align Foam Mattress">Side Align Foam Mattress</option>
             </select>
             <label class="did-floating-label-war flt_prd_model">Product Model</label>
             <span id="modal_name_error" class="help-inline text-danger"></span>
@@ -1185,16 +1253,20 @@
           <div class="trms-checkbox terms__online">
             <input type="checkbox" id="online__tandc" class="i-accpt" name="terms-condition">
             <span class="location terms-condition" for="terms-condition">I accept the&nbsp;<a id="accpt-terms-online"
-                class="war__online active-links" target="_blank" href="https://www.nilkamalfurniture.com/pages/warranty-registration-online"> terms
+                class="war__online active-links" target="_blank"
+                href="https://www.nilkamalfurniture.com/pages/warranty-registration-online"> terms
                 and conditions
                 (Online purchase)</a><a target="_blank" id="accpt-terms-offline" class="war__offline active-links"
-                href="https://nilkamalfurniture.myshopify.com/pages/warranty-registration-offline"> terms and conditions (Offline
+                href="https://nilkamalfurniture.myshopify.com/pages/warranty-registration-offline"> terms and conditions
+                (Offline
                 purchase)</a>
             </span>
-<!--             <span class="location terms-condition" for="terms-condition">I accept the <a id="accpt-terms-offline"
+            {% comment %}
+                         <span class="location terms-condition" for="terms-condition">I accept the <a id="accpt-terms-offline"
                 class="war__offline active-links" target="_blank"
                 href="https://nilkamalfurniture.myshopify.com/pages/warranty-registration-offline"> Terms & Conditions</a>
-            </span> -->
+            </span> 
+            {% endcomment %}
           </div>
           <div class="terms_cond_err_container">
             <span id="terms_cond_error" class="help-inline text-danger"></span>
@@ -1259,39 +1331,138 @@
   .overflow_pop {
     overflow: hidden;
   }
-
 </style>
 <script>
+  // Function to get pincode data from CSV
+  function getPincodeData() {
+    var pincode = $('#pincode-check').val();
+    var csvFile = 'https://cdn.shopify.com/s/files/1/0044/1208/0217/files/pincode_data.csv?v=1704458039';
+    $.ajax({
+      type: 'GET',
+      url: csvFile,
+      dataType: 'text',
+      success: function (data) {
+        processData(data, pincode);
+      }
+    });
+  }
+  // Function to process CSV data and update address_city and address_state
+  function processData(csv, pincode) {
+    var lines = csv.split('\n');
+    var headers = lines[0].split(',');
+    var pincodeFound = false;
+    for (var i = 1; i < lines.length; i++) {
+      var currentLine = lines[i].split(',');
+      var currentPincode = currentLine[0].trim();
+      if (currentPincode === pincode) {
+        var city = currentLine[1].trim();
+        var stateName = currentLine[2].trim();
+        pincodeFound = true;
+        // You can break the loop if you only want the first match
+        break;
+      }
+    }
+
+    // Display error if pincode is not found
+    if (!pincodeFound) {
+      $("#pincode_check_error").html('Pincode does not exist');
+      $('#address_city').val('');
+      $('#address_state').val('');
+      $('#address_city').attr('disabled', true);
+      $('#address_state').attr('disabled', true);
+      $('#address_city').removeAttr('readonly');
+      $('#address_state').removeAttr('readonly');
+      $('.state__label').addClass('pincode__checker_diasbled');
+      $('.city__label').addClass('pincode__checker_diasbled');
+    } else {
+      // Display data and show the "cityStateRow" class
+      $("#pincode_check_error").html('');
+      $('#address_city').removeAttr('disabled');
+      $('#address_state').removeAttr('disabled');
+      $('#address_city').attr('readonly', true);
+      $('#address_state').attr('readonly', true);
+      $('.state__label').removeClass('pincode__checker_diasbled');
+      $('.city__label').removeClass('pincode__checker_diasbled');
+      displayData(city, stateName);
+    }
+  }
+
+  // Function to display data in address_city and address_state
+  function displayData(city, stateName) {
+    $('#address_city').val(city);
+    $('#address_state').val(stateName);
+    console.log('City: ' + city);
+    console.log('State Name: ' + stateName);
+  }
+
+  // Function to handle focus out
+  function handleFocusOut() {
+    var pincode = $('#pincode-check').val().replace(/\D/g, '').substring(0, 6);
+
+    if (pincode.length === 6) {
+      // Assuming displayData is a function that takes city and stateName as parameters
+      displayData(city, stateName);
+    } else if (pincode.length < 6) {
+      // If pincode has 5 digits, clear address_city and address_state
+      $("#pincode_check_error").html('Please enter valid Pincode');
+      $('#address_city').val('');
+      $('#address_state').val('');
+      $('#address_city').attr('disabled', true);
+      $('#address_state').attr('disabled', true);
+      $('#address_city').removeAttr('readonly');
+      $('#address_state').removeAttr('readonly');
+      $('.state__label').addClass('pincode__checker_diasbled');
+      $('.city__label').addClass('pincode__checker_diasbled');
+    }
+  }
+
+  // Event listener for input and focusout events
+  $('#pincode-check').on('input', function (e) {
+    var input = e.target.value;
+
+    // Allow only numeric input
+    var numericInput = input.replace(/\D/g, '');
+
+    // Limit to 6 digits
+    var pincode = numericInput.substring(0, 6);
+
+    // Update the input value
+    e.target.value = pincode;
+
+    // Check if the entered pincode has 6 digits
+    if (pincode.length === 6) {
+      // Call your function when pincode is 6 digits
+      getPincodeData();
+    }
+  });
+
+  // Bind the handleFocusOut function to the focusout event
+  $("#pincode-check").on('focusout', handleFocusOut);
+
+
   $('.generate_otp').click(function (e) {
-
-
-    validateInputsOnsubmit()
-
+    validateInputsOnsubmit();
     console.clear("console clear");
     console.log('e', e);
-
     var file_data = $('#warrantyImage').val();
-
-
     var MAX_FILE_SIZE = 1 * 1024 * 1024;
     var fileSize = $('#warrantyImage')[0]?.files[0]?.size;
-    // console.log('fileSize', fileSize);
-
-    // console.log('fileSize 4', !file_data == null || undefined ? 'Document is image or a PDF' :'Please upload your Invoice document as image or a PDF' );
 
     if (file_data != null || file_data != undefined) {
-
-
-
       var fileExt = file_data.substr(file_data.lastIndexOf('.') + 1).toLowerCase();
       if (fileExt === 'jpeg' || fileExt === 'png' || fileExt === 'jpg' || fileExt === 'pdf') {
 
         //alert('2nd if');
         console.log('File is in proper format');
         if (fileSize < MAX_FILE_SIZE) {
+          let input = $('#pincode-check').val();
+          let numericInput = input.replace(/\D/g, '');
 
+          // Limit to 6 digits
+          let pincode = numericInput.substring(0, 6);
+          let myStateInput = $("#address_state").val();  
           // alert('3rd if');
-
+        if (pincode.length === 6 && myStateInput != ''){
           //warrenty_form submit
           var form = $('#warrenty_form');
           $.ajax({
@@ -1300,16 +1471,16 @@
             data: form.serialize(),
             dataType: 'json',
             success: function (resp) {
-              if (resp.success == true) {
-                if ($("#online__tandc").is(":checked")) {
-                  $('.warrenty-form').hide();
-                  $('.form_head_p').hide();
-                  $('.otp-form').show();
-                  console.log("form submitted");
-                } else {
-                  $('#terms_cond_error').text('Please select terms and condition');
-                  //alert("Please select terms & condition");
-                }
+              if (resp.success == true) {                             
+                  if ($("#online__tandc").is(":checked")) {
+                    $('.warrenty-form').hide();
+                    $('.form_head_p').hide();
+                    $('.otp-form').show();
+                    //console.log("form submitted");
+                  } else {
+                    $('#terms_cond_error').text('Please select terms and condition');
+                    //alert("Please select terms & condition");
+                  }
               }
             },
             error: function (data) {
@@ -1320,6 +1491,7 @@
             },
           });
           //warrenty_form submit end
+}
 
         }
         else {
@@ -1394,9 +1566,6 @@
     });
   });
 </script>
-
-
-
 <script>
 
   const nameInput = document.getElementById('first-name');
@@ -1425,6 +1594,9 @@
   const warrantySizeInput = document.getElementById('warrantySize');
   const errorMessagewarrantywarrantySize = document.getElementById('model__size_error');
 
+  const pincodeInput = document.getElementById('pincode-check');
+  const errorMessagePincode = document.getElementById('pincode_check_error');
+
   const warrantywarrantyInvoice = document.getElementById('warrantyInvoice');
   const errorMessagewarrantywarrantyInvoice = document.getElementById('invoice_id_error');
 
@@ -1435,15 +1607,10 @@
   const inputs = document.querySelectorAll('.buttonstyle');
 
   const cancelButton = document.getElementById("cancel-upload");
-
-
   // Get the selected date
   const selectedDate = new Date(document.getElementById("warrantyDop").value);
-
   // Get the current date
   const currentDate = new Date();
-
-
   function checkFileInput() {
     if (warrantywarrantywarrantyImage.value) {
       cancelButton.style.display = "block";
@@ -1451,8 +1618,6 @@
       cancelButton.style.display = "none";
     }
   }
-
-
 
   let phoneNumberInput = $("input[type='tel']");
 
@@ -1516,14 +1681,15 @@
   });
   stateInput.addEventListener('blur', () => {
     if (stateInput.value?.trim() === '') {
-      errorMessagestate.textContent = 'Please enter State field';
+      errorMessagestate.textContent = 'Please enter Pincode field';
     } else {
       errorMessagestate.textContent = '';
     }
   });
+
   cityInput.addEventListener('blur', () => {
     if (cityInput.value?.trim() === '') {
-      errorMessagecity.textContent = 'Please enter City field';
+      errorMessagecity.textContent = 'Please enter Pincode field';
     } else {
       errorMessagecity.textContent = '';
     }
@@ -1628,9 +1794,6 @@
     }
   }
 
-
-
-
   // drag and drop script to only accept images and pdf.
   function dragOverHandler(event) {
     event.preventDefault();
@@ -1675,17 +1838,12 @@
       file.type === 'application/pdf') {
       // The selected file is an image or a PDF
       console.log('File type is valid');
-
       // Upload the file or do other actions
-
-
       if (file.size > 1000000) {
         console.log('darg & drop', file);
-
         //alert('File size must be less than 1MB'); // show an error message
         warrantyfile_error_1.textContent = 'File size must be less than 1MB';
         warrantyfile_error.textContent = '';
-
         $('.button__container').classList.add("warning");
         event.preventDefault(); // prevent form submission
       } else {
@@ -1704,62 +1862,14 @@
       console.log('Invalid file type in DropAndDrop');
       // Show an error message or prevent uploading the file
     }
-
-
-  });
-
-
-</script>
-
-
-<script>
-  $(document).ready(function () {
-    console.clear('console clear');
-    $.ajax({
-      url: "https://middleware.doctordreams.com/api/state",
-      type: 'get',
-      dataType: 'json',
-      success: function (data) {
-        var states = data.states;
-        $.each(states, function (k, v) {
-          $('#address_state').append('<option value="' + k + '">' + v + '</option>');
-        });
-      }
-    });
-    $(".close_arrow").click(function () {
-      $("#pop-terms").hide();
-    });
-  });
-
-  $('#address_state').change(function () {
-
-    var state_val = $(this).val();
-
-    $.ajax({
-      url: "https://middleware.doctordreams.com/api/city",
-      type: 'post',
-      data: { 'state': state_val },
-      dataType: 'json',
-      success: function (data) {
-        var states = data.cities;
-        $.each(states, function (k, v) {
-          $('#address_city').append('<option value="' + v + '">' + v + '</option>');
-        });
-      }
-    });
   });
 </script>
 <script>
 
   const warrantyDop = document.getElementById('warrantyDop');
-
-  // Get today's date
   const today = new Date().toISOString().split('T')[0];
-
   // Set the minimum date to today
   warrantyDop.max = today;
-
-
   $("#war_on_click").click(function () {
     $(".war__offline").css("display", "none");
     $(".war__online").css("display", "block");
@@ -1799,6 +1909,7 @@
   $(".verify__otp__enter").on("keyup", function (event) {
     if ($(this).val().length >= 6) {
       $("#otp_error").text("");
+
     } else {
       $("#otp_error").css('display', 'block');
       $("#otp_error").text("OTP should be 6 digit");
@@ -1808,9 +1919,6 @@
   $("#vtigerFormSubmitBtn_6").on("click", function () {
     window.scrollTo(0, 0);
   });
-
-
-
 </script>
 <script>
   function validateInputsOnsubmit() {
@@ -1839,18 +1947,27 @@
       errorMessagemobile.textContent = '';
     }
 
+    if (pincodeInput.value?.trim() === '') {
+      errorMessagePincode.textContent = 'Please enter your Pincode';
+    } else if(pincodeInput.value?.trim() >= 5){
+      errorMessagePincode.textContent = 'Please enter valid Pincode';
+    }
+    else {
+      errorMessagePincode.textContent = '';
+    }
+
     if (stateInput.value?.trim() === '') {
-      errorMessagestate.textContent = 'Please enter State field';
+      errorMessagestate.textContent = '';
     } else {
       errorMessagestate.textContent = '';
     }
 
     if (cityInput.value?.trim() === '') {
-      errorMessagecity.textContent = 'Please enter City field';
+      errorMessagecity.textContent = '';
     } else {
       errorMessagecity.textContent = '';
     }
-    
+
 
     if (offlineInput.value?.trim() === '') {
       errorMessageoffline.textContent = 'Please select a Purchase Source';
@@ -1897,18 +2014,6 @@
     } else {
       errorMessagewarrantywarrantyDop.textContent = '';
     }
-
-    // if (warrantyModelInput.value?.trim() === '') {
-    //   errorMessagewarrantywarrantyModel.textContent = 'Please select your Product model';
-    // } else {
-    //   errorMessagewarrantywarrantyModel.textContent = '';
-    // }
-
-    // if (warrantywarrantywarrantyImage.value?.trim() === '') {
-    //   errorMessagewarrantywarrantyImage.textContent = 'Please upload your Invoice document';
-    // } else {
-    //   errorMessagewarrantywarrantyImage.textContent = '';
-    // }
 
     const checkbox = document.getElementById('online__tandc');
     const checkboxError = document.getElementById('terms_cond_error');
