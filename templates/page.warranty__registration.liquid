@@ -1949,7 +1949,7 @@
 
     if (pincodeInput.value?.trim() === '') {
       errorMessagePincode.textContent = 'Please enter your Pincode';
-    } else if(pincodeInput.value?.trim() >= 5){
+    } else if(pincodeInput.value?.trim().length < 6){
       errorMessagePincode.textContent = 'Please enter valid Pincode';
     }
     else {
