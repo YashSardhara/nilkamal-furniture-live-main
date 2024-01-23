@@ -5960,7 +5960,7 @@
           "desktop_img": "shopify:\/\/shop_images\/desktop_220c8d41-6013-49e7-88e0-c4f646d01c0b.jpg",
           "mobile_img": "shopify:\/\/shop_images\/mobile_71185634-bbfe-4127-9955-17879fbb0383.jpg",
           "title": "",
-          "end_date": "Jan 19, 2024 23:59:00",
+          "end_date": "Jan 23, 2024 23:59:00",
           "font_color_seconds": "#6f84c5",
           "text_Horizontal_desktop": 8,
           "text_Vertical_desktop": 0.5,
@@ -6023,38 +6023,74 @@
           "62bf939c-b7a3-4205-a11c-e6b5fb67a53a": {
             "type": "text",
             "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/19-1.jpg",
-              "tendays-product-title": "Prime Engineered Wood Nightstand (Frosty White)",
-              "tendays-product-mrp": "12900",
-              "tendays-product-selling": "6900",
-              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/prime-engineered-wood-nightstand-frosty-white"
+              "tendays-product-image": "shopify:\/\/shop_images\/23-2.jpg",
+              "tendays-product-title": "Nilkamal Elliot TV Cabinet",
+              "tendays-product-mrp": "11,500",
+              "tendays-product-selling": "9,900",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-elliot-tv-cabinet-walnut"
             }
           },
           "50debb65-1420-4079-bd6f-50b44c8abcde": {
             "type": "text",
             "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/19_939ffb0c-f92d-493e-bb85-04b4cf8e8f65.jpg",
-              "tendays-product-title": "Meta Engineered Wood Nightstand (Classic Walnut)",
-              "tendays-product-mrp": "9900",
-              "tendays-product-selling": "4500",
-              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/meta-engineered-wood-nightstand-classic-walnut"
+              "tendays-product-image": "shopify:\/\/shop_images\/23.jpg",
+              "tendays-product-title": "Nilkamal Beaumont Wall Unit (Classic Walnut)",
+              "tendays-product-mrp": "10,800",
+              "tendays-product-selling": "7,900",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-beaumont-wall-unit-classic-walnut"
             }
           },
           "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037": {
             "type": "text",
             "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/19-2.jpg",
-              "tendays-product-title": "Meta Engineered Wood Nightstand (Frosty White)",
-              "tendays-product-mrp": "900",
-              "tendays-product-selling": "4900",
-              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/meta-engineered-wood-nightstand-frosty-white"
+              "tendays-product-image": "shopify:\/\/shop_images\/23-1.jpg",
+              "tendays-product-title": "Nilkamal Forrest TV Cabinet",
+              "tendays-product-mrp": "8,500",
+              "tendays-product-selling": "7,500",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-forrest-tv-cabinet-walnut-white"
+            }
+          },
+          "text_RdbQQg": {
+            "type": "text",
+            "disabled": true,
+            "settings": {
+              "tendays-product-image": "shopify:\/\/shop_images\/21-2.jpg",
+              "tendays-product-title": "Nilkamal Luna Centre Table (Wenge)",
+              "tendays-product-mrp": "15500",
+              "tendays-product-selling": "8900",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-luna-centre-table"
+            }
+          },
+          "text_eh9kcr": {
+            "type": "text",
+            "disabled": true,
+            "settings": {
+              "tendays-product-image": "shopify:\/\/shop_images\/21-1.jpg",
+              "tendays-product-title": "Nilkamal Mono Coffee Table (Urban Walnut \/ Oak White)",
+              "tendays-product-mrp": "11900",
+              "tendays-product-selling": "5500",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-mono-engineered-wood-coffee-table-urban-walnut-oak-white"
+            }
+          },
+          "text_6VzKFB": {
+            "type": "text",
+            "disabled": true,
+            "settings": {
+              "tendays-product-image": "shopify:\/\/shop_images\/21.jpg",
+              "tendays-product-title": "Nilkamal Luca Coffee Table (Ash wenge \/ Marble Beige)",
+              "tendays-product-mrp": "11900",
+              "tendays-product-selling": "5900",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-luca-engineered-wood-coffee-table-ashwenge-marble-beige"
             }
           }
         },
         "block_order": [
           "62bf939c-b7a3-4205-a11c-e6b5fb67a53a",
           "50debb65-1420-4079-bd6f-50b44c8abcde",
-          "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037"
+          "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037",
+          "text_RdbQQg",
+          "text_eh9kcr",
+          "text_6VzKFB"
         ],
         "settings": {
           "tendays-section-heading": "",
