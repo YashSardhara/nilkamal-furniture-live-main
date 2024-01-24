@@ -6022,6 +6022,7 @@
         "blocks": {
           "62bf939c-b7a3-4205-a11c-e6b5fb67a53a": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/24-2.jpg",
               "tendays-product-title": "Nilkamal Magnito 4 Seater Dining Set with Bench (Brown)",
@@ -6032,6 +6033,7 @@
           },
           "50debb65-1420-4079-bd6f-50b44c8abcde": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/24.jpg",
               "tendays-product-title": "Nilkamal Stacia 4 Seater Dining Set (Antique Cherry)",
@@ -6042,6 +6044,7 @@
           },
           "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/24-1.jpg",
               "tendays-product-title": "Nilkamal Tansy 4 Seater Dining Set (Antique Cherry)",
@@ -6052,7 +6055,6 @@
           },
           "text_RdbQQg": {
             "type": "text",
-            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/21-2.jpg",
               "tendays-product-title": "Nilkamal Luna Centre Table (Wenge)",
@@ -6063,7 +6065,6 @@
           },
           "text_eh9kcr": {
             "type": "text",
-            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/21-1.jpg",
               "tendays-product-title": "Nilkamal Mono Coffee Table (Urban Walnut \/ Oak White)",
@@ -6074,7 +6075,6 @@
           },
           "text_6VzKFB": {
             "type": "text",
-            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/21.jpg",
               "tendays-product-title": "Nilkamal Luca Coffee Table (Ash wenge \/ Marble Beige)",
