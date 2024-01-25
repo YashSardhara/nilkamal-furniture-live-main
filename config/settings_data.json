@@ -5378,7 +5378,7 @@
           "display_vendor": false,
           "display_sku": false,
           "display_savings": true,
-          "show_payment_button": false,
+          "show_payment_button": true,
           "display_collections": false,
           "display_type": false,
           "display_tags": false,
