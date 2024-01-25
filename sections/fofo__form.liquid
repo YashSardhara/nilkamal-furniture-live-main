@@ -1,0 +1,333 @@
+<!-- main container start here -->
+<section class="franchise_container fofopage__container container__custom" id="home">
+  <main class="main_container">
+    <section class="left">
+      <div class="left__fofocontainer">
+        <div class="fofo__leftBox">
+          <div class="fofo__leftBoxCont">
+            <div class="fofo__form__heading">
+              <h3>Why Become A Nilkamal Sleep Franchisee</h3>
+              <p>Become an entrepreneur, with India’s most trusted Brand <b>“Nilkamal”</b></p>
+            </div>
+            <div class="fofo__form__content">
+              <span> - <b>Low Investment</b>, quick good returns </span>
+              <span> - <b>Zero</b> obsolescence Inventory </span>
+              <span> - <b>Mattress & other sleep</b> solutions </span>
+              <span> - Continuous <b>Marketing support</b> </span>
+              <span> - Dedicated <b>Relationship manager</b> to help the business journey </span>
+              <span> - Learn with the "<b>LEADERS</b>" </span>
+            </div>
+            <div class="fofo__content__bottom">
+              <!--
+                <span>
+                    "We need to add content"
+                </span>
+              -->
+            </div>
+          </div>
+          <div class="fofo__leftBoxImag">
+            <!--
+              <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/600x400_680d1fbc-a908-40af-a64e-a9d10fb20256.jpg?v=1700480851" alt="">
+            -->
+            <img src="{{ section.settings.fofo_sleep_image |  img_url: "600x" }}" alt="">
+          </div>
+        </div>
+        <div class="fofo__rightBox">
+          <div class="fofo__leftBoxCont">
+            <div class="fofo__form__heading">
+              <h3>Our Business Model</h3>
+              <!-- <p>"We need to add content"</p> -->
+            </div>
+            <div class="fofo__content__container">
+              <div class="fofo__form__content">
+                <span> Minimum Investment </span>
+                <span> Retail Space </span>
+                <span>
+                  Return on investment <br>
+                  (ROI*)
+                </span>
+              </div>
+              <div class="fofo__form__content">
+                <span class="myFontBold"> 12 Lakhs </span>
+                <span class="myFontBold"> 800 sq.ft </span>
+                <span class="myFontBold"> 30% + </span>
+              </div>
+            </div>
+            {% comment %} <div class="fofo__content__bottom">
+              <span> Take a Virtual Tour of One of Our Studios </span>
+              <a
+                href="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Nilkamal_Healthcare_Furniture_Range_compressed.pdf?v=1698241133"
+                download="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Nilkamal_Healthcare_Furniture_Range_compressed.pdf?v=1698241133"
+                target="_blank"
+                >Download Brochure</a
+              >
+            </div> {% endcomment %}
+          </div>
+          <div class="fofo__leftBoxImag">
+            <!--
+              <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/600x400-1.jpg?v=1700480851" alt="">
+            -->
+            <img src="{{ section.settings.fofo_sleep_business_image |  img_url: "600x"  }}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="fofo__work">
+        <h2>How It Works?</h2>
+        <div class="fofo__work__content">
+          <div class="why__slider">
+            <!-- Stepper by Yash -->
+            <!-- to complete add class - completed, to active add class - active -->
+            <div class="stepper-wrapper ">
+              <div class="stepper-item ">
+                <div class="step-counter">1</div>
+                <div class="myStepText">Fill the Form & Schedule a Discussion</div>
+              </div>
+              <div class="stepper-item ">
+                <div class="step-counter">2</div>
+                <div class="myStepText">Shortlist Property & Sign the LOI</div>
+              </div>
+              <div class="stepper-item ">
+                <div class="step-counter">3</div>
+                <div class="myStepText">Initiate Fit-out and staff Hiring</div>
+              </div>
+              <div class="stepper-item ">
+                <div class="step-counter">4</div>
+                <div class="myStepText">Launch the Studio to get Satrted</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="right_form_fran_heading" id="formtotop">
+      <div class="right_form_container">
+        <div class="right_form_fran">
+          <span class="right_form_fran_heading">Register for the Nilkamal franchisee</span>
+          <form id="franchise" class="new_form_fran">
+            <div class="fran_row">
+              <div class="fran_col floating-label-group">
+                <input
+                  type="text"
+                  name="fullname"
+                  id="contactFormFullName"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  required>
+                <label class="floating-label">Full Name<span>*</span>
+                </label>
+                <span id="fullname_error" class="fullname_error err"></span>
+              </div>
+              <div class="fran_col floating-label-group">
+                <input
+                  type="number"
+                  id="address_phone_no"
+                  class="address_phone_no"
+                  name="phoneno"
+                  value="{{form.phone}}"
+                  required>
+                <label class="floating-label">Mobile No.<span>*</span>
+                </label>
+                <span id="phoneno_error" class="phoneno_error err"></span>
+              </div>
+            </div>
+            <div class="fran_row">
+              <div class="fran_col floating-label-group">
+                <input
+                  type="text"
+                  name="alter_phoneno"
+                  pattern="[0-9]{10}"
+                  id="alternate_address_phone_no"
+                  class="address_phone_no"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  required>
+                <label class="floating-label">Alternate Number
+                </label>
+                <span id="alter_phoneno_error" class="alternate_phone_no_error err"></span>
+              </div>
+              <div class="fran_col floating-label-group">
+                <input
+                  type="email"
+                  name="email"
+                  id="contactFormEmail"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  required>
+                <label class="floating-label">Email Id<span>*</span>
+                </label>
+                <span id="email_error" class="email_error err"></span>
+              </div>
+
+            </div>
+            <div class="fran_row">
+              <div class="fran_col floating-label-group">
+                <select name="state_name" id="state_name">
+                  <option value="">Select State</option>
+                </select>
+                <span id="state_name_error" class="state_name_error err"></span>
+              </div>
+              <div class="fran_col floating-label-group">
+                <input
+                  type="text"
+                  name="city_name"
+                  id="city_name"
+                  maxlength="50"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  required>
+                <label class="floating-label">City Name<span>*</span>
+                </label>
+                <span id="city_name_error" class="city_name_error err"></span>
+                <ul class="city_sugg"></ul>
+              </div>
+            </div>
+            <div class="fran_row">
+              <div class="fran_col floating-label-group">
+                <select
+                  name="preferred_time_for_discussion"
+                  id="preferred_time_for_discussion"
+                  required>
+                  <option value="Preferred time for discussion">Preferred time for discussion*</option>
+                  <option value="Morning">Morning</option>
+                  <option value="Afternoon">Afternoon</option>
+                  <option value="Evening">Evening</option>
+                </select>
+                <span id="preferred_time_for_discussion_error" class="preferred_time_for_discussion_error err"></span>
+                </div>
+                <div class="fran_col floating-label-group">
+                  <input
+                  type="text"
+                  name="city"
+                  id="contactFormcity_name"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  required>
+                  <label class="floating-label">Location Preference<span>*</span>
+                  </label>
+                  <span id="location_preference_error" class="location_preference_error err"></span>
+              </div>
+
+            </div>
+            <div class="fran_row">
+              <div class="fran_col form_col_rad ">
+                <div class="fran_col_head">
+                  <p>Do you own any franchisee</p>
+                </div>
+                <div class="fran_input">
+                  <label class="form-check-label" for="radio1">
+                    <input
+                      type="radio"
+                      class="form-check-input form__input_wid"
+                      id="radio1"
+                      name="franchisee"
+                      onclick="radioEnable1()"
+                      value="Yes"><span class="form_span">Yes</span>
+                  </label>
+                  <label class="form-check-label" for="radio2">
+                    <input
+                      type="radio"
+                      class="form-check-input radio__input__disable1 form__input_wid"
+                      id="radio2"
+                      onclick="radioDisable1()"
+                      name="franchisee"
+                      value="No"
+                      checked><span class="form_span">No</span>
+                  </label>
+                </div>
+              </div>
+              <div class="fran_col form_col_rad">
+                <div class="fran_col_head">
+                  <p>Do you own a retail space</p>
+                </div>
+                <div class="fran_input">
+                  <label class="form-check-label" for="radio1">
+                    <input
+                      type="radio"
+                      class="form-check-input form__input_wid"
+                      id="radio3"
+                      onclick="radioEnable2()"
+                      name="reatil_space"
+                      value="Yes"><span class="form_span">Yes</span>
+                  </label>
+                  <label class="form-check-label" for="radio2">
+                    <input
+                      type="radio"
+                      class="form-check-input radio__input__disable2 form__input_wid"
+                      id="radio4"
+                      onclick="radioDisable2()"
+                      checked
+                      name="reatil_space"
+                      value="No"><span class="form_span">No</span>
+                  </label>
+                </div>
+              </div>
+
+            </div>
+            <div class="fran_row">
+              <div class="fran_col floating-label-group">
+                <select
+                  name="property_availability"
+                  id="property_availability"
+                  disabled
+                  required>
+                  <option value="">Property Availability</option>
+                  <option value="Available">Available</option>
+                  <option value="Shortisted">Shortisted</option>
+                  <option value="Will Search">Will Search</option>
+                </select>
+                <span id="property_availability_error" class="property_availability_error err"></span>
+
+              </div>
+              <div class="fran_col floating-label-group">
+                <select
+                  name="area_of_property_available"
+                  id="area_of_property_available"
+                  disabled
+                  required>
+                  <option value="">Area of property available</option>
+                  <option value="500-800 sq.ft.">500-800 sq.ft.</option>
+                  <option value="800-1000 sq.ft.">800-1000 sq.ft.</option>
+                  <option value="above 1000 sq.ft.">above 1000 sq.ft.</option>
+                </select>
+                <span id="area_of_property_available_error" class="area_of_property_available_error err"></span>
+              </div>
+            </div>
+            <div class="fran_row_full">
+              <input
+                type="submit"
+                class="btn btn-Send"
+                id="franchise_submit"
+                value="Send Enquiry"
+                required>
+            </div>
+          </form>
+          <div class="fofo__mail__content">
+            <span
+              >Have More Questions? Write to Us at
+              <a href="mailto:roshan.desai@nilkamal.com">roshan.desai@nilkamal.com</a></span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</section>
+
+{% schema %}
+{
+  "name": "FOFO Sleep Image",
+  "settings": [
+    {
+"type": "image_picker",
+"id": "fofo_sleep_image",
+"label": "FOFO  Sleep Section Image Upload"
+},
+{
+"type": "image_picker",
+"id": "fofo_sleep_business_image",
+"label": "FOFO Business Section Image Upload"
+}
+    ]
+}
+{% endschema %}

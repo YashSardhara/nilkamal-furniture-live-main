@@ -1,0 +1,38 @@
+<style>
+
+  .fofopage__containers{
+      width: 100% !important;
+     height:auto;
+  }
+
+  .fofopage__containers img{
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      margin-top: 10px;
+  }
+
+  @media (max-width:768px) {
+     .fofopage__containers{
+        margin-top: 5.5rem;
+      }
+
+
+  }
+</style>
+<section class="fofopage__containers">
+  <img src="{{ section.settings.fofo__image |  img_url: "1300x" }}" alt="">
+</section>
+
+{% schema %}
+{
+  "name": "FOFO Banner",
+  "settings": [
+    {
+"type": "image_picker",
+"id": "fofo__image",
+"label": "FOFO Banner Upload"
+}
+    ]
+}
+{% endschema %}

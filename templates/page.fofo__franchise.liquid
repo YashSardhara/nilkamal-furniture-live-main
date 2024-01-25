@@ -1,12 +1,943 @@
-<a name="pagecontent" id="pagecontent"></a>
+{% if page.handle contains 'franchise-enquiry' %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+{% endif %}
+<style>
+  .fofopage__container {
+    width: 85% !important;
+    margin: 0 auto;
+    background: #fff;
+  }
 
-<div class="sixteen columns page clearfix">
-  <h1 align="center">
-    {{ page.title }}
-  </h1>
-  <div class="feature_divider"></div>
+  .franchise_container>.main_container {
+    display: grid;
+    grid-template-columns: 56% 40%;
+    grid-gap: 4%;
+  }
 
-  <div>
-    {% include 'page-multi-column', content: page.content %}
-  </div>
-</div>
+  .left__fofocontainer {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    overflow: hidden;
+    width: 100%;
+    gap: 20px;
+    margin-top: 2rem;
+  }
+
+  .fofo__leftBox,
+  .fofo__rightBox {
+    background: #F3F8FF;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .fofo__leftBoxCont {
+    padding: 2rem 1rem;
+  }
+
+  .fofo__leftBoxCont .fofo__leftBox,
+  .fofo__leftBoxCont .fofo__rightBox {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .fofo__form__heading h3 {
+    font-weight: 800;
+    font-size: 32px;
+    color: #313283;
+  }
+
+  .fofo__form__heading P {
+    font-size: 16px;
+    font-weight: 500;
+    /* margin-bottom: 2rem; */
+  }
+
+  .fofo__leftBoxCont {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+    gap: 0rem;
+  }
+
+  .fofo__form__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 20px;
+    border-left: 2px solid #000;
+    padding-left: 1rem;
+  }
+
+
+
+  .fofo__form__content span {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+
+  .fofo__leftBoxImag img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .fofo__rightBox .fofo__form__content span {
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  .fofo__leftBox .fofo__form__content {
+    gap: 1.2rem;
+  }
+
+  .myFontBold {
+    font-weight: 700;
+  }
+
+  .fofo__work {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-top: 2.5rem;
+  }
+
+  .fofo__content__container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .fofo__content__container .fofo__form__content {
+    border: 0px;
+    padding: 0;
+    padding-right: 20px;
+  }
+
+  .fofo__content__container .fofo__form__content:nth-child(2) {
+    border-left: 2px solid #000;
+    padding-left: 12px;
+  }
+
+  .fofo__content__bottom {
+    margin-top: 20px;
+  }
+
+  .fofo__content__bottom a {
+    display: block;
+    color: #01afef;
+    margin-top: 1.2rem;
+    text-decoration: underline;
+    font-size: .8rem;
+  }
+
+  .fofo__work__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  span.fofo__border {
+    width: 150px;
+    height: 2px;
+    background: #000;
+  }
+
+  .gfb__footer .action,
+  .gfb__footer [type=button],
+  .gfb__footer [type=submit],
+  .globo-form-app .footer .action,
+  .globo-form-app .footer [type=button],
+  .globo-form-app .footer [type=submit] {
+    width: 100% !important;
+  }
+
+  div#shopify-section-fofo__form .left {
+    margin-top: 0px;
+  }
+
+  .right_form_fran .globo-form-app.default-layout.gfb-style-classic {
+    margin-top: 0px !important;
+  }
+
+  #shopify-section-fofo__form .right_form_container {
+    padding: 10px 25px 10px;
+  }
+
+  #shopify-section-fofo__form .globo-description {
+    display: none !important;
+  }
+
+  #shopify-section-fofo__form .globo-form-app .header {
+    margin-bottom: 0px !important;
+  }
+
+  .why__slider {
+    font-size: 14px;
+    position: relative;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .why__content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .stepper-item::before {
+    color: #ccc;
+    position: absolute;
+    content: "\27A4";
+    width: 100%;
+    top: 10px;
+    right: 23%;
+    z-index: 2;
+    font-size: 22px;
+  }
+
+  .stepper-item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 95%;
+    top: 20px;
+    left: 50%;
+    z-index: 2;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .stepper-wrapper {
+    margin-top: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 25px;
+  }
+
+  .stepper-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+  }
+
+  .myStepText {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .stepper-item:hover .step-counter {
+    background-color: #01afef;
+    color: #fff;
+  }
+
+  .stepper-item:hover .myStepText {
+    font-weight: 600;
+  }
+
+  .stepper-item .step-counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-bottom: 6px;
+    transition: .2s ease-in-out;
+  }
+
+  .stepper-item.active {
+    font-weight: bold;
+  }
+
+  .stepper-item.completed .step-counter {
+    background-color: #E71C24;
+    color: #fff;
+  }
+
+  .stepper-item.completed::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #E71C24;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 3;
+  }
+
+  .stepper-item:first-child::before {
+    content: none;
+  }
+
+  .stepper-item:last-child::after {
+    content: none;
+  }
+
+  .active__bas {
+    background: #01afef !important;
+    color: #fff;
+  }
+
+  .fofo__work h2 {
+    margin-bottom: 0px !important;
+    font-size: 30px;
+    color: #313283;
+    font-weight: 800;
+  }
+
+  #state_name option {
+    padding-top: 10px !important;
+  }
+
+  .why__slider .swiper {
+    margin-top: 0px !important;
+  }
+
+  .fofo__collection__container {
+    margin: 5rem auto 2rem;
+  }
+
+  .fofo__mail__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .fofo__mail__content span {
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .fofo__mail__content span a {
+    color: #01afef;
+    text-decoration: underline;
+  }
+
+  @media(max-width:767px) {
+    .left__fofocontainer {
+      grid-template-columns: 100%;
+      margin-top: 0px !important;
+    }
+
+    .fofopage__container>img {
+      margin-top: 6.8rem !important;
+    }
+
+    .stepper-item::before {
+      top: 10.3px;
+      right: 42%;
+      font-size: 17px;
+    }
+
+    .myStepText {
+      font-size: 11px;
+    }
+
+    .fofo__collection__container {
+    margin: 3rem auto 2rem;
+  }
+  }
+
+  /* form select  */
+  .floating-label-group {
+    position: relative;
+  }
+
+  .floating-label {
+    font-size: 14px;
+    color: #4d4d4d;
+    font-weight: 400;
+    position: absolute;
+    text-transform: capitalize;
+    pointer-events: none;
+    top: 12.5px;
+    left: 12px;
+    transition: all 0.1s ease;
+    white-space: nowrap;
+  }
+
+  .latestcollection.fofopage__container>h2 {
+    font-weight: 800;
+    font-size: 32px;
+  }
+
+  .floating-label span {
+    color: red;
+  }
+
+  input:focus~.floating-label,
+  input:not(:focus):valid~.floating-label {
+    top: -11px;
+    bottom: 0px;
+    left: 05px;
+    font-size: 11px;
+    opacity: 1;
+    color: #023E88;
+    background: #fff;
+    height: 20px;
+    padding-inline: 10px;
+  }
+
+  input:focus {
+    border: 1px solid #023E88 !important;
+  }
+
+  input#contactFormFullName,
+  input#address_phone_no {
+    border-radius: 3.5px !important;
+  }
+
+  input#contactFormcity_name,
+  input#contactFormcurrent_turnover,
+  textarea#Suggestions {
+    border-radius: 3.5px !important;
+  }
+
+  body#franchise input,
+  body#franchise select {
+    border-radius: 3.5px !important;
+    font-size: 14px !important;
+    padding: 2px 10px;
+    text-overflow: ellipsis;
+  }
+
+  .err {
+    margin-top: 10px !important;
+    font-size: 11.5px;
+    letter-spacing: .5px;
+  }
+
+
+  .city_box {
+    display: flex;
+  }
+
+  .city_box .city:first-child {
+    margin-right: 50px;
+  }
+
+  .city_box .city li {
+    line-height: 27px;
+  }
+
+
+  .nilkamalhas {
+    margin-top: 30px;
+    padding: 20px;
+    background: #F6FCFF;
+    border-radius: 54px;
+  }
+
+  .nkhasheading {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+  }
+
+  .nkhasheading .nilhad1 {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 60px;
+    text-transform: capitalize;
+    color: #888888;
+    margin-bottom: 20px;
+  }
+
+  .nkhasheading .nilhad2 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+    color: #0093DD;
+  }
+
+  .right_form_fran_heading {
+    position: relative;
+    margin-top: 80px;
+  }
+
+  body#franchise input,
+  body#franchise select {
+    border-radius: 3.5px !important;
+    font-size: 14px !important;
+    padding: 2px 10px;
+    text-overflow: ellipsis;
+  }
+
+  .fran_col_head p {
+    font-size: 14px;
+    white-space: nowrap;
+
+  }
+
+  .city_sugg {
+    display: none;
+  }
+
+  #city_name:focus~.city_sugg {
+    display: block;
+    width: 100%;
+    min-height: fit-content;
+    max-height: 195px;
+    overflow-y: auto;
+    background: #fff;
+    position: absolute;
+    top: 29px;
+    left: 1px;
+    z-index: 999;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+    padding-left: 10px !important;
+  }
+
+  .city_sugg li {
+    list-style: none;
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  .form-check-label {}
+
+  input.btn.btn-Send {
+    font-size: 18px !important;
+    text-transform: capitalize !important;
+    border-radius: 8px !important;
+  }
+
+  .fran_input {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .form-check-label {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .right_form_container {
+    position: sticky;
+    width: 100%;
+    max-height: 740px !important;
+    top: 50px;
+    background: #fff;
+    padding: 28px 32px 10px;
+    box-shadow: 0 3px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+  }
+
+  .form__input_wid {
+    width: 24px;
+    height: 24px;
+  }
+
+  .right_form_fran .right_form_fran_heading {
+    font-size: 22px;
+    line-height: 37px;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    color: #5C6168;
+  }
+
+  .new_form_fran {
+    margin-top: 10px;
+  }
+
+  .fran_row {
+    display: grid !important;
+    grid-template-columns: 48% 48% !important;
+    grid-gap: 4% !important;
+    margin: 28px 0px;
+  }
+
+  .fran_row:nth-child(5) {
+    margin-top: -20px;
+  }
+
+  .fran_col {
+    width: 100%;
+    height: 50px;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield !important;
+  }
+
+  .right_form_container select,
+  .right_form_container input {
+    height: 45px !important;
+    margin-bottom: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(77, 77, 77);
+  }
+
+  #franchise .fran_row:nth-child(5) {
+    margin-top: 10px !important;
+    margin-left: 4px;
+  }
+
+  #franchise .fran_row:nth-child(6) {
+    margin-top: 20px !important;
+  }
+
+  input#franchise_submit {
+    width: 100%;
+    color: #fff;
+    overflow: hidden;
+    border: 0px !important;
+    text-transform: capitalize !important;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .latestcollection.fofopage__container {
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+  }
+
+  .latestcollection.fofopage__container>h2 {
+    margin-bottom: 1.5rem;
+    font-size: 30px;
+    color: #313283;
+  }
+
+  .swiper-slide .fofo__content span {
+    font-weight: 600;
+  }
+
+  .latestcollection .swiper-slide .my__container__link {
+    width: 100%;
+    height: auto;
+  }
+
+  .latestcollection .swiper-slide .my__container__link .fofo__image {
+    border: 1px solid rgba(0, 0, 0, .5);
+    border-bottom: none;
+  }
+
+  .latestcollection .swiper-slide .my__container__link .fofo__content {
+    border: 1px solid rgba(0, 0, 0, .5);
+    padding: 1rem;
+  }
+
+  .fofo__form__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  @media (max-width:768px) {
+    .franchise_container>.main_container {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    .right_form_container {
+      position: static;
+      top: 0;
+      border-radius: 0px;
+      box-shadow: none;
+      margin-top: -20px;
+    }
+
+    .right_form_fran_heading {
+      margin-top: 0px;
+    }
+
+    #home {
+      width: 100% !important;
+    }
+
+    section.left {
+      width: 90% !important;
+      margin: 20px auto !important;
+    }
+
+    .latestcollection.fofopage__container {
+      margin-top: 2rem;
+      margin-bottom: 1.5rem !important;
+    }
+
+    .fran_col_head p {
+    font-size: 13px;
+    white-space: break-spaces;
+
+  }
+  }
+
+</style>
+
+{% section 'fofo__banner' %}
+{% section 'fofo__form' %}
+{% comment %} {% section 'fofo_partners' %} {% endcomment %}
+{% section 'fofo-franchise-collection' %}
+
+<script>
+  var myID = document.getElementById("mybottomId1");
+
+  var myScrollFunc = function () {
+    var y = window.scrollY;
+    if (y >= 2750) {
+      myID.className = "bottom__bar__desktop show"
+    } else {
+      myID.className = "bottom__bar__desktop hide"
+    }
+  };
+
+  window.addEventListener("scroll", myScrollFunc);
+
+  var myID1 = document.getElementById("mybottomId2");
+
+  var myScrollFunc1 = function () {
+    var z = window.scrollY;
+    if (z >= 1050) {
+      myID1.className = "bottom__bar__desktop2 show"
+    } else {
+      myID1.className = "bottom__bar__desktop2 hide"
+    }
+  };
+
+  window.addEventListener("scroll", myScrollFunc1);
+
+  $('#contactFormFullName').keydown(function (e) {
+    if (e.shiftKey || e.ctrlKey || e.altKey) {
+      e.preventDefault();
+    } else {
+      var key = e.keyCode;
+      if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+        e.preventDefault();
+      }
+    }
+  });
+
+  $(document).on('keypress', '#address_phone_no', function (e) {
+    if ($(e.target).prop('value').length >= 10) {
+      if (e.keyCode != 32) {
+        return false
+      }
+    }
+  })
+
+
+
+  function radioEnable2() {
+    document.getElementById("property_availability").disabled = false;
+    document.getElementById("area_of_property_available").disabled = false;
+    if ($("#radio_button").is(':checked')) {
+      $("#property_availability").attr("required", "true");
+      $("#area_of_property_available").attr("required", "true");
+    }
+
+  }
+
+  function radioDisable2() {
+    document.getElementById("property_availability").disabled = true;
+    document.getElementById("area_of_property_available").disabled = true;
+  }
+
+  $('#alternate_address_phone_no').on('input', function () {
+    $(this).val($(this).val().replace(/[^0-9]/g, '').substr(0, 10));
+  });
+</script>
+
+
+
+<script>
+  let cityNames = ["Adoni", "Chandigarh", "Ambikapur", "Bhilai", "Amaravati", "Bilaspur", "Dhamtari", "Durg", "Anantapur", "Jagdalpur", "Raipur", "Rajnandgaon", "Chandragiri", "Daman", "Diu", "Silvassa", "Chittoor", "Delhi", "New Delhi", "Madgaon", "Panaji", "Dowlaiswaram", "Ahmadabad", "Amreli", "Bharuch", "Bhavnagar", "Eluru", "Bhuj", "Dwarka", "Gandhinagar", "Godhra", "Jamnagar", "Guntur", "Junagadh", "Kandla", "Khambhat", "Kheda", "Mahesana", "Kadapa", "Morbi", "Nadiad", "Navsari", "Okha", "Palanpur", "Patan", "Kakinada", "Porbandar", "Rajkot", "Surat", "Surendranagar", "Valsad", "Kurnool", "Veraval", "Ambala", "Bhiwani", "Chandigarh", "Faridabad", "Machilipatnam", "Firozpur Jhirka", "Gurugram", "Hansi", "Hisar", "Jind", "Nagarjunakoṇḍa", "Kaithal", "Karnal", "Kurukshetra", "Panipat", "Pehowa", "Rajahmundry", "Rewari", "Rohtak", "Sirsa", "Sonipat", "Bilaspur", "Chamba", "Srikakulam", "Dalhousie", "Dharmshala", "Hamirpur", "Kangra", "Kullu", "Tirupati", "Mandi", "Nahan", "Shimla", "Una", "Anantnag", "Baramula", "Vijayawada", "Vijayawada", "Doda", "Gulmarg", "Jammu", "Kathua", "Punch", "Rajouri", "Visakhapatnam", "Srinagar", "Udhampur", "Bokaro", "Chaibasa", "Deoghar", "Vizianagaram", "Dhanbad", "Dumka", "Giridih", "Hazaribag", "Jamshedpur", "Yemmiganur", "Jharia", "Rajmahal", "Ranchi", "Saraikela", "Itanagar", "Badami", "Ballari", "Bengaluru", "Belagavi", "Bhadravati", "Bidar", "Dhuburi", "Chikkamagaluru", "Chitradurga", "Davangere", "Halebid", "Hassan", "Dibrugarh", "Hubballi-Dharwad", "Kalaburagi", "Kolar", "Madikeri", "Mandya", "Dispur", "Mangaluru", "Mysuru", "Raichur", "Shivamogga", "Shravanabelagola", "Guwahati", "Shrirangapattana", "Tumakuru", "Vijayapura", "Alappuzha", "Vatakara", "Jorhat", "Idukki", "Kannur", "Kochi", "Kollam", "Kottayam", "Kozhikode", "Mattancheri", "Nagaon", "Palakkad", "Thalassery", "Thiruvananthapuram", "Thrissur", "Kargil", "Leh", "Sivasagar", "Balaghat", "Barwani", "Betul", "Bharhut", "Bhind", "Bhojpur", "Bhopal", "Silchar", "Burhanpur", "Chhatarpur", "Chhindwara", "Damoh", "Datia", "Dewas", "Dhar", "Tezpur", "Dr. Ambedkar Nagar (Mhow)", "Guna", "Gwalior", "Hoshangabad", "Indore", "Itarsi", "Tinsukia", "Jabalpur", "Jhabua", "Khajuraho", "Khandwa", "Khargone", "Maheshwar", "Ara", "Mandla", "Mandsaur", "Morena", "Murwara", "Narsimhapur", "Narsinghgarh", "Barauni", "Narwar", "Neemuch", "Nowgong", "Orchha", "Panna", "Raisen", "Rajgarh", "Begusarai", "Ratlam", "Rewa", "Sagar", "Sarangpur", "Satna", "Sehore", "Seoni", "Bettiah", "Shahdol", "Shajapur", "Sheopur", "Shivpuri", "Ujjain", "Vidisha", "Bhagalpur", "Ahmadnagar", "Akola", "Amravati", "Aurangabad", "Bhandara", "Bhusawal", "Bihar Sharif", "Bid", "Buldhana", "Chandrapur", "Daulatabad", "Dhule", "Jalgaon", "Kalyan", "Bodh Gaya", "Karli", "Kolhapur", "Mahabaleshwar", "Malegaon", "Matheran", "Mumbai", "Nagpur", "Buxar", "Nanded", "Nashik", "Osmanabad", "Pandharpur", "Parbhani", "Pune", "Ratnagiri", "Chapra", "Sangli", "Satara", "Sevagram", "Solapur", "Thane", "Ulhasnagar", "Vasai-Virar", "Darbhanga", "Wardha", "Yavatmal", "Imphal", "Cherrapunji", "Shillong", "Aizawl", "Lunglei", "Dehri", "Kohima", "Mon", "Phek", "Wokha", "Zunheboto", "Balangir", "Baleshwar", "Dinapur Nizamat", "Baripada", "Bhubaneshwar", "Brahmapur", "Cuttack", "Dhenkanal", "Gaya", "Kendujhar", "Konark", "Koraput", "Paradip", "Phulabani", "Puri", "Hajipur", "Sambalpur", "Udayagiri", "Karaikal", "Mahe", "Puducherry", "Yanam", "Jamalpur", "Amritsar", "Batala", "Chandigarh", "Faridkot", "Firozpur", "Gurdaspur", "Katihar", "Hoshiarpur", "Jalandhar", "Kapurthala", "Ludhiana", "Nabha", "Patiala", "Madhubani", "Rupnagar", "Sangrur", "Abu", "Ajmer", "Alwar", "Amer", "Barmer", "Beawar", "Motihari", "Bharatpur", "Bhilwara", "Bikaner", "Bundi", "Chittaurgarh", "Churu", "Dhaulpur", "Munger", "Dungarpur", "Ganganagar", "Hanumangarh", "Jaipur", "Jaisalmer", "Jalor", "Jhalawar", "Muzaffarpur", "Jhunjhunu", "Jodhpur", "Kishangarh", "Kota", "Merta", "Nagaur", "Nathdwara", "Patna", "Pali", "Phalodi", "Pushkar", "Sawai Madhopur", "Shahpura", "Sikar", "Sirohi", "Purnia", "Tonk", "Udaipur", "Gangtok", "Gyalshing", "Lachung", "Mangan", "Pusa", "Arcot", "Chengalpattu", "Chennai", "Chidambaram", "Coimbatore", "Cuddalore", "Saharsa", "Dharmapuri", "Dindigul", "Erode", "Kanchipuram", "Kanniyakumari", "Kodaikanal", "Samastipur", "Kumbakonam", "Madurai", "Mamallapuram", "Nagappattinam", "Nagercoil", "Palayamkottai", "Sasaram", "Pudukkottai", "Rajapalayam", "Ramanathapuram", "Salem", "Thanjavur", "Sitamarhi", "Tiruchchirappalli", "Tirunelveli", "Tiruppur", "Thoothukudi", "Udhagamandalam", "Siwan", "Vellore", "Hyderabad", "Karimnagar", "Khammam", "Mahbubnagar", "Nizamabad", "Sangareddi", "Warangal", "Agartala", "Agra", "Aligarh", "Amroha", "Ayodhya", "Azamgarh", "Bahraich", "Ballia", "Banda", "Bara Banki", "Bareilly", "Basti", "Bijnor", "Bithur", "Budaun", "Bulandshahr", "Deoria", "Etah", "Etawah", "Faizabad", "Farrukhabad-cum-Fatehgarh", "Fatehpur", "Fatehpur Sikri", "Ghaziabad", "Ghazipur", "Gonda", "Gorakhpur", "Hamirpur", "Hardoi", "Hathras", "Jalaun", "Jaunpur", "Jhansi", "Kannauj", "Kanpur", "Lakhimpur", "Lalitpur", "Lucknow", "Mainpuri", "Mathura", "Meerut", "Mirzapur-Vindhyachal", "Moradabad", "Muzaffarnagar", "Partapgarh", "Pilibhit", "Prayagraj", "Rae Bareli", "Rampur", "Saharanpur", "Sambhal", "Shahjahanpur", "Sitapur", "Sultanpur", "Tehri", "Varanasi", "Almora", "Dehradun", "Haridwar", "Mussoorie", "Nainital", "Pithoragarh", "Alipore", "Alipur Duar", "Asansol", "Baharampur", "Bally", "Balurghat", "Bankura", "Baranagar", "Barasat", "Barrackpore", "Basirhat", "Bhatpara", "Bishnupur", "Budge Budge", "Burdwan", "Chandernagore", "Darjeeling", "Diamond Harbour", "Dum Dum", "Durgapur", "Halisahar", "Haora", "Hugli", "Ingraj Bazar", "Jalpaiguri", "Kalimpong", "Kamarhati", "Kanchrapara", "Kharagpur", "Cooch Behar", "Kolkata", "Krishnanagar", "Malda", "Midnapore", "Murshidabad", "Nabadwip", "Palashi", "Panihati", "Purulia", "Raiganj", "Santipur", "Shantiniketan", "Shrirampur", "Siliguri", "Siuri", "Tamluk", "Titagarh"];
+
+  //   let sortedNames = cityNames.sort();
+  //   let input = document.getElementById("city_name");
+  //  function displayNames(value) {
+  //    console.log(city_name,"city_name");
+  //     document.getElementById("city_name").value = value;
+  //     removeElements();
+  //   }
+
+  //   function removeElements() {
+  //     let items = document.querySelectorAll(".list-items");
+  //     items.forEach((item) => {
+  //       item.remove();
+  //     });
+  //   }
+  //   input.addEventListener("keyup", (e) => {
+  //     removeElements();
+  //     for (let i of sortedNames) {
+  //       if (i.toLowerCase().startsWith(input.value.toLowerCase()) && input.value != "") {
+  //         let listItem = document.createElement("li");
+  //         listItem.classList.add("list-items");
+  //         listItem.style.cursor = "pointer";
+  //         listItem.setAttribute("onclick", "displayNames('" + i + "')");
+  //         listItem.innerHTML = i;
+  //         document.querySelector(".city_sugg").appendChild(listItem);
+  //       }
+  //     }
+  //   });
+
+  // function displayNames(value) {
+  //   alert("Selected value : " + value);
+  //   input.value = value;
+  //   removeElements();
+  // }
+
+  // function removeElements() {
+  //   let items = document.querySelectorAll(".list-items");
+  //   items.forEach((item) => {
+  //     item.remove();
+  //   });
+  // }
+
+</script>
+
+
+<script>
+  function getState() {
+    $.ajax({
+      url: "https://middleware.doctordreams.com/api/fofo-franchisee/get-state",
+      type: 'get',
+      dataType: 'json',
+      beforeSend: function () {
+        $("#state_name").val('');
+      },
+      success: function (resp) {
+        $.each(resp.data, function (index, value) {
+          $("#state_name").append('<option value=' + index + '>' + value + '</option>')
+        })
+
+      },
+      error: function (data) { }
+    });
+  }
+
+  $(document).ready(function () {
+    $('#thank_you').css('display', 'none');
+  });
+
+  $('#franchise_submit').click(function (e) {
+    e.preventDefault();
+    $('.err').html('');
+    var fullname = $('#contactFormFullName').val();
+    var email = $('#contactFormEmail').val();
+    var phoneno = $('#address_phone_no').val();
+    var alternate_phone_no = $('#alternate_address_phone_no').val();
+    var location_preference = $('#contactFormcity_name').val();
+    var preferred_time_for_discussion = $('#preferred_time_for_discussion').val();
+    var property_availability = $('#property_availability').val();
+    var area_of_property_available = $('#area_of_property_available').val();
+    {% comment %} var turnover = $('#alternate_address_phone_no').val(); {% endcomment %}
+    var franchisee = $("input[name='franchisee']:checked").val();
+    var state_name = $('#state_name').val();
+    var reatil_space = $("input[name='reatil_space']:checked").val();
+    var city_name = $('#city_name').val();
+    var suggestion = $('#Suggestions').val();
+    var urls = window.location.href;
+    var parameter = urls.split('?');
+    // console.log("_error",)
+    $.ajax({
+      url: "https://middleware.doctordreams.com/api/fofo-franchisee",
+      type: 'POST',
+      data: {
+        "fullname": fullname,
+        "email": email,
+        "phoneno": phoneno,
+        "alternate_phone_no": alternate_phone_no,
+        "location_preference": location_preference,
+        "preferred_time_for_discussion": preferred_time_for_discussion,
+        "property_availability": property_availability,
+        "area_of_property_available": area_of_property_available,
+
+        // "turnover": turnover,
+        "franchisee": franchisee,
+        "state_name": state_name,
+        "reatil_space": reatil_space,
+        "city_name": city_name,
+        "suggestion": suggestion,
+        'parameter': parameter,
+        'web_url': urls
+      },
+      dataType: 'json',
+      beforeSend: function () {
+        $('#franchise_submit').attr('disabled', true);
+        $('#franchise_submit').html('Please wait...');
+      },
+      success: function (resp) {
+        console.log(resp)
+        $('#franchise').css('display', 'none');
+        $('#thank_you').css('display', 'block');
+
+        var url = "https://www.nilkamalfurniture.com/pages/franchise-enquiry-nilkamal-sleep";
+
+        window.location = url;
+      },
+      error: function (data) {
+        console.log('Vivek error data', data);
+        $('#franchise_submit').attr('disabled', false);
+        $('#franchise_submit').html('Send');
+        var errr = data.responseJSON[0];
+
+        console.log('parth error data', errr);
+        $.each(errr, function (k, v) {
+          $('.' + k + '_error').text(v).css('color', 'red');
+        });
+        document.getElementById("franchise_submit").style.marginTop = "20px";
+      }
+    });
+  });
+
+  getState();
+</script>

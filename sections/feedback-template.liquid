@@ -37,7 +37,7 @@
                      {{ section.settings.image | img_url: size9, format: 'pjpg' }} {{size9 | replace: 'x', 'w'}},
                      {{ section.settings.image | img_url: size10, format: 'pjpg' }} {{size10 | replace: 'x', 'w'}}"
 
-             / style="width: 100%">
+              style="width: 100%">
         <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Mobile_Feedback_600X470.png?v=1579609979" class="mobile-xs" style="width: 100%">
         {% else %}
           {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--banner' }}
@@ -65,7 +65,7 @@
               </div>
               <div class="second_content">
                 <div class="input tel_feedback_Im">
-                  <input class="feedback_tel mobile_feed" type="tel" name="mobile" id="mobile" autocorrect="off" autocapitalize="off" placeholder="Mobile Number*" required>
+                  <input class="feedback_tel mobile_feed" type="tel" name="mobile" id="mobile" autocorrect="off" autocapitalize="off" placeholder="Mobile Number*" pattern="[0-9]{10}" maxlength="10" oninput="validateMobileNumber()" required>
                   <span id="mobile_error" class="mobile_error err"></span>
                 </div>
                 <div class="input city_feedback_Im">
@@ -134,6 +134,12 @@
       },
     });
   });
+
+  //for mobile input field to accept only numeric values
+  function validateMobileNumber() {
+      var inputElement = document.getElementById("mobile");
+      inputElement.value = inputElement.value.replace(/\D/g, ''); 
+    }
 </script>
 
 

@@ -190,7 +190,7 @@
             <input type="text" id="address_zip_new" class="address_form" name="address[zip]" value="{{form.zip}}" autocapitalize="characters" placeholder="Postal/Zipcode">
 
             <!--<label for="address_phone_new" {% if settings.enable_multilang %}data-translate="customer.addresses.phone"{% endif %}>{{ 'customer.addresses.phone' | t }}</label>-->
-            <input type="tel" id="address_phone_new" class="address_form" name="address[phone]" value="{{form.phone}}" placeholder="Mobile Number">
+            <input type="tel" id="address_phone_new" class="address_form" name="address[phone]" value="{{form.phone}}" placeholder="Mobile Number" pattern="[0-9][10]" maxlength="10" oninput="validateMobileNumber()">
 
             <p>
               <label for="address_default_address_new" class="inline checkbox" {% if settings.enable_multilang %}data-translate="customer.addresses.set_default"{% endif %}>
@@ -260,4 +260,9 @@
       }
     }
   }
+
+  function validateMobileNumber() {
+      var inputElement = document.getElementById("address_phone_new");
+      inputElement.value = inputElement.value.replace(/\D/g, ''); 
+    }
 </script>

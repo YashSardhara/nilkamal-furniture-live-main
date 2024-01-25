@@ -1,3 +1,152 @@
+<!-- style for mobile start -->
+<style>
+  .money_mob:before {
+    content: "\20b9";
+}
+.money_mobi:before {
+    content: "\20b9";
+}
+span.rupee_price_sign {
+    font-weight: normal !important;
+}
+span.rupee_price_sign:before {
+    content: "\20b9";
+}
+.order_item_mobile {
+    font-size: 15px;
+    border: 1px solid #DFDFDF;
+    box-shadow: -2px 0 50px #00000014;
+    border-radius: 5px;
+    background: #fff;
+    padding: 0px 10px 0px 10px;
+}
+.payment_order_mobile {
+    border: 1px solid #DFDFDF;
+    box-shadow: -2px 0 50px #00000014;
+    border-radius: 5px;
+    background: #fff;
+    padding: 10px;
+    font-size: 15px;
+}
+.main_billing_mobile {
+    border: 1px solid #DFDFDF;
+    box-shadow: -2px 0 50px #00000014;
+    border-radius: 5px;
+    background: #fff;
+    padding: 10px;
+    font-size: 15px;
+}
+.order_item_mobile span {
+    font-size: 15px;
+    font-weight: 600;
+}
+.product_details_mob {
+    display: flex;
+    width: 100%;
+    margin: 0px auto;
+    gap: 20px;
+    padding-bottom: 15px;
+}
+.product_details_mob img {
+    width: 95px;
+}
+.product_price_qty_mob {
+    display: flex;
+    gap: 30px;
+}
+.sku_mobile {
+    padding-bottom: 5px;
+}
+.product_price_qty_mob {
+    padding-bottom: 5px;
+    line-height: 27px;
+}
+.order_info_mob_flex {
+    width: 100%;
+}
+.order_summ_head {
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+.order_info_mob {
+    display: flex;
+    width: 100%;
+    padding-bottom: 10px;
+    text-transform: capitalize;
+}
+.order_info_mob_flxwidth {
+    width: 60%;
+    font-size: 15px;
+    font-weight: bold;
+}
+.bill_add_mob {
+    width: 100%;
+}
+.billing_add_mobile_head {
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+.billing_add_mobile_detail {
+    width: 100%;
+}
+.table_parent_mobile {
+    padding: 10px 15px;
+}
+.order_summ_details {
+    width: 100%;
+}
+.subtotal_item_mob {
+    display: flex;
+    padding-bottom: 5px;
+}
+span.line_subtotal_price_mob:before {
+    content: "\20b9";
+}
+span.shipping_charge_mob {
+    width: 60%;
+}
+.table_parent_mobile {
+    display: none;
+}
+div#order_shipping_mob_bill {
+    padding-bottom: 20px;
+}
+.money_mobi_price {
+    padding-bottom: 10px;
+}
+.image__order__container_mobile {
+    border-bottom: 1px solid #DFDFDF;
+    padding-top: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+  .table_parent_mobile {
+    display: block !important;
+}
+.table__parent {
+    display: none !important;
+}
+h1.orderid_head {
+  margin-top: 30px !important;
+}
+p.all_orders {
+    margin-top: 115px !important;
+    padding: 0px 20px !important;
+}
+h1.orderid_head {
+    font-size: 19.6px !important;
+}
+p.all_orders img {
+    width: 17px !important;
+}
+}
+</style>
+<!-- style for mobile end -->
+
 <div class="customer--wrapper order_custom_wrapper">
   {% comment%} <div class="account--breadcrumb-container">
     {% render 'breadcrumbs' %}
@@ -20,7 +169,7 @@
     <h5 id="order_cancelled_title">Order Cancelled On
       <span class="note">{{ order.cancelled_at | time_tag: format: 'date' }}</span>
     </h5>
-    <span class="note__cs">{{ order.cancel_reason }}</span>
+    {% comment %} <span class="note__cs">{{ order.cancel_reason }}</span> {% endcomment %}
   </div>
   {% endif %}
 
@@ -218,6 +367,202 @@
   </table>
   </div>
 
+
+<!-- mobile product details start -->
+<div class="table_parent_mobile">
+  <div class="order_item_mobile">
+      {% for line_item in order.line_items %}
+          <div class="image__order__container_mobile">
+            <div class="product_details_mob">
+              <img src="{{ line_item | img_url: 'compact_cropped' }}"
+              class="order-list__product-image_mobile" />
+              <p>{{ line_item.title | link_to: line_item.product.url }}</p>
+            </div>
+            <div class="product_sku_mob">
+              <div class="sku_mobile">
+                <span>SKU:</span> {{ line_item.sku }}
+              </div>
+            </div>
+            <div class="product_price_qty_mob">
+            <div class="product_price_mob">
+              {% if line_item.original_line_price > line_item.final_line_price %}
+                <div data-item="light-accent-text">
+                  <span>MRP:</span> <s class="money_mob">{{ line_item.original_price | money }}</s>
+                </div>
+              {% endif %}
+
+              <div class="money_mob_price" data-item="accent-text">
+                <span>Price:</span> <span class="rupee_price_sign">{{ line_item.final_price | money_without_currency }}</span>
+              </div>
+
+              <div class="order--item--unit-price-container" data-item="light-accent-text">
+                {% if line_item.unit_price_measurement %}
+                {{- line_item.unit_price | money -}}/
+                {%- if line_item.unit_price_measurement.reference_value != 1 -%}
+                {{- line_item.unit_price_measurement.reference_value -}}
+                {%- endif -%}
+                {{ line_item.unit_price_measurement.reference_unit }}
+                {% endif %}
+              </div>
+
+              {% if line_item.line_level_discount_allocations.size > 0 %}
+              <div data-item="light-accent-text">
+                {% for discount_allocation in line_item.line_level_discount_allocations %}
+                  <span>Discount:</span> {{ discount_allocation.discount_application.title }} 
+                (-<span class="money_mob">{{ discount_allocation.amount | money }}</span>)
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+
+            <div class="product_qty">
+              <div class="order_qty_mob" data-label="{{ 'customer.order.quantity' | t }}">
+                <span>QTY:</span> {{ line_item.quantity }}
+              </div>
+            </div>
+          </div>
+
+            <div class="product_total_price">
+              <div class="total_price_mobi" data-item="accent-text"
+                data-label="{{ 'customer.order.total' | t }}">
+                {% comment %} {% if line_item.original_line_price > line_item.final_line_price %}
+                <div data-item="light-accent-text">
+                  <s class="money_mobi">{{ line_item.original_line_price | money }}</s>
+                </div>
+                {% endif %} {% endcomment %}
+                <div class="money_mobi_price">
+                  <span>Total Price:</span> <span class="rupee_price_sign">{{ line_item.quantity | times: line_item.final_price | money_without_currency }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+      {% endfor %}
+  </div>
+</div>
+
+<!-- mobile product details end -->
+
+<!-- mobile product payment details start -->
+
+<div class="table_parent_mobile">
+  <div class="payment_order_mobile">
+    <div class="order_info_mob">
+      <div class="order_info_mob_flxwidth">Payment Status:</div> 
+      <div class="order_info_mob_flxwidth_1">{{ order.financial_status | replace: "pending", "COD" | replace: "paid", "Pre-Paid" }}</div>
+    </div>
+
+    <div class="order_info_mob">
+      <div class="order_info_mob_flxwidth">Fulfill Status:</div> 
+      <div class="order_info_mob_flxwidth_1">{{ order.fulfillment_status }}</div>
+    </div>
+
+    <div class="order_info_mob_flex">
+      <div class="order_summ_head">Order Summery</div>
+      <div class="order_summ_details">
+        <div class="subtotal_item_mob">
+          <span class="shipping_charge_mob">Subtotal ({{ order.item_count }} {{ order.item_count | pluralize: 'item', 'items'}}):</span>
+          <span class="line_subtotal_price_mob"> {{ order.line_items_subtotal_price | money_without_currency }}</span>
+        </div>
+        {% for shipping_method in order.shipping_methods %}
+          <div class="subtotal_item_mob">
+            <span class="shipping_charge_mob"> Shipping Charge:</span>
+            <span class="line_subtotal_price_mob" data-item="accent-text"> {{ shipping_method.price | money_without_currency }}</span>
+          </div>
+        {% endfor %}
+
+      {% for discount in order.discounts %}
+        <div class="subtotal_item_mob">
+          <span class="shipping_charge_mob"> Coupon Name:</span>
+          <span class="dcode" data-item="accent-text">
+            {{ discount.code }}
+          </span>
+        </div>
+        <div class="subtotal_item_mob">
+          <span class="shipping_charge_mob"> Coupon Discount:</span>
+          <span class="line_subtotal_price_mob" data-item="accent-text">
+             {{ discount.savings | money }}
+          </span>
+         </div>
+      {% endfor %}
+
+      {% for tax_line in order.tax_lines %}
+        <div class="subtotal_item_mob">
+          <span class="shipping_charge_mob">{{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%):</span>
+          <span class="line_subtotal_price_mob" data-item="accent-text">
+             {{ tax_line.price | money }}
+          </span>
+        </div>
+      {% endfor %}
+
+      <div class="subtotal_item_mob">
+        <span class="shipping_charge_mob">{{ 'customer.order.total' | t }}:</span>
+        <span class="line_subtotal_price_mob" data-item="accent-text">
+           {{ order.total_price | money }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- mobile product payment details end -->
+
+<!-- mobile shipping details start -->
+
+<div class="table_parent_mobile">
+<div class="main_billing_mobile">
+<div class="bill_add_mob">
+<div class="billing_add_mobile_head">
+  <p>Billing Address</p>
+</div>
+<div class="billing_add_mobile_detail">
+    <div id="order_shipping_mob_bill">
+      <div class="address--view">
+        <p class="shipping_order_name_mob">{{ order.billing_address.name }}</p>
+        {% if order.billing_address.company != '' %}
+        <p>{{ order.billing_address.company }}</p> 
+        {% endif %}
+        <p class="shipping_order_address_mob">{{ order.billing_address.street }}
+          {{ order.billing_address.city }}, {{ order.billing_address.province }}
+          <!-- {{ order.shipping_address.country }} -->
+          - {{ order.billing_address.zip }}
+        </p>
+        {%comment%} <p>{{ order.shipping_address.phone }}</p>{% endcomment%}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bill_add_mob">
+<div class="billing_add_mobile_head">
+  <p>Shipping Address</p>
+</div>
+<div class="billing_add_mobile_detail">
+    {% if order.shipping_address %}
+      <div id="order_shipping_mob">
+        <div class="address--view">
+          <p class="shipping_order_name_mob">{{ order.shipping_address.name }}</p>
+          {% if order.shipping_address.company != '' %}
+               <p>{{ order.shipping_address.company }}</p> 
+              {% endif %}
+          <p class="shipping_order_address_mob">{{ order.shipping_address.street }}
+            {{ order.shipping_address.city }}, {{ order.shipping_address.province }}
+            <!-- {{ order.shipping_address.country }} -->
+            - {{ order.shipping_address.zip }}
+          </p>
+          {%comment%} <p>{{ order.shipping_address.phone }}</p>{% endcomment%}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+</div>
+</div>
+
+
+<!-- mobile shipping details end -->
+
+
   <div class="table__parent">
   <table id="order_details" class="order--table order__table_details responsive order__table__responsive">
     <thead>
@@ -303,6 +648,8 @@
     </tbody>
   </table>
   </div>
+
+
   <div class="table__parent">
   <table id="order_details" class="order--table order__table_details order__table__responsive">
     <thead>

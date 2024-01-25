@@ -1931,7 +1931,7 @@ div.homepage_content {
       @media #{$w798} {
         padding: 10px 14px;
         h3.sub_title {
-          font-size: 14px;
+          font-size: 16px;
           min-height: auto;
           margin: 0 0 20px;
         }
@@ -6759,7 +6759,7 @@ header .search_container .search_form .search-submit {
 .product-template .pdp.customer-services {
   padding: 18px 0 0;
   margin-bottom: 51px;
-  margin-top: 50px;
+  margin-top: 29px;
   background: rgba(0, 147, 221, 0.06);
   border-radius: 10.5405px;
 }
@@ -6999,7 +6999,7 @@ button.cbb-frequently-bought-add-button .translatable:hover {
 }
 .related-products .container {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  margin-bottom: 23px;
+  /* margin-bottom: 23px; */
 }
 .container.related-products--slider.js-related-products-slider {
   border-bottom: none;
@@ -7015,7 +7015,7 @@ button.cbb-frequently-bought-add-button .translatable:hover {
 }
 .collection_swatches {
   text-align: left;
-  background: white;
+  /* background: white; */
   margin-top:0px;
 }
 #shopify-section-a991650a-770d-4602-b16d-9333db9dcca9 .collection_swatches{
@@ -12108,4 +12108,26 @@ section.nilkamalhas.container__custom .asasas {
 
 .page-franchise header div.logo.text-align--left {
   z-index: 9;
+}
+
+/* FBT css for rupees sign */
+span.cbb-frequently-bought-selector-label-sale-price span.money:before {
+  content: "\20b9" !important;
+}
+
+s.cbb-frequently-bought-selector-label-compare-at-price span.money:before {
+  content: "\20b9" !important;
+}
+
+span.cbb-frequently-bought-total-price-sale-price span.money:before {
+  content: "\20b9" !important;
+}
+
+s.cbb-frequently-bought-total-price-was-price span.money:before {
+  content: "\20b9" !important;
+}
+/* FBT css for rupees sign */
+
+.footer__content__container__ h3 {
+  margin: 10px 0px;
 }
