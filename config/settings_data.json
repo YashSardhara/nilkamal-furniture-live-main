@@ -6030,6 +6030,16 @@
               "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-massif-engineered-wood-2-door-wardrobe-urban-walnut"
             }
           },
+          "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037": {
+            "type": "text",
+            "settings": {
+              "tendays-product-image": "shopify:\/\/shop_images\/25-2_dd851182-203b-40c2-966d-2fc5792e1cc9.jpg",
+              "tendays-product-title": "Nilkamal Willy 3 Door Wardrobe without Mirror (New Wenge)",
+              "tendays-product-mrp": "25,000",
+              "tendays-product-selling": "14,200",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-willy-3-door-wardrobe-without-mirror-new-wenge"
+            }
+          },
           "50debb65-1420-4079-bd6f-50b44c8abcde": {
             "type": "text",
             "settings": {
@@ -6038,16 +6048,6 @@
               "tendays-product-mrp": "43,000",
               "tendays-product-selling": "27,200",
               "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-riva-4-door-wardrobe-with-mirror-new-wenge"
-            }
-          },
-          "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037": {
-            "type": "text",
-            "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/25-2.jpg",
-              "tendays-product-title": "Nilkamal Willy 3 Door Wardrobe without Mirror (New Wenge)",
-              "tendays-product-mrp": "25,000",
-              "tendays-product-selling": "14,200",
-              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-willy-3-door-wardrobe-without-mirror-new-wenge"
             }
           },
           "text_RdbQQg": {
@@ -6086,8 +6086,8 @@
         },
         "block_order": [
           "62bf939c-b7a3-4205-a11c-e6b5fb67a53a",
-          "50debb65-1420-4079-bd6f-50b44c8abcde",
           "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037",
+          "50debb65-1420-4079-bd6f-50b44c8abcde",
           "text_RdbQQg",
           "text_eh9kcr",
           "text_6VzKFB"
