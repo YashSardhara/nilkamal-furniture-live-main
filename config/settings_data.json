@@ -5378,7 +5378,7 @@
           "display_vendor": false,
           "display_sku": false,
           "display_savings": true,
-          "show_payment_button": false,
+          "show_payment_button": true,
           "display_collections": false,
           "display_type": false,
           "display_tags": false,
@@ -5962,11 +5962,11 @@
           "title": "",
           "end_date": "Jan 25, 2024 23:59:00",
           "font_color_seconds": "#6f84c5",
-          "text_Horizontal_desktop": 8,
-          "text_Vertical_desktop": 0.5,
-          "text_Horizontal_mobile": 3.5,
-          "text_Vertical_mobile": 4.5,
-          "font_color_time_up": "#6f84c5"
+          "text_Horizontal_desktop": 15,
+          "text_Vertical_desktop": 15,
+          "text_Horizontal_mobile": 15,
+          "text_Vertical_mobile": 15,
+          "font_color_time_up": "#000000"
         }
       },
       "a50f909c-4e0e-42a5-bdfc-ae49c3130c81": {
@@ -6290,6 +6290,12 @@
           "button_horizontal_position": "bottom_right",
           "button_vertical_position": "lowest",
           "greeting_message": "👋 Hi, message us with any questions. We're happy to help!"
+        }
+      },
+      "5281749993944428517": {
+        "type": "shopify:\/\/apps\/variant-image-wizard-swatch\/blocks\/app-embed\/66205c03-f474-4e2c-b275-0a2806eeac16",
+        "disabled": false,
+        "settings": {
         }
       }
     }
