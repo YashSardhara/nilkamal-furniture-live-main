@@ -5960,7 +5960,7 @@
           "desktop_img": "shopify:\/\/shop_images\/desktop_220c8d41-6013-49e7-88e0-c4f646d01c0b.jpg",
           "mobile_img": "shopify:\/\/shop_images\/mobile_71185634-bbfe-4127-9955-17879fbb0383.jpg",
           "title": "",
-          "end_date": "Jan 25, 2024 23:59:00",
+          "end_date": "Jan 26, 2024 23:59:00",
           "font_color_seconds": "#6f84c5",
           "text_Horizontal_desktop": 8,
           "text_Vertical_desktop": 0.5,
@@ -6022,6 +6022,7 @@
         "blocks": {
           "62bf939c-b7a3-4205-a11c-e6b5fb67a53a": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/25.jpg",
               "tendays-product-title": "Nilkamal Massif 2 Door Wardrobe (Urban Walnut)",
@@ -6032,6 +6033,7 @@
           },
           "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/25-2_dd851182-203b-40c2-966d-2fc5792e1cc9.jpg",
               "tendays-product-title": "Nilkamal Willy 3 Door Wardrobe without Mirror (New Wenge)",
@@ -6042,6 +6044,7 @@
           },
           "50debb65-1420-4079-bd6f-50b44c8abcde": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/25-1_74bbbc01-5cd8-47fa-b3a1-ef20bf4ebf2d.jpg",
               "tendays-product-title": "Nilkamal Riva 4 Door Wardrobe with Mirror (New Wenge)",
@@ -6052,7 +6055,6 @@
           },
           "text_RdbQQg": {
             "type": "text",
-            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/26-2.jpg",
               "tendays-product-title": "Nilkamal Rosia 3 Seater Manual Recliner Sofa (Light Brown)",
@@ -6063,7 +6065,6 @@
           },
           "text_eh9kcr": {
             "type": "text",
-            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/26-1.jpg",
               "tendays-product-title": "Nilkamal Felecia Fabric Sofa Cum Bed (Dark Beige)",
@@ -6074,7 +6075,6 @@
           },
           "text_6VzKFB": {
             "type": "text",
-            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/26.jpg",
               "tendays-product-title": "Nilkamal Shirley 3 Seater Sofa (Grey)",
