@@ -6022,7 +6022,6 @@
         "blocks": {
           "62bf939c-b7a3-4205-a11c-e6b5fb67a53a": {
             "type": "text",
-            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/27.jpg",
               "tendays-product-title": "Nilkamal Arthur Single Bed (Walnut)",
@@ -6033,7 +6032,6 @@
           },
           "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037": {
             "type": "text",
-            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/27-2.jpg",
               "tendays-product-title": "Nilkamal Willy King Bed With Storage (Wenge & Sonama Oak)",
@@ -6044,7 +6042,6 @@
           },
           "50debb65-1420-4079-bd6f-50b44c8abcde": {
             "type": "text",
-            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/27-1.jpg",
               "tendays-product-title": "Nilkamal Riva Queen Bed With Storage (Wenge)",
@@ -6055,6 +6052,7 @@
           },
           "text_RdbQQg": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/26-2.jpg",
               "tendays-product-title": "Nilkamal Rosia 3 Seater Manual Recliner Sofa (Light Brown)",
@@ -6065,6 +6063,7 @@
           },
           "text_eh9kcr": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/26-1.jpg",
               "tendays-product-title": "Nilkamal Felecia Fabric Sofa Cum Bed (Dark Beige)",
@@ -6075,6 +6074,7 @@
           },
           "text_6VzKFB": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "tendays-product-image": "shopify:\/\/shop_images\/26.jpg",
               "tendays-product-title": "Nilkamal Shirley 3 Seater Sofa (Grey)",
