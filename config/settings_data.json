@@ -5956,6 +5956,7 @@
       },
       "5194def5-441f-4277-bf38-b7ba21e39b38": {
         "type": "countdown",
+        "disabled": true,
         "settings": {
           "desktop_img": "shopify:\/\/shop_images\/desktop_220c8d41-6013-49e7-88e0-c4f646d01c0b.jpg",
           "mobile_img": "shopify:\/\/shop_images\/mobile_71185634-bbfe-4127-9955-17879fbb0383.jpg",
@@ -6092,6 +6093,7 @@
           "text_eh9kcr",
           "text_6VzKFB"
         ],
+        "disabled": true,
         "settings": {
           "tendays-section-heading": "",
           "tendays-section-para": "Section Para",
