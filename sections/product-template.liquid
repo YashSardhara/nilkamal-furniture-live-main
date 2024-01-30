@@ -709,7 +709,7 @@ document.querySelector('#shareBtn')
 {% comment %}    {{ form | payment_button }} {% endcomment %}
 {%- else -%}
    <div style="margin-top:10px;" id="pt-703">
-      <magic-checkout-btn page-type="product" border-radius="40px" onclick="onBuyNowClickMagic(event)">
+      <magic-checkout-btn page-type="product" data-magic="inactive" border-radius="40px" onclick="onBuyNowClickMagic(event)">
       </magic-checkout-btn>
    </div>
 {%- endif -%}
