@@ -862,18 +862,7 @@ document.querySelector('#shareBtn')
                  </div>
 
 </div>
-<style>
- document.addEventListener("DOMContentLoaded", function () {
 
-    var continueButton = document.getElementById('razorpay-magic-btn');
-
-
-    setTimeout(function () {
-console.log("razorpay disabled")
-      continueButton.disabled = true;
-    }, 4000);
-  });
-</style>
 
     {% comment %}   <div class="container more-info-tab">
              <ul class="tabs">
@@ -5099,6 +5088,18 @@ p.offer {
     width: 120px !important;
     height: 120px !important;
 }
+</style>
+<style>
+ document.addEventListener("DOMContentLoaded", function () {
+
+    var continueButton = document.getElementById('razorpay-magic-btn');
+
+
+    setTimeout(function () {
+console.log("razorpay disabled")
+      continueButton.disabled = true;
+    }, 4000);
+  });
 </style>
 
 {% schema %}
