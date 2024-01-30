@@ -861,13 +861,18 @@ document.querySelector('#shareBtn')
                   {% endif %}
                  </div>
 
-
-
-{% comment %}Start automatically added Judge.me widget{% endcomment %}
-
-{% comment %}End automatically added Judge.me widget{% endcomment %}
 </div>
+<style>
+ document.addEventListener("DOMContentLoaded", function () {
+    // Get the button element
+    var continueButton = document.getElementById('razorpay-magic-btn');
 
+    // Disable the button after 4 seconds
+    setTimeout(function () {
+      continueButton.disabled = true;
+    }, 4000);
+  });
+</style>
 
     {% comment %}   <div class="container more-info-tab">
              <ul class="tabs">
