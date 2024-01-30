@@ -5956,11 +5956,12 @@
       },
       "5194def5-441f-4277-bf38-b7ba21e39b38": {
         "type": "countdown",
+        "disabled": true,
         "settings": {
           "desktop_img": "shopify:\/\/shop_images\/desktop_220c8d41-6013-49e7-88e0-c4f646d01c0b.jpg",
           "mobile_img": "shopify:\/\/shop_images\/mobile_71185634-bbfe-4127-9955-17879fbb0383.jpg",
           "title": "",
-          "end_date": "Jan 25, 2024 23:59:00",
+          "end_date": "Jan 28, 2024 23:59:00",
           "font_color_seconds": "#6f84c5",
           "text_Horizontal_desktop": 15,
           "text_Vertical_desktop": 15,
@@ -6023,75 +6024,76 @@
           "62bf939c-b7a3-4205-a11c-e6b5fb67a53a": {
             "type": "text",
             "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/25.jpg",
-              "tendays-product-title": "Nilkamal Massif 2 Door Wardrobe (Urban Walnut)",
-              "tendays-product-mrp": "22,900",
-              "tendays-product-selling": "9,900",
-              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-massif-engineered-wood-2-door-wardrobe-urban-walnut"
-            }
-          },
-          "50debb65-1420-4079-bd6f-50b44c8abcde": {
-            "type": "text",
-            "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/25-1.jpg",
-              "tendays-product-title": "Nilkamal Riva 4 Door Wardrobe with Mirror (New Wenge)",
-              "tendays-product-mrp": "43,000",
-              "tendays-product-selling": "27,200",
-              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-riva-4-door-wardrobe-with-mirror-new-wenge"
+              "tendays-product-image": "shopify:\/\/shop_images\/28-1.jpg",
+              "tendays-product-title": "Nilkamal Claymont Engineered Wood Shoe Cabinet",
+              "tendays-product-mrp": "8,600",
+              "tendays-product-selling": "6,900",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-claymont-shoe-cabinet-classic-walnut"
             }
           },
           "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037": {
             "type": "text",
             "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/25-2.jpg",
-              "tendays-product-title": "Nilkamal Willy 3 Door Wardrobe without Mirror (New Wenge)",
-              "tendays-product-mrp": "25,000",
-              "tendays-product-selling": "14,200",
-              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-willy-3-door-wardrobe-without-mirror-new-wenge"
+              "tendays-product-image": "shopify:\/\/shop_images\/28.jpg",
+              "tendays-product-title": "Nilkamal Alpine Shoe Cabinet (Classic Walnut)",
+              "tendays-product-mrp": "8,000",
+              "tendays-product-selling": "4,500",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-alpine-shoe-cabinet-classic-walnut"
+            }
+          },
+          "50debb65-1420-4079-bd6f-50b44c8abcde": {
+            "type": "text",
+            "settings": {
+              "tendays-product-image": "shopify:\/\/shop_images\/28-2.jpg",
+              "tendays-product-title": "Nilkamal Murano Shoe Cabinet",
+              "tendays-product-mrp": "14,000",
+              "tendays-product-selling": "9,500",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-murano-shoe-cabinet-walnut"
             }
           },
           "text_RdbQQg": {
             "type": "text",
             "disabled": true,
             "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/21-2.jpg",
-              "tendays-product-title": "Nilkamal Luna Centre Table (Wenge)",
-              "tendays-product-mrp": "15500",
-              "tendays-product-selling": "8900",
-              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-luna-centre-table"
+              "tendays-product-image": "shopify:\/\/shop_images\/26-2.jpg",
+              "tendays-product-title": "Nilkamal Rosia 3 Seater Manual Recliner Sofa (Light Brown)",
+              "tendays-product-mrp": "80,500",
+              "tendays-product-selling": "47,900",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-rosia-pine-wood-3-seater-recliner-sofa-light-brown"
             }
           },
           "text_eh9kcr": {
             "type": "text",
             "disabled": true,
             "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/21-1.jpg",
-              "tendays-product-title": "Nilkamal Mono Coffee Table (Urban Walnut \/ Oak White)",
-              "tendays-product-mrp": "11900",
-              "tendays-product-selling": "5500",
-              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-mono-engineered-wood-coffee-table-urban-walnut-oak-white"
+              "tendays-product-image": "shopify:\/\/shop_images\/26-1.jpg",
+              "tendays-product-title": "Nilkamal Felecia Fabric Sofa Cum Bed (Dark Beige)",
+              "tendays-product-mrp": "23,000",
+              "tendays-product-selling": "16,900",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-felecia-sofa-cum-bed-dark-beige-ifelecsofbeddbe"
             }
           },
           "text_6VzKFB": {
             "type": "text",
             "disabled": true,
             "settings": {
-              "tendays-product-image": "shopify:\/\/shop_images\/21.jpg",
-              "tendays-product-title": "Nilkamal Luca Coffee Table (Ash wenge \/ Marble Beige)",
-              "tendays-product-mrp": "11900",
-              "tendays-product-selling": "5900",
-              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-luca-engineered-wood-coffee-table-ashwenge-marble-beige"
+              "tendays-product-image": "shopify:\/\/shop_images\/26.jpg",
+              "tendays-product-title": "Nilkamal Shirley 3 Seater Sofa (Grey)",
+              "tendays-product-mrp": "55,900",
+              "tendays-product-selling": "23,900",
+              "tendays-product-url": "https:\/\/www.nilkamalfurniture.com\/products\/nilkamal-shirley-3-seater-2040-sofa-grey"
             }
           }
         },
         "block_order": [
           "62bf939c-b7a3-4205-a11c-e6b5fb67a53a",
-          "50debb65-1420-4079-bd6f-50b44c8abcde",
           "3f9abff3-fb6a-46d3-9bfb-f2741e8f7037",
+          "50debb65-1420-4079-bd6f-50b44c8abcde",
           "text_RdbQQg",
           "text_eh9kcr",
           "text_6VzKFB"
         ],
+        "disabled": true,
         "settings": {
           "tendays-section-heading": "",
           "tendays-section-para": "Section Para",
@@ -6103,6 +6105,7 @@
       },
       "9759deaf-c224-4c3e-87ed-66e16f61ed90": {
         "type": "payment_banner",
+        "disabled": true,
         "settings": {
           "desktop_img": "shopify:\/\/shop_images\/desktop_6e132be9-ecb2-43b5-8433-993ef6bbf180.jpg",
           "mobile_img": "shopify:\/\/shop_images\/mobile_a20f7ac6-3671-4ca4-bf6c-597579356e8a.jpg",
