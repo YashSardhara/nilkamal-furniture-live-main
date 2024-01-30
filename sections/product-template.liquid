@@ -31,7 +31,7 @@
     }
     </script>
 
-<scr>
+<style>
       @media only screen and (max-width: 600px) {
   .cbb-frequently-bought-container.cbb-mobile-view {
     height: 837px !important;
@@ -709,7 +709,7 @@ document.querySelector('#shareBtn')
 {% comment %}    {{ form | payment_button }} {% endcomment %}
 {%- else -%}
    <div style="margin-top:10px;" id="pt-703">
-      <magic-checkout-btn page-type="product" data-magic="inactive" border-radius="40px" onclick="onBuyNowClickMagic(event)">
+      <magic-checkout-btn page-type="product" border-radius="40px" onclick="onBuyNowClickMagic(event)">
       </magic-checkout-btn>
    </div>
 {%- endif -%}
@@ -861,21 +861,13 @@ document.querySelector('#shareBtn')
                   {% endif %}
                  </div>
 
+
+
+{% comment %}Start automatically added Judge.me widget{% endcomment %}
+
+{% comment %}End automatically added Judge.me widget{% endcomment %}
 </div>
-<script>
- document.addEventListener("DOMContentLoaded", function () {
-    // Get the button element
 
-    var continueButton = document.getElementById('razorpay-magic-btn');
-
-    // Disable the button after 4 seconds
-
-    setTimeout(function () {
-console.log("razorpay disabled")
-      continueButton.disabled = true;
-    }, 4000);
-  });
-</script>
 
     {% comment %}   <div class="container more-info-tab">
              <ul class="tabs">
@@ -954,7 +946,7 @@ console.log("razorpay disabled")
       .cls-3 {
         fill: #82407f;
       }
-    </scr>
+    </style>
   </defs>
   <g>
     <ellipse class="cls-2" cx="259.43" cy="260.51" rx="255.34" ry="259.25"/>
