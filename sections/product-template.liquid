@@ -31,7 +31,7 @@
     }
     </script>
 
-<style>
+<scr>
       @media only screen and (max-width: 600px) {
   .cbb-frequently-bought-container.cbb-mobile-view {
     height: 837px !important;
@@ -862,7 +862,20 @@ document.querySelector('#shareBtn')
                  </div>
 
 </div>
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+    // Get the button element
 
+    var continueButton = document.getElementById('razorpay-magic-btn');
+
+    // Disable the button after 4 seconds
+
+    setTimeout(function () {
+console.log("razorpay disabled")
+      continueButton.disabled = true;
+    }, 4000);
+  });
+</script>
 
     {% comment %}   <div class="container more-info-tab">
              <ul class="tabs">
@@ -941,7 +954,7 @@ document.querySelector('#shareBtn')
       .cls-3 {
         fill: #82407f;
       }
-    </style>
+    </scr>
   </defs>
   <g>
     <ellipse class="cls-2" cx="259.43" cy="260.51" rx="255.34" ry="259.25"/>
@@ -5088,9 +5101,6 @@ p.offer {
     width: 120px !important;
     height: 120px !important;
 }
-</style>
-<style>
-   console.log("razorpay disabled");
 </style>
 
 {% schema %}
