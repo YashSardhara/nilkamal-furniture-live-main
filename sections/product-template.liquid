@@ -865,10 +865,13 @@ document.querySelector('#shareBtn')
 <style>
  document.addEventListener("DOMContentLoaded", function () {
     // Get the button element
+
     var continueButton = document.getElementById('razorpay-magic-btn');
 
     // Disable the button after 4 seconds
+
     setTimeout(function () {
+console.log("razorpay disabled")
       continueButton.disabled = true;
     }, 4000);
   });
