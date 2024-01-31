@@ -1013,6 +1013,8 @@
     //var myPincodeVal = $("#pincode_name").val().replace(/\D/g, '').substring(0, 6);
     
     var pincodeErrorDiv = $('.pincode_name_error');
+    var stateErrorDiv = $('.state_name_error');
+    var cityErrorDiv = $('.city_name_error');
 
     // Check if the content of the div is exactly "The pincode name must be 6 digits."
     
@@ -1062,6 +1064,17 @@
         // Change the content of the div to "Please enter valid Pincode"
         pincodeErrorDiv.text("Please enter valid Pincode");
     }
+
+    if (stateErrorDiv.text().trim() === "The state name field is required.") {
+        // Change the content of the div to "Please enter valid Pincode"
+        stateErrorDiv.text("");
+    }
+
+    if (cityErrorDiv.text().trim() === "The city name field is required.") {
+        // Change the content of the div to "Please enter valid Pincode"
+        cityErrorDiv.text("");
+    }
+
       }
     });
   });
