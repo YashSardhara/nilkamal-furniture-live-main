@@ -10,6 +10,50 @@
 {% include 'page-multi-column', content: page.content %}
 </div>
 </div> {% endcomment %}
+<style>
+  .myLabelTop{
+    top: -11px;
+    bottom: 0;
+    left: 5px;
+    font-size: 11px;
+    opacity: 1;
+    color: #023e88;
+    background: #fff;
+    height: 20px;
+    padding-inline: 10px;
+    transition: .3s ease-in-out;
+  }
+
+  .pincode__checker_diasbled {
+    color: rgba(0, 0, 0, .4) !important;
+  }
+
+  .noteContainer {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: 5px;
+  }
+
+  .noteIcon svg {
+    width: 16px;
+    height: 16px;
+    fill: #0093dd;
+  }
+
+  .noteText {
+    display: flex;
+    align-items: center;
+  }
+
+  .noteText span {
+    color: #0093dd;
+    margin-top: -0.5rem;
+    font-weight: 400;
+    line-height: normal;
+    font-size: .8rem;
+  }
+</style>
 
 {% if page.handle contains 'franchise' %}
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
@@ -213,7 +257,7 @@
               </div>
             </div>
             <div class="fran_row">
-              <div class="fran_col floating-label-group">
+              {% comment %} <div class="fran_col floating-label-group">
                 <input
                   type="text"
                   name="alter_phoneno"
@@ -226,7 +270,7 @@
                 <label class="floating-label">Alternate Number
                 </label>
                 <span id="alter_phoneno_error" class="alternate_phone_no_error err"></span>
-              </div>
+              </div> {% endcomment %}
               <div class="fran_col floating-label-group">
                 <input
                   type="email"
@@ -239,13 +283,36 @@
                 </label>
                 <span id="email_error" class="email_error err"></span>
               </div>
-
+              <div class="fran_col floating-label-group">
+                <input
+                  type="text"
+                  name="pincode_name"
+                  id="pincode_name"
+                  required>
+                <label class="floating-label">Pincode<span>*</span>
+                </label>
+                <span id="pincode_name_error" class="pincode_name_error err"></span>
+                <div class="noteContainer">
+          <div class="noteIcon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+            </svg>
+          </div>
+          <div class="noteText">
+            <span>Enter Pincode for State & City</span>
+          </div>
+        </div>
+              </div>
             </div>
             <div class="fran_row">
               <div class="fran_col floating-label-group">
-                <select name="state_name" id="state_name">
+                {% comment %} <select name="state_name" id="state_name">
                   <option value="">Select State</option>
-                </select>
+                </select> {% endcomment %}
+                <input type="text" name="state_name" id="state_name" disabled required>
+                <label class="floating-label state_label_name pincode__checker_diasbled">State Name<span>*</span>
+                </label>
                 <span id="state_name_error" class="state_name_error err"></span>
               </div>
               <div class="fran_col floating-label-group">
@@ -253,15 +320,12 @@
                   type="text"
                   name="city_name"
                   id="city_name"
-                  maxlength="50"
-                  autocorrect="off"
-                  autocapitalize="off"
-                  autocomplete="off"
+                  disabled
                   required>
-                <label class="floating-label">City Name<span>*</span>
+                <label class="floating-label city_label_name pincode__checker_diasbled">City Name<span>*</span>
                 </label>
                 <span id="city_name_error" class="city_name_error err"></span>
-                <ul class="city_sugg"></ul>
+                {% comment %} <ul class="city_sugg"></ul> {% endcomment %}
               </div>
             </div>
             <div class="fran_row">
@@ -791,23 +855,138 @@
 
 <script>
 
-  function getState() {
-    $.ajax({
-      url: "https://admin.nilkamalfurniture.com/api/franchisee/get-state",
-      type: 'get',
-      dataType: 'json',
-      beforeSend: function() {
-        $("#state_name").val('');
-      },
-      success: function(resp) {
-        $.each(resp.data, function(index, value) {
-          $("#state_name").append('<option value=' + index + '>' + value + '</option>')
-        })
+  // function getState() {
+  //   $.ajax({
+  //     url: "https://admin.nilkamalfurniture.com/api/franchisee/get-state",
+  //     type: 'get',
+  //     dataType: 'json',
+  //     beforeSend: function() {
+  //       $("#state_name").val('');
+  //     },
+  //     success: function(resp) {
+  //       $.each(resp.data, function(index, value) {
+  //         $("#state_name").append('<option value=' + index + '>' + value + '</option>')
+  //       })
 
-      },
-      error: function(data) {}
+  //     },
+  //     error: function(data) {}
+  //   });
+  // }
+
+  // Function to get pincode data from CSV
+  function getPincodeData() {
+    var pincode = $('#pincode_name').val();
+    var csvFile = 'https://cdn.shopify.com/s/files/1/0044/1208/0217/files/pincode_data.csv?v=1704458039';
+    //console.log("This is csv file comment" , csvFile);
+    $.ajax({
+      type: 'GET',
+      url: csvFile,
+      dataType: 'text',
+      success: function (data) {
+        processData(data, pincode);
+      }
     });
   }
+  // Function to process CSV data and update city_name and state_name
+  function processData(csv, pincode) {
+    var lines = csv.split('\n');
+    var headers = lines[0].split(',');
+    var pincodeFound = false;
+    for (var i = 1; i < lines.length; i++) {
+      var currentLine = lines[i].split(',');
+      var currentPincode = currentLine[0].trim();
+      if (currentPincode === pincode) {
+        var city = currentLine[1].trim();
+      //  console.log("Testing The File city ", city)
+        var stateName = currentLine[2].trim();
+      //  console.log("Testing the file stet", stateName)
+        pincodeFound = true;
+        // You can break the loop if you only want the first match
+        break;
+      }
+    }
+
+    // Display error if pincode is not found
+    if (!pincodeFound) {
+      $("#pincode_name_error").html('Pincode does not exist');
+      $('#city_name').val('');
+      $('#state_name').val('');
+      $('#city_name').attr('disabled', true);
+      $('#state_name').attr('disabled', true);
+      $('.state_label_name').removeClass('myLabelTop');
+      $('.city_label_name').removeClass('myLabelTop');
+      $('#city_name').removeAttr('readonly');
+      $('#state_name').removeAttr('readonly');
+      $('.state_label_name').addClass('pincode__checker_diasbled');
+      $('.city_label_name').addClass('pincode__checker_diasbled');
+    } else {
+      // Display data and show the "cityStateRow" class
+      $("#pincode_name_error").html('');
+      $('#city_name').removeAttr('disabled');
+      $('#state_name').removeAttr('disabled');
+      $('.state_label_name').addClass('myLabelTop');
+      $('.city_label_name').addClass('myLabelTop');
+      $('#city_name').attr('readonly', true);
+      $('#state_name').attr('readonly', true);
+      $('.state_label_name').removeClass('pincode__checker_diasbled');
+      $('.city_label_name').removeClass('pincode__checker_diasbled');
+      displayData(city, stateName);
+    }
+  }
+
+  // Function to display data in city_name and state_name
+  function displayData(city, stateName) {
+    $('#city_name').val(city);
+    $('#state_name').val(stateName);
+    // console.log('City: ' + city);
+    // console.log('State Name: ' + stateName);
+  }
+
+  // Function to handle focus out
+  function handleFocusOut() {
+    var pincode = $('#pincode_name').val().replace(/\D/g, '').substring(0, 6);
+
+    if (pincode.length === 6) {
+      // Assuming displayData is a function that takes city and stateName as parameters
+      displayData(city, stateName);
+    } else if (pincode.length < 6) {
+     // If pincode has 5 digits, clear city_name and state_name
+      $("#pincode_name_error").html('Please enter valid Pincode');
+      $('#city_name').val('');
+      $('#state_name').val('');
+      $('#city_name').attr('disabled', true);
+      $('#state_name').attr('disabled', true);
+      $('.state_label_name').removeClass('myLabelTop');
+      $('.city_label_name').removeClass('myLabelTop');
+      $('#city_name').removeAttr('readonly');
+      $('#state_name').removeAttr('readonly');
+      $('.state_label_name').addClass('pincode__checker_diasbled');
+      $('.city_label_name').addClass('pincode__checker_diasbled');
+    }
+  }
+
+  // Event listener for input and focusout events
+  $('#pincode_name').on('input', function (e) {
+    var input = e.target.value;
+
+    // Allow only numeric input
+    var numericInput = input.replace(/\D/g, '');
+
+    // Limit to 6 digits
+    var pincode = numericInput.substring(0, 6);
+
+    // Update the input value
+    e.target.value = pincode;
+
+    // Check if the entered pincode has 6 digits
+    if (pincode.length === 6) {
+      // Call your function when pincode is 6 digits
+      getPincodeData();
+    }
+  });
+
+  // Bind the handleFocusOut function to the focusout event
+  $("#pincode_name").on('focusout', handleFocusOut);
 
   $(document).ready(function() {
     $('#thank_you').css('display', 'none');
@@ -819,7 +998,8 @@
     var fullname = $('#contactFormFullName').val();
     var email = $('#contactFormEmail').val();
     var phoneno = $('#address_phone_no').val();
-    var alternate_phone_no = $('#alternate_address_phone_no').val();
+    var pincode_name = $("#pincode_name").val();
+   // var alternate_phone_no = $('#alternate_address_phone_no').val();
     var location_preference = $('#contactFormcity_name').val();
     var preferred_time_for_discussion = $('#preferred_time_for_discussion').val();
     var property_availability = $('#property_availability').val();
@@ -830,20 +1010,25 @@
     var suggestion = $('#Suggestions').val();
     var urls = window.location.href;
     var parameter = urls.split('?');
-    $.ajax({
+    //var myPincodeVal = $("#pincode_name").val().replace(/\D/g, '').substring(0, 6);
+    
+    var pincodeErrorDiv = $('.pincode_name_error');
+
+    // Check if the content of the div is exactly "The pincode name must be 6 digits."
+    
+
+      $.ajax({
       url: "https://admin.nilkamalfurniture.com/api/franchisee",
       type: 'POST',
       data: {
         "fullname": fullname,
         "email": email,
         "phoneno": phoneno,
-        "alternate_phone_no": alternate_phone_no,
+        "pincode_name": pincode_name,
         "location_preference": location_preference,
         "preferred_time_for_discussion": preferred_time_for_discussion,
         "property_availability": property_availability,
         "area_of_property_available": area_of_property_available,
-
-// "turnover": turnover,
         "franchisee": franchisee,
         "state_name": state_name,
         "reatil_space": reatil_space,
@@ -862,8 +1047,6 @@
         $('#franchise').css('display', 'none');
         $('#thank_you').css('display', 'block');
         var url = "https://www.nilkamalfurniture.com/pages/franchise-thankyou-page";
-
-// gtag_report_conversion(url);
         window.location = url;
       },
       error: function(data) {
@@ -874,11 +1057,14 @@
         $.each(errr, function(k, v) {
           $('.' + k + '_error').text(v).css('color', 'red');
         });
+
+        if (pincodeErrorDiv.text().trim() === "The pincode name must be 6 digits.") {
+        // Change the content of the div to "Please enter valid Pincode"
+        pincodeErrorDiv.text("Please enter valid Pincode");
+    }
       }
     });
   });
-
-  getState();
 </script>
 <script>
   var swiper = new Swiper(".mySwiper", {
