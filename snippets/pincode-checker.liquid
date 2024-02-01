@@ -276,6 +276,72 @@
       }
     });    
   });
+    // Mattress varient script
+$(document).ready(function() {
+    $(".multi_select.matt_varient").on("change", function() {
+        var selectedVariantId = $(this).val();
+        updateUrlWithVariantId(selectedVariantId);
+        checkPinCode();
+    });
+
+    function updateUrlWithVariantId(variantId) {
+        var currentUrl = window.location.href;
+        var urlWithoutVariant = currentUrl.split('?')[0];
+        var newUrl = urlWithoutVariant + "?variant=" + variantId;
+        history.replaceState({}, document.title, newUrl);
+    }
+
+    function checkPinCode() {
+        var url = "https://admin.nilkamalfurniture.com/api/get-pincodecheckerdata";
+        var pincode = $('.pincode_ckecker_service').val();
+        var qty = parseInt($('#quantity').val());
+        var product_type = window.product_type;
+
+        $(".multi_select.matt_varient option").each(function() {
+            var option = $(this);
+            var sku = option.attr("data-sku");
+            var inventoryQuantity = parseInt(option.attr("data-inventory-quantity"));
+            var available = option.attr("data-available");
+
+            if (available === "false" || inventoryQuantity === 0) {
+                option.prop("disabled", true);
+                option.css("background-color", "#ddd"); // Change background color
+            } else {
+                option.prop("disabled", false);
+                option.css("background-color", ""); // Reset background color
+            }
+        });
+
+        var selectedOption = $(".multi_select.matt_varient option:selected");
+        var sku = selectedOption.attr("data-sku");
+        var inventoryQuantity = selectedOption.attr("data-inventory-quantity");
+        var available = selectedOption.attr("data-available");
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: "json",
+            data: {
+                pincode: pincode,
+                sku: sku,
+                qty: qty,
+                sku_qty: inventoryQuantity,
+                sku_available: available,
+                product_type: product_type
+            },
+            success: function(res) {
+                // Handle the API response as needed
+                console.log(res);
+            },
+            error: function() {
+                console.log('error');
+            }
+        });
+    }
+
+    // Initial check on page load
+    checkPinCode();
+});
 </script>
 <style>
   .lds-ellipsis {
