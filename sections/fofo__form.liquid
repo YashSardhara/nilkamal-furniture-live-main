@@ -132,7 +132,7 @@
               </div>
             </div>
             <div class="fran_row">
-              <div class="fran_col floating-label-group">
+              {% comment %} <div class="fran_col floating-label-group">
                 <input
                   type="text"
                   name="alter_phoneno"
@@ -145,7 +145,7 @@
                 <label class="floating-label">Alternate Number
                 </label>
                 <span id="alter_phoneno_error" class="alternate_phone_no_error err"></span>
-              </div>
+              </div> {% endcomment %}
               <div class="fran_col floating-label-group">
                 <input
                   type="email"
@@ -158,13 +158,29 @@
                 </label>
                 <span id="email_error" class="email_error err"></span>
               </div>
-
-            </div>
-            <div class="fran_row">
               <div class="fran_col floating-label-group">
-                <select name="state_name" id="state_name">
+                <input type="text" name="pincode_name" id="pincode_name" required>
+                <label class="floating-label">Pincode<span>*</span>
+                </label>
+                <span id="pincode_name_error" class="pincode_name_error err"></span>
+                <div class="noteContainer">
+                  <div class="noteIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <path
+                        d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+                    </svg>
+                  </div>
+                  <div class="noteText">
+                    <span>Enter Pincode for State & City</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% comment %} <div class="fran_row">
+              <div class="fran_col floating-label-group">
+                 <select name="state_name" id="state_name">
                   <option value="">Select State</option>
-                </select>
+                </select> 
                 <span id="state_name_error" class="state_name_error err"></span>
               </div>
               <div class="fran_col floating-label-group">
@@ -180,6 +196,23 @@
                 </label>
                 <span id="city_name_error" class="city_name_error err"></span>
                 <ul class="city_sugg"></ul>
+              </div>
+            </div> {% endcomment %}
+            <div class="fran_row">
+              <div class="fran_col floating-label-group">
+                {% comment %} <select name="state_name" id="state_name">
+                  <option value="">Select State</option>
+                </select> {% endcomment %}
+                <input type="text" name="state_name" id="state_name" disabled required>
+                <label class="floating-label state_label_name pincode__checker_diasbled">State Name<span>*</span>
+                </label>
+                <span id="state_name_error" class="state_name_error err"></span>
+              </div>
+              <div class="fran_col floating-label-group">
+                <input type="text" name="city_name" id="city_name" disabled required>
+                <label class="floating-label city_label_name pincode__checker_diasbled">City Name<span>*</span>
+                </label>
+                <span id="city_name_error" class="city_name_error err"></span>
               </div>
             </div>
             <div class="fran_row">

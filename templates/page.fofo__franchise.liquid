@@ -196,7 +196,7 @@
     position: absolute;
     content: "\27A4";
     width: 100%;
-    top: 10px;
+    top: 10.1px;
     right: 23%;
     z-index: 2;
     font-size: 22px;
@@ -350,7 +350,7 @@
     }
 
     .stepper-item::before {
-      top: 10.3px;
+      top: 13.3px;
       right: 42%;
       font-size: 17px;
     }
@@ -358,10 +358,6 @@
     .myStepText {
       font-size: 11px;
     }
-
-    .fofo__collection__container {
-    margin: 3rem auto 2rem;
-  }
   }
 
   /* form select  */
@@ -379,7 +375,6 @@
     top: 12.5px;
     left: 12px;
     transition: all 0.1s ease;
-    white-space: nowrap;
   }
 
   .latestcollection.fofopage__container>h2 {
@@ -606,6 +601,7 @@
     font-size: 13px;
     font-weight: 500;
     color: rgb(77, 77, 77);
+    font-family: "League Spartan", sans-serif !important;
   }
 
   #franchise .fran_row:nth-child(5) {
@@ -619,6 +615,7 @@
 
   input#franchise_submit {
     width: 100%;
+    background: #313283 !important;
     color: #fff;
     overflow: hidden;
     border: 0px !important;
@@ -682,6 +679,49 @@
     gap: 20px;
   }
 
+  .myLabelTop {
+    top: -11px;
+    bottom: 0;
+    left: 5px;
+    font-size: 11px;
+    opacity: 1;
+    color: #023e88;
+    background: #fff;
+    height: 20px;
+    padding-inline: 10px;
+    transition: .3s ease-in-out;
+  }
+
+  .pincode__checker_diasbled {
+    color: rgba(0, 0, 0, .4) !important;
+  }
+
+  .noteContainer {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: 5px;
+  }
+
+  .noteIcon svg {
+    width: 16px;
+    height: 16px;
+    fill: #0093dd;
+  }
+
+  .noteText {
+    display: flex;
+    align-items: center;
+  }
+
+  .noteText span {
+    color: #0093dd;
+    margin-top: -0.1rem;
+    font-weight: 400;
+    line-height: normal;
+    font-size: .8rem;
+  }
+
   @media (max-width:768px) {
     .franchise_container>.main_container {
       display: flex;
@@ -693,7 +733,6 @@
       top: 0;
       border-radius: 0px;
       box-shadow: none;
-      margin-top: -20px;
     }
 
     .right_form_fran_heading {
@@ -713,15 +752,10 @@
       margin-top: 2rem;
       margin-bottom: 1.5rem !important;
     }
-
-    .fran_col_head p {
-    font-size: 13px;
-    white-space: break-spaces;
-
-  }
   }
 
 </style>
+
 
 {% section 'fofo__banner' %}
 {% section 'fofo__form' %}
@@ -799,7 +833,7 @@
 
 
 <script>
-  let cityNames = ["Adoni", "Chandigarh", "Ambikapur", "Bhilai", "Amaravati", "Bilaspur", "Dhamtari", "Durg", "Anantapur", "Jagdalpur", "Raipur", "Rajnandgaon", "Chandragiri", "Daman", "Diu", "Silvassa", "Chittoor", "Delhi", "New Delhi", "Madgaon", "Panaji", "Dowlaiswaram", "Ahmadabad", "Amreli", "Bharuch", "Bhavnagar", "Eluru", "Bhuj", "Dwarka", "Gandhinagar", "Godhra", "Jamnagar", "Guntur", "Junagadh", "Kandla", "Khambhat", "Kheda", "Mahesana", "Kadapa", "Morbi", "Nadiad", "Navsari", "Okha", "Palanpur", "Patan", "Kakinada", "Porbandar", "Rajkot", "Surat", "Surendranagar", "Valsad", "Kurnool", "Veraval", "Ambala", "Bhiwani", "Chandigarh", "Faridabad", "Machilipatnam", "Firozpur Jhirka", "Gurugram", "Hansi", "Hisar", "Jind", "Nagarjunakoṇḍa", "Kaithal", "Karnal", "Kurukshetra", "Panipat", "Pehowa", "Rajahmundry", "Rewari", "Rohtak", "Sirsa", "Sonipat", "Bilaspur", "Chamba", "Srikakulam", "Dalhousie", "Dharmshala", "Hamirpur", "Kangra", "Kullu", "Tirupati", "Mandi", "Nahan", "Shimla", "Una", "Anantnag", "Baramula", "Vijayawada", "Vijayawada", "Doda", "Gulmarg", "Jammu", "Kathua", "Punch", "Rajouri", "Visakhapatnam", "Srinagar", "Udhampur", "Bokaro", "Chaibasa", "Deoghar", "Vizianagaram", "Dhanbad", "Dumka", "Giridih", "Hazaribag", "Jamshedpur", "Yemmiganur", "Jharia", "Rajmahal", "Ranchi", "Saraikela", "Itanagar", "Badami", "Ballari", "Bengaluru", "Belagavi", "Bhadravati", "Bidar", "Dhuburi", "Chikkamagaluru", "Chitradurga", "Davangere", "Halebid", "Hassan", "Dibrugarh", "Hubballi-Dharwad", "Kalaburagi", "Kolar", "Madikeri", "Mandya", "Dispur", "Mangaluru", "Mysuru", "Raichur", "Shivamogga", "Shravanabelagola", "Guwahati", "Shrirangapattana", "Tumakuru", "Vijayapura", "Alappuzha", "Vatakara", "Jorhat", "Idukki", "Kannur", "Kochi", "Kollam", "Kottayam", "Kozhikode", "Mattancheri", "Nagaon", "Palakkad", "Thalassery", "Thiruvananthapuram", "Thrissur", "Kargil", "Leh", "Sivasagar", "Balaghat", "Barwani", "Betul", "Bharhut", "Bhind", "Bhojpur", "Bhopal", "Silchar", "Burhanpur", "Chhatarpur", "Chhindwara", "Damoh", "Datia", "Dewas", "Dhar", "Tezpur", "Dr. Ambedkar Nagar (Mhow)", "Guna", "Gwalior", "Hoshangabad", "Indore", "Itarsi", "Tinsukia", "Jabalpur", "Jhabua", "Khajuraho", "Khandwa", "Khargone", "Maheshwar", "Ara", "Mandla", "Mandsaur", "Morena", "Murwara", "Narsimhapur", "Narsinghgarh", "Barauni", "Narwar", "Neemuch", "Nowgong", "Orchha", "Panna", "Raisen", "Rajgarh", "Begusarai", "Ratlam", "Rewa", "Sagar", "Sarangpur", "Satna", "Sehore", "Seoni", "Bettiah", "Shahdol", "Shajapur", "Sheopur", "Shivpuri", "Ujjain", "Vidisha", "Bhagalpur", "Ahmadnagar", "Akola", "Amravati", "Aurangabad", "Bhandara", "Bhusawal", "Bihar Sharif", "Bid", "Buldhana", "Chandrapur", "Daulatabad", "Dhule", "Jalgaon", "Kalyan", "Bodh Gaya", "Karli", "Kolhapur", "Mahabaleshwar", "Malegaon", "Matheran", "Mumbai", "Nagpur", "Buxar", "Nanded", "Nashik", "Osmanabad", "Pandharpur", "Parbhani", "Pune", "Ratnagiri", "Chapra", "Sangli", "Satara", "Sevagram", "Solapur", "Thane", "Ulhasnagar", "Vasai-Virar", "Darbhanga", "Wardha", "Yavatmal", "Imphal", "Cherrapunji", "Shillong", "Aizawl", "Lunglei", "Dehri", "Kohima", "Mon", "Phek", "Wokha", "Zunheboto", "Balangir", "Baleshwar", "Dinapur Nizamat", "Baripada", "Bhubaneshwar", "Brahmapur", "Cuttack", "Dhenkanal", "Gaya", "Kendujhar", "Konark", "Koraput", "Paradip", "Phulabani", "Puri", "Hajipur", "Sambalpur", "Udayagiri", "Karaikal", "Mahe", "Puducherry", "Yanam", "Jamalpur", "Amritsar", "Batala", "Chandigarh", "Faridkot", "Firozpur", "Gurdaspur", "Katihar", "Hoshiarpur", "Jalandhar", "Kapurthala", "Ludhiana", "Nabha", "Patiala", "Madhubani", "Rupnagar", "Sangrur", "Abu", "Ajmer", "Alwar", "Amer", "Barmer", "Beawar", "Motihari", "Bharatpur", "Bhilwara", "Bikaner", "Bundi", "Chittaurgarh", "Churu", "Dhaulpur", "Munger", "Dungarpur", "Ganganagar", "Hanumangarh", "Jaipur", "Jaisalmer", "Jalor", "Jhalawar", "Muzaffarpur", "Jhunjhunu", "Jodhpur", "Kishangarh", "Kota", "Merta", "Nagaur", "Nathdwara", "Patna", "Pali", "Phalodi", "Pushkar", "Sawai Madhopur", "Shahpura", "Sikar", "Sirohi", "Purnia", "Tonk", "Udaipur", "Gangtok", "Gyalshing", "Lachung", "Mangan", "Pusa", "Arcot", "Chengalpattu", "Chennai", "Chidambaram", "Coimbatore", "Cuddalore", "Saharsa", "Dharmapuri", "Dindigul", "Erode", "Kanchipuram", "Kanniyakumari", "Kodaikanal", "Samastipur", "Kumbakonam", "Madurai", "Mamallapuram", "Nagappattinam", "Nagercoil", "Palayamkottai", "Sasaram", "Pudukkottai", "Rajapalayam", "Ramanathapuram", "Salem", "Thanjavur", "Sitamarhi", "Tiruchchirappalli", "Tirunelveli", "Tiruppur", "Thoothukudi", "Udhagamandalam", "Siwan", "Vellore", "Hyderabad", "Karimnagar", "Khammam", "Mahbubnagar", "Nizamabad", "Sangareddi", "Warangal", "Agartala", "Agra", "Aligarh", "Amroha", "Ayodhya", "Azamgarh", "Bahraich", "Ballia", "Banda", "Bara Banki", "Bareilly", "Basti", "Bijnor", "Bithur", "Budaun", "Bulandshahr", "Deoria", "Etah", "Etawah", "Faizabad", "Farrukhabad-cum-Fatehgarh", "Fatehpur", "Fatehpur Sikri", "Ghaziabad", "Ghazipur", "Gonda", "Gorakhpur", "Hamirpur", "Hardoi", "Hathras", "Jalaun", "Jaunpur", "Jhansi", "Kannauj", "Kanpur", "Lakhimpur", "Lalitpur", "Lucknow", "Mainpuri", "Mathura", "Meerut", "Mirzapur-Vindhyachal", "Moradabad", "Muzaffarnagar", "Partapgarh", "Pilibhit", "Prayagraj", "Rae Bareli", "Rampur", "Saharanpur", "Sambhal", "Shahjahanpur", "Sitapur", "Sultanpur", "Tehri", "Varanasi", "Almora", "Dehradun", "Haridwar", "Mussoorie", "Nainital", "Pithoragarh", "Alipore", "Alipur Duar", "Asansol", "Baharampur", "Bally", "Balurghat", "Bankura", "Baranagar", "Barasat", "Barrackpore", "Basirhat", "Bhatpara", "Bishnupur", "Budge Budge", "Burdwan", "Chandernagore", "Darjeeling", "Diamond Harbour", "Dum Dum", "Durgapur", "Halisahar", "Haora", "Hugli", "Ingraj Bazar", "Jalpaiguri", "Kalimpong", "Kamarhati", "Kanchrapara", "Kharagpur", "Cooch Behar", "Kolkata", "Krishnanagar", "Malda", "Midnapore", "Murshidabad", "Nabadwip", "Palashi", "Panihati", "Purulia", "Raiganj", "Santipur", "Shantiniketan", "Shrirampur", "Siliguri", "Siuri", "Tamluk", "Titagarh"];
+  //let cityNames = ["Adoni", "Chandigarh", "Ambikapur", "Bhilai", "Amaravati", "Bilaspur", "Dhamtari", "Durg", "Anantapur", "Jagdalpur", "Raipur", "Rajnandgaon", "Chandragiri", "Daman", "Diu", "Silvassa", "Chittoor", "Delhi", "New Delhi", "Madgaon", "Panaji", "Dowlaiswaram", "Ahmadabad", "Amreli", "Bharuch", "Bhavnagar", "Eluru", "Bhuj", "Dwarka", "Gandhinagar", "Godhra", "Jamnagar", "Guntur", "Junagadh", "Kandla", "Khambhat", "Kheda", "Mahesana", "Kadapa", "Morbi", "Nadiad", "Navsari", "Okha", "Palanpur", "Patan", "Kakinada", "Porbandar", "Rajkot", "Surat", "Surendranagar", "Valsad", "Kurnool", "Veraval", "Ambala", "Bhiwani", "Chandigarh", "Faridabad", "Machilipatnam", "Firozpur Jhirka", "Gurugram", "Hansi", "Hisar", "Jind", "Nagarjunakoṇḍa", "Kaithal", "Karnal", "Kurukshetra", "Panipat", "Pehowa", "Rajahmundry", "Rewari", "Rohtak", "Sirsa", "Sonipat", "Bilaspur", "Chamba", "Srikakulam", "Dalhousie", "Dharmshala", "Hamirpur", "Kangra", "Kullu", "Tirupati", "Mandi", "Nahan", "Shimla", "Una", "Anantnag", "Baramula", "Vijayawada", "Vijayawada", "Doda", "Gulmarg", "Jammu", "Kathua", "Punch", "Rajouri", "Visakhapatnam", "Srinagar", "Udhampur", "Bokaro", "Chaibasa", "Deoghar", "Vizianagaram", "Dhanbad", "Dumka", "Giridih", "Hazaribag", "Jamshedpur", "Yemmiganur", "Jharia", "Rajmahal", "Ranchi", "Saraikela", "Itanagar", "Badami", "Ballari", "Bengaluru", "Belagavi", "Bhadravati", "Bidar", "Dhuburi", "Chikkamagaluru", "Chitradurga", "Davangere", "Halebid", "Hassan", "Dibrugarh", "Hubballi-Dharwad", "Kalaburagi", "Kolar", "Madikeri", "Mandya", "Dispur", "Mangaluru", "Mysuru", "Raichur", "Shivamogga", "Shravanabelagola", "Guwahati", "Shrirangapattana", "Tumakuru", "Vijayapura", "Alappuzha", "Vatakara", "Jorhat", "Idukki", "Kannur", "Kochi", "Kollam", "Kottayam", "Kozhikode", "Mattancheri", "Nagaon", "Palakkad", "Thalassery", "Thiruvananthapuram", "Thrissur", "Kargil", "Leh", "Sivasagar", "Balaghat", "Barwani", "Betul", "Bharhut", "Bhind", "Bhojpur", "Bhopal", "Silchar", "Burhanpur", "Chhatarpur", "Chhindwara", "Damoh", "Datia", "Dewas", "Dhar", "Tezpur", "Dr. Ambedkar Nagar (Mhow)", "Guna", "Gwalior", "Hoshangabad", "Indore", "Itarsi", "Tinsukia", "Jabalpur", "Jhabua", "Khajuraho", "Khandwa", "Khargone", "Maheshwar", "Ara", "Mandla", "Mandsaur", "Morena", "Murwara", "Narsimhapur", "Narsinghgarh", "Barauni", "Narwar", "Neemuch", "Nowgong", "Orchha", "Panna", "Raisen", "Rajgarh", "Begusarai", "Ratlam", "Rewa", "Sagar", "Sarangpur", "Satna", "Sehore", "Seoni", "Bettiah", "Shahdol", "Shajapur", "Sheopur", "Shivpuri", "Ujjain", "Vidisha", "Bhagalpur", "Ahmadnagar", "Akola", "Amravati", "Aurangabad", "Bhandara", "Bhusawal", "Bihar Sharif", "Bid", "Buldhana", "Chandrapur", "Daulatabad", "Dhule", "Jalgaon", "Kalyan", "Bodh Gaya", "Karli", "Kolhapur", "Mahabaleshwar", "Malegaon", "Matheran", "Mumbai", "Nagpur", "Buxar", "Nanded", "Nashik", "Osmanabad", "Pandharpur", "Parbhani", "Pune", "Ratnagiri", "Chapra", "Sangli", "Satara", "Sevagram", "Solapur", "Thane", "Ulhasnagar", "Vasai-Virar", "Darbhanga", "Wardha", "Yavatmal", "Imphal", "Cherrapunji", "Shillong", "Aizawl", "Lunglei", "Dehri", "Kohima", "Mon", "Phek", "Wokha", "Zunheboto", "Balangir", "Baleshwar", "Dinapur Nizamat", "Baripada", "Bhubaneshwar", "Brahmapur", "Cuttack", "Dhenkanal", "Gaya", "Kendujhar", "Konark", "Koraput", "Paradip", "Phulabani", "Puri", "Hajipur", "Sambalpur", "Udayagiri", "Karaikal", "Mahe", "Puducherry", "Yanam", "Jamalpur", "Amritsar", "Batala", "Chandigarh", "Faridkot", "Firozpur", "Gurdaspur", "Katihar", "Hoshiarpur", "Jalandhar", "Kapurthala", "Ludhiana", "Nabha", "Patiala", "Madhubani", "Rupnagar", "Sangrur", "Abu", "Ajmer", "Alwar", "Amer", "Barmer", "Beawar", "Motihari", "Bharatpur", "Bhilwara", "Bikaner", "Bundi", "Chittaurgarh", "Churu", "Dhaulpur", "Munger", "Dungarpur", "Ganganagar", "Hanumangarh", "Jaipur", "Jaisalmer", "Jalor", "Jhalawar", "Muzaffarpur", "Jhunjhunu", "Jodhpur", "Kishangarh", "Kota", "Merta", "Nagaur", "Nathdwara", "Patna", "Pali", "Phalodi", "Pushkar", "Sawai Madhopur", "Shahpura", "Sikar", "Sirohi", "Purnia", "Tonk", "Udaipur", "Gangtok", "Gyalshing", "Lachung", "Mangan", "Pusa", "Arcot", "Chengalpattu", "Chennai", "Chidambaram", "Coimbatore", "Cuddalore", "Saharsa", "Dharmapuri", "Dindigul", "Erode", "Kanchipuram", "Kanniyakumari", "Kodaikanal", "Samastipur", "Kumbakonam", "Madurai", "Mamallapuram", "Nagappattinam", "Nagercoil", "Palayamkottai", "Sasaram", "Pudukkottai", "Rajapalayam", "Ramanathapuram", "Salem", "Thanjavur", "Sitamarhi", "Tiruchchirappalli", "Tirunelveli", "Tiruppur", "Thoothukudi", "Udhagamandalam", "Siwan", "Vellore", "Hyderabad", "Karimnagar", "Khammam", "Mahbubnagar", "Nizamabad", "Sangareddi", "Warangal", "Agartala", "Agra", "Aligarh", "Amroha", "Ayodhya", "Azamgarh", "Bahraich", "Ballia", "Banda", "Bara Banki", "Bareilly", "Basti", "Bijnor", "Bithur", "Budaun", "Bulandshahr", "Deoria", "Etah", "Etawah", "Faizabad", "Farrukhabad-cum-Fatehgarh", "Fatehpur", "Fatehpur Sikri", "Ghaziabad", "Ghazipur", "Gonda", "Gorakhpur", "Hamirpur", "Hardoi", "Hathras", "Jalaun", "Jaunpur", "Jhansi", "Kannauj", "Kanpur", "Lakhimpur", "Lalitpur", "Lucknow", "Mainpuri", "Mathura", "Meerut", "Mirzapur-Vindhyachal", "Moradabad", "Muzaffarnagar", "Partapgarh", "Pilibhit", "Prayagraj", "Rae Bareli", "Rampur", "Saharanpur", "Sambhal", "Shahjahanpur", "Sitapur", "Sultanpur", "Tehri", "Varanasi", "Almora", "Dehradun", "Haridwar", "Mussoorie", "Nainital", "Pithoragarh", "Alipore", "Alipur Duar", "Asansol", "Baharampur", "Bally", "Balurghat", "Bankura", "Baranagar", "Barasat", "Barrackpore", "Basirhat", "Bhatpara", "Bishnupur", "Budge Budge", "Burdwan", "Chandernagore", "Darjeeling", "Diamond Harbour", "Dum Dum", "Durgapur", "Halisahar", "Haora", "Hugli", "Ingraj Bazar", "Jalpaiguri", "Kalimpong", "Kamarhati", "Kanchrapara", "Kharagpur", "Cooch Behar", "Kolkata", "Krishnanagar", "Malda", "Midnapore", "Murshidabad", "Nabadwip", "Palashi", "Panihati", "Purulia", "Raiganj", "Santipur", "Shantiniketan", "Shrirampur", "Siliguri", "Siuri", "Tamluk", "Titagarh"];
 
   //   let sortedNames = cityNames.sort();
   //   let input = document.getElementById("city_name");
@@ -846,23 +880,123 @@
 
 
 <script>
-  function getState() {
+  // Function to get pincode data from CSV
+  function getPincodeData() {
+    var pincode = $('#pincode_name').val();
+    var csvFile = 'https://cdn.shopify.com/s/files/1/0044/1208/0217/files/pincode_data.csv?v=1704458039';
+    //console.log("This is csv file comment" , csvFile);
     $.ajax({
-      url: "https://middleware.doctordreams.com/api/fofo-franchisee/get-state",
-      type: 'get',
-      dataType: 'json',
-      beforeSend: function () {
-        $("#state_name").val('');
-      },
-      success: function (resp) {
-        $.each(resp.data, function (index, value) {
-          $("#state_name").append('<option value=' + index + '>' + value + '</option>')
-        })
-
-      },
-      error: function (data) { }
+      type: 'GET',
+      url: csvFile,
+      dataType: 'text',
+      success: function (data) {
+        processData(data, pincode);
+      }
     });
   }
+  // Function to process CSV data and update city_name and state_name
+  function processData(csv, pincode) {
+    var lines = csv.split('\n');
+    var headers = lines[0].split(',');
+    var pincodeFound = false;
+    for (var i = 1; i < lines.length; i++) {
+      var currentLine = lines[i].split(',');
+      var currentPincode = currentLine[0].trim();
+      if (currentPincode === pincode) {
+        var city = currentLine[1].trim();
+        //  console.log("Testing The File city ", city)
+        var stateName = currentLine[2].trim();
+        //  console.log("Testing the file stet", stateName)
+        pincodeFound = true;
+        // You can break the loop if you only want the first match
+        break;
+      }
+    }
+
+    // Display error if pincode is not found
+    if (!pincodeFound) {
+      $("#pincode_name_error").html('Pincode does not exist');
+      $("#pincode_name_error").css('color','red');
+      $('#city_name').val('');
+      $('#state_name').val('');
+      $('#city_name').attr('disabled', true);
+      $('#state_name').attr('disabled', true);
+      $('.state_label_name').removeClass('myLabelTop');
+      $('.city_label_name').removeClass('myLabelTop');
+      $('#city_name').removeAttr('readonly');
+      $('#state_name').removeAttr('readonly');
+      $('.state_label_name').addClass('pincode__checker_diasbled');
+      $('.city_label_name').addClass('pincode__checker_diasbled');
+    } else {
+      // Display data and show the "cityStateRow" class
+      $("#pincode_name_error").html('');
+      $('#city_name').removeAttr('disabled');
+      $('#state_name').removeAttr('disabled');
+      $('.state_label_name').addClass('myLabelTop');
+      $('.city_label_name').addClass('myLabelTop');
+      $('#city_name').attr('readonly', true);
+      $('#state_name').attr('readonly', true);
+      $('.state_label_name').removeClass('pincode__checker_diasbled');
+      $('.city_label_name').removeClass('pincode__checker_diasbled');
+      displayData(city, stateName);
+    }
+  }
+
+  // Function to display data in city_name and state_name
+  function displayData(city, stateName) {
+    $('#city_name').val(city);
+    $('#state_name').val(stateName);
+    // console.log('City: ' + city);
+    // console.log('State Name: ' + stateName);
+  }
+
+  // Function to handle focus out
+  function handleFocusOut() {
+    var pincode = $('#pincode_name').val().replace(/\D/g, '').substring(0, 6);
+
+    if (pincode.length === 6) {
+      // Assuming displayData is a function that takes city and stateName as parameters
+      displayData(city, stateName);
+    } else if (pincode.length < 6) {
+      // If pincode has 5 digits, clear city_name and state_name
+      $("#pincode_name_error").html('Please enter valid Pincode');
+      $("#pincode_name_error").css('color','red');
+      $('#noteContainer').css('display','none');
+      $('#city_name').val('');
+      $('#state_name').val('');
+      $('#city_name').attr('disabled', true);
+      $('#state_name').attr('disabled', true);
+      $('.state_label_name').removeClass('myLabelTop');
+      $('.city_label_name').removeClass('myLabelTop');
+      $('#city_name').removeAttr('readonly');
+      $('#state_name').removeAttr('readonly');
+      $('.state_label_name').addClass('pincode__checker_diasbled');
+      $('.city_label_name').addClass('pincode__checker_diasbled');
+    }
+  }
+
+  // Event listener for input and focusout events
+  $('#pincode_name').on('input', function (e) {
+    var input = e.target.value;
+
+    // Allow only numeric input
+    var numericInput = input.replace(/\D/g, '');
+
+    // Limit to 6 digits
+    var pincode = numericInput.substring(0, 6);
+
+    // Update the input value
+    e.target.value = pincode;
+
+    // Check if the entered pincode has 6 digits
+    if (pincode.length === 6) {
+      // Call your function when pincode is 6 digits
+      getPincodeData();
+    }
+  });
+
+  // Bind the handleFocusOut function to the focusout event
+  $("#pincode_name").on('focusout', handleFocusOut);
 
   $(document).ready(function () {
     $('#thank_you').css('display', 'none');
@@ -874,7 +1008,8 @@
     var fullname = $('#contactFormFullName').val();
     var email = $('#contactFormEmail').val();
     var phoneno = $('#address_phone_no').val();
-    var alternate_phone_no = $('#alternate_address_phone_no').val();
+    var pincode_name = $("#pincode_name").val();
+    //var alternate_phone_no = $('#alternate_address_phone_no').val();
     var location_preference = $('#contactFormcity_name').val();
     var preferred_time_for_discussion = $('#preferred_time_for_discussion').val();
     var property_availability = $('#property_availability').val();
@@ -895,7 +1030,7 @@
         "fullname": fullname,
         "email": email,
         "phoneno": phoneno,
-        "alternate_phone_no": alternate_phone_no,
+        "pincode_name": pincode_name,
         "location_preference": location_preference,
         "preferred_time_for_discussion": preferred_time_for_discussion,
         "property_availability": property_availability,
@@ -935,9 +1070,13 @@
           $('.' + k + '_error').text(v).css('color', 'red');
         });
         document.getElementById("franchise_submit").style.marginTop = "20px";
+        if (pincodeErrorDiv.text().trim() === "The pincode name must be 6 digits.") {
+          // Change the content of the div to "Please enter valid Pincode"
+          pincodeErrorDiv.text("Please enter valid Pincode");
+        }
       }
     });
   });
 
-  getState();
+
 </script>
