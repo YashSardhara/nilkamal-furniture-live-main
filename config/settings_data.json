@@ -4814,10 +4814,9 @@
         "blocks": {
           "996706c8-a987-443e-8be6-205d1f780438": {
             "type": "image",
-            "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/desktop_43a6dd10-210b-4655-9081-fc0927d95928.jpg",
-              "mobimage": "shopify:\/\/shop_images\/mobile_7c635482-e50f-41fd-acb6-30acc0acd777.jpg",
+              "image": "shopify:\/\/shop_images\/desktop_841cd9ab-d3e7-4589-ac1d-dd378afe2996.jpg",
+              "mobimage": "shopify:\/\/shop_images\/mobile_ff34476d-a04a-4b9d-846e-376cdf670970.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4826,7 +4825,7 @@
               "caption_background": false,
               "caption_background_transparency": false,
               "button1": "",
-              "button1_link": "shopify:\/\/collections\/mattress",
+              "button1_link": "shopify:\/\/collections\/valentines-day-celebration",
               "button1_highlight": false,
               "button2": "",
               "button2_link": "",
@@ -4837,7 +4836,7 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/Artboard_1_9bdf0ece-bd76-4406-a16a-abb420efdd2e.jpg",
-              "mobimage": "shopify:\/\/shop_images\/Artboard_1-3_b98386ce-debe-470e-817b-474de3f182f6.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Artboard_1_ed2aa88a-7251-4608-8342-e8814293987c.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4857,7 +4856,7 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/Artboard_1-2_8a81b055-7166-47e4-9a38-ae252e21bd7d.jpg",
-              "mobimage": "shopify:\/\/shop_images\/Artboard_1-1_2c2ff246-acfc-4d3a-8bbb-d31a1519bb1c.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Artboard_1-2_c5d69c46-d513-446d-afa1-fe370fb5ec7e.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4877,7 +4876,7 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/Artboard_1-1_08441692-0d33-438c-beb7-b70b098b975c.jpg",
-              "mobimage": "shopify:\/\/shop_images\/Artboard_1-2_4b9ec1d3-0ee8-4f41-880c-2a1cd9ecdac0.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Artboard_1-1_fce76687-68a7-4f2d-8413-76dbf5c5c77e.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4918,7 +4917,7 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/Artboard_1-3_48889b89-6657-4aa3-ac3a-04080cf33512.jpg",
-              "mobimage": "shopify:\/\/shop_images\/Artboard_1_083859bd-17e9-495b-8d62-3ba736841473.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Artboard_1-3_aa02cb18-bbea-4cf7-b0d1-5f16cc3d3468.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -5973,7 +5972,7 @@
       "a50f909c-4e0e-42a5-bdfc-ae49c3130c81": {
         "type": "featured-collection",
         "settings": {
-          "title": "Thoughtfully Curated Top picks",
+          "title": "🧡Valentine's Day Top picks🧡",
           "collection": "best-deals-1",
           "collection_style": "slider",
           "collection_description": false,
