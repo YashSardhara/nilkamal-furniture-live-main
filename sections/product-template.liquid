@@ -519,7 +519,7 @@ document.querySelector('#shareBtn')
                         <label>{{ product.options[0] }}</label>
                         <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select matt_varient">
                           {% for v in product.variants %}
-                          <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
+                          <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" data-inventory-quantity="{{ v.inventory_quantity }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
                           {% endfor %}
                         </select>
                       </div>
@@ -531,7 +531,7 @@ document.querySelector('#shareBtn')
                         <label>{{ product.options[0] }}</label>
                         <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select matt_varient">
                           {% for v in product.variants %}
-                          <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
+                          <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" data-inventory-quantity="{{ v.inventory_quantity }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
                           {% endfor %}
                         </select>
                       </div>
