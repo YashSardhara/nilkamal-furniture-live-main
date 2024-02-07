@@ -1293,11 +1293,7 @@
         if (pincode.length === 6 && myStateInput != ''){
           var form = $('#trade_warrenty_form');
           $.ajax({
-<<<<<<< HEAD
             url: "https://admin.nilkamalfurniture.com/api/trade-warranty-register",
-=======
-            url: "https://admin.nilkamalfurniture.com/api/warranty-register",
->>>>>>> f4cdeea2a4e7b84b46fd6def15606266bb216fd1
             type: 'POST',
             data: form.serialize(),
             dataType: 'json',
@@ -1370,11 +1366,7 @@
   $('.verify_otp').click(function () {
 
     $("#trade_warrenty_form").ajaxSubmit({
-<<<<<<< HEAD
       url: "https://admin.nilkamalfurniture.com/api/trade-verify-otp",
-=======
-      url: "https://admin.nilkamalfurniture.com/api/verify-otp",
->>>>>>> f4cdeea2a4e7b84b46fd6def15606266bb216fd1
       type: 'POST',
       dataType: 'json',
       success: function (resp) {
