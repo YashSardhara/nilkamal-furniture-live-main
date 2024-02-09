@@ -517,6 +517,12 @@
   textarea {
     font-size: 16px;
   }
+  input#tradeinvoicedop {
+    display: inline-block;
+    position: relative;
+    background: transparent;
+    z-index: 1;
+}
 
   .flx_img_picker p {
     font-size: 14px;
@@ -1273,7 +1279,7 @@
   $("#trade_pincode-check").on('focusout', handleFocusOut);
 
   $('.generate_otp').click(function (e) {
-    alert("Clicked Button")
+    // alert("Clicked Button")
     validateInputsOnsubmit();
     console.clear("console clear");
     console.log('e', e);
@@ -1293,7 +1299,7 @@
           let pincode = numericInput.substring(0, 6);
           let myStateInput = $("#trade_address_state").val();  
         if (pincode.length === 6 && myStateInput != ''){
-          alert("All Chck")
+          alert("All Chck");
           var form = $('#trade_warrenty_form');
           $.ajax({
             url: "https://admin.nilkamalfurniture.com/api/trade-warranty-register",
@@ -1319,7 +1325,7 @@
               });
               alert("testing success");
             },
-          });
+          }); 
 }
         }
         else {
