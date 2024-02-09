@@ -1307,12 +1307,14 @@
                     $('#trade_terms_cond_error').text('Please select terms and condition');
                   }
               }
+              alert("testing success");
             },
             error: function (data) {
               console.log('Errors Data Vivek', data.responseJSON[0])
               $.each(data.responseJSON[0], function (k, v) {
                 $('#' + k + '_error').text(v);
               });
+              alert("testing success");
             },
           });
 }
@@ -1572,7 +1574,7 @@ const storeNameInput = document.getElementById('storeName');
   mobilenoInput.addEventListener('blur', () => {
     if (mobilenoInput.value?.trim() === '') {
     errorMessagemobile.textContent = 'Please enter your Mobile no';
-   }else if (mobilenoInput.value.length !== 10) {
+   } else if (mobilenoInput.value.length !== 10) {
         errorMessagemobile.textContent = 'The mobile must be 10 digits.';
     } else {
       errorMessagemobile.textContent = '';
