@@ -1271,7 +1271,9 @@
   });
 
   $("#trade_pincode-check").on('focusout', handleFocusOut);
+
   $('.generate_otp').click(function (e) {
+    alert("Clicked Button")
     validateInputsOnsubmit();
     console.clear("console clear");
     console.log('e', e);
@@ -1291,6 +1293,7 @@
           let pincode = numericInput.substring(0, 6);
           let myStateInput = $("#trade_address_state").val();  
         if (pincode.length === 6 && myStateInput != ''){
+          alert("All Chck")
           var form = $('#trade_warrenty_form');
           $.ajax({
             url: "https://admin.nilkamalfurniture.com/api/trade-warranty-register",
@@ -1320,6 +1323,7 @@
 }
         }
         else {
+          alert("I am in else because Missing")
           e.preventDefault();
           $('#warrantyImage').val("");
           warrantyfile_error.textContent = 'File size must be less than 1MB';
@@ -1335,6 +1339,7 @@
       }
     }
     else {
+      alert("I am in else because Missing 1")
       $('#warrantyImage').val("");
       warrantyfile_error_1.textContent = 'Please upload your Invoice document as image or a PDF';
       warrantyfile_error.textContent = '';
