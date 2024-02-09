@@ -22,6 +22,13 @@
     z-index: 1;
   }
 
+  input#tradeinvoicedop {
+    display: inline-block;
+    position: relative;
+    background: transparent;
+    z-index: 1;
+}
+
   input[type="date"]::before {
     content: attr(value);
     display: inline-block;
@@ -1271,6 +1278,7 @@
   });
 
   $("#trade_pincode-check").on('focusout', handleFocusOut);
+
   $('.generate_otp').click(function (e) {
     validateInputsOnsubmit();
     console.clear("console clear");
@@ -1282,7 +1290,6 @@
     if (file_data != null || file_data != undefined) {
       var fileExt = file_data.substr(file_data.lastIndexOf('.') + 1).toLowerCase();
       if (fileExt === 'jpeg' || fileExt === 'png' || fileExt === 'jpg' || fileExt === 'pdf') {
-
         console.log('File is in proper format');
         if (fileSize < MAX_FILE_SIZE) {
           let input = $('#trade_pincode-check').val();
@@ -1424,7 +1431,7 @@ const storeNameInput = document.getElementById('storeName');
 
   const warrantywarrantywarrantyImage = document.getElementById('warrantyImage');
   const errorMessagewarrantywarrantyImage = document.getElementById('warrantyfile_error');
-  // const file_upload_container = document.getElementById('file_upload_container');
+  const file_upload_container = document.getElementById('file_upload_container');
 
   const inputs = document.querySelectorAll('.buttonstyle');
 
@@ -1448,7 +1455,6 @@ const storeNameInput = document.getElementById('storeName');
     // get the character code of the pressed key
     var charCode = event.which;
 
-    // use a regular expression to check if the key is a number
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
       // if the key is not a number, prevent it from being entered
       event.preventDefault();
@@ -1538,7 +1544,6 @@ const storeNameInput = document.getElementById('storeName');
     }
   });
 
-  
   tradewarrantyDopInput.addEventListener('blur', () => {
     if (tradewarrantyDopInput.value?.trim() === '') {
       errorMessagewarrantytradewarrantyDop.textContent = 'Please select your Date of Purchase';
@@ -1571,7 +1576,9 @@ const storeNameInput = document.getElementById('storeName');
   });
   mobilenoInput.addEventListener('blur', () => {
     if (mobilenoInput.value?.trim() === '') {
-      errorMessagemobile.textContent = 'Please enter your Mobile no';
+    errorMessagemobile.textContent = 'Please enter your Mobile no';
+   } else if (mobilenoInput.value.length !== 10) {
+        errorMessagemobile.textContent = 'The mobile must be 10 digits.';
     } else {
       errorMessagemobile.textContent = '';
     }
@@ -1715,111 +1722,116 @@ const storeNameInput = document.getElementById('storeName');
   });
 </script>
 <script>
-  function validateInputsOnsubmit() {
+  function validateInputsOnsubmit() {  
+  const checkbox = document.getElementById('trade_online__tandc');
+  const checkboxError = document.getElementById('trade_terms_cond_error');
+  
+  if (checkbox.checked) {
+    checkboxError.textContent = '';
+  } else {
+    checkboxError.textContent = 'Please accept the terms and conditions';
+  }
+  
+  const storeNameInput = document.getElementById('storeName');
+  const storeNameError = document.getElementById('store_name_error');
+  if (storeNameInput.value.trim() === '') {
+    storeNameError.textContent = 'Please enter store name';
+  } else {
+    storeNameError.textContent = '';
+  }
+  
+  const tradeDopInput = document.getElementById('tradeinvoicedop');
+  const errorMessageTradeDop = document.getElementById('trade_date_of_invoice_error');
+  if (tradeDopInput.value.trim() === '') {
+    errorMessageTradeDop.textContent = 'Please select your Date of Invoice';
+  } else {
+    errorMessageTradeDop.textContent = '';
+  }
 
-    const checkbox = document.getElementById('trade_online__tandc');
-    const checkboxError = document.getElementById('trade_terms_cond_error');
+  const warrantyDopInput = document.getElementById('tradewarrantyDop');
+  const errorMessagewarrantyDop = document.getElementById('trade_date_of_purchase_error');
+  if (warrantyDopInput.value.trim() === '') {
+    errorMessagewarrantyDop.textContent = 'Please select your Date of Purchase';
+  } else {
+    errorMessagewarrantyDop.textContent = '';
+  }
 
-    if (checkbox.checked) {
-      checkboxError.textContent = '';
-    } else {
-      checkboxError.textContent = 'Please accept the terms and conditions';
-    }
+  const invoiceNumberInput = document.getElementById('tradeinvoiceNumber');
+  const tradeinvoiceNumberError = document.getElementById('trade_invoice__number_error');
+  if (invoiceNumberInput.value.trim() === '') {
+    tradeinvoiceNumberError.textContent = 'Please enter Invoice Number';
+  } else {
+    tradeinvoiceNumberError.textContent = '';
+  }
+  
+  const warrantyModelInput = document.getElementById('tradewarrantyModel');
+  const errorMessagewarrantyModel = document.getElementById('trade_modal_name_error');
+  if (warrantyModelInput.value.trim() === '') {
+    errorMessagewarrantyModel.textContent = 'Please select your Product model';
+  } else {
+    errorMessagewarrantyModel.textContent = '';
+  }
+  
+  const nameInput = document.getElementById('trade_first-name');
+  const errorMessageName = document.getElementById('trade_first_name_error');
+  if (nameInput.value.trim() === '') {
+    errorMessageName.textContent = 'Please enter your First Name';
+  } else {
+    errorMessageName.textContent = '';
+  }
+  
+  const lastNameInput = document.getElementById('trade-last-name');
+  const errorMessagelastName = document.getElementById('trade_last_name_error');
+  if (lastNameInput.value.trim() === '') {
+    errorMessagelastName.textContent = 'Please enter your Last Name';
+  } else {
+    errorMessagelastName.textContent = '';
+  }
+  
+  const emailInput = document.getElementById('trade_Email');
+  const errorMessageEmail = document.getElementById('trade_email_error');
+  if (emailInput.value.trim() === '') {
+    errorMessageEmail.textContent = 'Please enter your Email ID';
+  } else {
+    errorMessageEmail.textContent = '';
+  }
+  
+  const mobileInput = document.getElementById('tradecontactFormPhone');
+  const errorMessageMobile = document.getElementById('trade_mobile_error');
+  if (mobileInput.value.trim() === '') {
+    errorMessageMobile.textContent = 'Please enter your Mobile no';
+  } else if (mobileInput.value.length !== 10) {
+    errorMessageMobile.textContent = 'The mobile must be 10 digits.';
+  } else {
+    errorMessageMobile.textContent = '';
+  }
 
-    if (storeNameInput.value?.trim() === '') {
-      storeNameError.textContent = 'Please enter store name';
-    } else {
-      storeNameError.textContent = '';
-    }
+  const pincodeInput = document.getElementById('trade_pincode-check');
+  const errorMessagePincode = document.getElementById('trade_pincode_check_error');
+  if (pincodeInput.value.trim() === '') {
+    errorMessagePincode.textContent = 'Please enter your Pincode';
+  } else if (pincodeInput.value.length < 6) {
+    errorMessagePincode.textContent = 'Please enter valid Pincode';
+  } else {
+    errorMessagePincode.textContent = '';
+  }
+  
+  const stateInput = document.getElementById('trade_address_state');
+  const errorMessageState = document.getElementById('trade_state_error');
+  if (stateInput.value.trim() === '') {
+    errorMessageState.textContent = 'Please enter your State';
+  } else {
+    errorMessageState.textContent = '';
+  }
 
-    if (warrantywarrantywarrantyImage.value?.trim() === '') {
-    errorMessagewarrantywarrantyImage.textContent = 'The selected file is not an image or a PDF';
-    } else {
-        errorMessagewarrantywarrantyImage.textContent = '';
-    }
-
-
-    if (tradeDopInput.value?.trim() === '') {
-      errorMessageTradeDop.textContent = 'Please select your Date of Invoice';
-    } else {
-      errorMessageTradeDop.textContent = '';
-    }
-
-    if (tradewarrantyDopInput.value?.trim() === '') {
-      errorMessagewarrantytradewarrantyDop.textContent = 'Please select your Date of Purchase';
-    } else {
-      errorMessagewarrantytradewarrantyDop.textContent = '';
-    }
-    
-    if (tradeinvoiceNumberInput.value?.trim() === '') {
-      tradeinvoiceNumberError.textContent = 'Please enter Invoice Number';
-    } else {
-      tradeinvoiceNumberError.textContent = '';
-    }
-    
-    if (tradewarrantyModelInput.value?.trim() === '') {
-      errorMessagewarrantytradewarrantyModel.textContent = 'Please select your Product model';
-    } else {
-      errorMessagewarrantytradewarrantyModel.textContent = '';
-    }
-
-    if (nameInput.value?.trim() === '') {
-      errorMessage.textContent = 'Please enter your First Name';
-    } else {
-      errorMessage.textContent = '';
-    }
-
-    if (lastnameInput.value?.trim() === '') {
-      errorMessagelast.textContent = 'Please enter your Last Name';
-    } else {
-      errorMessagelast.textContent = '';
-    }
-
-    if (emailnameInput.value?.trim() === '') {
-      errorMessageemail.textContent = 'Please enter your Email ID';
-    } else {
-      errorMessageemail.textContent = '';
-    }
-
-    if (mobilenoInput.value?.trim() === '') {
-      errorMessagemobile.textContent = 'Please enter your Mobile no';
-    } else {
-      errorMessagemobile.textContent = '';
-    }
-
-    if (pincodeInput.value?.trim() === '') {
-      errorMessagePincode.textContent = 'Please enter your Pincode';
-    } else if(pincodeInput.value?.trim().length < 6){
-      errorMessagePincode.textContent = 'Please enter valid Pincode';
-    }
-    else {
-      errorMessagePincode.textContent = '';
-    }
-
-    if (stateInput.value?.trim() === '') {
-      errorMessagestate.textContent = '';
-    } else {
-      errorMessagestate.textContent = '';
-    }
-
-    if (cityInput.value?.trim() === '') {
-      errorMessagecity.textContent = '';
-    } else {
-      errorMessagecity.textContent = '';
-    }
-
-    if (warrantywarrantyInvoice.value?.trim() === '') {
-      errorMessagewarrantywarrantyInvoice.textContent = 'Please enter your Invoice ID';
-    } else {
-      errorMessagewarrantywarrantyInvoice.textContent = '';
-    }
-
-    if (tradewarrantyDopInput.value?.trim() === '') {
-      errorMessagewarrantytradewarrantyDop.textContent = 'Please select your Date of Purchase';
-    } else {
-      errorMessagewarrantytradewarrantyDop.textContent = '';
-    }
-  };
+  const cityInput = document.getElementById('trade_address_city');
+  const errorMessageCity = document.getElementById('city_error');
+  if (cityInput.value.trim() === '') {
+    errorMessageCity.textContent = 'Please enter your City';
+  } else {
+    errorMessageCity.textContent = '';
+  }
+}
 
   function displayFileName() {
     let input = $("#warrantyImage");
@@ -1832,7 +1844,6 @@ const storeNameInput = document.getElementById('storeName');
       errorMessagewarrantywarrantyImage.textContent = '';
     } else {
       $('#file__name__error').click();
-      alert("File is not Working");
       $('#file__name__error').text("");
       $('.button__container').show();
       $('.file__name__message').css('display', 'none');
@@ -1847,7 +1858,6 @@ const storeNameInput = document.getElementById('storeName');
   });
 
 </script>
-
 <script>
   // JavaScript code to sort the dropdown options alphabetically
   const selectElement = document.getElementByClass('.tradewarrantyModel');
