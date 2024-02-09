@@ -1783,6 +1783,8 @@ const storeNameInput = document.getElementById('storeName');
 
     if (mobilenoInput.value?.trim() === '') {
       errorMessagemobile.textContent = 'Please enter your Mobile no';
+      else if (mobilenoInput.value.length !== 10) {
+        errorMessagemobile.textContent = 'The mobile must be 10 digits.';
     } else {
       errorMessagemobile.textContent = '';
     }
