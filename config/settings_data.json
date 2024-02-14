@@ -6293,6 +6293,12 @@
           "button_vertical_position": "lowest",
           "greeting_message": "👋 Hi, message us with any questions. We're happy to help!"
         }
+      },
+      "5281749993944428517": {
+        "type": "shopify:\/\/apps\/variant-image-wizard-swatch\/blocks\/app-embed\/66205c03-f474-4e2c-b275-0a2806eeac16",
+        "disabled": false,
+        "settings": {
+        }
       }
     }
   }
