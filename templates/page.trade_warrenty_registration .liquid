@@ -1306,7 +1306,6 @@
             type: 'POST',
             data: form.serialize(),
             dataType: 'json',
-            console.log("response");
             success: function (resp) {
               if (resp.success == true) {                             
                   if ($("#trade_online__tandc").is(":checked")) {
@@ -1379,6 +1378,7 @@
       url: "https://admin.nilkamalfurniture.com/api/trade-verify-otp",
       type: 'POST',
       dataType: 'json',
+      alert("response");
       success: function (resp) {
         if (resp.success == true) {
           window.location.href = 'https://nilkamalfurniture.myshopify.com/pages/thank-you-page';
