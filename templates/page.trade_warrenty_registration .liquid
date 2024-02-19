@@ -1373,13 +1373,13 @@
 
   });
   $('.verify_otp').click(function () {
-    alert("response");
 
     $("#trade_warrenty_form").ajaxSubmit({
       url: "https://admin.nilkamalfurniture.com/api/trade-verify-otp",
       type: 'POST',
       dataType: 'json',
       success: function (resp) {
+    alert("response");
         if (resp.success == true) {
           window.location.href = 'https://nilkamalfurniture.myshopify.com/pages/thank-you-page';
         } else {
