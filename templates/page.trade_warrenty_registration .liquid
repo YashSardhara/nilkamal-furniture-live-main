@@ -118,6 +118,14 @@
   .text-danger {
     color: #dc3545;
   }
+  .did-floating-label span{
+    color: #dc3545; 
+  }
+  .order__invoice__box span{
+    color: #dc3545; 
+  }
+
+
 
   .warranty_container {
     width: 950px;
@@ -974,14 +982,14 @@
           <input class="form-control fname buttonstyle" type="text"
              id="trade_first-name" name="trade_first_name"
             placeholder=" " autocapitalize="words" v-on:keypress="isLetter($event)" required>
-          <label class="did-floating-label">First Name</label>
+          <label class="did-floating-label">First Name<span>*</span></label>
           <span id="trade_first_name_error" class="help-inline text-danger"></span>
         </div>
         <div class="form-group col-md-6 did-floating-box">
           <input class="form-control lname buttonstyle" type="text"
              id="trade-last-name" name="trade_last_name"
             autocapitalize="words" placeholder=" " required>
-          <label class="did-floating-label">Last Name</label>
+          <label class="did-floating-label">Last Name<span>*</span></label>
           <span id="trade_last_name_error" class="help-inline text-danger"></span>
         </div>
       </div>
@@ -990,14 +998,14 @@
           <input type="email" class="form-control emailadd buttonstyle"
              name="email" id="trade_Email" autocorrect="off"
             autocapitalize="off" placeholder=" " required>
-          <label class="did-floating-label">Email ID</label>
+          <label class="did-floating-label">Email ID<span>*</span></label>
           <span id="trade_email_error" class="help-inline text-danger"></span>
         </div>
         <div class="form-group col-md-6 did-floating-box">
           <input class="form-control buttonstyle"
              type="tel" name="mobile"
             id="tradecontactFormPhone" pattern="[0-9]{10}" maxlength="10" placeholder=" " required>
-          <label class="did-floating-label">Mobile No.</label>
+          <label class="did-floating-label">Mobile No.<span>*</span></label>
           <span id="trade_mobile_error" class="help-inline text-danger"></span>
         </div>
       </div>
@@ -1005,7 +1013,7 @@
         <div class="form-group col-md-6 pincode__checker__box did-floating-box">
           <input class="form-control pincode__checker buttonstyle" type="text" id="trade_pincode-check" name="pincode_check"
             placeholder=" " required>
-          <label class="did-floating-label">Pincode</label>
+          <label class="did-floating-label">Pincode<span>*</span></label>
           <span id="trade_pincode_check_error" class="help-inline text-danger"></span>
         </div>
         <div class="form-group col-md-6 noteContainer">
@@ -1024,13 +1032,13 @@
         <div class="form-group col-md-6 did-floating-box">
           <input class="form-control pincode__checker buttonstyle" type="text" id="trade_address_state" name="state"
             placeholder="" required disabled>
-          <label class="did-floating-label state__label pincode__checker_diasbled">State</label>
+          <label class="did-floating-label state__label pincode__checker_diasbled">State<span>*</span></label>
           <span id="trade_state_error" class="help-inline text-danger"></span>
         </div>
         <div class="form-group col-md-6 did-floating-box">
           <input class="form-control buttonstyle" type="text" name="city" id="trade_address_city" placeholder="" required
             disabled>
-          <label class="did-floating-label city__label pincode__checker_diasbled">City</label>
+          <label class="did-floating-label city__label pincode__checker_diasbled">City<span>*</span></label>
           <span id="city_error" class="help-inline text-danger"></span>
         </div>
       </div>
@@ -1039,13 +1047,13 @@
           <input class="form-control lname buttonstyle" type="text"
           id="storeName" name="store_name"
         autocapitalize="words" placeholder=" " required>
-      <label class="did-floating-label">Store Name</label>
+      <label class="did-floating-label">Store Name<span>*</span></label>
       <span id="store_name_error" class="help-inline text-danger"></span>
         </div>
         <div class="form-group col-md-6 did-floating-box dd_bottom__remove">
           <input type="date" name="date_of_purchase" id="tradewarrantyDop" placeholder="dd-mm-yyyy"
             class=" form-control buttonstyle" >
-          <label class="did-floating-label">Date of purchase</label>
+          <label class="did-floating-label">Date of purchase<span>*</span></label>
           <img class="date_svg-img"
             src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/Vector_1.svg?v=1682518087" alt="">
           <span id="trade_date_of_purchase_error" class="help-inline text-danger"></span>
@@ -1098,14 +1106,14 @@
               <option value="Zeal Cloth Dryer Silver">Zeal Cloth Dryer Silver</option>
               <option value="Zora Center Table Wenge">Zora Center Table Wenge</option>
             </select>
-            <label class="did-floating-label-war flt_prd_model">Product Model</label>
+            <label class="did-floating-label-war flt_prd_model">Product Model<span>*</span></label>
             <span id="trade_modal_name_error" class="help-inline text-danger"></span>
           </div>
         </div>
         <div class="form-group col-md-6 did-floating-box">
           <input type="text" name="tradeinvoiceNumber" id="tradeinvoiceNumber" placeholder=" " class="form-control buttonstyle"
             required />
-          <label class="did-floating-label">Invoice Number</label>
+          <label class="did-floating-label">Invoice Number<span>*</span></label>
           <span id="trade_invoice__number_error" class="help-inline text-danger"></span>
         </div>
       </div>
@@ -1116,7 +1124,7 @@
           <span id="trade_date_of_invoice_error" class="help-inline text-danger"></span></div>
         <div class="form-group col-md-6" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
           <div class="flx_img_picker">
-            <p class="order__invoice__box"> Invoice Upload*</p>
+            <p class="order__invoice__box"> Invoice Upload<span>*</span></p>
             <div class="file__box">
               <div class="button__container" id="upload">
                 <button class="file_content_btn upload__file">
