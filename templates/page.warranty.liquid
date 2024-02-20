@@ -697,7 +697,7 @@ function clearFileInput() {
   $('.verify_otp').click(function(e){
     e.preventDefault();
 
-    $("#warrenty_form").(ajaxSubmit{
+    $("#warrenty_form").ajaxSubmit({
       url: "https://middleware.doctordreams.com/api/verify-otp",
       type: 'POST',
       dataType: 'json',
