@@ -1,12 +1,1998 @@
-<a name="pagecontent" id="pagecontent"></a>
 
-<div class="sixteen columns page clearfix">
-  <h1 align="center">
-    {{ page.title }}
-  </h1>
-  <div class="feature_divider"></div>
+<style>
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
-  <div>
-    {% include 'page-multi-column', content: page.content %}
+  .verify__otp__enter {
+    display: none;
+  }
+
+  .cityFormContainer {
+    padding-left: 0px !important;
+    padding-right: 30px;
+  }
+
+  input#tradewarrantyDop {
+    display: inline-block;
+    position: relative;
+    background: transparent;
+    z-index: 1;
+  }
+
+  input#tradeinvoicedop {
+    display: inline-block;
+    position: relative;
+    background: transparent;
+    z-index: 1;
+}
+
+  input[type="date"]::before {
+    content: attr(value);
+    display: inline-block;
+    line-height: inherit;
+    text-align: inherit;
+    vertical-align: middle;
+  }
+
+  .heading_text {
+    margin-top: 50px;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 50px;
+    text-transform: capitalize;
+    color: #5C6168;
+  }
+
+  .form_head_p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+  }
+
+  p.l_para {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 34px;
+    color: #252525;
+  }
+
+  p.log_in_p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #252525;
+  }
+
+  .log_in_p a {
+    text-decoration-line: underline;
+    color: #2BA4DC;
+  }
+
+  label.did-floating-label,
+  label.did-floating-label-war,
+  label.did-floating-select {
+    color: #252525;
+    font-size: 14px !important;
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+
+  input,
+  select {
+    border: 1px solid #E0E0E0 !important;
+    border-radius: 5px !important;
+    padding: 0px 28px !important;
+  }
+
+  .warranty_container input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+  }
+
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  div#onlinePurchase {
+    width: 293px;
+  }
+
+  div#warOffline {
+    width: 293px;
+  }
+
+  .text-danger {
+    color: #dc3545;
+  }
+  .did-floating-label span{
+    color: #dc3545; 
+  }
+  .order__invoice__box span{
+    color: #dc3545; 
+  }
+  .did-floating-label-war span{
+    color: #dc3545;
+  }
+
+
+
+  .warranty_container {
+    width: 950px;
+    margin: 0 auto;
+  }
+
+  span.d_flex.heading_div.warranty_head {
+    text-align: left;
+    width: 100%;
+    align-items: flex-start;
+    padding: 30px 0 60px;
+  }
+
+  form#trade_warrenty_form {
+    margin-top: 10px;
+  }
+
+  .form-row input,
+  .form-row select {
+    height: 55px;
+    margin-bottom: 10px;
+  }
+
+  .form-row input::placeholder,
+  .form-row select::placeholder {
+    color: #707070;
+  }
+
+  select#online-purchase::placeholder,
+  select#Offline-purchase::placeholder {
+    color: #000;
+  }
+
+  .form-row select {
+    color: #000;
+  }
+
+  .form-row {
+    display: flex;
+    flex: 100%;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+
+  .form-group.col-md-6 {
+    width: 462px;
+  }
+
+  .form-group.col-12 {
+    width: 100%;
+  }
+
+  .trms-checkbox {
+    display: flex;
+    align-items: center;
+  }
+
+  input.i-accpt {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #1d4786;
+    margin-bottom: 0;
+  }
+
+  label.location {
+    padding: 0;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: inherit;
+  }
+
+  a#accpt-terms {
+    color: #1d4786;
+    text-decoration: underline;
+  }
+
+  .warranty_container .submit_btn input#tradevtigerFormSubmitBtn_6 {
+    font-weight: 400;
+    overflow: hidden;
+    color: #fff;
+  }
+
+  div#pop-terms {
+    background: #fff;
+    box-shadow: -4px -10px 19px #ebebeb;
+  }
+
+  div#pop-terms {
+    background: #fff;
+    box-shadow: -4px -10px 19px #ebebeb;
+    padding: 2% 5%;
+    position: relative;
+  }
+
+  h3.heading-title {
+    font-size: 24px;
+    padding: 30px 0 15px;
+    font-weight: 500;
+  }
+
+  .pop-terms_p p:first-child {
+    padding-bottom: 15px;
+  }
+
+  p.close_arrow {
+    float: right;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+  }
+
+  .form-row select:focus-visible {
+    outline: none;
+  }
+
+  .form_head_p {
+    align-items: center;
+  }
+
+  .warranty-page input.form-control.fname.buttonstyle {
+    margin-bottom: 5px;
+  }
+
+  .warranty-page span.text-danger {
+    margin-bottom: 15px;
+  }
+
+  p.order_inv_txt {
+    margin-top: 18px;
+  }
+
+  .trms-checkbox.terms__online {
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .generate_otp {
+    background: #0093dd !important;
+    text-transform: capitalize !important;
+    border-radius: 32px !important;
+    font-weight: 400;
+    font-size: 18px;
+  }
+
+  .verify_otp {
+    background: #0093dd !important;
+    text-transform: capitalize !important;
+    border-radius: 32px !important;
+    font-weight: 400;
+    font-size: 18px;
+  }
+
+  .trms-checkbox.terms__offline {
+    justify-content: center;
+  }
+
+  .submit_btn {
+    text-align: -webkit-center;
+  }
+
+  .form-row_block {
+    margin: 28px;
+  }
+
+  .flx_img_picker {
+    position: relative;
+  }
+
+  #tradewarrantyDop {
+    overflow: hidden;
+  }
+
+  .terms__offline {
+    display: none;
+  }
+
+  .warning {
+    border: solid 2px #F00;
+  }
+
+  .terms_cond_err_container {
+    text-align-last: left;
+  }
+
+  input#warrantyImage {
+    width: auto;
+    margin-left: 24px;
+  }
+
+  span#cancel-upload {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .war_radio_box {
+    display: flex;
+    align-items: center;
+  }
+
+  .war_radio_box input {
+    margin-right: 10px !important;
+    margin-bottom: 0px !important;
+    width: 25px;
+    height: 25px;
+  }
+
+  .warr__radio__cont {
+    display: flex;
+    gap: 10px;
+  }
+
+  .form-group.col-md-3.warr__radio__cont {
+    display: flex;
+  }
+
+  .col-md-3.war_radio_box {
+    height: 32px;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .war__offline {
+    display: none;
+  }
+
+  .did-floating-box {
+    position: relative;
+  }
+
+  label.did-floating-label {
+    position: absolute;
+    top: 1rem;
+    left: 2.5rem;
+    display: inline-block;
+    background: #fff;
+    color: #252525;
+    transition: .3s ease-in-out;
+    font-size: 16px;
+  }
+
+  .buttonstyle:focus+.did-floating-label {
+    top: -.75rem;
+    left: 1.4rem;
+    display: inline-block;
+    z-index: 10;
+    padding: 2px 5px;
+  }
+
+  .buttonstyle:not(:placeholder-shown).buttonstyle:not(:focus)+.did-floating-label {
+    top: -.75rem;
+    left: 2.3rem;
+    display: inline-block;
+    padding: 2px 5px;
+    z-index: 10;
+  }
+  .did-floating-box-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative
+  }
+
+  .did-floating-box-select::-ms-expand {
+    display: none;
+  }
+
+  .did-floating-box-select:not([value=""]):valid~.did-floating-label {
+    top: -8px;
+    font-size: 13px;
+  }
+
+  .did-floating-box-select[value=""]:focus~.did-floating-label {
+    top: 11px;
+    font-size: 13px;
+  }
+
+  .did-floating-label-content-war {
+    position: relative;
+  }
+
+  .did-floating-select {
+    display: block;
+    width: 100%;
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .did-floating-select:focus {
+    outline: none;
+  }
+
+  .did-floating-select:focus~.did-floating-label-war {
+    top: -8px;
+  }
+
+  select.did-floating-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  select.did-floating-select::-ms-expand {
+    display: none;
+  }
+
+  .did-floating-select:not([value=""]):valid~.did-floating-label-war {
+    top: -.65rem;
+    left: 1.4rem;
+  }
+
+  .did-floating-select[value=""]:focus~.did-floating-label-war {
+    top: 1rem;
+  }
+
+  .did-floating-label-war {
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 1.28rem;
+    top: 1rem;
+    padding: 0 5px;
+    background: #fff;
+    transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+  }
+
+  .date_svg-img {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+  }
+
+  div#onlinePurchase,
+  div#warOffline {
+    width: 273px !important;
+  }
+
+  .flx_img_picker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .p.order__invoice__box {
+    width: 30%;
+  }
+
+  .file__box {
+    width: 70%;
+  }
+
+  button.file_content_btn.upload__file {
+    color: #252525;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    border-radius: 05px;
+    background: #f0f0f0;
+  }
+
+  .button__container {
+    position: relative;
+  }
+
+  .warrantyImage {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+  }
+
+  .file__name__message {
+    display: none;
+    background-color: #eee;
+    width: 100%;
+    height: 55px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+    gap: 6px;
+  }
+
+  #cancel-upload svg {
+    padding: 3px;
+    border: 1px solid black;
+    border-radius: 50%;
+  }
+
+  #file__name__error {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .warranty_container input,
+  label:not([data-item]),
+  textarea {
+    font-size: 16px;
+  }
+
+  .flx_img_picker p {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .file__content__drop {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+
+  .file__browser {
+    font-weight: 500;
+    text-decoration: underline;
+  }
+
+  span#warrantyImage_error {
+    position: absolute;
+    top: 55px;
+  }
+
+  #warrantyiages {
+    display: none;
+  }
+
+  input#tradevtigerFormSubmitBtn_6 {
+    margin: 0px;
+    margin-top: 15px;
+  }
+
+  input#tradevtigerFormSubmitBtn_6 {
+    color: #fff;
+  }
+
+  input#otp-txt {
+    width: 50%;
+  }
+
+  h6.verify-txt {
+    color: #000;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  input#tradevtigerFormSubmitBtn_6 {
+    margin: 0px;
+    margin-top: 15px;
+  }
+
+
+  .active-links {
+    color: #023e88 !important;
+    text-decoration: underline !important;
+  }
+
+  @media screen and (max-width:1024px) {
+    button.file_content_btn.upload__file {
+      width: 100%;
+    }
+
+    .buttonstyle:not(:placeholder-shown).buttonstyle:not(:focus)+.did-floating-label {
+      left: 1.4rem;
+    }
+
+    .form-group {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+
+    .otp-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h6.verify-txt {
+      font-size: 22px;
+    }
+
+    input#otp-txt {
+      width: 95% !important;
+      padding: 10px 20px !important;
+    }
+
+    input#tradevtigerFormSubmitBtn_6 {
+      width: auto !important;
+      background: #0093dd !important;
+    }
+
+    .flx_img_picker {
+      gap: 10px;
+    }
+
+    .terms-condition {
+      margin-bottom: 20px;
+    }
+
+    .file__name__message {
+      width: 100%;
+    }
+
+    span#warrantyImage_error {
+      left: -119px;
+    }
+
+    .form-group {
+      margin-bottom: 15px !important;
+    }
+
+    .war__online {
+      margin-bottom: 20px !important;
+    }
+
+    .war__offline {
+      margin-bottom: 10px !important;
+    }
+
+    p.order__invoice__box {
+      width: 40%;
+    }
+
+    .file__box {
+      width: 70%;
+    }
+
+    .trms-checkbox {
+      align-items: start;
+    }
+
+    input#trade_online__tandc,
+    input#offline__tandc {
+      margin-top: 5px;
+    }
+
+    .form-group.col-md-3.warr__radio__cont {
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+    }
+
+    .mobilehide {
+      display: none;
+    }
+
+    .radio_online_off_1 {
+      width: 100%;
+    }
+
+    .form-group {
+      margin-bottom: 10px !important;
+    }
+
+    .did-floating-label-content-war {
+      margin-bottom: 10px;
+    }
+
+    input#warrantyImage {
+      margin-left: 0px !important;
+    }
+
+    .warranty_container {
+      width: 100%;
+      padding: 0 16px;
+      padding-bottom: 40px;
+      margin-top: 70px;
+    }
+
+    .form_head_p {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0px;
+    }
+
+    .form_head_p .l_para {
+      width: 30%;
+    }
+
+    .heading_text {
+      font-size: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    label.did-floating-label,
+    label.did-floating-label-war {
+      font-size: 16px !important;
+      left: 1rem;
+    }
+
+    input[type=date],
+    input[type=datetime-local],
+    input[type=datetime],
+    input[type=email],
+    input[type=month],
+    input[type=number],
+    input[type=password],
+    input[type=search],
+    input[type=tel],
+    input[type=text],
+    input[type=time],
+    input[type=url],
+    input[type=week],
+    textarea,
+    textarea[data-item] {
+      font-size: 16px !important;
+    }
+
+    select {
+      font-size: 16px;
+    }
+
+    .help-inline {
+      font-size: 15px;
+    }
+
+    span.d_flex.heading_div.warranty_head {
+      padding: 30px 0;
+    }
+
+    .form-row {
+      flex-direction: column;
+      margin-bottom: 0px !important;
+    }
+
+    .form-group.col-md-6 {
+      width: 100%;
+    }
+
+    form#trade_warrenty_form {
+      margin-top: 20px;
+    }
+
+    label.location {
+      font-size: 15px;
+    }
+
+    .form-row input,
+    .form-row select {
+      height: 56px;
+    }
+
+    .form-row input::placeholder,
+    .form-row select::placeholder {
+      font-size: 16px;
+    }
+
+    input.i-accpt {
+      margin-bottom: 0;
+    }
+
+    .warranty_container h2.featured-collections--heading.heading_text {
+      text-transform: capitalize;
+    }
+
+    .warranty_container .submit_btn input#tradevtigerFormSubmitBtn_6 {
+      font-weight: 400;
+      overflow: hidden;
+      width: 175px;
+      height: 50px;
+      margin: 0 auto;
+    }
+
+    div#pop-terms {
+      padding: 5% 5% 8%;
+      margin-top: 40px;
+    }
+
+    h3.heading-title {
+      font-size: 20px;
+    }
+
+    #offiline__select {
+      margin-bottom: 30px;
+    }
+
+    .pop-terms_p {
+      font-size: 13px;
+      color: #A4A4A4;
+    }
+
+    .radio_online_off {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    p.log_in_p {
+      font-size: 14px;
+      text-align: right;
+      width: auto;
+    }
+
+    .form_head_p .l_para {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .log_in_p a {
+      color: #1B4786;
+      text-decoration: underline;
+    }
+
+    .form-group.col-md-3.warr__radio__cont {
+      display: block;
+    }
+
+    div#onlinePurchase,
+    div#warOffline {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .warr__radio__cont {
+      display: flex;
+      align-items: start;
+      gap: 0;
+      flex-direction: column;
+    }
+
+    .did-floating-label-war {
+      left: 1rem;
+    }
+
+    .label.did-floating-label,
+    .label.did-floating-label {
+      left: 1rem;
+    }
+
+  }
+
+  @media screen and (min-width:768px) and (max-width:1200px) {
+    .warranty_container {
+      padding: 0 4%;
+      width: 100%;
+
+    }
+
+    .flx_img_picker p {
+      font-weight: 400 !important;
+    }
+
+  }
+
+  span#trade_terms_cond_error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .col-md-3.col-sm-12.warr__radio__cont {
+    width: 50%;
+  }
+
+  .radio_online_off {
+    display: flex;
+    flex-direction: column;
+  }
+
+  span.location.terms-condition {
+    display: flex;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .radio_online_off {
+      flex-direction: row;
+    }
+
+    .col-md-3.col-sm-12.warr__radio__cont {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    .form-group.col-md-6.noteContainer {
+    padding: 10px 0px;
+}
+
+    .col-md-3.col-sm-12.warr__radio__cont {
+      width: 100%;
+    }
+
+    div#onlinePurchase,
+    div#warOffline {
+      width: 100% !important;
+    }
+
+    label.did-floating-label-war.flt_prd_model {
+      width: 50% !important;
+    }
+
+    span.location.terms-condition {
+      display: block;
+    }
+  }
+
+  label.did-floating-label-war.flt_prd_model {
+    width: 30%;
+  }
+
+  .pincode__checker__box {
+    padding: 0 15px;
+  }
+
+  .pincode__checker_diasbled {
+    color: rgba(0, 0, 0, .4) !important;
+  }
+
+  .noteContainer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .noteIcon svg {
+    width: 20px;
+    height: 20px;
+    fill: #0093dd;
+  }
+
+  .noteText {
+    display: flex;
+    align-items: center;
+  }
+
+  .noteText span {
+    color: #0093dd;
+    margin-top: -0.5rem;
+    font-weight: 400;
+  }
+  
+</style>
+<div class="warranty_container">
+  <div class="warranty-page row">
+    <span class="d_flex heading_div warranty_head">
+      <h2 class="featured-collections--heading heading_text" data-item="section-heading"> Trade Warranty Registration </h2>
+    </span>
   </div>
+  <div class="form_head_p">
+    <p class="l_para">Your Details</p>
+  </div>
+  <form id="trade_warrenty_form" method="POST" enctype="multipart/form-data">
+    <div class="warrenty-form">
+      <div class="form-row">
+        <div class="form-group col-md-6 did-floating-box">
+          <input class="form-control fname buttonstyle" type="text"
+             id="trade_first-name" name="trade_first_name" oninput="this.value = this.value.replace(/[0-9]/g, '')"
+            placeholder=" " autocapitalize="words" v-on:keypress="isLetter($event)" required>
+          <label class="did-floating-label">First Name<span>*</span></label>
+          <span id="trade_first_name_error" class="help-inline text-danger"></span>
+        </div>
+        <div class="form-group col-md-6 did-floating-box">
+          <input class="form-control lname buttonstyle" type="text"
+             id="trade-last-name" name="trade_last_name" oninput="this.value = this.value.replace(/[0-9]/g, '')"
+            autocapitalize="words" placeholder=" " required>
+          <label class="did-floating-label">Last Name<span>*</span></label>
+          <span id="trade_last_name_error" class="help-inline text-danger"></span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6 did-floating-box">
+          <input type="email" class="form-control emailadd buttonstyle"
+             name="email" id="trade_Email" autocorrect="off"
+            autocapitalize="off" placeholder=" " required>
+          <label class="did-floating-label">Email ID<span>*</span></label>
+          <span id="trade_email_error" class="help-inline text-danger"></span>
+        </div>
+        <div class="form-group col-md-6 did-floating-box">
+          <input class="form-control buttonstyle"
+             type="tel" name="mobile"
+            id="tradecontactFormPhone" pattern="[0-9]{10}" maxlength="10" placeholder=" " required>
+          <label class="did-floating-label">Mobile No.<span>*</span></label>
+          <span id="trade_mobile_error" class="help-inline text-danger"></span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6 pincode__checker__box did-floating-box">
+          <input class="form-control pincode__checker buttonstyle" type="text" id="trade_pincode-check" name="pincode_check"
+            placeholder=" " required>
+          <label class="did-floating-label">Pincode<span>*</span></label>
+          <span id="trade_pincode_check_error" class="help-inline text-danger"></span>
+        </div>
+        <div class="form-group col-md-6 noteContainer">
+          <div class="noteIcon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+            </svg>
+          </div>
+          <div class="noteText">
+            <span>Please Enter Pincode To Fetch State & City</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-row cityStateRow">
+        <div class="form-group col-md-6 did-floating-box">
+          <input class="form-control pincode__checker buttonstyle" type="text" id="trade_address_state" name="state"
+            placeholder="" required disabled>
+          <label class="did-floating-label state__label pincode__checker_diasbled">State<span>*</span></label>
+          <span id="trade_state_error" class="help-inline text-danger"></span>
+        </div>
+        <div class="form-group col-md-6 did-floating-box">
+          <input class="form-control buttonstyle" type="text" name="city" id="trade_address_city" placeholder="" required
+            disabled>
+          <label class="did-floating-label city__label pincode__checker_diasbled">City<span>*</span></label>
+          <span id="city_error" class="help-inline text-danger"></span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6 did-floating-box">
+          <input class="form-control lname buttonstyle" type="text"
+          id="storeName" name="store_name"
+        autocapitalize="words" placeholder=" " required>
+      <label class="did-floating-label">Store Name<span>*</span></label>
+      <span id="store_name_error" class="help-inline text-danger"></span>
+        </div>
+        <div class="form-group col-md-6 did-floating-box dd_bottom__remove">
+          <input type="date" name="date_of_purchase" id="tradewarrantyDop" placeholder="dd-mm-yyyy"
+            class=" form-control buttonstyle" >
+          <label class="did-floating-label">Date of purchase<span>*</span></label>
+          <img class="date_svg-img"
+            src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/Vector_1.svg?v=1682518087" alt="">
+          <span id="trade_date_of_purchase_error" class="help-inline text-danger"></span>
+        </div>
+
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="did-floating-label-content-war">
+            <select class="did-floating-select buttonstyle warrantyModel"
+              onclick="this.setAttribute('value', this.value);" name="modal_name" id="tradewarrantyModel"
+              onchange="this.setAttribute('value', this.value);" value="">
+              <option value="" selected disabled></option>
+              <option value="Alwin Computer Table WNT/VIS/IVR">Alwin Computer Table WNT/VIS/IVR</option>
+              <option value="Artemis Folding Chair BlackK">Artemis Folding Chair Black  </option>
+              <option value="Ashford Computer Table Walnut/Wht">Ashford Computer Table Walnut/Wht</option>
+              <option value="Avin 1590 Queen Bed FWH">Avin 1590 Queen Bed FWH</option>
+              <option value="Avin 1890 King Bed FWH">Avin 1890 King Bed FWH</option>
+              <option value="Bean Bag XXL Modern Blk Wht 107X64 Cm">Bean Bag XXL Modern Blk Wht 107X64 Cm</option>
+              <option value="Bean Bag XXL Mdrn Brn 107X64 Cm">Bean Bag XXL Mdrn Brn 107X64 Cm</option>
+              <option value="Cladia Mesh Back Office Chair Black">Cladia Mesh Back Office Chair Black</option>
+              <option value="Caspian Wall Unit Walnut/White">Caspian Wall Unit Walnut/White</option>
+              <option value="Cleo Visitor Chair Black">Cleo Visitor Chair Black</option>
+              <option value="Clive Low Height TV Unit Walnut/White">Clive Low Height TV Unit Walnut/White</option>
+              <option value="Flexi Big Foldable Bench Strge 2 Dr Brn">Flexi Big Foldable Bench Strge 2 Dr Brn</option>
+              <option value="Flexi Small Foldble Ottoman With 1 Dr Brn">Flexi Small Foldble Ottoman With 1 Dr Brn</option>
+              <option value="Flow Shoe Cabinet Walnut/Wht">Flow Shoe Cabinet Walnut/Wht</option>
+              <option value="Frolic Easy Chair Purple/Red">Frolic Easy Chair Purple/Red</option>
+              <option value="Granito Round Center Table Mrbl Lam Bwn/Wht">Granito Round Center Table Mrbl Lam Bwn/Wht</option>
+              <option value="Granito Rec Center Table Marble Lam Bwn/Wht">Granito Rec Center Table Marble Lam Bwn/Wht</option>
+              <option value="Itsy 5 Tier Shoe Rack White/Walnut">Itsy 5 Tier Shoe Rack White/Walnut</option>
+              <option value="Itsy 5 Tier Shoe Rack White/Wenge">Itsy 5 Tier Shoe Rack White/Wenge</option>
+              <option value="Itsy Shoe Rack White/Walnut">Itsy Shoe Rack White/Walnut</option>
+              <option value="Itsy Shoe Rack White/Wenge">Itsy Shoe Rack White/Wenge</option>
+              <option value="Maxima Ironing Board White/Blue">Maxima Ironing Board White/Blue</option>
+              <option value="Mazda Visitor Chair Black">Mazda Visitor Chair Black</option>
+              <option value="Neptune Study Table Walnut/Wht">Neptune Study Table Walnut/Wht</option>
+              <option value="Nordan Center Table Glass Top Walnut">Nordan Center Table Glass Top Walnut</option>
+              <option value="Odin Center Table Walnut/White">Odin Center Table Walnut/White</option>
+              <option value="Otis Mesh Back Office Chair Black/Grey">Otis Mesh Back Office Chair Black/Grey</option>
+              <option value="Parson Computer Table Wenge">Parson Computer Table Wenge</option>
+              <option value="Petra TV Unit White/Visconti">Petra TV Unit White/Visconti</option>
+              <option value="Slide Shoe Cabinet Walnut/Wht">Slide Shoe Cabinet Walnut/Wht</option>
+              <option value="Solitaire Mid Back Office Chair Black/Gry">Solitaire Mid Back Office Chair Black/Gry</option>
+              <option value="Soren Cushion Mid Back Office Chair Black">Soren Cushion Mid Back Office Chair Black</option>
+              <option value="Stellar 5Step Alu Ladder Grey">Stellar 5 Step Alu Ladder Grey</option>
+              <option value="Stellar 4 Step Alu Ladder Grey">Stellar 4 Step Alu Ladder Grey</option>
+              <option value="Travis High Back Office Chair Black/Gry">Travis High Back Office Chair Black/Gry</option>
+              <option value="Vesper 8 Tier Shoe Rack Walnut/White">Vesper 8 Tier Shoe Rack Walnut/White</option>
+              <option value="Zeal Cloth Dryer Silver">Zeal Cloth Dryer Silver</option>
+              <option value="Zora Center Table Wenge">Zora Center Table Wenge</option>
+            </select>
+            <label class="did-floating-label-war flt_prd_model">Product Model<span>*</span></label>
+            <span id="trade_modal_name_error" class="help-inline text-danger"></span>
+          </div>
+        </div>
+        <div class="form-group col-md-6 did-floating-box">
+          <input type="text" name="tradeinvoiceNumber" id="tradeinvoiceNumber" placeholder=" " class="form-control buttonstyle"
+            required />
+          <label class="did-floating-label">Invoice Number<span>*</span></label>
+          <span id="trade_invoice__number_error" class="help-inline text-danger"></span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6 did-floating-box dd_bottom__remove"> 
+          <input type="date" name="date_of_invoice" id="tradeinvoicedop" placeholder="dd-mm-yyyy" class=" form-control buttonstyle" max="2024-01-29"> <label class="did-floating-label">Invoice Date<span>*</span></label> 
+          <img class="date_svg-img" src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/Vector_1.svg?v=1682518087" alt=""> 
+          <span id="trade_date_of_invoice_error" class="help-inline text-danger"></span></div>
+        <div class="form-group col-md-6" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+          <div class="flx_img_picker">
+            <p class="order__invoice__box"> Invoice Upload<span>*</span></p>
+            <div class="file__box">
+              <div class="button__container" id="upload">
+                <button class="file_content_btn upload__file">
+                  <span class="file__content__drop"><span class="mobilehide">Drag & Drop your file or</span> <span
+                      class="file__browser">Browse</span></span>
+                </button>
+                <input type="file" name="file" accept="image/jpeg,image/jpg, image/png, application/pdf"
+                  id="warrantyImage" onchange="displayFileName()" class="warrantyImage filepond">
+                <span id="warrantyImage_error" class="help-inline text-danger error__text__position"></span>
+                <span id="warrantyiages" class="help-inline text-danger error__text__position"></span>
+              </div>
+              <div class="file__name__message" id="file_upload_container">
+                <span id="file__name__error"></span>
+                <span class="" type="button" id="cancel-upload">
+                  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10 8.727 17.944.783l1.273 1.273L11.273 10l7.944 7.944-1.273 1.273L10 11.273l-7.944 7.944-1.273-1.273L8.727 10 .783 2.056 2.056.783 10 8.727Z"
+                      fill="#000" fill-rule="nonzero"></path>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+          <span id="warrantyfile_error" class="help-inline text-danger error__text__position"></span>
+          <span id="warrantyfile_error_1" class="help-inline text-danger error__text__position"></span>
+        </div>
+      </div>
+      <div class="form-row_block">
+        <div class="form-group col-12 text-center">
+          <div class="trms-checkbox terms__online">
+            <input type="checkbox" id="trade_online__tandc" class="i-accpt" name="terms-condition">
+            <span class="location terms-condition" for="terms-condition">I accept the&nbsp;<a id="accpt-terms-online"
+                class="war__online active-links" target="_blank"
+                href="https://www.nilkamalfurniture.com/pages/trade-terms-condition">terms and conditions </a>
+            </span>
+          </div>
+          <div class="terms_cond_err_container">
+            <span id="trade_terms_cond_error" class="help-inline text-danger"></span>
+          </div>
+        </div>
+        <div class="submit_btn">
+          <!-- id="otp-btn" -->
+          <input type="button" value="Generate OTP" id="tradevtigerFormSubmitBtn_6"
+            class="secondary-lg-button secondary-button generate_otp getImageFun">
+        </div>
+      </div>
+    </div>
+    <div class="otp-form" style="display: none;">
+      <div class="text-center">
+        <h6 class="verify-txt">Please verify Your OTP</h6>
+        <div class="form-group">
+          <input type="text" class="form-control buttonstyle form-group verify__otp__enter" id="otp-txt" name="otp"
+            autocapitalize="words" placeholder="Enter OTP" required="">
+        </div>
+        <span id="otp_error" class="help-inline text-danger"></span>
+        <!-- id="otp-btn" -->
+        <input type="button" value="Verify" id="tradevtigerFormSubmitBtn_6"
+          class="secondary-lg-button secondary-button verify_otp ">
+      </div>
+    </div>
+  </form>
 </div>
+
+<style>
+  .overflow_pop {
+    overflow: hidden;
+  }
+</style>
+<script>
+  // Function to get pincode data from CSV
+  function getPincodeData() {
+    var pincode = $('#trade_pincode-check').val();
+    var csvFile = 'https://cdn.shopify.com/s/files/1/0044/1208/0217/files/pincode_data.csv?v=1704458039';
+    $.ajax({
+      type: 'GET',
+      url: csvFile,
+      dataType: 'text',
+      success: function (data) {
+        processData(data, pincode);
+      }
+    });
+  }
+  // Function to process CSV data and update trade_address_city and trade_address_state
+  function processData(csv, pincode) {
+    var lines = csv.split('\n');
+    var headers = lines[0].split(',');
+    var pincodeFound = false;
+    for (var i = 1; i < lines.length; i++) {
+      var currentLine = lines[i].split(',');
+      var currentPincode = currentLine[0].trim();
+      if (currentPincode === pincode) {
+        var city = currentLine[1].trim();
+        var stateName = currentLine[2].trim();
+        pincodeFound = true;
+        break;
+      }
+    }
+
+    // Display error if pincode is not found
+    if (!pincodeFound) {
+      $("#trade_pincode_check_error").html('Pincode does not exist');
+      $('#trade_address_city').val('');
+      $('#trade_address_state').val('');
+      $('#trade_address_city').attr('disabled', true);
+      $('#trade_address_state').attr('disabled', true);
+      $('#trade_address_city').removeAttr('readonly');
+      $('#trade_address_state').removeAttr('readonly');
+      $('.state__label').addClass('pincode__checker_diasbled');
+      $('.city__label').addClass('pincode__checker_diasbled');
+    } else {
+      // Display data and show the "cityStateRow" class
+      $("#trade_pincode_check_error").html('');
+      $('#trade_address_city').removeAttr('disabled');
+      $('#trade_address_state').removeAttr('disabled');
+      $('#trade_address_city').attr('readonly', true);
+      $('#trade_address_state').attr('readonly', true);
+      $('.state__label').removeClass('pincode__checker_diasbled');
+      $('.city__label').removeClass('pincode__checker_diasbled');
+      displayData(city, stateName);
+    }
+  }
+
+  // Function to display data in trade_address_city and trade_address_state
+  function displayData(city, stateName) {
+    $('#trade_address_city').val(city);
+    $('#trade_address_state').val(stateName);
+    console.log('City: ' + city);
+    console.log('State Name: ' + stateName);
+  }
+
+  // Function to handle focus out
+  function handleFocusOut() {
+    var pincode = $('#trade_pincode-check').val().replace(/\D/g, '').substring(0, 6);
+
+    if (pincode.length === 6) {
+      displayData(city, stateName);
+    } else if (pincode.length < 6) {
+      $("#trade_pincode_check_error").html('Please enter valid Pincode');
+      $('#trade_address_city').val('');
+      $('#trade_address_state').val('');
+      $('#trade_address_city').attr('disabled', true);
+      $('#trade_address_state').attr('disabled', true);
+      $('#trade_address_city').removeAttr('readonly');
+      $('#trade_address_state').removeAttr('readonly');
+      $('.state__label').addClass('pincode__checker_diasbled');
+      $('.city__label').addClass('pincode__checker_diasbled');
+    }
+  }
+
+  $('#trade_pincode-check').on('input', function (e) {
+    var input = e.target.value;
+
+    var numericInput = input.replace(/\D/g, '');
+
+    var pincode = numericInput.substring(0, 6);
+
+    e.target.value = pincode;
+
+    if (pincode.length === 6) {
+      getPincodeData();
+    }
+  });
+
+  $("#trade_pincode-check").on('focusout', handleFocusOut);
+
+  $('.generate_otp').click(function (e) {
+    validateInputsOnsubmit();
+    console.clear("console clear");
+    console.log('e', e);
+    var file_data = $('#warrantyImage').val();
+    var MAX_FILE_SIZE = 1 * 1024 * 1024;
+    var fileSize = $('#warrantyImage')[0]?.files[0]?.size;
+
+    if (file_data != null || file_data != undefined) {
+      var fileExt = file_data.substr(file_data.lastIndexOf('.') + 1).toLowerCase();
+      if (fileExt === 'jpeg' || fileExt === 'png' || fileExt === 'jpg' || fileExt === 'pdf') {
+        console.log('File is in proper format');
+        if (fileSize < MAX_FILE_SIZE) {
+          let input = $('#trade_pincode-check').val();
+          let numericInput = input.replace(/\D/g, '');
+
+          let pincode = numericInput.substring(0, 6);
+          let myStateInput = $("#trade_address_state").val();  
+        if (pincode.length === 6 && myStateInput != ''){
+          var form = $('#trade_warrenty_form');
+          $.ajax({
+            url: "https://admin.nilkamalfurniture.com/api/trade-warranty-register",
+            type: 'POST',
+            data: form.serialize(),
+            dataType: 'json',
+            success: function (resp) {
+              if (resp.success == true) {                             
+                  if ($("#trade_online__tandc").is(":checked")) {
+                    $('.warrenty-form').hide();
+                    $('.form_head_p').hide();
+                    $('.otp-form').show();
+                  } else {
+                    $('#trade_terms_cond_error').text('Please select terms and condition');
+                  }
+              }
+            },
+            error: function (data) {
+              console.log('Errors Data Vivek', data.responseJSON[0])
+              $.each(data.responseJSON[0], function (k, v) {
+                $('#' + k + '_error').text(v);
+              });
+            },
+          });
+}
+        }
+        else {
+          e.preventDefault();
+          $('#warrantyImage').val("");
+          warrantyfile_error.textContent = 'File size must be less than 1MB';
+          file_upload_container.classList.add("warning");
+        }
+        warrantyfile_error.textContent = '';
+        file_upload_container.classList.remove("warning");
+      }
+      else {
+        warrantyfile_error_1.textContent = 'The selected file is not an image or a PDF';
+        warrantyfile_error.textContent = '';
+        console.log('Invalid file type in img');
+      }
+    }
+    else {
+      $('#warrantyImage').val("");
+      warrantyfile_error_1.textContent = 'Please upload your Invoice document as image or a PDF';
+      warrantyfile_error.textContent = '';
+      console.log('File not uploaded');
+
+      $('.file__name__message').css('display', 'none');
+      $('.button__container').css('display', 'block');
+    }
+
+  });
+
+  $('#online-purchase').change(function () {
+    var online_val = $(this).val();
+    if (online_val == 'onother') {
+      $('#olothers').show();
+    } else {
+      $('#olothers').hide();
+    }
+  });
+  $('#Offline-purchase').change(function () {
+    var online_val = $(this).val();
+    if (online_val == 'offother') {
+      $('#ofothers').show();
+
+    } else {
+      $('#ofothers').hide();
+    }
+
+
+  });
+  $('.verify_otp').click(function () {
+
+    $("#trade_warrenty_form").ajaxSubmit({
+      url: "https://admin.nilkamalfurniture.com/api/trade-verify-otp",
+      type: 'POST',
+      dataType: 'json',
+      success: function (resp) {
+   // alert("response");
+        if (resp.success == true) {
+          window.location.href = 'https://nilkamalfurniture.myshopify.com/pages/thank-you-page';
+        } else {
+          $('#otp_error').text('OTP not verified');
+        }
+      },
+    });
+  });
+</script>
+<script>
+
+const storeNameInput = document.getElementById('storeName');
+ const storeNameError = document.getElementById('store_name_error');
+
+  const nameInput = document.getElementById('trade_first-name');
+  const errorMessage = document.getElementById('trade_first_name_error');
+  const lastnameInput = document.getElementById('trade-last-name');
+  const errorMessagelast = document.getElementById('trade_last_name_error');
+  const emailnameInput = document.getElementById('trade_Email');
+  const errorMessageemail = document.getElementById('trade_email_error');
+  const mobilenoInput = document.getElementById('tradecontactFormPhone');
+  const errorMessagemobile = document.getElementById('trade_mobile_error');
+  const stateInput = document.getElementById('trade_address_state');
+  const errorMessagestate = document.getElementById('trade_state_error');
+  const cityInput = document.getElementById('trade_address_city');
+  const errorMessagecity = document.getElementById('city_error');
+  const offlineInput = document.getElementById('Offline-purchase');
+  const errorMessageoffline = document.getElementById('offline_error');
+  const onlineInput = document.getElementById('online-purchase');
+  const errorMessageonline = document.getElementById('online_error');
+  
+  const tradeinvoiceNumberInput = document.getElementById('tradeinvoiceNumber');
+  const tradeinvoiceNumberError = document.getElementById('trade_invoice__number_error');
+
+  const tradewarrantyDopInput = document.getElementById('tradewarrantyDop');
+  const errorMessagewarrantytradewarrantyDop = document.getElementById('trade_date_of_purchase_error');
+
+  const tradeDopInput = document.getElementById('tradeinvoicedop');
+  const errorMessageTradeDop = document.getElementById('trade_date_of_invoice_error');
+
+  const tradewarrantyModelInput = document.getElementById('tradewarrantyModel');
+  const errorMessagewarrantytradewarrantyModel = document.getElementById('trade_modal_name_error');
+
+  const warrantySizeInput = document.getElementById('warrantySize');
+  const errorMessagewarrantywarrantySize = document.getElementById('model__size_error');
+
+  const pincodeInput = document.getElementById('trade_pincode-check');
+  const errorMessagePincode = document.getElementById('trade_pincode_check_error');
+
+  const warrantywarrantyInvoice = document.getElementById('warrantyInvoice');
+  const errorMessagewarrantywarrantyInvoice = document.getElementById('invoice_id_error');
+
+  const warrantywarrantywarrantyImage = document.getElementById('warrantyImage');
+  const errorMessagewarrantywarrantyImage = document.getElementById('warrantyfile_error');
+  //pp
+  const errorMessagewarrantywarrantyImage1 = document.getElementById('warrantyfile_error_1');
+
+  const file_upload_container = document.getElementById('file_upload_container');
+
+  const inputs = document.querySelectorAll('.buttonstyle');
+
+  const cancelButton = document.getElementById("cancel-upload");
+  // Get the selected date
+  const selectedDate = new Date(document.getElementById("tradewarrantyDop").value);
+  // Get the current date
+  const currentDate = new Date();
+  function checkFileInput() {
+    if (warrantywarrantywarrantyImage.value) {
+      cancelButton.style.display = "block";
+    } else {
+      cancelButton.style.display = "none";
+    }
+  }
+
+  let phoneNumberInput = $("input[type='tel']");
+
+  // bind a keypress event listener to the input field
+  phoneNumberInput.keypress(function (event) {
+    // get the character code of the pressed key
+    var charCode = event.which;
+
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      // if the key is not a number, prevent it from being entered
+      event.preventDefault();
+    }
+  });
+
+  $('#warrantyInvoice').on('input', function () {
+    var inputValue = $(this).val();
+    $(this).val(inputValue.replace(/[^a-zA-Z0-9\-]/g, ''));
+  });
+  $('#warrantySize').on('input', function () {
+    var inputValue = $(this).val();
+    $(this).val(inputValue.replace(/[^a-zA-Z0-9\-]/g, ''));
+  });
+
+  nameInput.addEventListener('blur', () => {
+    if (nameInput.value?.trim() === '') {
+      errorMessage.textContent = 'Please enter your First Name';
+    } else {
+      errorMessage.textContent = '';
+    }
+  });
+  inputs.forEach(input => {
+    input.addEventListener('blur', (e) => {
+      if (e.target.value?.trim().length == 0) {
+         e.target.classList.add('warning')
+      } else {
+        e.target.classList.remove('warning')
+      }
+    });
+  });
+  
+  storeNameInput.addEventListener('blur', () => {
+    if (storeNameInput.value?.trim() === '') {
+      storeNameError.textContent = 'Please Enter Store Name';
+    } else {
+      storeNameError.textContent = '';
+    }
+  });
+
+  tradeinvoiceNumberInput.addEventListener('blur', () => {
+    if (tradeinvoiceNumberInput.value?.trim() === '') {
+      tradeinvoiceNumberError.textContent = 'Please Enter Invoice Number';
+    } else {
+      tradeinvoiceNumberError.textContent = '';
+    }
+  });
+
+  tradewarrantyModelInput.addEventListener('blur', () => {
+    if (tradewarrantyModelInput.value?.trim() === '') {
+      errorMessagewarrantytradewarrantyModel.textContent = 'Please select your Product model';
+    } else {
+      errorMessagewarrantytradewarrantyModel.textContent = '';
+    }
+  });
+  
+  warrantywarrantywarrantyImage.addEventListener('blur', () => {
+   
+    errorMessagewarrantywarrantyImage.textContent = 'Please upload your Invoice document';
+    console.log("warrantywarrantywarrantyImage first");
+    event.preventDefault(); //   prevent form submission
+    errorMessagewarrantywarrantyImage.textContent = 'Please upload your Invoice document';
+    console.log("warrantywarrantywarrantyImage 1");
+    if (warrantywarrantywarrantyImage.value?.trim() == '') {
+      console.log("warrantywarrantywarrantyImage 2");
+      errorMessagewarrantywarrantyImage.textContent = 'Please upload your Invoice document';
+      //pp
+      errorMessagewarrantywarrantyImage1.textContent='';
+      if (!warrantywarrantywarrantyImage.value) {
+        console.log("warrantywarrantywarrantyImage 3");
+        //alert('Please select a file'); // show an error message
+        errorMessagewarrantywarrantyImage.textContent = 'Please upload your Invoice document';
+        //pp
+        errorMessagewarrantywarrantyImage1.textContent='';
+
+        event.preventDefault(); // prevent form submission
+      } else if (warrantywarrantywarrantyImage.files[0].size > 1000000) {
+        console.log("warrantywarrantywarrantyImage 4");
+        //alert('File size must be less than 1MB'); // show an error message
+        errorMessagewarrantywarrantyImage.textContent = 'File size must be less than 1MB';
+        //pp
+        errorMessagewarrantywarrantyImage1.textContent='';
+
+        file_upload_container.classList.add("warning");
+        event.preventDefault(); // prevent form submission
+      }
+
+    } else if (warrantywarrantywarrantyImage.files[0].size > 1000000) {
+      console.log("warrantywarrantywarrantyImage 5.0");
+      //alert('File size must be less than 1MB'); // show an error message
+      errorMessagewarrantywarrantyImage.textContent = 'File size must be less than 1MB';
+      //pp
+      errorMessagewarrantywarrantyImage1.textContent='';
+
+      file_upload_container.classList.add("warning");
+      event.preventDefault(); // prevent form submission
+    }
+    else {
+      console.log("warrantywarrantywarrantyImage 5");
+      file_upload_container.classList.remove("warning")
+      errorMessagewarrantywarrantyImage.textContent = '';
+      //pp
+      errorMessagewarrantywarrantyImage1.textContent='';
+
+    }
+})
+//pp blur to change
+  warrantywarrantywarrantyImage.addEventListener('change', () => {
+    event.preventDefault(); //   prevent form submission
+    errorMessagewarrantywarrantyImage.textContent = 'Please upload your Invoice document';
+    console.log("warrantywarrantywarrantyImage 1");
+    if (warrantywarrantywarrantyImage.value?.trim() == '') {
+      console.log("warrantywarrantywarrantyImage 2");
+      errorMessagewarrantywarrantyImage.textContent = 'Please upload your Invoice document';
+      //pp
+      errorMessagewarrantywarrantyImage1.textContent='';
+      if (!warrantywarrantywarrantyImage.value) {
+        console.log("warrantywarrantywarrantyImage 3");
+        //alert('Please select a file'); // show an error message
+        errorMessagewarrantywarrantyImage.textContent = 'Please upload your Invoice document';
+        //pp
+        errorMessagewarrantywarrantyImage1.textContent='';
+
+        event.preventDefault(); // prevent form submission
+      } else if (warrantywarrantywarrantyImage.files[0].size > 1000000) {
+        console.log("warrantywarrantywarrantyImage 4");
+        //alert('File size must be less than 1MB'); // show an error message
+        errorMessagewarrantywarrantyImage.textContent = 'File size must be less than 1MB';
+        //pp
+        errorMessagewarrantywarrantyImage1.textContent='';
+
+        file_upload_container.classList.add("warning");
+        event.preventDefault(); // prevent form submission
+      }
+
+    } else if (warrantywarrantywarrantyImage.files[0].size > 1000000) {
+      console.log("warrantywarrantywarrantyImage 5.0");
+      //alert('File size must be less than 1MB'); // show an error message
+      errorMessagewarrantywarrantyImage.textContent = 'File size must be less than 1MB';
+      //pp
+      errorMessagewarrantywarrantyImage1.textContent='';
+
+      file_upload_container.classList.add("warning");
+      event.preventDefault(); // prevent form submission
+    }
+    else {
+      console.log("warrantywarrantywarrantyImage 5");
+      file_upload_container.classList.remove("warning")
+      console.log("pora")
+      errorMessagewarrantywarrantyImage.textContent = '';
+      //pp
+      errorMessagewarrantywarrantyImage1.textContent='';
+
+    }
+  });
+
+  tradewarrantyDopInput.addEventListener('blur', () => {
+    if (tradewarrantyDopInput.value?.trim() === '') {
+      errorMessagewarrantytradewarrantyDop.textContent = 'Please select your Date of Purchase';
+    } else {
+      errorMessagewarrantytradewarrantyDop.textContent = '';
+    }
+  });
+
+  tradeDopInput.addEventListener('blur', () => {
+    if (tradeDopInput.value?.trim() === '') {
+    errorMessageTradeDop.textContent = 'Please select your Invoice Date';
+    } else {
+      errorMessageTradeDop.textContent = '';
+    }
+  });
+  
+  lastnameInput.addEventListener('blur', () => {
+    if (lastnameInput.value?.trim() === '') {
+      errorMessagelast.textContent = 'Please enter your Last Name';
+    } else {
+      errorMessagelast.textContent = '';
+    }
+  });
+  emailnameInput.addEventListener('blur', () => {
+    if (emailnameInput.value?.trim() === '') {
+      errorMessageemail.textContent = 'Please enter your Email ID';
+    } else {
+      errorMessageemail.textContent = '';
+    }
+  });
+  mobilenoInput.addEventListener('blur', () => {
+    if (mobilenoInput.value?.trim() === '') {
+    errorMessagemobile.textContent = 'Please enter your Mobile no';
+   } else if (mobilenoInput.value.length !== 10) {
+        errorMessagemobile.textContent = 'The mobile must be 10 digits.';
+    } else {
+      errorMessagemobile.textContent = '';
+    }
+  });
+  stateInput.addEventListener('blur', () => {
+    if (stateInput.value?.trim() === '') {
+      errorMessagestate.textContent = 'Please enter Pincode field';
+    } else {
+      errorMessagestate.textContent = '';
+    }
+  });
+
+  cityInput.addEventListener('blur', () => {
+    if (cityInput.value?.trim() === '') {
+      errorMessagecity.textContent = 'Please enter Pincode field';
+    } else {
+      errorMessagecity.textContent = '';
+    }
+  });
+  
+  function validateInputs() {
+    if (input1.value?.trim() === '' || input2.value?.trim() === '' || input3.value?.trim() === '' || input4.value?.trim() === '' || input5.value?.trim() === '') {
+      errorMessage.textContent = 'All fields are required';
+    } else {
+      errorMessage.textContent = '';
+    }
+  }
+
+  // drag and drop script to only accept images and pdf.
+  function dragOverHandler(event) {
+    event.preventDefault();
+  }
+
+  function dropHandler(event) {
+    event.preventDefault();
+    const files = event.dataTransfer.files;
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      if (file.type.includes('image/') || file.type === 'application/pdf') {
+        // Handle the file here
+        displayFileName();
+      }
+    }
+  }
+
+  //Drag Event file upload
+  const uploadBtn = document.querySelector('#upload');
+  const input = document.querySelector('#warrantyImage');
+  const warrantyfile_error = document.getElementById('warrantyfile_error');
+  const warrantyfile_error_1 = document.getElementById('warrantyfile_error_1');
+
+
+  // Function to handle file selection in the input element
+input.addEventListener('change', (e) => {
+  const file = e.target.files[0];
+
+  if (file.type === 'image/jpeg' ||
+    file.type === 'image/png' ||
+    file.type === 'image/gif' ||
+    file.type === 'application/pdf') {
+    // The selected file is an image or a PDF
+    console.log('File type is valid');
+
+    if (file.size > 1000000) {
+      warrantyfile_error_1.textContent = 'File size must be less than 1MB';
+      warrantyfile_error.textContent = '';
+      $('.button__container').classList.add("warning");
+    } else {
+      warrantyfile_error_1.textContent = '';
+      file_upload_container.classList.remove("warning");
+      $('.button__container').classList.add("warning");
+    }
+  } else {
+    $('#warrantyImage').val(""); // Clear the input
+    warrantyfile_error.textContent = 'The selected file is not an image or a PDF';
+    $('.button__container').classList.add("warning");
+    console.log('Invalid file type in DropAndDrop');
+  }
+});
+
+  uploadBtn.addEventListener('drop', (e) => {
+  e.preventDefault();
+  uploadBtn.classList.remove('dragover');
+  const file = e.dataTransfer.files[0];
+  input.files = e.dataTransfer.files;
+  
+  if (file.type === 'image/jpeg' ||
+    file.type === 'image/png' ||
+    file.type === 'image/gif' ||
+    file.type === 'application/pdf') {
+    // The selected file is an image or a PDF
+    console.log('File type is valid');
+
+    if (file.size > 1000000) {
+      console.log('darg & drop', file);
+      warrantyfile_error_1.textContent = 'File size must be less than 1MB';
+      warrantyfile_error.textContent = '';
+      $('.button__container').classList.add("warning");
+      // Prevent form submission
+      e.preventDefault();
+    } else {
+      warrantyfile_error_1.textContent = '';
+      file_upload_container.classList.remove("warning");
+      $('.button__container').classList.add("warning");
+    }
+  } else {
+    e.preventDefault();
+    $('#warrantyImage').val("");
+    warrantyfile_error.textContent = 'The selected file is not an image or a PDF';
+    $('.button__container').classList.add("warning");
+    $("#warrantyImage").val("");
+    console.log('Invalid file type in DropAndDrop');
+  }
+});
+</script>
+<script>
+
+  const tradewarrantyDop = document.getElementById('tradewarrantyDop');
+  const today = new Date().toISOString().split('T')[0];
+  // Set the minimum date to today
+  tradewarrantyDop.max = today;
+  $("#war_on_click").click(function () {
+    $(".war__offline").css("display", "none");
+    $(".war__online").css("display", "block");
+    $(".terms__offline").css("display", "none");
+    $("#Offline-purchase").val("");
+    //$("").val("");
+    $("#trade_online__tandc").prop('checked', false);
+  });
+  $("#war_of_click").click(function () {
+    $(".war__online").css("display", "none");
+    $(".war__offline").css("display", "block");
+    $(".terms__offline").css("display", "flex");
+    $("#online-purchase").val("");
+    // $("#").val("");
+    $("#trade_online__tandc").prop('checked', false);
+  });
+
+  function dateChange() {
+    let dateInutID = document.getElementById("tradewarrantyDop");
+    dateInutID.type = 'date';
+    let today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("trade_date_of_purchase")[0].setAttribute('max', today);
+  }
+
+  $(".verify__otp__enter").on("keydown", function (e) {
+    if (e.which === 13) {
+      e.preventDefault();
+    }
+  });
+
+  $(".verify__otp__enter").on("keypress", function (event) {
+    if (event.which < 48 || event.which > 57 || $(this).val().length >= 6) {
+      event.preventDefault();
+    }
+  });
+
+  $(".verify__otp__enter").on("keyup", function (event) {
+    if ($(this).val().length >= 6) {
+      $("#otp_error").text("");
+
+    } else {
+      $("#otp_error").css('display', 'block');
+      $("#otp_error").text("OTP should be 6 digit");
+    }
+  });
+
+  $("#tradevtigerFormSubmitBtn_6").on("click", function (event) {
+  event.preventDefault();
+  window.scrollTo(0, 0);
+});
+
+</script>
+<script>
+  function validateInputsOnsubmit() {  
+  const checkbox = document.getElementById('trade_online__tandc');
+  const checkboxError = document.getElementById('trade_terms_cond_error');
+  
+  if (checkbox.checked) {
+    checkboxError.textContent = '';
+  } else {
+    checkboxError.textContent = 'Please accept the terms and conditions';
+  }
+  
+  const storeNameInput = document.getElementById('storeName');
+  const storeNameError = document.getElementById('store_name_error');
+  if (storeNameInput.value.trim() === '') {
+    storeNameError.textContent = 'Please enter store name';
+  } else {
+    storeNameError.textContent = '';
+  }
+  
+  const tradeDopInput = document.getElementById('tradeinvoicedop');
+  const errorMessageTradeDop = document.getElementById('trade_date_of_invoice_error');
+  if (tradeDopInput.value.trim() === '') {
+    errorMessageTradeDop.textContent = 'Please select your Date of Invoice';
+  } else {
+    errorMessageTradeDop.textContent = '';
+  }
+
+  const warrantyDopInput = document.getElementById('tradewarrantyDop');
+  const errorMessagewarrantyDop = document.getElementById('trade_date_of_purchase_error');
+  if (warrantyDopInput.value.trim() === '') {
+    errorMessagewarrantyDop.textContent = 'Please select your Date of Purchase';
+  } else {
+    errorMessagewarrantyDop.textContent = '';
+  }
+
+  const invoiceNumberInput = document.getElementById('tradeinvoiceNumber');
+  const tradeinvoiceNumberError = document.getElementById('trade_invoice__number_error');
+  if (invoiceNumberInput.value.trim() === '') {
+    tradeinvoiceNumberError.textContent = 'Please enter Invoice Number';
+  } else {
+    tradeinvoiceNumberError.textContent = '';
+  }
+  
+  const warrantyModelInput = document.getElementById('tradewarrantyModel');
+  const errorMessagewarrantyModel = document.getElementById('trade_modal_name_error');
+  if (warrantyModelInput.value.trim() === '') {
+    errorMessagewarrantyModel.textContent = 'Please select your Product model';
+  } else {
+    errorMessagewarrantyModel.textContent = '';
+  }
+  
+  const nameInput = document.getElementById('trade_first-name');
+  const errorMessageName = document.getElementById('trade_first_name_error');
+  if (nameInput.value.trim() === '') {
+    errorMessageName.textContent = 'Please enter your First Name';
+  } else {
+    errorMessageName.textContent = '';
+  }
+  
+  const lastNameInput = document.getElementById('trade-last-name');
+  const errorMessagelastName = document.getElementById('trade_last_name_error');
+  if (lastNameInput.value.trim() === '') {
+    errorMessagelastName.textContent = 'Please enter your Last Name';
+  } else {
+    errorMessagelastName.textContent = '';
+  }
+  
+  const emailInput = document.getElementById('trade_Email');
+  const errorMessageEmail = document.getElementById('trade_email_error');
+  if (emailInput.value.trim() === '') {
+    errorMessageEmail.textContent = 'Please enter your Email ID';
+  } else {
+    errorMessageEmail.textContent = '';
+  }
+  
+  const mobileInput = document.getElementById('tradecontactFormPhone');
+  const errorMessageMobile = document.getElementById('trade_mobile_error');
+  if (mobileInput.value.trim() === '') {
+    errorMessageMobile.textContent = 'Please enter your Mobile no';
+  } else if (mobileInput.value.length !== 10) {
+    errorMessageMobile.textContent = 'The mobile must be 10 digits.';
+  } else {
+    errorMessageMobile.textContent = '';
+  }
+
+  const pincodeInput = document.getElementById('trade_pincode-check');
+  const errorMessagePincode = document.getElementById('trade_pincode_check_error');
+
+  if (pincodeInput.value?.trim() === '') {
+      errorMessagePincode.textContent = 'Please enter your Pincode';
+    } else if(pincodeInput.value?.trim().length < 6){
+      errorMessagePincode.textContent = 'Please enter valid Pincode';
+    }
+    else {
+      errorMessagePincode.textContent = '';
+    }
+  
+  const stateInput = document.getElementById('trade_address_state');
+  const errorMessageState = document.getElementById('trade_state_error');
+  if (stateInput.value?.trim() === '') {
+      errorMessagestate.textContent = '';
+    } else {
+      errorMessagestate.textContent = '';
+    }
+
+  const cityInput = document.getElementById('trade_address_city');
+  const errorMessageCity = document.getElementById('city_error');
+
+  if (cityInput.value?.trim() === '') {
+      errorMessagecity.textContent = '';
+    } else {
+      errorMessagecity.textContent = '';
+    }
+}
+
+  function displayFileName() {
+    let input = $("#warrantyImage");
+    //  let fileName = input.files[0].name;
+    let selectedFile = $('#warrantyImage').val().replace(/^.*\\/, "");
+    if (selectedFile) {
+      $('#file__name__error').text(selectedFile);
+      $('.button__container').hide();
+      $('.file__name__message').css('display', 'flex');
+      errorMessagewarrantywarrantyImage.textContent = '';
+    } else {
+      $('#file__name__error').click();
+      $('#file__name__error').text("");
+      $('.button__container').show();
+      $('.file__name__message').css('display', 'none');
+    }
+  }
+
+  $('#cancel-upload').on('click', function () {
+    $('.file__name__message').css('display', 'none');
+    $('.button__container').css('display', 'block');
+    $("#warrantyImage").val("");
+    $("#warrantyImage").click();
+  });
+
+</script>
+<script>
+  // JavaScript code to sort the dropdown options alphabetically
+  const selectElement = document.getElementByClass('.tradewarrantyModel');
+  const optionList = Array.from(selectElement.options);
+
+  optionList.sort((a, b) => a.text.localeCompare(b.text));
+
+  // Remove existing options from the select element
+  while (selectElement.firstChild) {
+    selectElement.removeChild(selectElement.firstChild);
+  }
+
+  // Append sorted options back to the select element
+  optionList.forEach((option) => {
+    selectElement.appendChild(option);
+  });
+
+</script>

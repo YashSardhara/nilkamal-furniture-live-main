@@ -141,11 +141,13 @@
     {% if settings.pagination_type == 'basic_pagination' %}
       {% include 'pagination' with sidebar %}
     {% endif %}
-
-    </div>
+      {% if sidebar %}
+       </div>
+      {% else %}
+        </div>
+      {% endif %}
   {% endpaginate %}
 
-</div>
 
 {% schema %}
 

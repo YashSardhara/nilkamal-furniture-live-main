@@ -19,7 +19,7 @@
         "author": {
           "name": "Nilkamal Furniture"
         }
-      },
+
       "offers": {
         "@type": "Offer",
         "url": "https://example.com/anvil",
@@ -306,7 +306,7 @@
                           <div class="price-info new-price">
                         <div class="col-sm-5 left-price">
                         <span class="sale-text {% if product.available == false %}hidden{% endif %}">Sale Price</span>
-                          <span itemprop="price" content="{{ variant.price | money_without_currency }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
+                          <span itemprop="price" content="{{ variant.price | money_without_currency |  append: '.00' |  remove: ',' }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
 
                         <p><span class="current_price totalpricequantity">
                               {% if variant.price > 0 %}
@@ -349,7 +349,7 @@
                         <div class="price-info new-price">
                         <div class="col-sm-5 left-price">
                         <span class="sale-text {% if product.available == false %}hidden{% endif %}">Sale Price</span>
-                          <span itemprop="price" content="{{ variant.price | money_without_currency }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
+                          <span itemprop="price" content="{{ variant.price | money_without_currency |  append: '.00' | remove: ',' }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
 
                         <p><span class="current_price totalpricequantity">
                               {% if variant.price > 0 %}
@@ -517,9 +517,9 @@ document.querySelector('#shareBtn')
 
               <div class="select product-variant-dropdown customlt">
                         <label>{{ product.options[0] }}</label>
-                        <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
+                        <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select matt_varient">
                           {% for v in product.variants %}
-                          <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
+                          <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" data-inventory-quantity="{{ v.inventory_quantity }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
                           {% endfor %}
                         </select>
                       </div>
@@ -529,9 +529,9 @@ document.querySelector('#shareBtn')
                       {% elsif product.available and product.variants.size >= 1 and option == 'Size' %}
                     <div class="select product-variant-dropdown">
                         <label>{{ product.options[0] }}</label>
-                        <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
+                        <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select matt_varient">
                           {% for v in product.variants %}
-                          <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
+                          <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" data-inventory-quantity="{{ v.inventory_quantity }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
                           {% endfor %}
                         </select>
                       </div>
@@ -668,7 +668,7 @@ document.querySelector('#shareBtn')
     <div class="price-info new-price footer_fix">
 
                         <span class="sale-text {% if product.available == false %}hidden{% endif %}"></span>
-                          <span itemprop="price" content="{{ variant.price | money_without_currency }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %} footer_fix">
+                          <span itemprop="price" content="{{ variant.price | money_without_currency |  append: '.00' | remove: ',' }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %} footer_fix">
                             <p><span class="sale savings">
                              <span class="fffsfs">{{ variant.compare_at_price | minus: variant.price | times: 100 | divided_by: variant.compare_at_price }}%</span>
                             </span>

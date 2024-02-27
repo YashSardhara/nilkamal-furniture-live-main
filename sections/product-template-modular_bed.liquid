@@ -17,7 +17,6 @@
         "author": {
           "name": "Nilkamal Furniture"
         }
-      },
       "offers": {
         "@type": "Offer",
         "url": "https://example.com/anvil",
@@ -1967,7 +1966,7 @@ h2.cbb-frequently-bought-title.translatable{
                           <div class="price-info new-price">
                             <div class="col-sm-5 left-price">
                               <span class="sale-text {% if product.available == false %}hidden{% endif %}">Sale Price</span>
-                              <span itemprop="price" content="{{ variant.price | money_without_currency }}"
+                              <span itemprop="price" content="{{ variant.price | money_without_currency | append: '.00' | remove: ',' }}"
                                 class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
 
                                 <p><span class="current_price totalpricequantity">
@@ -2017,7 +2016,7 @@ h2.cbb-frequently-bought-title.translatable{
                           <div class="price-info new-price">
                             <div class="col-sm-5 left-price">
                               <span class="sale-text {% if product.available == false %}hidden{% endif %}">Sale Price</span>
-                              <span itemprop="price" content="{{ variant.price | money_without_currency }}"
+                              <span itemprop="price" content="{{ variant.price | money_without_currency | append: '.00' | remove: ',' }}"
                                 class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
 
                                 <p><span class="current_price totalpricequantity">
@@ -2395,7 +2394,7 @@ h2.cbb-frequently-bought-title.translatable{
                             <div class="price-info new-price footer_fix">
 
                               <span class="sale-text {% if product.available == false %}hidden{% endif %}"></span>
-                              <span itemprop="price" content="{{ variant.price | money_without_currency }}"
+                              <span itemprop="price" content="{{ variant.price | money_without_currency | append: '.00' | remove: ',' }}"
                                 class="{% if variant.compare_at_price > variant.price %}sale{% endif %} footer_fix">
                                 <p><span class="sale savings savings_modular_bed savings_modular_bed_mobile">
                                     <span

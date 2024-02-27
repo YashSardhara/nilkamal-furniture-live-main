@@ -677,13 +677,13 @@ abbr {
   .blur-up {
     -webkit-backface-visibility: hidden;
     -webkit-transform: translateZ(0) scale(1.0, 1.0);
-    -webkit-filter: blur(5px);
-    filter: blur(5px);
+    /* -webkit-filter: blur(5px); */
+    /* filter: blur(5px); */
     transform: scale(1);
     transition: filter 200ms, -webkit-filter 200ms, box-shadow 200ms;
     &.lazyloaded {
-      -webkit-filter: blur(0);
-      filter: blur(0);
+      /* -webkit-filter: blur(0); */
+      /* filter: blur(0); */
     }
   }
 
@@ -12737,7 +12737,9 @@ $delay: 0;
   }
   .equal-specifier {
     .product-wrap .product_image {
-      height: auto !important;
+      min-height: 160px !important;
+      max-height:200px !important;
+      height:100% !important;
     }
     .product-wrap .product-info__caption .title {
       min-height: auto;

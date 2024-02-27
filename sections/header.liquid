@@ -875,6 +875,28 @@ p.myfranchHide{
 </script>
 {% comment %} Animated Search code end {% endcomment %}
 
+<script>
+$('.dropdown_link').on('click', function () {
+      $(this).toggleClass('active_link');
+
+      if ($(this).hasClass('active_link')) {
+        $('ul#mobile_menu').css({
+          'overflow': 'auto',
+          'height': '87vh',
+          'width': '95%',
+          'padding-right': '12px'
+        });
+      } else {
+        $('ul#mobile_menu').css({
+          'overflow': 'visible',
+          'height': 'auto',
+          'width': '90%',
+          'padding-right': '0px'
+        });
+      }
+    });
+  </script>
+
 {% schema %}
 
 {

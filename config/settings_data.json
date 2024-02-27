@@ -1046,8 +1046,7 @@
           "block_order": [
             "1489285451288-1"
           ],
-          "settings": {
-          }
+          "settings": {}
         },
         "1489285524898": {
           "type": "testimonial",
@@ -2177,8 +2176,7 @@
           "block_order": [
             "1489285451288-1"
           ],
-          "settings": {
-          }
+          "settings": {}
         },
         "1489285524898": {
           "type": "testimonial",
@@ -3051,8 +3049,7 @@
           "block_order": [
             "1489285451288-1"
           ],
-          "settings": {
-          }
+          "settings": {}
         },
         "1489285524898": {
           "type": "testimonial",
@@ -3909,8 +3906,7 @@
           "block_order": [
             "1489285451288-1"
           ],
-          "settings": {
-          }
+          "settings": {}
         },
         "1489285524898": {
           "type": "testimonial",
@@ -3990,7 +3986,7 @@
   },
   "current": {
     "performance": "ludicrous",
-    "image_loading_style": "none",
+    "image_loading_style": "blur-up",
     "custom_scripts": "",
     "menu": "Office furniture,Mattress",
     "logo_color": "#ffffff",
@@ -4816,8 +4812,8 @@
             "type": "image",
             "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/desktop_43a6dd10-210b-4655-9081-fc0927d95928.jpg",
-              "mobimage": "shopify:\/\/shop_images\/mobile_7c635482-e50f-41fd-acb6-30acc0acd777.jpg",
+              "image": "shopify:\/\/shop_images\/desktop_841cd9ab-d3e7-4589-ac1d-dd378afe2996.jpg",
+              "mobimage": "shopify:\/\/shop_images\/mobile_ff34476d-a04a-4b9d-846e-376cdf670970.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4826,7 +4822,7 @@
               "caption_background": false,
               "caption_background_transparency": false,
               "button1": "",
-              "button1_link": "shopify:\/\/collections\/mattress",
+              "button1_link": "shopify:\/\/collections\/valentines-day-celebration",
               "button1_highlight": false,
               "button2": "",
               "button2_link": "",
@@ -5219,8 +5215,7 @@
           "1576479867168-1"
         ],
         "disabled": true,
-        "settings": {
-        }
+        "settings": {}
       },
       "1576481521441": {
         "type": "collection-list",
@@ -5708,9 +5703,7 @@
       },
       "1633414963454337f0": {
         "type": "image-with-text-overlay",
-        "custom_css": [
-
-        ],
+        "custom_css": [],
         "settings": {
           "image": "shopify:\/\/shop_images\/desktop_store.jpg",
           "mobimage": "shopify:\/\/shop_images\/mobile_store.jpg",
@@ -5855,8 +5848,7 @@
         "block_order": [
           "e573841f-b474-4856-bb2d-2be6bf73eea1"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "featured-collection": {
         "type": "featured-collection",
@@ -5871,8 +5863,7 @@
       },
       "modular__bed__blog": {
         "type": "modular__bed__blog",
-        "settings": {
-        }
+        "settings": {}
       },
       "featured-collection-two": {
         "type": "featured-collection-two",
@@ -5909,8 +5900,7 @@
       },
       "modular-landing-page": {
         "type": "modular-landing-page",
-        "settings": {
-        }
+        "settings": {}
       },
       "featured-collection--four": {
         "type": "featured-collection--four",
@@ -5925,8 +5915,7 @@
       },
       "modular-landing-page-two": {
         "type": "modular-landing-page-two",
-        "settings": {
-        }
+        "settings": {}
       },
       "video": {
         "type": "video",
@@ -5973,7 +5962,7 @@
       "a50f909c-4e0e-42a5-bdfc-ae49c3130c81": {
         "type": "featured-collection",
         "settings": {
-          "title": "Thoughtfully Curated Top picks",
+          "title": "Thoughtfully Designed to Suit your Living Space",
           "collection": "best-deals-1",
           "collection_style": "slider",
           "collection_description": false,
@@ -6274,14 +6263,12 @@
       "11724500921838622758": {
         "type": "shopify:\/\/apps\/frequently-bought-together\/blocks\/app-embed-block\/b1a8cbea-c844-4842-9529-7c62dbab1b1f",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "18281310450600262962": {
         "type": "shopify:\/\/apps\/clevertap\/blocks\/app-embed\/2566991a-cd89-49d8-997d-74717582b9ed",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "15683396631634586217": {
         "type": "shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b",
@@ -6294,6 +6281,11 @@
           "button_vertical_position": "lowest",
           "greeting_message": "👋 Hi, message us with any questions. We're happy to help!"
         }
+      },
+      "5281749993944428517": {
+        "type": "shopify:\/\/apps\/variant-image-wizard-swatch\/blocks\/app-embed\/66205c03-f474-4e2c-b275-0a2806eeac16",
+        "disabled": false,
+        "settings": {}
       }
     }
   }

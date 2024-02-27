@@ -16,7 +16,7 @@
                   {{ article.image | img_url: '1400x', format: 'pjpg' }} 1400w,
                   {{ article.image | img_url: '2048x', format: 'pjpg' }} 2048w"
            />
-    
+
   </header>
 {% endif %}
 
@@ -37,12 +37,18 @@
       <div class="clearfix breadcrumb">
         {% if section.settings.blog_breadcrumb %}
           <div class="breadcrumb_text left" itemscope itemtype="http://schema.org/BreadcrumbList">
-            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="{{ shop.url }}" title="{{ shop.name | escape }}" itemprop="item"><span itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span></a><meta itemprop="position" content="1" /></span>
-            &nbsp;<span class="icon-slash">/</span><a href="{{ blog.url }}" title="{{ blog.title | escape }}" itemprop="item"><span itemprop="name"> {{ blog.title }}</span></a></span><span class="icon-slash">/</span>
-            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="{{ blog.url }}" title="{{ blog.title | escape }}" itemprop="item"><span itemprop="name"> {{ article.title }}</span></a><meta itemprop="position" content="2" /></span>
+            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a href="{{ shop.url }}" title="{{ shop.name | escape }}" itemprop="item"><span itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span></a>
+                <meta itemprop="position" content="1" />
+            </span>
+            &nbsp;<span class="icon-slash">/<a href="{{ blog.url }}" title="{{ blog.title | escape }}" itemprop="item"><span itemprop="name"> {{ blog.title }}</span></a></span><span class="icon-slash">/</span>
+            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a href="{{ blog.url }}" title="{{ blog.title | escape }}" itemprop="item"><span itemprop="name"> {{ article.title }}</span></a>
+                <meta itemprop="position" content="2" />
+            </span>
           </div>
         {% endif %}
-      
+
       </div>
 
       {% unless article.image and section.settings.banner_enabled %}
@@ -102,7 +108,7 @@
           {{ article.content }}
         </div>
 
-        
+
         {% if section.settings.blog_pagination %}
           <div class="article-pagination right">
             {% if blog.next_article %}
