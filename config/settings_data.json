@@ -4810,7 +4810,6 @@
         "blocks": {
           "996706c8-a987-443e-8be6-205d1f780438": {
             "type": "image",
-            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/desktop_841cd9ab-d3e7-4589-ac1d-dd378afe2996.jpg",
               "mobimage": "shopify:\/\/shop_images\/mobile_ff34476d-a04a-4b9d-846e-376cdf670970.jpg",
@@ -5962,7 +5961,7 @@
       "a50f909c-4e0e-42a5-bdfc-ae49c3130c81": {
         "type": "featured-collection",
         "settings": {
-          "title": "Thoughtfully Designed to Suit your Living Space",
+          "title": "🧡Valentine's Day Top picks🧡",
           "collection": "best-deals-1",
           "collection_style": "slider",
           "collection_description": false,
@@ -6285,7 +6284,8 @@
       "5281749993944428517": {
         "type": "shopify:\/\/apps\/variant-image-wizard-swatch\/blocks\/app-embed\/66205c03-f474-4e2c-b275-0a2806eeac16",
         "disabled": false,
-        "settings": {}
+        "settings": {
+        }
       }
     }
   }
