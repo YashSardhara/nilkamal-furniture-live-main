@@ -1,3 +1,4 @@
+
 <style>
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
@@ -117,6 +118,17 @@
   .text-danger {
     color: #dc3545;
   }
+  .did-floating-label span{
+    color: #dc3545; 
+  }
+  .order__invoice__box span{
+    color: #dc3545; 
+  }
+  .did-floating-label-war span{
+    color: #dc3545;
+  }
+
+
 
   .warranty_container {
     width: 950px;
@@ -956,6 +968,7 @@
     margin-top: -0.5rem;
     font-weight: 400;
   }
+  
 </style>
 <div class="warranty_container">
   <div class="warranty-page row">
@@ -971,16 +984,16 @@
       <div class="form-row">
         <div class="form-group col-md-6 did-floating-box">
           <input class="form-control fname buttonstyle" type="text"
-             id="trade_first-name" name="trade_first_name"
+             id="trade_first-name" name="trade_first_name" oninput="this.value = this.value.replace(/[0-9]/g, '')"
             placeholder=" " autocapitalize="words" v-on:keypress="isLetter($event)" required>
-          <label class="did-floating-label">First Name</label>
+          <label class="did-floating-label">First Name<span>*</span></label>
           <span id="trade_first_name_error" class="help-inline text-danger"></span>
         </div>
         <div class="form-group col-md-6 did-floating-box">
           <input class="form-control lname buttonstyle" type="text"
-             id="trade-last-name" name="trade_last_name"
+             id="trade-last-name" name="trade_last_name" oninput="this.value = this.value.replace(/[0-9]/g, '')"
             autocapitalize="words" placeholder=" " required>
-          <label class="did-floating-label">Last Name</label>
+          <label class="did-floating-label">Last Name<span>*</span></label>
           <span id="trade_last_name_error" class="help-inline text-danger"></span>
         </div>
       </div>
@@ -989,14 +1002,14 @@
           <input type="email" class="form-control emailadd buttonstyle"
              name="email" id="trade_Email" autocorrect="off"
             autocapitalize="off" placeholder=" " required>
-          <label class="did-floating-label">Email ID</label>
+          <label class="did-floating-label">Email ID<span>*</span></label>
           <span id="trade_email_error" class="help-inline text-danger"></span>
         </div>
         <div class="form-group col-md-6 did-floating-box">
           <input class="form-control buttonstyle"
              type="tel" name="mobile"
             id="tradecontactFormPhone" pattern="[0-9]{10}" maxlength="10" placeholder=" " required>
-          <label class="did-floating-label">Mobile No.</label>
+          <label class="did-floating-label">Mobile No.<span>*</span></label>
           <span id="trade_mobile_error" class="help-inline text-danger"></span>
         </div>
       </div>
@@ -1004,7 +1017,7 @@
         <div class="form-group col-md-6 pincode__checker__box did-floating-box">
           <input class="form-control pincode__checker buttonstyle" type="text" id="trade_pincode-check" name="pincode_check"
             placeholder=" " required>
-          <label class="did-floating-label">Pincode</label>
+          <label class="did-floating-label">Pincode<span>*</span></label>
           <span id="trade_pincode_check_error" class="help-inline text-danger"></span>
         </div>
         <div class="form-group col-md-6 noteContainer">
@@ -1023,13 +1036,13 @@
         <div class="form-group col-md-6 did-floating-box">
           <input class="form-control pincode__checker buttonstyle" type="text" id="trade_address_state" name="state"
             placeholder="" required disabled>
-          <label class="did-floating-label state__label pincode__checker_diasbled">State</label>
+          <label class="did-floating-label state__label pincode__checker_diasbled">State<span>*</span></label>
           <span id="trade_state_error" class="help-inline text-danger"></span>
         </div>
         <div class="form-group col-md-6 did-floating-box">
           <input class="form-control buttonstyle" type="text" name="city" id="trade_address_city" placeholder="" required
             disabled>
-          <label class="did-floating-label city__label pincode__checker_diasbled">City</label>
+          <label class="did-floating-label city__label pincode__checker_diasbled">City<span>*</span></label>
           <span id="city_error" class="help-inline text-danger"></span>
         </div>
       </div>
@@ -1038,13 +1051,13 @@
           <input class="form-control lname buttonstyle" type="text"
           id="storeName" name="store_name"
         autocapitalize="words" placeholder=" " required>
-      <label class="did-floating-label">Store Name</label>
+      <label class="did-floating-label">Store Name<span>*</span></label>
       <span id="store_name_error" class="help-inline text-danger"></span>
         </div>
         <div class="form-group col-md-6 did-floating-box dd_bottom__remove">
           <input type="date" name="date_of_purchase" id="tradewarrantyDop" placeholder="dd-mm-yyyy"
             class=" form-control buttonstyle" >
-          <label class="did-floating-label">Date of purchase</label>
+          <label class="did-floating-label">Date of purchase<span>*</span></label>
           <img class="date_svg-img"
             src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/Vector_1.svg?v=1682518087" alt="">
           <span id="trade_date_of_purchase_error" class="help-inline text-danger"></span>
@@ -1058,62 +1071,64 @@
               onclick="this.setAttribute('value', this.value);" name="modal_name" id="tradewarrantyModel"
               onchange="this.setAttribute('value', this.value);" value="">
               <option value="" selected disabled></option>
-              <option value="Sparkle Mattress">Sparkle Mattress</option>
-              <option value="Prem Mattress">Prem Mattress</option>
-              <option value="Trendz Mattress">Trendz Mattress</option>
-              <option value="Pure Foam Mattress">Pure Foam Mattress</option>
-              <option value="Amaze Mattress">Amaze Mattress</option>
-              <option value="Dreamer Mattress">Dreamer Mattress</option>
-              <option value="Regal Mattress">Regal Mattress</option>
-              <option value="Blue Sky Mattress">Blue Sky Mattress</option>
-              <option value="Rest Bond Mattress">Rest Bond Mattress</option>
-              <option value="Sneham XL Mattress">Sneham XL Mattress</option>
-              <option value="Cool Bond Mattress">Cool Bond Mattress</option>
-              <option value="HD coir Mattress">HD coir Mattress</option>
-              <option value="Health Plus Mattress">Health Plus Mattress</option>
-              <option value="Curve Mattress">Curve Mattress</option>
-              <option value="Well Bond Mattress">Well Bond Mattress</option>
-              <option value="Soft Bond Mattress">Soft Bond Mattress</option>
-              <option value="Sofi Mattress">Sofi Mattress</option>
-              <option value="Travelite Mattress">Travelite Mattress</option>
-              <option value="Firm-0-Spring Mattress">Firm-0-Spring Mattress</option>
-              <option value="Flora Mattress">Flora Mattress</option>
-              <option value="Flora PT Mattress">Flora PT Mattress</option>
-              <option value="Flora PT + Mattress">Flora PT + Mattress</option>
-              <option value="Radiance Mattress">Radiance Mattress</option>
-              <option value="Vibrant Mattress">Vibrant Mattress</option>
-              <option value="Vibrant BT Mattress">Vibrant BT Mattress</option>
-              <option value="Ortho Comfort Mattress">Ortho Comfort Mattress</option>
-              <option value="Macanzie Ortho Mattress">Macanzie Ortho Mattress</option>
-              <option value="Spinefit Mattress">Spinefit Mattress</option>
-              <option value="Ultrabliss Mattress">Ultrabliss Mattress</option>
-              <option value="Aeroluxe Mattress">Aeroluxe Mattress</option>
-              <option value="Accube Mattress">Accube Mattress</option>
-              <option value="Rejuve Mattress">Rejuve Mattress</option>
-              <option value="Aerolite Foam Mattress">Aerolite Foam Mattress</option>
-              <option value="Soft Dreams Foam Mattress">Soft Dreams Foam Mattress</option>
-              <option value="Trugrid Foam Mattress">Trugrid Foam Mattress</option>
-              <option value="Side Align Foam Mattress">Side Align Foam Mattress</option>
+              <option value="Alwin Computer Table WNT/VIS/IVR">Alwin Computer Table WNT/VIS/IVR</option>
+              <option value="Artemis Folding Chair BlackK">Artemis Folding Chair Black  </option>
+              <option value="Ashford Computer Table Walnut/Wht">Ashford Computer Table Walnut/Wht</option>
+              <option value="Avin 1590 Queen Bed FWH">Avin 1590 Queen Bed FWH</option>
+              <option value="Avin 1890 King Bed FWH">Avin 1890 King Bed FWH</option>
+              <option value="Bean Bag XXL Modern Blk Wht 107X64 Cm">Bean Bag XXL Modern Blk Wht 107X64 Cm</option>
+              <option value="Bean Bag XXL Mdrn Brn 107X64 Cm">Bean Bag XXL Mdrn Brn 107X64 Cm</option>
+              <option value="Cladia Mesh Back Office Chair Black">Cladia Mesh Back Office Chair Black</option>
+              <option value="Caspian Wall Unit Walnut/White">Caspian Wall Unit Walnut/White</option>
+              <option value="Cleo Visitor Chair Black">Cleo Visitor Chair Black</option>
+              <option value="Clive Low Height TV Unit Walnut/White">Clive Low Height TV Unit Walnut/White</option>
+              <option value="Flexi Big Foldable Bench Strge 2 Dr Brn">Flexi Big Foldable Bench Strge 2 Dr Brn</option>
+              <option value="Flexi Small Foldble Ottoman With 1 Dr Brn">Flexi Small Foldble Ottoman With 1 Dr Brn</option>
+              <option value="Flow Shoe Cabinet Walnut/Wht">Flow Shoe Cabinet Walnut/Wht</option>
+              <option value="Frolic Easy Chair Purple/Red">Frolic Easy Chair Purple/Red</option>
+              <option value="Granito Round Center Table Mrbl Lam Bwn/Wht">Granito Round Center Table Mrbl Lam Bwn/Wht</option>
+              <option value="Granito Rec Center Table Marble Lam Bwn/Wht">Granito Rec Center Table Marble Lam Bwn/Wht</option>
+              <option value="Itsy 5 Tier Shoe Rack White/Walnut">Itsy 5 Tier Shoe Rack White/Walnut</option>
+              <option value="Itsy 5 Tier Shoe Rack White/Wenge">Itsy 5 Tier Shoe Rack White/Wenge</option>
+              <option value="Itsy Shoe Rack White/Walnut">Itsy Shoe Rack White/Walnut</option>
+              <option value="Itsy Shoe Rack White/Wenge">Itsy Shoe Rack White/Wenge</option>
+              <option value="Maxima Ironing Board White/Blue">Maxima Ironing Board White/Blue</option>
+              <option value="Mazda Visitor Chair Black">Mazda Visitor Chair Black</option>
+              <option value="Neptune Study Table Walnut/Wht">Neptune Study Table Walnut/Wht</option>
+              <option value="Nordan Center Table Glass Top Walnut">Nordan Center Table Glass Top Walnut</option>
+              <option value="Odin Center Table Walnut/White">Odin Center Table Walnut/White</option>
+              <option value="Otis Mesh Back Office Chair Black/Grey">Otis Mesh Back Office Chair Black/Grey</option>
+              <option value="Parson Computer Table Wenge">Parson Computer Table Wenge</option>
+              <option value="Petra TV Unit White/Visconti">Petra TV Unit White/Visconti</option>
+              <option value="Slide Shoe Cabinet Walnut/Wht">Slide Shoe Cabinet Walnut/Wht</option>
+              <option value="Solitaire Mid Back Office Chair Black/Gry">Solitaire Mid Back Office Chair Black/Gry</option>
+              <option value="Soren Cushion Mid Back Office Chair Black">Soren Cushion Mid Back Office Chair Black</option>
+              <option value="Stellar 5Step Alu Ladder Grey">Stellar 5 Step Alu Ladder Grey</option>
+              <option value="Stellar 4 Step Alu Ladder Grey">Stellar 4 Step Alu Ladder Grey</option>
+              <option value="Travis High Back Office Chair Black/Gry">Travis High Back Office Chair Black/Gry</option>
+              <option value="Vesper 8 Tier Shoe Rack Walnut/White">Vesper 8 Tier Shoe Rack Walnut/White</option>
+              <option value="Zeal Cloth Dryer Silver">Zeal Cloth Dryer Silver</option>
+              <option value="Zora Center Table Wenge">Zora Center Table Wenge</option>
             </select>
-            <label class="did-floating-label-war flt_prd_model">Product Model</label>
+            <label class="did-floating-label-war flt_prd_model">Product Model<span>*</span></label>
             <span id="trade_modal_name_error" class="help-inline text-danger"></span>
           </div>
         </div>
         <div class="form-group col-md-6 did-floating-box">
           <input type="text" name="tradeinvoiceNumber" id="tradeinvoiceNumber" placeholder=" " class="form-control buttonstyle"
             required />
-          <label class="did-floating-label">Invoice Number</label>
+          <label class="did-floating-label">Invoice Number<span>*</span></label>
           <span id="trade_invoice__number_error" class="help-inline text-danger"></span>
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group col-md-6 did-floating-box dd_bottom__remove">
-          <input type="date" name="date_of_invoice" id="tradeinvoicedop" placeholder="dd-mm-yyyy" class=" form-control buttonstyle" max="2024-01-29"> <label class="did-floating-label">Invoice Date</label>
-          <img class="date_svg-img" src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/Vector_1.svg?v=1682518087" alt="">
+        <div class="form-group col-md-6 did-floating-box dd_bottom__remove"> 
+          <input type="date" name="date_of_invoice" id="tradeinvoicedop" placeholder="dd-mm-yyyy" class=" form-control buttonstyle" max="2024-01-29"> <label class="did-floating-label">Invoice Date<span>*</span></label> 
+          <img class="date_svg-img" src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/Vector_1.svg?v=1682518087" alt=""> 
           <span id="trade_date_of_invoice_error" class="help-inline text-danger"></span></div>
         <div class="form-group col-md-6" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
           <div class="flx_img_picker">
-            <p class="order__invoice__box"> Invoice Upload*</p>
+            <p class="order__invoice__box"> Invoice Upload<span>*</span></p>
             <div class="file__box">
               <div class="button__container" id="upload">
                 <button class="file_content_btn upload__file">
@@ -1147,7 +1162,7 @@
             <input type="checkbox" id="trade_online__tandc" class="i-accpt" name="terms-condition">
             <span class="location terms-condition" for="terms-condition">I accept the&nbsp;<a id="accpt-terms-online"
                 class="war__online active-links" target="_blank"
-                href="https://www.nilkamalfurniture.com/pages/trade-terms-condition"> trade terms and conditions </a>
+                href="https://www.nilkamalfurniture.com/pages/trade-terms-condition">terms and conditions </a>
             </span>
           </div>
           <div class="terms_cond_err_container">
@@ -1296,7 +1311,7 @@
           let numericInput = input.replace(/\D/g, '');
 
           let pincode = numericInput.substring(0, 6);
-          let myStateInput = $("#trade_address_state").val();
+          let myStateInput = $("#trade_address_state").val();  
         if (pincode.length === 6 && myStateInput != ''){
           var form = $('#trade_warrenty_form');
           $.ajax({
@@ -1305,7 +1320,7 @@
             data: form.serialize(),
             dataType: 'json',
             success: function (resp) {
-              if (resp.success == true) {
+              if (resp.success == true) {                             
                   if ($("#trade_online__tandc").is(":checked")) {
                     $('.warrenty-form').hide();
                     $('.form_head_p').hide();
@@ -1377,6 +1392,7 @@
       type: 'POST',
       dataType: 'json',
       success: function (resp) {
+   // alert("response");
         if (resp.success == true) {
           window.location.href = 'https://nilkamalfurniture.myshopify.com/pages/thank-you-page';
         } else {
@@ -1407,7 +1423,7 @@ const storeNameInput = document.getElementById('storeName');
   const errorMessageoffline = document.getElementById('offline_error');
   const onlineInput = document.getElementById('online-purchase');
   const errorMessageonline = document.getElementById('online_error');
-
+  
   const tradeinvoiceNumberInput = document.getElementById('tradeinvoiceNumber');
   const tradeinvoiceNumberError = document.getElementById('trade_invoice__number_error');
 
@@ -1431,6 +1447,9 @@ const storeNameInput = document.getElementById('storeName');
 
   const warrantywarrantywarrantyImage = document.getElementById('warrantyImage');
   const errorMessagewarrantywarrantyImage = document.getElementById('warrantyfile_error');
+  //pp
+  const errorMessagewarrantywarrantyImage1 = document.getElementById('warrantyfile_error_1');
+
   const file_upload_container = document.getElementById('file_upload_container');
 
   const inputs = document.querySelectorAll('.buttonstyle');
@@ -1486,7 +1505,7 @@ const storeNameInput = document.getElementById('storeName');
       }
     });
   });
-
+  
   storeNameInput.addEventListener('blur', () => {
     if (storeNameInput.value?.trim() === '') {
       storeNameError.textContent = 'Please Enter Store Name';
@@ -1510,22 +1529,34 @@ const storeNameInput = document.getElementById('storeName');
       errorMessagewarrantytradewarrantyModel.textContent = '';
     }
   });
-
+  
   warrantywarrantywarrantyImage.addEventListener('blur', () => {
+   
+    errorMessagewarrantywarrantyImage.textContent = 'Please upload your Invoice document';
+    console.log("warrantywarrantywarrantyImage first");
     event.preventDefault(); //   prevent form submission
+    errorMessagewarrantywarrantyImage.textContent = 'Please upload your Invoice document';
     console.log("warrantywarrantywarrantyImage 1");
     if (warrantywarrantywarrantyImage.value?.trim() == '') {
       console.log("warrantywarrantywarrantyImage 2");
       errorMessagewarrantywarrantyImage.textContent = 'Please upload your Invoice document';
+      //pp
+      errorMessagewarrantywarrantyImage1.textContent='';
       if (!warrantywarrantywarrantyImage.value) {
         console.log("warrantywarrantywarrantyImage 3");
         //alert('Please select a file'); // show an error message
         errorMessagewarrantywarrantyImage.textContent = 'Please upload your Invoice document';
+        //pp
+        errorMessagewarrantywarrantyImage1.textContent='';
+
         event.preventDefault(); // prevent form submission
       } else if (warrantywarrantywarrantyImage.files[0].size > 1000000) {
         console.log("warrantywarrantywarrantyImage 4");
         //alert('File size must be less than 1MB'); // show an error message
         errorMessagewarrantywarrantyImage.textContent = 'File size must be less than 1MB';
+        //pp
+        errorMessagewarrantywarrantyImage1.textContent='';
+
         file_upload_container.classList.add("warning");
         event.preventDefault(); // prevent form submission
       }
@@ -1534,13 +1565,68 @@ const storeNameInput = document.getElementById('storeName');
       console.log("warrantywarrantywarrantyImage 5.0");
       //alert('File size must be less than 1MB'); // show an error message
       errorMessagewarrantywarrantyImage.textContent = 'File size must be less than 1MB';
+      //pp
+      errorMessagewarrantywarrantyImage1.textContent='';
+
       file_upload_container.classList.add("warning");
       event.preventDefault(); // prevent form submission
     }
     else {
       console.log("warrantywarrantywarrantyImage 5");
-      file_upload_container.classList.remove("warning");
+      file_upload_container.classList.remove("warning")
       errorMessagewarrantywarrantyImage.textContent = '';
+      //pp
+      errorMessagewarrantywarrantyImage1.textContent='';
+
+    }
+})
+//pp blur to change
+  warrantywarrantywarrantyImage.addEventListener('change', () => {
+    event.preventDefault(); //   prevent form submission
+    errorMessagewarrantywarrantyImage.textContent = 'Please upload your Invoice document';
+    console.log("warrantywarrantywarrantyImage 1");
+    if (warrantywarrantywarrantyImage.value?.trim() == '') {
+      console.log("warrantywarrantywarrantyImage 2");
+      errorMessagewarrantywarrantyImage.textContent = 'Please upload your Invoice document';
+      //pp
+      errorMessagewarrantywarrantyImage1.textContent='';
+      if (!warrantywarrantywarrantyImage.value) {
+        console.log("warrantywarrantywarrantyImage 3");
+        //alert('Please select a file'); // show an error message
+        errorMessagewarrantywarrantyImage.textContent = 'Please upload your Invoice document';
+        //pp
+        errorMessagewarrantywarrantyImage1.textContent='';
+
+        event.preventDefault(); // prevent form submission
+      } else if (warrantywarrantywarrantyImage.files[0].size > 1000000) {
+        console.log("warrantywarrantywarrantyImage 4");
+        //alert('File size must be less than 1MB'); // show an error message
+        errorMessagewarrantywarrantyImage.textContent = 'File size must be less than 1MB';
+        //pp
+        errorMessagewarrantywarrantyImage1.textContent='';
+
+        file_upload_container.classList.add("warning");
+        event.preventDefault(); // prevent form submission
+      }
+
+    } else if (warrantywarrantywarrantyImage.files[0].size > 1000000) {
+      console.log("warrantywarrantywarrantyImage 5.0");
+      //alert('File size must be less than 1MB'); // show an error message
+      errorMessagewarrantywarrantyImage.textContent = 'File size must be less than 1MB';
+      //pp
+      errorMessagewarrantywarrantyImage1.textContent='';
+
+      file_upload_container.classList.add("warning");
+      event.preventDefault(); // prevent form submission
+    }
+    else {
+      console.log("warrantywarrantywarrantyImage 5");
+      file_upload_container.classList.remove("warning")
+      console.log("pora")
+      errorMessagewarrantywarrantyImage.textContent = '';
+      //pp
+      errorMessagewarrantywarrantyImage1.textContent='';
+
     }
   });
 
@@ -1559,7 +1645,7 @@ const storeNameInput = document.getElementById('storeName');
       errorMessageTradeDop.textContent = '';
     }
   });
-
+  
   lastnameInput.addEventListener('blur', () => {
     if (lastnameInput.value?.trim() === '') {
       errorMessagelast.textContent = 'Please enter your Last Name';
@@ -1598,7 +1684,7 @@ const storeNameInput = document.getElementById('storeName');
       errorMessagecity.textContent = '';
     }
   });
-
+  
   function validateInputs() {
     if (input1.value?.trim() === '' || input2.value?.trim() === '' || input3.value?.trim() === '' || input4.value?.trim() === '' || input5.value?.trim() === '') {
       errorMessage.textContent = 'All fields are required';
@@ -1630,12 +1716,41 @@ const storeNameInput = document.getElementById('storeName');
   const warrantyfile_error = document.getElementById('warrantyfile_error');
   const warrantyfile_error_1 = document.getElementById('warrantyfile_error_1');
 
+
+  // Function to handle file selection in the input element
+input.addEventListener('change', (e) => {
+  const file = e.target.files[0];
+
+  if (file.type === 'image/jpeg' ||
+    file.type === 'image/png' ||
+    file.type === 'image/gif' ||
+    file.type === 'application/pdf') {
+    // The selected file is an image or a PDF
+    console.log('File type is valid');
+
+    if (file.size > 1000000) {
+      warrantyfile_error_1.textContent = 'File size must be less than 1MB';
+      warrantyfile_error.textContent = '';
+      $('.button__container').classList.add("warning");
+    } else {
+      warrantyfile_error_1.textContent = '';
+      file_upload_container.classList.remove("warning");
+      $('.button__container').classList.add("warning");
+    }
+  } else {
+    $('#warrantyImage').val(""); // Clear the input
+    warrantyfile_error.textContent = 'The selected file is not an image or a PDF';
+    $('.button__container').classList.add("warning");
+    console.log('Invalid file type in DropAndDrop');
+  }
+});
+
   uploadBtn.addEventListener('drop', (e) => {
   e.preventDefault();
   uploadBtn.classList.remove('dragover');
   const file = e.dataTransfer.files[0];
   input.files = e.dataTransfer.files;
-
+  
   if (file.type === 'image/jpeg' ||
     file.type === 'image/png' ||
     file.type === 'image/gif' ||
@@ -1717,21 +1832,23 @@ const storeNameInput = document.getElementById('storeName');
     }
   });
 
-  $("#tradevtigerFormSubmitBtn_6").on("click", function () {
-    window.scrollTo(0, 0);
-  });
+  $("#tradevtigerFormSubmitBtn_6").on("click", function (event) {
+  event.preventDefault();
+  window.scrollTo(0, 0);
+});
+
 </script>
 <script>
-  function validateInputsOnsubmit() {
+  function validateInputsOnsubmit() {  
   const checkbox = document.getElementById('trade_online__tandc');
   const checkboxError = document.getElementById('trade_terms_cond_error');
-
+  
   if (checkbox.checked) {
     checkboxError.textContent = '';
   } else {
     checkboxError.textContent = 'Please accept the terms and conditions';
   }
-
+  
   const storeNameInput = document.getElementById('storeName');
   const storeNameError = document.getElementById('store_name_error');
   if (storeNameInput.value.trim() === '') {
@@ -1739,7 +1856,7 @@ const storeNameInput = document.getElementById('storeName');
   } else {
     storeNameError.textContent = '';
   }
-
+  
   const tradeDopInput = document.getElementById('tradeinvoicedop');
   const errorMessageTradeDop = document.getElementById('trade_date_of_invoice_error');
   if (tradeDopInput.value.trim() === '') {
@@ -1763,7 +1880,7 @@ const storeNameInput = document.getElementById('storeName');
   } else {
     tradeinvoiceNumberError.textContent = '';
   }
-
+  
   const warrantyModelInput = document.getElementById('tradewarrantyModel');
   const errorMessagewarrantyModel = document.getElementById('trade_modal_name_error');
   if (warrantyModelInput.value.trim() === '') {
@@ -1771,7 +1888,7 @@ const storeNameInput = document.getElementById('storeName');
   } else {
     errorMessagewarrantyModel.textContent = '';
   }
-
+  
   const nameInput = document.getElementById('trade_first-name');
   const errorMessageName = document.getElementById('trade_first_name_error');
   if (nameInput.value.trim() === '') {
@@ -1779,7 +1896,7 @@ const storeNameInput = document.getElementById('storeName');
   } else {
     errorMessageName.textContent = '';
   }
-
+  
   const lastNameInput = document.getElementById('trade-last-name');
   const errorMessagelastName = document.getElementById('trade_last_name_error');
   if (lastNameInput.value.trim() === '') {
@@ -1787,7 +1904,7 @@ const storeNameInput = document.getElementById('storeName');
   } else {
     errorMessagelastName.textContent = '';
   }
-
+  
   const emailInput = document.getElementById('trade_Email');
   const errorMessageEmail = document.getElementById('trade_email_error');
   if (emailInput.value.trim() === '') {
@@ -1795,7 +1912,7 @@ const storeNameInput = document.getElementById('storeName');
   } else {
     errorMessageEmail.textContent = '';
   }
-
+  
   const mobileInput = document.getElementById('tradecontactFormPhone');
   const errorMessageMobile = document.getElementById('trade_mobile_error');
   if (mobileInput.value.trim() === '') {
@@ -1808,29 +1925,32 @@ const storeNameInput = document.getElementById('storeName');
 
   const pincodeInput = document.getElementById('trade_pincode-check');
   const errorMessagePincode = document.getElementById('trade_pincode_check_error');
-  if (pincodeInput.value.trim() === '') {
-    errorMessagePincode.textContent = 'Please enter your Pincode';
-  } else if (pincodeInput.value.length < 6) {
-    errorMessagePincode.textContent = 'Please enter valid Pincode';
-  } else {
-    errorMessagePincode.textContent = '';
-  }
 
+  if (pincodeInput.value?.trim() === '') {
+      errorMessagePincode.textContent = 'Please enter your Pincode';
+    } else if(pincodeInput.value?.trim().length < 6){
+      errorMessagePincode.textContent = 'Please enter valid Pincode';
+    }
+    else {
+      errorMessagePincode.textContent = '';
+    }
+  
   const stateInput = document.getElementById('trade_address_state');
   const errorMessageState = document.getElementById('trade_state_error');
-  if (stateInput.value.trim() === '') {
-    errorMessageState.textContent = 'Please enter your State';
-  } else {
-    errorMessageState.textContent = '';
-  }
+  if (stateInput.value?.trim() === '') {
+      errorMessagestate.textContent = '';
+    } else {
+      errorMessagestate.textContent = '';
+    }
 
   const cityInput = document.getElementById('trade_address_city');
   const errorMessageCity = document.getElementById('city_error');
-  if (cityInput.value.trim() === '') {
-    errorMessageCity.textContent = 'Please enter your City';
-  } else {
-    errorMessageCity.textContent = '';
-  }
+
+  if (cityInput.value?.trim() === '') {
+      errorMessagecity.textContent = '';
+    } else {
+      errorMessagecity.textContent = '';
+    }
 }
 
   function displayFileName() {
@@ -1874,4 +1994,5 @@ const storeNameInput = document.getElementById('storeName');
   optionList.forEach((option) => {
     selectElement.appendChild(option);
   });
+
 </script>
