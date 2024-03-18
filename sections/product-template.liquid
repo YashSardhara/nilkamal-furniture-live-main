@@ -1,35 +1,6 @@
 
 <script async src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "Product",
-      "name": "{{ product.title }}",
-      "image": [
-        "{{ product.featured_image }}"
-       ],
-      "description": "{{ product.description }}",
-      "sku": "{%- assign current_variant = product.selected_or_first_available_variant -%}
-                                                {{ current_variant.sku }}",
-      "mpn": "925872",
-      "brand": {
-        "@type": "{{ product.vendor }}",
-        "name": "{{ product.title }}"
-      },
-        "author": {
-          "name": "Nilkamal Furniture"
-        }
 
-      "offers": {
-        "@type": "Offer",
-        "url": "https://example.com/anvil",
-        "priceCurrency": "INR",
-        "priceValidUntil": "2020-11-20",
-        "itemCondition": "https://schema.org/UsedCondition",
-        "availability": "https://schema.org/InStock"
-      }
-    }
-    </script>
 
 <style>
       @media only screen and (max-width: 600px) {
@@ -96,15 +67,15 @@
           {% endif %}
 
           {% if section.settings.product_breadcrumb %}
-          <div class="breadcrumb_text" itemscope itemtype="http://schema.org/BreadcrumbList">
-            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <div class="breadcrumb_text" itemscope_ itemtype="http://schema.org/BreadcrumbList">
+            <span itemprop="itemListElement" itemscope_ itemtype="http://schema.org/ListItem">
               <a href="{{ shop.url }}" title="{{ shop.name | escape }}" itemprop="item" class="breadcrumb_link">
                 <span itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span>
               </a>
               <meta itemprop="position" content="1" />
             </span>
             <span class="breadcrumb-divider">|</span>
-            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span itemprop="itemListElement" itemscope_ itemtype="http://schema.org/ListItem">
               {% if collection %}
               <a href="{{ collection.url }}" title="{{ collection.title | escape }}" itemprop="item" class="breadcrumb_link">
                 <span itemprop="name">{{ collection.title }}</span>
@@ -118,7 +89,7 @@
               {% endif %}
             </span>
             <span class="breadcrumb-divider">|</span>
-            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span itemprop="itemListElement" itemscope_ itemtype="http://schema.org/ListItem">
               <a href="{{ product.url }}" itemprop="item" class="breadcrumb_link">
                 <span itemprop="name">{{ product.title }}</span>
                 <meta itemprop="position" content="3" />
@@ -224,7 +195,7 @@
               <div class="row product-{{ product.id }}"
               data-free-text="{{ settings.free_price_text }}"
               >
-              <div class="section product_section clearfix js-product_section {% if section.settings.product_images_position == 'right' %}align_right--images{% endif %}" itemscope itemtype="http://schema.org/Product" data-rv-handle="{{ product.handle }}">
+              <div class="section product_section clearfix js-product_section {% if section.settings.product_images_position == 'right' %}align_right--images{% endif %}" itemscope_ itemtype="http://schema.org/Product" data-rv-handle="{{ product.handle }}">
 
                 <div class="product-image-column {% if sidebar %}six{% else %}six{% endif %} columns {% if section.settings.product_images_position == 'left' %}alpha{% else %}omega{% endif %}">
                   {% include 'product-images' %}
@@ -297,11 +268,11 @@
                       {% if collection_handles contains 'coming-soon' %}
                       <p class="modal_price">{{ 'collections.general.coming_soon' | t }}</p>
                       {% else %}
-                      <div class="modal_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                      <div class="modal_price" itemprop="offers" itemscope_ itemtype="http://schema.org/Offer">
                         <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
                         <meta itemprop="seller" content="{{ shop.name | escape }}" />
                         <link itemprop="availability" href="http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}">
-                        <meta itemprop="itemCondition" itemtype="http://schema.saleorg/OfferItemCondition" content="http://schema.org/NewCondition"/>
+                        <meta itemprop="itemCondition" itemtype="http://schema.org/OfferItemCondition" content="http://schema.org/NewCondition"/>
                       {% if product.tags contains 'Best Deals' %}
                           <div class="price-info new-price">
                         <div class="col-sm-5 left-price">
@@ -332,7 +303,7 @@
 </svg>
 </span>
 
-                          <span class="priceimghover">The IFFS Sale</span>
+                          <span class="priceimghover">Mega Price Drop Sale</span>
 
 
 </div>
@@ -371,7 +342,7 @@
 <path d="M10.5 0C4.98 0 0.5 4.48 0.5 10C0.5 15.52 4.98 20 10.5 20C16.02 20 20.5 15.52 20.5 10C20.5 4.48 16.02 0 10.5 0ZM11.5 15H9.5V9H11.5V15ZM11.5 7H9.5V5H11.5V7Z" fill="#87BEDA"/>
 </svg>
 </span>
-<span class="priceimghover">The IFFS Sale</span>
+<span class="priceimghover">Mega Price Drop Sale</span>
 
 </div>
                         {% if section.settings.display_savings %}

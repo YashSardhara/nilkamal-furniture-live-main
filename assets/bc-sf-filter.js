@@ -300,11 +300,11 @@ BCSfFilter.prototype.buildProductGridItem = function (data, index) {
         itemPriceHtml += '<span class="modal_price">' + bcSfFilterConfig.label.coming_soon + '</span>';
     } else {
         itemPriceHtml += '<span class="price ' + onSaleClass + '" itemprop="offers" itemscope itemtype="http://schema.org/Offer">';
-        itemPriceHtml += '<meta itemprop="price" content="' + this.formatMoney(customPriceMin, this.moneyFormat) + '" />';
+        itemPriceHtml += '<meta itemprop="price" content="' + this.formatMoney(customPriceMin) + '" />';
         itemPriceHtml += '<meta itemprop="priceCurrency" content="' + bcSfFilterConfig.shop.currency + '" />';
         itemPriceHtml += '<meta itemprop="seller" content="' + bcSfFilterConfig.shop.name + '" />';
         itemPriceHtml += '<meta itemprop="availability" content="' + availabilityProp + '" />';
-        itemPriceHtml += '<meta itemprop="itemCondition" content="New" />';
+        itemPriceHtml += '<meta itemprop="itemCondition" content="http://schema.org/NewCondition" />';
         if (priceVaries && data.price_min > 0) {
             itemPriceHtml += '<small><em>' + bcSfFilterConfig.label.from_price + '</em></small> ';
         }

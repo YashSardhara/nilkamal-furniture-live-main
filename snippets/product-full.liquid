@@ -3,7 +3,7 @@
   {% assign variant = product.selected_or_first_available_variant %}
 
   <div class="product-{{ product.id }} section clearfix">
-    <div class="product_section js-product_section" itemscope itemtype="http://schema.org/Product">
+    <div class="product_section js-product_section" itemscope_ itemtype="http://schema.org/Product">
       <div class="product-images half">
         {% include 'product-images', image_width: 'full' %}
         <div class="banner_holder">
@@ -49,7 +49,7 @@
         {% if collection_handles contains 'coming-soon' %}
           <p class="modal_price">{{ 'collections.general.coming_soon' | t }}</p>
         {% else %}
-          <p class="modal_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+          <p class="modal_price" itemprop="offers" itemscope_ itemtype="http://schema.org/Offer">
             <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
             <meta itemprop="seller" content="{{ shop.name | escape }}" />
             <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">

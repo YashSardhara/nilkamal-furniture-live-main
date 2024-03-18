@@ -6,15 +6,15 @@
 <a name="pagecontent" id="pagecontent"></a>
 <div class="container clearfix">
   <div class="clearfix breadcrumb-collection">
-    <div class="breadcrumb_text" itemscope itemtype="http://schema.org/BreadcrumbList">
-      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <div class="breadcrumb_text" itemscope_ itemtype="http://schema.org/BreadcrumbList">
+      <span itemprop="itemListElement" itemscope_ itemtype="http://schema.org/ListItem">
         <a href="{{ shop.url }}" title="{{ shop.name | escape }}" itemprop="item" class="breadcrumb_link">
           <span itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span>
         </a>
         <meta itemprop="position" content="1" />
       </span>
       <span class="breadcrumb-divider">|</span>
-      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <span itemprop="itemListElement" itemscope_ itemtype="http://schema.org/ListItem">
         <a href="" title="My cart" itemprop="item" class="breadcrumb_link">
           <span itemprop="name">My cart</span>
         </a>
@@ -74,20 +74,19 @@
                 <h3>
                   <a href="{{ item.url }}">{{ item.product.title }}</a>
                 </h3>
+                {% unless item.product.has_only_default_variant or item.variant.title contains "Title" %}
+                  <p class="meta">
+                    {% for option in item.product.options %}
+                    <span class="label">{{ option }}:</span> <span>{{ item.variant.options[forloop.index0] }}</span><br />
+                    {% endfor %}
+                  </p>
+                {% endunless %}
                 {% if item.product.tags contains 'Plastic Chairs' %}
                 <p class="qtity-text">Minimum Order Quantity is 4.</p>
                 {% elsif item.product.tags contains 'Min Quantity Two' %}
                 <p class="qtity-text">Minimum Order Quantity is 2.</p>
                 {% endif %}
               </div>
-
-              {% unless item.product.has_only_default_variant or item.variant.title contains "Title" %}
-              <p class="meta">
-                {% for option in item.product.options %}
-                <span class="label">{{ option }}:</span> <span>{{ item.variant.options[forloop.index0] }}</span><br />
-                {% endfor %}
-              </p>
-              {% endunless %}
 
               {% if item.properties %}
               <p>

@@ -4808,12 +4808,11 @@
       "1489284011497": {
         "type": "slideshow",
         "blocks": {
-          "996706c8-a987-443e-8be6-205d1f780438": {
+          "ea0cea26-75de-44ce-bc48-1d8905fbfa57": {
             "type": "image",
-            "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/desktop_841cd9ab-d3e7-4589-ac1d-dd378afe2996.jpg",
-              "mobimage": "shopify:\/\/shop_images\/mobile_ff34476d-a04a-4b9d-846e-376cdf670970.jpg",
+              "image": "shopify:\/\/shop_images\/mega_price_drop_webiste_banner_desktop_1_88b938f5-b3f5-486b-b9db-3156e998c170.png",
+              "mobimage": "shopify:\/\/shop_images\/mega_price_drop_webiste_banner-03_1_d40cc04c-0f39-4074-b835-20a539bf2572.png",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4822,7 +4821,28 @@
               "caption_background": false,
               "caption_background_transparency": false,
               "button1": "",
-              "button1_link": "shopify:\/\/collections\/valentines-day-celebration",
+              "button1_link": "shopify:\/\/collections\/best-deal-of-week",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          },
+          "996706c8-a987-443e-8be6-205d1f780438": {
+            "type": "image",
+            "disabled": true,
+            "settings": {
+              "image": "shopify:\/\/shop_images\/website.jpg",
+              "mobimage": "shopify:\/\/shop_images\/mobile_a5e5e4b5-1720-4d63-b284-b1a2ccc8e0e0.jpg",
+              "pretext": "",
+              "title": "",
+              "subtitle": "",
+              "text_position": "center",
+              "text_align": "center",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "button1": "",
+              "button1_link": "shopify:\/\/collections\/sofa",
               "button1_highlight": false,
               "button2": "",
               "button2_link": "",
@@ -4832,8 +4852,8 @@
           "e116edb9-8097-4809-b939-ce83cf46e550": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Artboard_1_9bdf0ece-bd76-4406-a16a-abb420efdd2e.jpg",
-              "mobimage": "shopify:\/\/shop_images\/Artboard_1_ed2aa88a-7251-4608-8342-e8814293987c.jpg",
+              "image": "shopify:\/\/shop_images\/bedroom_67dc1550-d9d2-450c-8c59-25158dbeaf94.jpg",
+              "mobimage": "shopify:\/\/shop_images\/bedroom_bca78433-65c6-4a10-8801-31254cd15d69.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4849,31 +4869,11 @@
               "button2_highlight": false
             }
           },
-          "ea0cea26-75de-44ce-bc48-1d8905fbfa57": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Artboard_1-2_8a81b055-7166-47e4-9a38-ae252e21bd7d.jpg",
-              "mobimage": "shopify:\/\/shop_images\/Artboard_1-2_c5d69c46-d513-446d-afa1-fe370fb5ec7e.jpg",
-              "pretext": "",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "caption_background": false,
-              "caption_background_transparency": false,
-              "button1": "",
-              "button1_link": "shopify:\/\/collections\/living-room",
-              "button1_highlight": false,
-              "button2": "",
-              "button2_link": "",
-              "button2_highlight": false
-            }
-          },
           "766fa416-58b1-45f2-9f1f-c6f5671c78be": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Artboard_1-1_08441692-0d33-438c-beb7-b70b098b975c.jpg",
-              "mobimage": "shopify:\/\/shop_images\/Artboard_1-1_fce76687-68a7-4f2d-8413-76dbf5c5c77e.jpg",
+              "image": "shopify:\/\/shop_images\/dining_room_37631fa8-f6a3-4bf6-8445-103e9c5cb7f0.jpg",
+              "mobimage": "shopify:\/\/shop_images\/dining_room_a7617044-c3ce-4f32-a667-0538f228e2cf.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4912,6 +4912,7 @@
           },
           "4df1d8be-b1e4-410c-ae53-934559add4a7": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/Artboard_1-3_48889b89-6657-4aa3-ac3a-04080cf33512.jpg",
               "mobimage": "shopify:\/\/shop_images\/Artboard_1-3_aa02cb18-bbea-4cf7-b0d1-5f16cc3d3468.jpg",
@@ -4932,9 +4933,9 @@
           }
         },
         "block_order": [
+          "ea0cea26-75de-44ce-bc48-1d8905fbfa57",
           "996706c8-a987-443e-8be6-205d1f780438",
           "e116edb9-8097-4809-b939-ce83cf46e550",
-          "ea0cea26-75de-44ce-bc48-1d8905fbfa57",
           "766fa416-58b1-45f2-9f1f-c6f5671c78be",
           "e8692b67-cd4c-4966-980e-3c2b340d9dae",
           "4df1d8be-b1e4-410c-ae53-934559add4a7"
@@ -5962,7 +5963,7 @@
       "a50f909c-4e0e-42a5-bdfc-ae49c3130c81": {
         "type": "featured-collection",
         "settings": {
-          "title": "Thoughtfully Designed to Suit your Living Space",
+          "title": "Explore top picks of mega price drop sale!",
           "collection": "best-deals-1",
           "collection_style": "slider",
           "collection_description": false,
@@ -6239,11 +6240,34 @@
           "testimonial_text_animation": "fadeInDown",
           "testimonial_speed": 6
         }
+      },
+      "payment_banner_NWKjXF": {
+        "type": "payment_banner",
+        "disabled": true,
+        "settings": {
+          "desktop_img": "shopify:\/\/shop_images\/strip_banner_ab1de913-80a8-4d17-af09-f90835c798ab.jpg",
+          "mobile_img": "shopify:\/\/shop_images\/luxury_910x500_64ddf1f7-7173-4a20-b7d8-12b5d79aeb8a.jpg",
+          "image_url": "shopify:\/\/collections\/lounge-in-luxury"
+        }
+      },
+      "featured_collection_z9YiwP": {
+        "type": "featured-collection",
+        "disabled": true,
+        "settings": {
+          "title": "LIVING ROOM ESSENTIALS",
+          "collection": "living-room-essentials",
+          "collection_style": "slider",
+          "collection_description": false,
+          "products_per": 4,
+          "products_limit": 50
+        }
       }
     },
     "content_for_index": [
       "1489284011497",
       "9759deaf-c224-4c3e-87ed-66e16f61ed90",
+      "featured_collection_z9YiwP",
+      "payment_banner_NWKjXF",
       "5194def5-441f-4277-bf38-b7ba21e39b38",
       "d2b1d62c-30ab-46e6-9d93-e85f215681e3",
       "a50f909c-4e0e-42a5-bdfc-ae49c3130c81",

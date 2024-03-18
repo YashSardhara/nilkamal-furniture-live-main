@@ -17,7 +17,7 @@
           {%- assign section_onboarding = false -%}
         {% endif %}
 
-        <div itemprop="itemListElement" itemscope itemtype="http://schema.org/Product"
+        <div itemprop="itemListElement" itemscope_ itemtype="http://schema.org/Product"
              class="product-{{ product.id }} section clearfix product_section slideshow_animation--{{section.settings.slideshow_animation}}"
              data-slideshow-animation="{{section.settings.slideshow_animation}}"
              data-block-id="{{block.id}}"
@@ -73,7 +73,7 @@
             {% endif %}
 
             {% if section_onboarding %}
-              <p class="modal_price" itemscope itemtype="http://schema.org/Offer">
+              <p class="modal_price" itemscope_ itemtype="http://schema.org/Offer">
                 <span class="current_price">
                   <span class="money">$49.00</span>
                 </span>
@@ -95,7 +95,7 @@
                 <p class="modal_price">{{ 'collections.general.coming_soon' | t }}</p>
               {% else %}
                 {% assign variant = product.selected_or_first_available_variant %}
-                <p class="modal_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <p class="modal_price" itemprop="offers" itemscope_ itemtype="http://schema.org/Offer">
                   <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
                   <meta itemprop="seller" content="{{ shop.name | escape }}" />
                   <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">

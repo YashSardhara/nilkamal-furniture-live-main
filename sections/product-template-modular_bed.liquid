@@ -1,4 +1,4 @@
-<script type="application/ld+json">
+<script type="application/json">
     {
       "@context": "https://schema.org/",
       "@type": "Product",
@@ -16,13 +16,13 @@
       },
         "author": {
           "name": "Nilkamal Furniture"
-        }
+        },
       "offers": {
         "@type": "Offer",
         "url": "https://example.com/anvil",
         "priceCurrency": "INR",
         "priceValidUntil": "2020-11-20",
-        "itemCondition": "https://schema.org/UsedCondition",
+        "itemCondition": "https://schema.org/NewCondition",
         "availability": "https://schema.org/InStock"
       },
     }
@@ -1636,15 +1636,15 @@ h2.cbb-frequently-bought-title.translatable{
           {% endif %}
 
           {% if section.settings.product_breadcrumb %}
-          <div class="breadcrumb_text" itemscope itemtype="http://schema.org/BreadcrumbList">
-            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <div class="breadcrumb_text" itemscope_ itemtype="http://schema.org/BreadcrumbList">
+            <span itemprop="itemListElement" itemscope_ itemtype="http://schema.org/ListItem">
               <a href="{{ shop.url }}" title="{{ shop.name | escape }}" itemprop="item" class="breadcrumb_link">
                 <span itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span>
               </a>
               <meta itemprop="position" content="1" />
             </span>
             <span class="breadcrumb-divider">|</span>
-            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span itemprop="itemListElement" itemscope_ itemtype="http://schema.org/ListItem">
               {% if collection %}
               <a href="{{ collection.url }}" title="{{ collection.title | escape }}" itemprop="item" class="breadcrumb_link">
                 <span itemprop="name">{{ collection.title }}</span>
@@ -1658,7 +1658,7 @@ h2.cbb-frequently-bought-title.translatable{
               {% endif %}
             </span>
             <span class="breadcrumb-divider">|</span>
-            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span itemprop="itemListElement" itemscope_ itemtype="http://schema.org/ListItem">
               <a href="{{ product.url }}" itemprop="item" class="breadcrumb_link">
                 <span itemprop="name">{{ product.title }}</span>
                 <meta itemprop="position" content="3" />
@@ -1777,7 +1777,7 @@ h2.cbb-frequently-bought-title.translatable{
                 {%- render 'breadcrumbs' -%}
                 <div
                   class="section product_section clearfix js-product_section {% if section.settings.product_images_position == 'right' %}align_right--images{% endif %}"
-                  itemscope itemtype="http://schema.org/Product" data-rv-handle="{{ product.handle }}">
+                  itemscope_ itemtype="http://schema.org/Product" data-rv-handle="{{ product.handle }}">
 
                   <div class="product-image-column product-image-column-modular_bed columns main__product__modular__box">
                     {% unless product.tags contains 'modular-bed' %}
@@ -1955,7 +1955,7 @@ h2.cbb-frequently-bought-title.translatable{
                         <p class="modal_price">{{ 'collections.general.coming_soon' | t }}</p>
                         {% else %}
                           {% assign customerId = customer.id | strip %}
-                        <div class="modal_price" {% if customerId == '6419587661913' %}style="display:none;"{% endif %} itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                        <div class="modal_price" {% if customerId == '6419587661913' %}style="display:none;"{% endif %} itemprop="offers" itemscope_ itemtype="http://schema.org/Offer">
                           <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
                           <meta itemprop="seller" content="{{ shop.name | escape }}" />
                           <link itemprop="availability"
@@ -1995,7 +1995,7 @@ h2.cbb-frequently-bought-title.translatable{
                                 </svg>
                               </span>
 
-                              <span class="priceimghover">The IFFS Sale</span>
+                              <span class="priceimghover">Mega Price Drop Sale</span>
 
 
                             </div>
@@ -2043,7 +2043,7 @@ h2.cbb-frequently-bought-title.translatable{
                                     fill="#87BEDA" />
                                 </svg>
                               </span>
-                              <span class="priceimghover">The IFFS Sale</span>
+                              <span class="priceimghover">Mega Price Drop Sale</span>
 
                             </div>
                             {% if section.settings.display_savings %}

@@ -24,15 +24,15 @@
         {% endif %}
 
         {% if section.settings.product_breadcrumb %}
-          <div class="breadcrumb_text" itemscope itemtype="http://schema.org/BreadcrumbList">
-            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <div class="breadcrumb_text" itemscope_ itemtype="http://schema.org/BreadcrumbList">
+            <span itemprop="itemListElement" itemscope_ itemtype="http://schema.org/ListItem">
               <a href="{{ shop.url }}" title="{{ shop.name | escape }}" itemprop="item" class="breadcrumb_link">
                 <span itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span>
               </a>
               <meta itemprop="position" content="1" />
             </span>
             <span class="breadcrumb-divider">/</span>
-            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span itemprop="itemListElement" itemscope_ itemtype="http://schema.org/ListItem">
               {% if collection %}
                 <a href="{{ collection.url }}" title="{{ collection.title | escape }}" itemprop="item" class="breadcrumb_link">
                   <span itemprop="name">{{ collection.title }}</span>
@@ -46,7 +46,7 @@
               {% endif %}
             </span>
             <span class="breadcrumb-divider">/</span>
-            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span itemprop="itemListElement" itemscope_ itemtype="http://schema.org/ListItem">
               <a href="{{ product.url }}" itemprop="item" class="breadcrumb_link">
                 <span itemprop="name">{{ product.title }}</span>
                 <meta itemprop="position" content="3" />
@@ -75,7 +75,7 @@
 
     <div  class="product-{{ product.id }}"
           data-free-text="{{ settings.free_price_text }}">
-      <div class="section product_section clearfix js-product_section {% if section.settings.product_images_position == 'right' %}align_right--images{% endif %}" itemscope itemtype="http://schema.org/Product" data-rv-handle="{{ product.handle }}">
+      <div class="section product_section clearfix js-product_section {% if section.settings.product_images_position == 'right' %}align_right--images{% endif %}" itemscope_ itemtype="http://schema.org/Product" data-rv-handle="{{ product.handle }}">
 
         <div class="{% if sidebar %}seven{% else %}nine{% endif %} columns {% if section.settings.product_images_position == 'left' %}alpha{% else %}omega{% endif %}">
           {% include 'product-images' %}
@@ -135,7 +135,7 @@
           {% if collection_handles contains 'coming-soon' %}
             <p class="modal_price">{{ 'collections.general.coming_soon' | t }}</p>
           {% else %}
-            <p class="modal_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            <p class="modal_price" itemprop="offers" itemscope_ itemtype="http://schema.org/Offer">
               <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
               <meta itemprop="seller" content="{{ shop.name | escape }}" />
               <link itemprop="availability" href="http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}">
